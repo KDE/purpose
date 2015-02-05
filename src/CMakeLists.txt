@@ -3,9 +3,16 @@ add_library(KF5Purpose
     job.cpp
     alternativesmodel.cpp
 )
-target_include_directories(KF5Purpose PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
+target_include_directories(KF5Purpose PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+                                      INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/Purpose>"
+)
 target_link_libraries(KF5Purpose KF5::CoreAddons Qt5::Gui)
 kcoreaddons_desktop_to_json(KF5Purpose plugins/ExportPluginType.desktop)
+set_target_properties(KF5Purpose PROPERTIES VERSION ${PURPOSE_VERSION_STRING}
+                                          SOVERSION ${PURPOSE_SOVERSION}
+                                          EXPORT_NAME Purpose
+)
+
 install(TARGETS KF5Purpose EXPORT KF5PurposeTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 add_library(KF5::Purpose ALIAS KF5Purpose)
 
