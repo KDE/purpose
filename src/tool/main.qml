@@ -70,7 +70,7 @@ ApplicationWindow
         id: shareWizardComponent
         ColumnLayout {
             property alias job: wiz.job
-            ShareWizard {
+            PurposeWizard {
                 id: wiz
 
                 Layout.fillHeight: true

@@ -31,3 +31,4 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ExportPluginType.json DESTINATION ${DA
 
 add_subdirectory(plugins)
 add_subdirectory(tool)
+add_subdirectory(quick)

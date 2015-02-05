@@ -1,0 +1,5 @@
+module org.kde.purpose
+
+plugin purposequickplugin
+
+PurposeWizard 1.0 PurposeWizard.qml

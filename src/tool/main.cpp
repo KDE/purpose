@@ -90,9 +90,6 @@ int main(int argc, char** argv)
     }
     Q_ASSERT(common.isValid());
 
-    qmlRegisterType<Purpose::AlternativesModel>("org.kde.purpose", 1, 0, "PurposeAlternativesModel");
-    qmlRegisterUncreatableType<Purpose::Job>("org.kde.purpose", 1, 0, "PurposeJob", QStringLiteral("You're not supposed to instantiate jobs"));
-
     QQmlApplicationEngine engine;
     KDeclarative::KDeclarative decl;
     decl.setDeclarativeEngine(&engine);
