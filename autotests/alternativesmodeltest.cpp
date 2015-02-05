@@ -23,8 +23,8 @@
 #include <QSignalSpy>
 
 #include "alternativesmodeltest.h"
-#include <share/alternativesmodel.h>
-#include <share/job.h>
+#include <purpose/job.h>
+#include <purpose/alternativesmodel.h>
 
 QTEST_MAIN(AlternativesModelTest)
 
@@ -32,19 +32,19 @@ void AlternativesModelTest::runJobTest()
 {
     Purpose::AlternativesModel model;
 
-    const QString tempfile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/purposetest";
+    const QString tempfile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/purposetest");
     QJsonObject input = QJsonObject {
-        {"urls", QJsonArray {"http://kde.org"} },
-        {"mimeType", "dummy/thing" }
+        {QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
+        {QStringLiteral("mimeType"), QStringLiteral("dummy/thing") }
     };
     model.setInputData(input);
     //TODO: should probably make a separate plugin type for testing, at the moment it's not testable without installing
-    model.setPluginType("Export");
+    model.setPluginType(QStringLiteral("Export"));
     QCOMPARE(model.rowCount(), 1); //     NOTE: we are assuming this plugin is the dummy plugin
     Purpose::Job* job = model.createJob(0);
     QVERIFY(job);
     QVERIFY(!job->isReady());
-    input.insert("destinationPath", tempfile),
+    input.insert(QStringLiteral("destinationPath"), tempfile),
     job->setData(input);
     QVERIFY(job->isReady());
     job->start();

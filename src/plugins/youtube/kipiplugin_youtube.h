@@ -24,7 +24,7 @@
 #include <QUrl>
 #include <kwallet.h>
 #include <KIO/Job>
-#include <share/pluginbase.h>
+#include <purpose/pluginbase.h>
 
 class YoutubePlugin : public Purpose::PluginBase
 {

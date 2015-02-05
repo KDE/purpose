@@ -131,8 +131,8 @@ Purpose::Job* AlternativesModel::createJob(int row)
     Purpose::Job* job = plugin->share();
     job->setParent(this);
     job->setData(d->m_inputData);
-    job->setConfigurationArguments(d->m_inputData.value("X-Purpose-InboundArguments").toString().split(',', QString::SkipEmptyParts));
-    job->setInboundArguments(pluginData.value("X-Purpose-Configuration").split(',', QString::SkipEmptyParts));
+    job->setConfigurationArguments(d->m_inputData.value(QStringLiteral("X-Purpose-InboundArguments")).toString().split(QLatin1Char(','), QString::SkipEmptyParts));
+    job->setInboundArguments(pluginData.value(QStringLiteral("X-Purpose-Configuration")).split(QLatin1Char(','), QString::SkipEmptyParts));
     connect(job, &Purpose::Job::finished, plugin, &QObject::deleteLater); //TODO only instantiate 1 plugin factory per type
     return job;
 }
@@ -182,7 +182,7 @@ static bool mimeTypeMatch(const QString& constraint, const QJsonValue& value)
                 return true;
         }
         return false;
-    } else if(constraint.contains('*')) {
+    } else if(constraint.contains(QLatin1Char('*'))) {
         return QRegExp(constraint, Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(value.toString());
     } else {
         QMimeDatabase db;
@@ -203,7 +203,7 @@ void AlternativesModel::initializeModel()
     }
 
 #warning allow proper list stuff instead of splitting. ServiceType support needed in desktop2json
-    QStringList inbound = d->m_pluginTypeData.value("X-Purpose-InboundArguments").toString().split(',', QString::SkipEmptyParts);
+    QStringList inbound = d->m_pluginTypeData.value(QStringLiteral("X-Purpose-InboundArguments")).toString().split(QLatin1Char(','), QString::SkipEmptyParts);
     foreach(const QString& arg, inbound) {
         if(!d->m_inputData.contains(arg)) {
             qWarning() << "Cannot initialize model with data" << d->m_inputData << ". missing:" << arg;
@@ -212,15 +212,15 @@ void AlternativesModel::initializeModel()
     }
 
     beginResetModel();
-    d->m_plugins = KPluginLoader::findPlugins("purpose", [d](const KPluginMetaData& meta) {
-        if(!meta.value("X-Purpose-PluginTypes").split(',').contains(d->m_pluginType)) {
+    d->m_plugins = KPluginLoader::findPlugins(QStringLiteral("purpose"), [d](const KPluginMetaData& meta) {
+        if(!meta.value(QStringLiteral("X-Purpose-PluginTypes")).split(QLatin1Char(',')).contains(d->m_pluginType)) {
 //             qDebug() << "discarding" << meta.name() << meta.value("X-Purpose-PluginTypes");
             return false;
         }
 
-        const QStringList constraints = meta.value("X-Purpose-Constraints").split(',', QString::SkipEmptyParts);
+        const QStringList constraints = meta.value(QStringLiteral("X-Purpose-Constraints")).split(QLatin1Char(','), QString::SkipEmptyParts);
+        const QRegularExpression constraintRx(QStringLiteral("(\\w+):(.*)"));
         for(const QString& constraint: constraints) {
-            static const QRegularExpression constraintRx("(\\w+):(.*)");
             Q_ASSERT(constraintRx.isValid());
             QRegularExpressionMatch match = constraintRx.match(constraint);
             if (!match.isValid() || !match.hasMatch()) {

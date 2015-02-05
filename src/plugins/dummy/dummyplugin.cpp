@@ -16,8 +16,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  ************************************************************************************/
 
-#include <share/job.h>
-#include <share/pluginbase.h>
+#include <purpose/job.h>
+#include <purpose/pluginbase.h>
 
 #include <QDebug>
 #include <QTimer>
@@ -36,7 +36,7 @@ class DummyShareJob : public Purpose::Job
 
         virtual void start() override
         {
-            QFile f(data().value("destinationPath").toString());
+            QFile f(data().value(QStringLiteral("destinationPath")).toString());
             bool b = f.open(QIODevice::WriteOnly);
             Q_ASSERT(b);
             f.write(QJsonDocument(data()).toJson());
@@ -45,7 +45,7 @@ class DummyShareJob : public Purpose::Job
 
         virtual QUrl configSourceCode() const override
         {
-            QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "purpose/dummyplugin_config.qml");
+            QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/dummyplugin_config.qml"));
             Q_ASSERT(!path.isEmpty());
             return QUrl::fromLocalFile(path);
         }

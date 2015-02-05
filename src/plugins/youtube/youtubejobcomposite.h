@@ -22,7 +22,7 @@
 
 #include <KCompositeJob>
 #include "youtubejob.h"
-#include <share/job.h>
+#include <purpose/job.h>
 
 class YoutubeJobComposite : public Purpose::Job
 {

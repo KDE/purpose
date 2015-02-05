@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  ************************************************************************************/
 
-#include <share/pluginbase.h>
+#include <purpose/pluginbase.h>
 #include "mpform.h"
 #include <QDebug>
 #include <QTimer>
@@ -35,7 +35,7 @@ EXPORT_SHARE_VERSION
 // key associated with plasma-devel@kde.org
 // thanks to Alan Schaaf of Imgur (alan@imgur.com)
 static const QString apiKey = QStringLiteral("d0757bc2e94a0d4652f28079a0be9379");
-static const QUrl imgurUrl("https://api.imgur.com/2/upload.json?key="+apiKey);
+static const QUrl imgurUrl(QStringLiteral("https://api.imgur.com/2/upload.json?key=")+apiKey);
 
 class ImgurShareJob : public Purpose::Job
 {
@@ -48,7 +48,7 @@ class ImgurShareJob : public Purpose::Job
 
         virtual void start() override
         {
-            QJsonArray urls = data().value("urls").toArray();
+            QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
             qDebug() << "starting..." << urls;
             if (urls.isEmpty()) {
                 qWarning() << "no urls to share" << urls << data();
@@ -67,7 +67,7 @@ class ImgurShareJob : public Purpose::Job
         void fileFetched(KJob* j)
         {
             KIO::StoredTransferJob* job = qobject_cast<KIO::StoredTransferJob*>(j);
-            m_form.addFile("image", job->url(), job->data());
+            m_form.addFile(QStringLiteral("image"), job->url(), job->data());
             --m_pendingJobs;
             if (m_pendingJobs == 0)
                 performUpload();

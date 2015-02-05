@@ -27,22 +27,22 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include "qqml.h"
-#include <share/alternativesmodel.h>
-#include <share/job.h>
+#include <purpose/alternativesmodel.h>
+#include <purpose/job.h>
 
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    KAboutData data("sharetool", i18n("Share Tool"), "1.0", i18n("Share random information"), KAboutLicense::GPL);
-    data.addAuthor("Aleix Pol i Gonzalez", i18n("Implementation"), "aleixpol@kde.org");
+    KAboutData data(QStringLiteral("sharetool"), i18n("Share Tool"), QStringLiteral("1.0"), i18n("Share random information"), KAboutLicense::GPL);
+    data.addAuthor(QStringLiteral("Aleix Pol i Gonzalez"), i18n("Implementation"), QStringLiteral("aleixpol@kde.org"));
     KAboutData::setApplicationData(data);
 
     QJsonObject inputData;
     QStringList files;
     {
         QCommandLineParser parser;
-        parser.addPositionalArgument("files", i18n("Files to share"), "[files...]");
-        parser.addOption(QCommandLineOption("data", i18n("Data tuple to initialize the process with"), "json"));
+        parser.addPositionalArgument(QStringLiteral("files"), i18n("Files to share"), i18n("[files...]"));
+        parser.addOption(QCommandLineOption(QStringLiteral("data"), i18n("Data tuple to initialize the process with"), QStringLiteral("json")));
 
         data.setupCommandLine(&parser);
         parser.addHelpOption();
@@ -55,9 +55,9 @@ int main(int argc, char** argv)
             qCritical() << qPrintable(i18n("Must specify some files to share"));
             parser.showHelp(1);
         }
-        if (parser.isSet("data")) {
+        if (parser.isSet(QStringLiteral("data"))) {
             QJsonParseError error;
-            QJsonDocument doc = QJsonDocument::fromJson(parser.value("data").toLatin1(), &error);
+            QJsonDocument doc = QJsonDocument::fromJson(parser.value(QStringLiteral("data")).toLatin1(), &error);
             if (error.error) {
                 qCritical() << qPrintable(i18n("Error in the data argument formatting: %1 at %2", error.errorString(), error.offset));
                 parser.showHelp(2);
@@ -83,7 +83,7 @@ int main(int argc, char** argv)
             } else if(type.inherits(common.name())) {
                 ;
             } else {
-                common = db.mimeTypeForName("application/octet-stream");
+                common = db.mimeTypeForName(QStringLiteral("application/octet-stream"));
             }
             urls += url.toString();
         }
@@ -91,16 +91,16 @@ int main(int argc, char** argv)
     Q_ASSERT(common.isValid());
 
     qmlRegisterType<Purpose::AlternativesModel>("org.kde.purpose", 1, 0, "PurposeAlternativesModel");
-    qmlRegisterUncreatableType<Purpose::Job>("org.kde.purpose", 1, 0, "PurposeJob", "You're not supposed to mess with this yo");
+    qmlRegisterUncreatableType<Purpose::Job>("org.kde.purpose", 1, 0, "PurposeJob", QStringLiteral("You're not supposed to instantiate jobs"));
 
     QQmlApplicationEngine engine;
     KDeclarative::KDeclarative decl;
     decl.setDeclarativeEngine(&engine);
     decl.setupBindings();
-    engine.load(QUrl("qrc:/main.qml"));
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    inputData.insert("urls", urls);
-    inputData.insert("mimeType", common.name());
+    inputData.insert(QStringLiteral("urls"), urls);
+    inputData.insert(QStringLiteral("mimeType"), common.name());
     engine.rootObjects().first()->setProperty("inputData", inputData);
 
     return app.exec();
