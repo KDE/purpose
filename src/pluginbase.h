@@ -51,7 +51,7 @@ namespace Purpose
  * Ideally everything should be in the plugin type but sometimes we can only wish. This allows
  * the opportunity to the application to let the user add the missing data.
  */
-class Q_DECL_EXPORT PluginBase : public QObject
+class PURPOSE_EXPORT PluginBase : public QObject
 {
 Q_OBJECT
 public:

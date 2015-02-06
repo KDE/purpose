@@ -23,6 +23,7 @@
 #include <QJsonObject>
 #include <QMimeData>
 #include <QUrl>
+#include <purpose/purpose_export.h>
 
 namespace Purpose
 {
@@ -41,7 +42,7 @@ class JobPrivate;
  * configSourceCode() and should end up defining all the arguments defined
  * by neededArguments.
  */
-class Q_DECL_EXPORT Job : public KJob
+class PURPOSE_EXPORT Job : public KJob
 {
 Q_OBJECT
 /**

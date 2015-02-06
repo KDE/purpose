@@ -3,7 +3,8 @@ add_library(KF5Purpose
     job.cpp
     alternativesmodel.cpp
 )
-target_include_directories(KF5Purpose PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+target_include_directories(KF5Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
+                                             "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
                                       INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/Purpose>"
 )
 target_link_libraries(KF5Purpose KF5::CoreAddons Qt5::Gui)

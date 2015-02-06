@@ -22,6 +22,8 @@
 #include <QAbstractListModel>
 #include <QJsonObject>
 
+#include <purpose/purpose_export.h>
+
 namespace Purpose
 {
 class Job;
@@ -33,7 +35,7 @@ class AlternativesModelPrivate;
  * Lists all the alternatives to share a specified type of data then provides
  * a method to trigger a job.
  */
-class Q_DECL_EXPORT AlternativesModel : public QAbstractListModel
+class PURPOSE_EXPORT AlternativesModel : public QAbstractListModel
 {
 Q_OBJECT
 Q_PROPERTY(QString pluginType READ pluginType WRITE setPluginType NOTIFY pluginTypeChanged);
