@@ -22,13 +22,15 @@ import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.2
 import org.kde.purpose 1.0 as Purpose
 
-Dialog
+ApplicationWindow
 {
     id: window
     property alias inputData: view.inputData
 
-    contentItem: Purpose.AlternativesView {
+    Purpose.AlternativesView {
         id: view
+        anchors.fill: parent
+
         pluginType: "Export"
         onFinished: {
             console.log("Job finished:", text)
