@@ -40,7 +40,10 @@ class DummyShareJob : public Purpose::Job
             bool b = f.open(QIODevice::WriteOnly);
             Q_ASSERT(b);
             f.write(QJsonDocument(data()).toJson());
-            QTimer::singleShot(0, this, [this](){ emitResult(); });
+            QTimer::singleShot(100, this, [this](){ setPercent(10); });
+            QTimer::singleShot(300, this, [this](){ setPercent(30); });
+            QTimer::singleShot(600, this, [this](){ setPercent(80); });
+            QTimer::singleShot(1000, this, [this](){ emitResult(); });
         }
 
         virtual QUrl configSourceCode() const override
