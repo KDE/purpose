@@ -34,10 +34,6 @@ StackView {
 
     initialItem: ScrollView {
         ListView {
-            header: Label {
-                text: JSON.stringify(inputData)
-            }
-
             model: altsModel
             delegate: RowLayout {
                 Label {
