@@ -7,7 +7,11 @@ target_include_directories(KF5Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_
                                              "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
                                       INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/Purpose>"
 )
-target_link_libraries(KF5Purpose KF5::CoreAddons Qt5::Gui)
+target_link_libraries(KF5Purpose
+    PUBLIC
+        KF5::CoreAddons
+        Qt5::Gui
+)
 kcoreaddons_desktop_to_json(KF5Purpose plugins/ExportPluginType.desktop)
 set_target_properties(KF5Purpose PROPERTIES VERSION ${PURPOSE_VERSION_STRING}
                                           SOVERSION ${PURPOSE_SOVERSION}
