@@ -99,6 +99,7 @@ int main(int argc, char** argv)
     inputData.insert(QStringLiteral("urls"), urls);
     inputData.insert(QStringLiteral("mimeType"), common.name());
     engine.rootObjects().first()->setProperty("inputData", inputData);
+    engine.rootObjects().first()->setProperty("visible", true);
 
     return app.exec();
 }

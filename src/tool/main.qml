@@ -19,115 +19,19 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.2
-import org.kde.purpose 1.0
+import QtQuick.Dialogs 1.2
+import org.kde.purpose 1.0 as Purpose
 
-ApplicationWindow
+Dialog
 {
     id: window
-    visible: true
-    property alias inputData: altsModel.inputData
+    property alias inputData: view.inputData
 
-    StackView {
-        id: stack
-        initialItem: ScrollView {
-            ListView {
-                header: Label {
-                    text: window.mimetype + " " + window.urls
-                }
-
-                model: PurposeAlternativesModel {
-                    id: altsModel
-                    pluginType: "Export"
-                }
-                delegate: RowLayout {
-                    Label {
-                        text: display
-                    }
-                    Button {
-                        text: i18n("Use")
-                        onClicked: {
-                            var job = altsModel.createJob(index);
-                            if (!job.isReady) {
-                                stack.push({
-                                    item: shareWizardComponent,
-                                    properties: { job: job }
-                                })
-                            } else {
-                                stack.push({
-                                    item: runningJobComponent,
-                                    properties: { job: job }
-                                })
-                                job.start()
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    Component {
-        id: shareWizardComponent
-        ColumnLayout {
-            property alias job: wiz.job
-            PurposeWizard {
-                id: wiz
-
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-            }
-            RowLayout {
-                Button {
-                    text: i18n("Run")
-                    enabled: wiz.job.isReady
-                    onClicked: {
-                        stack.pop();
-                        stack.push({
-                            item: runningJobComponent,
-                            properties: { job: wiz.job }
-                        })
-                        wiz.job.start();
-                    }
-                }
-                Button {
-                    text: i18n("Back")
-                    onClicked: {
-                        stack.pop();
-                        wiz.cancel()
-                    }
-                }
-            }
-        }
-    }
-    Component {
-        id: runningJobComponent
-        ColumnLayout {
-            property alias job: conn.target
-            Connections {
-                id: conn
-                onInfoMessage: {
-                    info.text = rich
-                }
-                onResult: {
-                    console.log("Job finished:", conn.target, info.text)
-                    stack.pop();
-                }
-            }
-            Label {
-                id: info
-
-                Layout.fillWidth: true
-                onLinkActivated: Qt.openUrlExternally(link)
-            }
-            ProgressBar {
-                value: runningJobComponent.progress
-                maximumValue: 100
-                Layout.fillWidth: true
-            }
-            Item {
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-            }
+    contentItem: Purpose.AlternativesView {
+        id: view
+        pluginType: "Export"
+        onFinished: {
+            console.log("Job finished:", text)
         }
     }
 }

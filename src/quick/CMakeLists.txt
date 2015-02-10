@@ -6,5 +6,6 @@ install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/purpose)
 
 install( FILES
         PurposeWizard.qml
+        AlternativesView.qml
         DESTINATION ${QML_INSTALL_DIR}/org/kde/purpose
 )
