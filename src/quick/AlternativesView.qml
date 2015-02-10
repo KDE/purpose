@@ -97,6 +97,7 @@ StackView {
     Component {
         id: runningJobComponent
         ColumnLayout {
+            id: root
             property alias job: conn.target
             Connections {
                 id: conn
@@ -115,7 +116,8 @@ StackView {
                 onLinkActivated: Qt.openUrlExternally(link)
             }
             ProgressBar {
-                value: runningJobComponent.progress
+                //FIXME: this is not really working yet, as QML doesn't understand ulong
+                value: root.job.percent
                 maximumValue: 100
                 Layout.fillWidth: true
             }
