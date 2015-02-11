@@ -88,7 +88,11 @@ class ImgurShareJob : public Purpose::Job
         void imagesUploaded(KJob* job) {
             QJsonParseError error;
             QJsonObject resultMap = QJsonDocument::fromJson(m_resultData, &error).object();
-            if (job->error()) {
+            if (static_cast<KIO::TransferJob *>(job)->isErrorPage()) {
+                setError(3);
+                setErrorText(i18n("Error page returned"));
+                qDebug() << "Error page :(";
+            } else if (job->error()) {
                 setError(job->error());
                 setErrorText(job->errorText());
             } else if (error.error) {
