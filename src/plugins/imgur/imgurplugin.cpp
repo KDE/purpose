@@ -59,21 +59,11 @@ class ImgurShareJob : public Purpose::Job
 
             foreach(const QJsonValue &val, urls) {
                 QString u = val.toString();
-                if (u.startsWith(QLatin1String("data:"))) {
-                    QByteArray data = QByteArray::fromBase64(u.mid(4).toLatin1());
-                    QFile f(QStringLiteral("/tmp/puta.png"));
-                    Q_ASSERT(f.open(QFile::WriteOnly));
-                    f.write(data);
-                    m_form.addFile(QStringLiteral("image"), QUrl(QStringLiteral("file:///not-in-the-file-system")), data);
-                } else {
-                    KIO::StoredTransferJob* job = KIO::storedGet(QUrl(u));
-                    connect(job, &KJob::finished, this, &ImgurShareJob::fileFetched);
-                    m_pendingJobs++;
-                }
+                KIO::StoredTransferJob* job = KIO::storedGet(QUrl(u));
+                connect(job, &KJob::finished, this, &ImgurShareJob::fileFetched);
+                m_pendingJobs++;
             }
-            if (m_pendingJobs == 0) {
-                performUpload();
-            }
+            Q_ASSERT(m_pendingJobs>0);
         }
 
         void fileFetched(KJob* j)
