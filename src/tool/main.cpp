@@ -50,11 +50,6 @@ int main(int argc, char** argv)
         parser.process(app);
         data.processCommandLine(&parser);
 
-        files = parser.positionalArguments();
-        if (files.isEmpty()) {
-            qCritical() << qPrintable(i18n("Must specify some files to share"));
-            parser.showHelp(1);
-        }
         if (parser.isSet(QStringLiteral("data"))) {
             QJsonParseError error;
             QJsonDocument doc = QJsonDocument::fromJson(parser.value(QStringLiteral("data")).toLatin1(), &error);
@@ -67,10 +62,17 @@ int main(int argc, char** argv)
             }
             inputData = doc.object();
         }
+
+        files = parser.positionalArguments();
+        if (files.isEmpty() && !inputData.contains(QStringLiteral("urls"))) {
+            qCritical() << qPrintable(i18n("Must specify some files to share"));
+            parser.showHelp(1);
+        }
     }
 
     QMimeType common;
     QJsonArray urls;
+    if (!inputData.contains(QStringLiteral("urls")) || !inputData.contains(QStringLiteral("mimeType")))
     {
         QMimeDatabase db;
         for(const QString& file: files) {
@@ -87,8 +89,10 @@ int main(int argc, char** argv)
             }
             urls += url.toString();
         }
+        inputData.insert(QStringLiteral("urls"), urls);
+        inputData.insert(QStringLiteral("mimeType"), common.name());
+
     }
-    Q_ASSERT(common.isValid());
 
     QQmlApplicationEngine engine;
     KDeclarative::KDeclarative decl;
@@ -96,8 +100,6 @@ int main(int argc, char** argv)
     decl.setupBindings();
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    inputData.insert(QStringLiteral("urls"), urls);
-    inputData.insert(QStringLiteral("mimeType"), common.name());
     engine.rootObjects().first()->setProperty("inputData", inputData);
     engine.rootObjects().first()->setProperty("visible", true);
 
