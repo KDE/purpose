@@ -1,0 +1,2 @@
+add_share_plugin(ktpsendfileplugin ktpsendfileplugin.cpp)
+

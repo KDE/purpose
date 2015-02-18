@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+Icon=edit-paste
+Name=Send To Contact...
+Comment=Send through Instant Messaging
+
+X-KDE-PluginInfo-Author=Aleix Pol
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-Category=Utilities
+
+X-Purpose-Constraints=
+X-Purpose-Configuration=
+X-Purpose-PluginTypes=Export
