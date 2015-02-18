@@ -92,7 +92,7 @@ public:
 
 
 Q_SIGNALS:
-    void output(const QVariant& output);
+    void output(const QJsonObject& output);
     void dataChanged();
 
 private:

@@ -43,6 +43,17 @@ public:
     QJsonObject m_inputData;
     QString m_pluginType;
     QJsonObject m_pluginTypeData;
+
+    static void checkJobFinish(Purpose::Job* job)
+    {
+        QStringList outputArgs = job->property("outputArgs").toStringList();
+        QJsonObject output = job->property("outputValues").toJsonObject();
+        if (!output.keys().toSet().contains(outputArgs.toSet())) {
+            qWarning() << "missing output values for" << job->metaObject()->className()
+                       << ". Expected: " << outputArgs.join(QStringLiteral(", "))
+                       << ". Got: " << output.keys().join(QStringLiteral(", "));
+        }
+    }
 };
 
 AlternativesModel::AlternativesModel(QObject* parent)
@@ -133,7 +144,10 @@ Purpose::Job* AlternativesModel::createJob(int row)
     job->setData(d->m_inputData);
     job->setConfigurationArguments(d->m_inputData.value(QStringLiteral("X-Purpose-InboundArguments")).toString().split(QLatin1Char(','), QString::SkipEmptyParts));
     job->setInboundArguments(pluginData.value(QStringLiteral("X-Purpose-Configuration")).split(QLatin1Char(','), QString::SkipEmptyParts));
-    connect(job, &Purpose::Job::finished, plugin, &QObject::deleteLater); //TODO only instantiate 1 plugin factory per type
+    job->setProperty("outputArgs", d->m_pluginTypeData.value(QStringLiteral("X-Purpose-OutboundArguments")).toString().split(QLatin1Char(','), QString::SkipEmptyParts));
+
+    connect(job, &Purpose::Job::output, job, [job](const QJsonObject& obj){ job->setProperty("outputValues", obj); });
+    connect(job, &Purpose::Job::finished, job, [job](){ AlternativesModelPrivate::checkJobFinish(job); });
     return job;
 }
 
