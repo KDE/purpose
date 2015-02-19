@@ -25,8 +25,9 @@ StackView {
     id: stack
     property alias pluginType: altsModel.pluginType
     property alias inputData: altsModel.inputData
+    property var output
 
-    signal finished(string text)
+    signal finished()
 
     PurposeAlternativesModel {
         id: altsModel
@@ -104,8 +105,11 @@ StackView {
                 onInfoMessage: {
                     info.text = rich
                 }
+                onOutput: {
+                    stack.output = output;
+                }
                 onResult: {
-                    stack.finished(info.text)
+                    stack.finished()
                     stack.pop();
                 }
             }

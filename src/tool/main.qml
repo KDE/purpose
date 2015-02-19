@@ -33,7 +33,7 @@ ApplicationWindow
 
         pluginType: "Export"
         onFinished: {
-            console.log("Job finished:", text)
+            console.log("Job finished:", output.url)
         }
     }
 }
