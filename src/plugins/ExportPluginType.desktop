@@ -4,4 +4,4 @@ Icon=edit-paste
 Name=Upload...
 
 X-Purpose-InboundArguments=urls,mimeType
-X-Purpose-OutboundArguments=
+X-Purpose-OutboundArguments=url

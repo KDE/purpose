@@ -109,6 +109,7 @@ class ImgurShareJob : public Purpose::Job
                 QJsonObject linksMap = uploadMap[QStringLiteral("links")].toObject();
                 QString url = linksMap[QStringLiteral("original")].toString();
                 Q_EMIT infoMessage(this, url, QStringLiteral("<a href='%1'>%1</a>").arg(url));
+                Q_EMIT output({ { QStringLiteral("url"), url } });
             }
             emitResult();
         }
