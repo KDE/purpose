@@ -26,6 +26,19 @@ StackView {
     property alias pluginType: altsModel.pluginType
     property alias inputData: altsModel.inputData
     property var output
+    property Component delegate: Component {
+        RowLayout {
+            width: parent.width
+            Label {
+                Layout.fillWidth: true
+                text: display
+            }
+            Button {
+                text: i18n("Use")
+                onClicked: createJob(index);
+            }
+        }
+    }
 
     signal finished()
 
@@ -33,32 +46,26 @@ StackView {
         id: altsModel
     }
 
+    function createJob(index) {
+        var job = altsModel.createJob(index);
+        if (!job.isReady) {
+            stack.push({
+                item: shareWizardComponent,
+                properties: { job: job }
+            })
+        } else {
+            stack.push({
+                item: runningJobComponent,
+                properties: { job: job }
+            })
+            job.start()
+        }
+    }
+
     initialItem: ScrollView {
         ListView {
             model: altsModel
-            delegate: RowLayout {
-                Label {
-                    text: display
-                }
-                Button {
-                    text: i18n("Use")
-                    onClicked: {
-                        var job = altsModel.createJob(index);
-                        if (!job.isReady) {
-                            stack.push({
-                                item: shareWizardComponent,
-                                properties: { job: job }
-                            })
-                        } else {
-                            stack.push({
-                                item: runningJobComponent,
-                                properties: { job: job }
-                            })
-                            job.start()
-                        }
-                    }
-                }
-            }
+            delegate: stack.delegate
         }
     }
 
