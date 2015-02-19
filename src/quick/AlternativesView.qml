@@ -23,9 +23,9 @@ import org.kde.purpose 1.0
 
 StackView {
     id: stack
+    property bool running: stack.depth > 1
     property alias pluginType: altsModel.pluginType
     property alias inputData: altsModel.inputData
-    property var output
     property Component delegate: Component {
         RowLayout {
             width: parent.width
@@ -40,10 +40,29 @@ StackView {
         }
     }
 
-    signal finished()
+    /**
+     * Signals when the job finishes, reports the
+     * @p error code and a text @p message.
+     *
+     * @p output will specify the output offered by the job
+     */
+    signal finished(var output, int error, string message)
 
     PurposeAlternativesModel {
         id: altsModel
+    }
+
+    function startJob(job) {
+        stack.push({
+            item: runningJobComponent,
+            properties: { job: job }
+        })
+        job.start()
+    }
+
+    function jobFinished() {
+        stack.running = false;
+        stack.finished(root.job.error, root.job.errorString);
     }
 
     function createJob(index) {
@@ -54,11 +73,7 @@ StackView {
                 properties: { job: job }
             })
         } else {
-            stack.push({
-                item: runningJobComponent,
-                properties: { job: job }
-            })
-            job.start()
+            startJob(job)
         }
     }
 
@@ -75,6 +90,7 @@ StackView {
             property alias job: wiz.job
             PurposeWizard {
                 id: wiz
+                focus: true
 
                 Layout.fillHeight: true
                 Layout.fillWidth: true
@@ -85,11 +101,7 @@ StackView {
                     enabled: wiz.job && wiz.job.isReady
                     onClicked: {
                         stack.pop();
-                        stack.push({
-                            item: runningJobComponent,
-                            properties: { job: wiz.job }
-                        })
-                        wiz.job.start();
+                        startJob(wiz.job);
                     }
                 }
                 Button {
@@ -107,16 +119,18 @@ StackView {
         ColumnLayout {
             id: root
             property alias job: conn.target
+            property var output
             Connections {
                 id: conn
                 onInfoMessage: {
                     info.text = rich
                 }
                 onOutput: {
-                    stack.output = output;
+                    root.output = output;
                 }
                 onResult: {
-                    stack.finished()
+                    stack.running = false;
+                    stack.finished(output, root.job.error, root.job.errorString);
                     stack.pop();
                 }
             }
