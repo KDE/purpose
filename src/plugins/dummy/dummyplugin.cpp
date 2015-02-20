@@ -36,14 +36,15 @@ class DummyShareJob : public Purpose::Job
 
         virtual void start() override
         {
-            QFile f(data().value(QStringLiteral("destinationPath")).toString());
+            QString destinationPath = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/') + data().value(QStringLiteral("destinationPath")).toString();
+            QFile f(destinationPath);
             bool b = f.open(QIODevice::WriteOnly);
             Q_ASSERT(b);
             f.write(QJsonDocument(data()).toJson());
             QTimer::singleShot(100, this, [this](){ setPercent(10); });
             QTimer::singleShot(300, this, [this](){ setPercent(30); });
             QTimer::singleShot(600, this, [this](){ setPercent(80); });
-            QTimer::singleShot(950, this, [this](){ Q_EMIT output( {{ QStringLiteral("url"), QStringLiteral("data:fuuuuu") }} ); });
+            QTimer::singleShot(950, this, [this, destinationPath](){ Q_EMIT output( {{ QStringLiteral("url"), QUrl::fromLocalFile(destinationPath).toString() }} ); });
             QTimer::singleShot(1000, this, [this](){ emitResult(); });
         }
 
