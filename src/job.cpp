@@ -49,7 +49,7 @@ void Job::setData(const QJsonObject& data)
 {
     Q_D(Job);
 
-    qDebug() << "datachanged" << data;
+//     qDebug() << "datachanged" << data;
     if (d->m_data != data) {
         d->m_data = data;
         emit dataChanged();
