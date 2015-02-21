@@ -2,7 +2,19 @@
 Type=Service
 Icon=edit-paste
 Comment=Upload pictures to imgur
+Comment[nl]=Afbeeldingen uploaden naar imgur
+Comment[pt]=Enviar imagens para o Imgur
+Comment[pt_BR]=Envia imagens para Imgur
+Comment[sv]=Ladda upp bilder till imgur
+Comment[uk]=Вивантаження зображень на imgur
+Comment[x-test]=xxUpload pictures to imgurxx
 Name=Imgur
+Name[nl]=Imgur
+Name[pt]=Imgur
+Name[pt_BR]=Imgur
+Name[sv]=Imgur
+Name[uk]=Imgur
+Name[x-test]=xxImgurxx
 
 X-KDE-PluginInfo-Author=Aleix Pol
 X-KDE-PluginInfo-License=GPL

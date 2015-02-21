@@ -2,7 +2,19 @@
 Type=Service
 Icon=edit-paste
 Name=Send To Contact...
+Name[nl]=Naar contactpersoon verzenden...
+Name[pt]=Enviar para o Contacto...
+Name[pt_BR]=Enviar para o contato...
+Name[sv]=Skicka till kontakt...
+Name[uk]=Надіслати контакту…
+Name[x-test]=xxSend To Contact...xx
 Comment=Send through Instant Messaging
+Comment[nl]=Via Instant Messaging verzenden
+Comment[pt]=Enviar por Mensagens Instantâneas
+Comment[pt_BR]=Envia por mensagem instantânea
+Comment[sv]=Skicka via direktmeddelanden
+Comment[uk]=Надіслати за допомогою служби обміну повідомленнями
+Comment[x-test]=xxSend through Instant Messagingxx
 
 X-KDE-PluginInfo-Author=Aleix Pol
 X-KDE-PluginInfo-License=GPL

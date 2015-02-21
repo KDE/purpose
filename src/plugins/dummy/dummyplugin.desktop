@@ -2,7 +2,19 @@
 Type=Service
 Icon=edit-paste
 Comment=Dummy plugin, to test the shit out of the feature
+Comment[nl]=Dummy-plug-in, om de rommel uit de functie te testen
+Comment[pt]='Plugin' de testes, para testar as funcionalidades
+Comment[pt_BR]=Plugin para teste da funcionalidade
+Comment[sv]=Testinsticksprogram, för att testa skiten ur funktionen
+Comment[uk]=Фіктивний додаток, призначено для тестування можливості
+Comment[x-test]=xxDummy plugin, to test the shit out of the featurexx
 Name=Dummy
+Name[nl]=Dummy
+Name[pt]=Testes
+Name[pt_BR]=Teste
+Name[sv]=Test
+Name[uk]=Макет
+Name[x-test]=xxDummyxx
 
 X-KDE-PluginInfo-Author=Aleix Pol
 X-KDE-PluginInfo-License=GPL
