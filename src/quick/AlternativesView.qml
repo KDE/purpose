@@ -77,6 +77,14 @@ StackView {
         }
     }
 
+    /**
+     * Clears and returns back to the initial view.
+     */
+    function reset() {
+        for(; stack.depth>1; stack.pop())
+        {}
+    }
+
     initialItem: ScrollView {
         ListView {
             model: altsModel
