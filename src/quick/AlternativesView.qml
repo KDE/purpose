@@ -61,11 +61,9 @@ StackView {
         stack.running = true;
     }
 
-    function jobFinished() {
-        stack.running = false;
-        stack.finished(root.job.error, root.job.errorString);
-    }
-
+    /**
+     * Adopts the job at the @p index.
+     */
     function createJob(index) {
         var job = altsModel.createJob(index);
         if (!job.isReady) {
