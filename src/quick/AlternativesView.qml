@@ -23,7 +23,7 @@ import org.kde.purpose 1.0
 
 StackView {
     id: stack
-    property bool running: stack.depth > 1
+    property bool running: false
     property alias pluginType: altsModel.pluginType
     property alias inputData: altsModel.inputData
     property Component delegate: Component {
@@ -58,6 +58,7 @@ StackView {
             properties: { job: job }
         })
         job.start()
+        stack.running = true;
     }
 
     function jobFinished() {
