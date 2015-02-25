@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+Icon=edit-paste
+Comment=Upload text to pastebin
+Name=Pastebin
+
+X-KDE-PluginInfo-Author=Aleix Pol
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-Category=Utilities
+
+X-Purpose-Constraints=mimeType:text/plain
+X-Purpose-Configuration=
+X-Purpose-PluginTypes=Export
