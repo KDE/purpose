@@ -62,7 +62,7 @@ class KTpSendFileShareJob : public Purpose::Job
         Q_SLOT void jobFinished(int code, QProcess::ExitStatus status)
         {
             setError(code);
-            Q_EMIT output( {{ QStringLiteral("url"), {} }});
+            Q_EMIT output( {{ QStringLiteral("url"), QString() }});
             emitResult();
         }
 
