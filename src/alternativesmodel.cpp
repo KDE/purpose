@@ -48,7 +48,8 @@ public:
     {
         QStringList outputArgs = job->property("outputArgs").toStringList();
         QJsonObject output = job->property("outputValues").toJsonObject();
-        if (!output.keys().toSet().contains(outputArgs.toSet()) && job->error() != 0) {
+
+        if (!output.keys().toSet().contains(outputArgs.toSet()) && job->error() == 0) {
             qWarning() << "missing output values for" << job->metaObject()->className()
                        << ". Expected: " << outputArgs.join(QStringLiteral(", "))
                        << ". Got: " << output.keys().join(QStringLiteral(", "));
