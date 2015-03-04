@@ -35,7 +35,7 @@ EXPORT_SHARE_VERSION
 // Taken from "share" Data Engine
 // key associated with plasma-devel@kde.org
 // thanks to Alan Schaaf of Pastebin (alan@pastebin.com)
-static const QString apiKey = QStringLiteral("d0757bc2e94a0d4652f28079a0be9379");
+static const QByteArray apiKey("0c8b6add8e0f6d53f61fe5ce870a1afa");
 
 class PastebinJob : public Purpose::Job
 {
@@ -56,6 +56,7 @@ class PastebinJob : public Purpose::Job
                 return;
             }
 
+            m_pendingJobs = 0;
             foreach(const QJsonValue &val, urls) {
                 QString u = val.toString();
                 KIO::StoredTransferJob* job = KIO::storedGet(QUrl(u));
@@ -70,7 +71,12 @@ class PastebinJob : public Purpose::Job
             KIO::StoredTransferJob* job = qobject_cast<KIO::StoredTransferJob*>(j);
             m_data += job->data();
             --m_pendingJobs;
-            if (m_pendingJobs == 0)
+
+            if (job->error()) {
+                setError(job->error());
+                setErrorText(job->errorString());
+                emitResult();
+            } else if (m_pendingJobs == 0)
                 performUpload();
         }
 
@@ -83,7 +89,6 @@ class PastebinJob : public Purpose::Job
                 return;
             }
 
-            const QByteArray apiKey = "0c8b6add8e0f6d53f61fe5ce870a1afa";
 //             qCDebug(PLUGIN_PASTEBIN) << "exporting patch to pastebin" << source->file();
             QByteArray bytearray = "api_option=paste&api_paste_private=1&api_paste_name=kde-purpose-pastebin-plugin&api_paste_expire_date=1D&api_paste_format=diff&api_dev_key="+apiKey+"&api_paste_code=";
             bytearray += QUrl::toPercentEncoding(QString::fromUtf8(m_data));
