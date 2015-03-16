@@ -24,6 +24,7 @@
 #include <KJob>
 #include <KIO/Job>
 #include <QMap>
+#include <QPointer>
 #include <QString>
 #include <kwallet.h>
 
@@ -38,19 +39,21 @@ class YoutubeJob : public KJob
         void login();
     public Q_SLOTS:
         void fileOpened(KIO::Job *, const QByteArray &);
-        void uploadDone(KIO::Job *, const QByteArray &);
+        void uploadDone(KJob*);
         void moreData(KIO::Job *, const QByteArray &);
-        void uploadNeedData();
-        void uploadFinal();
+        void uploadNeedData(KIO::Job* job);
+        void uploadFinal(KIO::Job* job);
         void authenticated(bool);
-        void loginDone(KIO::Job *job, const QByteArray &data);
+        void loginDone(KJob* job);
     private:
         void setVideoInfo(QMap<QString, QString>& videoInfo);
         void checkWallet();
-        KIO::TransferJob *openFileJob;
-        KIO::TransferJob *uploadJob;
         QByteArray m_authToken;
         static const QByteArray developerKey;
+
+        QPointer<KIO::StoredTransferJob> uploadJob;
+        QPointer<KIO::TransferJob> openFileJob;
+
         QUrl m_url;
         QString m_title;
         QString m_tags;

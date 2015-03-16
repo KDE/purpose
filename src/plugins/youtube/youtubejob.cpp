@@ -27,6 +27,7 @@
 #include <QIcon>
 #include <QDesktopServices>
 #include <KIO/Job>
+#include <KIO/StoredTransferJob>
 #include <KToolInvocation>
 #include <KLocalizedString>
 
@@ -119,16 +120,15 @@ finalData.append("</entry>");
     finalData.append("\r\n");
     finalData.append(data);
 //     qDebug() << finalData;
-    QUrl url(QStringLiteral("http://uploads.gdata.youtube.com/feeds/api/users/default/uploads"));
-    uploadJob = KIO::http_post(url,finalData,KIO::HideProgressInfo);
+    const QUrl url(QStringLiteral("http://uploads.gdata.youtube.com/feeds/api/users/default/uploads"));
+    uploadJob = KIO::storedHttpPost(finalData, url, KIO::HideProgressInfo);
     uploadJob->addMetaData(QStringLiteral("cookies"), QStringLiteral("none"));
     uploadJob->addMetaData(QStringLiteral("connection"), QStringLiteral("close"));
     uploadJob->addMetaData(QStringLiteral("customHTTPHeader"), QString::fromUtf8(extraHeaders.data()));
     uploadJob->addMetaData(QStringLiteral("content-type"), QStringLiteral("Content-Type: multipart/related; boundary=\"foobarfoo\""));
     uploadJob->setAsyncDataEnabled(true);
-    connect(uploadJob,SIGNAL(dataReq(KIO::Job*,QByteArray&)),this,SLOT(uploadNeedData()));
-    connect(uploadJob,SIGNAL(data(KIO::Job*,QByteArray)),this,SLOT(uploadDone(KIO::Job*,QByteArray)));
-    connect(uploadJob, &KJob::finished, this, [](KJob* f){ qDebug() << "xxxxxxxxxx" << f; });
+    connect(uploadJob,SIGNAL(dataReq(KIO::Job*,QByteArray&)),this,SLOT(uploadNeedData(KIO::Job*)));
+    connect(uploadJob,SIGNAL(finished(KJob*)),this, SLOT(uploadDone(KJob*)));
     uploadJob->start();
 }
 
@@ -138,34 +138,43 @@ void YoutubeJob::moreData(KIO::Job *job, const QByteArray &data)
     if(data.size() == 0){
         qDebug() << "Data is zero, going to end this!";
         disconnect(uploadJob,SIGNAL(dataReq(KIO::Job*,QByteArray&)),this,SLOT(uploadNeedData()));
-        connect(uploadJob,SIGNAL(dataReq(KIO::Job*,QByteArray&)),this,SLOT(uploadFinal()));
+        connect(uploadJob,SIGNAL(dataReq(KIO::Job*,QByteArray&)),this,SLOT(uploadFinal(KIO::Job*,)));
 
         QByteArray final("\r\n");
         final.append("--foobarfoo--");
         uploadJob->sendAsyncData(final);
     }else{
         qDebug() << "Sending more data....";
-//         qDebug() << data;
+
         uploadJob->sendAsyncData(data);
     }
 }
 
-void YoutubeJob::uploadFinal()
+void YoutubeJob::uploadFinal(KIO::Job* job)
 {
+    Q_UNUSED(job);
     //Sending an empty QByteArray the job ends
     qDebug() << "Sendind the empty packed";
     uploadJob->sendAsyncData(QByteArray());
 }
 
-void YoutubeJob::uploadNeedData()
+void YoutubeJob::uploadNeedData(KIO::Job* job)
 {
+    Q_UNUSED(job);
     qDebug() << "openFile job resumed!";
     openFileJob->resume();
 }
 
-void YoutubeJob::uploadDone(KIO::Job *job, const QByteArray &data)
+void YoutubeJob::uploadDone(KJob* job)
 {
-    qDebug() << "Upload Response";
+    if (job->error()) {
+        qWarning() << "error while uploading" << job->error() << job->errorText() << job->errorString();
+        setError(1);
+        setErrorText(job->errorText());
+        emitResult();
+    }
+
+    const QByteArray data = qobject_cast<KIO::StoredTransferJob*>(job)->data();
 //     qDebug() << data.data();
     QString dataStr(QString::fromUtf8(data));
     QRegExp rx(QStringLiteral("<media:player url='(\\S+)'/>"));
@@ -173,10 +182,11 @@ void YoutubeJob::uploadDone(KIO::Job *job, const QByteArray &data)
 //     qDebug() << rx.cap(1);
     const QUrl url(rx.cap(1));
     if (!url.isEmpty()) {
-        qDebug() << "Url : " << url;
+        qDebug() << "Url: " << url;
         job->kill();
         QDesktopServices::openUrl(url);
-        emit emitResult();
+    } else {
+        qWarning() << "wrong answer" << data;
     }
 }
 
@@ -192,15 +202,18 @@ void YoutubeJob::login()
     data.append("&Passwd=");
     data.append(authInfo[QStringLiteral("password")].toLatin1());
     data.append("&service=youtube&source=Kamoso");
-    KIO::TransferJob *loginJob = KIO::http_post(url, data, KIO::HideProgressInfo);
+    KIO::StoredTransferJob* loginJob = KIO::storedHttpPost(data, url, KIO::HideProgressInfo);
     loginJob->addMetaData(QStringLiteral("cookies"), QStringLiteral("none"));
     loginJob->addMetaData(QStringLiteral("content-type"), QStringLiteral("Content-Type:application/x-www-form-urlencoded"));
-    connect(loginJob,SIGNAL(data(KIO::Job*,QByteArray)),this,SLOT(loginDone(KIO::Job*,QByteArray)));
+    connect(loginJob, &KJob::finished, this, &YoutubeJob::loginDone);
     loginJob->start();
 }
 
-void YoutubeJob::loginDone(KIO::Job *job, const QByteArray &data)
+void YoutubeJob::loginDone(KJob *job)
 {
+    KIO::StoredTransferJob* loginJob = qobject_cast<KIO::StoredTransferJob*>(job);
+    const QByteArray data = loginJob->data();
+
     qDebug() << "LoginDone, data received" << data;
 //     qDebug() << data.data();
     if(data.at(0) == 'E'){
