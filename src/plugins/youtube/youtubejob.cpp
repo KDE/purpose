@@ -33,6 +33,7 @@
 const QByteArray YoutubeJob::developerKey("AI39si41ZFrIJoZGNH0hrZPhMuUlwHc6boMLi4e-_W6elIzVUIeDO9F7ix2swtnGAiKT4yc4F4gQw6yysTGvCn1lPNyli913Xg");
 
 using KWallet::Wallet;
+
 YoutubeJob::YoutubeJob(const QUrl& url, const QString& title, const QString& tags, const QString& description, QObject* parent)
     : KJob(parent), m_authToken(0), m_url(url), m_title(title), m_tags(tags), m_description(description), dialog(0)
 {
@@ -52,17 +53,17 @@ void YoutubeJob::checkWallet()
     }
     m_wallet = Wallet::openWallet(Wallet::NetworkWallet(), windowId);
     if(m_wallet != NULL){
-        if(!m_wallet->hasFolder("youtubeKamoso")){
-            if(!m_wallet->createFolder("youtubeKamoso")){
+        if(!m_wallet->hasFolder(QStringLiteral("youtubeKamoso"))) {
+            if(!m_wallet->createFolder(QStringLiteral("youtubeKamoso"))) {
                 //TODO: Error reporting here
                 return;
             }
         }
-        m_wallet->setFolder("youtubeKamoso");
+        m_wallet->setFolder(QStringLiteral("youtubeKamoso"));
     }
 
     if(!showDialog()){
-        emit emitResult();
+        Q_EMIT emitResult();
         return;
     }
     login();
@@ -72,13 +73,11 @@ void YoutubeJob::fileOpened(KIO::Job *job, const QByteArray &data)
 {
     qDebug() << "fileOPened!!";
     job->suspend();
-    #warning do something to evade the cast? like adding a metadata?
-    KIO::SimpleJob *simpleJob = static_cast<KIO::SimpleJob*>(job);
 
     disconnect(job,SIGNAL(data(KIO::Job*,QByteArray)),this,SLOT(fileOpened(KIO::Job*,QByteArray)));
     connect(job,SIGNAL(data(KIO::Job*,QByteArray)),this,SLOT(moreData(KIO::Job*,QByteArray)));
 
-    QByteArray extraHeaders("");
+    QByteArray extraHeaders;
     extraHeaders.append("Authorization: GoogleLogin auth=");
     extraHeaders.append(m_authToken.data());
     extraHeaders.append("\r\n");
@@ -88,7 +87,7 @@ void YoutubeJob::fileOpened(KIO::Job *job, const QByteArray &data)
     extraHeaders.append(developerKey);
     extraHeaders.append("\r\n");
     extraHeaders.append("Slug: ");
-    extraHeaders.append(simpleJob->url().fileName());
+    extraHeaders.append(qobject_cast<KIO::SimpleJob*>(job)->url().fileName().toUtf8());
 
     QByteArray finalData("--foobarfoo");
     finalData.append("\r\n");
@@ -100,14 +99,14 @@ finalData.append("<entry xmlns=\"http://www.w3.org/2005/Atom\"\r\n");
   finalData.append("xmlns:media=\"http://search.yahoo.com/mrss/\"\r\n");
   finalData.append("xmlns:yt=\"http://gdata.youtube.com/schemas/2007\">\r\n");
   finalData.append("<media:group>\r\n");
-    finalData.append("<media:title type=\"plain\">"+m_title+"</media:title>\r\n");
+    finalData.append("<media:title type=\"plain\">"+m_title.toUtf8()+"</media:title>\r\n");
     finalData.append("<media:description type=\"plain\">\r\n");
-      finalData.append(m_description+"\r\n");
+      finalData.append(m_description.toUtf8()+"\r\n");
     finalData.append("</media:description>\r\n");
     finalData.append("<media:category\r\n");
       finalData.append("scheme=\"http://gdata.youtube.com/schemas/2007/categories.cat\">People\r\n");
     finalData.append("</media:category>\r\n");
-    finalData.append("<media:keywords>"+m_tags+"</media:keywords>\r\n");
+    finalData.append("<media:keywords>"+m_tags.toUtf8()+"</media:keywords>\r\n");
   finalData.append("</media:group>\r\n");
 finalData.append("</entry>");
     finalData.append("\r\n");
@@ -120,15 +119,16 @@ finalData.append("</entry>");
     finalData.append("\r\n");
     finalData.append(data);
 //     qDebug() << finalData;
-    QUrl url("http://uploads.gdata.youtube.com/feeds/api/users/default/uploads");
+    QUrl url(QStringLiteral("http://uploads.gdata.youtube.com/feeds/api/users/default/uploads"));
     uploadJob = KIO::http_post(url,finalData,KIO::HideProgressInfo);
-    uploadJob->addMetaData("cookies","none");
-    uploadJob->addMetaData("connection","close");
-    uploadJob->addMetaData("customHTTPHeader",extraHeaders.data());
-    uploadJob->addMetaData("content-type","Content-Type: multipart/related; boundary=\"foobarfoo\"");
+    uploadJob->addMetaData(QStringLiteral("cookies"), QStringLiteral("none"));
+    uploadJob->addMetaData(QStringLiteral("connection"), QStringLiteral("close"));
+    uploadJob->addMetaData(QStringLiteral("customHTTPHeader"), QString::fromUtf8(extraHeaders.data()));
+    uploadJob->addMetaData(QStringLiteral("content-type"), QStringLiteral("Content-Type: multipart/related; boundary=\"foobarfoo\""));
     uploadJob->setAsyncDataEnabled(true);
     connect(uploadJob,SIGNAL(dataReq(KIO::Job*,QByteArray&)),this,SLOT(uploadNeedData()));
     connect(uploadJob,SIGNAL(data(KIO::Job*,QByteArray)),this,SLOT(uploadDone(KIO::Job*,QByteArray)));
+    connect(uploadJob, &KJob::finished, this, [](KJob* f){ qDebug() << "xxxxxxxxxx" << f; });
     uploadJob->start();
 }
 
@@ -167,15 +167,15 @@ void YoutubeJob::uploadDone(KIO::Job *job, const QByteArray &data)
 {
     qDebug() << "Upload Response";
 //     qDebug() << data.data();
-    QString dataStr(data);
-    QRegExp rx("<media:player url='(\\S+)'/>");
+    QString dataStr(QString::fromUtf8(data));
+    QRegExp rx(QStringLiteral("<media:player url='(\\S+)'/>"));
     dataStr.contains(rx);
 //     qDebug() << rx.cap(1);
-    QUrl url = rx.cap(1);
+    const QUrl url(rx.cap(1));
     if (!url.isEmpty()) {
-        qDebug() << "Url : " << url.url();
+        qDebug() << "Url : " << url;
         job->kill();
-        QDesktopServices::openUrl(url.url());
+        QDesktopServices::openUrl(url);
         emit emitResult();
     }
 }
@@ -183,30 +183,29 @@ void YoutubeJob::uploadDone(KIO::Job *job, const QByteArray &data)
 void YoutubeJob::login()
 {
     QMap<QString, QString> authInfo;
-    authInfo["username"] = dialog->username();
-    authInfo["password"] = dialog->password();
+    authInfo[QStringLiteral("username")] = dialog->username();
+    authInfo[QStringLiteral("password")] = dialog->password();
 
-    QUrl url("https://www.google.com/youtube/accounts/ClientLogin");
+    const QUrl url(QStringLiteral("https://www.google.com/youtube/accounts/ClientLogin"));
     QByteArray data("Email=");
-    data.append(authInfo["username"].toLatin1());
+    data.append(authInfo[QStringLiteral("username")].toLatin1());
     data.append("&Passwd=");
-    data.append(authInfo["password"].toLatin1());
+    data.append(authInfo[QStringLiteral("password")].toLatin1());
     data.append("&service=youtube&source=Kamoso");
-    KIO::TransferJob *loginJob = KIO::http_post(url,data,KIO::HideProgressInfo);
-    loginJob->addMetaData("cookies","none");
-    loginJob->addMetaData("content-type","Content-Type:application/x-www-form-urlencoded");
+    KIO::TransferJob *loginJob = KIO::http_post(url, data, KIO::HideProgressInfo);
+    loginJob->addMetaData(QStringLiteral("cookies"), QStringLiteral("none"));
+    loginJob->addMetaData(QStringLiteral("content-type"), QStringLiteral("Content-Type:application/x-www-form-urlencoded"));
     connect(loginJob,SIGNAL(data(KIO::Job*,QByteArray)),this,SLOT(loginDone(KIO::Job*,QByteArray)));
     loginJob->start();
 }
 
 void YoutubeJob::loginDone(KIO::Job *job, const QByteArray &data)
 {
-    delete job;
-    qDebug() << "LoginDone, data received\n";
+    qDebug() << "LoginDone, data received" << data;
 //     qDebug() << data.data();
     if(data.at(0) == 'E'){
         authenticated(false);
-    }else{
+    } else {
         QList<QByteArray> tokens = data.split('\n');
         m_authToken = tokens.first().remove(0,5);
         qDebug() << "Final AuthToken: " << m_authToken.data();
@@ -216,14 +215,14 @@ void YoutubeJob::loginDone(KIO::Job *job, const QByteArray &data)
 
 bool YoutubeJob::showDialog()
 {
-    QString server = QString("http://www.youtube.com");
+    QString server = QStringLiteral("http://www.youtube.com");
 
     if(m_wallet != NULL) {
         dialog = new KPasswordDialog(0L,KPasswordDialog::ShowKeepPassword | KPasswordDialog::ShowUsernameLine);
         QMap<QString, QString> authInfo;
-        m_wallet->readMap("youtubeAuth",authInfo);
-        dialog->setPassword(authInfo["password"]);
-        dialog->setUsername(authInfo["username"]);
+        m_wallet->readMap(QStringLiteral("youtubeAuth"), authInfo);
+        dialog->setPassword(authInfo[QStringLiteral("password")]);
+        dialog->setUsername(authInfo[QStringLiteral("username")]);
         dialog->setKeepPassword(true);
     }else{
         dialog = new KPasswordDialog(0L,KPasswordDialog::ShowUsernameLine);
@@ -236,7 +235,7 @@ bool YoutubeJob::showDialog()
     if(response == QDialog::Rejected){
         return false;
     }
-    while((dialog->username() == "" || dialog->password() == "") && response == QDialog::Accepted )
+    while((dialog->username().isEmpty() || dialog->password().isEmpty()) && response == QDialog::Accepted )
     {
         response = dialog->exec();
         if(response == QDialog::Rejected){
@@ -246,9 +245,9 @@ bool YoutubeJob::showDialog()
 
     if(dialog->keepPassword() == true &&  m_wallet != NULL) {
         QMap<QString, QString> toSave;
-        toSave["username"] = dialog->username();
-        toSave["password"] = dialog->password();
-        m_wallet->writeMap("youtubeAuth",toSave);
+        toSave[QStringLiteral("username")] = dialog->username();
+        toSave[QStringLiteral("password")] = dialog->password();
+        m_wallet->writeMap(QStringLiteral("youtubeAuth"), toSave);
         m_wallet->sync();
     }
     return true;

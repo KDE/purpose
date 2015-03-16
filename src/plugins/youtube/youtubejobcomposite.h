@@ -20,7 +20,6 @@
 #ifndef YOUTUBEJOBCOMPOSITE_H
 #define YOUTUBEJOBCOMPOSITE_H
 
-#include <KCompositeJob>
 #include "youtubejob.h"
 #include <purpose/job.h>
 
@@ -32,7 +31,7 @@ public:
     virtual void start() override;
     virtual QUrl configSourceCode() const;
 
-private slots:
+private Q_SLOTS:
     void subjobFinished(KJob* subjob);
 
 private:

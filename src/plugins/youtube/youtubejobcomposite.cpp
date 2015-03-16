@@ -30,13 +30,16 @@ YoutubeJobComposite::YoutubeJobComposite()
 
 void YoutubeJobComposite::start()
 {
-    foreach(const QJsonValue& url, data().value("urls").toArray()) {
+    m_pendingJobs = 0;
+    auto val = data().value(QStringLiteral("urls"));
+    foreach(const QJsonValue& url, val.toArray()) {
 //         qDebug() << "Url to upload: " << url;
         YoutubeJob* job = new YoutubeJob(QUrl(url.toString()),
-                                         data().value("videoTitle").toString(),
-                                         data().value("videoTags").toString(),
-                                         data().value("videoDesc").toString(), this);
+                                         data().value(QStringLiteral("videoTitle")).toString(),
+                                         data().value(QStringLiteral("videoTags")).toString(),
+                                         data().value(QStringLiteral("videoDesc")).toString(), this);
         connect(job, &KJob::finished, this, &YoutubeJobComposite::subjobFinished);
+        job->start();
         m_pendingJobs++;
     }
 }
@@ -55,7 +58,7 @@ void YoutubeJobComposite::subjobFinished(KJob* subjob)
 
 QUrl YoutubeJobComposite::configSourceCode() const
 {
-    QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "purpose/youtubeplugin_config.qml");
+    QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/youtubeplugin_config.qml"));
     Q_ASSERT(!path.isEmpty());
     return QUrl::fromLocalFile(path);
 }
