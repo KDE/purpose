@@ -16,8 +16,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  ************************************************************************************/
 
-#ifndef SHAREINTERFACE_H
-#define SHAREINTERFACE_H
+#ifndef PURPOSEJOB_H
+#define PURPOSEJOB_H
 
 #include <KJob>
 #include <QJsonObject>

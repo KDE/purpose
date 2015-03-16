@@ -16,8 +16,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  ************************************************************************************/
 
-#ifndef SHAREALTERNATIVESMODEL_H
-#define SHAREALTERNATIVESMODEL_H
+#ifndef PURPOSEALTERNATIVESMODEL_H
+#define PURPOSEALTERNATIVESMODEL_H
 
 #include <QAbstractListModel>
 #include <QJsonObject>
