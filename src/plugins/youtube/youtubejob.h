@@ -37,6 +37,9 @@ class YoutubeJob : public KJob
         bool showDialog();
 
         void login();
+
+        QUrl outputUrl() const { return m_outputUrl; }
+
     public Q_SLOTS:
         void fileOpened(KIO::Job *, const QByteArray &);
         void uploadDone(KJob*);
@@ -65,5 +68,6 @@ class YoutubeJob : public KJob
         QString videoDesc;
         QString videoTags;
         KPasswordDialog *dialog;
+        QUrl m_outputUrl;
 };
 #endif /* YOUTUBEJOB_H */

@@ -52,6 +52,10 @@ void YoutubeJobComposite::subjobFinished(KJob* subjob)
         setErrorText(subjob->errorText());
     }
     if (m_pendingJobs==0) {
+        if (!error()) {
+            const QUrl url = qobject_cast<YoutubeJob*>(subjob)->outputUrl();
+            Q_EMIT output({{ QStringLiteral("url"), url.toString() }});
+        }
         emitResult();
     }
 }

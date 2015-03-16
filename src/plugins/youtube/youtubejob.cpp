@@ -172,6 +172,7 @@ void YoutubeJob::uploadDone(KJob* job)
         setError(1);
         setErrorText(job->errorText());
         emitResult();
+        return;
     }
 
     const QByteArray data = qobject_cast<KIO::StoredTransferJob*>(job)->data();
@@ -182,12 +183,11 @@ void YoutubeJob::uploadDone(KJob* job)
 //     qDebug() << rx.cap(1);
     const QUrl url(rx.cap(1));
     if (!url.isEmpty()) {
-        qDebug() << "Url: " << url;
-        job->kill();
-        QDesktopServices::openUrl(url);
+        m_outputUrl = url;
     } else {
         qWarning() << "wrong answer" << data;
     }
+    emitResult();
 }
 
 void YoutubeJob::login()
