@@ -3,6 +3,7 @@ Type=Service
 Icon=edit-paste
 Comment=Upload text to pastebin
 Comment[bs]=Pošalji tekst na pastebin
+Comment[de]=Text zu Pastebin hochladen
 Comment[es]=Enviar texto a pastebin
 Comment[nl]=Tekst uploaden naar pastebin
 Comment[pl]=Wysyłaj tekst na pastebin
