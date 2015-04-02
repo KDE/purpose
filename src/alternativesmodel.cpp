@@ -172,6 +172,8 @@ QVariant AlternativesModel::data(const QModelIndex& index, int role) const
             return data.description();
         case Qt::DecorationRole:
             return QIcon::fromTheme(data.iconName());
+        case PluginIdRole:
+            return data.pluginId();
     }
     return QVariant();
 }

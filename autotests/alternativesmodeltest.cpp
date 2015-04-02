@@ -28,6 +28,19 @@
 
 QTEST_MAIN(AlternativesModelTest)
 
+int saveAsRow(Purpose::AlternativesModel* model)
+{
+    for(int i=0, c=model->rowCount(); i<c; ++i) {
+        QString pluginId = model->index(i).data(Purpose::AlternativesModel::PluginIdRole).toString();
+        if (pluginId == QLatin1String("saveasplugin")) {
+            return i;
+        }
+    }
+
+    Q_ASSERT(!"Couldn't find the saveas plugin");
+    return -1;
+}
+
 void AlternativesModelTest::runJobTest()
 {
     Purpose::AlternativesModel model;
@@ -38,18 +51,21 @@ void AlternativesModelTest::runJobTest()
         {QStringLiteral("mimeType"), QStringLiteral("dummy/thing") }
     };
     model.setInputData(input);
-    //TODO: should probably make a separate plugin type for testing, at the moment it's not testable without installing
+
     model.setPluginType(QStringLiteral("Export"));
-    QCOMPARE(model.rowCount(), 1); //     NOTE: we are assuming this plugin is the dummy plugin
-    Purpose::Job* job = model.createJob(0);
+    Purpose::Job* job = model.createJob(saveAsRow(&model));
     QVERIFY(job);
     QVERIFY(!job->isReady());
-    input.insert(QStringLiteral("destinationPath"), tempfile),
+    input.insert(QStringLiteral("destinationPath"), QUrl::fromLocalFile(tempfile).url()),
     job->setData(input);
     QVERIFY(job->isReady());
     job->start();
 
     QSignalSpy s(job, &KJob::finished);
     QVERIFY(s.wait());
+    if (job->error()) {
+        qWarning() << "error!" << job->error() << job->errorString() << job->errorText();
+    }
+    QCOMPARE(job->error(), 0);
     QVERIFY(QFile::remove(tempfile));
 }

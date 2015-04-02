@@ -41,6 +41,10 @@ Q_OBJECT
 Q_PROPERTY(QString pluginType READ pluginType WRITE setPluginType NOTIFY pluginTypeChanged);
 Q_PROPERTY(QJsonObject inputData READ inputData WRITE setInputData NOTIFY inputDataChanged);
 public:
+    enum Roles {
+        PluginIdRole = Qt::UserRole+1
+    };
+
     AlternativesModel(QObject* parent = Q_NULLPTR);
     virtual ~AlternativesModel();
 
