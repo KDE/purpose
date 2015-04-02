@@ -9,7 +9,7 @@ function(add_share_plugin name)
     endif()
 endfunction()
 
-add_subdirectory(dummy)
+add_subdirectory(saveas)
 add_subdirectory(imgur)
 add_subdirectory(pastebin)
 add_subdirectory(ktp-sendfile)

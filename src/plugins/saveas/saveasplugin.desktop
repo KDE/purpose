@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+Icon=edit-paste
+Comment=Dummy plugin, to test the shit out of the feature
+Name=Save as...
+
+X-KDE-PluginInfo-Author=Aleix Pol
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-Category=Utilities
+
+X-Purpose-Constraints=
+X-Purpose-Configuration=destinationPath
+X-Purpose-PluginTypes=Export

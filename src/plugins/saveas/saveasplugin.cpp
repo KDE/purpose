@@ -24,32 +24,36 @@
 #include <QStandardPaths>
 #include <QFile>
 #include <QJsonDocument>
+#include <QJsonArray>
 #include <KPluginFactory>
+#include <KIO/CopyJob>
 
 EXPORT_SHARE_VERSION
 
-class DummyShareJob : public Purpose::Job
+class SaveAsShareJob : public Purpose::Job
 {
     Q_OBJECT
     public:
-        DummyShareJob(QObject* parent) : Purpose::Job(parent) {}
+        SaveAsShareJob(QObject* parent) : Purpose::Job(parent) {}
 
         virtual void start() override
         {
-            QString destinationPath = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/') + data().value(QStringLiteral("destinationPath")).toString();
-            {
-                QFile f(destinationPath);
-                bool b = f.open(QIODevice::WriteOnly);
-                if (b) {
-                    f.write(QJsonDocument(data()).toJson());
-                } else
-                    qWarning() << "cannot write " << destinationPath;
+            QJsonArray inputUrls = data().value(QStringLiteral("urls")).toArray();
+
+            if (inputUrls.isEmpty()) {
+                qWarning() << "no urls to save" << inputUrls << data();
+                emitResult();
+                return;
             }
-            QTimer::singleShot(100, this, [this](){ setPercent(10); });
-            QTimer::singleShot(300, this, [this](){ setPercent(30); });
-            QTimer::singleShot(600, this, [this](){ setPercent(80); });
-            QTimer::singleShot(950, this, [this, destinationPath](){ Q_EMIT output( {{ QStringLiteral("url"), QUrl::fromLocalFile(destinationPath).toString() }} ); });
-            QTimer::singleShot(1000, this, [this](){ emitResult(); });
+
+            QList<QUrl> urls;
+            foreach(const QJsonValue &val, inputUrls) {
+                urls.append(QUrl(val.toString()));
+            }
+
+            const QUrl destination(data().value(QStringLiteral("destinationPath")).toString());
+            job = KIO::copy(urls, destination);
+            connect(job, &KJob::finished, this, &SaveAsShareJob::fileCopied);
         }
 
         virtual QUrl configSourceCode() const override
@@ -58,20 +62,30 @@ class DummyShareJob : public Purpose::Job
             Q_ASSERT(!path.isEmpty());
             return QUrl::fromLocalFile(path);
         }
+
+        void fileCopied(KJob* job)
+        {
+            setError(job->error());
+            setErrorText(job->errorText());
+            emitResult();
+        }
+
+    private:
+        KJob* job;
 };
 
-class Q_DECL_EXPORT DummyPlugin : public Purpose::PluginBase
+class Q_DECL_EXPORT SaveAsPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
     public:
-        DummyPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
+        SaveAsPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
 
         virtual Purpose::Job* share() const override
         {
-            return new DummyShareJob(nullptr);
+            return new SaveAsShareJob(nullptr);
         }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(DummyShare, "dummyplugin.json", registerPlugin<DummyPlugin>();)
+K_PLUGIN_FACTORY_WITH_JSON(SaveAsShare, "saveasplugin.json", registerPlugin<SaveAsPlugin>();)
 
-#include "dummyplugin.moc"
+#include "saveasplugin.moc"
