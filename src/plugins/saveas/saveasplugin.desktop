@@ -2,6 +2,16 @@
 Type=Service
 Icon=edit-paste
 Comment=Dummy plugin, to test the shit out of the feature
+Comment[bs]=Prazan dodatak, da istjera govno iz objekta koliko ga testira
+Comment[es]=Complemento de simulación para probar la salida de la funcionalidad
+Comment[nl]=Dummy-plug-in, om de rommel uit de functie te testen
+Comment[pl]=Fikcyjna wtyczka, do testowana
+Comment[pt]='Plugin' de testes, para testar as funcionalidades
+Comment[pt_BR]=Plugin para teste da funcionalidade
+Comment[sk]=Prázdny plugin, na vyskúšanie funkcie
+Comment[sv]=Testinsticksprogram, för att testa skiten ur funktionen
+Comment[uk]=Фіктивний додаток, призначено для тестування можливості
+Comment[x-test]=xxDummy plugin, to test the shit out of the featurexx
 Name=Save as...
 
 X-KDE-PluginInfo-Author=Aleix Pol
