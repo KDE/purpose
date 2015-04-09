@@ -21,7 +21,24 @@
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonValue>
+#include <QJsonDocument>
 #include <QStandardPaths>
+#include <KLocalizedString>
+#include <KAccounts/getcredentialsjob.h>
+#include <KAccounts/core.h>
+#include <Accounts/Manager>
+#include <Accounts/Application>
+
+QDebug operator<<(QDebug s, const Accounts::Service& service)
+{
+    s.nospace() << qPrintable(service.displayName()) << ',' << qPrintable(service.name()) << '\n';
+    return s;
+}
+QDebug operator<<(QDebug s, const Accounts::Provider& provider)
+{
+    s.nospace() << "Provider(" << qPrintable(provider.displayName()) << ',' << qPrintable(provider.name()) << ")\n";
+    return s;
+}
 
 YoutubeJobComposite::YoutubeJobComposite()
     : Purpose::Job()
@@ -30,13 +47,36 @@ YoutubeJobComposite::YoutubeJobComposite()
 
 void YoutubeJobComposite::start()
 {
+    //TODO Make it possible to configure the accountid
+    Accounts::AccountId id;
+    {
+        Accounts::Manager* mgr = KAccounts::accountsManager();
+        auto accounts =  mgr->accountList(QStringLiteral("google-youtube"));
+        if (accounts.isEmpty()) {
+            setError(1);
+            setErrorText(i18n("No YouTube account configured in your accounts."));
+            emitResult();
+            return;
+        }
+        id = accounts.first();
+    }
+
+    QByteArray accessToken;
+    {
+        auto job = new GetCredentialsJob(id, this);
+        bool b = job->exec();
+        Q_ASSERT(b);
+        qDebug() << QJsonDocument::fromVariant(job->credentialsData()).toJson();
+        accessToken = job->credentialsData()[QStringLiteral("AccessToken")].toByteArray();
+    }
+
     m_pendingJobs = 0;
-    auto val = data().value(QStringLiteral("urls"));
-    foreach(const QJsonValue& url, val.toArray()) {
-//         qDebug() << "Url to upload: " << url;
+    const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
+    foreach(const QJsonValue& url, urls) {
         YoutubeJob* job = new YoutubeJob(QUrl(url.toString()),
+                                         accessToken,
                                          data().value(QStringLiteral("videoTitle")).toString(),
-                                         data().value(QStringLiteral("videoTags")).toString(),
+                                         data().value(QStringLiteral("videoTags")).toString().split(QLatin1Char(',')),
                                          data().value(QStringLiteral("videoDesc")).toString(), this);
         connect(job, &KJob::finished, this, &YoutubeJobComposite::subjobFinished);
         job->start();
@@ -50,10 +90,12 @@ void YoutubeJobComposite::subjobFinished(KJob* subjob)
     if (subjob->error()) {
         setError(subjob->error());
         setErrorText(subjob->errorText());
+        emitResult();
+        return;
     }
     if (m_pendingJobs==0) {
         if (!error()) {
-            const QUrl url = qobject_cast<YoutubeJob*>(subjob)->outputUrl();
+            const QJsonValue url = qobject_cast<YoutubeJob*>(subjob)->outputUrl();
             Q_EMIT output({{ QStringLiteral("url"), url.toString() }});
         }
         emitResult();

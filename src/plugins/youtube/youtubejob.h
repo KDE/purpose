@@ -22,52 +22,35 @@
 
 #include <KPasswordDialog>
 #include <KJob>
-#include <KIO/Job>
 #include <QMap>
 #include <QPointer>
 #include <QString>
-#include <kwallet.h>
+#include <QJsonValue>
+#include <QNetworkAccessManager>
+#include "../imgur/mpform.h"
 
 class YoutubeJob : public KJob
 {
     Q_OBJECT
     public:
-        YoutubeJob(const QUrl& url, const QString& title, const QString& tags, const QString& description, QObject* parent = Q_NULLPTR);
-        virtual void start();
-        bool showDialog();
+        YoutubeJob(const QUrl& url, const QByteArray &token, const QString& title, const QStringList& tags, const QString& description, QObject* parent = Q_NULLPTR);
+        void start() override;
 
-        void login();
+        QString outputUrl() const { return m_output; }
 
-        QUrl outputUrl() const { return m_outputUrl; }
-
-    public Q_SLOTS:
-        void fileOpened(KIO::Job *, const QByteArray &);
-        void uploadDone(KJob*);
-        void moreData(KIO::Job *, const QByteArray &);
-        void uploadNeedData(KIO::Job* job);
-        void uploadFinal(KIO::Job* job);
-        void authenticated(bool);
-        void loginDone(KJob* job);
     private:
-        void setVideoInfo(QMap<QString, QString>& videoInfo);
-        void checkWallet();
-        QByteArray m_authToken;
-        static const QByteArray developerKey;
-
-        QPointer<KIO::StoredTransferJob> uploadJob;
-        QPointer<KIO::TransferJob> openFileJob;
+        void fileFetched(KJob*);
+        void createLocation();
+        void locationCreated();
+        void uploadVideo(const QByteArray& data);
+        void videoUploaded();
 
         QUrl m_url;
-        QString m_title;
-        QString m_tags;
-        QString m_description;
-
-        QList<QUrl> mSelectedUrls;
-        KWallet::Wallet *m_wallet;
-        QString videoTitle;
-        QString videoDesc;
-        QString videoTags;
-        KPasswordDialog *dialog;
-        QUrl m_outputUrl;
+        MPForm m_form;
+        QByteArray m_token;
+        QString m_output;
+        QNetworkAccessManager m_manager;
+        QByteArray m_metadata;
+        QUrl m_uploadUrl;
 };
 #endif /* YOUTUBEJOB_H */

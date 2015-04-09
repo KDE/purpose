@@ -24,262 +24,116 @@
 
 #include <QDebug>
 #include <QUrl>
+#include <QUrlQuery>
 #include <QIcon>
 #include <QDesktopServices>
 #include <KIO/Job>
-#include <KIO/StoredTransferJob>
-#include <KToolInvocation>
 #include <KLocalizedString>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkReply>
+#include <QHttpMultiPart>
 
-const QByteArray YoutubeJob::developerKey("AI39si41ZFrIJoZGNH0hrZPhMuUlwHc6boMLi4e-_W6elIzVUIeDO9F7ix2swtnGAiKT4yc4F4gQw6yysTGvCn1lPNyli913Xg");
+const static QUrl uploadUrl(QStringLiteral("https://www.googleapis.com/upload/youtube/v3/videos"));
+const static QString watchUrl = QStringLiteral("https://www.youtube.com/watch?v=");
 
-using KWallet::Wallet;
-
-YoutubeJob::YoutubeJob(const QUrl& url, const QString& title, const QString& tags, const QString& description, QObject* parent)
-    : KJob(parent), m_authToken(0), m_url(url), m_title(title), m_tags(tags), m_description(description), dialog(0)
+YoutubeJob::YoutubeJob(const QUrl& url, const QByteArray &accessToken, const QString& title, const QStringList& tags, const QString& description, QObject* parent)
+    : KJob(parent), m_url(url), m_token(accessToken)
 {
+    m_metadata = QByteArray("{ "
+        "\"snippet\": {"
+            "\"title\": \"" + title.toUtf8() + "\", "
+            "\"categoryId\": \"22\", "
+            "\"description\": \"" + description.toUtf8() + "\", "
+            "\"tags\": [ \"" + tags.join(QStringLiteral("\", \"")).toUtf8() + "\" ] "
+        "}, "
+        "\"status\": { "
+            "\"privacyStatus\": \"public\" "
+        "} "
+    "}");
 }
 
 void YoutubeJob::start()
 {
-    qDebug() << "Job started";
-    checkWallet();
+    createLocation();
 }
 
-void YoutubeJob::checkWallet()
+void YoutubeJob::fileFetched(KJob* j)
 {
-    WId windowId = 0;
-    if (qApp->activeWindow()) {
-        windowId = qApp->activeWindow()->winId();
+    if (j->error()) {
+        setError(j->error());
+        setErrorText(j->errorText());
+        emitResult();
     }
-    m_wallet = Wallet::openWallet(Wallet::NetworkWallet(), windowId);
-    if(m_wallet != NULL){
-        if(!m_wallet->hasFolder(QStringLiteral("youtubeKamoso"))) {
-            if(!m_wallet->createFolder(QStringLiteral("youtubeKamoso"))) {
-                //TODO: Error reporting here
-                return;
-            }
-        }
-        m_wallet->setFolder(QStringLiteral("youtubeKamoso"));
-    }
+    KIO::StoredTransferJob* job = qobject_cast<KIO::StoredTransferJob*>(j);
 
-    if(!showDialog()){
-        Q_EMIT emitResult();
+    uploadVideo(job->data());
+}
+
+void YoutubeJob::createLocation()
+{
+    QUrlQuery q(uploadUrl);
+    q.addQueryItem(QStringLiteral("part"), QStringLiteral("snippet%2Cstatus"));
+    q.addQueryItem(QStringLiteral("uploadType"), QStringLiteral("resumable"));
+    QUrl nurl = uploadUrl;
+    nurl.setQuery(q);
+    qDebug() << "nurl" << nurl.toString();
+//
+    QNetworkRequest req(nurl);
+    req.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json; charset=UTF-8"));
+    req.setRawHeader("Authorization", "Bearer "+m_token);
+    req.setRawHeader("X-Upload-Content-Type", "video/*");
+
+    auto reply = m_manager.post(req, m_metadata);
+    connect(reply, &QNetworkReply::finished, this, &YoutubeJob::locationCreated);
+    connect(reply, static_cast<void(QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
+            [](QNetworkReply::NetworkError e){ qDebug() << "creation error" << e; });
+}
+
+void YoutubeJob::locationCreated()
+{
+    QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
+    if (reply->error()) {
+        setError(reply->error());
+        setErrorText(reply->errorString());
+        qWarning() << "couldn't upload file" << reply->readAll();
+        emitResult();
         return;
     }
-    login();
+    Q_ASSERT(reply->atEnd());
+    Q_ASSERT(reply->hasRawHeader("Location"));
+
+    m_uploadUrl = QUrl::fromEncoded(reply->rawHeader("Location"));
+
+    KIO::StoredTransferJob* job = KIO::storedGet(m_url);
+    connect(job, &KJob::finished, this, &YoutubeJob::fileFetched);
 }
 
-void YoutubeJob::fileOpened(KIO::Job *job, const QByteArray &data)
+void YoutubeJob::uploadVideo(const QByteArray& data)
 {
-    qDebug() << "fileOPened!!";
-    job->suspend();
+    QNetworkRequest req(m_uploadUrl);
+    req.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("video/*"));
+    req.setRawHeader("X-Upload-Content-Length", QByteArray::number(data.size()));
+    req.setRawHeader("Authorization", "Bearer "+m_token);
 
-    disconnect(job,SIGNAL(data(KIO::Job*,QByteArray)),this,SLOT(fileOpened(KIO::Job*,QByteArray)));
-    connect(job,SIGNAL(data(KIO::Job*,QByteArray)),this,SLOT(moreData(KIO::Job*,QByteArray)));
-
-    QByteArray extraHeaders;
-    extraHeaders.append("Authorization: GoogleLogin auth=");
-    extraHeaders.append(m_authToken.data());
-    extraHeaders.append("\r\n");
-    extraHeaders.append("GData-Version: 2");
-    extraHeaders.append("\r\n");
-    extraHeaders.append("X-GData-Key: key=");
-    extraHeaders.append(developerKey);
-    extraHeaders.append("\r\n");
-    extraHeaders.append("Slug: ");
-    extraHeaders.append(qobject_cast<KIO::SimpleJob*>(job)->url().fileName().toUtf8());
-
-    QByteArray finalData("--foobarfoo");
-    finalData.append("\r\n");
-    finalData.append("Content-Type: application/atom+xml; charset=UTF-8");
-    finalData.append("\r\n");
-    finalData.append("\r\n");
-    finalData.append("<?xml version=\"1.0\"?>\r\n");
-finalData.append("<entry xmlns=\"http://www.w3.org/2005/Atom\"\r\n");
-  finalData.append("xmlns:media=\"http://search.yahoo.com/mrss/\"\r\n");
-  finalData.append("xmlns:yt=\"http://gdata.youtube.com/schemas/2007\">\r\n");
-  finalData.append("<media:group>\r\n");
-    finalData.append("<media:title type=\"plain\">"+m_title.toUtf8()+"</media:title>\r\n");
-    finalData.append("<media:description type=\"plain\">\r\n");
-      finalData.append(m_description.toUtf8()+"\r\n");
-    finalData.append("</media:description>\r\n");
-    finalData.append("<media:category\r\n");
-      finalData.append("scheme=\"http://gdata.youtube.com/schemas/2007/categories.cat\">People\r\n");
-    finalData.append("</media:category>\r\n");
-    finalData.append("<media:keywords>"+m_tags.toUtf8()+"</media:keywords>\r\n");
-  finalData.append("</media:group>\r\n");
-finalData.append("</entry>");
-    finalData.append("\r\n");
-    finalData.append("--foobarfoo");
-    finalData.append("\r\n");
-    finalData.append("Content-Type: video/ogg");
-    finalData.append("\r\n");
-    finalData.append("Content-Transfer-Encoding: binary");
-    finalData.append("\r\n");
-    finalData.append("\r\n");
-    finalData.append(data);
-//     qDebug() << finalData;
-    const QUrl url(QStringLiteral("http://uploads.gdata.youtube.com/feeds/api/users/default/uploads"));
-    uploadJob = KIO::storedHttpPost(finalData, url, KIO::HideProgressInfo);
-    uploadJob->addMetaData(QStringLiteral("cookies"), QStringLiteral("none"));
-    uploadJob->addMetaData(QStringLiteral("connection"), QStringLiteral("close"));
-    uploadJob->addMetaData(QStringLiteral("customHTTPHeader"), QString::fromUtf8(extraHeaders.data()));
-    uploadJob->addMetaData(QStringLiteral("content-type"), QStringLiteral("Content-Type: multipart/related; boundary=\"foobarfoo\""));
-    uploadJob->setAsyncDataEnabled(true);
-    connect(uploadJob,SIGNAL(dataReq(KIO::Job*,QByteArray&)),this,SLOT(uploadNeedData(KIO::Job*)));
-    connect(uploadJob,SIGNAL(finished(KJob*)),this, SLOT(uploadDone(KJob*)));
-    uploadJob->start();
+    auto reply = m_manager.post(req, data);
+    connect(reply, &QNetworkReply::finished, this, &YoutubeJob::videoUploaded);
+    connect(reply, static_cast<void(QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
+            [](QNetworkReply::NetworkError e){ qDebug() << "upload error" << e; });
 }
 
-void YoutubeJob::moreData(KIO::Job *job, const QByteArray &data)
+void YoutubeJob::videoUploaded()
 {
-    job->suspend();
-    if(data.size() == 0){
-        qDebug() << "Data is zero, going to end this!";
-        disconnect(uploadJob,SIGNAL(dataReq(KIO::Job*,QByteArray&)),this,SLOT(uploadNeedData()));
-        connect(uploadJob,SIGNAL(dataReq(KIO::Job*,QByteArray&)),this,SLOT(uploadFinal(KIO::Job*,)));
-
-        QByteArray final("\r\n");
-        final.append("--foobarfoo--");
-        uploadJob->sendAsyncData(final);
-    }else{
-        qDebug() << "Sending more data....";
-
-        uploadJob->sendAsyncData(data);
-    }
-}
-
-void YoutubeJob::uploadFinal(KIO::Job* job)
-{
-    Q_UNUSED(job);
-    //Sending an empty QByteArray the job ends
-    qDebug() << "Sendind the empty packed";
-    uploadJob->sendAsyncData(QByteArray());
-}
-
-void YoutubeJob::uploadNeedData(KIO::Job* job)
-{
-    Q_UNUSED(job);
-    qDebug() << "openFile job resumed!";
-    openFileJob->resume();
-}
-
-void YoutubeJob::uploadDone(KJob* job)
-{
-    if (job->error()) {
-        qWarning() << "error while uploading" << job->error() << job->errorText() << job->errorString();
-        setError(1);
-        setErrorText(job->errorText());
+    QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
+    if (reply->error()) {
+        setError(reply->error());
+        setErrorText(reply->errorString());
+        qWarning() << "couldn't finish upload" << reply->readAll();
         emitResult();
         return;
     }
 
-    const QByteArray data = qobject_cast<KIO::StoredTransferJob*>(job)->data();
-//     qDebug() << data.data();
-    QString dataStr(QString::fromUtf8(data));
-    QRegExp rx(QStringLiteral("<media:player url='(\\S+)'/>"));
-    dataStr.contains(rx);
-//     qDebug() << rx.cap(1);
-    const QUrl url(rx.cap(1));
-    if (!url.isEmpty()) {
-        m_outputUrl = url;
-    } else {
-        qWarning() << "wrong answer" << data;
-    }
+    auto doc = QJsonDocument::fromJson(reply->readAll()).object();
+    m_output = watchUrl+doc.value(QStringLiteral("id")).toString();
     emitResult();
-}
-
-void YoutubeJob::login()
-{
-    QMap<QString, QString> authInfo;
-    authInfo[QStringLiteral("username")] = dialog->username();
-    authInfo[QStringLiteral("password")] = dialog->password();
-
-    const QUrl url(QStringLiteral("https://www.google.com/youtube/accounts/ClientLogin"));
-    QByteArray data("Email=");
-    data.append(authInfo[QStringLiteral("username")].toLatin1());
-    data.append("&Passwd=");
-    data.append(authInfo[QStringLiteral("password")].toLatin1());
-    data.append("&service=youtube&source=Kamoso");
-    KIO::StoredTransferJob* loginJob = KIO::storedHttpPost(data, url, KIO::HideProgressInfo);
-    loginJob->addMetaData(QStringLiteral("cookies"), QStringLiteral("none"));
-    loginJob->addMetaData(QStringLiteral("content-type"), QStringLiteral("Content-Type:application/x-www-form-urlencoded"));
-    connect(loginJob, &KJob::finished, this, &YoutubeJob::loginDone);
-    loginJob->start();
-}
-
-void YoutubeJob::loginDone(KJob *job)
-{
-    KIO::StoredTransferJob* loginJob = qobject_cast<KIO::StoredTransferJob*>(job);
-    const QByteArray data = loginJob->data();
-
-    qDebug() << "LoginDone, data received" << data;
-//     qDebug() << data.data();
-    if(data.at(0) == 'E'){
-        authenticated(false);
-    } else {
-        QList<QByteArray> tokens = data.split('\n');
-        m_authToken = tokens.first().remove(0,5);
-        qDebug() << "Final AuthToken: " << m_authToken.data();
-        authenticated(true);
-    }
-}
-
-bool YoutubeJob::showDialog()
-{
-    QString server = QStringLiteral("http://www.youtube.com");
-
-    if(m_wallet != NULL) {
-        dialog = new KPasswordDialog(0L,KPasswordDialog::ShowKeepPassword | KPasswordDialog::ShowUsernameLine);
-        QMap<QString, QString> authInfo;
-        m_wallet->readMap(QStringLiteral("youtubeAuth"), authInfo);
-        dialog->setPassword(authInfo[QStringLiteral("password")]);
-        dialog->setUsername(authInfo[QStringLiteral("username")]);
-        dialog->setKeepPassword(true);
-    }else{
-        dialog = new KPasswordDialog(0L,KPasswordDialog::ShowUsernameLine);
-    }
-    dialog->setPrompt(i18n("You need to supply a username and a password to be able to upload videos to YouTube"));
-    dialog->addCommentLine(i18n("Server:"),server);
-    dialog->setWindowTitle(i18n("Authentication for YouTube"));
-
-    int response = dialog->exec();
-    if(response == QDialog::Rejected){
-        return false;
-    }
-    while((dialog->username().isEmpty() || dialog->password().isEmpty()) && response == QDialog::Accepted )
-    {
-        response = dialog->exec();
-        if(response == QDialog::Rejected){
-            return false;
-        }
-    }
-
-    if(dialog->keepPassword() == true &&  m_wallet != NULL) {
-        QMap<QString, QString> toSave;
-        toSave[QStringLiteral("username")] = dialog->username();
-        toSave[QStringLiteral("password")] = dialog->password();
-        m_wallet->writeMap(QStringLiteral("youtubeAuth"), toSave);
-        m_wallet->sync();
-    }
-    return true;
-}
-
-void YoutubeJob::authenticated(bool auth)
-{
-    qDebug() << "Authentication: " << auth ;
-    if(auth == false){
-        if(showDialog()){
-            login();
-        }
-        return;
-    }
-    QMap<QString, QString> videoInfo;
-//     m_videoInfo = data();
-#warning todo
-    qDebug() << "File To Upload: " << m_url.path();
-    openFileJob = KIO::get(m_url,KIO::NoReload,KIO::HideProgressInfo);
-    connect(openFileJob,SIGNAL(data(KIO::Job*,QByteArray)),this,SLOT(fileOpened(KIO::Job*,QByteArray)));
-    openFileJob->start();
 }
