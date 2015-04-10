@@ -61,12 +61,18 @@ void YoutubeJobComposite::start()
         id = accounts.first();
     }
 
+    //TODO: make async
     QByteArray accessToken;
     {
         auto job = new GetCredentialsJob(id, this);
         bool b = job->exec();
-        Q_ASSERT(b);
-        qDebug() << QJsonDocument::fromVariant(job->credentialsData()).toJson();
+        if (!b) {
+            qWarning() << "Couldn't fetch credentials";
+            setError(job->error());
+            setErrorText(job->errorText());
+            emitResult();
+            return;
+        }
         accessToken = job->credentialsData()[QStringLiteral("AccessToken")].toByteArray();
     }
 
