@@ -34,7 +34,7 @@
 #include <QNetworkReply>
 #include <QHttpMultiPart>
 
-const static QUrl uploadUrl(QStringLiteral("https://www.googleapis.com/upload/youtube/v3/videos"));
+const static QUrl apiUrl(QStringLiteral("https://www.googleapis.com/upload/youtube/v3/videos?part=snippet%2Cstatus&uploadType=resumable"));
 const static QString watchUrl = QStringLiteral("https://www.youtube.com/watch?v=");
 
 YoutubeJob::YoutubeJob(const QUrl& url, const QByteArray &accessToken, const QString& title, const QStringList& tags, const QString& description, QObject* parent)
@@ -72,14 +72,7 @@ void YoutubeJob::fileFetched(KJob* j)
 
 void YoutubeJob::createLocation()
 {
-    QUrlQuery q(uploadUrl);
-    q.addQueryItem(QStringLiteral("part"), QStringLiteral("snippet%2Cstatus"));
-    q.addQueryItem(QStringLiteral("uploadType"), QStringLiteral("resumable"));
-    QUrl nurl = uploadUrl;
-    nurl.setQuery(q);
-    qDebug() << "nurl" << nurl.toString();
-//
-    QNetworkRequest req(nurl);
+    QNetworkRequest req(apiUrl);
     req.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json; charset=UTF-8"));
     req.setRawHeader("Authorization", "Bearer "+m_token);
     req.setRawHeader("X-Upload-Content-Type", "video/*");
