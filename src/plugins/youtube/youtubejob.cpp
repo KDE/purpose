@@ -109,8 +109,13 @@ void YoutubeJob::uploadVideo(const QByteArray& data)
     req.setRawHeader("X-Upload-Content-Length", QByteArray::number(data.size()));
     req.setRawHeader("Authorization", "Bearer "+m_token);
 
+    setTotalAmount(Bytes, data.size());
     auto reply = m_manager.post(req, data);
     connect(reply, &QNetworkReply::finished, this, &YoutubeJob::videoUploaded);
+    connect(reply, &QNetworkReply::uploadProgress, this, [this](quint64 bytesSent, quint64 bytesTotal) {
+        setProcessedAmount(Bytes, bytesSent);
+        setPercent((bytesSent*100)/bytesTotal);
+    });
     connect(reply, static_cast<void(QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
             [](QNetworkReply::NetworkError e){ qDebug() << "upload error" << e; });
 }
