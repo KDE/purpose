@@ -27,7 +27,7 @@ find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS CoreAddons Config I18n K
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX PURPOSE
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h"
-                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfigVersion.cmake"
+                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KDEExperimentalPurposeConfigVersion.cmake"
                         SOVERSION 5)
 
 add_subdirectory( autotests )
@@ -39,24 +39,24 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
 endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Purpose")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KDEExperimentalPurpose")
 
 include(ECMPackageConfigHelpers)
 
 ecm_configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5PurposeConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfig.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KDEExperimentalPurposeConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KDEExperimentalPurposeConfig.cmake"
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KDEExperimentalPurposeConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KDEExperimentalPurposeConfigVersion.cmake"
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   COMPONENT Devel
 )
 
-install(EXPORT KF5PurposeTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5PurposeTargets.cmake NAMESPACE KF5:: )
+install(EXPORT KDEExperimentalPurposeTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KDEExperimentalPurposeTargets.cmake NAMESPACE KDEExperimental:: )
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h
