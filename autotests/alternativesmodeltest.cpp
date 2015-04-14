@@ -26,7 +26,7 @@
 #include <purpose/job.h>
 #include <purpose/alternativesmodel.h>
 
-QTEST_MAIN(AlternativesModelTest)
+QTEST_GUILESS_MAIN(AlternativesModelTest)
 
 int saveAsRow(Purpose::AlternativesModel* model)
 {
