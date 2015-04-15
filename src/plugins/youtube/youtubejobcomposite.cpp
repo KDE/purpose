@@ -18,6 +18,7 @@
  *************************************************************************************/
 
 #include "youtubejobcomposite.h"
+#include "youtubejob.h"
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonValue>

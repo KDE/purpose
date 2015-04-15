@@ -20,10 +20,6 @@
 #ifndef KIPIPLUGIN_YOUTUBE_H
 #define KIPIPLUGIN_YOUTUBE_H
 
-#include <KPasswordDialog>
-#include <QUrl>
-#include <kwallet.h>
-#include <KIO/Job>
 #include <purpose/pluginbase.h>
 
 class YoutubePlugin : public Purpose::PluginBase

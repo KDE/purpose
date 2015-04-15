@@ -31,7 +31,6 @@
 #include <QMimeType>
 #include <QUrl>
 #include <kpassworddialog.h>
-#include <kwallet.h>
 #include <QDebug>
 
 K_PLUGIN_FACTORY_WITH_JSON(YoutubeShare, "youtubeplugin.json", registerPlugin<YoutubePlugin>();)

@@ -27,7 +27,7 @@
 #include <QString>
 #include <QJsonValue>
 #include <QNetworkAccessManager>
-#include "../imgur/mpform.h"
+#include <QUrl>
 
 class YoutubeJob : public KJob
 {
@@ -46,7 +46,6 @@ class YoutubeJob : public KJob
         void videoUploaded();
 
         QUrl m_url;
-        MPForm m_form;
         QByteArray m_token;
         QString m_output;
         QNetworkAccessManager m_manager;

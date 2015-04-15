@@ -20,7 +20,6 @@
 #ifndef YOUTUBEJOBCOMPOSITE_H
 #define YOUTUBEJOBCOMPOSITE_H
 
-#include "youtubejob.h"
 #include <purpose/job.h>
 
 class YoutubeJobComposite : public Purpose::Job
