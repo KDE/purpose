@@ -32,6 +32,7 @@ StackView {
             Label {
                 Layout.fillWidth: true
                 text: display
+                elide: Text.ElideRight
             }
             Button {
                 text: i18n("Use")
