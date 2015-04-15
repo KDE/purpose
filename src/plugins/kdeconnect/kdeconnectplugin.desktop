@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+Icon=kdeconnect
+Name=Send To Device...
+Comment=Send through KDE Connect
+
+X-KDE-PluginInfo-Author=Aleix Pol
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-Category=Utilities
+
+X-Purpose-Constraints=
+X-Purpose-Configuration=device
+X-Purpose-PluginTypes=Export
