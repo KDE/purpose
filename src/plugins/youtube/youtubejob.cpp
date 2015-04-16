@@ -114,7 +114,7 @@ void YoutubeJob::uploadVideo(const QByteArray& data)
     connect(reply, &QNetworkReply::finished, this, &YoutubeJob::videoUploaded);
     connect(reply, &QNetworkReply::uploadProgress, this, [this](quint64 bytesSent, quint64 bytesTotal) {
         setProcessedAmount(Bytes, bytesSent);
-        setPercent((bytesSent*100)/bytesTotal);
+        setPercent(bytesTotal == 0 ? 0 : (bytesSent*100)/bytesTotal);
     });
     connect(reply, static_cast<void(QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
             [](QNetworkReply::NetworkError e){ qDebug() << "upload error" << e; });
