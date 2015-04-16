@@ -22,6 +22,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QStandardPaths>
+#include <KLocalizedString>
 #include <KPluginFactory>
 
 EXPORT_SHARE_VERSION
@@ -45,8 +47,15 @@ class KTpSendFileShareJob : public Purpose::Job
 
         virtual void start() override
         {
+            QString executable = QStandardPaths::findExecutable(QStringLiteral("ktp-send-file"));
+            if (executable.isEmpty()) {
+                setError(1);
+                setErrorText(i18n("Couldn't find 'ktp-send-file' executable."));
+                emitResult();
+                return;
+            }
             QProcess* process = new QProcess(this);
-            process->setProgram(QStringLiteral("ktp-send-file"));
+            process->setProgram(executable);
             QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
             process->setArguments(arrayToList(urlsJson));
             connect(process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &KTpSendFileShareJob::jobFinished);
