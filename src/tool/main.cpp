@@ -76,7 +76,7 @@ int main(int argc, char** argv)
     {
         QMimeDatabase db;
         for(const QString& file: files) {
-            const QUrl url = QUrl::fromUserInput(file);
+            const QUrl url = QUrl::fromUserInput(file, QString(), QUrl::AssumeLocalFile);
             QMimeType type = db.mimeTypeForUrl(url);
             if (!common.isValid())
                 common = type;
