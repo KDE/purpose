@@ -31,7 +31,7 @@ X-KDE-PluginInfo-Author=Aleix Pol
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-Category=Utilities
 
-X-Purpose-Constraints=mimeType:video/ogg
+X-Purpose-Constraints=mimeType:video/*
 X-Purpose-Configuration=videoDesc,videoTitle,videoTags
 
 X-Purpose-PluginTypes=Export
