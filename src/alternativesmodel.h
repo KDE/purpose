@@ -42,7 +42,8 @@ Q_PROPERTY(QString pluginType READ pluginType WRITE setPluginType NOTIFY pluginT
 Q_PROPERTY(QJsonObject inputData READ inputData WRITE setInputData NOTIFY inputDataChanged);
 public:
     enum Roles {
-        PluginIdRole = Qt::UserRole+1
+        PluginIdRole = Qt::UserRole+1,
+        IconNameRole
     };
 
     AlternativesModel(QObject* parent = Q_NULLPTR);
@@ -66,6 +67,7 @@ public:
 
     virtual QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     virtual int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    virtual QHash<int,QByteArray> roleNames() const override;
 
 Q_SIGNALS:
     void inputDataChanged();

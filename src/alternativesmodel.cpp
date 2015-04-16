@@ -69,6 +69,16 @@ AlternativesModel::~AlternativesModel()
     delete d;
 }
 
+QHash<int,QByteArray> AlternativesModel::roleNames() const
+{
+    QHash<int,QByteArray> roles = QAbstractListModel::roleNames();
+    roles.unite({
+        { IconNameRole, "iconName" },
+        { PluginIdRole, "pluginId" }
+    });
+    return roles;
+}
+
 void AlternativesModel::setInputData(const QJsonObject &input)
 {
     Q_D(AlternativesModel);
@@ -170,6 +180,8 @@ QVariant AlternativesModel::data(const QModelIndex& index, int role) const
             return data.name();
         case Qt::ToolTip:
             return data.description();
+        case IconNameRole:
+            return data.iconName();
         case Qt::DecorationRole:
             return QIcon::fromTheme(data.iconName());
         case PluginIdRole:
