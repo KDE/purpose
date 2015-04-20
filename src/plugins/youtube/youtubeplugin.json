@@ -1,0 +1,39 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Aleix Pol"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Upload videos to YouTube",
+        "Description[bs]": "Šalji video na Youtube",
+        "Description[cs]": "Odeslat videa na YouTube",
+        "Description[de]": "Videos auf YouTube hochladen",
+        "Description[es]": "Enviar vídeos a YouTube",
+        "Description[nl]": "Video's naar YouTube uploaden",
+        "Description[pl]": "Wyślij film na YouTube",
+        "Description[pt]": "Enviar os vídeos para o YouTube",
+        "Description[pt_BR]": "Envia vídeos para o YouTube",
+        "Description[sk]": "Nahrať videá na YouTube",
+        "Description[sv]": "Ladda upp videor till YouTube",
+        "Description[uk]": "Вивантаження відео на YouTube",
+        "Description[x-test]": "xxUpload videos to YouTubexx",
+        "Icon": "edit-paste",
+        "License": "GPL",
+        "Name": "Youtube",
+        "Name[de]": "Youtube",
+        "Name[es]": "Youtube",
+        "Name[nl]": "Youtube",
+        "Name[pl]": "Youtube",
+        "Name[pt]": "Youtube",
+        "Name[pt_BR]": "Youtube",
+        "Name[sk]": "Youtube",
+        "Name[sv]": "YouTube",
+        "Name[uk]": "YouTube",
+        "Name[x-test]": "xxYoutubexx"
+    },
+    "X-Purpose-Configuration": "videoDesc,videoTitle,videoTags",
+    "X-Purpose-Constraints": "mimeType:video/*",
+    "X-Purpose-PluginTypes": "Export"
+}

@@ -1,0 +1,41 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Aleix Pol"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Upload pictures to imgur",
+        "Description[bs]": "Slanje slika na imgur",
+        "Description[cs]": "Odeslat obrázky na Imgur",
+        "Description[de]": "Bilder zu Imgur hochladen",
+        "Description[es]": "Enviar imágenes a imgur",
+        "Description[nl]": "Afbeeldingen uploaden naar imgur",
+        "Description[pl]": "Wyślij zdjęcia na imgur",
+        "Description[pt]": "Enviar imagens para o Imgur",
+        "Description[pt_BR]": "Envia imagens para Imgur",
+        "Description[sk]": "Nahrať obrázky na imgur",
+        "Description[sv]": "Ladda upp bilder till imgur",
+        "Description[uk]": "Вивантаження зображень на imgur",
+        "Description[x-test]": "xxUpload pictures to imgurxx",
+        "Icon": "edit-paste",
+        "License": "GPL",
+        "Name": "Imgur",
+        "Name[bs]": "Imgur",
+        "Name[cs]": "Imgur",
+        "Name[de]": "Imgur",
+        "Name[es]": "Imgur",
+        "Name[nl]": "Imgur",
+        "Name[pl]": "Imgur",
+        "Name[pt]": "Imgur",
+        "Name[pt_BR]": "Imgur",
+        "Name[sk]": "Imgur",
+        "Name[sv]": "Imgur",
+        "Name[uk]": "Imgur",
+        "Name[x-test]": "xxImgurxx"
+    },
+    "X-Purpose-Configuration": "",
+    "X-Purpose-Constraints": "mimeType:image/*",
+    "X-Purpose-PluginTypes": "Export"
+}

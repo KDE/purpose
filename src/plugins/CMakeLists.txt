@@ -1,9 +1,7 @@
 function(add_share_plugin name)
-    add_library(${name} MODULE ${ARGN})
+    kcoreaddons_add_plugin(${name} SOURCES ${ARGN} JSON "${name}.json" INSTALL_NAMESPACE "purpose")
     target_link_libraries(${name} Qt5::Core KF5::Purpose)
 
-    kcoreaddons_desktop_to_json(${name} ${name}.desktop)
-    install(TARGETS ${name} DESTINATION ${PLUGIN_INSTALL_DIR}/purpose)
     if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${name}_config.qml")
         install(FILES "${name}_config.qml" DESTINATION ${DATA_INSTALL_DIR}/purpose)
     endif()

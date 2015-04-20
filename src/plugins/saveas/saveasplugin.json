@@ -1,0 +1,37 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Aleix Pol"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Dummy plugin, to test the shit out of the feature",
+        "Description[bs]": "Prazan dodatak, da istjera govno iz objekta koliko ga testira",
+        "Description[es]": "Complemento de simulación para probar la salida de la funcionalidad",
+        "Description[nl]": "Dummy-plug-in, om de rommel uit de functie te testen",
+        "Description[pl]": "Fikcyjna wtyczka, do testowana",
+        "Description[pt]": "'Plugin' de testes, para testar as funcionalidades",
+        "Description[pt_BR]": "Plugin para teste da funcionalidade",
+        "Description[sk]": "Prázdny plugin, na vyskúšanie funkcie",
+        "Description[sv]": "Testinsticksprogram, för att testa skiten ur funktionen",
+        "Description[uk]": "Фіктивний додаток, призначено для тестування можливості",
+        "Description[x-test]": "xxDummy plugin, to test the shit out of the featurexx",
+        "Icon": "edit-paste",
+        "License": "GPL",
+        "Name": "Save as...",
+        "Name[de]": "Speichern unter ...",
+        "Name[es]": "Guardar como...",
+        "Name[nl]": "Opslaan als...",
+        "Name[pl]": "Zapisz jako...",
+        "Name[pt]": "Gravar como...",
+        "Name[pt_BR]": "Salvar como...",
+        "Name[sk]": "Uložiť ako...",
+        "Name[sv]": "Spara som...",
+        "Name[uk]": "Зберегти як…",
+        "Name[x-test]": "xxSave as...xx"
+    },
+    "X-Purpose-Configuration": "destinationPath",
+    "X-Purpose-Constraints": "",
+    "X-Purpose-PluginTypes": "Export"
+}
