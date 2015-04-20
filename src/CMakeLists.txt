@@ -12,7 +12,6 @@ target_link_libraries(KF5Purpose
         KF5::CoreAddons
         Qt5::Gui
 )
-kcoreaddons_desktop_to_json(KF5Purpose plugins/ExportPluginType.desktop)
 set_target_properties(KF5Purpose PROPERTIES VERSION ${PURPOSE_VERSION_STRING}
                                           SOVERSION ${PURPOSE_SOVERSION}
                                           EXPORT_NAME Purpose
@@ -38,8 +37,6 @@ install(FILES
   ${Purpose_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/Purpose/purpose COMPONENT Devel
 )
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ExportPluginType.json DESTINATION ${DATA_INSTALL_DIR}/purpose/types)
 
 add_subdirectory(plugins)
 add_subdirectory(tool)

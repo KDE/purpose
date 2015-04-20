@@ -1,0 +1,20 @@
+{
+    "KPlugin": {
+        "Icon": "edit-paste",
+        "Name": "Upload...",
+        "Name[bs]": "Slanje...",
+        "Name[cs]": "Odeslat...",
+        "Name[de]": "Hochladen ...",
+        "Name[es]": "Enviar...",
+        "Name[nl]": "Uploaden...",
+        "Name[pl]": "Wyślij...",
+        "Name[pt]": "Enviar...",
+        "Name[pt_BR]": "Enviar...",
+        "Name[sk]": "Nahrať...",
+        "Name[sv]": "Ladda upp...",
+        "Name[uk]": "Вивантажити…",
+        "Name[x-test]": "xxUpload...xx"
+    },
+    "X-Purpose-InboundArguments": "urls,mimeType",
+    "X-Purpose-OutboundArguments": "url"
+}

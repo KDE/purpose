@@ -13,3 +13,5 @@ add_subdirectory(pastebin)
 add_subdirectory(ktp-sendfile)
 add_subdirectory(youtube)
 add_subdirectory(kdeconnect)
+
+install(FILES ExportPluginType.json DESTINATION ${DATA_INSTALL_DIR}/purpose/types)
