@@ -4,28 +4,14 @@
             {
                 "Name": "Aleix Pol"
             }
-        ],
-        "Category": "Utilities",
-        "Description": "Send through KDE Connect",
-        "Description[es]": "Enviar a través de KDE Connect",
-        "Description[nl]": "Via KDE Connect verzenden",
-        "Description[pt]": "Enviar pelo KDE Connect",
-        "Description[pt_BR]": "Enviar através do KDE Connect",
-        "Description[sv]": "Skicka via KDE-anslut",
-        "Description[uk]": "Надіслати за допомогою KDE Connect",
-        "Description[x-test]": "xxSend through KDE Connectxx",
-        "Icon": "kdeconnect",
-        "License": "GPL",
-        "Name": "Send To Device...",
-        "Name[es]": "Enviar a dispositivo...",
-        "Name[nl]": "Naar apparaat verzenden...",
-        "Name[pt]": "Enviar para o Dispositivo...",
-        "Name[pt_BR]": "Enviar para o dispositivo...",
-        "Name[sv]": "Skicka till enhet...",
-        "Name[uk]": "Надіслати на пристрій…",
-        "Name[x-test]": "xxSend To Device...xx"
-    },
-    "X-Purpose-Configuration": "device",
-    "X-Purpose-Constraints": "",
+        ], 
+        "Category": "Utilities", 
+        "Description": "Send through KDE Connect", 
+        "Icon": "kdeconnect", 
+        "License": "GPL", 
+        "Name": "Send To Device..."
+    }, 
+    "X-Purpose-Configuration": "device", 
+    "X-Purpose-Constraints": "", 
     "X-Purpose-PluginTypes": "Export"
 }
