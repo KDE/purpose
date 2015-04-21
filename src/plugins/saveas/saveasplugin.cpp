@@ -19,6 +19,7 @@
 #include <purpose/job.h>
 #include <purpose/pluginbase.h>
 
+#include <KLocalizedString>
 #include <QDebug>
 #include <QTimer>
 #include <QStandardPaths>
@@ -34,14 +35,17 @@ class SaveAsShareJob : public Purpose::Job
 {
     Q_OBJECT
     public:
-        SaveAsShareJob(QObject* parent) : Purpose::Job(parent) {}
+        SaveAsShareJob(QObject* parent) : Purpose::Job(parent) {
+            setCapabilities(Killable | Suspendable);
+        }
 
         virtual void start() override
         {
             QJsonArray inputUrls = data().value(QStringLiteral("urls")).toArray();
 
             if (inputUrls.isEmpty()) {
-                qWarning() << "no urls to save" << inputUrls << data();
+                setErrorText(i18n("No URLs to save"));
+                setError(1);
                 emitResult();
                 return;
             }
@@ -56,6 +60,11 @@ class SaveAsShareJob : public Purpose::Job
             connect(job, &KJob::finished, this, &SaveAsShareJob::fileCopied);
         }
 
+        bool doKill() override
+        {
+            return job->kill();
+        }
+
         virtual QUrl configSourceCode() const override
         {
             QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/dummyplugin_config.qml"));
@@ -67,6 +76,9 @@ class SaveAsShareJob : public Purpose::Job
         {
             setError(job->error());
             setErrorText(job->errorText());
+            if (job->error()==0) {
+                Q_EMIT output({ { QStringLiteral("url"), qobject_cast<KIO::CopyJob*>(job)->destUrl().toString() } });
+            }
             emitResult();
         }
 
