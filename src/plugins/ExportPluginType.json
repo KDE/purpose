@@ -1,7 +1,13 @@
 {
     "KPlugin": {
         "Icon": "edit-paste", 
-        "Name": "Upload..."
+        "Name": "Upload...", 
+        "Name[nl]": "Uploaden...", 
+        "Name[pt]": "Enviar...", 
+        "Name[pt_BR]": "Enviar...", 
+        "Name[sv]": "Ladda upp...", 
+        "Name[uk]": "Вивантажити…", 
+        "Name[x-test]": "xxUpload...xx"
     }, 
     "X-Purpose-InboundArguments": "urls,mimeType", 
     "X-Purpose-OutboundArguments": "url"
