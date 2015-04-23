@@ -67,7 +67,7 @@ class SaveAsShareJob : public Purpose::Job
 
         virtual QUrl configSourceCode() const override
         {
-            QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/dummyplugin_config.qml"));
+            QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/saveasplugin_config.qml"));
             Q_ASSERT(!path.isEmpty());
             return QUrl::fromLocalFile(path);
         }
