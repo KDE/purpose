@@ -13,7 +13,7 @@
         "Description[sv]": "Testinsticksprogram, för att testa skiten ur funktionen", 
         "Description[uk]": "Фіктивний додаток, призначено для тестування можливості", 
         "Description[x-test]": "xxDummy plugin, to test the shit out of the featurexx", 
-        "Icon": "document-save",
+        "Icon": "document-save", 
         "License": "GPL", 
         "Name": "Save as...", 
         "Name[nl]": "Opslaan als...", 
