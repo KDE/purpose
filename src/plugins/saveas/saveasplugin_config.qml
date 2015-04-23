@@ -18,6 +18,8 @@
 
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.2
+import QtQuick.Dialogs 1.0
+import QtQuick 2.0
 
 ColumnLayout
 {
@@ -26,14 +28,30 @@ ColumnLayout
     property variant urls
 
     Label {
-        text: i18n("Dummy export Output: " + root.destinationPath)
+        text: i18n("Save directory:")
     }
-    TextField {
+    Button {
         id: destination
         Layout.fillWidth: true
 
-        onTextChanged: {
-            root.destinationPath = text
+        iconName: "document-open-folder"
+        onClicked: {
+            dirSelector.visible = true
         }
+
+        FileDialog {
+            id: dirSelector
+            title: i18n("Select a directory where to save your pictures and videos")
+            selectMultiple: false
+            selectExisting: true
+            selectFolder: true
+
+            onFileUrlChanged: {
+                destination.text = dirSelector.fileUrl
+            }
+        }
+    }
+    Item {
+        Layout.fillHeight: true
     }
 }
