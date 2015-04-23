@@ -33,9 +33,10 @@ ApplicationWindow
 
         pluginType: "Export"
         onFinished: {
-            console.log("Job finished:", output.url)
             if (error != 0) {
-                console.log("job finished with error", error, errorString)
+                console.log("job finished with error", error, message)
+            } else {
+                console.log("Job finished:", output.url)
             }
         }
     }
