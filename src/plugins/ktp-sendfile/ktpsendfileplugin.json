@@ -10,6 +10,7 @@
         "Description[nl]": "Via Instant Messaging verzenden", 
         "Description[pt]": "Enviar pelas Mensagens Instantâneas", 
         "Description[pt_BR]": "Envia por mensagem instantânea", 
+        "Description[sk]": "Poslať cez instantné správy", 
         "Description[sv]": "Skicka via direktmeddelanden", 
         "Description[uk]": "Надіслати за допомогою служби обміну повідомленнями", 
         "Description[x-test]": "xxSend through Instant Messagingxx", 
@@ -19,6 +20,7 @@
         "Name[nl]": "Naar contactpersoon verzenden...", 
         "Name[pt]": "Enviar para o Contacto...", 
         "Name[pt_BR]": "Enviar para o contato...", 
+        "Name[sk]": "Poslať do kontaktu...", 
         "Name[sv]": "Skicka till kontakt...", 
         "Name[uk]": "Надіслати контакту…", 
         "Name[x-test]": "xxSend To Contact...xx"

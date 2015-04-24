@@ -10,6 +10,7 @@
         "Description[nl]": "Dummy-plug-in, om de rommel uit de functie te testen", 
         "Description[pt]": "'Plugin' de testes para testar as funcionalidades", 
         "Description[pt_BR]": "Plugin para teste da funcionalidade", 
+        "Description[sk]": "Prázdny plugin, na vyskúšanie funkcie", 
         "Description[sv]": "Testinsticksprogram, för att testa skiten ur funktionen", 
         "Description[uk]": "Фіктивний додаток, призначено для тестування можливості", 
         "Description[x-test]": "xxDummy plugin, to test the shit out of the featurexx", 
@@ -19,6 +20,7 @@
         "Name[nl]": "Opslaan als...", 
         "Name[pt]": "Gravar como...", 
         "Name[pt_BR]": "Salvar como...", 
+        "Name[sk]": "Uložiť ako...", 
         "Name[sv]": "Spara som...", 
         "Name[uk]": "Зберегти як…", 
         "Name[x-test]": "xxSave as...xx"

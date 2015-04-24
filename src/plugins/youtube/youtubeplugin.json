@@ -10,6 +10,7 @@
         "Description[nl]": "Video's naar YouTube uploaden", 
         "Description[pt]": "Enviar os vídeos para o YouTube", 
         "Description[pt_BR]": "Envia vídeos para o YouTube", 
+        "Description[sk]": "Nahrať videá na YouTube", 
         "Description[sv]": "Ladda upp videor till YouTube", 
         "Description[uk]": "Вивантаження відео на YouTube", 
         "Description[x-test]": "xxUpload videos to YouTubexx", 
@@ -19,6 +20,7 @@
         "Name[nl]": "Youtube", 
         "Name[pt]": "Youtube", 
         "Name[pt_BR]": "Youtube", 
+        "Name[sk]": "YouTube", 
         "Name[sv]": "YouTube", 
         "Name[uk]": "YouTube", 
         "Name[x-test]": "xxYoutubexx"

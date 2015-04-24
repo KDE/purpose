@@ -10,6 +10,7 @@
         "Description[nl]": "Afbeeldingen uploaden naar imgur", 
         "Description[pt]": "Enviar as imagens para o Imgur", 
         "Description[pt_BR]": "Envia imagens para Imgur", 
+        "Description[sk]": "Nahrať obrázky na imgur", 
         "Description[sv]": "Ladda upp bilder till imgur", 
         "Description[uk]": "Вивантаження зображень на imgur", 
         "Description[x-test]": "xxUpload pictures to imgurxx", 
@@ -19,6 +20,7 @@
         "Name[nl]": "Imgur", 
         "Name[pt]": "Imgur", 
         "Name[pt_BR]": "Imgur", 
+        "Name[sk]": "Imgur", 
         "Name[sv]": "Imgur", 
         "Name[uk]": "Imgur", 
         "Name[x-test]": "xxImgurxx"

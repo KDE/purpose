@@ -10,6 +10,7 @@
         "Description[nl]": "Tekst uploaden naar pastebin", 
         "Description[pt]": "Enviar o texto para o Pastebin", 
         "Description[pt_BR]": "Enviar o texto para o Pastebin", 
+        "Description[sk]": "Nahrať text na pastebin", 
         "Description[sv]": "Ladda upp text till pastebin", 
         "Description[uk]": "Вивантажити текст на pastebin", 
         "Description[x-test]": "xxUpload text to pastebinxx", 
@@ -19,6 +20,7 @@
         "Name[nl]": "Pastebin", 
         "Name[pt]": "Pastebin", 
         "Name[pt_BR]": "Pastebin", 
+        "Name[sk]": "Pastebin", 
         "Name[sv]": "Pastebin", 
         "Name[uk]": "Вставлячка", 
         "Name[x-test]": "xxPastebinxx"
