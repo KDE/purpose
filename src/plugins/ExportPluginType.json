@@ -2,7 +2,9 @@
     "KPlugin": {
         "Icon": "edit-paste", 
         "Name": "Upload...", 
+        "Name[ca]": "Puja...", 
         "Name[nl]": "Uploaden...", 
+        "Name[pl]": "Wyślij...", 
         "Name[pt]": "Enviar...", 
         "Name[pt_BR]": "Enviar...", 
         "Name[sk]": "Nahrať...", 
