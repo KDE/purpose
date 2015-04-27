@@ -4,6 +4,5 @@ ecm_install_icons(ICONS
     32-actions-kipiplugin_youtube.png
     48-actions-kipiplugin_youtube.png
     64-actions-kipiplugin_youtube.png
-    sc-actions-kipiplugin_youtube.svgz
 THEME hicolor
 DESTINATION ${ICON_INSTALL_DIR} )
