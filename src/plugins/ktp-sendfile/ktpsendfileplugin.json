@@ -17,6 +17,7 @@
         "Description[sv]": "Skicka via direktmeddelanden", 
         "Description[uk]": "Надіслати за допомогою служби обміну повідомленнями", 
         "Description[x-test]": "xxSend through Instant Messagingxx", 
+        "Description[zh_CN]": "通过即时通讯发送", 
         "Icon": "im-user", 
         "License": "GPL", 
         "Name": "Send To Contact...", 
@@ -29,7 +30,8 @@
         "Name[sk]": "Poslať do kontaktu...", 
         "Name[sv]": "Skicka till kontakt...", 
         "Name[uk]": "Надіслати контакту…", 
-        "Name[x-test]": "xxSend To Contact...xx"
+        "Name[x-test]": "xxSend To Contact...xx", 
+        "Name[zh_CN]": "发送到联系人..."
     }, 
     "X-Purpose-Configuration": "", 
     "X-Purpose-Constraints": "", 

@@ -17,6 +17,7 @@
         "Description[sv]": "Skicka via KDE-anslut", 
         "Description[uk]": "Надіслати за допомогою KDE Connect", 
         "Description[x-test]": "xxSend through KDE Connectxx", 
+        "Description[zh_CN]": "通过 KDE Connect 发送", 
         "Icon": "kdeconnect", 
         "License": "GPL", 
         "Name": "Send To Device...", 
@@ -29,7 +30,8 @@
         "Name[sk]": "Poslať na zariadenie...", 
         "Name[sv]": "Skicka till enhet...", 
         "Name[uk]": "Надіслати на пристрій…", 
-        "Name[x-test]": "xxSend To Device...xx"
+        "Name[x-test]": "xxSend To Device...xx", 
+        "Name[zh_CN]": "发送到设备"
     }, 
     "X-Purpose-Configuration": "device", 
     "X-Purpose-Constraints": "", 

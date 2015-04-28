@@ -17,6 +17,7 @@
         "Description[sv]": "Ladda upp text till pastebin", 
         "Description[uk]": "Вивантажити текст на pastebin", 
         "Description[x-test]": "xxUpload text to pastebinxx", 
+        "Description[zh_CN]": "上传文本到 pastebin", 
         "Icon": "edit-paste", 
         "License": "GPL", 
         "Name": "Pastebin", 
@@ -29,7 +30,8 @@
         "Name[sk]": "Pastebin", 
         "Name[sv]": "Pastebin", 
         "Name[uk]": "Вставлячка", 
-        "Name[x-test]": "xxPastebinxx"
+        "Name[x-test]": "xxPastebinxx", 
+        "Name[zh_CN]": "Pastebin"
     }, 
     "X-Purpose-Configuration": "", 
     "X-Purpose-Constraints": "mimeType:text/plain", 

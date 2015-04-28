@@ -11,7 +11,8 @@
         "Name[sk]": "Nahrať...", 
         "Name[sv]": "Ladda upp...", 
         "Name[uk]": "Вивантажити…", 
-        "Name[x-test]": "xxUpload...xx"
+        "Name[x-test]": "xxUpload...xx", 
+        "Name[zh_CN]": "上传..."
     }, 
     "X-Purpose-InboundArguments": "urls,mimeType", 
     "X-Purpose-OutboundArguments": "url"

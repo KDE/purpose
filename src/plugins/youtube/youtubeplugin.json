@@ -17,6 +17,7 @@
         "Description[sv]": "Ladda upp videor till YouTube", 
         "Description[uk]": "Вивантаження відео на YouTube", 
         "Description[x-test]": "xxUpload videos to YouTubexx", 
+        "Description[zh_CN]": "上传视频到 YouTube", 
         "Icon": "edit-paste", 
         "License": "GPL", 
         "Name": "Youtube", 
@@ -29,7 +30,8 @@
         "Name[sk]": "YouTube", 
         "Name[sv]": "YouTube", 
         "Name[uk]": "YouTube", 
-        "Name[x-test]": "xxYoutubexx"
+        "Name[x-test]": "xxYoutubexx", 
+        "Name[zh_CN]": "Youtube"
     }, 
     "X-Purpose-Configuration": "videoDesc,videoTitle,videoTags", 
     "X-Purpose-Constraints": "mimeType:video/*", 
