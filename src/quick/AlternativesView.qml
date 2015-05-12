@@ -68,7 +68,7 @@ StackView {
         var job = altsModel.createJob(index);
         if (!job.isReady) {
             stack.push({
-                item: shareWizardComponent,
+                item: configWizardComponent,
                 properties: { job: job }
             })
         } else {
@@ -92,7 +92,7 @@ StackView {
     }
 
     Component {
-        id: shareWizardComponent
+        id: configWizardComponent
         ColumnLayout {
             property alias job: wiz.job
             PurposeWizard {
@@ -123,39 +123,11 @@ StackView {
     }
     Component {
         id: runningJobComponent
-        ColumnLayout {
-            id: root
-            property alias job: conn.target
-            property var output
-            Connections {
-                id: conn
-                onInfoMessage: {
-                    info.text = rich
-                }
-                onOutput: {
-                    root.output = output;
-                }
-                onResult: {
-                    stack.running = false;
-                    stack.finished(output, root.job.error, root.job.errorString);
-                    stack.pop();
-                }
-            }
-            Label {
-                id: info
-
-                Layout.fillWidth: true
-                onLinkActivated: Qt.openUrlExternally(link)
-            }
-            ProgressBar {
-                //FIXME: this is not really working yet, as QML doesn't understand ulong
-                value: root.job.percent
-                maximumValue: 100
-                Layout.fillWidth: true
-            }
-            Item {
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+        RunningJob {
+            onResult: {
+                stack.running = false;
+                stack.finished(output, job.error, job.errorString);
+                stack.pop();
             }
         }
     }

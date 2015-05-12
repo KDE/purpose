@@ -4,3 +4,4 @@ plugin purposequickplugin
 
 PurposeWizard 1.0 PurposeWizard.qml
 AlternativesView 1.0 AlternativesView.qml
+RunningJob 1.0 RunningJob.qml

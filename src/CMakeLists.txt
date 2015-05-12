@@ -5,7 +5,7 @@ add_library(KF5Purpose
 )
 target_include_directories(KF5Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
                                              "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
-                                      INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/Purpose>"
+                                      INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/purpose>"
 )
 target_link_libraries(KF5Purpose
     PUBLIC
@@ -29,15 +29,17 @@ ecm_generate_headers(Purpose_CamelCase_HEADERS
     REQUIRED_HEADERS Purpose_HEADERS
     PREFIX Purpose
 )
+
 install(FILES ${Purpose_CamelCase_HEADERS}
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/Purpose/Purpose
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/purpose/Purpose/
         COMPONENT Devel)
 install(FILES
   ${Purpose_BINARY_DIR}/purpose/purpose_export.h
   ${Purpose_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/Purpose/purpose COMPONENT Devel
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/purpose/purpose COMPONENT Devel
 )
 
 add_subdirectory(plugins)
 add_subdirectory(tool)
 add_subdirectory(quick)
+add_subdirectory(widgets)
