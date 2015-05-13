@@ -37,7 +37,7 @@
         "Name[x-test]": "xxYoutubexx", 
         "Name[zh_CN]": "Youtube"
     }, 
-    "X-Purpose-Configuration": [ "videoDesc", "videoTitle", "videoTags" ],
+    "X-Purpose-Configuration": [ "videoDesc", "videoTitle", "videoTags", "accountId" ],
     "X-Purpose-Constraints": [ "mimeType:video/*" ],
     "X-Purpose-PluginTypes": [ "Export" ]
 }

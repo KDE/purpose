@@ -46,19 +46,14 @@ YoutubeJobComposite::YoutubeJobComposite()
 
 void YoutubeJobComposite::start()
 {
-    //TODO Make it possible to configure the accountid
-    Accounts::AccountId id;
-    {
-        Accounts::Manager* mgr = KAccounts::accountsManager();
-        auto accounts =  mgr->accountList(QStringLiteral("google-youtube"));
-        if (accounts.isEmpty()) {
-            setError(1);
-            setErrorText(i18n("No YouTube account configured in your accounts."));
-            emitResult();
-            return;
-        }
-        id = accounts.first();
+    const QJsonValue jsonId = data().value(QStringLiteral("accountId"));
+    if (jsonId.isNull() || jsonId.isUndefined()) {
+        setError(1);
+        setErrorText(i18n("No YouTube account configured in your accounts."));
+        emitResult();
+        return;
     }
+    const Accounts::AccountId id = jsonId.toInt();
 
     //TODO: make async
     QByteArray accessToken;

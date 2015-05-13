@@ -18,11 +18,40 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
+import Ubuntu.OnlineAccounts 0.1 as OA
 
-ColumnLayout {
+ColumnLayout
+{
+    id: root
+
     property alias videoDesc: description.text
     property alias videoTitle: title.text
     property alias videoTags: tags.text
+    property var accountId
+    property var urls
+    property var mimeType
+
+    function accountChanged()
+    {
+        var valid = accountsCombo.enabled && accountsCombo.currentIndex>=0;
+        accountId = valid ? serviceModel.get(accountsCombo.currentIndex, "accountId") : null
+        console.log("xxxxxxxxx", valid, accountId)
+    }
+
+    Label { text: i18n("Account:") }
+    ComboBox {
+        id: accountsCombo
+
+        Layout.fillWidth: true
+        textRole: "displayName"
+        enabled: count>0
+        model: OA.AccountServiceModel {
+            id: serviceModel
+            serviceType: "google-youtube"
+        }
+        onCurrentIndexChanged: root.accountChanged()
+        Component.onCompleted: root.accountChanged()
+    }
 
     Label { text: i18n("Title:") }
     TextField {
