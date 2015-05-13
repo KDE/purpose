@@ -143,7 +143,12 @@ Purpose::Job* AlternativesModel::createJob(int row)
     Q_D(AlternativesModel);
     KPluginMetaData pluginData = d->m_plugins.at(row);
     KPluginLoader loader(pluginData.fileName(), this);
-    Purpose::PluginBase* plugin = dynamic_cast<Purpose::PluginBase*>(loader.factory()->create<QObject>(this, QVariantList()));
+    KPluginFactory* factory = loader.factory();
+    if (!factory) {
+        qWarning() << "Couldn't create job" << pluginData.fileName() << loader.errorString();
+        return Q_NULLPTR;
+    }
+    Purpose::PluginBase* plugin = dynamic_cast<Purpose::PluginBase*>(factory->create<QObject>(this, QVariantList()));
 
     if (!plugin) {
         qWarning() << "Couldn't load plugin:" << pluginData.fileName() << loader.errorString();
@@ -152,9 +157,9 @@ Purpose::Job* AlternativesModel::createJob(int row)
     Purpose::Job* job = plugin->share();
     job->setParent(this);
     job->setData(d->m_inputData);
-    job->setConfigurationArguments(d->m_inputData.value(QStringLiteral("X-Purpose-InboundArguments")).toString().split(QLatin1Char(','), QString::SkipEmptyParts));
-    job->setInboundArguments(pluginData.value(QStringLiteral("X-Purpose-Configuration")).split(QLatin1Char(','), QString::SkipEmptyParts));
-    job->setProperty("outputArgs", d->m_pluginTypeData.value(QStringLiteral("X-Purpose-OutboundArguments")).toString().split(QLatin1Char(','), QString::SkipEmptyParts));
+    job->setConfigurationArguments(d->m_inputData.value(QStringLiteral("X-Purpose-InboundArguments")));
+    job->setInboundArguments(pluginData.value(QStringLiteral("X-Purpose-Configuration")));
+    job->setProperty("outputArgs", d->m_pluginTypeData.value(QStringLiteral("X-Purpose-OutboundArguments")));
 
     connect(job, &Purpose::Job::output, job, [job](const QJsonObject& obj){ job->setProperty("outputValues", obj); });
     connect(job, &Purpose::Job::finished, job, [job](){ AlternativesModelPrivate::checkJobFinish(job); });
@@ -230,10 +235,9 @@ void AlternativesModel::initializeModel()
         return;
     }
 
-#warning allow proper list stuff instead of splitting. ServiceType support needed in desktop2json
-    QStringList inbound = d->m_pluginTypeData.value(QStringLiteral("X-Purpose-InboundArguments")).toString().split(QLatin1Char(','), QString::SkipEmptyParts);
-    foreach(const QString& arg, inbound) {
-        if(!d->m_inputData.contains(arg)) {
+    const QJsonArray inbound = d->m_pluginTypeData.value(QStringLiteral("X-Purpose-InboundArguments")).toArray();
+    foreach(const QJsonValue& arg, inbound) {
+        if(!d->m_inputData.contains(arg.toString())) {
             qWarning() << "Cannot initialize model with data" << d->m_inputData << ". missing:" << arg;
             return;
         }
@@ -241,18 +245,19 @@ void AlternativesModel::initializeModel()
 
     beginResetModel();
     d->m_plugins = KPluginLoader::findPlugins(QStringLiteral("purpose"), [d](const KPluginMetaData& meta) {
-        if(!meta.value(QStringLiteral("X-Purpose-PluginTypes")).split(QLatin1Char(',')).contains(d->m_pluginType)) {
-//             qDebug() << "discarding" << meta.name() << meta.value("X-Purpose-PluginTypes");
+        const QJsonObject obj = meta.rawData();
+        if(!obj.value(QStringLiteral("X-Purpose-PluginTypes")).toArray().contains(d->m_pluginType)) {
+            qDebug() << "discarding" << meta.name() << meta.value(QStringLiteral("X-Purpose-PluginTypes"));
             return false;
         }
 
-        const QStringList constraints = meta.value(QStringLiteral("X-Purpose-Constraints")).split(QLatin1Char(','), QString::SkipEmptyParts);
+        const QJsonArray constraints = obj.value(QStringLiteral("X-Purpose-Constraints")).toArray();
         const QRegularExpression constraintRx(QStringLiteral("(\\w+):(.*)"));
-        for(const QString& constraint: constraints) {
+        for(const QJsonValue& constraint: constraints) {
             Q_ASSERT(constraintRx.isValid());
-            QRegularExpressionMatch match = constraintRx.match(constraint);
+            QRegularExpressionMatch match = constraintRx.match(constraint.toString());
             if (!match.isValid() || !match.hasMatch()) {
-                qWarning() << "wrong constraint" << constraint;
+                qWarning() << "wrong constraint" << constraint.toString();
                 continue;
             }
             QString propertyName = match.captured(1);

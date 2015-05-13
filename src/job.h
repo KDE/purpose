@@ -19,6 +19,7 @@
 #define PURPOSEJOB_H
 
 #include <KJob>
+#include <QJsonArray>
 #include <QJsonObject>
 #include <QMimeData>
 #include <QUrl>
@@ -67,7 +68,7 @@ Q_PROPERTY(QUrl configSourceCode READ configSourceCode CONSTANT)
 /**
  * Specifies the arguments the config file and the job will be sharing
  */
-Q_PROPERTY(QStringList neededArguments READ neededArguments CONSTANT)
+Q_PROPERTY(QJsonArray neededArguments READ neededArguments CONSTANT)
 public:
     Job(QObject* parent = 0);
     virtual ~Job();
@@ -76,18 +77,18 @@ public:
     QJsonObject data() const;
 
     bool isReady() const;
-    QStringList neededArguments() const;
+    QJsonArray neededArguments() const;
     virtual QUrl configSourceCode() const = 0;
 
     /**
      * @internal
      */
-    void setInboundArguments(const QStringList& args);
+    void setInboundArguments(const QJsonValue& args);
 
     /**
      * @internal
      */
-    void setConfigurationArguments(const QStringList& args);
+    void setConfigurationArguments(const QJsonValue& args);
 
 
 Q_SIGNALS:
@@ -96,7 +97,7 @@ Q_SIGNALS:
 
 private:
     Q_DECLARE_PRIVATE(Job);
-    JobPrivate *const d_ptr;
+    QScopedPointer<JobPrivate> const d_ptr;
 };
 
 }

@@ -16,6 +16,7 @@
 */
 
 #include "job.h"
+#include <QJsonArray>
 #include <QDebug>
 
 using namespace Purpose;
@@ -23,8 +24,8 @@ using namespace Purpose;
 struct Purpose::JobPrivate
 {
     QJsonObject m_data;
-    QStringList configurationArguments;
-    QStringList inboundArguments;
+    QJsonArray configurationArguments;
+    QJsonArray inboundArguments;
 };
 
 Job::Job(QObject* parent)
@@ -35,7 +36,6 @@ Job::Job(QObject* parent)
 
 Job::~Job()
 {
-    delete d_ptr;
 }
 
 QJsonObject Job::data() const
@@ -58,27 +58,30 @@ void Job::setData(const QJsonObject& data)
 bool Job::isReady() const
 {
     Q_D(const Job);
-    for(const QString& arg: neededArguments()) {
-        if(!d->m_data.contains(arg))
+    for(const QJsonValue& arg: neededArguments()) {
+        if(!d->m_data.contains(arg.toString()))
             return false;
     }
     return true;
 }
 
-void Job::setInboundArguments(const QStringList& args)
+void Job::setInboundArguments(const QJsonValue& args)
 {
     Q_D(Job);
-    d->inboundArguments = args;
+    d->inboundArguments = args.toArray();
 }
 
-void Job::setConfigurationArguments(const QStringList& args)
+void Job::setConfigurationArguments(const QJsonValue& args)
 {
     Q_D(Job);
-    d->configurationArguments = args;
+    d->configurationArguments = args.toArray();
 }
 
-QStringList Job::neededArguments() const
+QJsonArray Job::neededArguments() const
 {
     Q_D(const Job);
-    return d->configurationArguments + d->inboundArguments;
+    QJsonArray ret = d->configurationArguments;
+    foreach (const QJsonValue &val, d->inboundArguments)
+        ret += val;
+    return ret;
 }
