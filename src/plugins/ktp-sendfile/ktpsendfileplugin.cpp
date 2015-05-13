@@ -67,14 +67,12 @@ class KTpSendFileShareJob : public Purpose::Job
             return QUrl();
         }
 
-        Q_SLOT void jobFinished(int code, QProcess::ExitStatus status)
+        Q_SLOT void jobFinished(int code, QProcess::ExitStatus /*status*/)
         {
             setError(code);
             Q_EMIT output( {{ QStringLiteral("url"), QString() }});
             emitResult();
         }
-
-    private:
 };
 
 class Q_DECL_EXPORT KTpSendFilePlugin : public Purpose::PluginBase

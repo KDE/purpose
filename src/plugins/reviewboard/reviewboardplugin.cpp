@@ -122,7 +122,7 @@ class Q_DECL_EXPORT ReviewBoardPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
     public:
-        ReviewBoardPlugin(QObject* parent, const QList<QVariant>& args) {}
+        ReviewBoardPlugin(QObject* parent, const QList<QVariant>& /*args*/) : PluginBase(parent) {}
         virtual ~ReviewBoardPlugin() override {}
 
         virtual Purpose::Job* share() const override

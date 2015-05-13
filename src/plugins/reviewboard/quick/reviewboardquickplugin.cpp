@@ -23,7 +23,7 @@
 
 void RBPurposeQuickPlugin::registerTypes(const char* uri)
 {
-    qmlRegisterType<RepositoriesModel>("org.kde.purpose.reviewboard", 1, 0, "RepositoriesModel");
-    qmlRegisterType<ReviewsListModel>("org.kde.purpose.reviewboard", 1, 0, "ReviewsListModel");
-    qmlRegisterType<ReviewboardRC>("org.kde.purpose.reviewboard", 1, 0, "ReviewboardRC");
+    qmlRegisterType<RepositoriesModel>(uri, 1, 0, "RepositoriesModel");
+    qmlRegisterType<ReviewsListModel>(uri, 1, 0, "ReviewsListModel");
+    qmlRegisterType<ReviewboardRC>(uri, 1, 0, "ReviewboardRC");
 }
