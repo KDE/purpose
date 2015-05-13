@@ -157,8 +157,8 @@ Purpose::Job* AlternativesModel::createJob(int row)
     Purpose::Job* job = plugin->share();
     job->setParent(this);
     job->setData(d->m_inputData);
-    job->setConfigurationArguments(d->m_inputData.value(QStringLiteral("X-Purpose-InboundArguments")));
-    job->setInboundArguments(pluginData.value(QStringLiteral("X-Purpose-Configuration")));
+    job->setConfigurationArguments(d->m_pluginTypeData.value(QStringLiteral("X-Purpose-InboundArguments")));
+    job->setInboundArguments(pluginData.rawData().value(QStringLiteral("X-Purpose-Configuration")));
     job->setProperty("outputArgs", d->m_pluginTypeData.value(QStringLiteral("X-Purpose-OutboundArguments")));
 
     connect(job, &Purpose::Job::output, job, [job](const QJsonObject& obj){ job->setProperty("outputValues", obj); });
