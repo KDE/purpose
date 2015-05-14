@@ -11,7 +11,7 @@
         "License": "GPL",
         "Name": "Review Board"
     },
-    "X-Purpose-Configuration": [ "updateRR", "server", "username", "password", "baseDir", "repository", "extraData" ],
+    "X-Purpose-Configuration": [ "updateRR", "server", "username", "password", "baseDir", "repository", "extraData", "localBaseDir" ],
     "X-Purpose-Constraints": [ "mimeType:text/x-patch" ],
     "X-Purpose-PluginTypes": [ "Export" ]
 }

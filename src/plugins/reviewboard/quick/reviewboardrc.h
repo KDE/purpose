@@ -27,16 +27,16 @@
 class ReviewboardRC : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString path READ path WRITE setPath)
+    Q_PROPERTY(QUrl path READ path WRITE setPath)
     Q_PROPERTY(QUrl server READ server NOTIFY dataChanged)
     Q_PROPERTY(QString repository READ repository NOTIFY dataChanged)
     Q_PROPERTY(QJsonObject extraData READ extraData NOTIFY dataChanged)
     public:
         ReviewboardRC(QObject* parent = Q_NULLPTR);
 
-        void setPath(const QString &path);
+        void setPath(const QUrl &path);
 
-        QString path() const { return m_path; }
+        QUrl path() const { return m_path; }
         QUrl server() const { return m_server; }
         QString repository() const { return m_repository; }
         QJsonObject extraData() const { return m_extraData; }
@@ -47,7 +47,7 @@ class ReviewboardRC : public QObject
     private:
         void addExtraData(const QString& key, const QString &value);
 
-        QString m_path;
+        QUrl m_path;
         QUrl m_server;
         QString m_repository;
         QJsonObject m_extraData;

@@ -22,23 +22,26 @@
 #include <QFile>
 #include <QHash>
 #include <QTextStream>
+#include <QDebug>
 
 ReviewboardRC::ReviewboardRC(QObject* parent)
     : QObject(parent)
 {}
 
-void ReviewboardRC::setPath(const QString &filePath)
+void ReviewboardRC::setPath(const QUrl &filePath)
 {
-    if (filePath == m_path)
+    if (filePath == m_path || !filePath.isLocalFile())
         return;
 
     //The .reviewboardrc files are python files, we'll read and if it doesn't work
     //Well bad luck. See: http://www.reviewboard.org/docs/rbtools/dev/rbt/configuration/
 
     QRegExp rx(QStringLiteral("([\\w_]+) *= *[\"'](.*)[\"']"));
-    QFile f(filePath);
-    if(!f.open(QFile::ReadOnly | QFile::Text))
+    QFile f(filePath.toLocalFile());
+    if(!f.open(QFile::ReadOnly | QFile::Text)) {
+        qWarning() << "couldn't open" << filePath;
         return;
+    }
 
     QHash<QString, QString> values;
     QTextStream stream(&f);

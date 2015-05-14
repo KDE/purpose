@@ -28,12 +28,12 @@ ColumnLayout {
     property alias repository: repositoriesCombo.currentText
     property string updateRR: ""
     property string baseDir
-    property string reviewboardrc
+    property string localBaseDir
     property variant extraData: rcfile.extraData
 
     ReviewboardRC {
         id: rcfile
-        path: root.reviewboardrc
+        path: root.localBaseDir + "/.reviewboardrc"
     }
 
     Label { text: i18n("Server:") }
