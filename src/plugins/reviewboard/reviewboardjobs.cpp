@@ -143,7 +143,6 @@ void HttpCall::start()
             m_reply=m_manager.get(r);
             break;
         case Post:
-            qDebug() << "posting..." << r.url().userInfo() << m_post;
             m_reply=m_manager.post(r, m_post);
             break;
         case Put:
