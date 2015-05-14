@@ -36,7 +36,11 @@
         "Name[x-test]": "xxPastebinxx", 
         "Name[zh_CN]": "Pastebin"
     }, 
-    "X-Purpose-Configuration": [],
-    "X-Purpose-Constraints": [ "mimeType:text/plain" ],
-    "X-Purpose-PluginTypes": [ "Export" ]
+    "X-Purpose-Configuration": [], 
+    "X-Purpose-Constraints": [
+        "mimeType:text/plain"
+    ], 
+    "X-Purpose-PluginTypes": [
+        "Export"
+    ]
 }

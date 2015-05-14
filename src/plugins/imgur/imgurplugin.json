@@ -37,7 +37,11 @@
         "Name[x-test]": "xxImgurxx", 
         "Name[zh_CN]": "Imgur"
     }, 
-    "X-Purpose-Configuration": [],
-    "X-Purpose-Constraints": [ "mimeType:image/*" ],
-    "X-Purpose-PluginTypes": [ "Export" ]
+    "X-Purpose-Configuration": [], 
+    "X-Purpose-Constraints": [
+        "mimeType:image/*"
+    ], 
+    "X-Purpose-PluginTypes": [
+        "Export"
+    ]
 }

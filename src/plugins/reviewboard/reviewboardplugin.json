@@ -4,14 +4,27 @@
             {
                 "Name": "Aleix Pol"
             }
-        ],
-        "Category": "Utilities",
-        "Description": "Upload patches to reviewboard",
-        "Icon": "reviewboard",
-        "License": "GPL",
+        ], 
+        "Category": "Utilities", 
+        "Description": "Upload patches to reviewboard", 
+        "Icon": "reviewboard", 
+        "License": "GPL", 
         "Name": "Review Board"
-    },
-    "X-Purpose-Configuration": [ "updateRR", "server", "username", "password", "baseDir", "repository", "extraData", "localBaseDir" ],
-    "X-Purpose-Constraints": [ "mimeType:text/x-patch" ],
-    "X-Purpose-PluginTypes": [ "Export" ]
+    }, 
+    "X-Purpose-Configuration": [
+        "updateRR", 
+        "server", 
+        "username", 
+        "password", 
+        "baseDir", 
+        "repository", 
+        "extraData", 
+        "localBaseDir"
+    ], 
+    "X-Purpose-Constraints": [
+        "mimeType:text/x-patch"
+    ], 
+    "X-Purpose-PluginTypes": [
+        "Export"
+    ]
 }

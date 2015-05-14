@@ -16,6 +16,11 @@
         "Name[x-test]": "xxUpload...xx", 
         "Name[zh_CN]": "上传..."
     }, 
-    "X-Purpose-InboundArguments": [ "urls", "mimeType" ],
-    "X-Purpose-OutboundArguments":  [ "url" ]
+    "X-Purpose-InboundArguments": [
+        "urls", 
+        "mimeType"
+    ], 
+    "X-Purpose-OutboundArguments": [
+        "url"
+    ]
 }
