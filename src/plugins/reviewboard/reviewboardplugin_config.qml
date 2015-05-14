@@ -31,6 +31,10 @@ ColumnLayout {
     property string localBaseDir
     property variant extraData: rcfile.extraData
 
+    Label {
+        text: root.updateRR
+    }
+
     ReviewboardRC {
         id: rcfile
         path: root.localBaseDir + "/.reviewboardrc"
@@ -67,6 +71,11 @@ ColumnLayout {
         }
     }
 
+    function refreshUpdateRR()
+    {
+        root.updateRR = (updateRRCombo.currentIndex>=0 && update.checked) ? reviewsList.get(updateRRCombo.currentIndex, "toolTip") : ""
+    }
+
     Item {
         Layout.fillWidth: true
         height: update.height
@@ -77,8 +86,7 @@ ColumnLayout {
             text: i18n("Update Review:")
             enabled: updateRRCombo.count > 0
             onCheckedChanged: {
-                if (!checked)
-                    root.updateRR = ""
+                root.refreshUpdateRR();
             }
         }
     }
@@ -95,8 +103,7 @@ ColumnLayout {
             status: "pending"
         }
         onCurrentIndexChanged: {
-            if (currentIndex>0 && enabled)
-                root.updateRR = reviewsList.get(currentIndex, "toolTip")
+            root.refreshUpdateRR();
         }
     }
 
