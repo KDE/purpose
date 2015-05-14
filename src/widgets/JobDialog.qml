@@ -42,8 +42,7 @@ ApplicationWindow
             startJob()
         } else {
             view.push({
-                item: configWizardComponent,
-                properties: { job: job }
+                item: configWizardComponent
             })
         }
     }
@@ -66,6 +65,7 @@ ApplicationWindow
         ColumnLayout {
             PurposeWizard {
                 id: wiz
+                job: window.job
                 focus: true
 
                 Layout.fillHeight: true
