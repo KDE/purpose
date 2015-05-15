@@ -132,11 +132,9 @@ Purpose::Job* Configuration::createJob()
 QUrl Configuration::configSourceCode() const
 {
     Q_D(const Configuration);
-    const QString configFile = d->m_pluginData.value(QStringLiteral("X-Purpose-ConfigurationUI"));
+    const QString configFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/%1_config.qml").arg(d->m_pluginData.pluginId()));
     if (configFile.isEmpty())
         return QUrl();
 
-    QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, configFile);
-    Q_ASSERT(!path.isEmpty());
-    return QUrl::fromLocalFile(path);
+    return QUrl::fromLocalFile(configFile);
 }

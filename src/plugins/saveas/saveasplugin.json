@@ -38,7 +38,6 @@
         "Name[zh_CN]": "另存为..."
     }, 
     "X-Purpose-Configuration": [ "destinationPath" ],
-    "X-Purpose-ConfigurationUI": "purpose/saveasplugin_config.qml",
 
     "X-Purpose-Constraints": [], 
     "X-Purpose-PluginTypes": [
