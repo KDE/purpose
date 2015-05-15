@@ -2,6 +2,7 @@ add_library(KF5Purpose
     pluginbase.cpp
     job.cpp
     alternativesmodel.cpp
+    configuration.cpp
 )
 target_include_directories(KF5Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
                                              "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
@@ -26,6 +27,7 @@ ecm_generate_headers(Purpose_CamelCase_HEADERS
         PluginBase
         AlternativesModel
         Job
+        Configuration
     REQUIRED_HEADERS Purpose_HEADERS
     PREFIX Purpose
 )

@@ -104,14 +104,9 @@ class PastebinJob : public Purpose::Job
             KIO::getJobTracker()->registerJob(tf);
         }
 
-        void textUploaded(KJob* job) {
+        void textUploaded(KJob* /*job*/) {
             Q_EMIT output( { { QStringLiteral("url"), QString::fromUtf8(m_resultData) } });
             emitResult();
-        }
-
-        virtual QUrl configSourceCode() const override
-        {
-            return QUrl();
         }
 
     private:

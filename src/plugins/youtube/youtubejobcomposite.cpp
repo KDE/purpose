@@ -101,10 +101,3 @@ void YoutubeJobComposite::subjobFinished(KJob* subjob)
         emitResult();
     }
 }
-
-QUrl YoutubeJobComposite::configSourceCode() const
-{
-    QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/youtubeplugin_config.qml"));
-    Q_ASSERT(!path.isEmpty());
-    return QUrl::fromLocalFile(path);
-}

@@ -54,13 +54,6 @@ class KDEConnectJob : public Purpose::Job
             process->start();
         }
 
-        virtual QUrl configSourceCode() const override
-        {
-            QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/kdeconnectplugin_config.qml"));
-            Q_ASSERT(!path.isEmpty());
-            return QUrl::fromLocalFile(path);
-        }
-
         void jobFinished(int code, QProcess::ExitStatus status)
         {
             if (status != QProcess::NormalExit)

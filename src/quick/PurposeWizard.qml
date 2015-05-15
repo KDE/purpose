@@ -18,21 +18,21 @@
 import QtQuick 2.2
 
 Loader {
-    property QtObject job
+    property QtObject configuration
     signal accepted()
 
     function cancel() {
-        job.destroy();
+        configuration.destroy();
     }
 
     id: loader
 
     Component.onCompleted: {
-        setSource(job.configSourceCode, job.data)
+        setSource(configuration.configSourceCode, configuration.data)
     }
     onItemChanged: {
-        for(var i in job.neededArguments) {
-            var arg = job.neededArguments[i]
+        for(var i in configuration.neededArguments) {
+            var arg = configuration.neededArguments[i]
             if (arg in loader.item) {
                 item[arg+"Changed"].connect(dataHasChanged);
             } else
@@ -42,14 +42,14 @@ Loader {
 
     function dataHasChanged()
     {
-        var jobData = job.data;
-        for(var i in job.neededArguments) {
-            var arg = job.neededArguments[i]
+        var jobData = configuration.data;
+        for(var i in configuration.neededArguments) {
+            var arg = configuration.neededArguments[i]
             if (arg in loader.item) {
                 jobData[arg] = loader.item[arg];
             } else
                 console.warn("property not found", arg);
         }
-        job.data = jobData;
+        configuration.data = jobData;
     }
 }

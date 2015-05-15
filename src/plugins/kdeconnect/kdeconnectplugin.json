@@ -39,11 +39,9 @@
         "Name[x-test]": "xxSend To Device...xx", 
         "Name[zh_CN]": "发送到设备"
     }, 
-    "X-Purpose-Configuration": [
-        "device"
-    ], 
-    "X-Purpose-Constraints": [], 
-    "X-Purpose-PluginTypes": [
-        "Export"
-    ]
+    "X-Purpose-Configuration": [ "device" ],
+    "X-Purpose-ConfigurationUI": "purpose/kdeconnectplugin_config.qml",
+
+    "X-Purpose-Constraints": [],
+    "X-Purpose-PluginTypes": [ "Export" ]
 }

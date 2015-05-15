@@ -16,8 +16,8 @@
 */
 
 #include "menu.h"
-#include <job.h>
-#include <alternativesmodel.h>
+#include <purpose/configuration.h>
+#include <purpose/alternativesmodel.h>
 #include <QPointer>
 #include <QDebug>
 #include <QQmlApplicationEngine>
@@ -43,7 +43,7 @@ public:
     void trigger(int row) {
         QObject* o = m_engine.rootObjects().first();
 
-        o->setProperty("job", QVariant::fromValue<QObject*>(m_model->createJob(row)));
+        o->setProperty("configuration", QVariant::fromValue<QObject*>(m_model->configureJob(row)));
         o->setProperty("q", QVariant::fromValue<QObject*>(q));
         o->setProperty("visible", true);
         o->setParent(q);
@@ -75,6 +75,7 @@ void Menu::reload()
         QAction* a = addAction(idx.data(Qt::DisplayRole).toString());
         a->setToolTip(idx.data(Qt::ToolTipRole).toString());
         a->setIcon(idx.data(Qt::DecorationRole).value<QIcon>());
+        a->setProperty("pluginId", idx.data(AlternativesModel::PluginIdRole));
         a->setProperty("row", i);
     }
 

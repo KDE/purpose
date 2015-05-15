@@ -28,7 +28,7 @@
 namespace Purpose
 {
 
-class JobPrivate;
+struct JobPrivate;
 
 /**
  * @brief Job that will actually perform the sharing
@@ -48,48 +48,18 @@ Q_OBJECT
 /**
  * Represents the data the job will have available to perform its task
  */
-Q_PROPERTY(QJsonObject data READ data WRITE setData NOTIFY dataChanged)
-
-/**
- * Tells whether there's still information to be provided, to be able to run
- * the job.
- *
- * @sa X-Purpose-MandatoryArguments and X-Purpose-AdditionalArguments
- */
-Q_PROPERTY(bool isReady READ isReady NOTIFY dataChanged)
-
-/**
- * Specifies the qml source code to be used, to configure the current job.
- *
- * @sa ShareWizard QtQuick component
- */
-Q_PROPERTY(QUrl configSourceCode READ configSourceCode CONSTANT)
-
-/**
- * Specifies the arguments the config file and the job will be sharing
- */
-Q_PROPERTY(QJsonArray neededArguments READ neededArguments CONSTANT)
+Q_PROPERTY(QJsonObject data READ data CONSTANT)
 public:
     Job(QObject* parent = 0);
     virtual ~Job();
 
-    void setData(const QJsonObject& data);
+    /**
+     * Should only be called after constructing
+     *
+     * @internal
+     */
+    void setData(const QJsonObject &data);
     QJsonObject data() const;
-
-    bool isReady() const;
-    QJsonArray neededArguments() const;
-    virtual QUrl configSourceCode() const = 0;
-
-    /**
-     * @internal
-     */
-    void setInboundArguments(const QJsonValue& args);
-
-    /**
-     * @internal
-     */
-    void setConfigurationArguments(const QJsonValue& args);
-
 
 Q_SIGNALS:
     void output(const QJsonObject& output);

@@ -25,7 +25,7 @@
 
 namespace Purpose
 {
-class Job;
+class Configuration;
 class AlternativesModelPrivate;
 
 /**
@@ -60,9 +60,9 @@ public:
      * @param row specifies the alternative to be used
      * @param data specifies the data to have shared
      *
-     * @returns the share job.
+     * @returns the configuration instance that will offer the job.
      */
-    Q_SCRIPTABLE Purpose::Job* createJob(int row);
+    Q_SCRIPTABLE Purpose::Configuration* configureJob(int row);
 
     virtual QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     virtual int rowCount(const QModelIndex& parent = QModelIndex()) const override;

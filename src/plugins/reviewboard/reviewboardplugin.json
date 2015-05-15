@@ -34,7 +34,8 @@
         "repository", 
         "extraData", 
         "localBaseDir"
-    ], 
+    ],
+    "X-Purpose-ConfigurationUI": "purpose/reviewboardplugin_config.qml",
     "X-Purpose-Constraints": [
         "mimeType:text/x-patch"
     ], 

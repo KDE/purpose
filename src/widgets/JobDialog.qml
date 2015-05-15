@@ -29,16 +29,16 @@ ApplicationWindow
     height: 200
 
     property bool finished: false
-    property var job
+    property var configuration
     property QtObject q
 
     Component.onCompleted: adoptJob()
-    onJobChanged: adoptJob()
+    onConfigurationChanged: adoptJob()
 
     function adoptJob() {
-        if (job == null)
+        if (configuration == null)
             return;
-        if (job.isReady) {
+        if (configuration.isReady) {
             startJob()
         } else {
             view.push({
@@ -48,10 +48,11 @@ ApplicationWindow
     }
 
     function startJob() {
-        window.job.start()
+        var job = window.configuration.createJob();
+        job.start()
         view.push({
             item: runningJobComponent,
-            properties: { job: window.job }
+            properties: { job: job }
         })
     }
 
@@ -65,7 +66,7 @@ ApplicationWindow
         ColumnLayout {
             PurposeWizard {
                 id: wiz
-                job: window.job
+                configuration: window.configuration
                 focus: true
 
                 Layout.fillHeight: true
@@ -74,7 +75,7 @@ ApplicationWindow
             RowLayout {
                 Button {
                     text: i18n("Run")
-                    enabled: window.job && window.job.isReady
+                    enabled: window.configuration && window.configuration.isReady
                     onClicked: {
                         view.pop();
                         window.startJob();
@@ -94,7 +95,7 @@ ApplicationWindow
         id: runningJobComponent
         RunningJob {
             onResult: {
-                window.q.finished(output, window.job.error, window.job.errorString);
+                window.q.finished(output, job.error, job.errorString);
                 window.visible = false
             }
         }

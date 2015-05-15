@@ -24,8 +24,6 @@ using namespace Purpose;
 struct Purpose::JobPrivate
 {
     QJsonObject m_data;
-    QJsonArray configurationArguments;
-    QJsonArray inboundArguments;
 };
 
 Job::Job(QObject* parent)
@@ -44,44 +42,8 @@ QJsonObject Job::data() const
     return d->m_data;
 }
 
-void Job::setData(const QJsonObject& data)
+void Job::setData(const QJsonObject &data)
 {
     Q_D(Job);
-
-//     qDebug() << "datachanged" << data;
-    if (d->m_data != data) {
-        d->m_data = data;
-        emit dataChanged();
-    }
-}
-
-bool Job::isReady() const
-{
-    Q_D(const Job);
-    for(const QJsonValue& arg: neededArguments()) {
-        if(!d->m_data.contains(arg.toString()))
-            return false;
-    }
-    return true;
-}
-
-void Job::setInboundArguments(const QJsonValue& args)
-{
-    Q_D(Job);
-    d->inboundArguments = args.toArray();
-}
-
-void Job::setConfigurationArguments(const QJsonValue& args)
-{
-    Q_D(Job);
-    d->configurationArguments = args.toArray();
-}
-
-QJsonArray Job::neededArguments() const
-{
-    Q_D(const Job);
-    QJsonArray ret = d->configurationArguments;
-    foreach (const QJsonValue &val, d->inboundArguments)
-        ret += val;
-    return ret;
+    d->m_data = data;
 }

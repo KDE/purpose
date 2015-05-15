@@ -113,11 +113,6 @@ class ImgurShareJob : public Purpose::Job
             emitResult();
         }
 
-        virtual QUrl configSourceCode() const override
-        {
-            return QUrl();
-        }
-
     private:
         int m_pendingJobs;
         MPForm m_form;

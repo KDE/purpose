@@ -25,6 +25,7 @@
 #include "alternativesmodeltest.h"
 #include <purpose/job.h>
 #include <purpose/alternativesmodel.h>
+#include <purpose/configuration.h>
 
 QTEST_GUILESS_MAIN(AlternativesModelTest)
 
@@ -53,19 +54,22 @@ void AlternativesModelTest::runJobTest()
     model.setInputData(input);
 
     model.setPluginType(QStringLiteral("Export"));
-    Purpose::Job* job = model.createJob(saveAsRow(&model));
-    QVERIFY(job);
-    QVERIFY(!job->isReady());
+    Purpose::Configuration* conf = model.configureJob(saveAsRow(&model));
+    QVERIFY(!conf->isReady());
+    QVERIFY(!conf->createJob());
     input.insert(QStringLiteral("destinationPath"), QUrl::fromLocalFile(tempfile).url()),
-    job->setData(input);
-    QVERIFY(job->isReady());
-    job->start();
-
+    conf->setData(input);
+    QVERIFY(conf->isReady());
+    Purpose::Job* job = conf->createJob();
+    QVERIFY(job);
     QSignalSpy s(job, &KJob::finished);
-    QVERIFY(s.wait());
+    QSignalSpy sOutput(job, &Purpose::Job::output);
+    job->start();
+    QVERIFY(s.count() || s.wait());
     if (job->error()) {
         qWarning() << "error!" << job->error() << job->errorString() << job->errorText();
     }
+    QCOMPARE(sOutput.count(), 1);
     QCOMPARE(job->error(), 0);
     QVERIFY(QFile::remove(tempfile));
 }

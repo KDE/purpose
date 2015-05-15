@@ -44,7 +44,8 @@
         "videoTitle", 
         "videoTags", 
         "accountId"
-    ], 
+    ],
+    "X-Purpose-ConfigurationUI": "purpose/youtubeplugin_config.qml",
     "X-Purpose-Constraints": [
         "mimeType:video/*"
     ], 

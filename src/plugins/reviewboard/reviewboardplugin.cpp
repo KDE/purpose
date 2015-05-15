@@ -43,13 +43,6 @@ class TheReviewboardJob : public Purpose::Job
             : Purpose::Job(object)
     {}
 
-    QUrl configSourceCode() const Q_DECL_OVERRIDE
-    {
-        QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/reviewboardplugin_config.qml"));
-        Q_ASSERT(!path.isEmpty());
-        return QUrl::fromLocalFile(path);
-    }
-
     void start() override
     {
         const QString baseDir(data().value(QStringLiteral("baseDir")).toString());

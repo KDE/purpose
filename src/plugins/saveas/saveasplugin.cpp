@@ -64,13 +64,6 @@ class SaveAsShareJob : public Purpose::Job
             return job->kill();
         }
 
-        virtual QUrl configSourceCode() const override
-        {
-            QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/saveasplugin_config.qml"));
-            Q_ASSERT(!path.isEmpty());
-            return QUrl::fromLocalFile(path);
-        }
-
         void fileCopied(KJob* job)
         {
             setError(job->error());

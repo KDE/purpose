@@ -62,11 +62,6 @@ class KTpSendFileShareJob : public Purpose::Job
             process->start();
         }
 
-        virtual QUrl configSourceCode() const override
-        {
-            return QUrl();
-        }
-
         Q_SLOT void jobFinished(int code, QProcess::ExitStatus /*status*/)
         {
             setError(code);

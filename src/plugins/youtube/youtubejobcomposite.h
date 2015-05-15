@@ -26,7 +26,6 @@ public:
     YoutubeJobComposite();
 
     virtual void start() override;
-    virtual QUrl configSourceCode() const;
 
 private Q_SLOTS:
     void subjobFinished(KJob* subjob);

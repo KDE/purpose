@@ -52,7 +52,8 @@ StackView {
         id: altsModel
     }
 
-    function startJob(job) {
+    function startJob(config) {
+        var job = config.createJob();
         stack.push({
             item: runningJobComponent,
             properties: { job: job }
@@ -65,14 +66,14 @@ StackView {
      * Adopts the job at the @p index.
      */
     function createJob(index) {
-        var job = altsModel.createJob(index);
-        if (!job.isReady) {
+        var conf = altsModel.configureJob(index);
+        if (!conf.isReady) {
             stack.push({
                 item: configWizardComponent,
-                properties: { job: job }
+                properties: { configuration: conf }
             })
         } else {
-            startJob(job)
+            startJob(conf)
         }
     }
 
@@ -94,7 +95,7 @@ StackView {
     Component {
         id: configWizardComponent
         ColumnLayout {
-            property alias job: wiz.job
+            property alias configuration: wiz.configuration
             PurposeWizard {
                 id: wiz
                 focus: true
@@ -105,10 +106,10 @@ StackView {
             RowLayout {
                 Button {
                     text: i18n("Run")
-                    enabled: wiz.job && wiz.job.isReady
+                    enabled: wiz.configuration && wiz.configuration.isReady
                     onClicked: {
                         stack.pop();
-                        startJob(wiz.job);
+                        startJob(wiz.configuration);
                     }
                 }
                 Button {

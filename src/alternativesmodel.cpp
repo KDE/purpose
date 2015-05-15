@@ -31,6 +31,7 @@
 #include <QRegularExpression>
 
 #include "pluginbase.h"
+#include "configuration.h"
 #include "job.h"
 
 using namespace Purpose;
@@ -42,18 +43,6 @@ public:
     QJsonObject m_inputData;
     QString m_pluginType;
     QJsonObject m_pluginTypeData;
-
-    static void checkJobFinish(Purpose::Job* job)
-    {
-        QStringList outputArgs = job->property("outputArgs").toStringList();
-        QJsonObject output = job->property("outputValues").toJsonObject();
-
-        if (!output.keys().toSet().contains(outputArgs.toSet()) && job->error() == 0) {
-            qWarning() << "missing output values for" << job->metaObject()->className()
-                       << ". Expected: " << outputArgs.join(QStringLiteral(", "))
-                       << ". Got: " << output.keys().join(QStringLiteral(", "));
-        }
-    }
 };
 
 AlternativesModel::AlternativesModel(QObject* parent)
@@ -138,32 +127,11 @@ QJsonObject AlternativesModel::inputData() const
     return d->m_inputData;
 }
 
-Purpose::Job* AlternativesModel::createJob(int row)
+Purpose::Configuration* AlternativesModel::configureJob(int row)
 {
     Q_D(AlternativesModel);
-    KPluginMetaData pluginData = d->m_plugins.at(row);
-    KPluginLoader loader(pluginData.fileName(), this);
-    KPluginFactory* factory = loader.factory();
-    if (!factory) {
-        qWarning() << "Couldn't create job" << pluginData.fileName() << loader.errorString();
-        return Q_NULLPTR;
-    }
-    Purpose::PluginBase* plugin = dynamic_cast<Purpose::PluginBase*>(factory->create<QObject>(this, QVariantList()));
-
-    if (!plugin) {
-        qWarning() << "Couldn't load plugin:" << pluginData.fileName() << loader.errorString();
-    }
-
-    Purpose::Job* job = plugin->share();
-    job->setParent(this);
-    job->setData(d->m_inputData);
-    job->setConfigurationArguments(d->m_pluginTypeData.value(QStringLiteral("X-Purpose-InboundArguments")));
-    job->setInboundArguments(pluginData.rawData().value(QStringLiteral("X-Purpose-Configuration")));
-    job->setProperty("outputArgs", d->m_pluginTypeData.value(QStringLiteral("X-Purpose-OutboundArguments")));
-
-    connect(job, &Purpose::Job::output, job, [job](const QJsonObject& obj){ job->setProperty("outputValues", obj); });
-    connect(job, &Purpose::Job::finished, job, [job](){ AlternativesModelPrivate::checkJobFinish(job); });
-    return job;
+    const KPluginMetaData pluginData = d->m_plugins.at(row);
+    return new Configuration(d->m_inputData, d->m_pluginTypeData, pluginData);
 }
 
 int AlternativesModel::rowCount(const QModelIndex& parent) const
