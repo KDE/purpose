@@ -72,4 +72,6 @@ void MenuTest::runJobTest()
     QCOMPARE(error, 0);
     QCOMPARE(output.count(), 1);
     QVERIFY(QFile::remove(tempfile));
+
+    delete menu;
 }
