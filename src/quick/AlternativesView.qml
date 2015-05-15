@@ -96,12 +96,16 @@ StackView {
         id: configWizardComponent
         ColumnLayout {
             property alias configuration: wiz.configuration
-            PurposeWizard {
-                id: wiz
-                focus: true
-
+            ScrollView {
+                id: scroll
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+
+                PurposeWizard {
+                    id: wiz
+                    focus: true
+                    width: scroll.viewport.width
+                }
             }
             RowLayout {
                 Button {
