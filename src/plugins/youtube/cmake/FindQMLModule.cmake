@@ -53,6 +53,11 @@ endif()
 include(FindPackageHandleStandardArgs)
 include(FeatureSummary)
 
+string (REPLACE ";" ", " THE_COMPONENTS "${QMLModule_FIND_COMPONENTS}")
+
+set_package_properties(QMLModule PROPERTIES DESCRIPTION "QML Modules: ${THE_REQUIRED_COMPONENTS}"
+                       TYPE RUNTIME)
+
 set(QMLModule_VERSION "${QMLModule_FIND_VERSION}")
 foreach(_module ${QMLModule_FIND_COMPONENTS})
     execute_process(COMMAND qmlplugindump "${_module}" "${QMLModule_FIND_VERSION}" OUTPUT_VARIABLE FUUUUU RESULT_VARIABLE ExitCode)
