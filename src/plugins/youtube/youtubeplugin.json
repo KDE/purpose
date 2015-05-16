@@ -44,7 +44,7 @@
         "videoTitle", 
         "videoTags", 
         "accountId"
-    ],
+    ], 
     "X-Purpose-Constraints": [
         "mimeType:video/*"
     ], 

@@ -8,9 +8,13 @@
         "Category": "Utilities", 
         "Description": "Upload patches to reviewboard", 
         "Description[ca]": "Puja els pedaços al «reviewboard»", 
+        "Description[de]": "Bilder an das Reviewboard hochladen", 
         "Description[gl]": "Enviar parches á táboa de revisións.", 
         "Description[nl]": "Patches uploaden naar reviewboard", 
+        "Description[pl]": "Wyślij łaty do rady opiniującej", 
+        "Description[pt]": "Enviar as modificações para o grupo de revisão", 
         "Description[pt_BR]": "Enviar modificações para o painel de revisão", 
+        "Description[sk]": "Nahrať záplaty na revíziu", 
         "Description[sv]": "Ladda upp programfixar till Review Board", 
         "Description[uk]": "Вивантажує латки на reviewboard", 
         "Description[x-test]": "xxUpload patches to reviewboardxx", 
@@ -18,9 +22,13 @@
         "License": "GPL", 
         "Name": "Review Board", 
         "Name[ca]": "Review Board", 
+        "Name[de]": "Review Board", 
         "Name[gl]": "Táboa de revisións", 
         "Name[nl]": "Reviewboard", 
+        "Name[pl]": "Rada opiniująca", 
+        "Name[pt]": "Grupo de Revisão", 
         "Name[pt_BR]": "Painel de revisão", 
+        "Name[sk]": "Revízna komisia", 
         "Name[sv]": "Review Board", 
         "Name[uk]": "Review Board", 
         "Name[x-test]": "xxReview Boardxx"
@@ -34,7 +42,7 @@
         "repository", 
         "extraData", 
         "localBaseDir"
-    ],
+    ], 
     "X-Purpose-Constraints": [
         "mimeType:text/x-patch"
     ], 

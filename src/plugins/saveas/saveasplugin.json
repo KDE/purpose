@@ -37,8 +37,9 @@
         "Name[x-test]": "xxSave as...xx", 
         "Name[zh_CN]": "另存为..."
     }, 
-    "X-Purpose-Configuration": [ "destinationPath" ],
-
+    "X-Purpose-Configuration": [
+        "destinationPath"
+    ], 
     "X-Purpose-Constraints": [], 
     "X-Purpose-PluginTypes": [
         "Export"
