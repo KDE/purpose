@@ -29,19 +29,21 @@ struct Purpose::MenuPrivate : public QObject
 {
 Q_OBJECT
 public:
+    ~MenuPrivate() { m_engine->deleteLater(); }
     MenuPrivate(Menu* q)
         : QObject(q)
         , m_model(new AlternativesModel(q))
         , q(q)
+        , m_engine(new QQmlApplicationEngine)
     {
         KDeclarative::KDeclarative decl;
-        decl.setDeclarativeEngine(&m_engine);
+        decl.setDeclarativeEngine(m_engine);
         decl.setupBindings();
-        m_engine.load(QUrl(QStringLiteral("qrc:/JobDialog.qml")));
+        m_engine->load(QUrl(QStringLiteral("qrc:/JobDialog.qml")));
     }
 
     void trigger(int row) {
-        QObject* o = m_engine.rootObjects().first();
+        QObject* o = m_engine->rootObjects().first();
 
         o->setProperty("configuration", QVariant::fromValue<QObject*>(m_model->configureJob(row)));
         o->setProperty("q", QVariant::fromValue<QObject*>(q));
@@ -50,7 +52,7 @@ public:
     }
 
 public:
-    QQmlApplicationEngine m_engine;
+    QQmlApplicationEngine* m_engine;
     QPointer<AlternativesModel> m_model;
     Purpose::Menu* q;
 };
