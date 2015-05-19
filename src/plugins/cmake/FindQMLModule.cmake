@@ -41,22 +41,10 @@ if (NOT QMLModule_FIND_COMPONENTS)
     return()
 endif()
 
-set(_quiet_arg)
-if (QMLModule_FIND_QUIETLY)
-    set(_quiet_arg QUIET)
-endif()
-set(_exact_arg)
-if (QMLModule_FIND_EXACT)
-    set(_exact_arg EXACT)
-endif()
-
 include(FindPackageHandleStandardArgs)
 include(FeatureSummary)
 
 string (REPLACE ";" ", " THE_COMPONENTS "${QMLModule_FIND_COMPONENTS}")
-
-set_package_properties(QMLModule PROPERTIES DESCRIPTION "QML Modules: ${THE_REQUIRED_COMPONENTS}"
-                       TYPE RUNTIME)
 
 set(QMLModule_VERSION "${QMLModule_FIND_VERSION}")
 foreach(_module ${QMLModule_FIND_COMPONENTS})
@@ -68,6 +56,8 @@ foreach(_module ${QMLModule_FIND_COMPONENTS})
     else()
         set(QMLModule_${_module}_FOUND FALSE)
     endif()
+
+    set_package_properties(QMLModule_${_module} PROPERTIES DESCRIPTION "QML Modules: ${THE_REQUIRED_COMPONENTS}" TYPE RUNTIME)
 endforeach()
 
 # Annoyingly, find_package_handle_standard_args requires you to provide

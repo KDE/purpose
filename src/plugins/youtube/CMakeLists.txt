@@ -1,7 +1,5 @@
 add_subdirectory(icons)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
-find_package(KAccounts REQUIRED)
-find_package(QMLModule 0.1 COMPONENTS Ubuntu.OnlineAccounts)
 
 # TODO: remove when depending on KDE Applications 15.08
 if (NOT DEFINED kaccounts_add_service)
