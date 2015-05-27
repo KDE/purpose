@@ -3,6 +3,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 # TODO: remove when depending on KDE Applications 15.08
 if (NOT DEFINED kaccounts_add_service)
+    find_dependency(AccountsQt5 REQUIRED)
     include(cmake/FindAccountsFileDir.cmake)
 
     function(kaccounts_add_service service_file_in)
@@ -11,6 +12,7 @@ if (NOT DEFINED kaccounts_add_service)
         execute_process(COMMAND intltool-merge -x -u --no-translations ${service_file_in} ${service_file})
         install(FILES ${service_file} DESTINATION ${ACCOUNTS_SERVICES_DIR})
     endfunction()
+    include_directories(${ACCOUNTSQT_INCLUDE_DIRS})
 endif ()
 
 kaccounts_add_service(${CMAKE_CURRENT_SOURCE_DIR}/google-youtube.service.in)
