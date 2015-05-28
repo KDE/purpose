@@ -43,6 +43,7 @@ public:
     }
 
     void trigger(int row) {
+        Q_ASSERT(!m_engine->rootObjects().isEmpty());
         QObject* o = m_engine->rootObjects().first();
 
         o->setProperty("configuration", QVariant::fromValue<QObject*>(m_model->configureJob(row)));
