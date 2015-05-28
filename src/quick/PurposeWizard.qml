@@ -16,8 +16,11 @@
 */
 
 import QtQuick 2.2
+import QtQuick.Layouts 1.0
 
-Loader {
+Loader
+{
+    id: loader
     property QtObject configuration
     signal accepted()
 
@@ -25,7 +28,8 @@ Loader {
         configuration.destroy();
     }
 
-    id: loader
+    Layout.minimumHeight: item ? item.Layout.minimumHeight : 0
+    Layout.preferredHeight: item ? item.Layout.preferredHeight : 0
 
     Component.onCompleted: {
         setSource(configuration.configSourceCode, configuration.data)

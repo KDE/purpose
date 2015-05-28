@@ -34,6 +34,8 @@ ApplicationWindow
 
     Component.onCompleted: adoptJob()
     onConfigurationChanged: adoptJob()
+    minimumHeight: view.Layout.minimumHeight
+    minimumWidth: view.Layout.minimumWidth
 
     function adoptJob() {
         if (configuration == null)
@@ -58,7 +60,12 @@ ApplicationWindow
 
     StackView {
         id: view
-        anchors.fill: parent
+        anchors {
+            fill: parent
+            margins: 5
+        }
+        Layout.minimumWidth: currentItem.Layout.minimumWidth + 2*anchors.margins
+        Layout.minimumHeight: currentItem.Layout.minimumHeight + 2*anchors.margins
     }
 
     Component {
