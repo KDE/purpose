@@ -42,6 +42,5 @@ install(FILES
 )
 
 add_subdirectory(plugins)
-add_subdirectory(tool)
 add_subdirectory(quick)
 add_subdirectory(widgets)
