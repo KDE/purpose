@@ -8,6 +8,7 @@
         "Category": "Utilities", 
         "Description": "Dummy plugin, to test the shit out of the feature", 
         "Description[ca]": "Connector de simulació, per provar la sortida de les funcionalitats", 
+        "Description[de]": "Dummy-Modul zum Testen der Funktion", 
         "Description[es]": "Complemento de simulación para probar la salida de la funcionalidad", 
         "Description[gl]": "Complemento para probar a funcionalidade.", 
         "Description[nl]": "Dummy-plug-in, om de rommel uit de functie te testen", 
