@@ -18,6 +18,7 @@
         "Description[pt_BR]": "Envia imagens para Imgur", 
         "Description[sk]": "Nahrať obrázky na imgur", 
         "Description[sv]": "Ladda upp bilder till imgur", 
+        "Description[tr]": "Resimleri imgur'e yükle", 
         "Description[uk]": "Вивантаження зображень на imgur", 
         "Description[x-test]": "xxUpload pictures to imgurxx", 
         "Description[zh_CN]": "上传图片到 imgur", 
@@ -35,6 +36,7 @@
         "Name[pt_BR]": "Imgur", 
         "Name[sk]": "Imgur", 
         "Name[sv]": "Imgur", 
+        "Name[tr]": "Imgur", 
         "Name[uk]": "Imgur", 
         "Name[x-test]": "xxImgurxx", 
         "Name[zh_CN]": "Imgur"

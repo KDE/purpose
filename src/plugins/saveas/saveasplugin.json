@@ -17,6 +17,7 @@
         "Description[pt_BR]": "Plugin para teste da funcionalidade", 
         "Description[sk]": "Prázdny plugin, na vyskúšanie funkcie", 
         "Description[sv]": "Testinsticksprogram, för att testa skiten ur funktionen", 
+        "Description[tr]": "Özelliği denemek için boş eklenti", 
         "Description[uk]": "Фіктивний додаток, призначено для тестування можливості", 
         "Description[x-test]": "xxDummy plugin, to test the shit out of the featurexx", 
         "Description[zh_CN]": "假插件，用于测试功能", 
@@ -34,6 +35,7 @@
         "Name[pt_BR]": "Salvar como...", 
         "Name[sk]": "Uložiť ako...", 
         "Name[sv]": "Spara som...", 
+        "Name[tr]": "Farklı kaydet...", 
         "Name[uk]": "Зберегти як…", 
         "Name[x-test]": "xxSave as...xx", 
         "Name[zh_CN]": "另存为..."

@@ -16,6 +16,7 @@
         "Description[pt_BR]": "Enviar modificações para o painel de revisão", 
         "Description[sk]": "Nahrať záplaty na revíziu", 
         "Description[sv]": "Ladda upp programfixar till Review Board", 
+        "Description[tr]": "Yamaları gözden geçirme panosuna yükle", 
         "Description[uk]": "Вивантажує латки на reviewboard", 
         "Description[x-test]": "xxUpload patches to reviewboardxx", 
         "Icon": "reviewboard", 
@@ -30,6 +31,7 @@
         "Name[pt_BR]": "Painel de revisão", 
         "Name[sk]": "Revízna komisia", 
         "Name[sv]": "Review Board", 
+        "Name[tr]": "Gözden Geçirme Panosu", 
         "Name[uk]": "Review Board", 
         "Name[x-test]": "xxReview Boardxx"
     }, 

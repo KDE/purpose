@@ -18,6 +18,7 @@
         "Description[pt_BR]": "Enviar através do KDE Connect", 
         "Description[sk]": "Poslať cez KDE Connect", 
         "Description[sv]": "Skicka via KDE-anslut", 
+        "Description[tr]": "KDE Bağlantısı ile gönder", 
         "Description[uk]": "Надіслати за допомогою KDE Connect", 
         "Description[x-test]": "xxSend through KDE Connectxx", 
         "Description[zh_CN]": "通过 KDE Connect 发送", 
@@ -35,6 +36,7 @@
         "Name[pt_BR]": "Enviar para o dispositivo...", 
         "Name[sk]": "Poslať na zariadenie...", 
         "Name[sv]": "Skicka till enhet...", 
+        "Name[tr]": "Aygıta Gönder...", 
         "Name[uk]": "Надіслати на пристрій…", 
         "Name[x-test]": "xxSend To Device...xx", 
         "Name[zh_CN]": "发送到设备"

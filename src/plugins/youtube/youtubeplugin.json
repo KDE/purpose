@@ -18,6 +18,7 @@
         "Description[pt_BR]": "Envia vídeos para o YouTube", 
         "Description[sk]": "Nahrať videá na YouTube", 
         "Description[sv]": "Ladda upp videor till YouTube", 
+        "Description[tr]": "Videoları YouTube'a yükle", 
         "Description[uk]": "Вивантаження відео на YouTube", 
         "Description[x-test]": "xxUpload videos to YouTubexx", 
         "Description[zh_CN]": "上传视频到 YouTube", 
@@ -35,6 +36,7 @@
         "Name[pt_BR]": "Youtube", 
         "Name[sk]": "YouTube", 
         "Name[sv]": "YouTube", 
+        "Name[tr]": "YouTube", 
         "Name[uk]": "YouTube", 
         "Name[x-test]": "xxYoutubexx", 
         "Name[zh_CN]": "Youtube"

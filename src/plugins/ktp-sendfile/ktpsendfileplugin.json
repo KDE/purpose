@@ -18,6 +18,7 @@
         "Description[pt_BR]": "Envia por mensagem instantânea", 
         "Description[sk]": "Poslať cez instantné správy", 
         "Description[sv]": "Skicka via direktmeddelanden", 
+        "Description[tr]": "Anında Mesajlaşma ile Gönder", 
         "Description[uk]": "Надіслати за допомогою служби обміну повідомленнями", 
         "Description[x-test]": "xxSend through Instant Messagingxx", 
         "Description[zh_CN]": "通过即时通讯发送", 
@@ -35,6 +36,7 @@
         "Name[pt_BR]": "Enviar para o contato...", 
         "Name[sk]": "Poslať do kontaktu...", 
         "Name[sv]": "Skicka till kontakt...", 
+        "Name[tr]": "Bağlantıya Gönder...", 
         "Name[uk]": "Надіслати контакту…", 
         "Name[x-test]": "xxSend To Contact...xx", 
         "Name[zh_CN]": "发送到联系人..."
