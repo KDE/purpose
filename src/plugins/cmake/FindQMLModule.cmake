@@ -41,6 +41,8 @@ if (NOT QMLModule_FIND_COMPONENTS)
     return()
 endif()
 
+set_package_properties(QMLModule PROPERTIES DESCRIPTION "QML Modules: checks failed or cannot be performed" TYPE RUNTIME)
+
 include(FindPackageHandleStandardArgs)
 include(FeatureSummary)
 
