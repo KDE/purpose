@@ -62,7 +62,7 @@ Menu::Menu(QWidget* parent)
     : QMenu(parent)
     , d_ptr(new MenuPrivate(this))
 {
-    connect(d_ptr->m_model, &AlternativesModel::inputDataChanged, this, &Menu::reload);
+    connect(d_ptr->m_model.data(), &AlternativesModel::inputDataChanged, this, &Menu::reload);
     connect(this, &QMenu::triggered, this, [this](QAction* action) {
         Q_D(Menu);
         d->trigger(action->property("row").toInt());
