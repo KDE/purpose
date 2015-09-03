@@ -54,7 +54,7 @@ private:
     struct Value {
         QVariant name;
         QVariant path;
-        bool operator<(const Value &v1) {
+        bool operator<(const Value &v1) const {
             return name.toString() < v1.name.toString();
         }
     };
