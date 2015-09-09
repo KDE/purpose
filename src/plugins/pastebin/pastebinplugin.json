@@ -6,7 +6,7 @@
             }
         ], 
         "Category": "Utilities", 
-        "Description": "Upload text to pastebin", 
+        "Description": "Upload text to Pastebin",
         "Description[ca]": "Puja el text a pastebin", 
         "Description[de]": "Text zu Pastebin hochladen", 
         "Description[es]": "Enviar texto a pastebin", 
