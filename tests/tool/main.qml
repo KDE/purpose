@@ -30,6 +30,9 @@ ApplicationWindow
         id: view
         anchors.fill: parent
 
+        Layout.minimumWidth: 200
+        Layout.minimumHeight: 200
+
         pluginType: "Export"
         onFinished: {
             if (error != 0) {
