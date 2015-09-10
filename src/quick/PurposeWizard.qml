@@ -28,8 +28,8 @@ Loader
         configuration.destroy();
     }
 
-    Layout.minimumHeight: item ? item.Layout.minimumHeight : 0
-    Layout.preferredHeight: item ? item.Layout.preferredHeight : 0
+    Layout.minimumHeight: item ? item.Layout.minimumHeight : height
+    Layout.preferredHeight: item ? item.Layout.preferredHeight : width
 
     Component.onCompleted: {
         setSource(configuration.configSourceCode, configuration.data)
