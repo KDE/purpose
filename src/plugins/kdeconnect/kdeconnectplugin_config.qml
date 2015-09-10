@@ -43,7 +43,7 @@ ColumnLayout
         }
 
         onCurrentRowChanged: {
-            root.device = connectDeviceModel.getDevice(devices.currentRow).id
+            root.device = connectDeviceModel.getDevice(devices.currentRow).id()
         }
     }
 }
