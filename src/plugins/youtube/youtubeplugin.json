@@ -27,7 +27,14 @@
         "Description[zh_CN]": "上传视频到 YouTube", 
         "Icon": "edit-paste", 
         "License": "GPL", 
-        "Name": "YouTube"
+        "Name": "YouTube", 
+        "Name[ca]": "YouTube", 
+        "Name[nl]": "YouTube", 
+        "Name[pt]": "YouTube", 
+        "Name[pt_BR]": "YouTube", 
+        "Name[sv]": "YouTube", 
+        "Name[uk]": "YouTube", 
+        "Name[x-test]": "xxYouTubexx"
     }, 
     "X-Purpose-Configuration": [
         "videoDesc", 
