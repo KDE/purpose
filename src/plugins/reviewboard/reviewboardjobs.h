@@ -41,7 +41,7 @@ namespace ReviewBoard
     class Q_DECL_EXPORT HttpCall : public KJob
     {
         Q_OBJECT
-        Q_PROPERTY(QVariant result READ result);
+        Q_PROPERTY(QVariant result READ result)
         public:
             enum Method { Get, Put, Post };
 

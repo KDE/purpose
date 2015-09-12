@@ -85,7 +85,7 @@ Q_SIGNALS:
     void dataChanged();
 
 private:
-    Q_DECLARE_PRIVATE(Configuration);
+    Q_DECLARE_PRIVATE(Configuration)
     ConfigurationPrivate* const d_ptr;
 };
 

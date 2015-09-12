@@ -40,7 +40,7 @@ Q_SIGNALS:
     void finished(const QJsonObject &output, int error, const QString &message);
 
 private:
-    Q_DECLARE_PRIVATE(Menu);
+    Q_DECLARE_PRIVATE(Menu)
     MenuPrivate *const d_ptr;
 };
 
