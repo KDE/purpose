@@ -37,8 +37,8 @@ class AlternativesModelPrivate;
 class PURPOSE_EXPORT AlternativesModel : public QAbstractListModel
 {
 Q_OBJECT
-Q_PROPERTY(QString pluginType READ pluginType WRITE setPluginType NOTIFY pluginTypeChanged);
-Q_PROPERTY(QJsonObject inputData READ inputData WRITE setInputData NOTIFY inputDataChanged);
+Q_PROPERTY(QString pluginType READ pluginType WRITE setPluginType NOTIFY pluginTypeChanged)
+Q_PROPERTY(QJsonObject inputData READ inputData WRITE setInputData NOTIFY inputDataChanged)
 public:
     enum Roles {
         PluginIdRole = Qt::UserRole+1,
@@ -76,7 +76,7 @@ private:
     void initializeModel();
 
     AlternativesModelPrivate *const d_ptr;
-    Q_DECLARE_PRIVATE(AlternativesModel);
+    Q_DECLARE_PRIVATE(AlternativesModel)
 };
 
 }

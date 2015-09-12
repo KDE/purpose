@@ -32,9 +32,9 @@ public:
     ~MenuPrivate() { m_engine->deleteLater(); }
     MenuPrivate(Menu* q)
         : QObject(q)
+        , m_engine(new QQmlApplicationEngine)
         , m_model(new AlternativesModel(q))
         , q(q)
-        , m_engine(new QQmlApplicationEngine)
     {
         KDeclarative::KDeclarative decl;
         decl.setDeclarativeEngine(m_engine);

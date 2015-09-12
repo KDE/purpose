@@ -66,7 +66,7 @@ Q_SIGNALS:
     void dataChanged();
 
 private:
-    Q_DECLARE_PRIVATE(Job);
+    Q_DECLARE_PRIVATE(Job)
     QScopedPointer<JobPrivate> const d_ptr;
 };
 

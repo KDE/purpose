@@ -6,10 +6,17 @@ if (NOT DEFINED kaccounts_add_service)
     find_dependency(AccountsQt5 REQUIRED)
     include(cmake/FindAccountsFileDir.cmake)
 
+    find_program(INTLTOOLMERGE intltool-merge)
+    if(NOT INTLTOOLMERGE)
+        message(FATAL_ERROR "couldn't find intltool-merge")
+    endif()
+
     function(kaccounts_add_service service_file_in)
         get_filename_component(service_filename ${service_file_in} NAME_WE)
         set(service_file ${CMAKE_CURRENT_BINARY_DIR}/${service_filename}.service)
-        execute_process(COMMAND intltool-merge -x -u --no-translations ${service_file_in} ${service_file})
+
+
+        execute_process(COMMAND ${INTLTOOLMERGE} -x -u --no-translations ${service_file_in} ${service_file})
         install(FILES ${service_file} DESTINATION ${ACCOUNTS_SERVICES_DIR})
     endfunction()
     include_directories(${ACCOUNTSQT_INCLUDE_DIRS})
