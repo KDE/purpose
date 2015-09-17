@@ -14,6 +14,7 @@
         "Description[pt]": "Enviar o texto para o Pastebin", 
         "Description[pt_BR]": "Enviar o texto para o Pastebin", 
         "Description[sv]": "Ladda upp text till Pastebin", 
+        "Description[tr]": "Metni Pastebin'e yükle", 
         "Description[uk]": "Вивантажити текст на Pastebin", 
         "Description[x-test]": "xxUpload text to Pastebinxx", 
         "Icon": "edit-paste", 
