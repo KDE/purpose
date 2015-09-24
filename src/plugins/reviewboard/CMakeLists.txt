@@ -5,7 +5,7 @@ add_library(ReviewboardHelpers reviewboardjobs.cpp debug.cpp)
 target_link_libraries(ReviewboardHelpers KF5::CoreAddons KF5::I18n Qt5::Network)
 
 add_share_plugin(reviewboardplugin reviewboardplugin.cpp)
-target_link_libraries(reviewboardplugin Qt5::Widgets ReviewboardHelpers KF5::ConfigCore)
+target_link_libraries(reviewboardplugin Qt5::Widgets ReviewboardHelpers)
 
 install(TARGETS ReviewboardHelpers ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 

@@ -23,7 +23,7 @@ include(ECMGenerateHeaders)
 set(KF5_VERSION "5.7.0") # handled by release scripts
 set(KF5_DEP_VERSION "5.7.0") # handled by release scripts
 
-find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS CoreAddons Config I18n KIO Declarative)
+find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n KIO Declarative)
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX PURPOSE
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h"
