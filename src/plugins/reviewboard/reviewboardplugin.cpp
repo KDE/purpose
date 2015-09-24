@@ -24,7 +24,6 @@
 #include <QStandardPaths>
 #include <QJsonArray>
 
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <QJsonDocument>
