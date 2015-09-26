@@ -1,4 +1,4 @@
-add_definitions(-DTRANSLATION_DOMAIN=\"reviewboardplugin\")
+add_definitions(-DTRANSLATION_DOMAIN=\"purpose_reviewboard\")
 add_subdirectory(icons)
 
 add_library(ReviewboardHelpers reviewboardjobs.cpp debug.cpp)
