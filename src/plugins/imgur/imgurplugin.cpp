@@ -67,6 +67,15 @@ class ImgurShareJob : public Purpose::Job
 
         void fileFetched(KJob* j)
         {
+            if (j->error()) {
+                setError(j->error());
+                setErrorText(j->errorText());
+                emitResult();
+
+                qDebug() << "error:" << j->errorText() << j->errorString();
+
+                return;
+            }
             KIO::StoredTransferJob* job = qobject_cast<KIO::StoredTransferJob*>(j);
             m_form.addFile(QStringLiteral("image"), job->url(), job->data());
             --m_pendingJobs;
