@@ -23,7 +23,7 @@
         "Description[tr]": "Yamaları gözden geçirme panosuna yükle", 
         "Description[uk]": "Вивантажує латки на reviewboard", 
         "Description[x-test]": "xxUpload patches to reviewboardxx", 
-        "Icon": "reviewboard-purpose",
+        "Icon": "reviewboard-purpose", 
         "License": "GPL", 
         "Name": "Review Board", 
         "Name[ca]": "Review Board", 
