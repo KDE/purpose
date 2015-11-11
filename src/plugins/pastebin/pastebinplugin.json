@@ -7,6 +7,7 @@
         ], 
         "Category": "Utilities", 
         "Description": "Upload text to Pastebin", 
+        "Description[ast]": "Xube testu a Pastebin", 
         "Description[ca@valencia]": "Puja el text a Pastebin", 
         "Description[ca]": "Puja el text a Pastebin", 
         "Description[de]": "Text zu Pastebin hochladen", 

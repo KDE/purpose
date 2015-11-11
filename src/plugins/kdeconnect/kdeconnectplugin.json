@@ -7,6 +7,7 @@
         ], 
         "Category": "Utilities", 
         "Description": "Send through KDE Connect", 
+        "Description[ast]": "Unvia pente KDE Connect", 
         "Description[ca@valencia]": "Envia a través del KDE Connect", 
         "Description[ca]": "Envia a través del KDE Connect", 
         "Description[cs]": "Poslat přes KDE Connect", 

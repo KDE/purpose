@@ -7,6 +7,7 @@
         ], 
         "Category": "Utilities", 
         "Description": "Send through Instant Messaging", 
+        "Description[ast]": "Unvia pente mensaxería nel intre", 
         "Description[ca@valencia]": "Envia a través de missatgeria instantània", 
         "Description[ca]": "Envia a través de missatgeria instantània", 
         "Description[cs]": "Poslat zkrze chat", 
