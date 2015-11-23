@@ -16,11 +16,12 @@
 */
 
 #include <QApplication>
+#include <KLocalizedContext>
 #include <KAboutData>
 #include <QCommandLineParser>
+#include <QQmlContext>
 #include <QMimeDatabase>
 #include <KLocalizedString>
-#include <kdeclarative/kdeclarative.h>
 #include <QQmlApplicationEngine>
 #include <QDebug>
 #include <QJsonArray>
@@ -94,9 +95,7 @@ int main(int argc, char** argv)
     }
 
     QQmlApplicationEngine engine;
-    KDeclarative::KDeclarative decl;
-    decl.setDeclarativeEngine(&engine);
-    decl.setupBindings();
+    engine.rootContext()->setContextObject(new KLocalizedContext);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     engine.rootObjects().first()->setProperty("inputData", inputData);

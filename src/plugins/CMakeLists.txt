@@ -11,6 +11,13 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 find_package(KAccounts REQUIRED)
 find_package(QMLModule 0.1 COMPONENTS Ubuntu.OnlineAccounts)
 find_package(QMLModule 1.0 COMPONENTS org.kde.kdeconnect)
+find_package(KF5KIO ${KF5_DEP_VERSION} REQUIRED)
+
+set_package_properties(KAccounts PROPERTIES
+                       PURPOSE "Used to find your system-wide defined, for now only for YouTube."
+                       TYPE OPTIONAL
+)
+set_package_properties(KF5KIO PROPERTIES TYPE REQUIRED)
 
 add_subdirectory(saveas)
 add_subdirectory(imgur)

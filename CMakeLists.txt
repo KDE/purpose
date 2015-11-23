@@ -7,7 +7,7 @@ find_package(ECM 1.7.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 set(REQUIRED_QT_VERSION "5.2")
-find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui Test)
+find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui Widgets Test)
 include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings)
 include(KDECMakeSettings)
@@ -23,7 +23,7 @@ include(ECMGenerateHeaders)
 set(KF5_VERSION "5.7.0") # handled by release scripts
 set(KF5_DEP_VERSION "5.7.0") # handled by release scripts
 
-find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n KIO Declarative)
+find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX PURPOSE
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h"

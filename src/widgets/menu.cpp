@@ -16,12 +16,13 @@
 */
 
 #include "menu.h"
+#include <KI18n/KLocalizedContext>
+#include <QQmlContext>
 #include <purpose/configuration.h>
 #include <purpose/alternativesmodel.h>
 #include <QPointer>
 #include <QDebug>
 #include <QQmlApplicationEngine>
-#include <KDeclarative/KDeclarative>
 
 using namespace Purpose;
 
@@ -36,9 +37,7 @@ public:
         , m_model(new AlternativesModel(q))
         , q(q)
     {
-        KDeclarative::KDeclarative decl;
-        decl.setDeclarativeEngine(m_engine);
-        decl.setupBindings();
+        m_engine->rootContext()->setContextObject(new KLocalizedContext(this));
         m_engine->load(QUrl(QStringLiteral("qrc:/JobDialog.qml")));
     }
 

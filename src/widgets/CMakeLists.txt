@@ -7,7 +7,7 @@ target_link_libraries(KF5PurposeWidgets
         Qt5::Widgets
     PRIVATE
         Qt5::Qml
-        KF5::Declarative
+        KF5::I18n
 )
 set_target_properties(KF5PurposeWidgets PROPERTIES VERSION ${PURPOSE_VERSION_STRING}
                                           SOVERSION ${PURPOSE_SOVERSION}
