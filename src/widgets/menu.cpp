@@ -26,7 +26,7 @@
 
 using namespace Purpose;
 
-struct Purpose::MenuPrivate : public QObject
+class Purpose::MenuPrivate : public QObject
 {
 Q_OBJECT
 public:
@@ -43,7 +43,7 @@ public:
 
     void trigger(int row) {
         Q_ASSERT(!m_engine->rootObjects().isEmpty());
-        QObject* o = m_engine->rootObjects().first();
+        QObject* o = m_engine->rootObjects().at(0);
 
         o->setProperty("configuration", QVariant::fromValue<QObject*>(m_model->configureJob(row)));
         o->setProperty("q", QVariant::fromValue<QObject*>(q));

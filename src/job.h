@@ -28,7 +28,7 @@
 namespace Purpose
 {
 
-struct JobPrivate;
+class JobPrivate;
 
 /**
  * @brief Job that will actually perform the sharing

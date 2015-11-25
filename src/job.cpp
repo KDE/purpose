@@ -21,8 +21,9 @@
 
 using namespace Purpose;
 
-struct Purpose::JobPrivate
+class Purpose::JobPrivate
 {
+public:
     QJsonObject m_data;
 };
 

@@ -104,7 +104,7 @@ class TheReviewboardJob : public Purpose::Job
         ReviewBoard::SubmitPatchRequest const * job = qobject_cast<ReviewBoard::SubmitPatchRequest*>(j);
         QUrl url = job->server();
         url.setUserInfo(QString());
-        QString requrl = QStringLiteral("%1/r/%2/").arg(url.toDisplayString(QUrl::PreferLocalFile)).arg(job->requestId());
+        QString requrl = QStringLiteral("%1/r/%2/").arg(url.toDisplayString(QUrl::PreferLocalFile), job->requestId());
         Q_EMIT output({{ QStringLiteral("url"), requrl }});
         emitResult();
     }

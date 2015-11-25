@@ -33,8 +33,9 @@
 
 using namespace Purpose;
 
-struct Purpose::ConfigurationPrivate
+class Purpose::ConfigurationPrivate
 {
+public:
     QJsonObject m_inputData;
     QJsonObject m_pluginType;
     KPluginMetaData m_pluginData;
@@ -82,7 +83,7 @@ QJsonObject Configuration::data() const
 bool Configuration::isReady() const
 {
     Q_D(const Configuration);
-    for(const QJsonValue& arg: neededArguments()) {
+    Q_FOREACH(const QJsonValue& arg, neededArguments()) {
         if(!d->m_inputData.contains(arg.toString()))
             return false;
     }
@@ -94,7 +95,7 @@ QJsonArray Configuration::neededArguments() const
     Q_D(const Configuration);
     QJsonArray ret = d->m_pluginType.value(QStringLiteral("X-Purpose-InboundArguments")).toArray();
     QJsonArray arr = d->m_pluginData.rawData().value(QStringLiteral("X-Purpose-Configuration")).toArray();
-    foreach (const QJsonValue &val, arr)
+    Q_FOREACH(const QJsonValue &val, arr)
         ret += val;
     return ret;
 }

@@ -32,8 +32,8 @@
 #include <QNetworkReply>
 #include <QHttpMultiPart>
 
-const static QUrl apiUrl(QStringLiteral("https://www.googleapis.com/upload/youtube/v3/videos?part=snippet%2Cstatus&uploadType=resumable"));
-const static QString watchUrl = QStringLiteral("https://www.youtube.com/watch?v=");
+static const QUrl apiUrl(QStringLiteral("https://www.googleapis.com/upload/youtube/v3/videos?part=snippet%2Cstatus&uploadType=resumable"));
+static const QString watchUrl = QStringLiteral("https://www.youtube.com/watch?v=");
 
 YoutubeJob::YoutubeJob(const QUrl& url, const QByteArray &accessToken, const QString& title, const QStringList& tags, const QString& description, QObject* parent)
     : KJob(parent), m_url(url), m_token(accessToken)

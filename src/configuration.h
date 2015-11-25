@@ -29,7 +29,7 @@ class KPluginMetaData;
 
 namespace Purpose
 {
-struct ConfigurationPrivate;
+class ConfigurationPrivate;
 class Job;
 
 /**

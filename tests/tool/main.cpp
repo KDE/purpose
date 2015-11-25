@@ -75,7 +75,7 @@ int main(int argc, char** argv)
     if (!inputData.contains(QStringLiteral("urls")) || !inputData.contains(QStringLiteral("mimeType")))
     {
         QMimeDatabase db;
-        for(const QString& file: files) {
+        Q_FOREACH(const QString& file, files) {
             const QUrl url = QUrl::fromUserInput(file, QString(), QUrl::AssumeLocalFile);
             QMimeType type = db.mimeTypeForUrl(url);
             if (!common.isValid())
@@ -98,8 +98,8 @@ int main(int argc, char** argv)
     engine.rootContext()->setContextObject(new KLocalizedContext);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    engine.rootObjects().first()->setProperty("inputData", inputData);
-    engine.rootObjects().first()->setProperty("visible", true);
+    engine.rootObjects().at(0)->setProperty("inputData", inputData);
+    engine.rootObjects().at(0)->setProperty("visible", true);
 
     return app.exec();
 }

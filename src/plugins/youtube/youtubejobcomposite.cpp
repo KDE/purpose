@@ -67,7 +67,7 @@ void YoutubeJobComposite::start()
             emitResult();
             return;
         }
-        accessToken = job->credentialsData()[QStringLiteral("AccessToken")].toByteArray();
+        accessToken = job->credentialsData().value(QStringLiteral("AccessToken")).toByteArray();
     }
 
     m_pendingJobs = 0;

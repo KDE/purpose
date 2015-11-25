@@ -34,8 +34,7 @@ EXPORT_SHARE_VERSION
 // Taken from "share" Data Engine
 // key associated with plasma-devel@kde.org
 // thanks to Alan Schaaf of Imgur (alan@imgur.com)
-static const QString apiKey = QStringLiteral("d0757bc2e94a0d4652f28079a0be9379");
-static const QUrl imgurUrl(QStringLiteral("https://api.imgur.com/2/upload.json?key=")+apiKey);
+static const QUrl imgurUrl(QStringLiteral("https://api.imgur.com/2/upload.json?key=" /*apikey*/"d0757bc2e94a0d4652f28079a0be9379"));
 
 class ImgurShareJob : public Purpose::Job
 {
@@ -108,7 +107,7 @@ class ImgurShareJob : public Purpose::Job
             } else if (error.error) {
                 setError(1);
                 setErrorText(error.errorString());
-            } else if ( resultMap.contains(QLatin1String("error")) ) {
+            } else if ( resultMap.contains(QStringLiteral("error")) ) {
                 setError(2);
                 QJsonObject errorMap = resultMap[QStringLiteral("error")].toObject();
                 setErrorText(errorMap[QStringLiteral("message")].toString());

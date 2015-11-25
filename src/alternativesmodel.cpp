@@ -178,7 +178,7 @@ static bool mimeTypeMatch(const QString& constraint, const QJsonValue& value)
         }
         return false;
     } else if(value.isObject()) {
-        foreach(const QJsonValue& val, value.toObject()) {
+        for(const QJsonValue& val : value.toObject()) {
             if (mimeTypeMatch(constraint, val))
                 return true;
         }

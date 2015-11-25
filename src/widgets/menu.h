@@ -23,7 +23,7 @@
 
 namespace Purpose
 {
-struct MenuPrivate;
+class MenuPrivate;
 
 class AlternativesModel;
 

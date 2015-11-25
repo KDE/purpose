@@ -34,7 +34,7 @@ EXPORT_SHARE_VERSION
 // Taken from "share" Data Engine
 // key associated with plasma-devel@kde.org
 // thanks to Alan Schaaf of Pastebin (alan@pastebin.com)
-static const QByteArray apiKey("0c8b6add8e0f6d53f61fe5ce870a1afa");
+Q_GLOBAL_STATIC_WITH_ARGS(QByteArray, apiKey, ("0c8b6add8e0f6d53f61fe5ce870a1afa"));
 
 class PastebinJob : public Purpose::Job
 {
@@ -89,7 +89,7 @@ class PastebinJob : public Purpose::Job
             }
 
 //             qCDebug(PLUGIN_PASTEBIN) << "exporting patch to pastebin" << source->file();
-            QByteArray bytearray = "api_option=paste&api_paste_private=1&api_paste_name=kde-purpose-pastebin-plugin&api_paste_expire_date=1D&api_paste_format=diff&api_dev_key="+apiKey+"&api_paste_code=";
+            QByteArray bytearray = "api_option=paste&api_paste_private=1&api_paste_name=kde-purpose-pastebin-plugin&api_paste_expire_date=1D&api_paste_format=diff&api_dev_key="+*apiKey+"&api_paste_code=";
             bytearray += QUrl::toPercentEncoding(QString::fromUtf8(m_data));
 
             const QUrl url(QStringLiteral("http://pastebin.com/api/api_post.php"));
