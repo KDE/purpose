@@ -72,7 +72,7 @@ int main(int argc, char** argv)
 
     QMimeType common;
     QJsonArray urls;
-    if (!inputData.contains(QStringLiteral("urls")) || !inputData.contains(QStringLiteral("mimeType")))
+    if (!files.isEmpty() && (!inputData.contains(QStringLiteral("urls")) || !inputData.contains(QStringLiteral("mimeType"))))
     {
         QMimeDatabase db;
         Q_FOREACH(const QString& file, files) {
