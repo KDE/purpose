@@ -32,7 +32,7 @@ public:
         Q_UNUSED(args);
     }
 
-    virtual Purpose::Job* share() const override
+    virtual Purpose::Job* createJob() const override
     {
         return new YoutubeJobComposite;
     }

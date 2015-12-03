@@ -101,7 +101,6 @@ class PastebinJob : public Purpose::Job
             connect(tf, &KJob::result, this, &PastebinJob::textUploaded);
 
             m_resultData.clear();
-            KIO::getJobTracker()->registerJob(tf);
         }
 
         void textUploaded(KJob* /*job*/) {
@@ -121,7 +120,7 @@ class Q_DECL_EXPORT PastebinPlugin : public Purpose::PluginBase
     public:
         PastebinPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
 
-        virtual Purpose::Job* share() const override
+        virtual Purpose::Job* createJob() const override
         {
             return new PastebinJob(nullptr);
         }

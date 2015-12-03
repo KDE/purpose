@@ -38,8 +38,8 @@ public:
     PluginBase(QObject* parent = nullptr);
     virtual ~PluginBase();
 
-    /** @returns the job that will perform the share of the specified @p data.*/
-    virtual Job* share() const = 0;
+    /** @returns the job that will perform the plugin's action. */
+    virtual Job* createJob() const = 0;
 };
 
 }

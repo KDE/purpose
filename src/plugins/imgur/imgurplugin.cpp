@@ -133,7 +133,7 @@ class Q_DECL_EXPORT ImgurPlugin : public Purpose::PluginBase
     public:
         ImgurPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
 
-        virtual Purpose::Job* share() const override
+        virtual Purpose::Job* createJob() const override
         {
             return new ImgurShareJob(nullptr);
         }

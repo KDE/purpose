@@ -84,7 +84,7 @@ class Q_DECL_EXPORT SaveAsPlugin : public Purpose::PluginBase
     public:
         SaveAsPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
 
-        virtual Purpose::Job* share() const override
+        virtual Purpose::Job* createJob() const override
         {
             return new SaveAsShareJob(nullptr);
         }

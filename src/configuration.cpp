@@ -120,7 +120,7 @@ Purpose::Job* Configuration::createJob()
         qWarning() << "Couldn't load plugin:" << pluginData.fileName() << loader.errorString();
     }
 
-    Purpose::Job* job = plugin->share();
+    Purpose::Job* job = plugin->createJob();
     job->setData(d->m_inputData);
     job->setProperty("outputArgs", d->m_pluginType.value(QStringLiteral("X-Purpose-OutboundArguments")));
 
