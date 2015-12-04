@@ -6,7 +6,7 @@
             }
         ], 
         "Category": "Utilities", 
-        "Description": "Saves the share into the chosen location.",
+        "Description": "Saves the share into the chosen location.", 
         "Icon": "document-save", 
         "License": "GPL", 
         "Name": "Save as...", 
