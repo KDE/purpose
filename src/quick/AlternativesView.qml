@@ -54,6 +54,10 @@ StackView {
 
     function startJob(config) {
         var job = config.createJob();
+        if (!job) {
+            console.warn("couldn't start job")
+            return;
+        }
         stack.push({
             item: runningJobComponent,
             properties: { job: job }
