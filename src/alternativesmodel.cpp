@@ -230,7 +230,7 @@ void AlternativesModel::initializeModel()
             }
             QString propertyName = match.captured(1);
             QString constrainedValue = match.captured(2);
-            bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, d->m_inputData[propertyName]);
+            bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, d->m_inputData.value(propertyName));
             if (!acceptable) {
 //                 qDebug() << "not accepted" << meta.name() << propertyName << constrainedValue << d->m_inputData[propertyName];
                 return false;
