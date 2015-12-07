@@ -16,14 +16,16 @@
 */
 
 #include "purpose/configuration.h"
-
-#include <KPluginMetaData>
-#include <KPluginLoader>
 #include <KPluginFactory>
+#include "externalprocess/processjob.h"
+
+#include <KPluginLoader>
+#include <KPluginMetaData>
 
 #include <QDebug>
 #include <QStandardPaths>
 
+#include "helper.h"
 #include "pluginbase.h"
 
 using namespace Purpose;
@@ -32,8 +34,10 @@ class Purpose::ConfigurationPrivate
 {
 public:
     QJsonObject m_inputData;
+    QString m_pluginTypeName;
     QJsonObject m_pluginType;
-    KPluginMetaData m_pluginData;
+    const KPluginMetaData m_pluginData;
+    bool m_useSeparateProcess;
 
     static void checkJobFinish(KJob* job)
     {
@@ -48,11 +52,18 @@ public:
     }
 
     Purpose::Job* internalCreateJob(QObject* parent) const {
-        const QString fileName = m_pluginData.fileName();
+        if (m_useSeparateProcess)
+            return new ProcessJob(m_pluginData.fileName(), m_pluginTypeName, m_inputData, parent);
+        else
+            return createJob(m_pluginData.fileName(), parent);
+    }
+
+    static Purpose::Job * createJob(const QString &fileName, QObject* parent)
+    {
         KPluginLoader loader(fileName);
         KPluginFactory* factory = loader.factory();
         if (!factory) {
-            qWarning() << "Couldn't create job" << fileName << loader.errorString();
+            qWarning() << "Couldn't create job:" << fileName << loader.errorString();
             return Q_NULLPTR;
         }
         Purpose::PluginBase* plugin = dynamic_cast<Purpose::PluginBase*>(factory->create<QObject>(parent, QVariantList()));
@@ -64,11 +75,16 @@ public:
 
         return plugin->createJob();
     }
+
 };
 
-Configuration::Configuration(const QJsonObject &inputData, const QJsonObject &pluginType, const KPluginMetaData &pluginInformation, QObject* parent)
+Configuration::Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const KPluginMetaData &pluginInformation, QObject* parent)
+    : Configuration(inputData, pluginTypeName, QJsonObject(), pluginInformation, parent)
+{}
+
+Configuration::Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const QJsonObject &pluginType, const KPluginMetaData &pluginInformation, QObject* parent)
     : QObject(parent)
-    , d_ptr(new ConfigurationPrivate {inputData, pluginType, pluginInformation})
+    , d_ptr(new ConfigurationPrivate {inputData, pluginTypeName, pluginType, pluginInformation, true})
 {}
 
 Configuration::~Configuration()
@@ -97,8 +113,10 @@ bool Configuration::isReady() const
 {
     Q_D(const Configuration);
     Q_FOREACH(const QJsonValue& arg, neededArguments()) {
-        if(!d->m_inputData.contains(arg.toString()))
+        if(!d->m_inputData.contains(arg.toString())) {
+            qDebug() << "missing..." << arg.toString();
             return false;
+        }
     }
     return true;
 }
@@ -141,4 +159,16 @@ QUrl Configuration::configSourceCode() const
         return QUrl();
 
     return QUrl::fromLocalFile(configFile);
+}
+
+bool Configuration::useSeparateProcess() const
+{
+    Q_D(const Configuration);
+    return d->m_useSeparateProcess;
+}
+
+void Configuration::setUseSeparateProcess(bool use)
+{
+    Q_D(Configuration);
+    d->m_useSeparateProcess = use;
 }

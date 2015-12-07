@@ -30,7 +30,7 @@
 #include <QJsonArray>
 #include <QRegularExpression>
 
-#include "pluginbase.h"
+#include "helper.h"
 #include "configuration.h"
 #include "job.h"
 
@@ -85,28 +85,8 @@ void AlternativesModel::setPluginType(const QString& pluginType)
     if (pluginType == d->m_pluginType)
         return;
 
-    const QString lookup = QStringLiteral("purpose/types/") + pluginType + QStringLiteral("PluginType.json");
-    const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, lookup);
-    if (path.isEmpty()) {
-        qWarning() << "Couldn't find" << lookup;
-        return;
-    }
-    QFile typeFile(path);
-    if (!typeFile.open(QFile::ReadOnly)) {
-        qWarning() << "Couldn't open" << lookup;
-        return;
-    }
 
-    QJsonParseError error;
-    QJsonDocument doc = QJsonDocument::fromJson(typeFile.readAll(), &error);
-    if (error.error) {
-        qWarning() << "JSON error in " << path << error.offset << ":" << error.errorString();
-        return;
-    }
-
-    Q_ASSERT(doc.isObject());
-    QJsonObject typeData = doc.object();
-    d->m_pluginTypeData = typeData;
+    d->m_pluginTypeData = Purpose::readPluginType(pluginType);
     d->m_pluginType = pluginType;
     Q_ASSERT(d->m_pluginTypeData.isEmpty() == d->m_pluginType.isEmpty());
 
@@ -131,7 +111,7 @@ Purpose::Configuration* AlternativesModel::configureJob(int row)
 {
     Q_D(AlternativesModel);
     const KPluginMetaData pluginData = d->m_plugins.at(row);
-    return new Configuration(d->m_inputData, d->m_pluginTypeData, pluginData);
+    return new Configuration(d->m_inputData, d->m_pluginType, d->m_pluginTypeData, pluginData);
 }
 
 int AlternativesModel::rowCount(const QModelIndex& parent) const
