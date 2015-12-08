@@ -7,6 +7,7 @@
         ], 
         "Category": "Utilities", 
         "Description": "Saves the share into the chosen location.", 
+        "Description[ca@valencia]": "Guarda la compartició a la ubicació escollida.", 
         "Description[ca]": "Desa la compartició a la ubicació escollida.", 
         "Description[fi]": "Tallentaa jaettavan asian valittuun sijaintiin.", 
         "Description[gl]": "Garda a compartición no lugar escollido.", 
