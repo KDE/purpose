@@ -47,6 +47,7 @@ void AlternativesModelTest::runJobTest()
     Purpose::AlternativesModel model;
 
     const QString tempfile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/purposetest");
+    QFile::remove(tempfile);
     QJsonObject input = QJsonObject {
         {QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
         {QStringLiteral("mimeType"), QStringLiteral("dummy/thing") }

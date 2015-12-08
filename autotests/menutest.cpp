@@ -46,6 +46,7 @@ void MenuTest::runJobTest()
     Purpose::AlternativesModel* model = menu->model();
 
     const QString tempfile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/purposetest");
+    QFile::remove(tempfile);
     const QJsonObject input = QJsonObject {
         { QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
         { QStringLiteral("mimeType"), QStringLiteral("dummy/thing") },
