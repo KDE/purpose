@@ -40,12 +40,18 @@ ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, con
     connect(m_process, &QProcess::stateChanged, this, &ProcessJob::processStateChanged);
 
     m_socket.setSocketOptions(QLocalServer::UserAccessOption);
-    bool b = m_socket.listen(QStringLiteral("caca"));
+    bool b = m_socket.listen(QStringLiteral("randomname"));
     Q_ASSERT(b);
     connect(&m_socket, &QLocalServer::newConnection, this, [this]() {
         m_localSocket = m_socket.nextPendingConnection();
         connect(m_localSocket, &QIODevice::readyRead, this, &ProcessJob::readSocket);
     });
+}
+
+ProcessJob::~ProcessJob()
+{
+    m_process->kill();
+    delete m_process;
 }
 
 void ProcessJob::readSocket()
@@ -54,6 +60,7 @@ void ProcessJob::readSocket()
     const QMetaObject* mo = metaObject();
     while(m_localSocket->canReadLine()) {
         QByteArray json = m_localSocket->readLine();
+
         const QJsonObject object = QJsonDocument::fromJson(json, &error).object();
         if (error.error != QJsonParseError::NoError) {
             qWarning() << "error!" << error.errorString() << json;
@@ -67,9 +74,12 @@ void ProcessJob::readSocket()
                 continue;
             }
 
+            QVariant val = it.value().toObject();
             QMetaProperty property = mo->property(idx);
-            bool b = property.write(this, it.value());
-            Q_ASSERT(b);
+            bool b = property.write(this, val);
+            if (!b) {
+                qWarning() << "couldn't write" << property.typeName() << val << json;
+            }
         }
     }
 }

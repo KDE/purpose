@@ -16,6 +16,7 @@
 */
 
 #include <QApplication>
+#include <QMetaMethod>
 #include <KPluginMetaData>
 #include <QCommandLineParser>
 #include <QJsonDocument>
@@ -33,8 +34,17 @@ public:
         : m_job(job)
     {
         Q_ASSERT(job);
-        connect(job, &KJob::finished, this, &Communication::finished);
-        connect(job, SIGNAL(percent(KJob*, unsingned long)), this, SLOT(percent()));
+        int pcIdx = metaObject()->indexOfSlot("propertyChanged()");
+        Q_ASSERT(pcIdx>=0);
+        const QMetaMethod propertyChangedMethod = metaObject()->method(pcIdx);
+
+        const QMetaObject* m = m_job->metaObject();
+        for(int i = 0, c = m->propertyCount(); i<c; ++i) {
+            QMetaProperty prop = m->property(i);
+            if (prop.hasNotifySignal() && prop.isWritable()) {
+                connect(m_job, prop.notifySignal(), this, propertyChangedMethod);
+            }
+        }
 
         m_socket.setServerName(serverName);
         m_socket.connectToServer(QIODevice::WriteOnly);
@@ -48,20 +58,33 @@ private Q_SLOTS:
     void error() {
         qWarning() << "socket error:" << m_socket.error();
     }
-    void percent() {
-        send({ {QStringLiteral("percent"), int(m_job->percent()) } });
+
+    void propertyChanged() {
+        const int idx = senderSignalIndex();
+
+        const QMetaObject* m = m_job->metaObject();
+        QJsonObject toSend;
+        for(int i = 0, c = m->propertyCount(); i<c; ++i) {
+            QMetaProperty prop = m->property(i);
+            if (prop.notifySignalIndex() == idx) {
+                toSend[QString::fromLatin1(prop.name())] = fromVariant(prop.read(m_job));
+            }
+        }
+        send(toSend);
+    }
+
+    static QJsonValue fromVariant(const QVariant &var) {
+        if (var.canConvert<QJsonObject>()) {
+            return var.toJsonObject();
+        } else {
+            return QJsonValue::fromVariant(var);
+        }
     }
 
 private:
-
-    void finished() {
-        send({ { QStringLiteral("output"), m_job->property("outputValues").toJsonObject() } });
-
-//         QCoreApplication::instance()->exit(m_job->error());
-    }
-
     void send(const QJsonObject &object) {
         const QByteArray data = QJsonDocument(object).toJson(QJsonDocument::Compact) + '\n';
+//         qDebug() << "sending..." << data;
         m_socket.write(data);
     }
 

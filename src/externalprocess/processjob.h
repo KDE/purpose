@@ -38,11 +38,13 @@ class ProcessJob : public Job
 Q_OBJECT
 public:
     ProcessJob(const QString& pluginPath, const QString& pluginType, const QJsonObject& data, QObject* parent);
+    ~ProcessJob();
 
     void start() override;
 
 private:
     void readSocket();
+    void readAllSocket(bool ensureRead);
     void processStateChanged(QProcess::ProcessState state);
 
     QProcess* m_process;
