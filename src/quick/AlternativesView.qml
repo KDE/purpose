@@ -135,7 +135,7 @@ StackView {
         RunningJob {
             onResult: {
                 stack.running = false;
-                stack.finished(output, job.error, job.errorString);
+                stack.finished(job.output, job.error, job.errorString);
                 stack.pop();
             }
         }

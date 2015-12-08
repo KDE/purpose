@@ -69,7 +69,7 @@ class SaveAsShareJob : public Purpose::Job
             setError(job->error());
             setErrorText(job->errorText());
             if (job->error()==0) {
-                Q_EMIT output({ { QStringLiteral("url"), qobject_cast<KIO::CopyJob*>(job)->destUrl().toString() } });
+                setOutput({ { QStringLiteral("url"), qobject_cast<KIO::CopyJob*>(job)->destUrl().toString() } });
             }
             emitResult();
         }

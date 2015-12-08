@@ -60,7 +60,7 @@ class KDEConnectJob : public Purpose::Job
                 qWarning() << "kdeconnect-cli crashed";
 
             setError(code);
-            Q_EMIT output( {{ QStringLiteral("url"), QString() }});
+            setOutput( {{ QStringLiteral("url"), QString() }});
             emitResult();
         }
 

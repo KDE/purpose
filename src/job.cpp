@@ -25,6 +25,7 @@ class Purpose::JobPrivate
 {
 public:
     QJsonObject m_data;
+    QJsonObject m_output = { {QStringLiteral("uninitialized"), QStringLiteral("true") } };
 };
 
 Job::Job(QObject* parent)
@@ -47,4 +48,19 @@ void Job::setData(const QJsonObject &data)
 {
     Q_D(Job);
     d->m_data = data;
+}
+
+QJsonObject Job::output() const
+{
+    Q_D(const Job);
+    return d->m_output;
+}
+
+void Job::setOutput(const QJsonObject& output)
+{
+    Q_D(Job);
+    if (d->m_output!=output) {
+        d->m_output = output;
+        Q_EMIT outputChanged(output);
+    }
 }

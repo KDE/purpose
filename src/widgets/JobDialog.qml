@@ -101,7 +101,7 @@ ApplicationWindow
         id: runningJobComponent
         RunningJob {
             onResult: {
-                window.q.finished(output, job.error, job.errorString);
+                window.q.finished(job.output, job.error, job.errorString);
                 window.visible = false
             }
         }

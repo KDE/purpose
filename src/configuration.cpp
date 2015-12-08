@@ -42,7 +42,7 @@ public:
     static void checkJobFinish(KJob* job)
     {
         QStringList outputArgs = job->property("outputArgs").toStringList();
-        QJsonObject output = job->property("outputValues").toJsonObject();
+        QJsonObject output = job->property("output").toJsonObject();
 
         if (!output.keys().toSet().contains(outputArgs.toSet()) && job->error() == 0) {
             qWarning() << "missing output values for" << job->metaObject()->className()
@@ -145,7 +145,6 @@ Purpose::Job* Configuration::createJob()
     job->setData(d->m_inputData);
     job->setProperty("outputArgs", d->m_pluginType.value(QStringLiteral("X-Purpose-OutboundArguments")));
 
-    connect(job, &Purpose::Job::output, job, [job](const QJsonObject& obj){ job->setProperty("outputValues", obj); });
     connect(job, &Purpose::Job::finished, &ConfigurationPrivate::checkJobFinish);
     connect(job, &Purpose::Job::finished, this, &QObject::deleteLater);
     return job;

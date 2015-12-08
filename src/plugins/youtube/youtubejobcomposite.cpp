@@ -96,7 +96,7 @@ void YoutubeJobComposite::subjobFinished(KJob* subjob)
     if (m_pendingJobs==0) {
         if (!error()) {
             const QJsonValue url = qobject_cast<YoutubeJob*>(subjob)->outputUrl();
-            Q_EMIT output({{ QStringLiteral("url"), url.toString() }});
+            setOutput({{ QStringLiteral("url"), url.toString() }});
         }
         emitResult();
     }

@@ -104,7 +104,7 @@ class PastebinJob : public Purpose::Job
         }
 
         void textUploaded(KJob* /*job*/) {
-            Q_EMIT output( { { QStringLiteral("url"), QString::fromUtf8(m_resultData) } });
+            setOutput( { { QStringLiteral("url"), QString::fromUtf8(m_resultData) } });
             emitResult();
         }
 

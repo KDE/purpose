@@ -23,7 +23,6 @@ import org.kde.purpose 1.0
 ColumnLayout {
     id: root
     property alias job: conn.target
-    property var output
 
     signal result()
 
@@ -31,9 +30,6 @@ ColumnLayout {
         id: conn
         onInfoMessage: {
             info.text = rich
-        }
-        onOutput: {
-            root.output = output;
         }
         onResult: {
             root.result();

@@ -49,6 +49,7 @@ Q_OBJECT
  * Represents the data the job will have available to perform its task
  */
 Q_PROPERTY(QJsonObject data READ data CONSTANT)
+Q_PROPERTY(QJsonObject output READ output WRITE setOutput NOTIFY outputChanged)
 public:
     Job(QObject* parent = 0);
     virtual ~Job();
@@ -61,8 +62,11 @@ public:
     void setData(const QJsonObject &data);
     QJsonObject data() const;
 
+    QJsonObject output() const;
+    void setOutput(const QJsonObject &output);
+
 Q_SIGNALS:
-    void output(const QJsonObject& output);
+    void outputChanged(const QJsonObject& output);
     void dataChanged();
 
 private:

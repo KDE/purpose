@@ -63,7 +63,7 @@ void AlternativesModelTest::runJobTest()
     Purpose::Job* job = conf->createJob();
     QVERIFY(job);
     QSignalSpy s(job, &KJob::finished);
-    QSignalSpy sOutput(job, &Purpose::Job::output);
+    QSignalSpy sOutput(job, &Purpose::Job::outputChanged);
     job->start();
     QVERIFY(s.count() || s.wait());
     if (job->error()) {
