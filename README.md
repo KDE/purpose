@@ -43,7 +43,7 @@ us to place the integration wherever pleases us. This class will offer us
 a pointer to the used *Purpose::AlternativesModel* so that we can specify what kind of
 services we're interested in.
 
-## Plugins
+## Plugin Architecture
 
 Every plugin will offer at least a `Purpose::PluginBase`.
 
@@ -65,3 +65,29 @@ the provided inboundArguments. For example, the youtube export plugin will speci
 Ideally everything should be in the plugin type but sometimes we can only wish. This allows
 the opportunity to the application to let the user add the missing data.
 
+### Plugin types
+The application says what it wants to do, Purpose finds the correct plugins. This
+is how we balance decoupling of implementation but keep on top of what the framework
+is supposed to do.
+
+An example of such files is the `ExportPluginType.json`:
+```json
+{
+    "KPlugin": {
+        "Icon": "edit-paste",
+        "Name": "Upload..."
+    },
+    "X-Purpose-InboundArguments": [ "urls", "mimeType" ],
+    "X-Purpose-OutboundArguments": [ "url" ]
+}
+```
+
+As previously discussed, here we can define the generic tasks that the different
+plugins will implement on top, having the inbound arguments as a given and the
+outbound as a requirement.
+
+Examples of such plugin types are (hypothetically, not all implemented yet):
+* Share: where you can get the different services to share
+* GetImage that would list your scanner, camera and also some web services.
+* AddContact that would let you add a contact on your address book or
+in whichever plugin is offered.
