@@ -68,17 +68,15 @@ void ProcessJob::readSocket()
         }
 
         for(auto it=object.constBegin(), itEnd=object.constEnd(); it!=itEnd; ++it) {
-            int idx = mo->indexOfProperty(it.key().toLatin1().constData());
-            if (idx<0) {
-                qWarning() << "unknown property" << it.key();
-                continue;
-            }
-
-            QVariant val = it.value().toObject();
-            QMetaProperty property = mo->property(idx);
-            bool b = property.write(this, val);
-            if (!b) {
-                qWarning() << "couldn't write" << property.typeName() << val << json;
+            const QByteArray propName = it.key().toLatin1();
+            if (propName == "percent") {
+                setPercent(it->toInt());
+            } else if (propName == "error") {
+                setError(it->toInt());
+            } else if (propName == "errorText") {
+                setErrorText(it->toString());
+            } else if (propName == "output") {
+                setOutput(it->toObject());
             }
         }
     }
