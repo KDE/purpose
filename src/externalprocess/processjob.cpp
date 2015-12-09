@@ -61,7 +61,6 @@ ProcessJob::~ProcessJob()
 void ProcessJob::readSocket()
 {
     QJsonParseError error;
-    const QMetaObject* mo = metaObject();
     while(m_localSocket->canReadLine()) {
         QByteArray json = m_localSocket->readLine();
 
