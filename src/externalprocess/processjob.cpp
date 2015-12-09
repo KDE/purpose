@@ -16,6 +16,7 @@
 */
 
 #include "processjob.h"
+#include <KRandom>
 #include <QMetaMethod>
 #include <QLocalSocket>
 #include <QJsonDocument>
@@ -39,12 +40,15 @@ ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, con
 
     connect(m_process, &QProcess::stateChanged, this, &ProcessJob::processStateChanged);
 
+    m_socket.setMaxPendingConnections(1);
     m_socket.setSocketOptions(QLocalServer::UserAccessOption);
-    bool b = m_socket.listen(QStringLiteral("randomname"));
+    bool b = m_socket.listen(QStringLiteral("randomname-%1").arg(KRandom::random()));
     Q_ASSERT(b);
     connect(&m_socket, &QLocalServer::newConnection, this, [this]() {
         m_localSocket = m_socket.nextPendingConnection();
         connect(m_localSocket, &QIODevice::readyRead, this, &ProcessJob::readSocket);
+
+        m_socket.removeServer(m_socket.serverName());
     });
 }
 
