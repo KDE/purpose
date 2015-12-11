@@ -35,7 +35,6 @@ ColumnLayout
     {
         var valid = accountsCombo.enabled && accountsCombo.currentIndex>=0;
         accountId = valid ? serviceModel.get(accountsCombo.currentIndex, "accountId") : null
-        console.log("xxxxxxxxx", valid, accountId)
     }
 
     Label { text: i18n("Account:") }
