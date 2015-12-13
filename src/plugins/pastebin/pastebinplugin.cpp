@@ -34,7 +34,7 @@ EXPORT_SHARE_VERSION
 // Taken from "share" Data Engine
 // key associated with plasma-devel@kde.org
 // thanks to Alan Schaaf of Pastebin (alan@pastebin.com)
-Q_GLOBAL_STATIC_WITH_ARGS(QByteArray, apiKey, ("0c8b6add8e0f6d53f61fe5ce870a1afa"));
+Q_GLOBAL_STATIC_WITH_ARGS(QByteArray, apiKey, ("0c8b6add8e0f6d53f61fe5ce870a1afa"))
 
 class PastebinJob : public Purpose::Job
 {
