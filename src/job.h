@@ -67,7 +67,6 @@ public:
 
 Q_SIGNALS:
     void outputChanged(const QJsonObject& output);
-    void dataChanged();
 
 private:
     Q_DECLARE_PRIVATE(Job)
