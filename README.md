@@ -43,13 +43,13 @@ us to place the integration wherever pleases us. This class will offer us
 a pointer to the used *Purpose::AlternativesModel* so that we can specify what kind of
 services we're interested in.
 
-## Plugin Architecture
+## Plugins
 
-Every plugin will offer at least a `Purpose::PluginBase`.
+### The plugin configuration
 
-There will be 2 files specifying the behavior of the plugin:
+There will be 2 files specifying the behavior of a plugin:
 * The `*PluginType.json` files.
-* The plugin metadata itself, which points to a plugin type.
+* The plugin metadata JSON file.
 
 The plugin type will be identified by the file name. It will specify:
 * `X-Purpose-InboundArguments` defines the arguments the application must provide.
@@ -91,3 +91,35 @@ Examples of such plugin types are (hypothetically, not all implemented yet):
 * GetImage that would list your scanner, camera and also some web services.
 * AddContact that would let you add a contact on your address book or
 in whichever plugin is offered.
+
+### Plugin creation
+
+There's two approaches to plugin implementation: Native plugins and separate
+processes.
+
+#### Native
+To implement a Qt-based plugin, it will be required to implement a
+`Purpose::PluginBase` class, that only acts as a factory for its `Purpose::Job`
+instances.
+
+These will be the jobs in charge of performing the action the plugin is meant to
+do.
+
+Furthermore, a `pluginname_config.qml` will be provided for extra Configuration,
+if required.
+
+#### Separate
+Sometimes fitting in Qt some actions can require some extra work. For those cases,
+it's possible to implement the plugin in a separate process. It will require some
+extra work when it comes to implementing the feedback process with the main process
+but it allows to run plugins in any imaginable technologies.
+
+The file structure for these plugins is the one of [KPackage](http://api.kde.org/frameworks-api/frameworks5-apidocs/kpackage/html/index.html)
+and will allow to package the plugins in an archive if useful.
+
+To that end, we will need to provide:
+* A `manifest.json` file, that will define the plugin description, capabilities
+and requirements.
+* A `code/main*` file that will be executed when the plugin action needs happen.
+* A `config/config.qml` file that will be in charge of requesting the necessary
+information to the user.
