@@ -47,7 +47,7 @@ install(FILES
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/purpose/purpose COMPONENT Devel
 )
 
-add_executable(purposeprocess externalprocess/purposeprocess_main.cpp)
+add_executable(purposeprocess externalprocess/purposeprocess_main.cpp helper.cpp)
 target_link_libraries(purposeprocess KF5::Purpose Qt5::Network Qt5::Widgets)
 install(TARGETS purposeprocess DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5})
 

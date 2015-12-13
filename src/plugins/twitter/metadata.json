@@ -1,0 +1,17 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Aleix Pol"
+            }
+        ],
+        "Category": "Utilities",
+        "Icon": "im-twitter",
+        "License": "GPL",
+        "Name": "Twitter",
+        "Description": "Shares media on Twitter."
+    },
+    "X-Purpose-Configuration": [ "tweetText", "consumerKey", "consumerSecret", "accessToken", "accessTokenSecret" ],
+    "X-Purpose-Constraints": [],
+    "X-Purpose-PluginTypes": [ "Export" ]
+}

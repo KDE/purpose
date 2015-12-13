@@ -16,6 +16,7 @@
 */
 
 #include "purpose/configuration.h"
+#include <QFileInfo>
 #include <KPluginFactory>
 #include "externalprocess/processjob.h"
 
@@ -23,6 +24,7 @@
 #include <KPluginMetaData>
 
 #include <QDebug>
+#include <QDir>
 #include <QStandardPaths>
 
 #include "helper.h"
@@ -54,26 +56,32 @@ public:
     Purpose::Job* internalCreateJob(QObject* parent) const {
         if (m_useSeparateProcess)
             return new ProcessJob(m_pluginData.fileName(), m_pluginTypeName, m_inputData, parent);
-        else
-            return createJob(m_pluginData.fileName(), parent);
+        else {
+            return createJob(parent);
+        }
     }
 
-    static Purpose::Job * createJob(const QString &fileName, QObject* parent)
+    Purpose::Job * createJob(QObject* parent) const
     {
-        KPluginLoader loader(fileName);
-        KPluginFactory* factory = loader.factory();
-        if (!factory) {
-            qWarning() << "Couldn't create job:" << fileName << loader.errorString();
-            return Q_NULLPTR;
-        }
-        Purpose::PluginBase* plugin = dynamic_cast<Purpose::PluginBase*>(factory->create<QObject>(parent, QVariantList()));
+        const QString fileName = m_pluginData.metaDataFileName();
+        if(fileName.endsWith(QLatin1String("/metadata.json"))) {
+            return new ProcessJob(m_pluginData.fileName(), m_pluginTypeName, m_inputData, parent);
+        } else {
+            KPluginLoader loader(fileName);
+            KPluginFactory* factory = loader.factory();
+            if (!factory) {
+                qWarning() << "Couldn't create job:" << fileName << loader.errorString();
+                return Q_NULLPTR;
+            }
+            Purpose::PluginBase* plugin = dynamic_cast<Purpose::PluginBase*>(factory->create<QObject>(parent, QVariantList()));
 
-        if (!plugin) {
-            qWarning() << "Couldn't load plugin:" << fileName << loader.errorString();
-            return Q_NULLPTR;
-        }
+            if (!plugin) {
+                qWarning() << "Couldn't load plugin:" << fileName << loader.errorString();
+                return Q_NULLPTR;
+            }
 
-        return plugin->createJob();
+            return plugin->createJob();
+        }
     }
 
 };
@@ -153,11 +161,17 @@ Purpose::Job* Configuration::createJob()
 QUrl Configuration::configSourceCode() const
 {
     Q_D(const Configuration);
-    const QString configFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/%1_config.qml").arg(d->m_pluginData.pluginId()));
-    if (configFile.isEmpty())
-        return QUrl();
+    const QString metaDataPath = d->m_pluginData.metaDataFileName();
+    if (metaDataPath.endsWith(QLatin1String("/metadata.json"))) {
+        const QFileInfo fi(metaDataPath);
+        return QUrl::fromLocalFile(fi.dir().filePath(QStringLiteral("contents/config/config.qml")));
+    } else {
+        const QString configFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/%1_config.qml").arg(d->m_pluginData.pluginId()));
+        if (configFile.isEmpty())
+            return QUrl();
 
-    return QUrl::fromLocalFile(configFile);
+        return QUrl::fromLocalFile(configFile);
+    }
 }
 
 bool Configuration::useSeparateProcess() const

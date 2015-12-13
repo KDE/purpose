@@ -16,6 +16,7 @@
 */
 
 #include <QApplication>
+#include <QFileInfo>
 #include <QMetaMethod>
 #include <KPluginMetaData>
 #include <QCommandLineParser>
@@ -23,6 +24,7 @@
 #include <QPointer>
 #include <QLocalSocket>
 
+#include "helper.h"
 #include <purpose/configuration.h>
 #include <purpose/job.h>
 
@@ -120,9 +122,16 @@ int main(int argc, char** argv)
         }
         dataObject = doc.object();
         serverName = parser.value(QStringLiteral("server"));
-        md = KPluginMetaData(parser.value(QStringLiteral("pluginPath")));
-        Q_ASSERT(md.isValid());
         pluginType = parser.value(QStringLiteral("pluginType"));
+
+        const QString path = parser.value(QStringLiteral("pluginPath"));
+        if (path.endsWith(QLatin1String("/metadata.json"))) {
+            QFileInfo fi(path);
+            md = Purpose::createMetaData(path);
+        } else {
+            md = KPluginMetaData(path);
+            Q_ASSERT(md.isValid());
+        }
     }
 
     QPointer<Purpose::Configuration> config(new Purpose::Configuration(dataObject, pluginType, md));

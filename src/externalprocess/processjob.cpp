@@ -16,11 +16,14 @@
 */
 
 #include "processjob.h"
+#include <QLibrary>
 #include <KRandom>
 #include <QMetaMethod>
 #include <QLocalSocket>
 #include <QJsonDocument>
 #include <QProcess>
+#include <QFile>
+#include <QFileInfo>
 #include <QStandardPaths>
 
 using namespace Purpose;
@@ -33,11 +36,20 @@ ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, con
     , m_data(data)
     , m_localSocket(nullptr)
 {
-    QString exec = QStandardPaths::findExecutable(QStringLiteral("purposeprocess"), QStringList(QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5)));
-    Q_ASSERT(!exec.isEmpty());
-    m_process->setProgram(exec);
+    if (QLibrary::isLibrary(pluginPath)) {
+        QString exec = QStandardPaths::findExecutable(QStringLiteral("purposeprocess"), QStringList(QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF5)));
+        Q_ASSERT(!exec.isEmpty());
+        m_process->setProgram(exec);
+    } else {
+        Q_ASSERT(QFile::exists(pluginPath));
+        Q_ASSERT(QFileInfo(pluginPath).permission(QFile::ExeOther | QFile::ExeGroup | QFile::ExeUser));
+        m_process->setProgram(pluginPath);
+    }
     m_process->setProcessChannelMode(QProcess::ForwardedChannels);
 
+    connect(m_process, &QProcess::errorOccurred, this, [](QProcess::ProcessError error) {
+        qWarning() << "error!" << error;
+    } );
     connect(m_process, &QProcess::stateChanged, this, &ProcessJob::processStateChanged);
 
     m_socket.setMaxPendingConnections(1);
@@ -88,13 +100,13 @@ void ProcessJob::readSocket()
 void ProcessJob::start()
 {
     m_process->setArguments({
-        QStringLiteral("--server"), m_socket.serverName(),
+        QStringLiteral("--server"), m_socket.fullServerName(),
         QStringLiteral("--data"), QString::fromUtf8(QJsonDocument(m_data).toJson(QJsonDocument::Compact)),
         QStringLiteral("--pluginType"), m_pluginType,
         QStringLiteral("--pluginPath"), m_pluginPath
     });
 
-//     qDebug() << "launching..." << m_process->program() << m_process->arguments();
+    qDebug() << "launching..." << m_process->program() << m_process->arguments().join(QLatin1Char(' ')).constData();
 
     m_process->start();
 }
@@ -102,7 +114,7 @@ void ProcessJob::start()
 void Purpose::ProcessJob::processStateChanged(QProcess::ProcessState state)
 {
     if (state == QProcess::NotRunning) {
-        Q_ASSERT(m_localSocket);
+        Q_ASSERT(m_process->exitCode()!=0 || m_localSocket);
         readSocket();
         emitResult();
     }

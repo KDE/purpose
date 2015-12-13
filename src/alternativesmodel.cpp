@@ -16,25 +16,59 @@
 */
 
 #include "alternativesmodel.h"
+#include <QDirIterator>
 #include <QMimeType>
 #include <QMimeDatabase>
 #include <QList>
-#include <KPluginLoader>
-#include <KPluginMetaData>
-#include <KPluginFactory>
 #include <QIcon>
 #include <QDebug>
 #include <QJsonDocument>
 #include <QStandardPaths>
-#include <QFile>
 #include <QJsonArray>
 #include <QRegularExpression>
+
+#include <KPluginLoader>
+#include <KPluginMetaData>
 
 #include "helper.h"
 #include "configuration.h"
 #include "job.h"
 
 using namespace Purpose;
+
+typedef bool (*matchFunction)(const QString& constraint, const QJsonValue& value);
+
+static bool defaultMatch(const QString& constraint, const QJsonValue& value)
+{
+    return value == QJsonValue(constraint);
+}
+
+static bool mimeTypeMatch(const QString& constraint, const QJsonValue& value)
+{
+    if(value.isArray()) {
+        foreach(const QJsonValue& val, value.toArray()) {
+            if (mimeTypeMatch(constraint, val))
+                return true;
+        }
+        return false;
+    } else if(value.isObject()) {
+        for(const QJsonValue& val : value.toObject()) {
+            if (mimeTypeMatch(constraint, val))
+                return true;
+        }
+        return false;
+    } else if(constraint.contains(QLatin1Char('*'))) {
+        return QRegExp(constraint, Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(value.toString());
+    } else {
+        QMimeDatabase db;
+        QMimeType mime = db.mimeTypeForName(value.toString());
+        return mime.inherits(constraint);
+    }
+}
+
+static QMap<QString, matchFunction> s_matchFunctions = {
+    { QStringLiteral("mimeType"), mimeTypeMatch }
+};
 
 class Purpose::AlternativesModelPrivate
 {
@@ -43,6 +77,33 @@ public:
     QJsonObject m_inputData;
     QString m_pluginType;
     QJsonObject m_pluginTypeData;
+
+    bool isPluginAcceptable(const KPluginMetaData &meta) const {
+        const QJsonObject obj = meta.rawData();
+        if(!obj.value(QStringLiteral("X-Purpose-PluginTypes")).toArray().contains(m_pluginType)) {
+            qDebug() << "discarding" << meta.name() << meta.value(QStringLiteral("X-Purpose-PluginTypes"));
+            return false;
+        }
+
+        const QJsonArray constraints = obj.value(QStringLiteral("X-Purpose-Constraints")).toArray();
+        const QRegularExpression constraintRx(QStringLiteral("(\\w+):(.*)"));
+        for(const QJsonValue& constraint: constraints) {
+            Q_ASSERT(constraintRx.isValid());
+            QRegularExpressionMatch match = constraintRx.match(constraint.toString());
+            if (!match.isValid() || !match.hasMatch()) {
+                qWarning() << "wrong constraint" << constraint.toString();
+                continue;
+            }
+            QString propertyName = match.captured(1);
+            QString constrainedValue = match.captured(2);
+            bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, m_inputData.value(propertyName));
+            if (!acceptable) {
+//                 qDebug() << "not accepted" << meta.name() << propertyName << constrainedValue << m_inputData[propertyName];
+                return false;
+            }
+        }
+        return true;
+    }
 };
 
 AlternativesModel::AlternativesModel(QObject* parent)
@@ -142,39 +203,28 @@ QVariant AlternativesModel::data(const QModelIndex& index, int role) const
     return QVariant();
 }
 
-typedef bool (*matchFunction)(const QString& constraint, const QJsonValue& value);
-
-static bool defaultMatch(const QString& constraint, const QJsonValue& value)
+static QVector<KPluginMetaData> findScriptedPackages(std::function<bool(const KPluginMetaData &)> filter)
 {
-    return value == QJsonValue(constraint);
-}
+    QVector<KPluginMetaData> ret;
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kpackage/Purpose"), QStandardPaths::LocateDirectory);
+    foreach(const QString &dir, dirs) {
+        QDirIterator dirIt(dir, QDir::Dirs | QDir::NoDotAndDotDot);
 
-static bool mimeTypeMatch(const QString& constraint, const QJsonValue& value)
-{
-    if(value.isArray()) {
-        foreach(const QJsonValue& val, value.toArray()) {
-            if (mimeTypeMatch(constraint, val))
-                return true;
+        for(; dirIt.hasNext(); ) {
+            QDir dir(dirIt.next());
+            Q_ASSERT(dir.exists());
+            if (!dir.exists(QStringLiteral("metadata.json")))
+                continue;
+
+            const KPluginMetaData info = Purpose::createMetaData(dir.absoluteFilePath(QStringLiteral("metadata.json")));
+            if (filter(info)) {
+                ret += info;
+            }
         }
-        return false;
-    } else if(value.isObject()) {
-        for(const QJsonValue& val : value.toObject()) {
-            if (mimeTypeMatch(constraint, val))
-                return true;
-        }
-        return false;
-    } else if(constraint.contains(QLatin1Char('*'))) {
-        return QRegExp(constraint, Qt::CaseInsensitive, QRegExp::Wildcard).exactMatch(value.toString());
-    } else {
-        QMimeDatabase db;
-        QMimeType mime = db.mimeTypeForName(value.toString());
-        return mime.inherits(constraint);
     }
-}
 
-static QMap<QString, matchFunction> s_matchFunctions = {
-    { QStringLiteral("mimeType"), mimeTypeMatch }
-};
+    return ret;
+}
 
 void AlternativesModel::initializeModel()
 {
@@ -191,33 +241,10 @@ void AlternativesModel::initializeModel()
         }
     }
 
+    auto pluginAcceptable = [d](const KPluginMetaData& meta) { return d->isPluginAcceptable(meta); };
+
     beginResetModel();
-    d->m_plugins = KPluginLoader::findPlugins(QStringLiteral("purpose"), [d](const KPluginMetaData& meta) {
-        const QJsonObject obj = meta.rawData();
-        if(!obj.value(QStringLiteral("X-Purpose-PluginTypes")).toArray().contains(d->m_pluginType)) {
-            qDebug() << "discarding" << meta.name() << meta.value(QStringLiteral("X-Purpose-PluginTypes"));
-            return false;
-        }
-
-        const QJsonArray constraints = obj.value(QStringLiteral("X-Purpose-Constraints")).toArray();
-        const QRegularExpression constraintRx(QStringLiteral("(\\w+):(.*)"));
-        for(const QJsonValue& constraint: constraints) {
-            Q_ASSERT(constraintRx.isValid());
-            QRegularExpressionMatch match = constraintRx.match(constraint.toString());
-            if (!match.isValid() || !match.hasMatch()) {
-                qWarning() << "wrong constraint" << constraint.toString();
-                continue;
-            }
-            QString propertyName = match.captured(1);
-            QString constrainedValue = match.captured(2);
-            bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, d->m_inputData.value(propertyName));
-            if (!acceptable) {
-//                 qDebug() << "not accepted" << meta.name() << propertyName << constrainedValue << d->m_inputData[propertyName];
-                return false;
-            }
-        }
-        return true;
-    });
+    d->m_plugins = KPluginLoader::findPlugins(QStringLiteral("purpose"), pluginAcceptable);
+    d->m_plugins += findScriptedPackages(pluginAcceptable);
     endResetModel();
-
 }

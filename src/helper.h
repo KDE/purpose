@@ -20,11 +20,13 @@
 
 #include <QObject>
 #include <QJsonObject>
+#include <KPluginMetaData>
 
 namespace Purpose
 {
 
 QJsonObject readPluginType(const QString &pluginType);
+KPluginMetaData createMetaData(const QString &file);
 
 }
 

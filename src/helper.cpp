@@ -16,9 +16,12 @@
 */
 
 #include "helper.h"
+#include <KPluginMetaData>
 #include <QFile>
 #include <QJsonDocument>
 #include <QStandardPaths>
+#include <QFileInfo>
+#include <QDir>
 #include <QDebug>
 
 using namespace Purpose;
@@ -46,4 +49,28 @@ QJsonObject Purpose::readPluginType(const QString &pluginType)
 
     Q_ASSERT(doc.isObject());
     return doc.object();
+}
+
+KPluginMetaData Purpose::createMetaData(const QString &file)
+{
+    const QFileInfo fi(file);
+    const QString fileName = fi.absoluteFilePath();
+    QJsonObject metaData;
+
+    QFile f(fileName);
+    if (f.open(QIODevice::ReadOnly)) {
+        const QJsonDocument doc = QJsonDocument::fromJson(f.readAll());
+        metaData = doc.object();
+    }
+
+    QDir dir = fi.dir().filePath(QStringLiteral("contents/code"));
+    QStringList mainFile = dir.entryList({QStringLiteral("main.*")}, QDir::Files);
+    if (mainFile.isEmpty()) {
+        qWarning() << "no main file for" << file;
+        return KPluginMetaData();
+    }
+
+    auto info = KPluginMetaData(metaData, dir.absoluteFilePath(mainFile.first()), fileName);
+    Q_ASSERT(info.isValid() && !info.rawData().isEmpty());
+    return info;
 }
