@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="twitter-microblog">
+  <type>twitter-microblog</type>
+  <!-- Twitter's feed - Service name being displayed as a checkbox label to enable/disable this service
+       Would be nice to use the localized name of this service if it exists/makes sense -->
+  <_name>Twitter</_name>
+  <icon>twitter</icon>
+  <provider>twitter</provider>
+  <translations>kaccounts-providers</translations>
+</service>
