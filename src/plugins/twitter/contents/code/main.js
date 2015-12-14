@@ -23,7 +23,6 @@ function Communication(doStuff) {
     var client = new net.Socket();
     client.connect({path: path});
     client.on('data', function(dataStr) {
-        console.log("fuuuu", JSON.parse(dataStr));
         doStuff(JSON.parse(dataStr));
     });
     client.on('end', function() { console.warn('disconnected from server'); });
@@ -128,7 +127,7 @@ function main(data)
         }
     }
 
-    var twitter = new Twitter(config);
+    twitter = new Twitter(config);
 
     for (var v in inputUrls) {
         readUrl(inputUrls[v])
