@@ -47,9 +47,11 @@ ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, con
     }
     m_process->setProcessChannelMode(QProcess::ForwardedChannels);
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     connect(m_process, &QProcess::errorOccurred, this, [](QProcess::ProcessError error) {
         qWarning() << "error!" << error;
     } );
+#endif
     connect(m_process, &QProcess::stateChanged, this, &ProcessJob::processStateChanged);
 
     m_socket.setMaxPendingConnections(1);
