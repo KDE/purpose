@@ -38,7 +38,7 @@ if (KAccounts_FOUND)
     add_subdirectory(youtube)
 
     kpackage_install_package(twitter Twitter Purpose)
-    kaccounts_add_service(twitter-microblog.service.in)
+    kaccounts_add_service(${CMAKE_CURRENT_SOURCE_DIR}/twitter-microblog.service.in)
 endif()
 add_subdirectory(kdeconnect)
 add_subdirectory(reviewboard)
