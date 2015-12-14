@@ -63,6 +63,8 @@ ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, con
         connect(m_localSocket, &QIODevice::readyRead, this, &ProcessJob::readSocket);
 
         m_socket.removeServer(m_socket.serverName());
+
+        m_localSocket->write(QJsonDocument(m_data).toJson(QJsonDocument::Compact));
     });
 }
 
@@ -103,7 +105,6 @@ void ProcessJob::start()
 {
     m_process->setArguments({
         QStringLiteral("--server"), m_socket.fullServerName(),
-        QStringLiteral("--data"), QString::fromUtf8(QJsonDocument(m_data).toJson(QJsonDocument::Compact)),
         QStringLiteral("--pluginType"), m_pluginType,
         QStringLiteral("--pluginPath"), m_pluginPath
     });

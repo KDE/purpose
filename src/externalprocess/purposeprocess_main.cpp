@@ -28,17 +28,39 @@
 #include <purpose/configuration.h>
 #include <purpose/job.h>
 
+static QString pluginType;
+static KPluginMetaData md;
+
 class Communication : public QObject
 {
 Q_OBJECT
 public:
-    Communication(Purpose::Job* job, const QString &serverName)
-        : m_job(job)
+    Communication(const QString &serverName)
     {
-        Q_ASSERT(job);
         int pcIdx = metaObject()->indexOfSlot("propertyChanged()");
         Q_ASSERT(pcIdx>=0);
         const QMetaMethod propertyChangedMethod = metaObject()->method(pcIdx);
+
+        m_socket.setServerName(serverName);
+        m_socket.connectToServer(QIODevice::ReadWrite);
+        connect(&m_socket, SIGNAL(error(QLocalSocket::LocalSocketError)), this, SLOT(error()));
+
+        bool b = m_socket.waitForConnected();
+        Q_ASSERT(b);
+
+        b = m_socket.waitForReadyRead();
+        Q_ASSERT(b);
+
+        QByteArray dataArray = m_socket.readAll();
+        Purpose::Configuration config(QJsonDocument::fromJson(dataArray).object(), pluginType, md);
+        config.setUseSeparateProcess(false);
+
+        qDebug() << dataArray << config.data();
+
+        Q_ASSERT(config.isReady());
+
+        m_job = config.createJob();
+        m_job->start();
 
         const QMetaObject* m = m_job->metaObject();
         for(int i = 0, c = m->propertyCount(); i<c; ++i) {
@@ -47,13 +69,6 @@ public:
                 connect(m_job, prop.notifySignal(), this, propertyChangedMethod);
             }
         }
-
-        m_socket.setServerName(serverName);
-        m_socket.connectToServer(QIODevice::WriteOnly);
-        connect(&m_socket, SIGNAL(error(QLocalSocket::LocalSocketError)), this, SLOT(error()));
-
-        bool b = m_socket.waitForConnected();
-        Q_ASSERT(b);
     }
 
 private Q_SLOTS:
@@ -90,7 +105,7 @@ private:
         m_socket.write(data);
     }
 
-    Purpose::Job* m_job;
+    Purpose::Job* m_job = nullptr;
     QLocalSocket m_socket;
 };
 
@@ -99,28 +114,17 @@ int main(int argc, char** argv)
 #warning make QGuiApplication, consider QCoreApplication?
     QApplication app(argc, argv);
 
-    QJsonObject dataObject;
-    QString pluginType;
-    KPluginMetaData md;
     QString serverName;
 
     {
         QCommandLineParser parser;
         parser.addOption(QCommandLineOption(QStringLiteral("server"), QStringLiteral("Named socket to connect to"), QStringLiteral("name")));
-        parser.addOption(QCommandLineOption(QStringLiteral("data"), QStringLiteral("See Purpose::Configuration::setData"), QStringLiteral("json")));
         parser.addOption(QCommandLineOption(QStringLiteral("pluginPath"), QStringLiteral("Chosen plugin"), QStringLiteral("path")));
         parser.addOption(QCommandLineOption(QStringLiteral("pluginType"), QStringLiteral("Plugin type name "), QStringLiteral("path")));
         parser.addHelpOption();
 
         parser.process(app);
 
-        QJsonParseError error;
-        const QJsonDocument doc = QJsonDocument::fromJson(parser.value(QStringLiteral("data")).toUtf8(), &error);
-        if (error.error != QJsonParseError::NoError) {
-            qDebug() << "error: " << error.errorString();
-            return 1;
-        }
-        dataObject = doc.object();
         serverName = parser.value(QStringLiteral("server"));
         pluginType = parser.value(QStringLiteral("pluginType"));
 
@@ -134,15 +138,7 @@ int main(int argc, char** argv)
         }
     }
 
-    QPointer<Purpose::Configuration> config(new Purpose::Configuration(dataObject, pluginType, md));
-    config->setUseSeparateProcess(false);
-    config->setData(dataObject);
-
-    Q_ASSERT(config->isReady());
-
-    Purpose::Job* job = config->createJob();
-    Communication c(job, serverName);
-    job->start();
+    Communication c(serverName);
 
     return app.exec();
 }

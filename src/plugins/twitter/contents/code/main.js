@@ -21,11 +21,14 @@ function Communication(doStuff) {
 
     var net = require('net');
     var client = new net.Socket();
-    client.connect({path: path}, doStuff)
+    client.connect({path: path});
+    client.on('data', function(dataStr) {
+        console.log("fuuuu", JSON.parse(dataStr));
+        doStuff(JSON.parse(dataStr));
+    });
     client.on('end', function() { console.warn('disconnected from server'); });
 
     this.send = function(obj) { client.write(JSON.stringify(obj)+'\n'); };
-    this.data = JSON.parse(argsMap["--data"]);
 
     this.setError = function(code, errorText) {
         console.warn('ERROR [%s]', errorText);
@@ -55,25 +58,9 @@ var postSuccess = function (dataString) {
 
 var Twitter = require('twitter-node-client').Twitter;
 
-var config = {
-    consumerKey: comm.data.consumerKey,
-    consumerSecret: comm.data.consumerSecret,
-    accessToken: comm.data.accessToken,
-    accessTokenSecret: comm.data.accessTokenSecret,
-    callBackUrl: ""
-}
-
-for(var v in config) {
-    if (v!="callBackUrl" && config[v]=="") {
-        console.log("auth...", config);
-        comm.setError(2, "Missing auth information");
-    }
-}
-
-var twitter = new Twitter(config);
-
-var message = comm.data.tweetText;
-var inputUrls = comm.data.urls;
+var twitter = null;
+var message;
+var inputUrls;
 var uploaded = [];
 
 function postIfDone()
@@ -120,9 +107,28 @@ function readUrl(url) {
     });
 }
 
-function main()
+function main(data)
 {
+    message = data.tweetText;
+    inputUrls = data.urls;
     console.log("Connected!");
+
+    var config = {
+        consumerKey: data.consumerKey,
+        consumerSecret: data.consumerSecret,
+        accessToken: data.accessToken,
+        accessTokenSecret: data.accessTokenSecret,
+        callBackUrl: ""
+    }
+
+    for(var v in config) {
+        if (v!="callBackUrl" && config[v]=="") {
+            console.log("auth...", config);
+            comm.setError(2, "Missing auth information");
+        }
+    }
+
+    var twitter = new Twitter(config);
 
     for (var v in inputUrls) {
         readUrl(inputUrls[v])
