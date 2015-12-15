@@ -7,9 +7,19 @@
         ], 
         "Category": "Utilities", 
         "Description": "Shares media on Twitter.", 
+        "Description[ca]": "Comparteix fitxers multimèdia al Twitter.", 
+        "Description[pt]": "Partilha conteúdos no Twitter.", 
+        "Description[sv]": "Dela media på Twitter.", 
+        "Description[uk]": "Оприлюднює мультимедійні дані на Twitter.", 
+        "Description[x-test]": "xxShares media on Twitter.xx", 
         "Icon": "im-twitter", 
         "License": "GPL", 
-        "Name": "Twitter"
+        "Name": "Twitter", 
+        "Name[ca]": "Twitter", 
+        "Name[pt]": "Twitter", 
+        "Name[sv]": "Twitter", 
+        "Name[uk]": "Twitter", 
+        "Name[x-test]": "xxTwitterxx"
     }, 
     "X-Purpose-Configuration": [
         "tweetText", 
