@@ -67,11 +67,11 @@ class KDEConnectJob : public Purpose::Job
     private:
 };
 
-class Q_DECL_EXPORT KTpSendFilePlugin : public Purpose::PluginBase
+class Q_DECL_EXPORT KDEConnectPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
     public:
-        KTpSendFilePlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
+        KDEConnectPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
 
         virtual Purpose::Job* createJob() const override
         {
@@ -79,6 +79,6 @@ class Q_DECL_EXPORT KTpSendFilePlugin : public Purpose::PluginBase
         }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(KDEConnect, "kdeconnectplugin.json", registerPlugin<KTpSendFilePlugin>();)
+K_PLUGIN_FACTORY_WITH_JSON(KDEConnect, "kdeconnectplugin.json", registerPlugin<KDEConnectPlugin>();)
 
 #include "kdeconnectplugin.moc"
