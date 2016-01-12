@@ -45,6 +45,10 @@ public:
         Q_ASSERT(!m_engine->rootObjects().isEmpty());
         QObject* o = m_engine->rootObjects().at(0);
 
+        if (!o) {
+            qWarning() << Q_FUNC_INFO << "object is NULL at m_engine" << m_engine << "rootObjects=" << m_engine->rootObjects();
+            return;
+        }
         o->setProperty("configuration", QVariant::fromValue<QObject*>(m_model->configureJob(row)));
         o->setProperty("q", QVariant::fromValue<QObject*>(q));
         o->setProperty("visible", true);
