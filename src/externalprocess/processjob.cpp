@@ -77,7 +77,7 @@ ProcessJob::~ProcessJob()
 void ProcessJob::readSocket()
 {
     QJsonParseError error;
-    while(m_localSocket->canReadLine()) {
+    while(m_localSocket && m_localSocket->canReadLine()) {
         QByteArray json = m_localSocket->readLine();
 
         const QJsonObject object = QJsonDocument::fromJson(json, &error).object();
