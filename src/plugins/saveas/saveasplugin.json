@@ -10,6 +10,7 @@
         "Description": "Saves the share into the chosen location.", 
         "Description[ca@valencia]": "Guarda la compartició a la ubicació escollida.", 
         "Description[ca]": "Desa la compartició a la ubicació escollida.", 
+        "Description[es]": "Guarda el recurso compartido en la ubicación elegida.", 
         "Description[fi]": "Tallentaa jaettavan asian valittuun sijaintiin.", 
         "Description[gl]": "Garda a compartición no lugar escollido.", 
         "Description[nl]": "Slaat de share op in de gekozen locatie.", 
