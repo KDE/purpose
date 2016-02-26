@@ -23,6 +23,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QUrlQuery>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KJob>
@@ -31,10 +32,11 @@
 
 EXPORT_SHARE_VERSION
 
-static const QUrl imgurUrl(QStringLiteral("https://api.imgur.com/3/image"));
+Q_GLOBAL_STATIC_WITH_ARGS(const QUrl, imageImgurUrl, (QLatin1String("https://api.imgur.com/3/image")))
+Q_GLOBAL_STATIC_WITH_ARGS(const QUrl, albumImgurUrl, (QLatin1String("https://api.imgur.com/3/album")))
 
 // key associated with aleixpol@kde.org
-Q_GLOBAL_STATIC_WITH_ARGS(QString, YOUR_CLIENT_ID, (QLatin1String("0bffa5b4ac8383c")));
+Q_GLOBAL_STATIC_WITH_ARGS(const QString, YOUR_CLIENT_ID, (QLatin1String("0bffa5b4ac8383c")));
 
 class ImgurShareJob : public Purpose::Job
 {
@@ -47,20 +49,67 @@ class ImgurShareJob : public Purpose::Job
 
         virtual void start() override
         {
-            QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
+            m_pendingJobs = 0;
+            const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
             if (urls.isEmpty()) {
                 qWarning() << "no urls to share" << urls << data();
                 emitResult();
                 return;
             }
 
+            if (urls.count()>1) {
+                KIO::TransferJob *tJob = KIO::storedHttpPost("", *albumImgurUrl, KIO::HideProgressInfo);
+                tJob->setMetaData(QMap<QString,QString>{
+                    { QStringLiteral("customHTTPHeader"), QStringLiteral("Authorization: Client-ID ") + *YOUR_CLIENT_ID }
+                });
+                connect(tJob, &KJob::result, this, &ImgurShareJob::albumCreated);
+            } else {
+                startUploading();
+            }
+        }
+
+        QJsonObject processResponse(KJob* job) {
+            KIO::StoredTransferJob *sjob = qobject_cast<KIO::StoredTransferJob *>(job);
+            QJsonParseError error;
+            const QJsonObject resultMap = QJsonDocument::fromJson(sjob->data(), &error).object();
+            if (sjob->isErrorPage()) {
+                setError(3);
+                setErrorText(i18n("Error page returned"));
+            } else if (job->error()) {
+                setError(job->error());
+                setErrorText(job->errorText());
+            } else if (error.error) {
+                setError(1);
+                setErrorText(error.errorString());
+            } else if (!resultMap.value(QStringLiteral("success")).toBool()) {
+                setError(2);
+                const QJsonObject dataMap = resultMap[QStringLiteral("data")].toObject();
+                setErrorText(dataMap[QStringLiteral("error")].toString());
+            } else {
+                return resultMap[QStringLiteral("data")].toObject();
+            }
+            emitResult();
+            return {};
+        }
+
+        void albumCreated(KJob* job) {
+            const QJsonObject dataMap = processResponse(job);
+            if (!dataMap.isEmpty()) {
+                m_albumId = dataMap[QStringLiteral("id")].toString();
+                m_albumDeleteHash = dataMap[QStringLiteral("deletehash")].toString();
+                startUploading();
+            }
+        }
+
+        void startUploading()
+        {
+            const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
             foreach(const QJsonValue &val, urls) {
                 QString u = val.toString();
                 KIO::StoredTransferJob* job = KIO::storedGet(QUrl(u));
                 connect(job, &KJob::finished, this, &ImgurShareJob::fileFetched);
                 m_pendingJobs++;
             }
-            Q_ASSERT(m_pendingJobs>0);
         }
 
         void fileFetched(KJob* j)
@@ -74,58 +123,40 @@ class ImgurShareJob : public Purpose::Job
 
                 return;
             }
+
+            MPForm form;
             KIO::StoredTransferJob* job = qobject_cast<KIO::StoredTransferJob*>(j);
-            m_form.addFile(QStringLiteral("image"), job->url(), job->data());
-            --m_pendingJobs;
-            if (m_pendingJobs == 0)
-                performUpload();
-        }
+            form.addFile(QStringLiteral("image"), job->url(), job->data());
+            form.addPair(QStringLiteral("album"), m_albumDeleteHash, {});
+            form.finish();
 
-        void performUpload()
-        {
-            m_form.finish();
-
-            KIO::TransferJob *tJob = KIO::http_post(imgurUrl, m_form.formData(), KIO::HideProgressInfo);
+            KIO::StoredTransferJob *tJob = KIO::storedHttpPost(form.formData(), *imageImgurUrl, KIO::HideProgressInfo);
             tJob->setMetaData(QMap<QString,QString>{
-                { QStringLiteral("content-type"), QString::fromLocal8Bit(m_form.contentType()) },
+                { QStringLiteral("content-type"), QString::fromLocal8Bit(form.contentType()) },
                 { QStringLiteral("customHTTPHeader"), QStringLiteral("Authorization: Client-ID ") + *YOUR_CLIENT_ID }
             });
-            connect(tJob, &KIO::TransferJob::data, this, [this](KIO::Job*, const QByteArray& data) { m_resultData += data; });
-            connect(tJob, &KJob::result, this, &ImgurShareJob::imagesUploaded);
-
-            m_form.reset(); //we can free some resources already
+            connect(tJob, &KJob::result, this, &ImgurShareJob::imageUploaded);
         }
 
-        void imagesUploaded(KJob* job) {
-            QJsonParseError error;
-            const QJsonObject resultMap = QJsonDocument::fromJson(m_resultData, &error).object();
-            if (static_cast<KIO::TransferJob *>(job)->isErrorPage()) {
-                setError(3);
-                setErrorText(i18n("Error page returned"));
-                qDebug() << "Error page :(";
-            } else if (job->error()) {
-                setError(job->error());
-                setErrorText(job->errorText());
-            } else if (error.error) {
-                setError(1);
-                setErrorText(error.errorString());
-            } else if (!resultMap.value(QStringLiteral("success")).toBool()) {
-                setError(2);
-                const QJsonObject dataMap = resultMap[QStringLiteral("data")].toObject();
-                setErrorText(dataMap[QStringLiteral("error")].toString());
-            } else {
-                const QJsonObject dataMap = resultMap[QStringLiteral("data")].toObject();
-                QString url = dataMap[QStringLiteral("link")].toString();
+        void imageUploaded(KJob* job) {
+            const QJsonObject dataMap = processResponse(job);
+            if (!dataMap.isEmpty()) {
+                const QString url = dataMap[QStringLiteral("link")].toString();
                 Q_EMIT infoMessage(this, url, QStringLiteral("<a href='%1'>%1</a>").arg(url));
-                setOutput({ { QStringLiteral("url"), url } });
+                --m_pendingJobs;
+
+                if (m_pendingJobs == 0) {
+                    const QString finalUrl = m_albumId.isEmpty() ? url : QStringLiteral("https://imgur.com/a/") + m_albumId;
+                    setOutput({ { QStringLiteral("url"), finalUrl } });
+                    emitResult();
+                }
             }
-            emitResult();
         }
 
     private:
+        QString m_albumId;
+        QString m_albumDeleteHash;
         int m_pendingJobs;
-        MPForm m_form;
-        QByteArray m_resultData;
 };
 
 class Q_DECL_EXPORT ImgurPlugin : public Purpose::PluginBase
