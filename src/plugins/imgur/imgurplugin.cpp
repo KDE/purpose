@@ -31,10 +31,10 @@
 
 EXPORT_SHARE_VERSION
 
-// Taken from "share" Data Engine
-// key associated with plasma-devel@kde.org
-// thanks to Alan Schaaf of Imgur (alan@imgur.com)
-static const QUrl imgurUrl(QStringLiteral("https://api.imgur.com/2/upload.json?key=" /*apikey*/"d0757bc2e94a0d4652f28079a0be9379"));
+static const QUrl imgurUrl(QStringLiteral("https://api.imgur.com/3/image"));
+
+// key associated with aleixpol@kde.org
+Q_GLOBAL_STATIC_WITH_ARGS(QString, YOUR_CLIENT_ID, (QLatin1String("0bffa5b4ac8383c")));
 
 class ImgurShareJob : public Purpose::Job
 {
@@ -48,7 +48,6 @@ class ImgurShareJob : public Purpose::Job
         virtual void start() override
         {
             QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
-            qDebug() << "starting..." << data().toVariantMap();
             if (urls.isEmpty()) {
                 qWarning() << "no urls to share" << urls << data();
                 emitResult();
@@ -87,7 +86,10 @@ class ImgurShareJob : public Purpose::Job
             m_form.finish();
 
             KIO::TransferJob *tJob = KIO::http_post(imgurUrl, m_form.formData(), KIO::HideProgressInfo);
-            tJob->setMetaData(QMap<QString,QString>{{ QStringLiteral("content-type"), QString::fromLocal8Bit(m_form.contentType()) }});
+            tJob->setMetaData(QMap<QString,QString>{
+                { QStringLiteral("content-type"), QString::fromLocal8Bit(m_form.contentType()) },
+                { QStringLiteral("customHTTPHeader"), QStringLiteral("Authorization: Client-ID ") + *YOUR_CLIENT_ID }
+            });
             connect(tJob, &KIO::TransferJob::data, this, [this](KIO::Job*, const QByteArray& data) { m_resultData += data; });
             connect(tJob, &KJob::result, this, &ImgurShareJob::imagesUploaded);
 
@@ -96,7 +98,7 @@ class ImgurShareJob : public Purpose::Job
 
         void imagesUploaded(KJob* job) {
             QJsonParseError error;
-            QJsonObject resultMap = QJsonDocument::fromJson(m_resultData, &error).object();
+            const QJsonObject resultMap = QJsonDocument::fromJson(m_resultData, &error).object();
             if (static_cast<KIO::TransferJob *>(job)->isErrorPage()) {
                 setError(3);
                 setErrorText(i18n("Error page returned"));
@@ -107,14 +109,13 @@ class ImgurShareJob : public Purpose::Job
             } else if (error.error) {
                 setError(1);
                 setErrorText(error.errorString());
-            } else if ( resultMap.contains(QStringLiteral("error")) ) {
+            } else if (!resultMap.value(QStringLiteral("success")).toBool()) {
                 setError(2);
-                QJsonObject errorMap = resultMap[QStringLiteral("error")].toObject();
-                setErrorText(errorMap[QStringLiteral("message")].toString());
+                const QJsonObject dataMap = resultMap[QStringLiteral("data")].toObject();
+                setErrorText(dataMap[QStringLiteral("error")].toString());
             } else {
-                QJsonObject uploadMap = resultMap[QStringLiteral("upload")].toObject();
-                QJsonObject linksMap = uploadMap[QStringLiteral("links")].toObject();
-                QString url = linksMap[QStringLiteral("original")].toString();
+                const QJsonObject dataMap = resultMap[QStringLiteral("data")].toObject();
+                QString url = dataMap[QStringLiteral("link")].toString();
                 Q_EMIT infoMessage(this, url, QStringLiteral("<a href='%1'>%1</a>").arg(url));
                 setOutput({ { QStringLiteral("url"), url } });
             }
