@@ -1,9 +1,3 @@
-#.rst:
-# FindQMLModule
-# -------
-#
-# Find QML modules with a single find_package() call.
-#
 #=============================================================================
 # Copyright 2015 Aleix Pol Gonzalez <aleixpol@blue-systems.com>
 #
@@ -33,49 +27,24 @@
 
 include(ECMFindModuleHelpersStub)
 
-ecm_find_package_version_check(QMLModule)
+execute_process(COMMAND qmlplugindump "@MODULE_NAME@" "@VERSION@" ERROR_VARIABLE ERRORS_OUTPUT OUTPUT_VARIABLE DISREGARD_VARIABLE RESULT_VARIABLE ExitCode)
 
-if (NOT QMLModule_FIND_COMPONENTS)
-    set(QMLModule_NOT_FOUND_MESSAGE "The QMLModule package requires at least one component")
-    set(QMLModule_FOUND False)
-    return()
+if(ExitCode EQUAL 0)
+    set(@GENMODULE@_FOUND TRUE)
+    set(@GENMODULE@_VERSION "${PACKAGE_FIND_VERSION}")
+else()
+    message(STATUS "qmlplugindump failed for @MODULE_NAME@.")
+    set(@GENMODULE@_FOUND FALSE)
 endif()
 
-set_package_properties(QMLModule PROPERTIES DESCRIPTION "QML Modules: qmlplugindump from Qt Declarative used to find QML modules" TYPE RUNTIME)
-
-include(FindPackageHandleStandardArgs)
-include(FeatureSummary)
-
-string (REPLACE ";" ", " THE_COMPONENTS "${QMLModule_FIND_COMPONENTS}")
-
-set(QMLModule_VERSION "${QMLModule_FIND_VERSION}")
-foreach(_module ${QMLModule_FIND_COMPONENTS})
-    execute_process(COMMAND qmlplugindump "${_module}" "${QMLModule_FIND_VERSION}" OUTPUT_VARIABLE FUUUUU RESULT_VARIABLE ExitCode)
-
-    if(ExitCode EQUAL 0)
-        set(QMLModule_${_module}_FOUND TRUE)
-        set(QMLModule_${_module}_VERSION "${QMLModule_FIND_VERSION}")
-    else()
-        set(QMLModule_${_module}_FOUND FALSE)
-    endif()
-
-    set_package_properties(QMLModule_${_module} PROPERTIES DESCRIPTION "QML Modules: ${THE_REQUIRED_COMPONENTS}" TYPE RUNTIME)
-endforeach()
-
-# Annoyingly, find_package_handle_standard_args requires you to provide
-# REQUIRED_VARS even when using HANDLE_COMPONENTS, but all we actually
-# care about is whether the required components were found. So we provide
-# a dummy variable that is just set to something that will be printed
-# on success.
-set(_dummy_req_var "success")
-
-find_package_handle_standard_args(QMLModule
+find_package_handle_standard_args(@GENMODULE@
     FOUND_VAR
-        QMLModule_FOUND
+        @GENMODULE@_FOUND
     REQUIRED_VARS
-        _dummy_req_var
+        @GENMODULE@_FOUND
     VERSION_VAR
-        QMLModule_VERSION
+        @GENMODULE@_VERSION
     HANDLE_COMPONENTS
 )
+
 
