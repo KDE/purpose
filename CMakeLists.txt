@@ -20,7 +20,7 @@ include(ECMAddTests)
 include(ECMInstallIcons)
 include(ECMGenerateHeaders)
 
-set(KF5_VERSION "5.7.0") # handled by release scripts
+set(KF5_VERSION "5.8.0") # handled by release scripts
 set(KF5_DEP_VERSION "5.7.0") # handled by release scripts
 
 find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
