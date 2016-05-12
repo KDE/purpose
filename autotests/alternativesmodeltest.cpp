@@ -74,3 +74,39 @@ void AlternativesModelTest::runJobTest()
     QCOMPARE(job->error(), 0);
     QVERIFY(QFile::remove(tempfile));
 }
+
+void AlternativesModelTest::bigBufferTest()
+{
+    Purpose::AlternativesModel model;
+
+    const QByteArray payload(1920*1080*4, 'x');
+    const QString uri = QStringLiteral("data:text/plain;base64,") + QString::fromLatin1(payload.toBase64());
+
+    const QString tempfile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/purposetest");
+    QFile::remove(tempfile);
+    const QJsonObject input = {
+        {QStringLiteral("urls"), QJsonArray {uri} },
+        {QStringLiteral("mimeType"), QStringLiteral("dummy/thing") },
+        {QStringLiteral("destinationPath"), QUrl::fromLocalFile(tempfile).url()}
+    };
+    model.setInputData(input);
+    model.setPluginType(QStringLiteral("Export"));
+
+    Purpose::Configuration* conf = model.configureJob(saveAsRow(&model));
+    QVERIFY(conf->isReady());
+    Purpose::Job* job = conf->createJob();
+    QVERIFY(job);
+    QSignalSpy s(job, &KJob::finished);
+    QSignalSpy sOutput(job, &Purpose::Job::outputChanged);
+    job->start();
+    QVERIFY(s.count() || s.wait());
+    if (job->error()) {
+        qWarning() << "error!" << job->error() << job->errorString() << job->errorText();
+    }
+    QCOMPARE(sOutput.count(), 1);
+    QCOMPARE(job->error(), 0);
+
+    QFileInfo fi(tempfile);
+    QCOMPARE(fi.size(), payload.size());
+    QVERIFY(QFile::remove(tempfile));
+}

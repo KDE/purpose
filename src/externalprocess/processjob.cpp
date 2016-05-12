@@ -58,20 +58,27 @@ ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, con
     m_socket.setSocketOptions(QLocalServer::UserAccessOption);
     bool b = m_socket.listen(QStringLiteral("randomname-%1").arg(KRandom::random()));
     Q_ASSERT(b);
-    connect(&m_socket, &QLocalServer::newConnection, this, [this]() {
-        m_localSocket = m_socket.nextPendingConnection();
-        connect(m_localSocket, &QIODevice::readyRead, this, &ProcessJob::readSocket);
-
-        m_socket.removeServer(m_socket.serverName());
-
-        m_localSocket->write(QJsonDocument(m_data).toJson(QJsonDocument::Compact));
-    });
+    connect(&m_socket, &QLocalServer::newConnection, this, &ProcessJob::writeSocket);
 }
 
 ProcessJob::~ProcessJob()
 {
     m_process->kill();
     delete m_process;
+}
+
+void ProcessJob::writeSocket()
+{
+    m_localSocket = m_socket.nextPendingConnection();
+    connect(m_localSocket, &QIODevice::readyRead, this, &ProcessJob::readSocket);
+
+    m_socket.removeServer(m_socket.serverName());
+
+    const QByteArray data = QJsonDocument(m_data).toJson(QJsonDocument::Compact);
+    m_localSocket->write(QByteArray::number(data.size()) + '\n');
+    const auto ret = m_localSocket->write(data);
+    Q_ASSERT(ret == data.size());
+    m_localSocket->flush();
 }
 
 void ProcessJob::readSocket()

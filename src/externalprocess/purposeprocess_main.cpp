@@ -51,11 +51,26 @@ public:
         b = m_socket.waitForReadyRead();
         Q_ASSERT(b);
 
-        QByteArray dataArray = m_socket.readAll();
+        Q_ASSERT(m_socket.canReadLine());
+        QByteArray byteLine = m_socket.readLine();
+        byteLine.chop(1); // Drop \n
+        const qint64 bytes = byteLine.toLongLong();
+        // QByteArray and QJsonDocument::from* can only handle int size.
+        // If the payload is bigger we are screwed.
+        Q_ASSERT(bytes <= std::numeric_limits<int>::max());
+
+        QByteArray dataArray;
+        dataArray.resize(bytes);
+        int pos = 0;
+        bool couldRead = false;
+        while ((pos < bytes) && (couldRead = (m_socket.bytesAvailable() || m_socket.waitForReadyRead()))) {
+            pos += m_socket.read(dataArray.data() + pos, qMin(m_socket.bytesAvailable(), bytes-pos));
+        }
+        Q_ASSERT(couldRead); // false if we hit a timeout before read-end.
+        Q_ASSERT(pos == bytes);
+
         Purpose::Configuration config(QJsonDocument::fromJson(dataArray).object(), pluginType, md);
         config.setUseSeparateProcess(false);
-
-        qDebug() << dataArray << config.data();
 
         Q_ASSERT(config.isReady());
 

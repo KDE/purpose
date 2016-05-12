@@ -43,6 +43,7 @@ public:
     void start() override;
 
 private:
+    void writeSocket();
     void readSocket();
     void readAllSocket(bool ensureRead);
     void processStateChanged(QProcess::ProcessState state);
