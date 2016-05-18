@@ -103,8 +103,15 @@ class PastebinJob : public Purpose::Job
             m_resultData.clear();
         }
 
-        void textUploaded(KJob* /*job*/) {
-            setOutput( { { QStringLiteral("url"), QString::fromUtf8(m_resultData) } });
+        void textUploaded(KJob* job) {
+            if (job->error()) {
+                setError(error());
+                setErrorText(job->errorText());
+            } else if (!m_resultData.startsWith("http")) {
+                setError(1);
+                setErrorText(QString::fromUtf8(m_resultData));
+            } else
+                setOutput( { { QStringLiteral("url"), QString::fromUtf8(m_resultData) } });
             emitResult();
         }
 
