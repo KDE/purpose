@@ -80,8 +80,8 @@ public:
         const QMetaObject* m = m_job->metaObject();
         for(int i = 0, c = m->propertyCount(); i<c; ++i) {
             QMetaProperty prop = m->property(i);
-                connect(m_job, prop.notifySignal(), this, propertyChangedMethod);
             if (prop.hasNotifySignal() && prop.isReadable()) {
+                connect(m_job, prop.notifySignal(), this, propertyChangedMethod, Qt::UniqueConnection);
             }
         }
     }
