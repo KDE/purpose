@@ -85,7 +85,7 @@ void ProcessJob::readSocket()
 {
     QJsonParseError error;
     while(m_localSocket && m_localSocket->canReadLine()) {
-        QByteArray json = m_localSocket->readLine();
+        const QByteArray json = m_localSocket->readLine();
 
         const QJsonObject object = QJsonDocument::fromJson(json, &error).object();
         if (error.error != QJsonParseError::NoError) {
@@ -125,6 +125,10 @@ void Purpose::ProcessJob::processStateChanged(QProcess::ProcessState state)
 {
     if (state == QProcess::NotRunning) {
         Q_ASSERT(m_process->exitCode()!=0 || m_localSocket);
+        if (m_process->exitCode()!=0) {
+            qWarning() << "process exited with message:" << m_process->exitCode();
+        }
+
         readSocket();
         emitResult();
     }
