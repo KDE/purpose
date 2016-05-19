@@ -126,7 +126,7 @@ void Purpose::ProcessJob::processStateChanged(QProcess::ProcessState state)
     if (state == QProcess::NotRunning) {
         Q_ASSERT(m_process->exitCode()!=0 || m_localSocket);
         if (m_process->exitCode()!=0) {
-            qWarning() << "process exited with message:" << m_process->exitCode();
+            qWarning() << "process exited with code:" << m_process->exitCode();
         }
 
         do {
