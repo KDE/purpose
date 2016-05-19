@@ -129,7 +129,9 @@ void Purpose::ProcessJob::processStateChanged(QProcess::ProcessState state)
             qWarning() << "process exited with message:" << m_process->exitCode();
         }
 
-        readSocket();
+        do {
+            readSocket();
+        } while (m_localSocket->waitForReadyRead());
         emitResult();
     }
 }
