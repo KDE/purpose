@@ -28,8 +28,8 @@ ColumnLayout
     property alias tweetText: tweet.text
     property string consumerKey: accts.authData.parameters.ConsumerKey
     property string consumerSecret: accts.authData.parameters.ConsumerSecret
-    property string accessToken
-    property string accessTokenSecret
+    property var accessToken
+    property var accessTokenSecret
 
     property var urls
     property var mimeType
