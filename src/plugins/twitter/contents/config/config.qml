@@ -18,6 +18,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
+import org.kde.kquickcontrolsaddons 2.0 as KQCA
 import Ubuntu.OnlineAccounts 0.1 as OA
 
 ColumnLayout
@@ -49,15 +50,22 @@ ColumnLayout
     }
 
     Label { text: i18n("Account:") }
-    ComboBox {
-        id: accountsCombo
-
+    RowLayout {
         Layout.fillWidth: true
-        textRole: "displayName"
-        enabled: count>0
-        model: OA.AccountServiceModel {
-            id: serviceModel
-            serviceType: "twitter-microblog"
+        ComboBox {
+            id: accountsCombo
+
+            Layout.fillWidth: true
+            textRole: "displayName"
+            enabled: count>0
+            model: OA.AccountServiceModel {
+                id: serviceModel
+                serviceType: "twitter-microblog"
+            }
+        }
+        Button {
+            iconName: "settings-configure"
+            onClicked: KQCA.KCMShell.open("kcm_kaccounts");
         }
     }
 
