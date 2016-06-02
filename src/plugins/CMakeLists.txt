@@ -24,7 +24,7 @@ find_qmlmodule(Ubuntu.OnlineAccounts 0.1)
 find_qmlmodule(org.kde.kdeconnect 1.0)
 find_qmlmodule(org.kde.kquickcontrolsaddons 2.0)
 
-find_package(KAccounts REQUIRED)
+find_package(KAccounts)
 find_package(KF5KIO ${KF5_DEP_VERSION} REQUIRED)
 
 set_package_properties(KAccounts PROPERTIES
