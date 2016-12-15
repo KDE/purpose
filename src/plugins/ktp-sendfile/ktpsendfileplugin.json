@@ -30,6 +30,7 @@
         "Description[uk]": "Надіслати за допомогою служби обміну повідомленнями", 
         "Description[x-test]": "xxSend through Instant Messagingxx", 
         "Description[zh_CN]": "通过即时通讯发送", 
+        "Description[zh_TW]": "透過即時訊息傳送", 
         "Icon": "im-user", 
         "License": "GPL", 
         "Name": "Send To Contact...", 
@@ -56,7 +57,8 @@
         "Name[tr]": "Bağlantıya Gönder...", 
         "Name[uk]": "Надіслати контакту…", 
         "Name[x-test]": "xxSend To Contact...xx", 
-        "Name[zh_CN]": "发送到联系人..."
+        "Name[zh_CN]": "发送到联系人...", 
+        "Name[zh_TW]": "傳送給聯絡人..."
     }, 
     "X-Purpose-Configuration": "", 
     "X-Purpose-Constraints": [], 

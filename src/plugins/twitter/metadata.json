@@ -26,6 +26,7 @@
         "Description[uk]": "Оприлюднює мультимедійні дані на Twitter.", 
         "Description[x-test]": "xxShares media on Twitter.xx", 
         "Description[zh_CN]": "将内容分享到 Twitter.", 
+        "Description[zh_TW]": "在 Twitter 上分想多媒體。", 
         "Icon": "im-twitter", 
         "License": "GPL", 
         "Name": "Twitter", 

@@ -29,6 +29,7 @@
         "Description[uk]": "Вивантажити текст на Pastebin", 
         "Description[x-test]": "xxUpload text to Pastebinxx", 
         "Description[zh_CN]": "向 pastebin 上传文本", 
+        "Description[zh_TW]": "上傳文字到 Pastebin", 
         "Icon": "edit-paste", 
         "License": "GPL", 
         "Name": "Pastebin", 
