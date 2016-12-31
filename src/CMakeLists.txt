@@ -48,6 +48,7 @@ install(FILES
 )
 
 add_executable(purposeprocess externalprocess/purposeprocess_main.cpp helper.cpp)
+ecm_mark_nongui_executable(purposeprocess)
 target_link_libraries(purposeprocess KF5::Purpose Qt5::Network Qt5::Widgets)
 install(TARGETS purposeprocess DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5})
 
