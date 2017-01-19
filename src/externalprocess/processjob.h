@@ -20,9 +20,10 @@
 
 #include "job.h"
 #include <QLocalServer>
+#include <QLocalSocket>
 #include <QJsonObject>
+#include <QPointer>
 #include <QProcess>
-
 
 namespace Purpose
 {
@@ -48,13 +49,13 @@ private:
     void readAllSocket(bool ensureRead);
     void processStateChanged(QProcess::ProcessState state);
 
-    QProcess* m_process;
+    QPointer<QProcess> m_process;
 
     QString m_pluginPath;
     QString m_pluginType;
     QJsonObject m_data;
     QLocalServer m_socket;
-    QLocalSocket* m_localSocket;
+    QPointer<QLocalSocket> m_localSocket;
 };
 
 }
