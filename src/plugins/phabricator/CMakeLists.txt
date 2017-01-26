@@ -8,9 +8,9 @@ endif()
 add_definitions(-DTRANSLATION_DOMAIN=\"purpose_phabricator\")
 
 add_subdirectory(icons)
-# 
-# add_library(PhabricatorHelpers phabricatorjobs.cpp debug.cpp)
-# target_link_libraries(PhabricatorHelpers KF5::CoreAddons KF5::I18n Qt5::Network)
+
+add_library(PhabricatorHelpers phabricatorjobs.cpp debug.cpp)
+target_link_libraries(PhabricatorHelpers KF5::CoreAddons KF5::I18n Qt5::Network)
 # 
 # add_share_plugin(phabricatorplugin phabricatorplugin.cpp)
 # target_link_libraries(phabricatorplugin Qt5::Widgets PhabricatorHelpers)

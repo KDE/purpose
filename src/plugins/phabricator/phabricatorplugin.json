@@ -1,0 +1,26 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Authors", 
+            }
+        ], 
+        "Category": "Utilities", 
+        "Description": "Upload patches to Phabricator", 
+        "Icon": "Phabricator-purpose", 
+        "License": "GPL", 
+        "Name": "Phabricator", 
+    }, 
+    "X-Purpose-Configuration": [
+        "updateRR", 
+        "baseDir", 
+        "extraData", 
+        "localBaseDir"
+    ], 
+    "X-Purpose-Constraints": [
+        "mimeType:text/x-patch"
+    ], 
+    "X-Purpose-PluginTypes": [
+        "Export"
+    ]
+}
