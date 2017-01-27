@@ -21,8 +21,9 @@
 #ifndef KDEVPLATFORM_PLUGIN_PHABRICATORJOBS_H
 #define KDEVPLATFORM_PLUGIN_PHABRICATORJOBS_H
 
-#include <QVariant>
 #include <QList>
+#include <QHash>
+#include <QPair>
 #include <QUrl>
 
 #include <KJob>
@@ -40,7 +41,7 @@ namespace Phabricator
                           : KJob(parent), m_id(id) {}
             QString requestId() const { return m_id; }
             void setRequestId(QString id) { m_id = id; }
-            virtual bool buildArcCommand(const QString& patchFile=QString());
+            virtual bool buildArcCommand(const QString& workDir, const QString& patchFile=QString());
             virtual void start() override;
             virtual QString errorString() const override
             {
@@ -50,6 +51,8 @@ namespace Phabricator
             {
                 m_errorString = msg;
             }
+            QString scrubbedResult();
+            QStringList scrubbedResultList();
 
         private Q_SLOTS:
             virtual void done(int exitCode, QProcess::ExitStatus exitStatus) = 0;
@@ -59,6 +62,7 @@ namespace Phabricator
         private:
             QString m_id;
             QString m_errorString;
+            QString m_arcInput;
     };
 
     class Q_DECL_EXPORT NewDiffRev : public DifferentialRevision
@@ -111,15 +115,24 @@ namespace Phabricator
     {
         Q_OBJECT
         public:
-            DiffRevList(QObject* parent = 0);
-            bool buildArcCommand(const QString& unused=QString()) override;
-            QStringList reviews() const;
+            DiffRevList(const QString& projectDir, QObject* parent = 0);
+            bool buildArcCommand(const QString& workDir, const QString& unused=QString()) override;
+            QList<QPair<QString,QString> > reviews() const
+            {
+                return m_reviews;
+            }
+            QHash<QString,QString> reviewMap() const
+            {
+                return m_revMap;
+            }
 
         private Q_SLOTS:
             void done(int exitCode, QProcess::ExitStatus exitStatus) override;
 
         private:
-            QStringList m_reviews;
+            QList<QPair<QString,QString> > m_reviews;
+            QHash<QString,QString> m_revMap;
+            QString m_projectDir;
     };
 }
 

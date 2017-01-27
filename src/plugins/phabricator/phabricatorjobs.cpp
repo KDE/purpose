@@ -34,9 +34,11 @@
 
 #include <KLocalizedString>
 
+#define COLOURCODES "\u001B\[[0-9]*m"
+
 using namespace Phabricator;
 
-bool DifferentialRevision::buildArcCommand(const QString& patchFile)
+bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString& patchFile)
 {
     bool ret;
     QString arc = QStandardPaths::findExecutable(QStringLiteral("arc"));
@@ -58,13 +60,16 @@ bool DifferentialRevision::buildArcCommand(const QString& patchFile)
         m_arcCmd.setArguments(args);
         if (!patchFile.isEmpty()) {
             m_arcCmd.setStandardInputFile(patchFile);
+            m_arcInput = patchFile;
         }
+        m_arcCmd.setWorkingDirectory(workDir);
         connect(&m_arcCmd, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &DifferentialRevision::done);
         ret = true;
     } else {
         qCWarning(PLUGIN_PHABRICATOR) << "Could not find 'arc' in the path";
         setError(3);
         setErrorText(i18n("Could not find the 'arc' command"));
+        setErrorString(errorText());
         ret = false;
     }
     return ret;
@@ -73,33 +78,58 @@ bool DifferentialRevision::buildArcCommand(const QString& patchFile)
 void DifferentialRevision::start()
 {
     if (!m_arcCmd.program().isEmpty()) {
+        qCDebug(PLUGIN_PHABRICATOR) << Q_FUNC_INFO << "starting" << m_arcCmd.program() << m_arcCmd.arguments();
+        qCDebug(PLUGIN_PHABRICATOR) << "\twordDir=" << m_arcCmd.workingDirectory() << "stdin=" << m_arcInput;
         m_arcCmd.start();
     }
 }
 
-NewDiffRev::NewDiffRev(const QUrl& patch, const QString& projectPath, QObject* parent)
-    : DifferentialRevision(QString(), parent), m_project(projectPath), m_patch(patch)
+
+QString DifferentialRevision::scrubbedResult()
 {
-    buildArcCommand(patch.toLocalFile());
+    QString result = QString::fromUtf8(m_arcCmd.readAllStandardOutput());
+    // the return string can contain terminal text colour codes: remove them.
+    QRegExp unwanted(QString::fromUtf8(COLOURCODES));
+    result.replace(unwanted, QString());
+    return result;
+}
+
+QStringList DifferentialRevision::scrubbedResultList()
+{
+    QStringList result = QString::fromUtf8(m_arcCmd.readAllStandardOutput()).split(QChar::LineFeed);
+    // the return string can contain terminal text colour codes: remove them.
+    QRegExp unwanted(QString::fromUtf8(COLOURCODES));
+    result.replaceInStrings(unwanted, QString());
+    // remove all (now) empty strings
+    result.removeAll(QString());
+    return result;
+}
+
+NewDiffRev::NewDiffRev(const QUrl& patch, const QString& projectPath, QObject* parent)
+    : DifferentialRevision(QString(), parent)
+    , m_patch(patch)
+    , m_project(projectPath)
+{
+    buildArcCommand(projectPath, patch.toLocalFile());
 }
 
 void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
-    if (exitStatus != QProcess::NormalExit) {
-        qCWarning(PLUGIN_PHABRICATOR) << "Could not create the new \"differential diff\":" << m_arcCmd.error();
+    if (exitStatus != QProcess::NormalExit || exitCode) {
         setError(exitCode);
         setErrorText(i18n("Could not create the new \"differential diff\""));
-        setErrorString(QString::fromLatin1(m_arcCmd.readAllStandardError()));
+        setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
+        qCWarning(PLUGIN_PHABRICATOR) << "Could not create the new \"differential diff\":"
+            << m_arcCmd.error() << ";" << errorString();
     } else {
-        const QString stdout = QString::fromLatin1(m_arcCmd.readAllStandardOutput());
+        const QString stdout = scrubbedResult();
         const char *diffOpCode = "Diff URI: ";
         int diffOffset = stdout.indexOf(QLatin1String(diffOpCode));
         if (diffOffset >= 0) {
-            m_diffURI = stdout.mid(diffOffset + strlen(diffOpCode)).split(QChar::LineSeparator).at(0);
+            m_diffURI = stdout.mid(diffOffset + strlen(diffOpCode)).split(QChar::LineFeed).at(0);
+        } else {
+            m_diffURI = stdout;
         }
-//         QVariant res = m_newreq->result();
-//         setRequestId(res.toMap()[QStringLiteral("review_request")].toMap()[QStringLiteral("id")].toString());
-//         Q_ASSERT(!requestId().isEmpty());
     }
 
     emitResult();
@@ -107,30 +137,33 @@ void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 
 
 SubmitDiffRev::SubmitDiffRev(const QUrl& patch, const QString& basedir, const QString& id, QObject* parent)
-    : DifferentialRevision(id, parent), m_patch(patch), m_basedir(basedir)
+    : DifferentialRevision(id, parent)
+    , m_patch(patch)
+    , m_basedir(basedir)
 {
-    buildArcCommand(m_patch.toLocalFile());
+    buildArcCommand(m_basedir, m_patch.toLocalFile());
 }
 
 void SubmitDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus != QProcess::NormalExit || exitCode) {
-        qCWarning(PLUGIN_PHABRICATOR) << "Patch upload to Phabricator failed with exit code"
-            << exitCode << ", error" << m_arcCmd.error();
         setError(exitCode);
         setErrorText(i18n("Patch upload to Phabricator failed"));
-        setErrorString(QString::fromLatin1(m_arcCmd.readAllStandardError()));
+        setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
+        qCWarning(PLUGIN_PHABRICATOR) << "Patch upload to Phabricator failed with exit code"
+            << exitCode << ", error" << m_arcCmd.error() << ";" << errorString();
     }
     emitResult();
 }
 
-DiffRevList::DiffRevList(QObject* parent)
+DiffRevList::DiffRevList(const QString& projectDir, QObject* parent)
     : DifferentialRevision(QString(), parent)
+    , m_projectDir(projectDir)
 {
-    buildArcCommand();
+    buildArcCommand(m_projectDir);
 }
 
-bool DiffRevList::buildArcCommand(const QString&)
+bool DiffRevList::buildArcCommand(const QString& workDir, const QString&)
 {
     bool ret;
     QString arc = QStandardPaths::findExecutable(QStringLiteral("arc"));
@@ -139,33 +172,41 @@ bool DiffRevList::buildArcCommand(const QString&)
         args << QStringLiteral("list");
         m_arcCmd.setProgram(arc);
         m_arcCmd.setArguments(args);
+        m_arcCmd.setWorkingDirectory(workDir);
         connect(&m_arcCmd, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &DiffRevList::done);
         ret = true;
     } else {
         qCWarning(PLUGIN_PHABRICATOR) << "Could not find 'arc' in the path";
         setError(3);
         setErrorText(i18n("Could not find the 'arc' command"));
+        setErrorString(errorText());
         ret = false;
     }
     return ret;
 }
 
-QStringList DiffRevList::reviews() const
-{
-    return m_reviews;
-}
-
 void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus != QProcess::NormalExit || exitCode) {
-        qCWarning(PLUGIN_PHABRICATOR) << "Could not get list of differential revisions" << m_arcCmd.error();
         setError(exitCode);
         setErrorText(i18n("Could not get list of differential revisions"));
-        setErrorString(QString::fromLatin1(m_arcCmd.readAllStandardError()));
+        setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
+        qCWarning(PLUGIN_PHABRICATOR) << "Could not get list of differential revisions"
+            << m_arcCmd.error() << ";" << errorString();
     } else {
-        m_reviews = QString::fromLatin1(m_arcCmd.readAllStandardOutput()).split(QChar::LineSeparator);
+        QStringList reviews = scrubbedResultList();
+        qWarning() << "arc list returned:" << reviews;
+        foreach (auto rev, reviews) {
+            int idStart = rev.indexOf(QRegExp(QString::fromUtf8(" D[0-9][0-9]*: ")));
+            qWarning() << "rev=" << rev  << "idStart@" << idStart;
+            if (idStart >= 0) {
+                QStringList revPair = rev.mid(idStart).split(QString::fromUtf8(": "));
+                qWarning() << revPair;
+                m_reviews << qMakePair(revPair.at(0), revPair.at(1));
+                m_revMap[revPair.at(1)] = revPair.at(0);
+            }
+        }
     }
-    // TODO
     emitResult();
 }
 

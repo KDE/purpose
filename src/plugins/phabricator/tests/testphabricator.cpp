@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     app.setApplicationName(QStringLiteral("testphabricator"));
     QCommandLineParser parser;
     const QCommandLineOption projectNameOption(QStringLiteral("project"),
-        QStringLiteral("set the project name"),
+        QStringLiteral("a directory holding the project"),
         QStringLiteral("project"), projectName);
     const QCommandLineOption diffIDOption(QStringLiteral("ID"),
         QStringLiteral("set the revision ID"),
@@ -34,8 +34,11 @@ int main(int argc, char *argv[])
     parser.addVersionOption();
 
     parser.process(app);
+    if (parser.isSet(projectNameOption)) {
+        projectName = parser.value(projectNameOption);
+    }
     if (parser.isSet(listOption)) {
-        Phabricator::DiffRevList diffList;
+        Phabricator::DiffRevList diffList(projectName);
         if (diffList.error()) {
             qCritical() << "Error creating diffList:" << diffList.errorString() << ";" << diffList.error();
         } else {
@@ -43,18 +46,29 @@ int main(int argc, char *argv[])
             if (diffList.error()) {
                 qCritical() << "Error getting diffList:" << diffList.errorString() << ";" << diffList.error();
             } else {
-                qWarning() << "Open differential revisions:" << diffList.reviews();
+                qWarning() << "Open differential revisions:" << diffList.reviewMap();
+                foreach (const auto rev, diffList.reviews()) {
+                    qWarning() << rev;
+                }
             }
         }
     } else {
-        if (parser.isSet(projectNameOption)) {
-            projectName = parser.value(projectNameOption);
-        }
         if (parser.isSet(diffIDOption)) {
             diffID = parser.value(diffIDOption);
         }
         if (parser.isSet(patchFileOption)) {
             patchFile = parser.value(patchFileOption);
+            if (diffID.isEmpty()) {
+                Phabricator::NewDiffRev newDiffRev(QUrl::fromLocalFile(patchFile), projectName);
+                newDiffRev.exec();
+                if (newDiffRev.error()) {
+                    qCritical() << "Error creating new diff diff:" << newDiffRev.errorString() << ";" << newDiffRev.error();
+                } else {
+                    qWarning() << "New differential diff:" << newDiffRev.diffURI();
+                }
+            }
+        } else {
+            qCritical() << "need a patchfile";
         }
     }
     exit(0);
