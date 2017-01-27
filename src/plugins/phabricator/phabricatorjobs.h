@@ -21,9 +21,8 @@
 #ifndef KDEVPLATFORM_PLUGIN_PHABRICATORJOBS_H
 #define KDEVPLATFORM_PLUGIN_PHABRICATORJOBS_H
 
+#include <QVariant>
 #include <QList>
-#include <QNetworkAccessManager>
-#include <QPair>
 #include <QUrl>
 
 #include <KJob>
@@ -33,98 +32,87 @@ class QNetworkReply;
 
 namespace Phabricator
 {
-    class Q_DECL_EXPORT ReviewRequest : public KJob
+    class Q_DECL_EXPORT DifferentialRevision : public KJob
     {
         Q_OBJECT
         public:
-            ReviewRequest(const QString& id, QObject* parent)
+            DifferentialRevision(const QString& id, QObject* parent)
                           : KJob(parent), m_id(id) {}
             QString requestId() const { return m_id; }
             void setRequestId(QString id) { m_id = id; }
+            virtual bool buildArcCommand(const QString& patchFile=QString());
+            virtual void start() override;
 
-    protected:
+        private Q_SLOTS:
+            virtual void done(int exitCode, QProcess::ExitStatus exitStatus) = 0;
+
+        protected:
             QProcess m_arcCmd;
         private:
             QString m_id;
     };
 
-    class Q_DECL_EXPORT NewRequest : public ReviewRequest
+    class Q_DECL_EXPORT NewDiffRev : public DifferentialRevision
     {
         Q_OBJECT
         public:
-            NewRequest(const QString& project, QObject* parent = 0);
-            virtual void start() override;
+            NewDiffRev(const QString& project, QObject* parent = 0);
+            QString diffURI() const
+            {
+                return m_diffURI;
+            }
 
         private Q_SLOTS:
-            void done();
+            void done(int exitCode, QProcess::ExitStatus exitStatus) override;
 
         private:
             QString m_project;
+            QString m_diffURI;
     };
 
-    class Q_DECL_EXPORT UpdateRequest : public ReviewRequest
+//     class Q_DECL_EXPORT UpdateDiffRev : public DifferentialRevision
+//     {
+//         Q_OBJECT
+//         public:
+//             UpdateDiffRev(const QString& id, const QVariantMap& newValues, QObject* parent = nullptr);
+// 
+//         private Q_SLOTS:
+//             void done(int exitCode, QProcess::ExitStatus exitStatus) override;
+// 
+//         private:
+//             QString m_project;
+//     };
+
+    class Q_DECL_EXPORT SubmitDiffRev : public DifferentialRevision
     {
         Q_OBJECT
         public:
-            UpdateRequest(const QString& id, const QVariantMap& newValues, QObject* parent = nullptr);
-            virtual void start() override;
+            SubmitDiffRev(const QUrl& patch, const QString& basedir, const QString& id, QObject* parent);
 
         private Q_SLOTS:
-            void done();
-
-        private:
-            QString m_project;
-    };
-
-    class Q_DECL_EXPORT SubmitPatchRequest : public ReviewRequest
-    {
-        Q_OBJECT
-        public:
-            SubmitPatchRequest(const QUrl& patch, const QString& basedir, const QString& id, QObject* parent);
-            virtual void start() override;
-
-        private Q_SLOTS:
-            void done(int exitCode, QProcess::ExitStatus exitStatus);
+            void done(int exitCode, QProcess::ExitStatus exitStatus) override;
 
         private:
             QUrl m_patch;
             QString m_basedir;
     };
 
-    class Q_DECL_EXPORT ProjectsListRequest : public KJob
+    class Q_DECL_EXPORT DiffRevList : public DifferentialRevision
     {
         Q_OBJECT
         public:
-            ProjectsListRequest(QObject* parent = 0);
-            virtual void start() override;
-            QVariantList repositories() const;
-
-        private Q_SLOTS:
-            void requestRepositoryList(int startIndex);
-            void done(KJob* done);
-
-        private:
-            QVariantList m_repositories;
-    };
-
-    class Q_DECL_EXPORT ReviewListRequest : public KJob
-    {
-        Q_OBJECT
-        public:
-            ReviewListRequest(const QString& user, const QString& reviewStatus, QObject* parent = 0);
-            virtual void start() override;
+            DiffRevList(const QString& reviewStatus, QObject* parent = 0);
+            bool buildArcCommand(const QString&) override;
             QVariantList reviews() const;
 
         private Q_SLOTS:
+            void done(int exitCode, QProcess::ExitStatus exitStatus) override;
             void requestReviewList(int startIndex);
-            void done(KJob* done);
 
         private:
             QString m_reviewStatus;
             QVariantList m_reviews;
     };
-
-    QByteArray urlToData(const QUrl&);
 }
 
 #endif

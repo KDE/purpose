@@ -9,10 +9,35 @@ To retrieve and store credentials for this server, run this command:
       $ arc install-certificate
 --------
 
+Create a new ticket (--create isn't required but probably wise):
+> arc diff  --raw < stdin
+>>
+stderr: SKIP STAGING  Raw changes can not be pushed to a staging area.
+Created a new Differential diff:
+        Diff URI: https://phabricator.kde.org/differential/diff/xyz/
+
+Included changes:
+  M       foo
+  M       bar
+<<
+> arc diff --create --raw-command "cat $patchfile" < template.file
+>>
+stderr: SKIP STAGING  Raw changes can not be pushed to a staging area.
+Created a new Differential revision:
+        Revision URI: https://phabricator.kde.org/Dxyz
+
+Included changes:
+  M       foo
+  M       bar
+<<
+
 Updating a ticket (task):
 > arc diff --update $revId
   --raw : reads from stdin
   --raw-command $command : read from the output of $command
+Optionally interesting options:
+  --message msg : When updating a revision, use the specified message instead of prompting.
+  --reviewers unames : add reviewers
 
 Getting the list of open things
 > arc list
