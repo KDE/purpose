@@ -10,7 +10,12 @@ add_definitions(-DTRANSLATION_DOMAIN=\"purpose_phabricator\")
 add_subdirectory(icons)
 
 add_library(PhabricatorHelpers phabricatorjobs.cpp debug.cpp)
-target_link_libraries(PhabricatorHelpers KF5::CoreAddons KF5::I18n Qt5::Network)
+target_link_libraries(PhabricatorHelpers KF5::CoreAddons KF5::I18n)
+
+add_executable(testphabricator tests/testphabricator.cpp)
+ecm_mark_nongui_executable(testphabricator)
+target_link_libraries(testphabricator PhabricatorHelpers Qt5::Core)
+
 # 
 # add_share_plugin(phabricatorplugin phabricatorplugin.cpp)
 # target_link_libraries(phabricatorplugin Qt5::Widgets PhabricatorHelpers)

@@ -77,19 +77,21 @@ void DifferentialRevision::start()
     }
 }
 
-NewDiffRev::NewDiffRev(const QString& projectPath, QObject* parent)
-    : DifferentialRevision(QString(), parent), m_project(projectPath)
+NewDiffRev::NewDiffRev(const QUrl& patch, const QString& projectPath, QObject* parent)
+    : DifferentialRevision(QString(), parent), m_project(projectPath), m_patch(patch)
 {
+    buildArcCommand(patch.toLocalFile());
 }
 
 void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus != QProcess::NormalExit) {
-        qCDebug(PLUGIN_PHABRICATOR) << "Could not create the new \"differential diff\":" << m_arcCmd.error();
+        qCWarning(PLUGIN_PHABRICATOR) << "Could not create the new \"differential diff\":" << m_arcCmd.error();
         setError(exitCode);
         setErrorText(i18n("Could not create the new \"differential diff\""));
+        setErrorString(QString::fromLatin1(m_arcCmd.readAllStandardError()));
     } else {
-        const QString stdout = QLatin1String(m_arcCmd.readAllStandardOutput());
+        const QString stdout = QString::fromLatin1(m_arcCmd.readAllStandardOutput());
         const char *diffOpCode = "Diff URI: ";
         int diffOffset = stdout.indexOf(QLatin1String(diffOpCode));
         if (diffOffset >= 0) {
@@ -112,18 +114,20 @@ SubmitDiffRev::SubmitDiffRev(const QUrl& patch, const QString& basedir, const QS
 
 void SubmitDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
-    if (exitStatus != QProcess::NormalExit) {
+    if (exitStatus != QProcess::NormalExit || exitCode) {
         qCWarning(PLUGIN_PHABRICATOR) << "Patch upload to Phabricator failed with exit code"
             << exitCode << ", error" << m_arcCmd.error();
         setError(exitCode);
         setErrorText(i18n("Patch upload to Phabricator failed"));
+        setErrorString(QString::fromLatin1(m_arcCmd.readAllStandardError()));
     }
     emitResult();
 }
 
-DiffRevList::DiffRevList(const QString& reviewStatus, QObject* parent)
-    : DifferentialRevision(QString(), parent), m_reviewStatus(reviewStatus)
+DiffRevList::DiffRevList(QObject* parent)
+    : DifferentialRevision(QString(), parent)
 {
+    buildArcCommand();
 }
 
 bool DiffRevList::buildArcCommand(const QString&)
@@ -146,33 +150,20 @@ bool DiffRevList::buildArcCommand(const QString&)
     return ret;
 }
 
-QVariantList DiffRevList::reviews() const
+QStringList DiffRevList::reviews() const
 {
     return m_reviews;
 }
 
-void DiffRevList::requestReviewList(int startIndex)
-{
-//     QList<QPair<QString,QString> > reviewParameters;
-// 
-//     // In practice, the web API will return at most 200 repos per call, so just hardcode that value here
-//     reviewParameters << qMakePair(QStringLiteral("max-results"), QStringLiteral("200"));
-//     reviewParameters << qMakePair(QStringLiteral("start"), QString::number(startIndex));
-//     reviewParameters << qMakePair(QStringLiteral("from-user"), m_user);
-//     reviewParameters << qMakePair(QStringLiteral("status"), m_reviewStatus);
-// 
-//     HttpCall* reviewsCall = new HttpCall(m_server, QStringLiteral("/api/review-requests/"), reviewParameters, HttpCall::Get, QByteArray(), false, this);
-//     connect(reviewsCall, &HttpCall::finished, this, &DiffRevList::done);
-// 
-//     reviewsCall->start();
-}
-
 void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
-    if (exitStatus != QProcess::NormalExit) {
-        qCDebug(PLUGIN_PHABRICATOR) << "Could not get list of differential revisions" << m_arcCmd.error();
+    if (exitStatus != QProcess::NormalExit || exitCode) {
+        qCWarning(PLUGIN_PHABRICATOR) << "Could not get list of differential revisions" << m_arcCmd.error();
         setError(exitCode);
         setErrorText(i18n("Could not get list of differential revisions"));
+        setErrorString(QString::fromLatin1(m_arcCmd.readAllStandardError()));
+    } else {
+        m_reviews = QString::fromLatin1(m_arcCmd.readAllStandardOutput()).split(QChar::LineSeparator);
     }
     // TODO
     emitResult();

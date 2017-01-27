@@ -42,6 +42,14 @@ namespace Phabricator
             void setRequestId(QString id) { m_id = id; }
             virtual bool buildArcCommand(const QString& patchFile=QString());
             virtual void start() override;
+            virtual QString errorString() const override
+            {
+                return m_errorString;
+            }
+            void setErrorString(const QString& msg)
+            {
+                m_errorString = msg;
+            }
 
         private Q_SLOTS:
             virtual void done(int exitCode, QProcess::ExitStatus exitStatus) = 0;
@@ -50,13 +58,14 @@ namespace Phabricator
             QProcess m_arcCmd;
         private:
             QString m_id;
+            QString m_errorString;
     };
 
     class Q_DECL_EXPORT NewDiffRev : public DifferentialRevision
     {
         Q_OBJECT
         public:
-            NewDiffRev(const QString& project, QObject* parent = 0);
+            NewDiffRev(const QUrl& patch, const QString& project, QObject* parent = 0);
             QString diffURI() const
             {
                 return m_diffURI;
@@ -66,6 +75,7 @@ namespace Phabricator
             void done(int exitCode, QProcess::ExitStatus exitStatus) override;
 
         private:
+            QUrl m_patch;
             QString m_project;
             QString m_diffURI;
     };
@@ -101,17 +111,15 @@ namespace Phabricator
     {
         Q_OBJECT
         public:
-            DiffRevList(const QString& reviewStatus, QObject* parent = 0);
-            bool buildArcCommand(const QString&) override;
-            QVariantList reviews() const;
+            DiffRevList(QObject* parent = 0);
+            bool buildArcCommand(const QString& unused=QString()) override;
+            QStringList reviews() const;
 
         private Q_SLOTS:
             void done(int exitCode, QProcess::ExitStatus exitStatus) override;
-            void requestReviewList(int startIndex);
 
         private:
-            QString m_reviewStatus;
-            QVariantList m_reviews;
+            QStringList m_reviews;
     };
 }
 
