@@ -52,8 +52,7 @@ bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString
             // TODO: grab the TARGET_GROUPS from .reviewboardrc and pass that via --reviewers
         } else {
             // updating an existing differential revision (review request)
-            args << QStringLiteral("--update") << m_id 
-                << QStringLiteral("--message") << QStringLiteral("<placeholder: patch updated via the purpose/phabricator plugin>");
+            args << QStringLiteral("--update") << m_id;
         }
         args << QStringLiteral("--excuse") << QStringLiteral("patch submitted with the purpose/phabricator plugin")
             << QStringLiteral("--raw");
@@ -144,12 +143,21 @@ void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 }
 
 
-SubmitDiffRev::SubmitDiffRev(const QUrl& patch, const QString& basedir, const QString& id, QObject* parent)
+SubmitDiffRev::SubmitDiffRev(const QUrl& patch, const QString& basedir,
+                             const QString& id, const QString& updateComment, QObject* parent)
     : DifferentialRevision(id, parent)
     , m_patch(patch)
     , m_basedir(basedir)
 {
     buildArcCommand(m_basedir, m_patch.toLocalFile());
+    QStringList args = m_arcCmd.arguments();
+    if (updateComment.isEmpty()) {
+        args << QStringLiteral("--message")
+            << QStringLiteral("<placeholder: patch updated via the purpose/phabricator plugin>");
+    } else {
+        args << QStringLiteral("--message") << updateComment;
+    }
+    m_arcCmd.setArguments(args);
 }
 
 void SubmitDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)

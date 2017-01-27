@@ -98,7 +98,8 @@ namespace Phabricator
     {
         Q_OBJECT
         public:
-            SubmitDiffRev(const QUrl& patch, const QString& basedir, const QString& id, QObject* parent = 0);
+            SubmitDiffRev(const QUrl& patch, const QString& basedir,
+                          const QString& id, const QString& updateComment = QString(), QObject* parent = 0);
             QString diffURI() const
             {
                 return m_diffURI;
