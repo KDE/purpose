@@ -41,16 +41,12 @@ namespace Phabricator
                           : KJob(parent), m_id(id) {}
             QString requestId() const { return m_id; }
             void setRequestId(QString id) { m_id = id; }
-            virtual bool buildArcCommand(const QString& workDir, const QString& patchFile=QString());
             virtual void start() override;
             virtual QString errorString() const override
             {
                 return m_errorString;
             }
-            void setErrorString(const QString& msg)
-            {
-                m_errorString = msg;
-            }
+            void setErrorString(const QString& msg);
             QString scrubbedResult();
             QStringList scrubbedResultList();
 
@@ -58,6 +54,7 @@ namespace Phabricator
             virtual void done(int exitCode, QProcess::ExitStatus exitStatus) = 0;
 
         protected:
+            virtual bool buildArcCommand(const QString& workDir, const QString& patchFile=QString());
             QProcess m_arcCmd;
         private:
             QString m_id;
@@ -101,7 +98,11 @@ namespace Phabricator
     {
         Q_OBJECT
         public:
-            SubmitDiffRev(const QUrl& patch, const QString& basedir, const QString& id, QObject* parent);
+            SubmitDiffRev(const QUrl& patch, const QString& basedir, const QString& id, QObject* parent = 0);
+            QString diffURI() const
+            {
+                return m_diffURI;
+            }
 
         private Q_SLOTS:
             void done(int exitCode, QProcess::ExitStatus exitStatus) override;
@@ -109,6 +110,7 @@ namespace Phabricator
         private:
             QUrl m_patch;
             QString m_basedir;
+            QString m_diffURI;
     };
 
     class Q_DECL_EXPORT DiffRevList : public DifferentialRevision
@@ -116,11 +118,12 @@ namespace Phabricator
         Q_OBJECT
         public:
             DiffRevList(const QString& projectDir, QObject* parent = 0);
-            bool buildArcCommand(const QString& workDir, const QString& unused=QString()) override;
+            // return the open diff. revisions as a list of <diffID,diffDescription> pairs
             QList<QPair<QString,QString> > reviews() const
             {
                 return m_reviews;
             }
+            // return the open diff. revisions as a map of diffDescription->diffID entries
             QHash<QString,QString> reviewMap() const
             {
                 return m_revMap;
@@ -129,6 +132,8 @@ namespace Phabricator
         private Q_SLOTS:
             void done(int exitCode, QProcess::ExitStatus exitStatus) override;
 
+        protected:
+            bool buildArcCommand(const QString& workDir, const QString& unused=QString()) override;
         private:
             QList<QPair<QString,QString> > m_reviews;
             QHash<QString,QString> m_revMap;

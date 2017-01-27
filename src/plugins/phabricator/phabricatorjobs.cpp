@@ -52,7 +52,8 @@ bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString
             // TODO: grab the TARGET_GROUPS from .reviewboardrc and pass that via --reviewers
         } else {
             // updating an existing differential revision (review request)
-            args << QStringLiteral("--update") << m_id;
+            args << QStringLiteral("--update") << m_id 
+                << QStringLiteral("--message") << QStringLiteral("<placeholder: patch updated via the purpose/phabricator plugin>");
         }
         args << QStringLiteral("--excuse") << QStringLiteral("patch submitted with the purpose/phabricator plugin")
             << QStringLiteral("--raw");
@@ -78,12 +79,18 @@ bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString
 void DifferentialRevision::start()
 {
     if (!m_arcCmd.program().isEmpty()) {
-        qCDebug(PLUGIN_PHABRICATOR) << Q_FUNC_INFO << "starting" << m_arcCmd.program() << m_arcCmd.arguments();
+        qCDebug(PLUGIN_PHABRICATOR) << "starting" << m_arcCmd.program() << m_arcCmd.arguments();
         qCDebug(PLUGIN_PHABRICATOR) << "\twordDir=" << m_arcCmd.workingDirectory() << "stdin=" << m_arcInput;
         m_arcCmd.start();
     }
 }
 
+void DifferentialRevision::setErrorString(const QString& msg)
+{
+    QRegExp unwanted(QString::fromUtf8(COLOURCODES));
+    m_errorString = msg;
+    m_errorString.replace(unwanted, QString());
+}
 
 QString DifferentialRevision::scrubbedResult()
 {
@@ -104,6 +111,7 @@ QStringList DifferentialRevision::scrubbedResultList()
     result.removeAll(QString());
     return result;
 }
+
 
 NewDiffRev::NewDiffRev(const QUrl& patch, const QString& projectPath, QObject* parent)
     : DifferentialRevision(QString(), parent)
@@ -152,9 +160,19 @@ void SubmitDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
         setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
         qCWarning(PLUGIN_PHABRICATOR) << "Patch upload to Phabricator failed with exit code"
             << exitCode << ", error" << m_arcCmd.error() << ";" << errorString();
+    } else {
+        const QString stdout = scrubbedResult();
+        const char *diffOpCode = "Revision URI: ";
+        int diffOffset = stdout.indexOf(QLatin1String(diffOpCode));
+        if (diffOffset >= 0) {
+            m_diffURI = stdout.mid(diffOffset + strlen(diffOpCode)).split(QChar::LineFeed).at(0);
+        } else {
+            m_diffURI = stdout;
+        }
     }
     emitResult();
 }
+
 
 DiffRevList::DiffRevList(const QString& projectDir, QObject* parent)
     : DifferentialRevision(QString(), parent)
@@ -195,13 +213,11 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
             << m_arcCmd.error() << ";" << errorString();
     } else {
         QStringList reviews = scrubbedResultList();
-        qWarning() << "arc list returned:" << reviews;
+        qCDebug(PLUGIN_PHABRICATOR) << "arc list returned:" << reviews;
         foreach (auto rev, reviews) {
             int idStart = rev.indexOf(QRegExp(QString::fromUtf8(" D[0-9][0-9]*: ")));
-            qWarning() << "rev=" << rev  << "idStart@" << idStart;
             if (idStart >= 0) {
                 QStringList revPair = rev.mid(idStart).split(QString::fromUtf8(": "));
-                qWarning() << revPair;
                 m_reviews << qMakePair(revPair.at(0), revPair.at(1));
                 m_revMap[revPair.at(1)] = revPair.at(0);
             }

@@ -64,7 +64,15 @@ int main(int argc, char *argv[])
                 if (newDiffRev.error()) {
                     qCritical() << "Error creating new diff diff:" << newDiffRev.errorString() << ";" << newDiffRev.error();
                 } else {
-                    qWarning() << "New differential diff:" << newDiffRev.diffURI();
+                    qWarning() << "New differential diff to be completed online:" << newDiffRev.diffURI();
+                }
+            } else {
+                Phabricator::SubmitDiffRev submitDiffRev(QUrl::fromLocalFile(patchFile), projectName, diffID);
+                submitDiffRev.exec();
+                if (submitDiffRev.error()) {
+                    qCritical() << "Error creating new diff diff:" << submitDiffRev.errorString() << ";" << submitDiffRev.error();
+                } else {
+                    qWarning() << "Updated differential revision; please edit comment online:" << submitDiffRev.diffURI();
                 }
             }
         } else {
