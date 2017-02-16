@@ -1,6 +1,6 @@
 /*
  * This file is part of KDevelop
- * Copyright 2010 Aleix Pol Gonzalez <aleixpol@kde.org>
+ * Copyright 2017 René J.V. Bertin <rjvbertin@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Library General Public License as
@@ -143,7 +143,7 @@ void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 }
 
 
-SubmitDiffRev::SubmitDiffRev(const QUrl& patch, const QString& basedir,
+UpdateDiffRev::UpdateDiffRev(const QUrl& patch, const QString& basedir,
                              const QString& id, const QString& updateComment, QObject* parent)
     : DifferentialRevision(id, parent)
     , m_patch(patch)
@@ -160,7 +160,7 @@ SubmitDiffRev::SubmitDiffRev(const QUrl& patch, const QString& basedir,
     m_arcCmd.setArguments(args);
 }
 
-void SubmitDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
+void UpdateDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus != QProcess::NormalExit || exitCode) {
         setError(exitCode);

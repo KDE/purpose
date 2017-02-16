@@ -1,6 +1,6 @@
 /*
  * This file is part of KDevelop
- * Copyright 2010 Aleix Pol Gonzalez <aleixpol@kde.org>
+ * Copyright 2017 René J.V. Bertin <rjvbertin@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Library General Public License as
@@ -81,24 +81,11 @@ namespace Phabricator
             QString m_diffURI;
     };
 
-//     class Q_DECL_EXPORT UpdateDiffRev : public DifferentialRevision
-//     {
-//         Q_OBJECT
-//         public:
-//             UpdateDiffRev(const QString& id, const QVariantMap& newValues, QObject* parent = nullptr);
-// 
-//         private Q_SLOTS:
-//             void done(int exitCode, QProcess::ExitStatus exitStatus) override;
-// 
-//         private:
-//             QString m_project;
-//     };
-
-    class Q_DECL_EXPORT SubmitDiffRev : public DifferentialRevision
+    class Q_DECL_EXPORT UpdateDiffRev : public DifferentialRevision
     {
         Q_OBJECT
         public:
-            SubmitDiffRev(const QUrl& patch, const QString& basedir,
+            UpdateDiffRev(const QUrl& patch, const QString& basedir,
                           const QString& id, const QString& updateComment = QString(), QObject* parent = 0);
             QString diffURI() const
             {

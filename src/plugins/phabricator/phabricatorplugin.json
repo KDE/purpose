@@ -2,7 +2,7 @@
     "KPlugin": {
         "Authors": [
             {
-                "Name": "Authors", 
+                "Name": "René Bertin", 
             }
         ], 
         "Category": "Utilities", 
@@ -12,9 +12,8 @@
         "Name": "Phabricator", 
     }, 
     "X-Purpose-Configuration": [
-        "updateRR", 
+        "updateDR", 
         "baseDir", 
-        "extraData", 
         "localBaseDir"
     ], 
     "X-Purpose-Constraints": [

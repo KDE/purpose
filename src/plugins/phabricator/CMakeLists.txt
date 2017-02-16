@@ -16,14 +16,13 @@ add_executable(testphabricator tests/testphabricator.cpp)
 ecm_mark_nongui_executable(testphabricator)
 target_link_libraries(testphabricator PhabricatorHelpers Qt5::Core)
 
-# 
-# add_share_plugin(phabricatorplugin phabricatorplugin.cpp)
-# target_link_libraries(phabricatorplugin Qt5::Widgets PhabricatorHelpers)
-# 
-# install(TARGETS PhabricatorHelpers ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
-# 
-# add_library(rbpurposequickplugin quick/phabricatorquickplugin.cpp quick/rbrepositoriesmodel.cpp quick/rbreviewslistmodel.cpp quick/phabricatorrc.cpp)
-# target_link_libraries(rbpurposequickplugin Qt5::Qml PhabricatorHelpers)
-# 
-# install(TARGETS rbpurposequickplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/purpose/phabricator)
-# install(FILES quick/qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/purpose/phabricator)
+add_share_plugin(phabricatorplugin phabricatorplugin.cpp)
+target_link_libraries(phabricatorplugin Qt5::Widgets PhabricatorHelpers)
+
+install(TARGETS PhabricatorHelpers ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+
+add_library(phabricatorquickplugin quick/phabricatorquickplugin.cpp quick/difflistmodel.cpp quick/phabricatorrc.cpp)
+target_link_libraries(phabricatorquickplugin Qt5::Qml PhabricatorHelpers)
+
+install(TARGETS phabricatorquickplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/purpose/phabricator)
+install(FILES quick/qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/purpose/phabricator)

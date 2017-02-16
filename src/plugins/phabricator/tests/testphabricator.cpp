@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
                 if (parser.isSet(updateCommentOption)) {
                     updateComment = parser.value(updateCommentOption);
                 }
-                Phabricator::SubmitDiffRev submitDiffRev(QUrl::fromLocalFile(patchFile), projectName, diffID, updateComment);
+                Phabricator::UpdateDiffRev submitDiffRev(QUrl::fromLocalFile(patchFile), projectName, diffID, updateComment);
                 submitDiffRev.exec();
                 if (submitDiffRev.error()) {
                     qCritical() << "Error creating new diff diff:" << submitDiffRev.errorString() << ";" << submitDiffRev.error();

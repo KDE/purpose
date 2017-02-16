@@ -1,5 +1,5 @@
 /*
- Copyright 2015 Aleix Pol Gonzalez <aleixpol@kde.org>
+ Copyright 2017 René J.V. Bertin <rjvbertin@gmail.com>
 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -22,23 +22,22 @@ import org.kde.purpose.phabricator 1.0
 
 ColumnLayout {
     id: root
-    property string updateRR: ""
+    property string updateDR: ""
     property string baseDir
     property string localBaseDir
-    property variant extraData: rcfile.extraData
 
     Label {
-        text: root.updateRR
+        text: root.updateDR
     }
 
-    ReviewboardRC {
+    PhabricatorRC {
         id: json
         path: root.localBaseDir + "/.arcconfig"
     }
 
-    function refreshUpdateRR()
+    function refreshUpdateDR()
     {
-        root.updateRR = (updateRRCombo.currentIndex>=0 && update.checked) ? reviewsList.get(updateRRCombo.currentIndex, "toolTip") : ""
+        root.updateDR = (updateDRCombo.currentIndex>=0 && update.checked) ? diffList.get(updateDRCombo.currentIndex, "toolTip") : ""
     }
 
     Item {
@@ -48,24 +47,24 @@ ColumnLayout {
         CheckBox {
             anchors.centerIn: parent
             id: update
-            text: i18n("Update Review:")
-            enabled: updateRRCombo.count > 0
+            text: i18n("Update Diff:")
+            enabled: updateDRCombo.count > 0
             onCheckedChanged: {
-                root.refreshUpdateRR();
+                root.refreshUpdateDR();
             }
         }
     }
     ComboBox {
-        id: updateRRCombo
+        id: updateDRCombo
         Layout.fillWidth: true
         enabled: update.checked
         textRole: "display"
-        model: ReviewsListModel {
-            id: reviewsList
+        model: DiffListModel {
+            id: diffList
             status: "pending"
         }
         onCurrentIndexChanged: {
-            root.refreshUpdateRR();
+            root.refreshUpdateDR();
         }
     }
 
