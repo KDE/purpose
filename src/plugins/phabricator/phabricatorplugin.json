@@ -2,14 +2,14 @@
     "KPlugin": {
         "Authors": [
             {
-                "Name": "René Bertin", 
+                "Name": "René Bertin"
             }
         ], 
         "Category": "Utilities", 
         "Description": "Upload patches to Phabricator", 
         "Icon": "Phabricator-purpose", 
         "License": "GPL", 
-        "Name": "Phabricator", 
+        "Name": "Phabricator"
     }, 
     "X-Purpose-Configuration": [
         "updateDR", 
