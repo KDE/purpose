@@ -80,6 +80,11 @@ public:
     QJsonArray neededArguments() const;
     QUrl configSourceCode() const;
 
+    /**
+     * @returns whether the job will be run in the same process.
+     *
+     * By default it will be true, unless the environment variable KDE_PURPOSE_LOCAL_JOBS is defined
+     */
     bool useSeparateProcess() const;
     void setUseSeparateProcess(bool);
 
