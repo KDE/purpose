@@ -72,6 +72,7 @@ class PhabricatorJob : public Purpose::Job
         KJob* job;
         if (!updateDR.isEmpty()) {
             const QString updateComment = data().value(QStringLiteral("updateComment")).toString();
+            qWarning() << "updateComment:" << updateComment;
             job=new Phabricator::UpdateDiffRev(sourceFile, baseDir, updateDR, updateComment, doBrowse, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffUpdated);
         } else {

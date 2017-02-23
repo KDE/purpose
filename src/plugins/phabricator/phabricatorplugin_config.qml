@@ -27,7 +27,7 @@ ColumnLayout {
     property string drTitle: ""
     property string baseDir
     property string localBaseDir
-    property string updateComment: ""
+    property alias updateComment: updateCommentField.text
     // This is a workaround for installs where the result dialog doesn't always appear
     // or doesn't always show the revision URL.
     property alias doBrowse: doBrowseCheck.checked
@@ -103,9 +103,7 @@ ColumnLayout {
         Layout.fillHeight: true
         text: ""
         enabled: update.checked
-        onEditingFinished: {
-            root.updateComment = text
-        }
+        tabChangesFocus: false
     }
 
     Item {
