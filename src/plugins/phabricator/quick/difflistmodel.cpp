@@ -48,14 +48,12 @@ void DiffListModel::refresh()
     // directory in which we initialise a git repository. This may be an empty repo.
 
     m_initialDir = QDir::currentPath();
-    qWarning() << Q_FUNC_INFO << "initialDir=" << m_initialDir;
     m_tempDir = new QTemporaryDir;
     if (!m_tempDir->isValid()) {
         qCritical() << "DiffListModel::refresh() failed to create temporary directory"
             << m_tempDir->path() << ":" << m_tempDir->errorString();
     } else {
         if (QDir::setCurrent(m_tempDir->path())) {
-            qWarning() << Q_FUNC_INFO << "tempCWD=" << m_tempDir->path() << "=" << QDir::currentPath();
             // the directory will be removed in receivedDiffRevs()
             m_tempDir->setAutoRemove(false);
             QProcess initGit;

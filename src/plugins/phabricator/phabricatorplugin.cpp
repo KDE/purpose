@@ -24,6 +24,7 @@
 #include <QVariantList>
 #include <QStandardPaths>
 #include <QJsonArray>
+#include <QMessageBox>
 
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -34,6 +35,14 @@
 
 #include "purpose/job.h"
 #include "purpose/pluginbase.h"
+
+// FIXME: For some reason PLUGIN_PHABRICATOR isn't exported from the PhabricatorHelpers lib
+#undef qCDebug
+#define qCDebug(dum)    qDebug()
+#undef qCWarning
+#define qCWarning(dum)  qWarning()
+#undef qCCritical
+#define qCCritical(dum)  qCritical()
 
 class PhabricatorJob : public Purpose::Job
 {
@@ -53,6 +62,7 @@ class PhabricatorJob : public Purpose::Job
         if (QFileInfo(sourceFile.toLocalFile()).size() <= 0) {
             setError(KJob::UserDefinedError+1);
             setErrorText(i18n("Phabricator refuses empty patchfiles"));
+            qCCritical(PLUGIN_PHABRICATOR) << errorString();
             emitResult();
             return;
         }
@@ -62,12 +72,16 @@ class PhabricatorJob : public Purpose::Job
         KJob* job;
         if (!updateDR.isEmpty()) {
             const QString updateComment = data().value(QStringLiteral("updateComment")).toString();
-            qWarning() << Q_FUNC_INFO << "updateComment=" << updateComment;
             job=new Phabricator::UpdateDiffRev(sourceFile, baseDir, updateDR, updateComment, doBrowse, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffUpdated);
         } else {
             job=new Phabricator::NewDiffRev(sourceFile, baseDir, doBrowse, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffCreated);
+            if (!doBrowse) {
+                QMessageBox::warning(nullptr,
+                    i18n("Please note"),
+                    i18n("Remember to complete the differential revision online!"));
+            }
         }
         job->start();
         emit PhabricatorJob::infoMessage(this, QStringLiteral("upload job started"), QString());
@@ -79,17 +93,18 @@ class PhabricatorJob : public Purpose::Job
             setError(j->error());
             setErrorText(j->errorString());
             emit PhabricatorJob::warning(this, j->errorString(), QString());
+            qCCritical(PLUGIN_PHABRICATOR) << "Could not upload the patch" << j->errorString();
             emitResult();
             return;
         }
 
         if (created) {
             Phabricator::NewDiffRev const * job = qobject_cast<Phabricator::NewDiffRev*>(j);
-            qWarning() << Q_FUNC_INFO << "new diff:" << job->diffURI();
+            qCDebug(PLUGIN_PHABRICATOR) <<"new diff:" << job->diffURI();
             setOutput({{ QStringLiteral("url"), job->diffURI() }});
         } else {
             Phabricator::UpdateDiffRev const * job = qobject_cast<Phabricator::UpdateDiffRev*>(j);
-            qWarning() << Q_FUNC_INFO << "updated diff" << job->requestId() << ":" << job->diffURI();
+            qCDebug(PLUGIN_PHABRICATOR) << "updated diff" << job->requestId() << ":" << job->diffURI();
             setOutput({{ QStringLiteral("url"), job->diffURI() }});
             emit PhabricatorJob::infoMessage(this,
                  QStringLiteral("updated diff %1: %2").arg(job->requestId()).arg(job->diffURI()), QString());

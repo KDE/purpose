@@ -34,7 +34,7 @@ ColumnLayout {
 
     Label {
         text: (updateDRCombo.currentIndex>=0 && update.checked)
-            ? i18n("Update differential revision %1").arg(updateDR)
+            ? i18n("Update differential revision %1", updateDR)
             : i18n("Create new \"differential diff\"")
     }
 
@@ -93,7 +93,7 @@ ColumnLayout {
         }
     }
     Label {
-        text: i18n("Summary of the update to %1:").arg(updateDR)
+        text: i18n("Summary of the update to %1:", updateDR)
         enabled: update.checked
     }
     TextArea {
