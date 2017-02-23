@@ -93,7 +93,8 @@ ColumnLayout {
         }
     }
     Label {
-        text: i18n("Summary of the update to %1:", updateDR)
+        // use i18n().arg() to avoid showing the "%1" when inactive
+        text: i18n("Summary of the update to %1:").arg(updateDR)
         enabled: update.checked
     }
     TextArea {
