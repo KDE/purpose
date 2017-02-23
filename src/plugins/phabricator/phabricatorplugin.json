@@ -13,8 +13,11 @@
     }, 
     "X-Purpose-Configuration": [
         "updateDR", 
+        "drTitle",
         "baseDir", 
-        "localBaseDir"
+        "localBaseDir",
+        "updateComment",
+        "doBrowse"
     ], 
     "X-Purpose-Constraints": [
         "mimeType:text/x-patch"

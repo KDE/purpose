@@ -57,7 +57,7 @@ namespace Phabricator
             virtual void done(int exitCode, QProcess::ExitStatus exitStatus) = 0;
 
         protected:
-            virtual bool buildArcCommand(const QString& workDir, const QString& patchFile=QString());
+            virtual bool buildArcCommand(const QString& workDir, const QString& patchFile=QString(), bool doBrowse=false);
             QProcess m_arcCmd;
         private:
             QString m_id;
@@ -69,7 +69,7 @@ namespace Phabricator
     {
         Q_OBJECT
         public:
-            NewDiffRev(const QUrl& patch, const QString& project, QObject* parent = 0);
+            NewDiffRev(const QUrl& patch, const QString& project, bool doBrowse = false, QObject* parent = 0);
             QString diffURI() const
             {
                 return m_diffURI;
@@ -89,7 +89,7 @@ namespace Phabricator
         Q_OBJECT
         public:
             UpdateDiffRev(const QUrl& patch, const QString& basedir,
-                          const QString& id, const QString& updateComment = QString(), QObject* parent = 0);
+                          const QString& id, const QString& updateComment = QString(), bool doBrowse = false, QObject* parent = 0);
             QString diffURI() const
             {
                 return m_diffURI;
@@ -124,7 +124,7 @@ namespace Phabricator
             void done(int exitCode, QProcess::ExitStatus exitStatus) override;
 
         protected:
-            bool buildArcCommand(const QString& workDir, const QString& unused=QString()) override;
+            bool buildArcCommand(const QString& workDir, const QString& unused=QString(), bool ignored=false) override;
         private:
             QList<QPair<QString,QString> > m_reviews;
             QHash<QString,QString> m_revMap;

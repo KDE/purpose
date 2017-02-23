@@ -20,6 +20,7 @@
 
 #include <QDialog>
 #include <QUrl>
+#include <QFileInfo>
 #include <QVariantList>
 #include <QStandardPaths>
 #include <QJsonArray>
@@ -47,16 +48,25 @@ class PhabricatorJob : public Purpose::Job
         const QString baseDir(data().value(QStringLiteral("baseDir")).toString());
         const QUrl sourceFile(data().value(QStringLiteral("urls")).toArray().first().toString());
         const QString updateDR = data().value(QStringLiteral("updateDR")).toString();
+        const bool doBrowse = data().value(QStringLiteral("doBrowse")).toBool();
+
+        if (QFileInfo(sourceFile.toLocalFile()).size() <= 0) {
+            setError(KJob::UserDefinedError+1);
+            setErrorText(i18n("Phabricator refuses empty patchfiles"));
+            emitResult();
+            return;
+        }
 
         m_drTitle = data().value(QStringLiteral("drTitle")).toString();
 
         KJob* job;
         if (!updateDR.isEmpty()) {
-            // TODO: add update comment
-            job=new Phabricator::UpdateDiffRev(sourceFile, baseDir, updateDR, QString(), this);
+            const QString updateComment = data().value(QStringLiteral("updateComment")).toString();
+            qWarning() << Q_FUNC_INFO << "updateComment=" << updateComment;
+            job=new Phabricator::UpdateDiffRev(sourceFile, baseDir, updateDR, updateComment, doBrowse, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffUpdated);
         } else {
-            job=new Phabricator::NewDiffRev(sourceFile, baseDir, this);
+            job=new Phabricator::NewDiffRev(sourceFile, baseDir, doBrowse, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffCreated);
         }
         job->start();

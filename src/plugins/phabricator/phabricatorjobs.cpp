@@ -39,7 +39,7 @@
 
 using namespace Phabricator;
 
-bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString& patchFile)
+bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString& patchFile, bool doBrowse)
 {
     bool ret;
     QString arc = QStandardPaths::findExecutable(QStringLiteral("arc"));
@@ -57,6 +57,9 @@ bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString
         }
         args << QStringLiteral("--excuse") << QStringLiteral("patch submitted with the purpose/phabricator plugin")
             << QStringLiteral("--raw");
+        if (doBrowse) {
+            args << QStringLiteral("--browse");
+        }
         m_arcCmd.setProgram(arc);
         m_arcCmd.setArguments(args);
         if (!patchFile.isEmpty()) {
@@ -70,7 +73,7 @@ bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString
         ret = true;
     } else {
         qCWarning(PLUGIN_PHABRICATOR) << "Could not find 'arc' in the path";
-        setError(3);
+        setError(KJob::UserDefinedError + 3);
         setErrorText(i18n("Could not find the 'arc' command"));
         setErrorString(errorText());
         ret = false;
@@ -118,18 +121,18 @@ QStringList DifferentialRevision::scrubbedResultList()
 }
 
 
-NewDiffRev::NewDiffRev(const QUrl& patch, const QString& projectPath, QObject* parent)
+NewDiffRev::NewDiffRev(const QUrl& patch, const QString& projectPath, bool doBrowse, QObject* parent)
     : DifferentialRevision(QString(), parent)
     , m_patch(patch)
     , m_project(projectPath)
 {
-    buildArcCommand(projectPath, patch.toLocalFile());
+    buildArcCommand(projectPath, patch.toLocalFile(), doBrowse);
 }
 
 void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus != QProcess::NormalExit || exitCode) {
-        setError(exitCode);
+        setError(KJob::UserDefinedError + exitCode);
         setErrorText(i18n("Could not create the new \"differential diff\""));
         setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
         qCWarning(PLUGIN_PHABRICATOR) << "Could not create the new \"differential diff\":"
@@ -151,12 +154,12 @@ void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 
 
 UpdateDiffRev::UpdateDiffRev(const QUrl& patch, const QString& basedir,
-                             const QString& id, const QString& updateComment, QObject* parent)
+                             const QString& id, const QString& updateComment, bool doBrowse, QObject* parent)
     : DifferentialRevision(id, parent)
     , m_patch(patch)
     , m_basedir(basedir)
 {
-    buildArcCommand(m_basedir, m_patch.toLocalFile());
+    buildArcCommand(m_basedir, m_patch.toLocalFile(), doBrowse);
     QStringList args = m_arcCmd.arguments();
     if (updateComment.isEmpty()) {
         args << QStringLiteral("--message")
@@ -170,7 +173,7 @@ UpdateDiffRev::UpdateDiffRev(const QUrl& patch, const QString& basedir,
 void UpdateDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus != QProcess::NormalExit || exitCode) {
-        setError(exitCode);
+        setError(KJob::UserDefinedError + exitCode);
         setErrorText(i18n("Patch upload to Phabricator failed"));
         setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
         qCWarning(PLUGIN_PHABRICATOR) << "Patch upload to Phabricator failed with exit code"
@@ -196,7 +199,7 @@ DiffRevList::DiffRevList(const QString& projectDir, QObject* parent)
     buildArcCommand(m_projectDir);
 }
 
-bool DiffRevList::buildArcCommand(const QString& workDir, const QString&)
+bool Phabricator::DiffRevList::buildArcCommand(const QString& workDir, const QString& unused, bool)
 {
     bool ret;
     QString arc = QStandardPaths::findExecutable(QStringLiteral("arc"));
@@ -212,7 +215,7 @@ bool DiffRevList::buildArcCommand(const QString& workDir, const QString&)
         ret = true;
     } else {
         qCWarning(PLUGIN_PHABRICATOR) << "Could not find 'arc' in the path";
-        setError(3);
+        setError(KJob::UserDefinedError + 3);
         setErrorText(i18n("Could not find the 'arc' command"));
         setErrorString(errorText());
         ret = false;
@@ -223,7 +226,7 @@ bool DiffRevList::buildArcCommand(const QString& workDir, const QString&)
 void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus != QProcess::NormalExit || exitCode) {
-        setError(exitCode);
+        setError(KJob::UserDefinedError + exitCode);
         setErrorText(i18n("Could not get list of differential revisions in %1").arg(QDir::currentPath()));
         setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
         qCWarning(PLUGIN_PHABRICATOR) << "Could not get list of differential revisions"

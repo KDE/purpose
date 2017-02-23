@@ -27,6 +27,10 @@ ColumnLayout {
     property string drTitle: ""
     property string baseDir
     property string localBaseDir
+    property string updateComment: ""
+    // This is a workaround for installs where the result dialog doesn't always appear
+    // or doesn't always show the revision URL.
+    property alias doBrowse: doBrowseCheck.checked
 
     Label {
         text: (updateDRCombo.currentIndex>=0 && update.checked)
@@ -57,7 +61,7 @@ ColumnLayout {
         CheckBox {
             anchors.centerIn: parent
             id: update
-            text: i18n("Update Diff:")
+            text: i18n("Update Diff")
             enabled: updateDRCombo.count > 0
             onCheckedChanged: {
                 root.refreshUpdateDR();
@@ -75,6 +79,31 @@ ColumnLayout {
         }
         onCurrentIndexChanged: {
             root.refreshUpdateDR();
+        }
+    }
+    Item {
+        Layout.fillWidth: true
+        height: update.height
+
+        CheckBox {
+            id: doBrowseCheck
+            anchors.centerIn: parent
+            text: i18n("Open Diff in browser")
+            enabled: true
+        }
+    }
+    Label {
+        text: i18n("Summary of the update to %1:").arg(updateDR)
+        enabled: update.checked
+    }
+    TextArea {
+        id: updateCommentField
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        text: ""
+        enabled: update.checked
+        onEditingFinished: {
+            root.updateComment = text
         }
     }
 
