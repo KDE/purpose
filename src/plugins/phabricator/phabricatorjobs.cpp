@@ -64,7 +64,9 @@ bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString
             m_arcInput = patchFile;
         }
         m_arcCmd.setWorkingDirectory(workDir);
-        connect(&m_arcCmd, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &DifferentialRevision::done);
+        connect(&m_arcCmd, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
+                this, &DifferentialRevision::done);
+        setPercent(33);
         ret = true;
     } else {
         qCWarning(PLUGIN_PHABRICATOR) << "Could not find 'arc' in the path";
@@ -82,6 +84,9 @@ void DifferentialRevision::start()
         qCDebug(PLUGIN_PHABRICATOR) << "starting" << m_arcCmd.program() << m_arcCmd.arguments();
         qCDebug(PLUGIN_PHABRICATOR) << "\twordDir=" << m_arcCmd.workingDirectory() << "stdin=" << m_arcInput;
         m_arcCmd.start();
+        if (m_arcCmd.waitForStarted(5000)) {
+            setPercent(66);
+        }
     }
 }
 
@@ -130,6 +135,7 @@ void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
         qCWarning(PLUGIN_PHABRICATOR) << "Could not create the new \"differential diff\":"
             << m_arcCmd.error() << ";" << errorString();
     } else {
+        setPercent(99);
         const QString stdout = scrubbedResult();
         const char *diffOpCode = "Diff URI: ";
         int diffOffset = stdout.indexOf(QLatin1String(diffOpCode));
@@ -200,7 +206,9 @@ bool DiffRevList::buildArcCommand(const QString& workDir, const QString&)
         m_arcCmd.setProgram(arc);
         m_arcCmd.setArguments(args);
         m_arcCmd.setWorkingDirectory(workDir);
-        connect(&m_arcCmd, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &DiffRevList::done);
+        connect(&m_arcCmd, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
+                this, &DiffRevList::done);
+        setPercent(33);
         ret = true;
     } else {
         qCWarning(PLUGIN_PHABRICATOR) << "Could not find 'arc' in the path";
@@ -221,6 +229,7 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
         qCWarning(PLUGIN_PHABRICATOR) << "Could not get list of differential revisions"
             << m_arcCmd.error() << ";" << errorString();
     } else {
+        setPercent(99);
         QStringList reviews = scrubbedResultList();
         qCDebug(PLUGIN_PHABRICATOR) << "arc list returned:" << reviews;
         foreach (auto rev, reviews) {

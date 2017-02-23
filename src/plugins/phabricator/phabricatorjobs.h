@@ -38,7 +38,10 @@ namespace Phabricator
         Q_OBJECT
         public:
             DifferentialRevision(const QString& id, QObject* parent)
-                          : KJob(parent), m_id(id) {}
+                : KJob(parent), m_id(id)
+            {
+              setPercent(0);
+            }
             QString requestId() const { return m_id; }
             void setRequestId(QString id) { m_id = id; }
             virtual void start() override;

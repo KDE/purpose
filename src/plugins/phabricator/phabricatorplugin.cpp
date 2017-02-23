@@ -48,16 +48,19 @@ class PhabricatorJob : public Purpose::Job
         const QUrl sourceFile(data().value(QStringLiteral("urls")).toArray().first().toString());
         const QString updateDR = data().value(QStringLiteral("updateDR")).toString();
 
+        m_drTitle = data().value(QStringLiteral("drTitle")).toString();
+
         KJob* job;
         if (!updateDR.isEmpty()) {
             // TODO: add update comment
-            job=new Phabricator::UpdateDiffRev(sourceFile, baseDir, updateDR);
+            job=new Phabricator::UpdateDiffRev(sourceFile, baseDir, updateDR, QString(), this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffUpdated);
         } else {
-            job=new Phabricator::NewDiffRev(sourceFile, baseDir);
+            job=new Phabricator::NewDiffRev(sourceFile, baseDir, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffCreated);
         }
         job->start();
+        emit PhabricatorJob::infoMessage(this, QStringLiteral("upload job started"), QString());
     }
 
     void diffCreatedOrUpdated(KJob* j, bool created)
@@ -65,6 +68,7 @@ class PhabricatorJob : public Purpose::Job
         if(j->error()!=0) {
             setError(j->error());
             setErrorText(j->errorString());
+            emit PhabricatorJob::warning(this, j->errorString(), QString());
             emitResult();
             return;
         }
@@ -77,6 +81,8 @@ class PhabricatorJob : public Purpose::Job
             Phabricator::UpdateDiffRev const * job = qobject_cast<Phabricator::UpdateDiffRev*>(j);
             qWarning() << Q_FUNC_INFO << "updated diff" << job->requestId() << ":" << job->diffURI();
             setOutput({{ QStringLiteral("url"), job->diffURI() }});
+            emit PhabricatorJob::infoMessage(this,
+                 QStringLiteral("updated diff %1: %2").arg(job->requestId()).arg(job->diffURI()), QString());
         }
         emitResult();
     }
@@ -90,6 +96,8 @@ class PhabricatorJob : public Purpose::Job
     {
         diffCreatedOrUpdated(j, false);
     }
+
+    QString m_drTitle;
 };
 
 class Q_DECL_EXPORT PhabricatorPlugin : public Purpose::PluginBase

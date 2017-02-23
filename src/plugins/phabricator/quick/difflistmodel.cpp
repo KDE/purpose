@@ -64,7 +64,7 @@ void DiffListModel::refresh()
             // never fail in a fresh temporary directory we ourselves created, so it
             // should be OK to do this with a synchronous call.
             initGit.start(QLatin1String("git init"));
-            if (initGit.waitForStarted()) {
+            if (initGit.waitForStarted(1000)) {
                 ok = initGit.waitForFinished(500);
             }
             if (!ok) {
