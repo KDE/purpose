@@ -24,6 +24,7 @@
 #include <QTimer>
 #include <QProcess>
 #include <QStandardPaths>
+#include <QDir>
 // #include <QFile>
 // #include <QJsonDocument>
 // #include <QMimeDatabase>
@@ -215,7 +216,7 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus != QProcess::NormalExit || exitCode) {
         setError(exitCode);
-        setErrorText(i18n("Could not get list of differential revisions"));
+        setErrorText(i18n("Could not get list of differential revisions in %1").arg(QDir::currentPath()));
         setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
         qCWarning(PLUGIN_PHABRICATOR) << "Could not get list of differential revisions"
             << m_arcCmd.error() << ";" << errorString();
@@ -235,27 +236,3 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
     }
     emitResult();
 }
-
-// UpdateDiffRev::UpdateDiffRev(const QUrl& server, const QString& id, const QVariantMap& newValues, QObject* parent)
-//     : DifferentialRevision(server, id, parent)
-// {
-//     m_req = new HttpCall(this->server(), QStringLiteral("/api/review-requests/")+id+QStringLiteral("/draft/"), {}, HttpCall::Put, multipartFormData(newValues), true, this);
-//     connect(m_req, &HttpCall::finished, this, &UpdateDiffRev::done);
-// }
-// 
-// void UpdateDiffRev::start()
-// {
-//     m_req->start();
-// }
-// 
-// void UpdateDiffRev::done()
-// {
-//     if (m_req->error()) {
-//         qCWarning(PLUGIN_PHABRICATOR) << "Could not set all metadata to the review" << m_req->errorString() << m_req->property("result");
-//         setError(3);
-//         setErrorText(i18n("Could not set metadata"));
-//     }
-// 
-//     emitResult();
-// }
-

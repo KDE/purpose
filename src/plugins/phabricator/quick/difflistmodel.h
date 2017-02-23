@@ -25,6 +25,7 @@
 #include <QVector>
 
 class KJob;
+class QTemporaryDir;
 
 class DiffListModel : public QAbstractListModel
 {
@@ -50,6 +51,8 @@ class DiffListModel : public QAbstractListModel
         QVector<Value> m_values;
 
         QString m_status;
+        QString m_initialDir;
+        QTemporaryDir *m_tempDir;
 };
 
 #endif
