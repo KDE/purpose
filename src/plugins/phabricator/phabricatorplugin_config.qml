@@ -22,12 +22,16 @@ import org.kde.purpose.phabricator 1.0
 
 ColumnLayout {
     id: root
+    enabled: true
     property string updateDR: ""
+    property string drTitle: ""
     property string baseDir
     property string localBaseDir
 
     Label {
-        text: root.updateDR
+        text: (updateDRCombo.currentIndex>=0 && update.checked)
+            ? i18n("Update differential revision %1").arg(updateDR)
+            : i18n("Create new \"differential diff\"")
     }
 
     PhabricatorRC {
@@ -37,7 +41,13 @@ ColumnLayout {
 
     function refreshUpdateDR()
     {
-        root.updateDR = (updateDRCombo.currentIndex>=0 && update.checked) ? diffList.get(updateDRCombo.currentIndex, "toolTip") : ""
+        if (updateDRCombo.currentIndex>=0 && update.checked) {
+            root.updateDR = diffList.get(updateDRCombo.currentIndex, "toolTip")
+            root.drTitle = diffList.get(updateDRCombo.currentIndex, "display")
+        } else {
+            root.updateDR =  ""
+            root.drTitle = ""
+        }
     }
 
     Item {

@@ -30,8 +30,10 @@ void PhabricatorRC::setPath(const QUrl &filePath)
 {
     if (filePath == m_path || !filePath.isLocalFile())
         return;
+    m_path = filePath;
 
     //.arcconfig files are JSON files
     // TODO figure out the if/what/how of .arcconfig file contents
+    emit dataChanged();
 }
 

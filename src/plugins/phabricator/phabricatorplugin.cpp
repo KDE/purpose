@@ -71,9 +71,11 @@ class PhabricatorJob : public Purpose::Job
 
         if (created) {
             Phabricator::NewDiffRev const * job = qobject_cast<Phabricator::NewDiffRev*>(j);
+            qWarning() << Q_FUNC_INFO << "new diff:" << job->diffURI();
             setOutput({{ QStringLiteral("url"), job->diffURI() }});
         } else {
             Phabricator::UpdateDiffRev const * job = qobject_cast<Phabricator::UpdateDiffRev*>(j);
+            qWarning() << Q_FUNC_INFO << "updated diff" << job->requestId() << ":" << job->diffURI();
             setOutput({{ QStringLiteral("url"), job->diffURI() }});
         }
         emitResult();

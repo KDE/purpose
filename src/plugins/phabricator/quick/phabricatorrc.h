@@ -27,7 +27,7 @@
 class PhabricatorRC : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QUrl path READ path WRITE setPath)
+    Q_PROPERTY(QUrl path READ path WRITE setPath NOTIFY dataChanged)
     public:
         PhabricatorRC(QObject* parent = Q_NULLPTR);
 
