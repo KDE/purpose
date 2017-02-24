@@ -64,6 +64,7 @@ class PhabricatorJob : public Purpose::Job
         if (QFileInfo(sourceFile.toLocalFile()).size() <= 0) {
             setError(KJob::UserDefinedError+1);
             setErrorText(i18n("Phabricator refuses empty patchfiles"));
+            emit PhabricatorJob::warning(this, errorString(), QString());
             qCCritical(PLUGIN_PHABRICATOR) << errorString();
             emitResult();
             return;
