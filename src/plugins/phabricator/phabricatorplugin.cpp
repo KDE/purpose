@@ -60,10 +60,17 @@ class PhabricatorJob : public Purpose::Job
         const bool doBrowse = data().value(QStringLiteral("doBrowse")).toBool();
 
         const QString baseDir = QUrl(localBaseDir).toLocalFile();
-        qWarning() << "baseDir=" << baseDir << "localBaseDir=" << localBaseDir;
+
         if (QFileInfo(sourceFile.toLocalFile()).size() <= 0) {
             setError(KJob::UserDefinedError+1);
             setErrorText(i18n("Phabricator refuses empty patchfiles"));
+            emit PhabricatorJob::warning(this, errorString(), QString());
+            qCCritical(PLUGIN_PHABRICATOR) << errorString();
+            emitResult();
+            return;
+        } else if (updateDR.localeAwareCompare(i18n("unknown")) == 0) {
+            setError(KJob::UserDefinedError+1);
+            setErrorText(i18n("Please choose between creating a new revision or updating an existing one"));
             emit PhabricatorJob::warning(this, errorString(), QString());
             qCCritical(PLUGIN_PHABRICATOR) << errorString();
             emitResult();

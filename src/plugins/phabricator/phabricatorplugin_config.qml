@@ -25,17 +25,25 @@ ColumnLayout {
     enabled: true
     property string updateDR: ""
     property string drTitle: ""
-    property string baseDir
     property string localBaseDir
     property alias updateComment: updateCommentField.text
     // This is a workaround for installs where the result dialog doesn't always appear
     // or doesn't always show the revision URL.
     property alias doBrowse: doBrowseCheck.checked
 
+    function labelText()
+    {
+        if (update.checkedState == Qt.PartiallyChecked) {
+            return i18n("Check or uncheck the Update box!")
+        } else if (updateDRCombo.currentIndex>=0 && update.checkedState != Qt.Unchecked) {
+            return i18n("Update differential revision %1", updateDR)
+        } else {
+            return i18n("Create new \"differential diff\"")
+        }
+    }
     Label {
-        text: (updateDRCombo.currentIndex>=0 && update.checked)
-            ? i18n("Update differential revision %1", updateDR)
-            : i18n("Create new \"differential diff\"")
+        id: label
+        text: root.labelText()
     }
 
     PhabricatorRC {
@@ -45,12 +53,17 @@ ColumnLayout {
 
     function refreshUpdateDR()
     {
-        if (updateDRCombo.currentIndex>=0 && update.checked) {
+        if (updateDRCombo.currentIndex>=0 && update.checkedState == Qt.Checked) {
             root.updateDR = diffList.get(updateDRCombo.currentIndex, "toolTip")
             root.drTitle = diffList.get(updateDRCombo.currentIndex, "display")
         } else {
-            root.updateDR =  ""
-            root.drTitle = ""
+            if (update.checkedState == Qt.Unchecked) {
+                root.updateDR = ""
+                root.drTitle = ""
+            } else {
+                root.updateDR = i18n("unknown")
+                root.drTitle = ""
+            }
         }
     }
 
@@ -63,6 +76,7 @@ ColumnLayout {
             id: update
             text: i18n("Update Diff")
             enabled: updateDRCombo.count > 0
+            checkedState: Qt.PartiallyChecked
             onCheckedChanged: {
                 root.refreshUpdateDR();
             }
@@ -71,7 +85,7 @@ ColumnLayout {
     ComboBox {
         id: updateDRCombo
         Layout.fillWidth: true
-        enabled: update.checked
+        enabled: update.checkedState == Qt.Checked
         textRole: "display"
         model: DiffListModel {
             id: diffList
@@ -95,14 +109,14 @@ ColumnLayout {
     Label {
         // use i18n().arg() to avoid showing the "%1" when inactive
         text: i18n("Summary of the update to %1:").arg(updateDR)
-        enabled: update.checked
+        enabled: update.checkedState == Qt.Checked
     }
     TextArea {
         id: updateCommentField
         Layout.fillWidth: true
         Layout.fillHeight: true
         text: ""
-        enabled: update.checked
+        enabled: update.checkedState == Qt.Checked
         tabChangesFocus: false
     }
 
