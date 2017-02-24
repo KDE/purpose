@@ -19,7 +19,6 @@
 #include <QLibrary>
 #include <KRandom>
 #include <QMetaMethod>
-#include <QLocalSocket>
 #include <QJsonDocument>
 #include <QProcess>
 #include <QFile>
@@ -30,7 +29,7 @@ using namespace Purpose;
 
 ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, const QJsonObject& data, QObject* parent)
     : Job(parent)
-    , m_process(new QProcess)
+    , m_process(new QProcess(this))
     , m_pluginPath(pluginPath)
     , m_pluginType(pluginType)
     , m_data(data)

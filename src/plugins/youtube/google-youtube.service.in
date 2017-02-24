@@ -4,7 +4,7 @@
   <!-- Google's Contacts - Service name being displayed as a checkbox label to enable/disable this service
        Would be nice to use the localized name of this service if it exists/makes sense -->
   <name>YouTube</name>
-  <icon>google-youtube</icon>
+  <icon>im-youtube</icon>
   <provider>google</provider>
   <translations>kaccounts-providers</translations>
 </service>
