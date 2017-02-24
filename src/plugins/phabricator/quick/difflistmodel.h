@@ -23,6 +23,7 @@
 #include <QAbstractListModel>
 #include <QUrl>
 #include <QVector>
+#include <QDebug>
 
 class KJob;
 class QTemporaryDir;
@@ -47,7 +48,21 @@ class DiffListModel : public QAbstractListModel
         Q_SCRIPTABLE QVariant get(int row, const QByteArray &role);
 
     private:
-        struct Value { QVariant summary; QVariant id; };
+        struct Value {
+            QVariant summary;
+            QVariant id;
+            inline bool operator<(const DiffListModel::Value &b) const
+            {
+                return summary.toString().localeAwareCompare(b.summary.toString());
+            }
+#ifndef QT_NO_DEBUG_STREAM
+            operator QString() const
+            {
+                QString ret = QStringLiteral("DiffListModel::Value{summary=\"%1\" id=\"%2\"}");
+                return ret.arg(this->summary.toString()).arg(this->id.toString());
+            }
+#endif
+        };
         QVector<Value> m_values;
 
         QString m_status;
