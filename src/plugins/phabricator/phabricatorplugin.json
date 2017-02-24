@@ -12,7 +12,9 @@
         "Name": "Phabricator"
     }, 
     "X-Purpose-Configuration": [
+        "updateDR", 
         "baseDir", 
+        "doBrowse", 
         "localBaseDir"
     ], 
     "X-Purpose-Constraints": [

@@ -55,10 +55,12 @@ class PhabricatorJob : public Purpose::Job
     void start() override
     {
         const QString baseDir(data().value(QStringLiteral("baseDir")).toString());
+        const QString localBaseDir(data().value(QStringLiteral("localBaseDir")).toString());
         const QUrl sourceFile(data().value(QStringLiteral("urls")).toArray().first().toString());
         const QString updateDR = data().value(QStringLiteral("updateDR")).toString();
         const bool doBrowse = data().value(QStringLiteral("doBrowse")).toBool();
 
+        qWarning() << "baseDir=" << baseDir << "localBaseDir=" << localBaseDir;
         if (QFileInfo(sourceFile.toLocalFile()).size() <= 0) {
             setError(KJob::UserDefinedError+1);
             setErrorText(i18n("Phabricator refuses empty patchfiles"));
@@ -72,6 +74,7 @@ class PhabricatorJob : public Purpose::Job
         KJob* job;
         if (!updateDR.isEmpty()) {
             const QString updateComment = data().value(QStringLiteral("updateComment")).toString();
+            qWarning() << "updateComment=" << updateComment;
             job=new Phabricator::UpdateDiffRev(sourceFile, baseDir, updateDR, updateComment, doBrowse, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffUpdated);
         } else {
