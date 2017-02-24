@@ -12,12 +12,8 @@
         "Name": "Phabricator"
     }, 
     "X-Purpose-Configuration": [
-        "updateDR", 
-        "drTitle",
         "baseDir", 
-        "localBaseDir",
-        "updateComment",
-        "doBrowse"
+        "localBaseDir"
     ], 
     "X-Purpose-Constraints": [
         "mimeType:text/x-patch"
