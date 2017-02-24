@@ -120,13 +120,14 @@ QJsonObject Configuration::data() const
 bool Configuration::isReady() const
 {
     Q_D(const Configuration);
+    bool ok = true;
     Q_FOREACH(const QJsonValue& arg, neededArguments()) {
         if(!d->m_inputData.contains(arg.toString())) {
-            qDebug() << "missing..." << arg.toString();
-            return false;
+            qDebug() << "missing mandatory argument" << arg.toString();
+            ok = false;
         }
     }
-    return true;
+    return ok;
 }
 
 QJsonArray Configuration::neededArguments() const
