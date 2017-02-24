@@ -54,12 +54,12 @@ class PhabricatorJob : public Purpose::Job
 
     void start() override
     {
-        const QString baseDir(data().value(QStringLiteral("baseDir")).toString());
         const QString localBaseDir(data().value(QStringLiteral("localBaseDir")).toString());
         const QUrl sourceFile(data().value(QStringLiteral("urls")).toArray().first().toString());
         const QString updateDR = data().value(QStringLiteral("updateDR")).toString();
         const bool doBrowse = data().value(QStringLiteral("doBrowse")).toBool();
 
+        const QString baseDir = QUrl(localBaseDir).toLocalFile();
         qWarning() << "baseDir=" << baseDir << "localBaseDir=" << localBaseDir;
         if (QFileInfo(sourceFile.toLocalFile()).size() <= 0) {
             setError(KJob::UserDefinedError+1);

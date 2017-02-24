@@ -13,7 +13,6 @@
     }, 
     "X-Purpose-Configuration": [
         "updateDR", 
-        "baseDir", 
         "doBrowse", 
         "localBaseDir"
     ], 
