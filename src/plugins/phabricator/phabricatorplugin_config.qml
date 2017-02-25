@@ -67,37 +67,33 @@ ColumnLayout {
         }
     }
 
-    GroupBox {
-        Layout.fillWidth: true
+    RowLayout {
         Layout.alignment: Qt.AlignHCenter
-        id: radio
-        RowLayout {
-            Layout.alignment: Qt.AlignHCenter
-            ExclusiveGroup {
-                id: updateGroup
+        ExclusiveGroup {
+            id: updateGroup
+        }
+        RadioButton {
+            id: createNew
+            exclusiveGroup: updateGroup
+            text: i18n("New Diff")
+            tooltip: i18n("tick this to create a new \"differential diff\" which can\n" +
+                "be converted online to a new differential revision")
+            onCheckedChanged: {
+                root.refreshUpdateDR();
             }
-            RadioButton {
-                id: createNew
-                exclusiveGroup: updateGroup
-                text: i18n("New Diff")
-                tooltip: i18n("tick this to create a new \"differential diff\" which can\n" +
-                    "be converted online to a new differential revision")
-                onCheckedChanged: {
-                    root.refreshUpdateDR();
-                }
-            }
-            RadioButton {
-                id: updateOld
-                exclusiveGroup: updateGroup
-                text: i18n("Update Diff")
-                tooltip: i18n("tick this to update an existing revision\n" +
-                    "select one from the list below.")
-                onCheckedChanged: {
-                    root.refreshUpdateDR();
-                }
+        }
+        RadioButton {
+            id: updateOld
+            exclusiveGroup: updateGroup
+            text: i18n("Update Diff")
+            tooltip: i18n("tick this to update an existing revision\n" +
+                "select one from the list below.")
+            onCheckedChanged: {
+                root.refreshUpdateDR();
             }
         }
     }
+
     ComboBox {
         id: updateDRCombo
         Layout.fillWidth: true
@@ -111,6 +107,7 @@ ColumnLayout {
             root.refreshUpdateDR();
         }
     }
+
     Item {
         Layout.fillWidth: true
         height: doBrowseCheck.height
@@ -122,11 +119,13 @@ ColumnLayout {
             enabled: true
         }
     }
+
     Label {
         // use i18n().arg() to avoid showing the "%1" when inactive
         text: i18n("Summary of the update to %1:").arg(updateDR)
         enabled: updateOld.checked
     }
+
     TextArea {
         id: updateCommentField
         Layout.fillWidth: true
