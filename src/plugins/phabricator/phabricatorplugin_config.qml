@@ -115,7 +115,7 @@ ColumnLayout {
         id: updateCommentField
         Layout.fillWidth: true
         Layout.fillHeight: true
-        text: ""
+        text: i18n("patch updated through %1 and the Purpose/Phabricator plugin", Qt.application.name)
         enabled: update.checkedState == Qt.Checked
         tabChangesFocus: false
     }
