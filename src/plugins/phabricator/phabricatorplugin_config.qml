@@ -33,9 +33,7 @@ ColumnLayout {
 
     function labelText()
     {
-        if (update.checkedState == Qt.PartiallyChecked) {
-            return i18n("Check or uncheck the Update box!")
-        } else if (updateDRCombo.currentIndex>=0 && update.checkedState != Qt.Unchecked) {
+        if (updateDRCombo.currentIndex>=0 && !createNew.checked) {
             return i18n("Update differential revision %1", updateDR)
         } else {
             return i18n("Create new \"differential diff\"")
@@ -53,11 +51,11 @@ ColumnLayout {
 
     function refreshUpdateDR()
     {
-        if (updateDRCombo.currentIndex>=0 && update.checkedState == Qt.Checked) {
+        if (updateDRCombo.currentIndex>=0 && updateOld.checked) {
             root.updateDR = diffList.get(updateDRCombo.currentIndex, "toolTip")
             root.drTitle = diffList.get(updateDRCombo.currentIndex, "display")
         } else {
-            if (update.checkedState == Qt.Unchecked) {
+            if (createNew.checked) {
                 root.updateDR = ""
                 root.drTitle = ""
             } else {
@@ -67,25 +65,41 @@ ColumnLayout {
         }
     }
 
-    Item {
+    GroupBox {
         Layout.fillWidth: true
-        height: update.height
-
-        CheckBox {
-            anchors.centerIn: parent
-            id: update
-            text: i18n("Update Diff")
-            enabled: updateDRCombo.count > 0
-            checkedState: Qt.PartiallyChecked
-            onCheckedChanged: {
-                root.refreshUpdateDR();
+        Layout.alignment: Qt.AlignHCenter
+        id: radio
+        RowLayout {
+            Layout.alignment: Qt.AlignHCenter
+            ExclusiveGroup {
+                id: updateGroup
+            }
+            RadioButton {
+                id: createNew
+                exclusiveGroup: updateGroup
+                text: i18n("New Diff")
+                tooltip: i18n("tick this to create a new \"differential diff\" which can\n" +
+                    "be converted online to a new differential revision")
+                onCheckedChanged: {
+                    root.refreshUpdateDR();
+                }
+            }
+            RadioButton {
+                id: updateOld
+                exclusiveGroup: updateGroup
+                text: i18n("Update Diff")
+                tooltip: i18n("tick this to update an existing revision\n" +
+                    "select one from the list below.")
+                onCheckedChanged: {
+                    root.refreshUpdateDR();
+                }
             }
         }
     }
     ComboBox {
         id: updateDRCombo
         Layout.fillWidth: true
-        enabled: update.checkedState == Qt.Checked
+        enabled: updateOld.checked
         textRole: "display"
         model: DiffListModel {
             id: diffList
@@ -97,7 +111,7 @@ ColumnLayout {
     }
     Item {
         Layout.fillWidth: true
-        height: update.height
+        height: doBrowseCheck.height
 
         CheckBox {
             id: doBrowseCheck
@@ -109,14 +123,14 @@ ColumnLayout {
     Label {
         // use i18n().arg() to avoid showing the "%1" when inactive
         text: i18n("Summary of the update to %1:").arg(updateDR)
-        enabled: update.checkedState == Qt.Checked
+        enabled: updateOld.checked
     }
     TextArea {
         id: updateCommentField
         Layout.fillWidth: true
         Layout.fillHeight: true
         text: i18n("patch updated through %1 and the Purpose/Phabricator plugin", Qt.application.name)
-        enabled: update.checkedState == Qt.Checked
+        enabled: updateOld.checked
         tabChangesFocus: false
     }
 
