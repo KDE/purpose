@@ -38,12 +38,14 @@ namespace Phabricator
         Q_OBJECT
         public:
             DifferentialRevision(const QString& id, QObject* parent)
-                : KJob(parent), m_id(id)
+                : KJob(parent), m_id(id), m_commit(QString())
             {
               setPercent(0);
             }
             QString requestId() const { return m_id; }
-            void setRequestId(QString id) { m_id = id; }
+            void setRequestId(const QString& id) { m_id = id; }
+            QString commitRef() const { return m_commit; }
+            void setCommitRef(const QString& commit) { m_commit = commit; }
             virtual void start() override;
             virtual QString errorString() const override
             {
@@ -61,6 +63,7 @@ namespace Phabricator
             QProcess m_arcCmd;
         private:
             QString m_id;
+            QString m_commit;
             QString m_errorString;
             QString m_arcInput;
     };

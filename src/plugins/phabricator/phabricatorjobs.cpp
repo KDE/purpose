@@ -55,8 +55,14 @@ bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString
             // updating an existing differential revision (review request)
             args << QStringLiteral("--update") << m_id;
         }
-        args << QStringLiteral("--excuse") << QStringLiteral("patch submitted with the purpose/phabricator plugin")
-            << QStringLiteral("--raw");
+        args << QStringLiteral("--excuse") << QStringLiteral("patch submitted with the purpose/phabricator plugin");
+        if (m_commit.isEmpty()) {
+            args << QStringLiteral("--raw");
+        } else {
+            args << QStringLiteral("--allow-untracked") << QStringLiteral("--ignore-unsound-tests")
+                << QStringLiteral("--nolint") << QStringLiteral("-nounit") << QStringLiteral("--verbatim")
+                << m_commit;
+        }
         if (doBrowse) {
             args << QStringLiteral("--browse");
         }
