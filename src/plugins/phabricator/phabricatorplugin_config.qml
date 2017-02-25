@@ -33,10 +33,12 @@ ColumnLayout {
 
     function labelText()
     {
-        if (updateDRCombo.currentIndex>=0 && !createNew.checked) {
+        if (updateDRCombo.currentIndex>=0 && updateOld.checked) {
             return i18n("Update differential revision %1", updateDR)
-        } else {
+        } else if (createNew.checked) {
             return i18n("Create new \"differential diff\"")
+        } else {
+            return i18n("Create or update?")
         }
     }
     Label {
