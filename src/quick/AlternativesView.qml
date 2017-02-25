@@ -19,9 +19,11 @@ import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.2
 import org.kde.purpose 1.0
+import org.kde.plasma.components 2.0 as PlasmaComponents
 
 StackView {
     id: stack
+    focus: true
     property bool running: false
     property alias pluginType: altsModel.pluginType
     property alias inputData: altsModel.inputData
@@ -37,6 +39,8 @@ StackView {
                 text: i18n("Use")
                 onClicked: createJob(index);
             }
+            Keys.onReturnPressed: createJob(index)
+            Keys.onEnterPressed: createJob(index)
         }
     }
 
@@ -90,9 +94,13 @@ StackView {
     }
 
     initialItem: ScrollView {
+        focus: true
         ListView {
+            focus: true
             model: altsModel
+
             delegate: stack.delegate
+            highlight: PlasmaComponents.Highlight {}
         }
     }
 
