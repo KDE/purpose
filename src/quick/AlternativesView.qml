@@ -19,7 +19,6 @@ import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.2
 import org.kde.purpose 1.0
-import org.kde.plasma.components 2.0 as PlasmaComponents
 
 StackView {
     id: stack
@@ -27,6 +26,9 @@ StackView {
     property bool running: false
     property alias pluginType: altsModel.pluginType
     property alias inputData: altsModel.inputData
+    property Component highlight
+    property Component header
+    property Component footer
     property Component delegate: Component {
         RowLayout {
             width: parent.width
@@ -100,7 +102,9 @@ StackView {
             model: altsModel
 
             delegate: stack.delegate
-            highlight: PlasmaComponents.Highlight {}
+            highlight: stack.highlight
+            footer: stack.footer
+            header: stack.header
         }
     }
 
