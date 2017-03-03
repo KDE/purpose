@@ -9,7 +9,14 @@ add_definitions(-DTRANSLATION_DOMAIN=\"purpose_phabricator\")
 
 add_subdirectory(icons)
 
-add_library(PhabricatorHelpers phabricatorjobs.cpp debug.cpp)
+set(PhabricatorHelper_SRCS phabricatorjobs.cpp)
+ecm_qt_declare_logging_category(PhabricatorHelper_SRCS
+    HEADER debug.h
+    IDENTIFIER PLUGIN_PHABRICATOR
+    CATEGORY_NAME kdevplatform.plugins.phabricator
+    DEFAULT_SEVERITY Debug)
+
+add_library(PhabricatorHelpers ${PhabricatorHelper_SRCS})
 target_link_libraries(PhabricatorHelpers KF5::CoreAddons KF5::I18n)
 
 add_executable(testphabricator tests/testphabricator.cpp)

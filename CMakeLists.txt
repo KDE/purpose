@@ -20,6 +20,7 @@ include(ECMAddTests)
 include(ECMInstallIcons)
 include(ECMGenerateHeaders)
 include(ECMMarkNonGuiExecutable)
+include(ECMQtDeclareLoggingCategory)
 
 set(KF5_VERSION "5.8.0") # handled by release scripts
 set(KF5_DEP_VERSION "5.7.0") # handled by release scripts
