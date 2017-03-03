@@ -29,7 +29,7 @@ ColumnLayout {
     Connections {
         id: conn
         onInfoMessage: {
-            info.text = rich
+            info.text = rich ? rich : plain
         }
         onResult: {
             root.result();

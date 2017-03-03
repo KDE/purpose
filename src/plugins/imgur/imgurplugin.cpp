@@ -103,6 +103,7 @@ class ImgurShareJob : public Purpose::Job
 
         void startUploading()
         {
+            Q_EMIT infoMessage(this, i18n("Uploading files to imgur..."));
             const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
             foreach(const QJsonValue &val, urls) {
                 QString u = val.toString();

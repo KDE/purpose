@@ -22,9 +22,13 @@ import org.kde.purpose 1.0
 
 StackView {
     id: stack
+    focus: true
     property bool running: false
     property alias pluginType: altsModel.pluginType
     property alias inputData: altsModel.inputData
+    property Component highlight
+    property Component header
+    property Component footer
     property Component delegate: Component {
         RowLayout {
             width: parent.width
@@ -37,6 +41,8 @@ StackView {
                 text: i18n("Use")
                 onClicked: createJob(index);
             }
+            Keys.onReturnPressed: createJob(index)
+            Keys.onEnterPressed: createJob(index)
         }
     }
 
@@ -90,9 +96,15 @@ StackView {
     }
 
     initialItem: ScrollView {
+        focus: true
         ListView {
+            focus: true
             model: altsModel
+
             delegate: stack.delegate
+            highlight: stack.highlight
+            footer: stack.footer
+            header: stack.header
         }
     }
 
