@@ -10,6 +10,7 @@
         "Description": "Upload patches to Phabricator", 
         "Description[ca@valencia]": "Puja els pedaços al Phabricator", 
         "Description[ca]": "Puja els pedaços al Phabricator", 
+        "Description[cs]": "Odeslat soubory do Phabricatoru", 
         "Description[hu]": "Patchek feltöltése a Phabricatorra", 
         "Description[nl]": "Patches uploaden naar Phabricator", 
         "Description[pt]": "Enviar as modificações para o Phabricator", 
