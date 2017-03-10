@@ -29,6 +29,7 @@ StackView {
     property Component highlight
     property Component header
     property Component footer
+    property variant verticalLayoutDirection: ListView.TopToBottom
     property Component delegate: Component {
         RowLayout {
             width: parent.width
@@ -101,6 +102,7 @@ StackView {
             focus: true
             model: altsModel
 
+            verticalLayoutDirection: stack.verticalLayoutDirection
             delegate: stack.delegate
             highlight: stack.highlight
             footer: stack.footer
