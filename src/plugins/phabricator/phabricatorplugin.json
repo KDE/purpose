@@ -2,36 +2,36 @@
     "KPlugin": {
         "Authors": [
             {
-                "Name": "René Bertin", 
+                "Name": "René Bertin",
                 "Name[x-test]": "xxRené Bertinxx"
             }
-        ], 
-        "Category": "Utilities", 
-        "Description": "Upload patches to Phabricator", 
-        "Description[ca@valencia]": "Puja els pedaços al Phabricator", 
-        "Description[ca]": "Puja els pedaços al Phabricator", 
-        "Description[cs]": "Odeslat soubory do Phabricatoru", 
-        "Description[es]": "Enviar parches a Phabricator", 
-        "Description[hu]": "Patchek feltöltése a Phabricatorra", 
-        "Description[nl]": "Patches uploaden naar Phabricator", 
-        "Description[pt]": "Enviar as modificações para o Phabricator", 
-        "Description[sv]": "Ladda upp programfixar till Phabricator", 
-        "Description[uk]": "Вивантажити латки на Phabricator", 
-        "Description[x-test]": "xxUpload patches to Phabricatorxx", 
-        "Icon": "Phabricator-purpose", 
-        "License": "GPL", 
-        "Name": "Phabricator", 
+        ],
+        "Category": "Utilities",
+        "Description": "Upload patches to Phabricator",
+        "Description[ca@valencia]": "Puja els pedaços al Phabricator",
+        "Description[ca]": "Puja els pedaços al Phabricator",
+        "Description[cs]": "Odeslat soubory do Phabricatoru",
+        "Description[es]": "Enviar parches a Phabricator",
+        "Description[hu]": "Patchek feltöltése a Phabricatorra",
+        "Description[nl]": "Patches uploaden naar Phabricator",
+        "Description[pt]": "Enviar as modificações para o Phabricator",
+        "Description[sv]": "Ladda upp programfixar till Phabricator",
+        "Description[uk]": "Вивантажити латки на Phabricator",
+        "Description[x-test]": "xxUpload patches to Phabricatorxx",
+        "Icon": "Phabricator-purpose",
+        "License": "GPL",
+        "Name": "Phabricator",
         "Name[x-test]": "xxPhabricatorxx"
-    }, 
+    },
     "X-Purpose-Configuration": [
-        "updateDR", 
-        "doBrowse", 
-        "localBaseDir", 
+        "updateDR",
+        "doBrowse",
+        "localBaseDir",
         "updateComment"
-    ], 
+    ],
     "X-Purpose-Constraints": [
         "mimeType:text/x-patch"
-    ], 
+    ],
     "X-Purpose-PluginTypes": [
         "Export"
     ]
