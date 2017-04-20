@@ -2,21 +2,19 @@
     "KPlugin": {
         "Authors": [
             {
-                "Name": "Lim Yuen Hoe", 
-                "Name[x-test]": "xxLim Yuen Hoexx"
+                "Name": "Lim Yuen Hoe"
             }
-        ], 
-        "Category": "Utilities", 
-        "Description": "Upload files to Nextcloud", 
-        "Icon": "edit-paste", 
-        "License": "GPL", 
-        "Name": "NextCloud", 
-        "Name[x-test]": "xxNextCloudxx"
-    }, 
+        ],
+        "Category": "Utilities",
+        "Description": "Upload files to Nextcloud",
+        "Icon": "edit-paste",
+        "License": "GPL",
+        "Name": "NextCloud"
+    },
     "X-Purpose-Configuration": [
         "folder",
         "accountId"
-    ], 
+    ],
     "X-Purpose-PluginTypes": [
         "Export"
     ]
