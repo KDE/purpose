@@ -2,14 +2,23 @@
     "KPlugin": {
         "Authors": [
             {
-                "Name": "Lim Yuen Hoe"
+                "Name": "Lim Yuen Hoe",
+                "Name[x-test]": "xxLim Yuen Hoexx"
             }
         ],
         "Category": "Utilities",
         "Description": "Upload files to Nextcloud",
+        "Description[ca]": "Puja els fitxers al Nextcloud",
+        "Description[nl]": "Bestanden naar Nextcloud uploaden",
+        "Description[pt]": "Enviar os vídeos para o NextCloud",
+        "Description[sv]": "Ladda upp filer till Nextcloud",
+        "Description[uk]": "Вивантаження відео на Nextcloud",
+        "Description[x-test]": "xxUpload files to Nextcloudxx",
         "Icon": "edit-paste",
         "License": "GPL",
-        "Name": "NextCloud"
+        "Name": "NextCloud",
+        "Name[sv]": "Nextcloud",
+        "Name[x-test]": "xxNextCloudxx"
     },
     "X-Purpose-Configuration": [
         "folder",
