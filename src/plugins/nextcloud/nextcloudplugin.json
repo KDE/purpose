@@ -8,6 +8,7 @@
         ],
         "Category": "Utilities",
         "Description": "Upload files to Nextcloud",
+        "Description[ca@valencia]": "Puja els fitxers al Nextcloud",
         "Description[ca]": "Puja els fitxers al Nextcloud",
         "Description[nl]": "Bestanden naar Nextcloud uploaden",
         "Description[pt]": "Enviar os vídeos para o NextCloud",
