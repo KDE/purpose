@@ -16,6 +16,7 @@
         "Description[nl]": "Patches uploaden naar Phabricator",
         "Description[pl]": "Wyślij łatę na Phabricator",
         "Description[pt]": "Enviar as modificações para o Phabricator",
+        "Description[sk]": "Nahrať záplaty na Phabricator",
         "Description[sv]": "Ladda upp programfixar till Phabricator",
         "Description[uk]": "Вивантажити латки на Phabricator",
         "Description[x-test]": "xxUpload patches to Phabricatorxx",
