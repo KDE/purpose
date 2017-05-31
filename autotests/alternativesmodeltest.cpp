@@ -94,6 +94,7 @@ void AlternativesModelTest::bigBufferTest()
 
     Purpose::Configuration* conf = model.configureJob(saveAsRow(&model));
     QVERIFY(conf->isReady());
+    conf->setUseSeparateProcess(false);
     Purpose::Job* job = conf->createJob();
     QVERIFY(job);
     QSignalSpy s(job, &KJob::finished);
