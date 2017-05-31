@@ -73,7 +73,8 @@ void ProcessJob::writeSocket()
 
     m_socket.removeServer(m_socket.serverName());
 
-    const QByteArray data = QJsonDocument(m_data).toJson(QJsonDocument::Compact);
+    const QJsonDocument doc(m_data);
+    const QByteArray data = doc.toBinaryData();
     m_localSocket->write(QByteArray::number(data.size()) + '\n');
     const auto ret = m_localSocket->write(data);
     Q_ASSERT(ret == data.size());

@@ -69,7 +69,7 @@ public:
         Q_ASSERT(couldRead); // false if we hit a timeout before read-end.
         Q_ASSERT(pos == bytes);
 
-        Purpose::Configuration config(QJsonDocument::fromJson(dataArray).object(), pluginType, md);
+        Purpose::Configuration config(QJsonDocument::fromBinaryData(dataArray).object(), pluginType, md);
         config.setUseSeparateProcess(false);
 
         Q_ASSERT(config.isReady());
