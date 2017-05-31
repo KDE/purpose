@@ -25,10 +25,23 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <QFileInfo>
 #include <KPluginFactory>
 #include <KIO/CopyJob>
 
 EXPORT_SHARE_VERSION
+
+static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
+{
+    QString path = url.path();
+    if (!path.endsWith(QLatin1Char('/'))) {
+        path += QLatin1Char('/');
+    }
+    path += relPath;
+    QUrl u(url);
+    u.setPath(path);
+    return u;
+}
 
 class SaveAsShareJob : public Purpose::Job
 {
@@ -50,32 +63,51 @@ class SaveAsShareJob : public Purpose::Job
             }
 
             QList<QUrl> urls;
+            bool containsData = false;
             foreach(const QJsonValue &val, inputUrls) {
                 urls.append(QUrl(val.toString()));
+                containsData |= urls.last().scheme() == QLatin1String("data");
             }
 
-            const QUrl destination(data().value(QStringLiteral("destinationPath")).toString());
-            job = KIO::copy(urls, destination);
-            connect(job, &KJob::finished, this, &SaveAsShareJob::fileCopied);
+            m_dest = QUrl(data().value(QStringLiteral("destinationPath")).toString());
+            if (containsData && !(urls.count() == 1 && m_dest.isLocalFile() && !QFileInfo(m_dest.toLocalFile()).isDir())) {
+                for(const QUrl& url: urls) {
+                    QUrl dest = addPathToUrl(m_dest, QStringLiteral("data"));
+                    auto job = KIO::copy(url, dest);
+                    connect(job, &KJob::finished, this, &SaveAsShareJob::fileCopied);
+                    m_jobs.insert(job);
+                }
+            } else {
+                auto job = KIO::copy(urls, m_dest);
+                connect(job, &KJob::finished, this, &SaveAsShareJob::fileCopied);
+                m_jobs.insert(job);
+            }
         }
 
         bool doKill() override
         {
-            return job->kill();
+            bool killed = true;
+            for(KJob* job: m_jobs)
+                killed &= job->kill();
+            return killed;
         }
 
         void fileCopied(KJob* job)
         {
-            setError(job->error());
-            setErrorText(job->errorText());
-            if (job->error()==0) {
-                setOutput({ { QStringLiteral("url"), qobject_cast<KIO::CopyJob*>(job)->destUrl().toString() } });
+            auto r = m_jobs.remove(job);
+            Q_ASSERT(r);
+
+            setError(error() + job->error());
+            setErrorText(errorText() + QLatin1Char(' ') + job->errorText());
+            if (job->error()==0 && m_jobs.isEmpty()) {
+                setOutput({ { QStringLiteral("url"), m_dest.toString() } });
             }
             emitResult();
         }
 
     private:
-        KJob* job;
+        QUrl m_dest;
+        QSet<KJob*> m_jobs;
 };
 
 class Q_DECL_EXPORT SaveAsPlugin : public Purpose::PluginBase
