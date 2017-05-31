@@ -92,7 +92,7 @@ Configuration::Configuration(const QJsonObject &inputData, const QString &plugin
 
 Configuration::Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const QJsonObject &pluginType, const KPluginMetaData &pluginInformation, QObject* parent)
     : QObject(parent)
-    , d_ptr(new ConfigurationPrivate {inputData, pluginTypeName, pluginType, pluginInformation, qEnvironmentVariableIsSet("KDE_PURPOSE_LOCAL_JOBS")})
+    , d_ptr(new ConfigurationPrivate {inputData, pluginTypeName, pluginType, pluginInformation, !qEnvironmentVariableIsSet("KDE_PURPOSE_LOCAL_JOBS")})
 {}
 
 Configuration::~Configuration()
