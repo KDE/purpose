@@ -49,5 +49,6 @@ endif()
 add_subdirectory(kdeconnect)
 add_subdirectory(reviewboard)
 add_subdirectory(phabricator)
+add_subdirectory(email)
 
 install(FILES ExportPluginType.json DESTINATION ${DATA_INSTALL_DIR}/purpose/types)
