@@ -123,3 +123,17 @@ and requirements.
 * A `code/main*` file that will be executed when the plugin action needs happen.
 * A `config/config.qml` file that will be in charge of requesting the necessary
 information to the user.
+
+### Disallowing plugins
+It is possible to globally disable certain plugins through configuration file called
+`purposerc` in /etc/xdg (applies to all users) or in ~/.config (applies to current
+user).
+
+The disabled plugins are specified as a comma-separated list in the `disabled` key
+in the `plugins` group.
+
+```
+[plugins]
+# Disable KDE Connect and Imgur sharing plugins
+disabled=kdeconnectplugin,imgurplugin
+```

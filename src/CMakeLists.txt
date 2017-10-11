@@ -18,6 +18,7 @@ target_link_libraries(KF5Purpose
         Qt5::Gui
     PRIVATE
         Qt5::Network #QLocalSocket
+        KF5::ConfigCore
 )
 set_target_properties(KF5Purpose PROPERTIES VERSION ${PURPOSE_VERSION_STRING}
                                           SOVERSION ${PURPOSE_SOVERSION}

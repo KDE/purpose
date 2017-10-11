@@ -22,6 +22,9 @@
 #include <QStandardPaths>
 #include <QSignalSpy>
 
+#include <KSharedConfig>
+#include <KConfigGroup>
+
 #include "alternativesmodeltest.h"
 #include <purpose/job.h>
 #include <purpose/alternativesmodel.h>
@@ -110,4 +113,39 @@ void AlternativesModelTest::bigBufferTest()
     QFileInfo fi(tempfile);
     QCOMPARE(fi.size(), payload.size());
     QVERIFY(QFile::remove(tempfile));
+}
+
+void AlternativesModelTest::disablePluginTest()
+{
+    const auto listPlugins = [] {
+        QStringList plugins;
+        Purpose::AlternativesModel model;
+        QJsonObject input = QJsonObject {
+            {QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
+            {QStringLiteral("mimeType"), QStringLiteral("dummy/thing") }
+        };
+        model.setInputData(input);
+        model.setPluginType(QStringLiteral("Export"));
+
+        for (int i = 0; i < model.rowCount(); ++i) {
+            plugins << model.index(i).data(Purpose::AlternativesModel::PluginIdRole).toString();
+        }
+        return plugins;
+    };
+
+    auto plugins = listPlugins();
+    QVERIFY(plugins.contains(QStringLiteral("saveasplugin")));
+    QVERIFY(plugins.contains(QStringLiteral("emailplugin")));
+
+    QStandardPaths::setTestModeEnabled(true);
+    auto config = KSharedConfig::openConfig(QStringLiteral("purposerc"));
+    auto group = config->group("plugins");
+    group.writeEntry("disabled", QStringList{ QStringLiteral("saveasplugin"), QStringLiteral("emailplugin") });
+
+    plugins = listPlugins();
+    QVERIFY(!plugins.contains(QStringLiteral("saveasplugin")));
+    QVERIFY(!plugins.contains(QStringLiteral("emailplugin")));
+
+    // "cleanup"
+    group.writeEntry("disabled", QStringList());
 }

@@ -26,6 +26,7 @@ class AlternativesModelTest : public QObject
     private Q_SLOTS:
         void runJobTest();
         void bigBufferTest();
+        void disablePluginTest();
 };
 
 #endif

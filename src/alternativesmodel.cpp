@@ -29,6 +29,8 @@
 
 #include <KPluginLoader>
 #include <KPluginMetaData>
+#include <KSharedConfig>
+#include <KConfigGroup>
 
 #include "helper.h"
 #include "configuration.h"
@@ -78,10 +80,15 @@ public:
     QString m_pluginType;
     QJsonObject m_pluginTypeData;
 
-    bool isPluginAcceptable(const KPluginMetaData &meta) const {
+    bool isPluginAcceptable(const KPluginMetaData &meta, const QStringList &disabledPlugins) const {
         const QJsonObject obj = meta.rawData();
         if(!obj.value(QStringLiteral("X-Purpose-PluginTypes")).toArray().contains(m_pluginType)) {
             qDebug() << "discarding" << meta.name() << meta.value(QStringLiteral("X-Purpose-PluginTypes"));
+            return false;
+        }
+
+        if (disabledPlugins.contains(meta.pluginId())) {
+            //qDebug() << "disabled plugin" << meta.name() << meta.pluginId();
             return false;
         }
 
@@ -241,7 +248,12 @@ void AlternativesModel::initializeModel()
         }
     }
 
-    auto pluginAcceptable = [d](const KPluginMetaData& meta) { return d->isPluginAcceptable(meta); };
+    const auto config = KSharedConfig::openConfig(QStringLiteral("purposerc"));
+    const auto group = config->group("plugins");
+    const QStringList disabledPlugins = group.readEntry("disabled", QStringList());
+    auto pluginAcceptable = [d, disabledPlugins](const KPluginMetaData& meta) {
+        return d->isPluginAcceptable(meta, disabledPlugins);
+    };
 
     beginResetModel();
     d->m_plugins = KPluginLoader::findPlugins(QStringLiteral("purpose"), pluginAcceptable);
