@@ -63,8 +63,8 @@ ApplicationWindow
             fill: parent
             margins: 5
         }
-        Layout.minimumWidth: currentItem.Layout.minimumWidth + 2*anchors.margins
-        Layout.minimumHeight: currentItem.Layout.minimumHeight + 2*anchors.margins
+        Layout.minimumWidth: (currentItem ? currentItem.Layout.minimumWidth : 0) + 2*anchors.margins
+        Layout.minimumHeight: (currentItem ? currentItem.Layout.minimumHeight : 0) + 2*anchors.margins
     }
 
     Component {
