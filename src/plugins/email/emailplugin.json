@@ -2,14 +2,27 @@
     "KPlugin": {
         "Authors": [
             {
-                "Name": "Daniel Vrátil"
+                "Name": "Daniel Vrátil",
+                "Name[x-test]": "xxDaniel Vrátilxx"
             }
         ],
         "Category": "Utilities",
         "Description": "Send via Email",
+        "Description[ca]": "Envia per correu electrònic",
+        "Description[nl]": "Verzenden via e-mail",
+        "Description[pt]": "Enviar por E-mail",
+        "Description[sv]": "Skicka med e-post",
+        "Description[uk]": "Надсилання електронною поштою",
+        "Description[x-test]": "xxSend via Emailxx",
         "Icon": "mail-message",
         "License": "GPL",
-        "Name": "Send via Email..."
+        "Name": "Send via Email...",
+        "Name[ca]": "Envia per correu electrònic....",
+        "Name[nl]": "Verzenden via e-mail...",
+        "Name[pt]": "Enviar por E-mail...",
+        "Name[sv]": "Skicka med e-post...",
+        "Name[uk]": "Надіслати електронною поштою…",
+        "Name[x-test]": "xxSend via Email...xx"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],
