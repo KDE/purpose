@@ -38,6 +38,8 @@
 
 using namespace Purpose;
 
+static const QStringList s_defaultDisabledPlugins = {QStringLiteral("saveasplugin")};
+
 typedef bool (*matchFunction)(const QString& constraint, const QJsonValue& value);
 
 static bool defaultMatch(const QString& constraint, const QJsonValue& value)
@@ -78,6 +80,7 @@ public:
     QVector<KPluginMetaData> m_plugins;
     QJsonObject m_inputData;
     QString m_pluginType;
+    QStringList m_disabledPlugins = s_defaultDisabledPlugins;
     QJsonObject m_pluginTypeData;
 
     bool isPluginAcceptable(const KPluginMetaData &meta, const QStringList &disabledPlugins) const {
@@ -87,7 +90,7 @@ public:
             return false;
         }
 
-        if (disabledPlugins.contains(meta.pluginId())) {
+        if (disabledPlugins.contains(meta.pluginId()) || m_disabledPlugins.contains(meta.pluginId())) {
             //qDebug() << "disabled plugin" << meta.name() << meta.pluginId();
             return false;
         }
@@ -161,6 +164,25 @@ void AlternativesModel::setPluginType(const QString& pluginType)
     initializeModel();
 
     Q_EMIT pluginTypeChanged();
+}
+
+QStringList AlternativesModel::disabledPlugins() const
+{
+    Q_D(const AlternativesModel);
+    return d->m_disabledPlugins;
+}
+
+void AlternativesModel::setDisabledPlugins(const QStringList &pluginIds)
+{
+    Q_D(AlternativesModel);
+    if (pluginIds == d->m_disabledPlugins)
+        return;
+
+    d->m_disabledPlugins = pluginIds;
+
+    initializeModel();
+
+    Q_EMIT disabledPluginsChanged();
 }
 
 QString AlternativesModel::pluginType() const

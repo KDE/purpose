@@ -27,6 +27,7 @@ class AlternativesModelTest : public QObject
         void runJobTest();
         void bigBufferTest();
         void disablePluginTest();
+        void blacklistTest();
 };
 
 #endif

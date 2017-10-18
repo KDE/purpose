@@ -39,6 +39,7 @@ class PURPOSE_EXPORT AlternativesModel : public QAbstractListModel
 Q_OBJECT
 Q_PROPERTY(QString pluginType READ pluginType WRITE setPluginType NOTIFY pluginTypeChanged)
 Q_PROPERTY(QJsonObject inputData READ inputData WRITE setInputData NOTIFY inputDataChanged)
+Q_PROPERTY(QStringList disabledPlugins READ disabledPlugins WRITE setDisabledPlugins NOTIFY disabledPluginsChanged)
 public:
     enum Roles {
         PluginIdRole = Qt::UserRole+1,
@@ -53,6 +54,9 @@ public:
 
     QString pluginType() const;
     void setPluginType(const QString& pluginType);
+
+    QStringList disabledPlugins() const;
+    void setDisabledPlugins(const QStringList& pluginIds);
 
     /**
      * This shouldn't require to have the job actually running on the same process as the app.
@@ -71,6 +75,7 @@ public:
 Q_SIGNALS:
     void inputDataChanged();
     void pluginTypeChanged();
+    void disabledPluginsChanged();
 
 private:
     void initializeModel();

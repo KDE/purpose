@@ -58,6 +58,8 @@ void AlternativesModelTest::runJobTest()
     model.setInputData(input);
 
     model.setPluginType(QStringLiteral("Export"));
+    model.setDisabledPlugins({});
+
     Purpose::Configuration* conf = model.configureJob(saveAsRow(&model));
     QVERIFY(!conf->isReady());
     QVERIFY(!conf->createJob());
@@ -94,6 +96,7 @@ void AlternativesModelTest::bigBufferTest()
     };
     model.setInputData(input);
     model.setPluginType(QStringLiteral("Export"));
+    model.setDisabledPlugins({});
 
     Purpose::Configuration* conf = model.configureJob(saveAsRow(&model));
     QVERIFY(conf->isReady());
@@ -126,6 +129,7 @@ void AlternativesModelTest::disablePluginTest()
         };
         model.setInputData(input);
         model.setPluginType(QStringLiteral("Export"));
+        model.setDisabledPlugins({});
 
         for (int i = 0; i < model.rowCount(); ++i) {
             plugins << model.index(i).data(Purpose::AlternativesModel::PluginIdRole).toString();
@@ -148,4 +152,44 @@ void AlternativesModelTest::disablePluginTest()
 
     // "cleanup"
     group.writeEntry("disabled", QStringList());
+}
+
+void AlternativesModelTest::blacklistTest()
+{
+    const auto listPlugins = [](const QStringList &blacklist = QStringList()) {
+        QStringList plugins;
+        Purpose::AlternativesModel model;
+        QJsonObject input = QJsonObject {
+            {QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
+            {QStringLiteral("mimeType"), QStringLiteral("dummy/thing") }
+        };
+        model.setInputData(input);
+        model.setPluginType(QStringLiteral("Export"));
+        if (!blacklist.isEmpty()) {
+            model.setDisabledPlugins(blacklist);
+        }
+
+        for (int i = 0; i < model.rowCount(); ++i) {
+            plugins << model.index(i).data(Purpose::AlternativesModel::PluginIdRole).toString();
+        }
+        return plugins;
+    };
+
+    auto plugins = listPlugins();
+    QVERIFY(plugins.contains(QStringLiteral("kdeconnectplugin")));
+
+    plugins = listPlugins({QStringLiteral("kdeconnectplugin")});
+    QVERIFY(!plugins.contains(QStringLiteral("kdeconnectplugin")));
+
+    plugins = listPlugins({QStringLiteral("saveasplugin")});
+    QVERIFY(plugins.contains(QStringLiteral("kdeconnectplugin")));
+
+    // Admin settings have precedence
+    QStandardPaths::setTestModeEnabled(true);
+    auto config = KSharedConfig::openConfig(QStringLiteral("purposerc"));
+    auto group = config->group("plugins");
+    group.writeEntry("disabled", QStringList{ QStringLiteral("kdeconnectplugin") });
+
+    plugins = listPlugins({QStringLiteral("saveasplugin")});
+    QVERIFY(!plugins.contains(QStringLiteral("kdeconnectplugin")));
 }
