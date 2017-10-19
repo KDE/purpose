@@ -1,11 +1,11 @@
 # Purpose
 
-Provides an abstraction to provide and leverage actions of a specific kind
+Offers available actions for a specific purpose
 
 ## Introduction
 
-Purpose offers the possibility to create integrate services and actions on
-any application without having to implement them specifically. Purpose will
+This framework offers the possibility to create integrate services and actions
+on any application without having to implement them specifically. Purpose will
 offer them mechanisms to list the different alternatives to execute given the
 requested action type and will facilitate components so that all the plugins
 can receive all the information they need.
@@ -18,22 +18,21 @@ To import it from QML, import
 
     import org.kde.people 1.0
 
-It offers different ways of integrating the system in an application. For full
-control on the process, one can use the *AlternativesModel* for listing the
-different possibilities and *PurposeWizard* for configuring the job and
-*RunningJob* for a view that displays the job as it runs. There's no view
-to display the result of the job as it depends on the context.
+It offers different ways of integrating the actions in an application. For full
+control on the procedure, we can use:
+* *AlternativesModel* for listing the different possibilities
+* *PurposeWizard* for configuring the job
+* *RunningJob* for a view that displays the job as it runs
 
 Furthermore, there's the *AlternativesView* component that will integrate all the
 process defined below for convenience.
 
-
-If you want to import right in the C++ application, you can import it on the
-cmake scripts by calling:
+If you want to import in the C++ application, you can import it using CMake by
+calling:
 
     find_package(KDEExperimentalPurpose)
 
-Or its qmake counterpart. Then you'll have available the Purpose library if it
+Or its QMake counterpart. Then you'll have available the Purpose library if it
 needs to be done specifically and PurposeWidgets for convenience.
 
 To integrate on the UI, QtQuick will still be used, as the configuration files
@@ -94,12 +93,12 @@ in whichever plugin is offered.
 
 ### Plugin creation
 
-There's two approaches to plugin implementation: Native plugins and separate
+There's two approaches to plugin implementation: native plugins and separate
 processes.
 
 #### Native
 To implement a Qt-based plugin, it will be required to implement a
-`Purpose::PluginBase` class, that only acts as a factory for its `Purpose::Job`
+`Purpose::PluginBase` class, that acts as a factory for its `Purpose::Job`
 instances.
 
 These will be the jobs in charge of performing the action the plugin is meant to
@@ -108,14 +107,17 @@ do.
 Furthermore, a `pluginname_config.qml` will be provided for extra Configuration,
 if required.
 
-#### Separate
-Sometimes fitting in Qt some actions can require some extra work. For those cases,
-it's possible to implement the plugin in a separate process. It will require some
-extra work when it comes to implementing the feedback process with the main process
-but it allows to run plugins in any imaginable technologies.
+These plugins can be optionally be executed in-process.
 
-The file structure for these plugins is the one of [KPackage](http://api.kde.org/frameworks-api/frameworks5-apidocs/kpackage/html/index.html)
-and will allow to package the plugins in an archive if useful.
+#### Separate Process
+Sometimes executing some actions through Qt code can require some extra work.
+For those cases, it's possible to implement the plugin in a separate process.
+It will require some extra work when it comes to implementing the feedback
+process with the main process but it allows to run plugins in any imaginable
+technologies.
+
+The file structure for these plugins is the one of defined by [KPackage](http://api.kde.org/frameworks-api/frameworks5-apidocs/kpackage/html/index.html)
+which allows to package and distributethe plugins in an archive.
 
 To that end, we will need to provide:
 * A `manifest.json` file, that will define the plugin description, capabilities
