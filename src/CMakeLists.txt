@@ -6,7 +6,7 @@ add_library(KF5Purpose
     helper.cpp
     externalprocess/processjob.cpp
 )
-set_source_files_properties(externalprocess/processjob.cpp PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_FULL_LIBEXECDIR_KF5=\\\"${CMAKE_INSTALL_FULL_LIBEXECDIR_KF5}\\\"")
+set_source_files_properties(externalprocess/processjob.cpp PROPERTIES COMPILE_FLAGS "-DCMAKE_INSTALL_FULL_LIBEXECDIR_KF5='\"${CMAKE_INSTALL_FULL_LIBEXECDIR_KF5}\"'")
 
 target_include_directories(KF5Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
                                              "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
