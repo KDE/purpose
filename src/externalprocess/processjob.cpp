@@ -16,6 +16,7 @@
 */
 
 #include "processjob.h"
+#include "cmake-paths.h"
 #include <QLibrary>
 #include <KRandom>
 #include <QMetaMethod>
