@@ -145,13 +145,13 @@ void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
             << m_arcCmd.error() << ";" << errorString();
     } else {
         setPercent(99);
-        const QString stdout = scrubbedResult();
+        const QString arcOutput = scrubbedResult();
         const char *diffOpCode = "Diff URI: ";
-        int diffOffset = stdout.indexOf(QLatin1String(diffOpCode));
+        int diffOffset = arcOutput.indexOf(QLatin1String(diffOpCode));
         if (diffOffset >= 0) {
-            m_diffURI = stdout.mid(diffOffset + strlen(diffOpCode)).split(QChar::LineFeed).at(0);
+            m_diffURI = arcOutput.mid(diffOffset + strlen(diffOpCode)).split(QChar::LineFeed).at(0);
         } else {
-            m_diffURI = stdout;
+            m_diffURI = arcOutput;
         }
     }
 
@@ -185,13 +185,13 @@ void UpdateDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
         qCWarning(PLUGIN_PHABRICATOR) << "Patch upload to Phabricator failed with exit code"
             << exitCode << ", error" << m_arcCmd.error() << ";" << errorString();
     } else {
-        const QString stdout = scrubbedResult();
+        const QString arcOutput = scrubbedResult();
         const char *diffOpCode = "Revision URI: ";
-        int diffOffset = stdout.indexOf(QLatin1String(diffOpCode));
+        int diffOffset = arcOutput.indexOf(QLatin1String(diffOpCode));
         if (diffOffset >= 0) {
-            m_diffURI = stdout.mid(diffOffset + strlen(diffOpCode)).split(QChar::LineFeed).at(0);
+            m_diffURI = arcOutput.mid(diffOffset + strlen(diffOpCode)).split(QChar::LineFeed).at(0);
         } else {
-            m_diffURI = stdout;
+            m_diffURI = arcOutput;
         }
     }
     emitResult();
