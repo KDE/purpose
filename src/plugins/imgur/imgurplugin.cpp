@@ -36,7 +36,7 @@ Q_GLOBAL_STATIC_WITH_ARGS(const QUrl, imageImgurUrl, (QLatin1String("https://api
 Q_GLOBAL_STATIC_WITH_ARGS(const QUrl, albumImgurUrl, (QLatin1String("https://api.imgur.com/3/album")))
 
 // key associated with aleixpol@kde.org
-Q_GLOBAL_STATIC_WITH_ARGS(const QString, YOUR_CLIENT_ID, (QLatin1String("0bffa5b4ac8383c")));
+Q_GLOBAL_STATIC_WITH_ARGS(const QString, YOUR_CLIENT_ID, (QLatin1String("0bffa5b4ac8383c")))
 
 class ImgurShareJob : public Purpose::Job
 {
