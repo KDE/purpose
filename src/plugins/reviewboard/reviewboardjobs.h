@@ -85,7 +85,7 @@ namespace ReviewBoard
     {
         Q_OBJECT
         public:
-            NewRequest(const QUrl& server, const QString& project, QObject* parent = 0);
+            NewRequest(const QUrl& server, const QString& project, QObject* parent = nullptr);
             virtual void start() override;
 
         private Q_SLOTS:
@@ -115,7 +115,7 @@ namespace ReviewBoard
     {
         Q_OBJECT
         public:
-            SubmitPatchRequest(const QUrl &server, const QUrl& patch, const QString& basedir, const QString& id, QObject* parent = 0);
+            SubmitPatchRequest(const QUrl &server, const QUrl& patch, const QString& basedir, const QString& id, QObject* parent = nullptr);
             virtual void start() override;
 
         private Q_SLOTS:
@@ -131,7 +131,7 @@ namespace ReviewBoard
     {
         Q_OBJECT
         public:
-            ProjectsListRequest(const QUrl &server, QObject* parent = 0);
+            ProjectsListRequest(const QUrl &server, QObject* parent = nullptr);
             virtual void start() override;
             QVariantList repositories() const;
 
@@ -148,7 +148,7 @@ namespace ReviewBoard
     {
         Q_OBJECT
         public:
-            ReviewListRequest(const QUrl& server, const QString& user, const QString& reviewStatus, QObject* parent = 0);
+            ReviewListRequest(const QUrl& server, const QString& user, const QString& reviewStatus, QObject* parent = nullptr);
             virtual void start() override;
             QVariantList reviews() const;
 

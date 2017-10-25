@@ -51,7 +51,7 @@ Q_OBJECT
 Q_PROPERTY(QJsonObject data READ data CONSTANT)
 Q_PROPERTY(QJsonObject output READ output WRITE setOutput NOTIFY outputChanged)
 public:
-    Job(QObject* parent = 0);
+    Job(QObject* parent = nullptr);
     virtual ~Job();
 
     /**

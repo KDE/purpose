@@ -27,7 +27,7 @@
 DiffListModel::DiffListModel(QObject* parent)
     : QAbstractListModel(parent)
     , m_initialDir(QDir::currentPath())
-    , m_tempDir(0)
+    , m_tempDir(nullptr)
 {
     refresh();
 }
@@ -112,7 +112,7 @@ void DiffListModel::receivedDiffRevs(KJob* job)
     if (m_tempDir) {
         m_tempDir->remove();
         delete m_tempDir;
-        m_tempDir = 0;
+        m_tempDir = nullptr;
     }
 }
 

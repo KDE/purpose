@@ -72,7 +72,7 @@ namespace Phabricator
     {
         Q_OBJECT
         public:
-            NewDiffRev(const QUrl& patch, const QString& project, bool doBrowse = false, QObject* parent = 0);
+            NewDiffRev(const QUrl& patch, const QString& project, bool doBrowse = false, QObject* parent = nullptr);
             QString diffURI() const
             {
                 return m_diffURI;
@@ -92,7 +92,7 @@ namespace Phabricator
         Q_OBJECT
         public:
             UpdateDiffRev(const QUrl& patch, const QString& basedir,
-                          const QString& id, const QString& updateComment = QString(), bool doBrowse = false, QObject* parent = 0);
+                          const QString& id, const QString& updateComment = QString(), bool doBrowse = false, QObject* parent = nullptr);
             QString diffURI() const
             {
                 return m_diffURI;
@@ -111,7 +111,7 @@ namespace Phabricator
     {
         Q_OBJECT
         public:
-            DiffRevList(const QString& projectDir, QObject* parent = 0);
+            DiffRevList(const QString& projectDir, QObject* parent = nullptr);
             // return the open diff. revisions as a list of <diffID,diffDescription> pairs
             QList<QPair<QString,QString> > reviews() const
             {
