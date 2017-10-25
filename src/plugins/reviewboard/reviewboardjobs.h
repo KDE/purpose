@@ -21,6 +21,8 @@
 #ifndef KDEVPLATFORM_PLUGIN_REVIEWBOARDJOBS_H
 #define KDEVPLATFORM_PLUGIN_REVIEWBOARDJOBS_H
 
+#include "reviewboardhelpers_export.h"
+
 #include <QList>
 #include <QNetworkAccessManager>
 #include <QPair>
@@ -38,7 +40,7 @@ namespace ReviewBoard
      *
      * @note It is reviewboard-agnostic.
      */
-    class Q_DECL_EXPORT HttpCall : public KJob
+    class REVIEWBOARDHELPERS_EXPORT HttpCall : public KJob
     {
         Q_OBJECT
         Q_PROPERTY(QVariant result READ result)
@@ -66,7 +68,7 @@ namespace ReviewBoard
             Method m_method;
     };
 
-    class Q_DECL_EXPORT ReviewRequest : public KJob
+    class REVIEWBOARDHELPERS_EXPORT ReviewRequest : public KJob
     {
         Q_OBJECT
         public:
@@ -81,7 +83,7 @@ namespace ReviewBoard
             QString m_id;
     };
 
-    class Q_DECL_EXPORT NewRequest : public ReviewRequest
+    class REVIEWBOARDHELPERS_EXPORT NewRequest : public ReviewRequest
     {
         Q_OBJECT
         public:
@@ -96,7 +98,7 @@ namespace ReviewBoard
             QString m_project;
     };
 
-    class Q_DECL_EXPORT UpdateRequest : public ReviewRequest
+    class REVIEWBOARDHELPERS_EXPORT UpdateRequest : public ReviewRequest
     {
         Q_OBJECT
         public:
@@ -111,7 +113,7 @@ namespace ReviewBoard
             QString m_project;
     };
 
-    class Q_DECL_EXPORT SubmitPatchRequest : public ReviewRequest
+    class REVIEWBOARDHELPERS_EXPORT SubmitPatchRequest : public ReviewRequest
     {
         Q_OBJECT
         public:
@@ -127,7 +129,7 @@ namespace ReviewBoard
             QString m_basedir;
     };
 
-    class Q_DECL_EXPORT ProjectsListRequest : public KJob
+    class REVIEWBOARDHELPERS_EXPORT ProjectsListRequest : public KJob
     {
         Q_OBJECT
         public:
@@ -144,7 +146,7 @@ namespace ReviewBoard
             QVariantList m_repositories;
     };
 
-    class Q_DECL_EXPORT ReviewListRequest : public KJob
+    class REVIEWBOARDHELPERS_EXPORT ReviewListRequest : public KJob
     {
         Q_OBJECT
         public:

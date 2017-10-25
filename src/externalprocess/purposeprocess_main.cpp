@@ -126,7 +126,7 @@ private:
 
 int main(int argc, char** argv)
 {
-#warning make QGuiApplication, consider QCoreApplication?
+#pragma message("warning: make QGuiApplication, consider QCoreApplication?")
     QApplication app(argc, argv);
 
     QString serverName;
