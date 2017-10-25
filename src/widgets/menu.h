@@ -18,8 +18,9 @@
 #ifndef PURPOSEMENU_H
 #define PURPOSEMENU_H
 
+#include "purposewidgets_export.h"
+
 #include <QMenu>
-#include <purpose/purpose_export.h>
 
 namespace Purpose
 {
@@ -27,7 +28,7 @@ class MenuPrivate;
 
 class AlternativesModel;
 
-class PURPOSE_EXPORT Menu : public QMenu
+class PURPOSEWIDGETS_EXPORT Menu : public QMenu
 {
 Q_OBJECT
 public:
