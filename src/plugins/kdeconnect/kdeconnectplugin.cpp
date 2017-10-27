@@ -43,7 +43,7 @@ class KDEConnectJob : public Purpose::Job
             return ret;
         }
 
-        virtual void start() override
+        void start() override
         {
             QProcess* process = new QProcess(this);
             process->setProgram(QStringLiteral("kdeconnect-cli"));
@@ -73,7 +73,7 @@ class Q_DECL_EXPORT KDEConnectPlugin : public Purpose::PluginBase
     public:
         KDEConnectPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
 
-        virtual Purpose::Job* createJob() const override
+        Purpose::Job* createJob() const override
         {
             return new KDEConnectJob(nullptr);
         }

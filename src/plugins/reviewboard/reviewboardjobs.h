@@ -49,7 +49,7 @@ namespace ReviewBoard
 
             HttpCall(const QUrl& s, const QString& apiPath, const QList<QPair<QString,QString> >& queryParameters, Method m, const QByteArray& post, bool multipart, QObject* parent);
 
-            virtual void start() override;
+            void start() override;
 
             QVariant result() const;
 
@@ -88,7 +88,7 @@ namespace ReviewBoard
         Q_OBJECT
         public:
             NewRequest(const QUrl& server, const QString& project, QObject* parent = nullptr);
-            virtual void start() override;
+            void start() override;
 
         private Q_SLOTS:
             void done();
@@ -103,7 +103,7 @@ namespace ReviewBoard
         Q_OBJECT
         public:
             UpdateRequest(const QUrl& server, const QString& id, const QVariantMap& newValues, QObject* parent = nullptr);
-            virtual void start() override;
+            void start() override;
 
         private Q_SLOTS:
             void done();
@@ -118,7 +118,7 @@ namespace ReviewBoard
         Q_OBJECT
         public:
             SubmitPatchRequest(const QUrl &server, const QUrl& patch, const QString& basedir, const QString& id, QObject* parent = nullptr);
-            virtual void start() override;
+            void start() override;
 
         private Q_SLOTS:
             void done();
@@ -134,7 +134,7 @@ namespace ReviewBoard
         Q_OBJECT
         public:
             ProjectsListRequest(const QUrl &server, QObject* parent = nullptr);
-            virtual void start() override;
+            void start() override;
             QVariantList repositories() const;
 
         private Q_SLOTS:
@@ -151,7 +151,7 @@ namespace ReviewBoard
         Q_OBJECT
         public:
             ReviewListRequest(const QUrl& server, const QString& user, const QString& reviewStatus, QObject* parent = nullptr);
-            virtual void start() override;
+            void start() override;
             QVariantList reviews() const;
 
         private Q_SLOTS:

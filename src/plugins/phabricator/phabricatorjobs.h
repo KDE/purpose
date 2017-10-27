@@ -48,8 +48,8 @@ namespace Phabricator
             void setRequestId(const QString& id) { m_id = id; }
             QString commitRef() const { return m_commit; }
             void setCommitRef(const QString& commit) { m_commit = commit; }
-            virtual void start() override;
-            virtual QString errorString() const override
+            void start() override;
+            QString errorString() const override
             {
                 return m_errorString;
             }

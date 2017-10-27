@@ -39,7 +39,7 @@ class ProcessJob : public Job
 Q_OBJECT
 public:
     ProcessJob(const QString& pluginPath, const QString& pluginType, const QJsonObject& data, QObject* parent);
-    ~ProcessJob();
+    ~ProcessJob() override;
 
     void start() override;
 

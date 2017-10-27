@@ -44,7 +44,7 @@ class KTpSendFileShareJob : public Purpose::Job
             return ret;
         }
 
-        virtual void start() override
+        void start() override
         {
             QString executable = QStandardPaths::findExecutable(QStringLiteral("ktp-send-file"));
             if (executable.isEmpty()) {
@@ -76,7 +76,7 @@ class Q_DECL_EXPORT KTpSendFilePlugin : public Purpose::PluginBase
     public:
         KTpSendFilePlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
 
-        virtual Purpose::Job* createJob() const override
+        Purpose::Job* createJob() const override
         {
             return new KTpSendFileShareJob(nullptr);
         }

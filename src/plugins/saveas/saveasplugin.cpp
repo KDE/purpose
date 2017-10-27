@@ -51,7 +51,7 @@ class SaveAsShareJob : public Purpose::Job
             setCapabilities(Killable | Suspendable);
         }
 
-        virtual void start() override
+        void start() override
         {
             QJsonArray inputUrls = data().value(QStringLiteral("urls")).toArray();
 
@@ -116,7 +116,7 @@ class Q_DECL_EXPORT SaveAsPlugin : public Purpose::PluginBase
     public:
         SaveAsPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
 
-        virtual Purpose::Job* createJob() const override
+        Purpose::Job* createJob() const override
         {
             return new SaveAsShareJob(nullptr);
         }

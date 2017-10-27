@@ -155,9 +155,9 @@ class Q_DECL_EXPORT PhabricatorPlugin : public Purpose::PluginBase
     Q_OBJECT
     public:
         PhabricatorPlugin(QObject* parent, const QList<QVariant>& /*args*/) : PluginBase(parent) {}
-        virtual ~PhabricatorPlugin() override {}
+        ~PhabricatorPlugin() override {}
 
-        virtual Purpose::Job* createJob() const override
+        Purpose::Job* createJob() const override
         {
             return new PhabricatorJob;
         }

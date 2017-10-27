@@ -45,7 +45,7 @@ class PastebinJob : public Purpose::Job
             , m_pendingJobs(0)
         {}
 
-        virtual void start() override
+        void start() override
         {
             QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
 
@@ -127,7 +127,7 @@ class Q_DECL_EXPORT PastebinPlugin : public Purpose::PluginBase
     public:
         PastebinPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
 
-        virtual Purpose::Job* createJob() const override
+        Purpose::Job* createJob() const override
         {
             return new PastebinJob(nullptr);
         }

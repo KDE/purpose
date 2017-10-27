@@ -47,7 +47,7 @@ public:
     };
 
     AlternativesModel(QObject* parent = nullptr);
-    virtual ~AlternativesModel();
+    ~AlternativesModel() override;
 
     QJsonObject inputData() const;
     void setInputData(const QJsonObject& input);
@@ -68,9 +68,9 @@ public:
      */
     Q_SCRIPTABLE Purpose::Configuration* configureJob(int row);
 
-    virtual QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
-    virtual int rowCount(const QModelIndex& parent = QModelIndex()) const override;
-    virtual QHash<int,QByteArray> roleNames() const override;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    QHash<int,QByteArray> roleNames() const override;
 
 Q_SIGNALS:
     void inputDataChanged();

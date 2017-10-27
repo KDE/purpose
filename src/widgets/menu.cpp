@@ -30,7 +30,7 @@ class Purpose::MenuPrivate : public QObject
 {
 Q_OBJECT
 public:
-    ~MenuPrivate() { m_engine->deleteLater(); }
+    ~MenuPrivate() override { m_engine->deleteLater(); }
     MenuPrivate(Menu* q)
         : QObject(q)
         , m_engine(new QQmlApplicationEngine)

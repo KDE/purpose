@@ -36,7 +36,7 @@ class PURPOSE_EXPORT PluginBase : public QObject
 Q_OBJECT
 public:
     PluginBase(QObject* parent = nullptr);
-    virtual ~PluginBase();
+    ~PluginBase() override;
 
     /** @returns the job that will perform the plugin's action. */
     virtual Job* createJob() const = 0;

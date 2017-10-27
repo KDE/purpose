@@ -115,9 +115,9 @@ class Q_DECL_EXPORT ReviewBoardPlugin : public Purpose::PluginBase
     Q_OBJECT
     public:
         ReviewBoardPlugin(QObject* parent, const QList<QVariant>& /*args*/) : PluginBase(parent) {}
-        virtual ~ReviewBoardPlugin() override {}
+        ~ReviewBoardPlugin() override {}
 
-        virtual Purpose::Job* createJob() const override
+        Purpose::Job* createJob() const override
         {
             return new TheReviewboardJob;
         }
