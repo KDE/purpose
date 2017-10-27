@@ -32,7 +32,7 @@ class ReviewboardRC : public QObject
     Q_PROPERTY(QString repository READ repository NOTIFY dataChanged)
     Q_PROPERTY(QJsonObject extraData READ extraData NOTIFY dataChanged)
     public:
-        ReviewboardRC(QObject* parent = Q_NULLPTR);
+        ReviewboardRC(QObject* parent = nullptr);
 
         void setPath(const QUrl &path);
 

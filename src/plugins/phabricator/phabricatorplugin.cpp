@@ -48,7 +48,7 @@ class PhabricatorJob : public Purpose::Job
 {
     Q_OBJECT
     public:
-        PhabricatorJob(QObject* object = Q_NULLPTR)
+        PhabricatorJob(QObject* object = nullptr)
             : Purpose::Job(object)
     {}
 

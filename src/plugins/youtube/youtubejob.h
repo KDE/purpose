@@ -31,7 +31,7 @@ class YoutubeJob : public KJob
 {
     Q_OBJECT
     public:
-        YoutubeJob(const QUrl& url, const QByteArray &token, const QString& title, const QStringList& tags, const QString& description, QObject* parent = Q_NULLPTR);
+        YoutubeJob(const QUrl& url, const QByteArray &token, const QString& title, const QStringList& tags, const QString& description, QObject* parent = nullptr);
         void start() override;
 
         QString outputUrl() const { return m_output; }

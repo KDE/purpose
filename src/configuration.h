@@ -69,8 +69,8 @@ Q_PROPERTY(QJsonArray neededArguments READ neededArguments CONSTANT)
  */
 Q_PROPERTY(QUrl configSourceCode READ configSourceCode CONSTANT)
 public:
-    Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const QJsonObject &pluginType, const KPluginMetaData &pluginInformation, QObject* parent = Q_NULLPTR);
-    Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const KPluginMetaData &pluginInformation, QObject* parent = Q_NULLPTR);
+    Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const QJsonObject &pluginType, const KPluginMetaData &pluginInformation, QObject* parent = nullptr);
+    Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const KPluginMetaData &pluginInformation, QObject* parent = nullptr);
     ~Configuration() Q_DECL_OVERRIDE;
 
     void setData(const QJsonObject& data);

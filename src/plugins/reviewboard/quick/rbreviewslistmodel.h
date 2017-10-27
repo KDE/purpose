@@ -34,7 +34,7 @@ class ReviewsListModel : public QAbstractListModel
     Q_PROPERTY(QString status READ status WRITE setStatus)
     Q_PROPERTY(QString repository READ repository WRITE setRepository)
     public:
-        ReviewsListModel(QObject* parent = Q_NULLPTR);
+        ReviewsListModel(QObject* parent = nullptr);
 
         void refresh();
 

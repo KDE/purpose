@@ -38,7 +38,7 @@ class TheReviewboardJob : public Purpose::Job
 {
     Q_OBJECT
     public:
-        TheReviewboardJob(QObject* object = Q_NULLPTR)
+        TheReviewboardJob(QObject* object = nullptr)
             : Purpose::Job(object)
     {}
 

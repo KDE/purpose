@@ -32,7 +32,7 @@ class PURPOSEWIDGETS_EXPORT Menu : public QMenu
 {
 Q_OBJECT
 public:
-    Menu(QWidget* parent = Q_NULLPTR);
+    Menu(QWidget* parent = nullptr);
 
     AlternativesModel* model() const;
     void reload();

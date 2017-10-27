@@ -33,7 +33,7 @@ class DiffListModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY(QString status READ status WRITE setStatus)
     public:
-        DiffListModel(QObject* parent = Q_NULLPTR);
+        DiffListModel(QObject* parent = nullptr);
 
         void refresh();
 

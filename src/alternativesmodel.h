@@ -46,7 +46,7 @@ public:
         IconNameRole
     };
 
-    AlternativesModel(QObject* parent = Q_NULLPTR);
+    AlternativesModel(QObject* parent = nullptr);
     virtual ~AlternativesModel();
 
     QJsonObject inputData() const;

@@ -71,13 +71,13 @@ public:
             KPluginFactory* factory = loader.factory();
             if (!factory) {
                 qWarning() << "Couldn't create job:" << fileName << loader.errorString();
-                return Q_NULLPTR;
+                return nullptr;
             }
             Purpose::PluginBase* plugin = dynamic_cast<Purpose::PluginBase*>(factory->create<QObject>(parent, QVariantList()));
 
             if (!plugin) {
                 qWarning() << "Couldn't load plugin:" << fileName << loader.errorString();
-                return Q_NULLPTR;
+                return nullptr;
             }
 
             return plugin->createJob();
@@ -143,7 +143,7 @@ QJsonArray Configuration::neededArguments() const
 Purpose::Job* Configuration::createJob()
 {
     if (!isReady())
-        return Q_NULLPTR;
+        return nullptr;
 
     Q_D(const Configuration);
 

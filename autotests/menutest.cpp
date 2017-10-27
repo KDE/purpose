@@ -37,7 +37,7 @@ QAction* saveAsAction(Purpose::Menu* menu)
     }
 
     Q_ASSERT(!"Couldn't find the saveas plugin");
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 void MenuTest::runJobTest()

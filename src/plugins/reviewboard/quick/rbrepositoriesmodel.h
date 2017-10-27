@@ -29,7 +29,7 @@ class RepositoriesModel : public QAbstractListModel
 Q_OBJECT
 Q_PROPERTY(QUrl server READ server WRITE setServer)
 public:
-    RepositoriesModel(QObject* parent = Q_NULLPTR);
+    RepositoriesModel(QObject* parent = nullptr);
 
     int rowCount(const QModelIndex & parent) const Q_DECL_OVERRIDE;
     QVariant data(const QModelIndex & index, int role) const Q_DECL_OVERRIDE;
