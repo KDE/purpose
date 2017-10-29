@@ -27,7 +27,9 @@ ecm_generate_headers(PurposeWidgets_CamelCase_HEADERS
     REQUIRED_HEADERS PurposeWidgets_HEADERS
     PREFIX PurposeWidgets
 )
-install(FILES ${PurposeWidgets_CamelCase_HEADERS}
+install(FILES
+        ${Purpose_BINARY_DIR}/purposewidgets/purposewidgets_export.h
+        ${PurposeWidgets_CamelCase_HEADERS}
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/purposewidgets/PurposeWidgets/
         COMPONENT Devel)
 install(FILES
