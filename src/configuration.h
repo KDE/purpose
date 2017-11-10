@@ -86,8 +86,19 @@ public:
      * By default it will be true, unless the environment variable KDE_PURPOSE_LOCAL_JOBS is defined
      */
     bool useSeparateProcess() const;
-    void setUseSeparateProcess(bool);
 
+    /**
+     * @p separate will specify whether the process will be forced to execute
+     * in-process or in a separate process.
+     */
+    void setUseSeparateProcess(bool separate);
+
+    /**
+     * @returns the configured job ready to be started.
+     *
+     * Before calling it, make sure that all information has been filled by
+     * checking isReady().
+     */
     Q_SCRIPTABLE Purpose::Job* createJob();
 
 Q_SIGNALS:

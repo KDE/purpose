@@ -29,7 +29,13 @@ namespace Purpose
 /**
  * @brief Base class to implement by plugins
  *
- * This file shouldn't be included by any application.
+ * Class for Qt native plugins to extend. Plugins will just be issuing jobs
+ * that will be configured then started.
+ *
+ * See README.md on how to create plugins on technologies different
+ * to Qt.
+ *
+ * @note This file shouldn't be included by any application.
  */
 class PURPOSE_EXPORT PluginBase : public QObject
 {
