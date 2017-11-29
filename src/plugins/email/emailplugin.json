@@ -18,6 +18,7 @@
         "Description[pl]": "Wyślij pocztą",
         "Description[pt]": "Enviar por E-mail",
         "Description[sv]": "Skicka med e-post",
+        "Description[tr]": "Eposta olarak gönder",
         "Description[uk]": "Надсилання електронною поштою",
         "Description[x-test]": "xxSend via Emailxx",
         "Icon": "mail-message",
@@ -33,6 +34,7 @@
         "Name[pl]": "Wyślij pocztą...",
         "Name[pt]": "Enviar por E-mail...",
         "Name[sv]": "Skicka med e-post...",
+        "Name[tr]": "Eposta olarak gönder...",
         "Name[uk]": "Надіслати електронною поштою…",
         "Name[x-test]": "xxSend via Email...xx"
     },
