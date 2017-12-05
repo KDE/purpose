@@ -1,5 +1,6 @@
 {
     "KPlugin": {
+        "Id": "twitterplugin",
         "Authors": [
             {
                 "Name": "Aleix Pol",
