@@ -1,6 +1,5 @@
 {
     "KPlugin": {
-        "Id": "twitterplugin",
         "Authors": [
             {
                 "Name": "Aleix Pol",
@@ -32,6 +31,7 @@
         "Description[zh_CN]": "将内容分享到 Twitter.",
         "Description[zh_TW]": "在 Twitter 上分想多媒體。",
         "Icon": "im-twitter",
+        "Id": "twitterplugin",
         "License": "GPL",
         "Name": "Twitter",
         "Name[x-test]": "xxTwitterxx"
