@@ -37,7 +37,7 @@ endif()
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX PURPOSE
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h"
-                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KDEExperimentalPurposeConfigVersion.cmake"
+                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfigVersion.cmake"
                         SOVERSION 5)
 
 add_subdirectory( autotests )
@@ -50,24 +50,24 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
 endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KDEExperimentalPurpose")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Purpose")
 
 include(ECMPackageConfigHelpers)
 
 ecm_configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KDEExperimentalPurposeConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KDEExperimentalPurposeConfig.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF5PurposeConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfig.cmake"
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/KDEExperimentalPurposeConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KDEExperimentalPurposeConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfigVersion.cmake"
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   COMPONENT Devel
 )
 
-install(EXPORT KDEExperimentalPurposeTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KDEExperimentalPurposeTargets.cmake NAMESPACE KDEExperimental:: )
+install(EXPORT KF5PurposeTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5PurposeTargets.cmake NAMESPACE KF5:: )
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h
@@ -75,3 +75,10 @@ install(FILES
 )
 
 feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
+#TODO: Remove somewhen in the future
+install(FILES
+  "${CMAKE_CURRENT_SOURCE_DIR}/KDEExperimentalPurposeConfig.cmake"
+  DESTINATION "${KDE_INSTALL_CMAKEPACKAGEDIR}/KDEExperimentalPurpose"
+  COMPONENT Devel
+)
