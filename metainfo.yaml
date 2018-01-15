@@ -1,0 +1,20 @@
+maintainer: apol
+description: Offers available actions for a specific purpose
+tier: 2
+type: integration
+platforms:
+    - name: Linux
+    - name: FreeBSD
+    - name: Windows
+    - name: MacOSX
+portingAid: false
+deprecated: false
+release: true
+libraries:
+ - qmake: Purpose
+   cmake: "KF5::Purpose"
+cmakename: KF5Purpose
+
+public_lib: true
+group: Frameworks
+subgroup: Tier 1
