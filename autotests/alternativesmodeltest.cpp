@@ -156,7 +156,7 @@ void AlternativesModelTest::disablePluginTest()
 
 void AlternativesModelTest::blacklistTest()
 {
-    const auto listPlugins = [](const QStringList &blacklist = QStringList()) {
+    const auto listPlugins = [](const QStringList &blacklist) {
         QStringList plugins;
         Purpose::AlternativesModel model;
         QJsonObject input = QJsonObject {
@@ -175,7 +175,7 @@ void AlternativesModelTest::blacklistTest()
         return plugins;
     };
 
-    auto plugins = listPlugins();
+    auto plugins = listPlugins(QStringList());
     QVERIFY(plugins.contains(QStringLiteral("kdeconnectplugin")));
 
     plugins = listPlugins({QStringLiteral("kdeconnectplugin")});
