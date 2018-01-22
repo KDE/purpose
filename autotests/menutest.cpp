@@ -44,6 +44,7 @@ void MenuTest::runJobTest()
 {
     Purpose::Menu* menu = new Purpose::Menu;
     Purpose::AlternativesModel* model = menu->model();
+    model->setDisabledPlugins({});
 
     const QString tempfile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/purposetest");
     QFile::remove(tempfile);
