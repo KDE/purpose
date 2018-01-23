@@ -30,18 +30,27 @@ class Purpose::MenuPrivate : public QObject
 {
 Q_OBJECT
 public:
-    ~MenuPrivate() override { m_engine->deleteLater(); }
     MenuPrivate(Menu* q)
         : QObject(q)
-        , m_engine(new QQmlApplicationEngine)
         , m_model(new AlternativesModel(q))
         , q(q)
     {
-        m_engine->rootContext()->setContextObject(new KLocalizedContext(this));
-        m_engine->load(QUrl(QStringLiteral("qrc:/JobDialog.qml")));
+
+    }
+
+    ~MenuPrivate() override {
+        if (m_engine) {
+            m_engine->deleteLater();
+        }
     }
 
     void trigger(int row) {
+        if (!m_engine) {
+            m_engine = new QQmlApplicationEngine;
+            m_engine->rootContext()->setContextObject(new KLocalizedContext(this));
+            m_engine->load(QUrl(QStringLiteral("qrc:/JobDialog.qml")));
+        }
+
         Q_ASSERT(!m_engine->rootObjects().isEmpty());
         QObject* o = m_engine->rootObjects().at(0);
 
@@ -56,7 +65,7 @@ public:
     }
 
 public:
-    QQmlApplicationEngine* m_engine;
+    QQmlApplicationEngine* m_engine = nullptr;
     QPointer<AlternativesModel> m_model;
     Purpose::Menu* q;
 };
