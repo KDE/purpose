@@ -18,6 +18,7 @@ target_link_libraries(KF5Purpose
         KF5::CoreAddons
         Qt5::Gui
     PRIVATE
+        Qt5::DBus
         Qt5::Network #QLocalSocket
         KF5::ConfigCore
 )

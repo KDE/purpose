@@ -26,6 +26,8 @@
 #include <QStandardPaths>
 #include <QJsonArray>
 #include <QRegularExpression>
+#include <QDBusConnectionInterface>
+#include <QDBusConnection>
 
 #include <KPluginLoader>
 #include <KPluginMetaData>
@@ -70,8 +72,14 @@ static bool mimeTypeMatch(const QString& constraint, const QJsonValue& value)
     }
 }
 
+static bool dbusMatch(const QString& constraint, const QJsonValue& value)
+{
+    return QDBusConnection::sessionBus().interface()->isServiceRegistered(constraint);
+}
+
 static QMap<QString, matchFunction> s_matchFunctions = {
-    { QStringLiteral("mimeType"), mimeTypeMatch }
+    { QStringLiteral("mimeType"), mimeTypeMatch },
+    { QStringLiteral("dbus"), dbusMatch }
 };
 
 class Purpose::AlternativesModelPrivate
