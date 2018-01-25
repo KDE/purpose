@@ -62,7 +62,9 @@
     "X-Purpose-Configuration": [
         "device"
     ],
-    "X-Purpose-Constraints": [ "dbus:org.kde.kdeconnect" ],
+    "X-Purpose-Constraints": [
+        "dbus:org.kde.kdeconnect"
+    ],
     "X-Purpose-PluginTypes": [
         "Export"
     ]
