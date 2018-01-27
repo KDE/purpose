@@ -29,7 +29,6 @@
         "Description[tr]": "KDE Bağlantısı ile gönder",
         "Description[uk]": "Надіслати за допомогою KDE Connect",
         "Description[x-test]": "xxSend through KDE Connectxx",
-        "Description[zh_CN]": "通过 KDE Connect 发送",
         "Description[zh_TW]": "透過 KDE Connect 傳送",
         "Icon": "kdeconnect",
         "License": "GPL",
@@ -56,7 +55,6 @@
         "Name[tr]": "Aygıta Gönder...",
         "Name[uk]": "Надіслати на пристрій…",
         "Name[x-test]": "xxSend To Device...xx",
-        "Name[zh_CN]": "发送到设备",
         "Name[zh_TW]": "傳送到裝置..."
     },
     "X-Purpose-Configuration": [
