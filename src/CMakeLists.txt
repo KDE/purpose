@@ -1,3 +1,5 @@
+qt5_add_resources(purpose_SRCS standard-plugin-types.qrc)
+
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake-paths.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/cmake-paths.h)
 
 add_library(KF5Purpose
@@ -7,6 +9,7 @@ add_library(KF5Purpose
     configuration.cpp
     helper.cpp
     externalprocess/processjob.cpp
+    ${purpose_SRCS}
 )
 
 target_include_directories(KF5Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"

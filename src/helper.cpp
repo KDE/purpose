@@ -29,10 +29,14 @@ using namespace Purpose;
 QJsonObject Purpose::readPluginType(const QString &pluginType)
 {
     const QString lookup = QStringLiteral("purpose/types/") + pluginType + QStringLiteral("PluginType.json");
-    const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, lookup);
-    if (path.isEmpty()) {
-        qWarning() << "Couldn't find" << lookup;
-        return QJsonObject();
+
+    QString path = QStringLiteral(":/") + lookup;
+    if (!QFileInfo::exists(path)) {
+        path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, lookup);
+        if (path.isEmpty()) {
+            qWarning() << "Couldn't find" << lookup << QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+            return QJsonObject();
+        }
     }
     QFile typeFile(path);
     if (!typeFile.open(QFile::ReadOnly)) {

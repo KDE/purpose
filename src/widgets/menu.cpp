@@ -58,7 +58,9 @@ public:
             qWarning() << Q_FUNC_INFO << "object is NULL at m_engine" << m_engine << "rootObjects=" << m_engine->rootObjects();
             return;
         }
-        o->setProperty("configuration", QVariant::fromValue<QObject*>(m_model->configureJob(row)));
+        auto config = m_model->configureJob(row);
+        config->setUseSeparateProcess(false);
+        o->setProperty("configuration", QVariant::fromValue<QObject*>(config));
         o->setProperty("q", QVariant::fromValue<QObject*>(q));
         o->setProperty("visible", true);
         o->setParent(q);

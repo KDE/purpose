@@ -286,7 +286,7 @@ void AlternativesModel::initializeModel()
     };
 
     beginResetModel();
-    d->m_plugins = KPluginLoader::findPlugins(QStringLiteral("purpose"), pluginAcceptable);
+    d->m_plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/purpose"), pluginAcceptable);
     d->m_plugins += findScriptedPackages(pluginAcceptable);
     endResetModel();
 }
