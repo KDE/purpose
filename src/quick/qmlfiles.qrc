@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource prefix="/org/kde/purpose/">
+    <file>PurposeWizard.qml</file>
+    <file>AlternativesView.qml</file>
+    <file>RunningJob.qml</file>
+ </qresource>
+</RCC>
