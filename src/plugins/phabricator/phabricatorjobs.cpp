@@ -233,7 +233,7 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus != QProcess::NormalExit || exitCode) {
         setError(KJob::UserDefinedError + exitCode);
-        setErrorText(i18n("Could not get list of differential revisions in %1").arg(QDir::currentPath()));
+        setErrorText(i18n("Could not get list of differential revisions in %1", QDir::currentPath()));
         setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
         qCWarning(PLUGIN_PHABRICATOR) << "Could not get list of differential revisions"
             << m_arcCmd.error() << ";" << errorString();
