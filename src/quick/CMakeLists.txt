@@ -1,6 +1,6 @@
-qt5_add_resources(purpose_SRCS qmlfiles.qrc)
+qt5_add_resources(purposequick_SRCS qmlfiles.qrc)
 
-add_library(purposequickplugin purposequickplugin.cpp ${purpose_SRCS})
+add_library(purposequickplugin purposequickplugin.cpp ${purposequick_SRCS})
 target_link_libraries(purposequickplugin Qt5::Qml KF5Purpose)
 set(bindest "${CMAKE_BINARY_DIR}/bin/qml/org/kde/purpose/")
 set_target_properties(purposequickplugin PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${bindest}")
