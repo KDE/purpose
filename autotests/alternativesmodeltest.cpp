@@ -176,20 +176,20 @@ void AlternativesModelTest::blacklistTest()
     };
 
     auto plugins = listPlugins(QStringList());
-    QVERIFY(plugins.contains(QStringLiteral("kdeconnectplugin")));
+    QVERIFY(plugins.contains(QStringLiteral("emailplugin")));
 
-    plugins = listPlugins({QStringLiteral("kdeconnectplugin")});
-    QVERIFY(!plugins.contains(QStringLiteral("kdeconnectplugin")));
+    plugins = listPlugins({QStringLiteral("emailplugin")});
+    QVERIFY(!plugins.contains(QStringLiteral("emailplugin")));
 
     plugins = listPlugins({QStringLiteral("saveasplugin")});
-    QVERIFY(plugins.contains(QStringLiteral("kdeconnectplugin")));
+    QVERIFY(plugins.contains(QStringLiteral("emailplugin")));
 
     // Admin settings have precedence
     QStandardPaths::setTestModeEnabled(true);
     auto config = KSharedConfig::openConfig(QStringLiteral("purposerc"));
     auto group = config->group("plugins");
-    group.writeEntry("disabled", QStringList{ QStringLiteral("kdeconnectplugin") });
+    group.writeEntry("disabled", QStringList{ QStringLiteral("emailplugin") });
 
     plugins = listPlugins({QStringLiteral("saveasplugin")});
-    QVERIFY(!plugins.contains(QStringLiteral("kdeconnectplugin")));
+    QVERIFY(!plugins.contains(QStringLiteral("emailplugin")));
 }
