@@ -28,6 +28,7 @@
         "Description[tr]": "Twitter'da medya dosyası paylaşır.",
         "Description[uk]": "Оприлюднює мультимедійні дані на Twitter.",
         "Description[x-test]": "xxShares media on Twitter.xx",
+        "Description[zh_CN]": "在 Twitter 上分享媒体。",
         "Description[zh_TW]": "在 Twitter 上分想多媒體。",
         "Icon": "im-twitter",
         "Id": "twitterplugin",

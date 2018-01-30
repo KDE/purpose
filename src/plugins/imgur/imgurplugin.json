@@ -29,6 +29,7 @@
         "Description[tr]": "Resimleri Imgur'e yükle",
         "Description[uk]": "Вивантаження зображень на Imgur",
         "Description[x-test]": "xxUpload pictures to Imgurxx",
+        "Description[zh_CN]": "将图片上传到 Imgur",
         "Description[zh_TW]": "上傳圖片到 Imgur",
         "Icon": "edit-paste",
         "License": "GPL",

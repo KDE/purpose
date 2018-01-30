@@ -22,6 +22,7 @@
         "Description[tr]": "Eposta olarak gönder",
         "Description[uk]": "Надсилання електронною поштою",
         "Description[x-test]": "xxSend via Emailxx",
+        "Description[zh_CN]": "通过电子邮件发送",
         "Icon": "mail-message",
         "License": "GPL",
         "Name": "Send via Email...",
@@ -38,7 +39,8 @@
         "Name[sv]": "Skicka med e-post...",
         "Name[tr]": "Eposta olarak gönder...",
         "Name[uk]": "Надіслати електронною поштою…",
-        "Name[x-test]": "xxSend via Email...xx"
+        "Name[x-test]": "xxSend via Email...xx",
+        "Name[zh_CN]": "通过电子邮件发送..."
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],
