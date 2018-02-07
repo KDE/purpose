@@ -1,6 +1,6 @@
 maintainer: apol
 description: Offers available actions for a specific purpose
-tier: 2
+tier: 3
 type: integration
 platforms:
     - name: Linux
@@ -17,4 +17,4 @@ cmakename: KF5Purpose
 
 public_lib: true
 group: Frameworks
-subgroup: Tier 1
+subgroup: Tier 3
