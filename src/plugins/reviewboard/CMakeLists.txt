@@ -1,7 +1,9 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"purpose_reviewboard\")
 add_subdirectory(icons)
 
-add_library(ReviewboardHelpers reviewboardjobs.cpp debug.cpp)
+ecm_qt_declare_logging_category(ReviewboardHelpers_SRCS HEADER debug.h IDENTIFIER PLUGIN_REVIEWBOARD CATEGORY_NAME kdevplatform.plugins.reviewboard)
+
+add_library(ReviewboardHelpers reviewboardjobs.cpp ${ReviewboardHelpers_SRCS})
 generate_export_header(ReviewboardHelpers EXPORT_FILE_NAME reviewboardhelpers_export.h)
 target_link_libraries(ReviewboardHelpers KF5::CoreAddons KF5::I18n Qt5::Network)
 
