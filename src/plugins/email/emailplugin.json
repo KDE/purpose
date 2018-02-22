@@ -26,6 +26,7 @@
         "Description[uk]": "Надсилання електронною поштою",
         "Description[x-test]": "xxSend via Emailxx",
         "Description[zh_CN]": "通过电子邮件发送",
+        "Description[zh_TW]": "透過電子郵件傳送",
         "Icon": "mail-message",
         "License": "GPL",
         "Name": "Send via Email...",
@@ -46,7 +47,8 @@
         "Name[tr]": "Eposta olarak gönder...",
         "Name[uk]": "Надіслати електронною поштою…",
         "Name[x-test]": "xxSend via Email...xx",
-        "Name[zh_CN]": "通过电子邮件发送..."
+        "Name[zh_CN]": "通过电子邮件发送...",
+        "Name[zh_TW]": "透過電子郵件傳送……"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],

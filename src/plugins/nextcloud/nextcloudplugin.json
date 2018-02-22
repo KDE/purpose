@@ -28,6 +28,7 @@
         "Description[uk]": "Вивантаження відео на Nextcloud",
         "Description[x-test]": "xxUpload files to Nextcloudxx",
         "Description[zh_CN]": "将文件上传到 Nextcloud",
+        "Description[zh_TW]": "上傳檔案到 Nextcloud",
         "Icon": "edit-paste",
         "License": "GPL",
         "Name": "NextCloud",
