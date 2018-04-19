@@ -28,7 +28,7 @@ Loader
         configuration.destroy();
     }
 
-    Layout.minimumHeight: item ? item.Layout.minimumHeight : height
+    Layout.minimumHeight: item ? Math.max(item.Layout.minimumHeight, height) : height
     Layout.preferredHeight: item ? item.Layout.preferredHeight : width
 
     Component.onCompleted: {
