@@ -17,7 +17,7 @@
 
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.2
+import QtQuick.Controls 2.2
 import org.kde.purpose 1.0
 
 StackView {
@@ -61,14 +61,12 @@ StackView {
 
     function startJob(config) {
         var job = config.createJob();
+        console.log("run!", runningJobComponent, job)
         if (!job) {
             console.warn("couldn't start job")
             return;
         }
-        stack.push({
-            item: runningJobComponent,
-            properties: { job: job }
-        })
+        stack.push(runningJobComponent, { job: job })
         job.start()
         stack.running = true;
     }
@@ -79,10 +77,7 @@ StackView {
     function createJob(index) {
         var conf = altsModel.configureJob(index);
         if (!conf.isReady) {
-            stack.push({
-                item: configWizardComponent,
-                properties: { configuration: conf }
-            })
+            stack.push(configWizardComponent, { configuration: conf })
         } else {
             startJob(conf)
         }
@@ -96,18 +91,16 @@ StackView {
         {}
     }
 
-    initialItem: ScrollView {
+    initialItem: ListView {
+        ScrollBar.vertical: ScrollBar {}
         focus: true
-        ListView {
-            focus: true
-            model: altsModel
+        model: altsModel
 
-            verticalLayoutDirection: stack.verticalLayoutDirection
-            delegate: stack.delegate
-            highlight: stack.highlight
-            footer: stack.footer
-            header: stack.header
-        }
+        verticalLayoutDirection: stack.verticalLayoutDirection
+        delegate: stack.delegate
+        highlight: stack.highlight
+        footer: stack.footer
+        header: stack.header
     }
 
     Component {
@@ -122,7 +115,9 @@ StackView {
                 PurposeWizard {
                     id: wiz
                     focus: true
-                    width: scroll.viewport.width
+
+                    width: scroll.width
+                    height: scroll.height
                 }
             }
             RowLayout {
