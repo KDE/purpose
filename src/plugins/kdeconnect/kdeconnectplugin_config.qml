@@ -15,35 +15,36 @@
  License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import QtQuick 2.1
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.2
+import QtQuick.Controls 2.1
 import org.kde.kdeconnect 1.0
 
-ColumnLayout
-{
+ListView {
     id: root
     property string device: ""
+    Layout.fillWidth: true
+    Layout.fillHeight: true
 
-    Label {
+    header: Label {
         text: i18n("Choose a device to send to:")
     }
-    TableView {
-        id: devices
-        Layout.fillWidth: true
-        Layout.fillHeight: true
+    model: DevicesModel {
+        id: connectDeviceModel
+        displayFilter: DevicesModel.Paired | DevicesModel.Reachable
+    }
+    delegate: ItemDelegate {
+        width: parent.width
+        text: model.display
+        onClicked: root.device = deviceId
+        checked: root.device === deviceId
+    }
 
-        TableViewColumn {
-            title: i18n("Device")
-            role: "display"
-        }
-
-        model: DevicesModel {
-            id: connectDeviceModel
-            displayFilter: DevicesModel.Paired | DevicesModel.Reachable
-        }
-
-        onCurrentRowChanged: {
-            root.device = connectDeviceModel.getDevice(devices.currentRow).id()
-        }
+    Label {
+        anchors.fill: parent
+        verticalAlignment: Qt.AlignVCenter
+        horizontalAlignment: Qt.AlignHCenter
+        visible: root.count === 0
+        text: i18n("No devices found")
     }
 }
