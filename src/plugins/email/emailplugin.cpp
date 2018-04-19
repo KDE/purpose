@@ -35,7 +35,7 @@ class EmailJob : public Purpose::Job
 {
     Q_OBJECT
 public:
-    EmailJob(QObject *parent = nullptr)
+    explicit EmailJob(QObject *parent = nullptr)
         : Purpose::Job(parent)
     {}
 

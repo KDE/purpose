@@ -32,7 +32,7 @@ class PURPOSEWIDGETS_EXPORT Menu : public QMenu
 {
 Q_OBJECT
 public:
-    Menu(QWidget* parent = nullptr);
+    explicit Menu(QWidget* parent = nullptr);
 
     /**
      * Exposes the used AlternativesModel so that it can be configured to suit

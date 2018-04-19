@@ -74,6 +74,7 @@ static bool mimeTypeMatch(const QString& constraint, const QJsonValue& value)
 
 static bool dbusMatch(const QString& constraint, const QJsonValue& value)
 {
+    Q_UNUSED(value)
     return QDBusConnection::sessionBus().interface()->isServiceRegistered(constraint);
 }
 

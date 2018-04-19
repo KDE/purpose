@@ -42,7 +42,7 @@ class ImgurShareJob : public Purpose::Job
 {
     Q_OBJECT
     public:
-        ImgurShareJob(QObject* parent)
+        explicit ImgurShareJob(QObject* parent)
             : Purpose::Job(parent)
             , m_pendingJobs(0)
         {}

@@ -41,7 +41,7 @@ class PURPOSE_EXPORT PluginBase : public QObject
 {
 Q_OBJECT
 public:
-    PluginBase(QObject* parent = nullptr);
+    explicit PluginBase(QObject* parent = nullptr);
     ~PluginBase() override;
 
     /** @returns the job that will perform the plugin's action. */

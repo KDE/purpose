@@ -61,7 +61,7 @@ public:
         IconNameRole
     };
 
-    AlternativesModel(QObject* parent = nullptr);
+    explicit AlternativesModel(QObject* parent = nullptr);
     ~AlternativesModel() override;
 
     QJsonObject inputData() const;

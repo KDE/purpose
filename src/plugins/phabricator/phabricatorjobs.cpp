@@ -207,6 +207,7 @@ DiffRevList::DiffRevList(const QString& projectDir, QObject* parent)
 
 bool Phabricator::DiffRevList::buildArcCommand(const QString& workDir, const QString& unused, bool)
 {
+    Q_UNUSED(unused)
     bool ret;
     QString arc = QStandardPaths::findExecutable(QStringLiteral("arc"));
     if (!arc.isEmpty()) {

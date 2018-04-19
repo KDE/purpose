@@ -25,7 +25,7 @@ class YoutubeJobComposite : public Purpose::Job
 public:
     YoutubeJobComposite();
 
-    virtual void start() override;
+    void start() override;
 
 private Q_SLOTS:
     void subjobFinished(KJob* subjob);
