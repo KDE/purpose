@@ -49,7 +49,8 @@ class KDEConnectJob : public Purpose::Job
             process->setProgram(QStringLiteral("kdeconnect-cli"));
             QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
             process->setArguments(QStringList(QStringLiteral("--device")) << data().value(QStringLiteral("device")).toString() << QStringLiteral("--share") << arrayToList(urlsJson));
-            connect(process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &KDEConnectJob::jobFinished);
+            connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &KDEConnectJob::jobFinished);
+            connect(process, &QProcess::readyRead, this, [process](){ qDebug() << "kdeconnect-cli output:" << process->readAll(); });
 
             process->start();
         }
