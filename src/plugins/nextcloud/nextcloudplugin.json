@@ -34,6 +34,7 @@
         "License": "GPL",
         "Name": "NextCloud",
         "Name[ast]": "Nextcloud",
+        "Name[ru]": "Nextcloud",
         "Name[sv]": "Nextcloud",
         "Name[x-test]": "xxNextCloudxx"
     },
