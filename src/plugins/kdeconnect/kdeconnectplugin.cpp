@@ -49,10 +49,20 @@ class KDEConnectJob : public Purpose::Job
             process->setProgram(QStringLiteral("kdeconnect-cli"));
             QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
             process->setArguments(QStringList(QStringLiteral("--device")) << data().value(QStringLiteral("device")).toString() << QStringLiteral("--share") << arrayToList(urlsJson));
+            connect(process, &QProcess::errorOccurred, this, &KDEConnectJob::processError);
             connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &KDEConnectJob::jobFinished);
             connect(process, &QProcess::readyRead, this, [process](){ qDebug() << "kdeconnect-cli output:" << process->readAll(); });
 
             process->start();
+        }
+
+        void processError(QProcess::ProcessError error)
+        {
+            QProcess* process = qobject_cast<QProcess*>(sender());
+            qWarning() << "kdeconnect share error:" << error << process->errorString();
+            setError(1 + error);
+            setErrorText(process->errorString());
+            emitResult();
         }
 
         void jobFinished(int code, QProcess::ExitStatus status)
