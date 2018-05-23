@@ -1,0 +1,1 @@
+add_share_plugin(telegramplugin telegramplugin.cpp)

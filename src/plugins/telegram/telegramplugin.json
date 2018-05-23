@@ -1,0 +1,22 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Nicolas Fella",
+                "Name[x-test]": "xxNicolas Fellaxx"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Send via Telegram",
+        "Icon": "telegram",
+        "License": "GPL",
+        "Name": "Send via Telegram..."
+    },
+    "X-Purpose-Configuration": [
+    ],
+    "X-Purpose-Constraints": [
+    ],
+    "X-Purpose-PluginTypes": [
+        "Export"
+    ]
+}
