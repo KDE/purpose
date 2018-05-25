@@ -37,8 +37,8 @@ class DiffListModel : public QAbstractListModel
 
         void refresh();
 
-        QVariant data(const QModelIndex &idx, int role) const Q_DECL_OVERRIDE;
-        int rowCount(const QModelIndex & parent) const Q_DECL_OVERRIDE;
+        QVariant data(const QModelIndex &idx, int role) const override;
+        int rowCount(const QModelIndex & parent) const override;
 
         QString status() const { return m_status; }
 

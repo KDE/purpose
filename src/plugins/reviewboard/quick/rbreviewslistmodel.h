@@ -38,8 +38,8 @@ class ReviewsListModel : public QAbstractListModel
 
         void refresh();
 
-        QVariant data(const QModelIndex &idx, int role) const Q_DECL_OVERRIDE;
-        int rowCount(const QModelIndex & parent) const Q_DECL_OVERRIDE;
+        QVariant data(const QModelIndex &idx, int role) const override;
+        int rowCount(const QModelIndex & parent) const override;
 
         QUrl server() const { return m_server; }
         QString username() const { return m_username; }
