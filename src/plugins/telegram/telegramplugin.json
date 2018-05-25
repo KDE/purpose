@@ -2,14 +2,30 @@
     "KPlugin": {
         "Authors": [
             {
-                "Name": "Nicolas Fella"
+                "Name": "Nicolas Fella",
+                "Name[x-test]": "xxNicolas Fellaxx"
             }
         ],
         "Category": "Utilities",
         "Description": "Send via Telegram",
+        "Description[ca]": "Envia via Telegram",
+        "Description[gl]": "Enviar por Telegram",
+        "Description[nl]": "Verzenden via Telegram",
+        "Description[pt]": "Enviar por Telegram",
+        "Description[sv]": "Skicka via Telegram",
+        "Description[uk]": "Надсилання за допомогою Telegram",
+        "Description[x-test]": "xxSend via Telegramxx",
         "Icon": "telegram",
         "License": "GPL",
-        "Name": "Send via Telegram..."
+        "Name": "Send via Telegram...",
+        "Name[ca]": "Envia via Telegram...",
+        "Name[gl]": "Enviar por Telegram…",
+        "Name[nl]": "Verzenden via Telegram...",
+        "Name[nn]": "Send via Telegram …",
+        "Name[pt]": "Enviar por Telegram...",
+        "Name[sv]": "Skicka via Telegram...",
+        "Name[uk]": "Надіслати за допомогою Telegram…",
+        "Name[x-test]": "xxSend via Telegram...xx"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],
