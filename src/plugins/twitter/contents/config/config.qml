@@ -49,7 +49,7 @@ ColumnLayout
         }
     }
 
-    Label { text: i18n("Account:") }
+    Label { text: i18nd("purpose_twitter", "Account:") }
     RowLayout {
         Layout.fillWidth: true
         ComboBox {
@@ -73,6 +73,6 @@ ColumnLayout
         id: tweet
         Layout.fillWidth: true
         Layout.fillHeight: true
-        placeholderText: i18n("What's happening?")
+        placeholderText: i18nd("purpose_twitter","What's happening?")
     }
 }

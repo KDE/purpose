@@ -27,7 +27,7 @@ ListView {
     Layout.fillHeight: true
 
     header: Label {
-        text: i18n("Choose a device to send to:")
+        text: i18nd("purpose_kdeconnect","Choose a device to send to:")
     }
     model: DevicesModel {
         id: connectDeviceModel
@@ -45,6 +45,6 @@ ListView {
         verticalAlignment: Qt.AlignVCenter
         horizontalAlignment: Qt.AlignHCenter
         visible: root.count === 0
-        text: i18n("No devices found")
+        text: i18nd("purpose_kdeconnect","No devices found")
     }
 }
