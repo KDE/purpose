@@ -32,7 +32,7 @@
         "Description[x-test]": "xxUpload patches to Phabricatorxx",
         "Description[zh_CN]": "将补丁上传到 Phabricator",
         "Description[zh_TW]": "上傳修補程式到 Phabricator",
-        "Icon": "Phabricator-purpose",
+        "Icon": "phabricator-purpose",
         "License": "GPL",
         "Name": "Phabricator",
         "Name[x-test]": "xxPhabricatorxx"
