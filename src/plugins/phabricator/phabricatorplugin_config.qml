@@ -34,7 +34,7 @@ ColumnLayout {
     function labelText()
     {
         if (updateDRCombo.currentIndex>=0 && updateOld.checked) {
-            return i18n("Update differential revision %1", updateDR)
+            return updateDR.length > 0 ? i18n("Update differential revision %1", updateDR) : i18n("Update differential revision")
         } else if (createNew.checked) {
             return i18n("Create new \"differential diff\"")
         } else {
@@ -122,7 +122,7 @@ ColumnLayout {
 
     Label {
         // use i18n().arg() to avoid showing the "%1" when inactive
-        text: i18n("Summary of the update to %1:").arg(updateDR)
+        text: updateDR != "unknown" && updateDR.length > 0 ? i18n("Summary of the update t %1:", updateDR) : i18n("Summary of the update")
         enabled: updateOld.checked
     }
 
