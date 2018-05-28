@@ -76,8 +76,7 @@ ColumnLayout {
             id: createNew
             exclusiveGroup: updateGroup
             text: i18n("New Diff")
-            tooltip: i18n("tick this to create a new \"differential diff\" which can\n" +
-                "be converted online to a new differential revision")
+            tooltip: i18n("tick this to create a new \"differential diff\" which can\nbe converted online to a new differential revision")
             onCheckedChanged: {
                 root.refreshUpdateDR();
             }
@@ -86,8 +85,7 @@ ColumnLayout {
             id: updateOld
             exclusiveGroup: updateGroup
             text: i18n("Update Diff")
-            tooltip: i18n("tick this to update an existing revision\n" +
-                "select one from the list below.")
+            tooltip: i18n("tick this to update an existing revision,\nselect one from the list below.")
             onCheckedChanged: {
                 root.refreshUpdateDR();
             }
@@ -122,7 +120,7 @@ ColumnLayout {
 
     Label {
         // use i18n().arg() to avoid showing the "%1" when inactive
-        text: updateDR != "unknown" && updateDR.length > 0 ? i18n("Summary of the update t %1:", updateDR) : i18n("Summary of the update")
+        text: updateDR != "unknown" && updateDR.length > 0 ? i18n("Summary of the update to %1:", updateDR) : i18n("Summary of the update")
         enabled: updateOld.checked
     }
 
