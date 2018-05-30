@@ -69,7 +69,7 @@
         "Name[zh_TW]": "傳送給聯絡人..."
     },
     "X-Purpose-Configuration": "",
-    "X-Purpose-Constraints": [],
+    "X-Purpose-Constraints": [ "exec:ktp-send-file" ],
     "X-Purpose-PluginTypes": [
         "Export"
     ]

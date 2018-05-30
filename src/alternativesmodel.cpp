@@ -78,9 +78,16 @@ static bool dbusMatch(const QString& constraint, const QJsonValue& value)
     return QDBusConnection::sessionBus().interface()->isServiceRegistered(constraint);
 }
 
+static bool executablePresent(const QString& constraint, const QJsonValue& value)
+{
+    Q_UNUSED(value)
+    return !QStandardPaths::findExecutable(constraint).isEmpty();
+}
+
 static QMap<QString, matchFunction> s_matchFunctions = {
     { QStringLiteral("mimeType"), mimeTypeMatch },
-    { QStringLiteral("dbus"), dbusMatch }
+    { QStringLiteral("dbus"), dbusMatch },
+    { QStringLiteral("exec"), executablePresent }
 };
 
 class Purpose::AlternativesModelPrivate
