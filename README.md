@@ -57,9 +57,19 @@ the end of the execution.
 
 In the plugin metadata we will define:
 * `X-Purpose-PluginTypes` defines the purposes tackled by the plugin
-* `X-Purpose-Constraints` defines some conditions under the plugin is useful, considering
-the provided inboundArguments. For example, the youtube export plugin will specify
-`mimeType:video/*` as a constraint, because it's not interested in uploading images.
+* `X-Purpose-Constraints` defines the conditions that make plugin is useful, given the
+inboundArguments. These are the currently supported constraints
+    * mimeType: for example `mimeType:video/*`. Useful to specify which kind of files
+    the plugin is interested in.
+    * exec: for example `exec:kate`. Can be used to show the plugin only if an executable is
+    present in the `$PATH` directories.
+    * application: for example `application:org.kde.okular.desktop`. Checks
+    that the specified file is present in the `$XDG_DATA_DIRS/applications`
+    directories of the system.
+    * dbus: for example `dbus:org.kde.kdeconnect`. Will only offer the plugin if
+    a certain dbus service is running on the system.
+    * `[]`: for example `['exec:bash', 'exec:zsh']`. an array of constraints
+    can be used to restrict to either of the conditions instead of all of them.
 * `X-Purpose-Configuration` provides a list of extra arguments that the plugin will need.
 Ideally everything should be in the plugin type but sometimes we can only wish. This allows
 the opportunity to the application to let the user add the missing data.
