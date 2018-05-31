@@ -23,6 +23,11 @@
 #include <QJsonArray>
 #include <QStandardPaths>
 #include <KPluginFactory>
+#include <KDesktopFile>
+#include <KConfigGroup>
+#include <KShell>
+#include <KLocalizedString>
+#include <QTimer>
 #include "debug.h"
 
 Q_LOGGING_CATEGORY(PLUGIN_TELEGRAM, "org.kde.purpose.plugin.telegram")
@@ -51,52 +56,42 @@ class TelegramJob : public Purpose::Job
 
         void start() override
         {
-            // Try executing via telegram-desktop command. If it fails, try again with flatpak commands.
-            // TODO Add snap command
-            tryClassic();
+            for (const QString &desktopFile: {QStringLiteral("org.telegram.desktop.desktop"), QStringLiteral("telegramdesktop.desktop") }) {
+                const auto path = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, desktopFile);
+                if (!path.isEmpty()) {
+                    useDesktopFile(path);
+                    return;
+                }
+            }
+
+            //Failed to find the application
+            QTimer::singleShot(0, this, [this]() {
+                setError(1);
+                setErrorText(i18n("Could not find telegram"));
+                setOutput( {{ QStringLiteral("url"), QString() }});
+                emitResult();
+            });
         }
 
-        void tryClassic()
+        void useDesktopFile(const QString &path)
         {
-            QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
-            QString classicCommand(QStringLiteral("telegram-desktop"));
-            QStringList classicArgs(QStringLiteral("-sendpath"));
-            classicArgs << arrayToList(urlsJson);
+            const KDesktopFile file(path);
+            const KConfigGroup desktopEntryGroup = file.group("Desktop Entry");
+            QString execLine = desktopEntryGroup.readEntry("Exec");
+            execLine.replace(QLatin1String("%u"), arrayToList(data().value(QStringLiteral("urls")).toArray()).join(QLatin1Char(' ')));
+            execLine.replace(QLatin1String("@@u"), QLatin1String("@@"));
+            execLine.replace(QLatin1String(" -- "), QLatin1String(" -sendpath "));
+
+            QStringList args = KShell::splitArgs(execLine);
 
             QProcess* process = new QProcess(this);
-            process->setProgram(classicCommand);
-            process->setArguments(classicArgs);
-            connect(process, &QProcess::errorOccurred, this, &TelegramJob::tryFlatpak);
-            connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &TelegramJob::jobFinishedClassic);
-            connect(process, &QProcess::readyRead, this, [process](){ qDebug() << "telegram-desktop output:" << process->readAll(); });
-
-            process->start();
-        }
-
-        void tryFlatpak()
-        {
-            QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
-            QString classicCommand(QStringLiteral("/usr/bin/flatpak"));
-            QStringList classicArgs(QStringLiteral("run"));
-            classicArgs << QStringLiteral("--file-forwarding") << QStringLiteral("org.telegram.desktop") << QStringLiteral("-sendpath")
-                        << QStringLiteral("@@") << arrayToList(urlsJson) << QStringLiteral("@@");
-
-            QProcess* process = new QProcess(this);
-            process->setProgram(classicCommand);
-            process->setArguments(classicArgs);
+            process->setProgram(args.takeFirst());
+            process->setArguments(args);
             connect(process, &QProcess::errorOccurred, this, &TelegramJob::processError);
             connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &TelegramJob::jobFinished);
-            connect(process, &QProcess::readyRead, this, [process](){ qDebug() << "telegram-desktop output:" << process->readAll(); });
+            connect(process, &QProcess::readyRead, this, [process](){ qDebug() << process->program() << "output:" << process->readAll(); });
 
             process->start();
-        }
-
-        void jobFinishedClassic(int code, QProcess::ExitStatus status)
-        {
-            if (status != QProcess::NormalExit) {
-                return;
-            }
-            jobFinished(code, status);
         }
 
         void processError(QProcess::ProcessError error)
