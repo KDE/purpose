@@ -84,9 +84,16 @@ static bool executablePresent(const QString& constraint, const QJsonValue& value
     return !QStandardPaths::findExecutable(constraint).isEmpty();
 }
 
+static bool desktopFilePresent(const QString& constraint, const QJsonValue& value)
+{
+    Q_UNUSED(value)
+    return !QStandardPaths::locate(QStandardPaths::ApplicationsLocation, constraint).isEmpty();
+}
+
 static QMap<QString, matchFunction> s_matchFunctions = {
     { QStringLiteral("mimeType"), mimeTypeMatch },
     { QStringLiteral("dbus"), dbusMatch },
+    { QStringLiteral("application"), desktopFilePresent },
     { QStringLiteral("exec"), executablePresent }
 };
 
