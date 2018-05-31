@@ -105,8 +105,10 @@ public:
     QString m_pluginType;
     QStringList m_disabledPlugins = s_defaultDisabledPlugins;
     QJsonObject m_pluginTypeData;
+    const QRegularExpression constraintRx { QStringLiteral("(\\w+):(.*)") };
 
-    bool isPluginAcceptable(const KPluginMetaData &meta, const QStringList &disabledPlugins) const {
+    bool isPluginAcceptable(const KPluginMetaData &meta, const QStringList &disabledPlugins) const
+    {
         const QJsonObject obj = meta.rawData();
         if(!obj.value(QStringLiteral("X-Purpose-PluginTypes")).toArray().contains(m_pluginType)) {
             qDebug() << "discarding" << meta.name() << meta.value(QStringLiteral("X-Purpose-PluginTypes"));
@@ -118,24 +120,40 @@ public:
             return false;
         }
 
+        //All constraints must match
         const QJsonArray constraints = obj.value(QStringLiteral("X-Purpose-Constraints")).toArray();
-        const QRegularExpression constraintRx(QStringLiteral("(\\w+):(.*)"));
         for(const QJsonValue& constraint: constraints) {
-            Q_ASSERT(constraintRx.isValid());
-            QRegularExpressionMatch match = constraintRx.match(constraint.toString());
-            if (!match.isValid() || !match.hasMatch()) {
-                qWarning() << "wrong constraint" << constraint.toString();
-                continue;
-            }
-            QString propertyName = match.captured(1);
-            QString constrainedValue = match.captured(2);
-            bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, m_inputData.value(propertyName));
-            if (!acceptable) {
-//                 qDebug() << "not accepted" << meta.name() << propertyName << constrainedValue << m_inputData[propertyName];
+            if (!constraintMatches(meta, constraint))
                 return false;
-            }
         }
         return true;
+    }
+
+    bool constraintMatches(const KPluginMetaData &meta, const QJsonValue &constraint) const
+    {
+        //Treat an array as an OR
+        if (constraint.isArray()) {
+            const QJsonArray options = constraint.toArray();
+            for (const auto &option: options) {
+                if (constraintMatches(meta, option)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        Q_ASSERT(constraintRx.isValid());
+        QRegularExpressionMatch match = constraintRx.match(constraint.toString());
+        if (!match.isValid() || !match.hasMatch()) {
+            qWarning() << "wrong constraint" << constraint.toString();
+            return false;
+        }
+        const QString propertyName = match.captured(1);
+        const QString constrainedValue = match.captured(2);
+        const bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, m_inputData.value(propertyName));
+        if (!acceptable) {
+//             qDebug() << "not accepted" << meta.name() << propertyName << constrainedValue << m_inputData[propertyName];
+        }
+        return acceptable;
     }
 };
 
