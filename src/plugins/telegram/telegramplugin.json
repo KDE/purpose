@@ -10,6 +10,7 @@
         "Description": "Send via Telegram",
         "Description[ca@valencia]": "Envia via Telegram",
         "Description[ca]": "Envia via Telegram",
+        "Description[cs]": "Poslat přes Telegram",
         "Description[de]": "Mit Telegram senden",
         "Description[es]": "Enviar por Telegram",
         "Description[gl]": "Enviar por Telegram",
@@ -25,6 +26,7 @@
         "Name": "Send via Telegram...",
         "Name[ca@valencia]": "Envia via Telegram...",
         "Name[ca]": "Envia via Telegram...",
+        "Name[cs]": "Poslat přes Telegram...",
         "Name[de]": "Mit Telegram senden ...",
         "Name[es]": "Enviar por Telegram...",
         "Name[gl]": "Enviar por Telegram…",
@@ -38,7 +40,12 @@
         "Name[zh_TW]": "透過 Telegram 傳送……"
     },
     "X-Purpose-Configuration": [],
-    "X-Purpose-Constraints": [ ["application:org.telegram.desktop.desktop", "application:telegramdesktop.desktop"] ],
+    "X-Purpose-Constraints": [
+        [
+            "application:org.telegram.desktop.desktop",
+            "application:telegramdesktop.desktop"
+        ]
+    ],
     "X-Purpose-PluginTypes": [
         "Export"
     ]
