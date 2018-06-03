@@ -276,6 +276,7 @@ QVariant AlternativesModel::data(const QModelIndex& index, int role) const
 static QVector<KPluginMetaData> findScriptedPackages(std::function<bool(const KPluginMetaData &)> filter)
 {
     QVector<KPluginMetaData> ret;
+    QSet<QString> addedPlugins;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kpackage/Purpose"), QStandardPaths::LocateDirectory);
     foreach(const QString &dir, dirs) {
         QDirIterator dirIt(dir, QDir::Dirs | QDir::NoDotAndDotDot);
@@ -287,7 +288,8 @@ static QVector<KPluginMetaData> findScriptedPackages(std::function<bool(const KP
                 continue;
 
             const KPluginMetaData info = Purpose::createMetaData(dir.absoluteFilePath(QStringLiteral("metadata.json")));
-            if (filter(info)) {
+            if (!addedPlugins.contains(info.pluginId()) && filter(info)) {
+                addedPlugins << info.pluginId();
                 ret += info;
             }
         }
@@ -319,7 +321,14 @@ void AlternativesModel::initializeModel()
     };
 
     beginResetModel();
-    d->m_plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/purpose"), pluginAcceptable);
+    const auto plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/purpose"));
+    QSet<QString> addedPlugins;
+    for (const auto &metaData : plugins) {
+        if (!addedPlugins.contains(metaData.pluginId()) && pluginAcceptable(metaData)) {
+            addedPlugins << metaData.pluginId();
+            d->m_plugins << metaData;
+        }
+    }
     d->m_plugins += findScriptedPackages(pluginAcceptable);
     endResetModel();
 }
