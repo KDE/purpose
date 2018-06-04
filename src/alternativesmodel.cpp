@@ -321,6 +321,7 @@ void AlternativesModel::initializeModel()
     };
 
     beginResetModel();
+    d->m_plugins.clear();
     const auto plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/purpose"));
     QSet<QString> addedPlugins;
     for (const auto &metaData : plugins) {
