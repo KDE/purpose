@@ -61,4 +61,4 @@ install(TARGETS purposeprocess DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5})
 add_subdirectory(plugins)
 add_subdirectory(quick)
 add_subdirectory(widgets)
-
+add_subdirectory(fileitemactionplugin)

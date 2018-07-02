@@ -1,0 +1,21 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Nicolas Fella",
+                "Name[x-test]": "xxNicolas Fellaxx"
+            }
+        ],
+        "MimeTypes": [
+            "application/octet-stream"
+        ],
+        "ServiceTypes": [
+            "KFileItemAction/Plugin"
+        ],
+        "Category": "Utilities",
+        "Description": "Share using Purpose",
+        "Icon": "document-share",
+        "License": "GPL",
+        "Name": "Share"
+    }
+}
