@@ -6,16 +6,16 @@
                 "Name[x-test]": "xxNicolas Fellaxx"
             }
         ],
-        "MimeTypes": [
-            "application/octet-stream"
-        ],
-        "ServiceTypes": [
-            "KFileItemAction/Plugin"
-        ],
         "Category": "Utilities",
         "Description": "Share using Purpose",
         "Icon": "document-share",
         "License": "GPL",
-        "Name": "Share"
+        "MimeTypes": [
+            "application/octet-stream"
+        ],
+        "Name": "Share",
+        "ServiceTypes": [
+            "KFileItemAction/Plugin"
+        ]
     }
 }
