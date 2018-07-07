@@ -1,0 +1,31 @@
+# Translation of purpose_twitter.po to Euskara/Basque (eu)
+# Copyright (C) 2018, Free Software Foundation, Inc.
+# This file is distributed under the same license as the frameworks package.
+# KDE euskaratzeko proiektuaren arduraduna <xalba@euskalnet.net>.
+#
+# Translators:
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose_twitter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2018-05-28 03:33+0200\n"
+"PO-Revision-Date: 2018-06-21 20:42+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"Language-Team: Basque <kde-i18n-doc@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: contents/config/config.qml:52
+#, kde-format
+msgid "Account:"
+msgstr "Kontua:"
+
+#: contents/config/config.qml:76
+#, kde-format
+msgid "What's happening?"
+msgstr "Zer ari da gertatzen?"
