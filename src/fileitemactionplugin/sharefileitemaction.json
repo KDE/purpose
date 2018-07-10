@@ -10,6 +10,7 @@
         "Description": "Share using Purpose",
         "Description[ca]": "Comparteix usant Purpose",
         "Description[es]": "Compartir usando «Purpose»",
+        "Description[fr]": "Partager en utilisant Purpose",
         "Description[it]": "Condividi usando Purpose",
         "Description[nl]": "Delen met gebruik van Purpose",
         "Description[nn]": "Del via Purpose",
@@ -17,6 +18,7 @@
         "Description[pt_BR]": "Compartilhar usando o Purpose",
         "Description[sv]": "Dela med användning av Purpose",
         "Description[x-test]": "xxShare using Purposexx",
+        "Description[zh_TW]": "使用 Purpose 分享",
         "Icon": "document-share",
         "License": "GPL",
         "MimeTypes": [
@@ -25,6 +27,7 @@
         "Name": "Share",
         "Name[ca]": "Comparteix",
         "Name[es]": "Compartir",
+        "Name[fr]": "Partager",
         "Name[it]": "Condivisione",
         "Name[nl]": "Delen",
         "Name[nn]": "Del",
@@ -32,6 +35,7 @@
         "Name[pt_BR]": "Compartilhar",
         "Name[sv]": "Dela",
         "Name[x-test]": "xxSharexx",
+        "Name[zh_TW]": "分享",
         "ServiceTypes": [
             "KFileItemAction/Plugin"
         ]
