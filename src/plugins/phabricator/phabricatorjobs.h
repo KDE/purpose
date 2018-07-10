@@ -113,6 +113,9 @@ namespace Phabricator
     {
         Q_OBJECT
         public:
+            enum Status { Accepted, NeedsReview, NeedsRevision };
+            Q_ENUM(Status)
+
             DiffRevList(const QString& projectDir, QObject* parent = nullptr);
             // return the open diff. revisions as a list of <diffID,diffDescription> pairs
             QList<QPair<QString,QString> > reviews() const
@@ -124,6 +127,11 @@ namespace Phabricator
             {
                 return m_revMap;
             }
+            // return the open diff. revision statuses as a map of diffDescription->Status entries
+            QHash<QString,Status> statusMap() const
+            {
+                return m_statusMap;
+            }
 
         private Q_SLOTS:
             void done(int exitCode, QProcess::ExitStatus exitStatus) override;
@@ -133,6 +141,7 @@ namespace Phabricator
         private:
             QList<QPair<QString,QString> > m_reviews;
             QHash<QString,QString> m_revMap;
+            QHash<QString,Status> m_statusMap;
             QString m_projectDir;
     };
 }

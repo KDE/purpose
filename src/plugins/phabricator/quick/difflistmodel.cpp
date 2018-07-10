@@ -21,6 +21,7 @@
 #include "phabricatorjobs.h"
 
 #include <QDir>
+#include <QBrush>
 #include <QTemporaryDir>
 #include <QDebug>
 
@@ -90,10 +91,12 @@ void DiffListModel::receivedDiffRevs(KJob* job)
         return;
     }
 
-    const auto revs = dynamic_cast<Phabricator::DiffRevList*>(job)->reviews();
+    const auto diffRevList = dynamic_cast<Phabricator::DiffRevList*>(job);
+    const auto revs = diffRevList->reviews();
     QVector<Value> tmpValues;
     foreach (const auto review, revs) {
-        tmpValues += Value { review.second, review.first };
+        auto status = diffRevList->statusMap()[review.second];
+        tmpValues += Value { review.second, review.first, status };
     }
     qSort(tmpValues.begin(), tmpValues.end());
 
@@ -116,6 +119,15 @@ void DiffListModel::receivedDiffRevs(KJob* job)
     }
 }
 
+QHash<int, QByteArray> DiffListModel::roleNames() const
+{
+    const QHash<int, QByteArray> roles = {
+        {Qt::DisplayRole, QByteArrayLiteral("display")},
+        {Qt::ToolTipRole, QByteArrayLiteral("toolTip")},
+        {Qt::TextColorRole, QByteArrayLiteral("textColor")} };
+    return roles;
+}
+
 QVariant DiffListModel::data(const QModelIndex &idx, int role) const
 {
     if (!idx.isValid() || idx.column() != 0 || idx.row() >= m_values.size()) {
@@ -127,6 +139,21 @@ QVariant DiffListModel::data(const QModelIndex &idx, int role) const
             return m_values[idx.row()].summary;
         case Qt::ToolTipRole:
             return m_values[idx.row()].id;
+        case Qt::TextColorRole:
+            // Use the colours arc also uses
+            QVariant ret;
+            switch (m_values[idx.row()].status.value<Phabricator::DiffRevList::Status>()) {
+                case Phabricator::DiffRevList::Accepted:
+                    // alternative: KColorScheme::ForegroundRole::PositiveText
+                    ret = QBrush(Qt::green);
+                case Phabricator::DiffRevList::NeedsReview:
+                    // alternative: KColorScheme::ForegroundRole::NeutralText
+                    ret = QBrush(Qt::magenta);
+                case Phabricator::DiffRevList::NeedsRevision:
+                    // alternative: KColorScheme::ForegroundRole::NegativeText
+                    ret = QBrush(Qt::red);
+            }
+            return ret;
     }
     return QVariant();
 }

@@ -23,6 +23,7 @@
 #include <QAbstractListModel>
 #include <QUrl>
 #include <QVector>
+#include <QHash>
 #include <QDebug>
 
 class KJob;
@@ -37,6 +38,7 @@ class DiffListModel : public QAbstractListModel
 
         void refresh();
 
+        QHash<int, QByteArray> roleNames() const override;
         QVariant data(const QModelIndex &idx, int role) const override;
         int rowCount(const QModelIndex & parent) const override;
 
@@ -51,6 +53,7 @@ class DiffListModel : public QAbstractListModel
         struct Value {
             QVariant summary;
             QVariant id;
+            QVariant status;
             inline bool operator<(const DiffListModel::Value &b) const
             {
                 return summary.toString().localeAwareCompare(b.summary.toString());
@@ -58,8 +61,8 @@ class DiffListModel : public QAbstractListModel
 #ifndef QT_NO_DEBUG_STREAM
             operator QString() const
             {
-                QString ret = QStringLiteral("DiffListModel::Value{summary=\"%1\" id=\"%2\"}");
-                return ret.arg(this->summary.toString()).arg(this->id.toString());
+                QString ret = QStringLiteral("DiffListModel::Value{summary=\"%1\" id=\"%2\" status=\"%3\"}");
+                return ret.arg(this->summary.toString()).arg(this->id.toString()).arg(this->status.toInt());
             }
 #endif
         };

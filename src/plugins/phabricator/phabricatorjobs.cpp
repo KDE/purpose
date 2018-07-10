@@ -251,10 +251,14 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
                 if (rev.startsWith(QStringLiteral("* Accepted "))) {
                     // append a Unicode "Heavy Check Mark" to signal accepted revisions
                     revTitle += QStringLiteral(" ") + QString(QChar(0x2714));
+                    m_statusMap[revTitle] = Accepted;
                 } else if (rev.startsWith(QStringLiteral("* Needs Revision "))) {
                     // append a Unicode "Heavy Ballot X" for lack of a Unicode glyph
                     // resembling the icon used on the Phab site.
                     revTitle += QStringLiteral(" ") + QString(QChar(0x2718));
+                    m_statusMap[revTitle] = NeedsRevision;
+                } else if (rev.startsWith(QStringLiteral("* Needs Review "))) {
+                    m_statusMap[revTitle] = NeedsReview;
                 }
                 m_reviews << qMakePair(revID, revTitle);
                 m_revMap[revTitle] = revID;
