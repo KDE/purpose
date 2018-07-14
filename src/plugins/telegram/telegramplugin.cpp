@@ -88,10 +88,10 @@ class TelegramJob : public Purpose::Job
             process->setProgram(args.takeFirst());
             process->setArguments(args);
             connect(process, &QProcess::errorOccurred, this, &TelegramJob::processError);
-            connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &TelegramJob::jobFinished);
             connect(process, &QProcess::readyRead, this, [process](){ qDebug() << process->program() << "output:" << process->readAll(); });
 
             process->start();
+            QTimer::singleShot(500, this, &TelegramJob::jobFinished);
         }
 
         void processError(QProcess::ProcessError error)
@@ -103,12 +103,8 @@ class TelegramJob : public Purpose::Job
             emitResult();
         }
 
-        void jobFinished(int code, QProcess::ExitStatus status)
+        void jobFinished()
         {
-            if (status != QProcess::NormalExit)
-                qWarning() << "Telegram not found or crashing";
-
-            setError(code);
             setOutput( {{ QStringLiteral("url"), QString() }});
             emitResult();
         }
