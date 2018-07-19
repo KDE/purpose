@@ -8,9 +8,23 @@
         ],
         "Category": "Utilities",
         "Description": "Send via Bluetooth",
+        "Description[ca@valencia]": "Envia per Bluetooth",
+        "Description[ca]": "Envia per Bluetooth",
+        "Description[es]": "Enviar por Bluetooth",
+        "Description[nl]": "Verzenden over bluetooth",
+        "Description[pt]": "Enviar por Bluetooth",
+        "Description[uk]": "Надсилання за допомогою Bluetooth",
+        "Description[x-test]": "xxSend via Bluetoothxx",
         "Icon": "preferences-system-bluetooth",
         "License": "GPL",
-        "Name": "Send via Bluetooth..."
+        "Name": "Send via Bluetooth...",
+        "Name[ca@valencia]": "Envia per Bluetooth...",
+        "Name[ca]": "Envia per Bluetooth...",
+        "Name[es]": "Enviar por Bluetooth...",
+        "Name[nl]": "Verzenden over bluetooth...",
+        "Name[pt]": "Enviar por Bluetooth...",
+        "Name[uk]": "Надіслати за допомогою Bluetooth…",
+        "Name[x-test]": "xxSend via Bluetooth...xx"
     },
     "X-Purpose-Configuration": [
         "device"
