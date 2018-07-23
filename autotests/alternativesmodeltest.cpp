@@ -71,7 +71,7 @@ void AlternativesModelTest::runJobTest()
     QSignalSpy s(job, &KJob::finished);
     QSignalSpy sOutput(job, &Purpose::Job::outputChanged);
     job->start();
-    QVERIFY(s.count() || s.wait());
+    QTRY_COMPARE(s.count(), 1);
     if (job->error()) {
         qWarning() << "error!" << job->error() << job->errorString() << job->errorText();
     }
@@ -106,7 +106,7 @@ void AlternativesModelTest::bigBufferTest()
     QSignalSpy s(job, &KJob::finished);
     QSignalSpy sOutput(job, &Purpose::Job::outputChanged);
     job->start();
-    QVERIFY(s.count() || s.wait());
+    QTRY_COMPARE(s.count(), 1);
     if (job->error()) {
         qWarning() << "error!" << job->error() << job->errorString() << job->errorText();
     }
