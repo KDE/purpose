@@ -21,6 +21,7 @@
 #include <QJsonArray>
 #include <QStandardPaths>
 #include <QSignalSpy>
+#include <QLoggingCategory>
 
 #include <KSharedConfig>
 #include <KConfigGroup>
@@ -82,6 +83,8 @@ void AlternativesModelTest::runJobTest()
 
 void AlternativesModelTest::bigBufferTest()
 {
+    QLoggingCategory::setFilterRules(QStringLiteral("kf5.kio.core.copyjob=false"));
+
     Purpose::AlternativesModel model;
 
     const QByteArray payload(1920*1080*4, 'x');
