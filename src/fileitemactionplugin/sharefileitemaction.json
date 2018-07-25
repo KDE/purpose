@@ -25,6 +25,7 @@
         "Description[sv]": "Dela med användning av Purpose",
         "Description[uk]": "Оприлюднити за допомогою Purpose",
         "Description[x-test]": "xxShare using Purposexx",
+        "Description[zh_CN]": "使用 Purpose 分享",
         "Description[zh_TW]": "使用 Purpose 分享",
         "Icon": "document-share",
         "License": "GPL",
@@ -50,6 +51,7 @@
         "Name[sv]": "Dela",
         "Name[uk]": "Оприлюднити",
         "Name[x-test]": "xxSharexx",
+        "Name[zh_CN]": "分享",
         "Name[zh_TW]": "分享",
         "ServiceTypes": [
             "KFileItemAction/Plugin"
