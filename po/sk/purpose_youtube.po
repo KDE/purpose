@@ -1,0 +1,51 @@
+# translation of purpose_youtube.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose_youtube\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2018-05-28 03:33+0200\n"
+"PO-Revision-Date: 2015-09-26 12:22+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: youtubejobcomposite.cpp:52
+#, kde-format
+msgid "No YouTube account configured in your accounts."
+msgstr "Nenašiel sa nastavený žiadny YouTube účet vo vašich účtoch."
+
+#: youtubeplugin_config.qml:41
+#, kde-format
+msgid "Account:"
+msgstr ""
+
+#: youtubeplugin_config.qml:63
+#, kde-format
+msgid "Title:"
+msgstr ""
+
+#: youtubeplugin_config.qml:67
+#, kde-format
+msgid "Enter a title for the video..."
+msgstr ""
+
+#: youtubeplugin_config.qml:70
+#, kde-format
+msgid "Tags:"
+msgstr ""
+
+#: youtubeplugin_config.qml:74
+#, kde-format
+msgid "KDE, Kamoso"
+msgstr ""
+
+#: youtubeplugin_config.qml:77
+#, kde-format
+msgid "Description:"
+msgstr ""
