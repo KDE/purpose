@@ -50,7 +50,7 @@ void AlternativesModelTest::runJobTest()
 {
     Purpose::AlternativesModel model;
 
-    const QString tempfile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/purposetest");
+    const QString tempfile = m_tempDir.path() + QStringLiteral("/purposetest");
     QFile::remove(tempfile);
     QJsonObject input = QJsonObject {
         {QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
@@ -90,7 +90,7 @@ void AlternativesModelTest::bigBufferTest()
     const QByteArray payload(1920*1080*4, 'x');
     const QString uri = QStringLiteral("data:text/plain;base64,") + QString::fromLatin1(payload.toBase64());
 
-    const QString tempfile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/purposetest");
+    const QString tempfile = m_tempDir.path() + QStringLiteral("/purposetest");
     QFile::remove(tempfile);
     const QJsonObject input = {
         {QStringLiteral("urls"), QJsonArray {uri} },

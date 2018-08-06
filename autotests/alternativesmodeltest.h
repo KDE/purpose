@@ -19,15 +19,18 @@
 #define ALTERNATIVESMODELTEST_H
 
 #include <QObject>
+#include <QTemporaryDir>
 
 class AlternativesModelTest : public QObject
 {
     Q_OBJECT
-    private Q_SLOTS:
+private Q_SLOTS:
         void runJobTest();
         void bigBufferTest();
         void disablePluginTest();
         void blacklistTest();
+private:
+    QTemporaryDir m_tempDir;
 };
 
 #endif
