@@ -83,7 +83,11 @@ void AlternativesModelTest::runJobTest()
 
 void AlternativesModelTest::bigBufferTest()
 {
-    QLoggingCategory::setFilterRules(QStringLiteral("kf5.kio.core.copyjob=false"));
+    if (qEnvironmentVariableIsSet("QT_LOGGING_RULES")) { // as is the case in CI
+        // CopyJob debug output is too noisy because of the huge data URL we're using here.
+        // The proper fix for this is pending: https://codereview.qt-project.org/236112
+        qputenv("QT_LOGGING_RULES", qgetenv("QT_LOGGING_RULES") + QByteArrayLiteral(";kf5.kio.core.copyjob.debug=false"));
+    }
 
     Purpose::AlternativesModel model;
 
