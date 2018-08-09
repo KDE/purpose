@@ -33,7 +33,7 @@
 
 QTEST_GUILESS_MAIN(AlternativesModelTest)
 
-int saveAsRow(Purpose::AlternativesModel* model)
+static int saveAsRow(Purpose::AlternativesModel* model)
 {
     for(int i=0, c=model->rowCount(); i<c; ++i) {
         QString pluginId = model->index(i).data(Purpose::AlternativesModel::PluginIdRole).toString();
@@ -44,6 +44,12 @@ int saveAsRow(Purpose::AlternativesModel* model)
 
     Q_ASSERT(!"Couldn't find the saveas plugin");
     return -1;
+}
+
+void AlternativesModelTest::initTestCase()
+{
+    // To avoid a runtime dependency on klauncher
+    qputenv("KDE_FORK_SLAVES", "yes");
 }
 
 void AlternativesModelTest::runJobTest()
