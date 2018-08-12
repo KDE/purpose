@@ -46,7 +46,7 @@ void MenuTest::runJobTest()
     Purpose::AlternativesModel* model = menu->model();
     model->setDisabledPlugins({});
 
-    const QString tempfile = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/purposetest");
+    const QString tempfile = m_tempDir.path() + QStringLiteral("/purposetest");
     QFile::remove(tempfile);
     const QJsonObject input = QJsonObject {
         { QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
