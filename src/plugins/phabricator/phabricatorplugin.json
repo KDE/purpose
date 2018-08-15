@@ -22,6 +22,7 @@
         "Description[hu]": "Patchek feltöltése a Phabricatorra",
         "Description[id]": "Unggah tambalan ke Phabricator",
         "Description[it]": "Carica patch su Phabricator",
+        "Description[ko]": "Phabricator에 패치 업로드",
         "Description[nl]": "Patches uploaden naar Phabricator",
         "Description[nn]": "Last opp patch-filer til Phabricator",
         "Description[pl]": "Wyślij łatę na Phabricator",

@@ -23,6 +23,7 @@
         "Description[hu]": "Média megosztása Twitteren.",
         "Description[id]": "Media berbagi pada Twitter.",
         "Description[it]": "Condividi contenuto su Twitter.",
+        "Description[ko]": "트위터로 미디어를 공유합니다.",
         "Description[nl]": "Deelt media op Twitter.",
         "Description[nn]": "Del mediefil på Twitter.",
         "Description[pl]": "Udostępnia multimedia na Twitterze.",
@@ -39,6 +40,7 @@
         "Id": "twitterplugin",
         "License": "GPL",
         "Name": "Twitter",
+        "Name[ko]": "트위터",
         "Name[x-test]": "xxTwitterxx"
     },
     "X-Purpose-Configuration": [
