@@ -8,6 +8,7 @@
         ],
         "Category": "Utilities",
         "Description": "Shares media on Twitter.",
+        "Description[ar]": "شارِك الوسائط على «تويتر».",
         "Description[ast]": "Comparte medios en Twitter.",
         "Description[ca@valencia]": "Comparteix fitxers multimèdia al Twitter.",
         "Description[ca]": "Comparteix fitxers multimèdia al Twitter.",
@@ -40,6 +41,7 @@
         "Id": "twitterplugin",
         "License": "GPL",
         "Name": "Twitter",
+        "Name[ar]": "تويتر",
         "Name[ko]": "트위터",
         "Name[x-test]": "xxTwitterxx"
     },
