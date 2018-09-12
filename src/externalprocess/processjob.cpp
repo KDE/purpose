@@ -17,6 +17,7 @@
 
 #include "processjob.h"
 #include "cmake-paths.h"
+#include "purpose_external_process_debug.h"
 #include <QLibrary>
 #include <KRandom>
 #include <QMetaMethod>
@@ -48,7 +49,7 @@ ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, con
     m_process->setProcessChannelMode(QProcess::ForwardedChannels);
 
     connect(static_cast<QProcess *>(m_process), &QProcess::errorOccurred, this, [](QProcess::ProcessError error) {
-        qWarning() << "error!" << error;
+        qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "error!" << error;
     } );
     connect(static_cast<QProcess *>(m_process), &QProcess::stateChanged, this, &ProcessJob::processStateChanged);
 
@@ -88,7 +89,7 @@ void ProcessJob::readSocket()
 
         const QJsonObject object = QJsonDocument::fromJson(json, &error).object();
         if (error.error != QJsonParseError::NoError) {
-            qWarning() << "error!" << error.errorString() << json;
+            qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "error!" << error.errorString() << json;
             continue;
         }
 
@@ -115,7 +116,7 @@ void ProcessJob::start()
         QStringLiteral("--pluginPath"), m_pluginPath
     });
 
-    qDebug() << "launching..." << m_process->program() << m_process->arguments().join(QLatin1Char(' ')).constData();
+    qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "launching..." << m_process->program() << m_process->arguments().join(QLatin1Char(' ')).constData();
 
     m_process->start();
 }
@@ -125,7 +126,7 @@ void Purpose::ProcessJob::processStateChanged(QProcess::ProcessState state)
     if (state == QProcess::NotRunning) {
         Q_ASSERT(m_process->exitCode()!=0 || m_localSocket);
         if (m_process->exitCode()!=0) {
-            qWarning() << "process exited with code:" << m_process->exitCode();
+            qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "process exited with code:" << m_process->exitCode();
         }
 
         do {

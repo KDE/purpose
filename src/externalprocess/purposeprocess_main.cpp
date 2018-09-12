@@ -25,6 +25,7 @@
 #include <QLocalSocket>
 
 #include "helper.h"
+#include "purpose_external_process_debug.h"
 #include <purpose/configuration.h>
 #include <purpose/job.h>
 
@@ -88,7 +89,7 @@ public:
 
 private Q_SLOTS:
     void error() {
-        qWarning() << "socket error:" << m_socket.error();
+        qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "socket error:" << m_socket.error();
     }
 
     void propertyChanged() {
@@ -116,7 +117,7 @@ private Q_SLOTS:
 private:
     void send(const QJsonObject &object) {
         const QByteArray data = QJsonDocument(object).toJson(QJsonDocument::Compact) + '\n';
-//         qDebug() << "sending..." << data;
+//         qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "sending..." << data;
         m_socket.write(data);
     }
 
