@@ -98,7 +98,7 @@ void DiffListModel::receivedDiffRevs(KJob* job)
         auto status = diffRevList->statusMap()[review.second];
         tmpValues += Value { review.second, review.first, status };
     }
-    qSort(tmpValues.begin(), tmpValues.end());
+    std::sort(tmpValues.begin(), tmpValues.end());
 
     beginResetModel();
     m_values.clear();
