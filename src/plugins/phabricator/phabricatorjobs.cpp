@@ -35,7 +35,7 @@
 
 #include <KLocalizedString>
 
-#define COLOURCODES "\u001B\[[0-9]*m"
+#define COLOURCODES "\u001B[[0-9]*m"
 
 using namespace Phabricator;
 
