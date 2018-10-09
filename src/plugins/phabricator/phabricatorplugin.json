@@ -29,6 +29,7 @@
         "Description[pl]": "Wyślij łatę na Phabricator",
         "Description[pt]": "Enviar as modificações para o Phabricator",
         "Description[pt_BR]": "Envia correções para o Phabricator",
+        "Description[ru]": "Отправка патчей в Phabricator",
         "Description[sk]": "Nahrať záplaty na Phabricator",
         "Description[sv]": "Ladda upp programfixar till Phabricator",
         "Description[tr]": "Yamaları Phabricator'e yükle",
