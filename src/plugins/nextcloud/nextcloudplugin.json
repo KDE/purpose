@@ -9,7 +9,6 @@
         "Category": "Utilities",
         "Description": "Upload files to Nextcloud",
         "Description[ar]": "ارفع الملفات على «نِكست‌كلاود»",
-        "Description[ast]": "Xube ficheros a Nextcloud",
         "Description[ca@valencia]": "Puja els fitxers al Nextcloud",
         "Description[ca]": "Puja els fitxers al Nextcloud",
         "Description[cs]": "Odeslat soubory do Nextcloudu",
@@ -40,7 +39,6 @@
         "License": "GPL",
         "Name": "NextCloud",
         "Name[ar]": "نِكست‌كلاود",
-        "Name[ast]": "Nextcloud",
         "Name[ru]": "Nextcloud",
         "Name[sv]": "Nextcloud",
         "Name[x-test]": "xxNextCloudxx"

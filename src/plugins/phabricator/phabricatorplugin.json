@@ -9,7 +9,6 @@
         "Category": "Utilities",
         "Description": "Upload patches to Phabricator",
         "Description[ar]": "ارفع الرُقع على «فابريكيتور»",
-        "Description[ast]": "Unvia parches a Phabricator",
         "Description[ca@valencia]": "Puja els pedaços al Phabricator",
         "Description[ca]": "Puja els pedaços al Phabricator",
         "Description[cs]": "Odeslat soubory do Phabricatoru",
