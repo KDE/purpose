@@ -24,6 +24,8 @@ ApplicationWindow
 {
     id: window
 
+    flags: Qt.Dialog
+
     width: 200
     height: 200
 
