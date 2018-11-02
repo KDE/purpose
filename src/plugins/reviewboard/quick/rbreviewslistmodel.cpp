@@ -51,7 +51,6 @@ void ReviewsListModel::receivedReviews(KJob* job)
         return;
     }
 
-    QMultiHash<QString, Value> reviews;
     QVariantList revs = dynamic_cast<ReviewBoard::ReviewListRequest*>(job)->reviews();
     beginResetModel();
     m_values.clear();
