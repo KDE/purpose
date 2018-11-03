@@ -275,9 +275,9 @@ void ProjectsListRequest::done(KJob* job)
     // TODO error
     // TODO max iterations
     HttpCall* repositoriesCall = qobject_cast<HttpCall*>(job);
-    QMap<QString, QVariant> resultMap = repositoriesCall->result().toMap();
-    const int totalResults = repositoriesCall->result().toMap()[QStringLiteral("total_results")].toInt();
-    m_repositories << repositoriesCall->result().toMap()[QStringLiteral("repositories")].toList();
+    const QMap<QString, QVariant> resultMap = repositoriesCall->result().toMap();
+    const int totalResults = resultMap[QStringLiteral("total_results")].toInt();
+    m_repositories << resultMap[QStringLiteral("repositories")].toList();
 
     if (m_repositories.count() < totalResults) {
         requestRepositoryList(m_repositories.count());
