@@ -17,7 +17,7 @@
 
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.2
+import QtQuick.Controls 2.2
 import org.kde.purpose 1.0
 
 ColumnLayout {
@@ -44,7 +44,7 @@ ColumnLayout {
     ProgressBar {
         //FIXME: this is not really working yet, as QML doesn't understand ulong
         value: root.job.percent
-        maximumValue: 100
+        to: 100
         Layout.fillWidth: true
     }
     Item {
