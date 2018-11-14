@@ -16,7 +16,7 @@
 */
 
 import QtQuick 2.2
-import QtQuick.Controls 1.2
+import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 import org.kde.purpose 1.0
 
@@ -44,19 +44,14 @@ ApplicationWindow
         if (configuration.isReady) {
             startJob()
         } else {
-            view.push({
-                item: configWizardComponent
-            })
+            view.push(configWizardComponent)
         }
     }
 
     function startJob() {
         var job = window.configuration.createJob();
         job.start()
-        view.push({
-            item: runningJobComponent,
-            properties: { job: job }
-        })
+        view.push(runningJobComponent, { job: job })
     }
 
     StackView {
@@ -71,16 +66,16 @@ ApplicationWindow
 
     Component {
         id: configWizardComponent
-        ColumnLayout {
+        Page {
             PurposeWizard {
                 id: wiz
                 configuration: window.configuration
                 focus: true
 
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+                anchors.fill: parent
             }
-            RowLayout {
+
+            footer: RowLayout {
                 Button {
                     text: i18n("Run")
                     enabled: window.configuration && window.configuration.isReady
@@ -94,6 +89,9 @@ ApplicationWindow
                     onClicked: {
                         window.visible = false;
                     }
+                }
+                Item {
+                    Layout.fillWidth: true
                 }
             }
         }
