@@ -35,14 +35,14 @@ DiffListModel::DiffListModel(QObject* parent)
 
 void DiffListModel::refresh()
 {
-    beginResetModel();
-    m_values.clear();
-    endResetModel();
-
     if (m_tempDir) {
         qCritical() << "DiffListModel::refresh() called while still active!";
         return;
     }
+
+    beginResetModel();
+    m_values.clear();
+    endResetModel();
 
     // our CWD should be the directory from which the application was launched, which
     // may or may not be a git, mercurial or svn working copy, so we create a temporary
