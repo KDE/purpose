@@ -18,7 +18,6 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
-import QtQuick.Window 2.9
 import org.kde.purpose 1.0
 
 ApplicationWindow
