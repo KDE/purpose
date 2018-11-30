@@ -22,6 +22,7 @@
 #include <QStandardPaths>
 #include <QUrl>
 #include <QDebug>
+#include <QMimeDatabase>
 
 #include <purposewidgets/menu.h>
 #include <purpose/alternativesmodel.h>
@@ -33,10 +34,22 @@ int main(int argc, char** argv)
     QScopedPointer<Purpose::Menu> menu(new Purpose::Menu);
     Purpose::AlternativesModel* model = menu->model();
 
-    const QJsonObject input = QJsonObject {
-        { QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
-        { QStringLiteral("mimeType"), QStringLiteral("dummy/thing") }
-    };
+    QJsonObject input;
+    if (!app.arguments().isEmpty()) {
+        QMimeDatabase mime;
+        QUrl url = QUrl::fromUserInput(app.arguments().last());
+        input = QJsonObject {
+            { QStringLiteral("urls"), QJsonArray {url.toString()} },
+            { QStringLiteral("mimeType"), mime.mimeTypeForUrl(url).name() }
+        };
+    } else {
+        input = QJsonObject {
+            { QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
+            { QStringLiteral("mimeType"), QStringLiteral("dummy/thing") }
+        };
+    }
+    qDebug() << "sharing..." << input;
+
     model->setInputData(input);
     model->setPluginType(QStringLiteral("Export"));
     menu->reload();
