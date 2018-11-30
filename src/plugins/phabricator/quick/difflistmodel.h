@@ -54,10 +54,6 @@ class DiffListModel : public QAbstractListModel
             QVariant summary;
             QVariant id;
             QVariant status;
-            inline bool operator<(const DiffListModel::Value &b) const
-            {
-                return summary.toString().localeAwareCompare(b.summary.toString());
-            }
 #ifndef QT_NO_DEBUG_STREAM
             operator QString() const
             {

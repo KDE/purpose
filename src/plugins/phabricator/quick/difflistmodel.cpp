@@ -93,17 +93,12 @@ void DiffListModel::receivedDiffRevs(KJob* job)
 
     const auto diffRevList = dynamic_cast<Phabricator::DiffRevList*>(job);
     const auto revs = diffRevList->reviews();
-    QVector<Value> tmpValues;
-    foreach (const auto review, revs) {
-        auto status = diffRevList->statusMap()[review.second];
-        tmpValues += Value { review.second, review.first, status };
-    }
-    std::sort(tmpValues.begin(), tmpValues.end());
 
     beginResetModel();
     m_values.clear();
-    foreach (const auto value, tmpValues) {
-        m_values += value;
+    for (const auto review : revs) {
+        auto status = diffRevList->statusMap()[review.second];
+        m_values += Value { review.second, review.first, status };
     }
     endResetModel();
 
