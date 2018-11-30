@@ -18,6 +18,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
+import QtQuick.Window 2.9
 import org.kde.purpose 1.0
 
 ApplicationWindow
@@ -26,8 +27,8 @@ ApplicationWindow
 
     flags: Qt.Dialog
 
-    width: 200
-    height: 200
+    width: Math.max(screen.width/3, 200)
+    height: Math.max(screen.height/2, 300)
 
     property bool finished: false
     property var configuration
