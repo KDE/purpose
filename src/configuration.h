@@ -68,6 +68,16 @@ Q_PROPERTY(QJsonArray neededArguments READ neededArguments CONSTANT)
  * @sa PurposeWizard QtQuick component
  */
 Q_PROPERTY(QUrl configSourceCode READ configSourceCode CONSTANT)
+
+/**
+ * @returns the plugin type name to display
+ */
+Q_PROPERTY(QString pluginTypeName READ pluginTypeName CONSTANT)
+
+/**
+ * @returns the plugin name to display
+ */
+Q_PROPERTY(QString pluginName READ pluginName CONSTANT)
 public:
     Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const QJsonObject &pluginType, const KPluginMetaData &pluginInformation, QObject* parent = nullptr);
     Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const KPluginMetaData &pluginInformation, QObject* parent = nullptr);
@@ -100,6 +110,10 @@ public:
      * checking isReady().
      */
     Q_SCRIPTABLE Purpose::Job* createJob();
+
+    QString pluginName() const;
+
+    QString pluginTypeName() const;
 
 Q_SIGNALS:
     void dataChanged();

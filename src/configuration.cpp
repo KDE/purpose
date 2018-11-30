@@ -186,3 +186,16 @@ void Configuration::setUseSeparateProcess(bool use)
     Q_D(Configuration);
     d->m_useSeparateProcess = use;
 }
+
+QString Configuration::pluginTypeName() const
+{
+    Q_D(const Configuration);
+    KPluginMetaData md(d->m_pluginType, {});
+    return md.name();
+}
+
+QString Configuration::pluginName() const
+{
+    Q_D(const Configuration);
+    return d->m_pluginData.name();
+}

@@ -15,7 +15,7 @@
  License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import QtQuick 2.2
+import QtQuick 2.4
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 import QtQuick.Window 2.9
@@ -68,6 +68,17 @@ ApplicationWindow
     Component {
         id: configWizardComponent
         Page {
+            header: Label {
+                TextMetrics {
+                    id: fontMetrics
+                }
+                font.weight: Font.Light
+                font.styleName: "Light"
+                font.pointSize: fontMetrics.font.pointSize * 2
+                elide: Text.ElideRight
+                maximumLineCount: 1
+                text: i18n("%1 - %2", window.configuration.pluginName, window.configuration.pluginTypeName)
+            }
             PurposeWizard {
                 id: wiz
                 configuration: window.configuration
