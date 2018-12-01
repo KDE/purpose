@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Icon": "document-share",
+        "Name": "Share..."
+    },
+    "X-Purpose-InboundArguments": [
+        "urls"
+    ],
+    "X-Purpose-OutboundArguments": [
+    ]
+}
+

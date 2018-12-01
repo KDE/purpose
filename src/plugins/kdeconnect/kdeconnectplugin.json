@@ -109,6 +109,7 @@
         "dbus:org.kde.kdeconnect"
     ],
     "X-Purpose-PluginTypes": [
-        "Export"
+        "Export",
+        "ShareUrl"
     ]
 }
