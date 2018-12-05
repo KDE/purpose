@@ -6,7 +6,5 @@
     "X-Purpose-InboundArguments": [
         "urls"
     ],
-    "X-Purpose-OutboundArguments": [
-    ]
+    "X-Purpose-OutboundArguments": []
 }
-
