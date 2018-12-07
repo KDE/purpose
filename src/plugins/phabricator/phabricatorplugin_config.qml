@@ -30,6 +30,8 @@ ColumnLayout {
     // This is a workaround for installs where the result dialog doesn't always appear
     // or doesn't always show the revision URL.
     property alias doBrowse: doBrowseCheck.checked
+    property variant urls
+    property variant mimeType
 
     function labelText()
     {
