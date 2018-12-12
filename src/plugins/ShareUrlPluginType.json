@@ -11,10 +11,12 @@
         "Name[it]": "Condividi...",
         "Name[nl]": "Delen...",
         "Name[pt]": "Partilhar...",
+        "Name[pt_BR]": "Compartilhar...",
         "Name[ru]": "Поделиться...",
         "Name[sv]": "Dela...",
         "Name[uk]": "Оприлюднити…",
         "Name[x-test]": "xxShare...xx",
+        "Name[zh_CN]": "分享...",
         "Name[zh_TW]": "分享…"
     },
     "X-Purpose-InboundArguments": [
