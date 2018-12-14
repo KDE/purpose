@@ -81,21 +81,6 @@ class PhabricatorJob : public Purpose::Job
 
         KJob* job;
         if (!updateDR.isEmpty()) {
-            // KDevelop could set an appropriate initial/default updateComment:
-//             diff --git plugins/patchreview/patchreviewtoolview.cpp plugins/patchreview/patchreviewtoolview.cpp
-//             index c088414..f59367f 100644
-//             --- plugins/patchreview/patchreviewtoolview.cpp
-//             +++ plugins/patchreview/patchreviewtoolview.cpp
-//             @@ -135,7 +135,8 @@ void PatchReviewToolView::patchChanged() {
-//                      m_exportMenu->model()->setInputData(QJsonObject {
-//                          { QStringLiteral("urls"), QJsonArray { p->file().toString() } },
-//                          { QStringLiteral("mimeType"), { QStringLiteral("text/x-patch") } },
-//             -            { QStringLiteral("localBaseDir"), { p->baseDir().toString() } }
-//             +            { QStringLiteral("localBaseDir"), { p->baseDir().toString() } },
-//             +            { QStringLiteral("updateComment"), { QStringLiteral("patch updated through KDevelop's patchreview plugin") } }
-//                      });
-//                  }
-//              #endif
             const QString updateComment = data().value(QStringLiteral("updateComment")).toString();
             job=new Phabricator::UpdateDiffRev(sourceFile, baseDir, updateDR, updateComment, doBrowse, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffUpdated);
