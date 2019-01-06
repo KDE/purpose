@@ -1,0 +1,134 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Wantoyo <wantoyek@gmail.com>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2018-12-15 03:07+0100\n"
+"PO-Revision-Date: 2018-06-30 08:18+0700\n"
+"Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
+"Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: phabricatorjobs.cpp:83 phabricatorjobs.cpp:226
+#, kde-format
+msgid "Could not find the 'arc' command"
+msgstr "Tidak dapat menemukan perintah 'arc'"
+
+#: phabricatorjobs.cpp:142
+#, kde-format
+msgid "Could not create the new \"differential diff\""
+msgstr "Tidak bisa menciptakan \"diferensial diff\" baru"
+
+#: phabricatorjobs.cpp:183
+#, kde-format
+msgid "Patch upload to Phabricator failed"
+msgstr "Unggahan tambalan ke Phabricator gagal"
+
+#: phabricatorjobs.cpp:237
+#, kde-format
+msgid "Could not get list of differential revisions in %1"
+msgstr "Tidak bisa mendapatkan daftar revisi diferensial %1"
+
+#: phabricatorplugin.cpp:66
+#, kde-format
+msgid "Phabricator refuses empty patchfiles"
+msgstr "Phabricator menampik patchfiles kosong"
+
+#: phabricatorplugin.cpp:71 phabricatorplugin_config.qml:66
+#, kde-format
+msgid "unknown"
+msgstr "Tak diketahui"
+
+#: phabricatorplugin.cpp:73
+#, kde-format
+msgid ""
+"Please choose between creating a new revision or updating an existing one"
+msgstr ""
+"Silakan pilih antara membuat revisi baru atau memperbarui salah satu yang ada"
+
+#: phabricatorplugin.cpp:92
+#, kde-format
+msgid "Please note"
+msgstr "Silakan catat"
+
+#: phabricatorplugin.cpp:93
+#, kde-format
+msgid "Remember to complete the differential revision online!"
+msgstr "Ingat untuk menyelesaikan revisi diferensial online!"
+
+#: phabricatorplugin_config.qml:39
+#, kde-format
+msgid "Update differential revision %1"
+msgstr "Update revisi diferensial %1"
+
+#: phabricatorplugin_config.qml:39
+#, kde-format
+msgid "Update differential revision"
+msgstr "Update revisi diferensial"
+
+#: phabricatorplugin_config.qml:41
+#, kde-format
+msgid "Create new \"differential diff\""
+msgstr "Ciptakan \"diferensial diff\" baru"
+
+#: phabricatorplugin_config.qml:43
+#, kde-format
+msgid "Create or update?"
+msgstr "Ciptakan atau perbarui"
+
+#: phabricatorplugin_config.qml:80
+#, kde-format
+msgid "New Diff"
+msgstr "Diff Baru"
+
+#: phabricatorplugin_config.qml:81
+#, kde-format
+msgid ""
+"tick this to create a new \"differential diff\" which can\n"
+"be converted online to a new differential revision"
+msgstr ""
+"tutul ini untuk menciptakan ''diferensial diff'' baru yang bisa\n"
+"dikonversi online ke revisi diferensial baru"
+
+#: phabricatorplugin_config.qml:89
+#, kde-format
+msgid "Update Diff"
+msgstr "Update Diff"
+
+#: phabricatorplugin_config.qml:90
+#, kde-format
+msgid ""
+"tick this to update an existing revision,\n"
+"select one from the list below."
+msgstr ""
+"tutul ini untuk mengupdate sebuah revisi yang ada,\n"
+"pilih salah satu dari daftar di bawah."
+
+#: phabricatorplugin_config.qml:118
+#, kde-format
+msgid "Open Diff in browser"
+msgstr "Buka Diff di browser"
+
+#. i18n().arg() to avoid showing the "%1" when inactive
+#: phabricatorplugin_config.qml:125
+#, kde-format
+msgid "Summary of the update to %1:"
+msgstr "Ringkasan updatenya %1:"
+
+#: phabricatorplugin_config.qml:125
+#, kde-format
+msgid "Summary of the update"
+msgstr "Ringkasan update"
+
+#: phabricatorplugin_config.qml:133
+#, kde-format
+msgid "patch updated through %1 and the Purpose/Phabricator plugin"
+msgstr "tambalan diupdate melalui %1 dan plugin Purpose/Phabricpatchator "
