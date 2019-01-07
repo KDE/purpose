@@ -37,7 +37,7 @@ public:
     }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(NextcloudShare, "nextcloudplugin.json", registerPlugin<NextcloudPlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(NextcloudPlugin, "nextcloudplugin.json")
 
 EXPORT_SHARE_VERSION
 

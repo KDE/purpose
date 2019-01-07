@@ -123,6 +123,6 @@ class Q_DECL_EXPORT ReviewBoardPlugin : public Purpose::PluginBase
         }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(ReviewBoardPluginFactory, "reviewboardplugin.json", registerPlugin<ReviewBoardPlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(ReviewBoardPlugin, "reviewboardplugin.json")
 
 #include "reviewboardplugin.moc"

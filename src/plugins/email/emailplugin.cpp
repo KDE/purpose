@@ -138,6 +138,6 @@ public:
     }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(Email, "emailplugin.json", registerPlugin<EmailPlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(EmailPlugin, "emailplugin.json")
 
 #include "emailplugin.moc"

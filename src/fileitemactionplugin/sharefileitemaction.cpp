@@ -36,7 +36,7 @@
 #include "menu.h"
 #include "alternativesmodel.h"
 
-K_PLUGIN_FACTORY_WITH_JSON(ShareFileItemActionFactory, "sharefileitemaction.json", registerPlugin<ShareFileItemAction>();)
+K_PLUGIN_CLASS_WITH_JSON(ShareFileItemAction, "sharefileitemaction.json")
 
 Q_LOGGING_CATEGORY(PURPOSE_FILEITEMACTION, "purpose.fileitemaction")
 

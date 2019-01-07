@@ -90,6 +90,6 @@ class Q_DECL_EXPORT KDEConnectPlugin : public Purpose::PluginBase
         }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(KDEConnect, "kdeconnectplugin.json", registerPlugin<KDEConnectPlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(KDEConnectPlugin, "kdeconnectplugin.json")
 
 #include "kdeconnectplugin.moc"

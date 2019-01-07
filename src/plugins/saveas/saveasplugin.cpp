@@ -122,6 +122,6 @@ class Q_DECL_EXPORT SaveAsPlugin : public Purpose::PluginBase
         }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(SaveAsShare, "saveasplugin.json", registerPlugin<SaveAsPlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(SaveAsPlugin, "saveasplugin.json")
 
 #include "saveasplugin.moc"

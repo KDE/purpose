@@ -82,6 +82,6 @@ class Q_DECL_EXPORT KTpSendFilePlugin : public Purpose::PluginBase
         }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(KTpSendFileShare, "ktpsendfileplugin.json", registerPlugin<KTpSendFilePlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(KTpSendFilePlugin, "ktpsendfileplugin.json")
 
 #include "ktpsendfileplugin.moc"

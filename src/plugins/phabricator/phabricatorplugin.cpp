@@ -148,6 +148,6 @@ class Q_DECL_EXPORT PhabricatorPlugin : public Purpose::PluginBase
         }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(PhabricatorPluginFactory, "phabricatorplugin.json", registerPlugin<PhabricatorPlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(PhabricatorPlugin, "phabricatorplugin.json")
 
 #include "phabricatorplugin.moc"

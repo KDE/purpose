@@ -38,7 +38,7 @@ public:
     }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(YoutubeShare, "youtubeplugin.json", registerPlugin<YoutubePlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(YoutubePlugin, "youtubeplugin.json")
 
 EXPORT_SHARE_VERSION
 

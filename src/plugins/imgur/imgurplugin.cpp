@@ -172,6 +172,6 @@ class Q_DECL_EXPORT ImgurPlugin : public Purpose::PluginBase
         }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(ImgurShare, "imgurplugin.json", registerPlugin<ImgurPlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(ImgurPlugin, "imgurplugin.json">)
 
 #include "imgurplugin.moc"

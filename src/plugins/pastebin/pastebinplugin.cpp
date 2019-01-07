@@ -133,6 +133,6 @@ class Q_DECL_EXPORT PastebinPlugin : public Purpose::PluginBase
         }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(Pastebin, "pastebinplugin.json", registerPlugin<PastebinPlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(PastebinPlugin, "pastebinplugin.json")
 
 #include "pastebinplugin.moc"
