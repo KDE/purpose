@@ -1,0 +1,35 @@
+# Translation of libpurpose_widgets to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2018, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2018-12-01 03:10+0100\n"
+"PO-Revision-Date: 2019-01-05 14:06+0100\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.03.70\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: JobDialog.qml:79
+#, kde-format
+msgid "%1 - %2"
+msgstr "%1 – %2"
+
+#: JobDialog.qml:91
+#, kde-format
+msgid "Run"
+msgstr "Køyr"
+
+#: JobDialog.qml:99
+#, kde-format
+msgid "Cancel"
+msgstr "Avbryt"
