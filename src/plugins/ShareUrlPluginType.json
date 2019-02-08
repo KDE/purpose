@@ -26,7 +26,8 @@
         "Name[zh_TW]": "分享…"
     },
     "X-Purpose-InboundArguments": [
-        "urls"
+        "urls",
+        "title"
     ],
     "X-Purpose-OutboundArguments": []
 }

@@ -84,7 +84,13 @@ public:
 
         QUrlQuery query;
         for (const auto &att : urls) {
-            query.addQueryItem(QStringLiteral("attachment"), att.toString());
+            QUrl url(att.toString());
+            if (url.isLocalFile()) {
+                query.addQueryItem(QStringLiteral("attachment"), att.toString());
+            } else {
+                query.addQueryItem(QStringLiteral("body"), att.toString());
+                query.addQueryItem(QStringLiteral("subject"), data().value(QStringLiteral("title")).toString());
+            }
         }
         QUrl url;
         url.setScheme(QStringLiteral("mailto"));
@@ -108,11 +114,20 @@ public:
 
         const auto urls = data().value(QStringLiteral("urls")).toArray();
         QStringList attachments;
+        QStringList args = QStringList{ QStringLiteral("-compose")};
+        QString message;
         for (const auto &att : urls) {
-            attachments.push_back(att.toString());
+            QUrl url(att.toString());
+            if (url.isLocalFile()) {
+                attachments.push_back(att.toString());
+            } else {
+                message += QStringLiteral("body='%1',subject='%2',").arg(url.toString()).arg(data().value(QStringLiteral("title")).toString());
+            }
         }
-        const auto args = QStringList{ QStringLiteral("-compose"),
-                                       QStringLiteral("attachment='%1'").arg(attachments.join(QStringLiteral(","))) };
+
+        message +=(QStringLiteral("attachment='%1'").arg(attachments.join(QStringLiteral(","))));
+        args.append(message);
+
         if (!QProcess::startDetached(tb, args)) {
             setError(KJob::UserDefinedError);
             setErrorText(i18n("Failed to launch email client"));
