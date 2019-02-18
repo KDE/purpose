@@ -28,10 +28,12 @@
 #include <QUrl>
 #include <QIcon>
 #include <QJsonArray>
+#include <QDesktopServices>
 
 #include <KPluginFactory>
 #include <KPluginLoader>
 #include <KLocalizedString>
+#include <KNotification>
 
 #include "menu.h"
 #include "alternativesmodel.h"
@@ -47,6 +49,16 @@ ShareFileItemAction::ShareFileItemAction(QObject* parent, const QVariantList& )
     m_menu->setTitle(i18n("Share"));
     m_menu->setIcon(QIcon::fromTheme(QStringLiteral("document-share")));
     m_menu->model()->setPluginType(QStringLiteral("Export"));
+
+    QObject::connect(m_menu, &Purpose::Menu::finished, [](const QJsonObject &output, int error, const QString &errorMessage) {
+        if (error == 0) {
+            if (output.contains(QLatin1String("url")))
+                QDesktopServices::openUrl(QUrl(output.value(QLatin1String("url")).toString()));
+        } else {
+            KNotification::event(KNotification::Error, i18n("Error sharing"), errorMessage);
+            qWarning() << "job failed with error" << error << errorMessage << output;
+        }
+    });
 }
 
 QList<QAction*> ShareFileItemAction::actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget)

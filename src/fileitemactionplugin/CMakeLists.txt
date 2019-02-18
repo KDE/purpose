@@ -1,4 +1,9 @@
-find_package(KF5 REQUIRED COMPONENTS KIO)
+find_package(KF5KIO COMPONENTS)
+find_package(KF5Notifications COMPONENTS)
+if (NOT KF5KIO_FOUND OR NOT KF5Notifications_FOUND)
+    return()
+endif()
+
 
 add_definitions(-DTRANSLATION_DOMAIN="purpose-fileitemaction")
 include_directories(${CMAKE_SOURCE_DIR})
@@ -14,5 +19,6 @@ kcoreaddons_add_plugin(sharefileitemaction
 target_link_libraries(sharefileitemaction
     KF5::KIOWidgets
     KF5::I18n
+    KF5::Notifications
     KF5PurposeWidgets
 )

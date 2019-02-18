@@ -46,7 +46,16 @@ public:
     void reload();
 
 Q_SIGNALS:
-    void finished(const QJsonObject &output, int error, const QString &message);
+    /**
+     * Emitted when a triggered job finishes
+     *
+     * @p output contains the information offered by the plugin. The information offered will depend on the plugin type.
+     * @p error will be 0 if the execution was successful, otherwise it will provide an error message
+     * @p errorMessage the error message
+     *
+     * @see Purpose::Job
+     */
+    void finished(const QJsonObject &output, int error, const QString &errorMessage);
 
 private:
     Q_DECLARE_PRIVATE(Menu)
