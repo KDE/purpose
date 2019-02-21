@@ -48,7 +48,7 @@ class TelegramJob : public Purpose::Job
             foreach(const QJsonValue& val, array) {
                 QUrl url(val.toString());
                 if(url.isLocalFile()) {
-                    ret += url.toLocalFile();
+                    ret += KShell::quoteArg(url.toLocalFile());
                 }
             }
             return ret;
