@@ -58,7 +58,7 @@ class PastebinJob : public Purpose::Job
             m_pendingJobs = 0;
             foreach(const QJsonValue &val, urls) {
                 QString u = val.toString();
-                KIO::StoredTransferJob* job = KIO::storedGet(QUrl(u));
+                KIO::StoredTransferJob* job = KIO::storedGet(QUrl(u), KIO::NoReload, KIO::HideProgressInfo);
                 connect(job, &KJob::finished, this, &PastebinJob::fileFetched);
                 m_pendingJobs++;
             }
