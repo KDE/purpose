@@ -33,6 +33,16 @@ ApplicationWindow
         Layout.minimumWidth: 200
         Layout.minimumHeight: 200
 
+        header: Label {
+            text: {
+                var ret = "Sharing "
+                const urls = window.inputData.urls
+                for (var u in urls)
+                    ret += urls[u] + " ";
+                return ret;
+            }
+        }
+
         pluginType: "Export"
         onFinished: {
             if (error != 0) {
