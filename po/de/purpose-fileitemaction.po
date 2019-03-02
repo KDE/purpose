@@ -1,0 +1,28 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the purpose package.
+#
+# Burkhard Lück <lueck@hube-lueck.de>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2019-02-22 03:07+0100\n"
+"PO-Revision-Date: 2018-10-09 13:08+0100\n"
+"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: sharefileitemaction.cpp:49
+#, kde-format
+msgid "Share"
+msgstr "Freigeben"
+
+#: sharefileitemaction.cpp:58
+#, kde-format
+msgid "Error sharing"
+msgstr ""
