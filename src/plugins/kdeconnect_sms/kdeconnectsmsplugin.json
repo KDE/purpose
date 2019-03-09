@@ -1,0 +1,22 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Nicolas Fella"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Send SMS via KDE Connect",
+        "Icon": "kdeconnect",
+        "License": "GPL",
+        "Name": "Send SMS via KDE Connect..."
+    },
+    "X-Purpose-Configuration": [
+    ],
+    "X-Purpose-Constraints": [
+        "application:org.kde.kdeconnect.sms.desktop"
+    ],
+    "X-Purpose-PluginTypes": [
+        "ShareUrl"
+    ]
+}
