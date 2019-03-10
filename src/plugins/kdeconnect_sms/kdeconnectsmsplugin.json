@@ -2,7 +2,35 @@
     "KPlugin": {
         "Authors": [
             {
-                "Name": "Nicolas Fella"
+                "Name": "Nicolas Fella",
+                "Name[ar]": "Nicolas Fella",
+                "Name[ca@valencia]": "Nicolas Fella",
+                "Name[ca]": "Nicolas Fella",
+                "Name[cs]": "Nicolas Fella",
+                "Name[da]": "Nicolas Fella",
+                "Name[de]": "Nicolas Fella",
+                "Name[en_GB]": "Nicolas Fella",
+                "Name[es]": "Nicolas Fella",
+                "Name[eu]": "Nicolas Fella",
+                "Name[fi]": "Nicolas Fella",
+                "Name[fr]": "Nicolas Fella",
+                "Name[gl]": "Nicolas Fella",
+                "Name[hu]": "Nicolas Fella",
+                "Name[id]": "Nicolas Fella",
+                "Name[it]": "Nicolas Fella",
+                "Name[ko]": "Nicolas Fella",
+                "Name[nl]": "Nicolas Fella",
+                "Name[nn]": "Nicolas Fella",
+                "Name[pl]": "Nicolas Fella",
+                "Name[pt]": "Nicolas Fella",
+                "Name[pt_BR]": "Nicolas Fella",
+                "Name[ru]": "Nicolas Fella",
+                "Name[sk]": "Nicolas Fella",
+                "Name[sv]": "Nicolas Fella",
+                "Name[uk]": "Nicolas Fella",
+                "Name[x-test]": "xxNicolas Fellaxx",
+                "Name[zh_CN]": "Nicolas Fella",
+                "Name[zh_TW]": "Nicolas Fella"
             }
         ],
         "Category": "Utilities",
@@ -11,8 +39,7 @@
         "License": "GPL",
         "Name": "Send SMS via KDE Connect..."
     },
-    "X-Purpose-Configuration": [
-    ],
+    "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         "application:org.kde.kdeconnect.sms.desktop"
     ],
