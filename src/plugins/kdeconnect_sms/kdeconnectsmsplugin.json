@@ -35,9 +35,21 @@
         ],
         "Category": "Utilities",
         "Description": "Send SMS via KDE Connect",
+        "Description[ca@valencia]": "Envia un SMS a través del KDE Connect",
+        "Description[ca]": "Envia un SMS a través del KDE Connect",
+        "Description[es]": "Enviar SMS a través de KDE Connect",
+        "Description[sv]": "Skicka SMS via KDE-anslut",
+        "Description[uk]": "Надсилання SMS за допомогою KDE Connect",
+        "Description[x-test]": "xxSend SMS via KDE Connectxx",
         "Icon": "kdeconnect",
         "License": "GPL",
-        "Name": "Send SMS via KDE Connect..."
+        "Name": "Send SMS via KDE Connect...",
+        "Name[ca@valencia]": "Envia un SMS a través del KDE Connect...",
+        "Name[ca]": "Envia un SMS a través del KDE Connect...",
+        "Name[es]": "Enviar SMS a través de KDE Connect...",
+        "Name[sv]": "Skicka SMS via KDE-anslut...",
+        "Name[uk]": "Надіслати SMS за допомогою KDE Connect…",
+        "Name[x-test]": "xxSend SMS via KDE Connect...xx"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
