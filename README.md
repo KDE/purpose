@@ -126,7 +126,7 @@ It will require some extra work when it comes to implementing the feedback
 process with the main process but it allows to run plugins in any imaginable
 technologies.
 
-The file structure for these plugins is the one of defined by [KPackage](http://api.kde.org/frameworks-api/frameworks5-apidocs/kpackage/html/index.html)
+The file structure for these plugins is the one of defined by [KPackage](https://api.kde.org/frameworks-api/frameworks5-apidocs/kpackage/html/index.html)
 which allows to package and distributethe plugins in an archive.
 
 To that end, we will need to provide:
