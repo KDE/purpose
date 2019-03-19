@@ -45,7 +45,7 @@
         "Description[en_GB]": "Upload patches to Phabricator",
         "Description[es]": "Enviar parches a Phabricator",
         "Description[eu]": "Igo partxeak Phabricator-rera",
-        "Description[fi]": "Lähetä paikkauksia Phabricatoriin",
+        "Description[fi]": "Lähetä Phabricatoriin paikkauksia",
         "Description[fr]": "Envoyer des correctifs vers Phabricator",
         "Description[gl]": "Enviar parches a Phabricator.",
         "Description[hu]": "Patchek feltöltése a Phabricatorra",
