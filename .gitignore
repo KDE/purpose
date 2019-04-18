@@ -13,6 +13,7 @@ build
 massif.out.*
 callgrind.out.*
 .*kate-swp
+CMakeLists.txt.user
 
 # from kdiff3
 *.BACKUP.*
