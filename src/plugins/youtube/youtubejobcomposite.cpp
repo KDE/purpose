@@ -72,7 +72,7 @@ void YoutubeJobComposite::start()
 
     m_pendingJobs = 0;
     const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
-    foreach(const QJsonValue& url, urls) {
+    for (const QJsonValue& url : urls) {
         YoutubeJob* job = new YoutubeJob(QUrl(url.toString()),
                                          accessToken,
                                          data().value(QStringLiteral("videoTitle")).toString(),

@@ -38,7 +38,7 @@ class KTpSendFileShareJob : public Purpose::Job
         QStringList arrayToList(const QJsonArray& array)
         {
             QStringList ret;
-            foreach(const QJsonValue& val, array) {
+            for (const QJsonValue& val : array) {
                 ret += val.toString();
             }
             return ret;

@@ -30,7 +30,8 @@ QTEST_MAIN(MenuTest)
 
 QAction* saveAsAction(Purpose::Menu* menu)
 {
-    foreach(QAction* action, menu->actions()) {
+    const auto actions = menu->actions();
+    for (QAction* action : actions) {
         if (action->property("pluginId") == QLatin1String("saveasplugin")) {
             return action;
         }

@@ -53,7 +53,7 @@ class SaveAsShareJob : public Purpose::Job
 
         void start() override
         {
-            QJsonArray inputUrls = data().value(QStringLiteral("urls")).toArray();
+            const QJsonArray inputUrls = data().value(QStringLiteral("urls")).toArray();
 
             if (inputUrls.isEmpty()) {
                 setErrorText(i18n("No URLs to save"));
@@ -64,7 +64,7 @@ class SaveAsShareJob : public Purpose::Job
 
             QList<QUrl> urls;
             bool containsData = false;
-            foreach(const QJsonValue &val, inputUrls) {
+            for (const QJsonValue &val : inputUrls) {
                 urls.append(QUrl(val.toString()));
                 containsData |= urls.last().scheme() == QLatin1String("data");
             }

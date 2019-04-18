@@ -76,7 +76,8 @@ void RepositoriesModel::receivedProjects(KJob *job)
 
     beginResetModel();
     m_values.clear();
-    foreach(const QVariant& repo, pl->repositories()) {
+    const auto repositories = pl->repositories();
+    for (const QVariant& repo : repositories) {
         const QVariantMap repoMap = repo.toMap();
         m_values += Value { repoMap[QStringLiteral("name")], repoMap[QStringLiteral("path")] };
     }

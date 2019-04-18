@@ -45,7 +45,7 @@ class TelegramJob : public Purpose::Job
         QStringList arrayToList(const QJsonArray& array)
         {
             QStringList ret;
-            foreach(const QJsonValue& val, array) {
+            for (const QJsonValue& val : array) {
                 QUrl url(val.toString());
                 if(url.isLocalFile()) {
                     ret += KShell::quoteArg(url.toLocalFile());

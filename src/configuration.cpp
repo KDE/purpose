@@ -121,7 +121,8 @@ bool Configuration::isReady() const
 {
     Q_D(const Configuration);
     bool ok = true;
-    Q_FOREACH(const QJsonValue& arg, neededArguments()) {
+    const auto arguments = neededArguments();
+    for (const QJsonValue& arg : arguments) {
         if(!d->m_inputData.contains(arg.toString())) {
             qDebug() << "missing mandatory argument" << arg.toString();
             ok = false;
@@ -134,8 +135,8 @@ QJsonArray Configuration::neededArguments() const
 {
     Q_D(const Configuration);
     QJsonArray ret = d->m_pluginType.value(QStringLiteral("X-Purpose-InboundArguments")).toArray();
-    QJsonArray arr = d->m_pluginData.rawData().value(QStringLiteral("X-Purpose-Configuration")).toArray();
-    Q_FOREACH(const QJsonValue &val, arr)
+    const QJsonArray arr = d->m_pluginData.rawData().value(QStringLiteral("X-Purpose-Configuration")).toArray();
+    for (const QJsonValue &val : arr)
         ret += val;
     return ret;
 }

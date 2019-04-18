@@ -73,7 +73,8 @@ int main(int argc, char *argv[])
                 qCritical() << "Error getting diffList:" << diffList.errorString() << ";" << diffList.error();
             } else {
                 qWarning() << "Open differential revisions:" << diffList.reviewMap();
-                foreach (const auto rev, diffList.reviews()) {
+                const auto reviews = diffList.reviews();
+                for (const auto &rev : reviews) {
                     qWarning() << rev;
                 }
             }

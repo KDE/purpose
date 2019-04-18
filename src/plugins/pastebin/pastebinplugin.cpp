@@ -47,7 +47,7 @@ class PastebinJob : public Purpose::Job
 
         void start() override
         {
-            QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
+            const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
 
             if (urls.isEmpty()) {
                 qWarning() << "no urls to share" << urls << data();
@@ -56,7 +56,7 @@ class PastebinJob : public Purpose::Job
             }
 
             m_pendingJobs = 0;
-            foreach(const QJsonValue &val, urls) {
+            for (const QJsonValue &val : urls) {
                 QString u = val.toString();
                 KIO::StoredTransferJob* job = KIO::storedGet(QUrl(u), KIO::NoReload, KIO::HideProgressInfo);
                 connect(job, &KJob::finished, this, &PastebinJob::fileFetched);

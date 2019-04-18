@@ -34,7 +34,7 @@ class BluetoothJob : public Purpose::Job
         QStringList arrayToList(const QJsonArray& array)
         {
             QStringList ret;
-            foreach(const QJsonValue& val, array) {
+            for (const QJsonValue& val : array) {
                 QUrl url(val.toString());
                 if(url.isLocalFile()) {
                     ret += url.toLocalFile();

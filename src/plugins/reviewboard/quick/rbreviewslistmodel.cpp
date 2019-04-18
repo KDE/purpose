@@ -51,10 +51,10 @@ void ReviewsListModel::receivedReviews(KJob* job)
         return;
     }
 
-    QVariantList revs = dynamic_cast<ReviewBoard::ReviewListRequest*>(job)->reviews();
+    const QVariantList revs = dynamic_cast<ReviewBoard::ReviewListRequest*>(job)->reviews();
     beginResetModel();
     m_values.clear();
-    foreach(const QVariant& review, revs) {
+    for (const QVariant& review : revs) {
         QVariantMap reviewMap = review.toMap();
         QVariantMap repoMap = reviewMap[QStringLiteral("links")].toMap()[QStringLiteral("repository")].toMap();
         if (repoMap[QStringLiteral("title")].toString() == m_repository) {

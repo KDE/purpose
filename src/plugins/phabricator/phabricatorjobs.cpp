@@ -240,9 +240,9 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
             << m_arcCmd.error() << ";" << errorString();
     } else {
         setPercent(99);
-        QStringList reviews = scrubbedResultList();
+        const QStringList reviews = scrubbedResultList();
         qCDebug(PLUGIN_PHABRICATOR) << "arc list returned:" << reviews;
-        foreach (auto rev, reviews) {
+        for (auto rev : reviews) {
             QRegExp revIDExpr(QString::fromUtf8(" D[0-9][0-9]*: "));
             int idStart = rev.indexOf(revIDExpr);
             if (idStart >= 0) {

@@ -75,7 +75,7 @@ int main(int argc, char** argv)
     if (!files.isEmpty() && (!inputData.contains(QStringLiteral("urls")) || !inputData.contains(QStringLiteral("mimeType"))))
     {
         QMimeDatabase db;
-        Q_FOREACH(const QString& file, files) {
+        for (const QString& file : qAsConst(files)) {
             const QUrl url = QUrl::fromUserInput(file, QString(), QUrl::AssumeLocalFile);
             QMimeType type = db.mimeTypeForUrl(url);
             if (!common.isValid())

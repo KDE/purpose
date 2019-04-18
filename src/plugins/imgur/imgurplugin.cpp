@@ -105,7 +105,7 @@ class ImgurShareJob : public Purpose::Job
         {
             Q_EMIT infoMessage(this, i18n("Uploading files to imgur..."));
             const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
-            foreach(const QJsonValue &val, urls) {
+            for (const QJsonValue &val : urls) {
                 QString u = val.toString();
                 KIO::StoredTransferJob* job = KIO::storedGet(QUrl(u));
                 connect(job, &KJob::finished, this, &ImgurShareJob::fileFetched);

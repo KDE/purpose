@@ -40,7 +40,8 @@ void NextcloudJob::start()
         emitResult();
         return;
     }
-    Q_FOREACH(const Accounts::Service &service, acc->services()) {
+    const auto services = acc->services();
+    for (const Accounts::Service &service : services) {
         if (service.name() == QStringLiteral("nextcloud-upload")) {
             acc->selectService(service);
         }
@@ -62,7 +63,7 @@ void NextcloudJob::checkTargetFolder(KJob* j)
     if (responseString.contains(QStringLiteral("<d:collection xmlns:d=\"DAV:\"/>"))) {
         const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
 
-        foreach(const QJsonValue& url, urls) {
+        for (const QJsonValue& url : urls) {
             // before uploading, we try to avoid overwrite by checking for existing file on nextcloud
             QUrl local = QUrl(url.toString());
             QUrl uploadTarget = m_davUrl;

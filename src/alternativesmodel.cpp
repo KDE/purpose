@@ -52,7 +52,8 @@ static bool defaultMatch(const QString& constraint, const QJsonValue& value)
 static bool mimeTypeMatch(const QString& constraint, const QJsonValue& value)
 {
     if(value.isArray()) {
-        foreach(const QJsonValue& val, value.toArray()) {
+        const auto array = value.toArray();
+        for (const QJsonValue& val : array) {
             if (mimeTypeMatch(constraint, val))
                 return true;
         }
@@ -278,7 +279,7 @@ static QVector<KPluginMetaData> findScriptedPackages(std::function<bool(const KP
     QVector<KPluginMetaData> ret;
     QSet<QString> addedPlugins;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kpackage/Purpose"), QStandardPaths::LocateDirectory);
-    foreach(const QString &dir, dirs) {
+    for (const QString &dir : dirs) {
         QDirIterator dirIt(dir, QDir::Dirs | QDir::NoDotAndDotDot);
 
         for(; dirIt.hasNext(); ) {
@@ -306,7 +307,7 @@ void AlternativesModel::initializeModel()
     }
 
     const QJsonArray inbound = d->m_pluginTypeData.value(QStringLiteral("X-Purpose-InboundArguments")).toArray();
-    foreach(const QJsonValue& arg, inbound) {
+    for (const QJsonValue& arg : inbound) {
         if(!d->m_inputData.contains(arg.toString())) {
             qWarning() << "Cannot initialize model with data" << d->m_inputData << ". missing:" << arg;
             return;

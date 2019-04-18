@@ -58,7 +58,7 @@ static const QByteArray m_boundary = "----------" + KRandom::randomString( 42 + 
 QByteArray multipartFormData(const QList<QPair<QString, QVariant> >& values)
 {
     QByteArray form_data;
-    foreach(const auto& val, values)
+    for (const auto& val : values)
     {
         QByteArray hstr("--");
         hstr += m_boundary;
