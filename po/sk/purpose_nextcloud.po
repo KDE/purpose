@@ -1,0 +1,32 @@
+# translation of purpose_nextcloud.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2017.
+# Mthw <jari_45@hotmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose_nextcloud\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2019-04-19 03:25+0200\n"
+"PO-Revision-Date: 2019-01-28 12:12+0100\n"
+"Last-Translator: Mthw <jari_45@hotmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 18.12.1\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: nextcloudjob.cpp:81
+#, kde-format
+msgid "Invalid folder!"
+msgstr "Neplatný priečinok!"
+
+#: nextcloudplugin_config.qml:49
+#, kde-format
+msgid "Account:"
+msgstr "Konto:"
+
+#: nextcloudplugin_config.qml:70
+#, kde-format
+msgid "Upload to folder:"
+msgstr "Odoslať do priečinka:"

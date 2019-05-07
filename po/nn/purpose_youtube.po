@@ -1,0 +1,55 @@
+# Translation of purpose_youtube to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2018-08-16 09:06+0200\n"
+"PO-Revision-Date: 2018-05-28 22:23+0100\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: youtubejobcomposite.cpp:52
+#, kde-format
+msgid "No YouTube account configured in your accounts."
+msgstr "Du har ikkje sett opp nokon YouTube-konto i kontooppsettet."
+
+#: youtubeplugin_config.qml:41
+#, kde-format
+msgid "Account:"
+msgstr "Konto:"
+
+#: youtubeplugin_config.qml:63
+#, kde-format
+msgid "Title:"
+msgstr "Tittel:"
+
+#: youtubeplugin_config.qml:67
+#, kde-format
+msgid "Enter a title for the video..."
+msgstr "Skriv inn ein tittel til videoen …"
+
+#: youtubeplugin_config.qml:70
+#, kde-format
+msgid "Tags:"
+msgstr "Merkelappar:"
+
+#: youtubeplugin_config.qml:74
+#, kde-format
+msgid "KDE, Kamoso"
+msgstr "KDE, Kamoso"
+
+#: youtubeplugin_config.qml:77
+#, kde-format
+msgid "Description:"
+msgstr "Skildring:"
