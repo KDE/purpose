@@ -55,11 +55,12 @@ int main(int argc, char** argv)
     menu->reload();
     menu->exec();
 
-    QObject::connect(menu.data(), &Purpose::Menu::finished, menu.data(), [](const QJsonObject &output, int error, const QString &errorMessage) {
+    QObject::connect(menu.data(), &Purpose::Menu::finished, menu.data(), [&app](const QJsonObject &output, int error, const QString &errorMessage) {
         if (error != 0) {
             qDebug() << "job failed with error" << errorMessage;
         }
         qDebug() << "output:" << output;
+        app.quit();
     });
 
     return app.exec();
