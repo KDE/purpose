@@ -98,6 +98,7 @@ ApplicationWindow
                 Button {
                     text: i18n("Cancel")
                     onClicked: {
+                        window.q.finished(null, 1, i18n("Configuration cancelled"));
                         window.visible = false;
                     }
                 }
