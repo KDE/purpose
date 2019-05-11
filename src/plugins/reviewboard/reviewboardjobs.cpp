@@ -219,7 +219,7 @@ SubmitPatchRequest::SubmitPatchRequest(const QUrl& server, const QUrl& patch, co
 {
     QList<QPair<QString, QVariant> > vals;
     vals += QPair<QString, QVariant>(QStringLiteral("basedir"), m_basedir);
-    vals += QPair<QString, QVariant>(QStringLiteral("path"), qVariantFromValue<QUrl>(m_patch));
+    vals += QPair<QString, QVariant>(QStringLiteral("path"), QVariant::fromValue<QUrl>(m_patch));
 
     m_uploadpatch = new HttpCall(this->server(), QStringLiteral("/api/review-requests/")+requestId()+QStringLiteral("/diffs/"), {}, HttpCall::Post, multipartFormData(vals), true, this);
     connect(m_uploadpatch, &HttpCall::finished, this, &SubmitPatchRequest::done);
