@@ -38,6 +38,10 @@ ApplicationWindow
     minimumHeight: view.Layout.minimumHeight
     minimumWidth: view.Layout.minimumWidth
 
+    onClosing: {
+        q.finished(null, 1, i18n("Configuration cancelled"));
+    }
+
     function adoptJob() {
         if (configuration == null)
             return;
