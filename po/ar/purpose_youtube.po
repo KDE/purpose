@@ -1,0 +1,54 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:59+0200\n"
+"PO-Revision-Date: 2018-06-10 18:11+0300\n"
+"Last-Translator: Safa Alfulaij <safa1996alfulaij@gmail.com>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: youtubejobcomposite.cpp:52
+#, kde-format
+msgid "No YouTube account configured in your accounts."
+msgstr "لم يُضبط أي حساب «يوتيوب» في حساباتك."
+
+#: youtubeplugin_config.qml:41
+#, kde-format
+msgid "Account:"
+msgstr "الحساب:"
+
+#: youtubeplugin_config.qml:63
+#, kde-format
+msgid "Title:"
+msgstr "العنوان:"
+
+#: youtubeplugin_config.qml:67
+#, kde-format
+msgid "Enter a title for the video..."
+msgstr "أدخِل عنوانًا للفديو…"
+
+#: youtubeplugin_config.qml:70
+#, kde-format
+msgid "Tags:"
+msgstr "الوسوم:"
+
+#: youtubeplugin_config.qml:74
+#, kde-format
+msgid "KDE, Kamoso"
+msgstr "كدي، بلازما"
+
+#: youtubeplugin_config.qml:77
+#, kde-format
+msgid "Description:"
+msgstr "الوصف:"
