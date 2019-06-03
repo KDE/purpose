@@ -136,21 +136,21 @@ QVariant DiffListModel::data(const QModelIndex &idx, int role) const
             return m_values[idx.row()].id;
         case Qt::TextColorRole:
             // Use the colours arc also uses
-            QVariant ret;
             switch (m_values[idx.row()].status.value<Phabricator::DiffRevList::Status>()) {
                 case Phabricator::DiffRevList::Accepted:
                     // alternative: KColorScheme::ForegroundRole::PositiveText
-                    ret = QBrush(Qt::green);
+                    return QBrush(Qt::green);
                 case Phabricator::DiffRevList::NeedsReview:
                     // alternative: KColorScheme::ForegroundRole::NeutralText
-                    ret = QBrush(Qt::magenta);
+                    return  QBrush(Qt::magenta);
                 case Phabricator::DiffRevList::NeedsRevision:
                     // alternative: KColorScheme::ForegroundRole::NegativeText
-                    ret = QBrush(Qt::red);
+                    return QBrush(Qt::red);
+                default:
+                    return {};
             }
-            return ret;
     }
-    return QVariant();
+    return {};
 }
 
 int DiffListModel::rowCount(const QModelIndex & parent) const
