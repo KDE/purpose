@@ -125,7 +125,7 @@ public:
             }
         }
 
-        message +=(QStringLiteral("attachment='%1'").arg(attachments.join(QStringLiteral(","))));
+        message +=(QStringLiteral("attachment='%1'").arg(attachments.join(QLatin1Char(','))));
         args.append(message);
 
         if (!QProcess::startDetached(tb, args)) {
