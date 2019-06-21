@@ -15,37 +15,59 @@
  License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import QtQuick 2.1
+import QtQuick 2.7
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.5
+import org.kde.kirigami 2.5 as Kirigami
 import org.kde.kdeconnect 1.0
 
-ListView {
+ColumnLayout {
+
     id: root
     property string device: ""
-    Layout.fillWidth: true
-    Layout.fillHeight: true
 
-    header: Label {
-        text: i18nd("purpose_kdeconnect","Choose a device to send to:")
-    }
-    model: DevicesModel {
-        id: connectDeviceModel
-        displayFilter: DevicesModel.Paired | DevicesModel.Reachable
-    }
-    delegate: ItemDelegate {
-        width: parent.width
-        text: model.display
-        onClicked: root.device = deviceId
-        checked: root.device === deviceId
-        highlighted: root.device === deviceId
+    anchors.fill: parent
+    anchors.bottomMargin: Kirigami.Units.smallSpacing
+
+    Kirigami.Heading {
+        text: i18nd("purpose_kdeconnect", "Choose a device to send to:")
+        visible: root.count !== 0
+        level: 1
     }
 
-    Label {
-        anchors.fill: parent
-        verticalAlignment: Qt.AlignVCenter
-        horizontalAlignment: Qt.AlignHCenter
-        visible: root.count === 0
-        text: i18nd("purpose_kdeconnect","No devices found")
+    ScrollView {
+        id: scroll
+
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+
+        Component.onCompleted: scroll.background.visible = true
+
+        ListView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            model: DevicesModel {
+                id: connectDeviceModel
+                displayFilter: DevicesModel.Paired | DevicesModel.Reachable
+            }
+
+            delegate: Kirigami.BasicListItem {
+                width: parent.width
+                text: model.display
+                icon: model.iconName
+                onClicked: root.device = deviceId
+                checked: root.device === deviceId
+                highlighted: root.device === deviceId
+            }
+
+            Label {
+                anchors.fill: parent
+                verticalAlignment: Qt.AlignVCenter
+                horizontalAlignment: Qt.AlignHCenter
+                visible: root.count === 0
+                text: i18nd("purpose_kdeconnect","No devices found")
+            }
+        }
     }
 }

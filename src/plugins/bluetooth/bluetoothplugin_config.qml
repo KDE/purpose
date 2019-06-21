@@ -15,37 +15,57 @@
  License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import QtQuick 2.1
+import QtQuick 2.7
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.5
+import org.kde.kirigami 2.5 as Kirigami
 
 import org.kde.bluezqt 1.0 as BluezQt
 
-ListView {
+ColumnLayout {
+
     id: root
     property string device: ""
-    Layout.fillWidth: true
-    Layout.fillHeight: true
 
-    header: Label {
+    anchors.fill: parent
+    anchors.bottomMargin: Kirigami.Units.smallSpacing
+
+    Kirigami.Heading {
         text: i18n("Choose a device to send to:")
         visible: root.count !== 0
-    }
-    model: BluezQt.DevicesModel { }
-
-    delegate: ItemDelegate {
-        width: parent.width
-        text: Name
-        onClicked: root.device = Ubi
-        checked: root.device === Ubi
-        highlighted: root.device === Ubi
+        level: 1
     }
 
-    Label {
-        anchors.fill: parent
-        verticalAlignment: Qt.AlignVCenter
-        horizontalAlignment: Qt.AlignHCenter
-        visible: root.count === 0
-        text: i18n("No devices found")
+    ScrollView {
+        id: scroll
+
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+
+        Component.onCompleted: scroll.background.visible = true
+
+        ListView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            model: BluezQt.DevicesModel { }
+
+            delegate: Kirigami.BasicListItem {
+                width: parent.width
+                text: Name
+                icon: Icon
+                onClicked: root.device = Ubi
+                checked: root.device === Ubi
+                highlighted: root.device === Ubi
+            }
+
+            Label {
+                anchors.fill: parent
+                verticalAlignment: Qt.AlignVCenter
+                horizontalAlignment: Qt.AlignHCenter
+                visible: root.count === 0
+                text: i18n("No devices found")
+            }
+        }
     }
 }

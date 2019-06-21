@@ -25,6 +25,7 @@ ApplicationWindow
     id: window
 
     flags: Qt.Dialog
+    title: configuration.pluginName
 
     width: Math.max(screen.width/3, 200)
     height: Math.max(screen.height/2, 300)
@@ -71,17 +72,6 @@ ApplicationWindow
     Component {
         id: configWizardComponent
         Page {
-            header: Label {
-                TextMetrics {
-                    id: fontMetrics
-                }
-                font.weight: Font.Light
-                font.styleName: "Light"
-                font.pointSize: fontMetrics.font.pointSize * 2
-                elide: Text.ElideRight
-                maximumLineCount: 1
-                text: i18n("%1 - %2", window.configuration.pluginName, window.configuration.pluginTypeName)
-            }
             PurposeWizard {
                 id: wiz
                 configuration: window.configuration
