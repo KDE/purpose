@@ -27,8 +27,8 @@ ApplicationWindow
     flags: Qt.Dialog
     title: configuration.pluginName
 
-    width: Math.max(screen.width/3, 200)
-    height: Math.max(screen.height/2, 300)
+    width: Math.max(screen.width/6, 200)
+    height: Math.max(screen.height/4, 300)
 
     property bool finished: false
     property var configuration
