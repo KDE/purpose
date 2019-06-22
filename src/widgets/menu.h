@@ -50,7 +50,7 @@ Q_SIGNALS:
      * Emitted when a triggered job finishes
      *
      * @p output contains the information offered by the plugin. The information offered will depend on the plugin type.
-     * @p error will be 0 if the execution was successful, otherwise it will provide an error message
+     * @p error will be 0 if the execution was successful, KIO::ERR_USER_CANCELED if cancelled by the user, otherwise it will provide an error message
      * @p errorMessage the error message
      *
      * @see Purpose::Job

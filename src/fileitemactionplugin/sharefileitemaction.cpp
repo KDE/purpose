@@ -34,6 +34,7 @@
 #include <KPluginLoader>
 #include <KLocalizedString>
 #include <KNotification>
+#include <kio/global.h>
 
 #include "menu.h"
 #include "alternativesmodel.h"
@@ -51,7 +52,7 @@ ShareFileItemAction::ShareFileItemAction(QObject* parent, const QVariantList& )
     m_menu->model()->setPluginType(QStringLiteral("Export"));
 
     QObject::connect(m_menu, &Purpose::Menu::finished, [](const QJsonObject &output, int error, const QString &errorMessage) {
-        if (error == 0) {
+        if (error == 0 || error == KIO::ERR_USER_CANCELED) {
             if (output.contains(QLatin1String("url")))
                 QDesktopServices::openUrl(QUrl(output.value(QLatin1String("url")).toString()));
         } else {

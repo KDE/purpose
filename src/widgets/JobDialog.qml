@@ -40,7 +40,7 @@ ApplicationWindow
     minimumWidth: view.Layout.minimumWidth
 
     onClosing: {
-        q.finished(null, 1, i18n("Configuration cancelled"));
+        q.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18n("Configuration cancelled"));
     }
 
     function adoptJob() {
@@ -92,7 +92,7 @@ ApplicationWindow
                 Button {
                     text: i18n("Cancel")
                     onClicked: {
-                        window.q.finished(null, 1, i18n("Configuration cancelled"));
+                        window.q.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18n("Configuration cancelled"));
                         window.visible = false;
                     }
                 }
