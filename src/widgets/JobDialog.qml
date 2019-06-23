@@ -81,8 +81,12 @@ ApplicationWindow
             }
 
             footer: RowLayout {
+                Item {
+                    Layout.fillWidth: true
+                }
                 Button {
-                    text: i18n("Run")
+                    text: i18n("Send")
+                    icon.name: "document-send"
                     enabled: window.configuration && window.configuration.isReady
                     onClicked: {
                         view.pop();
@@ -91,13 +95,11 @@ ApplicationWindow
                 }
                 Button {
                     text: i18n("Cancel")
+                    icon.name: "dialog-cancel"
                     onClicked: {
                         window.q.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18n("Configuration cancelled"));
                         window.visible = false;
                     }
-                }
-                Item {
-                    Layout.fillWidth: true
                 }
             }
         }
