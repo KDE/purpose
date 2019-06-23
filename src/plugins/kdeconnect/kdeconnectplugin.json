@@ -69,9 +69,9 @@
         "Description[zh_TW]": "透過 KDE Connect 傳送",
         "Icon": "kdeconnect",
         "License": "GPL",
-        "Name": "Send To Device"
+        "Name": "Send To Device",
+        "X-Purpose-ActionDisplay": "Send To Device..."
     },
-    "X-Purpose-ActionDisplay": "Send To Device...",
     "X-Purpose-Configuration": [
         "device"
     ],

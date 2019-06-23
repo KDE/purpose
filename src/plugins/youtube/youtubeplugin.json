@@ -99,9 +99,9 @@
         "Name[uk]": "YouTube",
         "Name[x-test]": "xxYouTubexx",
         "Name[zh_CN]": "YouTube",
-        "Name[zh_TW]": "YouTube"
+        "Name[zh_TW]": "YouTube",
+        "X-Purpose-ActionDisplay": "Youtube..."
     },
-    "X-Purpose-ActionDisplay": "Youtube...",
     "X-Purpose-Configuration": [
         "videoDesc",
         "videoTitle",

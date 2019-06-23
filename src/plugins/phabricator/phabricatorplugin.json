@@ -96,9 +96,9 @@
         "Name[uk]": "Phabricator",
         "Name[x-test]": "xxPhabricatorxx",
         "Name[zh_CN]": "Phabricator",
-        "Name[zh_TW]": "Phabricator"
+        "Name[zh_TW]": "Phabricator",
+        "X-Purpose-ActionDisplay": "Phabricator..."
     },
-    "X-Purpose-ActionDisplay": "Phabricator...",
     "X-Purpose-Configuration": [
         "updateDR",
         "doBrowse",

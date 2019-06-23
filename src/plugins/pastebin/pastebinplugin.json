@@ -101,9 +101,9 @@
         "Name[uk]": "Вставлячка",
         "Name[x-test]": "xxPastebinxx",
         "Name[zh_CN]": "Pastebin",
-        "Name[zh_TW]": "Pastebin"
+        "Name[zh_TW]": "Pastebin",
+        "X-Purpose-ActionDisplay": "Pastebin"
     },
-    "X-Purpose-ActionDisplay": "Pastebin",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         "mimeType:text/plain"

@@ -272,7 +272,7 @@ QVariant AlternativesModel::data(const QModelIndex& index, int role) const
         case PluginIdRole:
             return data.pluginId();
         case ActionDisplayRole: {
-            QString action = data.value(QStringLiteral("X-Purpose-ActionDisplay"));
+            QString action = data.rawData()[QStringLiteral("KPlugin")].toObject()[QStringLiteral("X-Purpose-ActionDisplay")].toString();
             return action.isEmpty() ? data.name() : action;
         }
     }

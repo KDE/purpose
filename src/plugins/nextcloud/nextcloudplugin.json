@@ -96,9 +96,9 @@
         "Name[uk]": "NextCloud",
         "Name[x-test]": "xxNextCloudxx",
         "Name[zh_CN]": "NextCloud",
-        "Name[zh_TW]": "NextCloud"
+        "Name[zh_TW]": "NextCloud",
+        "X-Purpose-ActionDisplay": "NextCloud..."
     },
-    "X-Purpose-ActionDisplay": "NextCloud...",
     "X-Purpose-Configuration": [
         "folder",
         "accountId"

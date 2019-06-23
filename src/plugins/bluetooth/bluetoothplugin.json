@@ -64,9 +64,9 @@
         "Description[zh_TW]": "透過藍牙傳送",
         "Icon": "preferences-system-bluetooth",
         "License": "GPL",
-        "Name": "Send via Bluetooth"
+        "Name": "Send via Bluetooth",
+        "X-Purpose-ActionDisplay": "Send via Bluetooth..."
     },
-    "X-Purpose-ActionDisplay": "Send via Bluetooth...",
     "X-Purpose-Configuration": [
         "device"
     ],

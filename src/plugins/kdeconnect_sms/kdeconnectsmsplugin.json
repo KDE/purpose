@@ -60,9 +60,9 @@
         "Description[zh_TW]": "透過 KDE 連線傳送簡訊",
         "Icon": "kdeconnect",
         "License": "GPL",
-        "Name": "Send SMS via KDE Connect"
+        "Name": "Send SMS via KDE Connect",
+        "X-Purpose-ActionDisplay": "Send SMS via KDE Connect..."
     },
-    "X-Purpose-ActionDisplay": "Send SMS via KDE Connect...",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         "application:org.kde.kdeconnect.sms.desktop"

@@ -97,9 +97,9 @@
         "Name[uk]": "Review Board",
         "Name[x-test]": "xxReview Boardxx",
         "Name[zh_CN]": "Review Board",
-        "Name[zh_TW]": "Review Board"
+        "Name[zh_TW]": "Review Board",
+        "X-Purpose-ActionDisplay": "Review Board..."
     },
-    "X-Purpose-ActionDisplay": "Review Board",
     "X-Purpose-Configuration": [
         "updateRR",
         "server",

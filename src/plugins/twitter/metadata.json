@@ -100,9 +100,9 @@
         "Name[uk]": "Twitter",
         "Name[x-test]": "xxTwitterxx",
         "Name[zh_CN]": "Twitter",
-        "Name[zh_TW]": "Twitter"
+        "Name[zh_TW]": "Twitter",
+        "X-Purpose-ActionDisplay": "Twitter..."
     },
-    "X-Purpose-ActionDisplay": "Twitter...",
     "X-Purpose-Configuration": [
         "tweetText",
         "consumerKey",

@@ -68,9 +68,9 @@
         "Description[zh_TW]": "儲存分享到選定的位置。",
         "Icon": "document-save",
         "License": "GPL",
-        "Name": "Save as"
+        "Name": "Save as",
+        "X-Purpose-ActionDisplay": "Save as..."
     },
-    "X-Purpose-ActionDisplay": "Save as...",
     "X-Purpose-Configuration": [
         "destinationPath"
     ],
