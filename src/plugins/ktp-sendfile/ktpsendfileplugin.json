@@ -69,46 +69,14 @@
         "Description[zh_TW]": "透過即時訊息傳送",
         "Icon": "im-user",
         "License": "GPL",
-        "Name": "Send To Contact",
-        "Name[ar]": "أرسِل إلى متراسل…",
-        "Name[bs]": "Šalji na kontakt...",
-        "Name[ca@valencia]": "Envia a un contacte...",
-        "Name[ca]": "Envia a un contacte...",
-        "Name[cs]": "Poslat kontaktu...",
-        "Name[da]": "Send til kontakt...",
-        "Name[de]": "An Kontakt senden ...",
-        "Name[el]": "Αποστολή σε επαφή...",
-        "Name[en_GB]": "Send To Contact...",
-        "Name[es]": "Enviar a contacto...",
-        "Name[eu]": "Bidali kontaktuari...",
-        "Name[fi]": "Lähetä yhteystiedolle…",
-        "Name[fr]": "Envoyer au contact...",
-        "Name[gl]": "Enviar a un contacto…",
-        "Name[hu]": "Küldés névjegynek…",
-        "Name[id]": "Kirim Ke Contact...",
-        "Name[it]": "Invia a contatto...",
-        "Name[ko]": "연락처에게 보내기...",
-        "Name[nl]": "Naar contactpersoon verzenden...",
-        "Name[nn]": "Send til kontakt …",
-        "Name[pl]": "Wyślij do kontaktu...",
-        "Name[pt]": "Enviar para o Contacto...",
-        "Name[pt_BR]": "Enviar para o contato...",
-        "Name[ro]": "Trimite către contact...",
-        "Name[ru]": "Отправить в сообщении...",
-        "Name[sk]": "Poslať do kontaktu...",
-        "Name[sv]": "Skicka till kontakt...",
-        "Name[tr]": "Bağlantıya Gönder...",
-        "Name[uk]": "Надіслати контакту…",
-        "Name[x-test]": "xxSend To Contact...xx",
-        "Name[zh_CN]": "发送到联系人...",
-        "Name[zh_TW]": "傳送給聯絡人..."
+        "Name": "Send To Contact"
     },
+    "X-Purpose-ActionDisplay": "Send To Contact...",
     "X-Purpose-Configuration": "",
     "X-Purpose-Constraints": [
         "exec:ktp-send-file"
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ],
-    "X-Purpose-ActionDisplay": "Send To Contact..."
+    ]
 }

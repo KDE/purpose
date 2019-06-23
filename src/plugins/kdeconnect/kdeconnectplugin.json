@@ -69,39 +69,9 @@
         "Description[zh_TW]": "透過 KDE Connect 傳送",
         "Icon": "kdeconnect",
         "License": "GPL",
-        "Name": "Send To Device",
-        "Name[ar]": "أرسِل إلى جهاز…",
-        "Name[ca@valencia]": "Envia a un dispositiu...",
-        "Name[ca]": "Envia a un dispositiu...",
-        "Name[cs]": "Poslat na zařízení...",
-        "Name[da]": "Send til enhed...",
-        "Name[de]": "An Gerät senden ...",
-        "Name[el]": "Αποστολή σε συσκευή...",
-        "Name[en_GB]": "Send To Device...",
-        "Name[es]": "Enviar a dispositivo...",
-        "Name[eu]": "Bidali gailura...",
-        "Name[fi]": "Lähetä laitteeseen…",
-        "Name[fr]": "Envoyer vers un périphérique...",
-        "Name[gl]": "Enviar a un dispositivo…",
-        "Name[hu]": "Küldés eszközre…",
-        "Name[id]": "Kirim Ke Perangkat...",
-        "Name[it]": "Invia al dispositivo...",
-        "Name[ko]": "장치로 보내기...",
-        "Name[nl]": "Naar apparaat verzenden...",
-        "Name[nn]": "Send til eining …",
-        "Name[pl]": "Wyślij na urządzenie...",
-        "Name[pt]": "Enviar para o Dispositivo...",
-        "Name[pt_BR]": "Enviar para o dispositivo...",
-        "Name[ro]": "Trimite către dispozitiv...",
-        "Name[ru]": "Отправить на устройство...",
-        "Name[sk]": "Poslať na zariadenie...",
-        "Name[sv]": "Skicka till enhet...",
-        "Name[tr]": "Aygıta Gönder...",
-        "Name[uk]": "Надіслати на пристрій…",
-        "Name[x-test]": "xxSend To Device...xx",
-        "Name[zh_CN]": "发送到设备",
-        "Name[zh_TW]": "傳送到裝置..."
+        "Name": "Send To Device"
     },
+    "X-Purpose-ActionDisplay": "Send To Device...",
     "X-Purpose-Configuration": [
         "device"
     ],
@@ -111,6 +81,5 @@
     "X-Purpose-PluginTypes": [
         "Export",
         "ShareUrl"
-    ],
-    "X-Purpose-ActionDisplay": "Send To Device..."
+    ]
 }

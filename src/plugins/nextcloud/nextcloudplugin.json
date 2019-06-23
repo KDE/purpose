@@ -98,12 +98,12 @@
         "Name[zh_CN]": "NextCloud",
         "Name[zh_TW]": "NextCloud"
     },
+    "X-Purpose-ActionDisplay": "NextCloud...",
     "X-Purpose-Configuration": [
         "folder",
         "accountId"
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ],
-    "X-Purpose-ActionDisplay": "NextCloud..."
+    ]
 }

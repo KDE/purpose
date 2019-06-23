@@ -65,36 +65,9 @@
         "Description[zh_TW]": "透過 Telegram 傳送",
         "Icon": "telegram",
         "License": "GPL",
-        "Name": "Send via Telegram",
-        "Name[ar]": "أرسِل عبر «تلغرام»…",
-        "Name[ca@valencia]": "Envia via Telegram...",
-        "Name[ca]": "Envia via Telegram...",
-        "Name[cs]": "Poslat přes Telegram...",
-        "Name[da]": "Send via Telegram...",
-        "Name[de]": "Mit Telegram senden ...",
-        "Name[en_GB]": "Send via Telegram...",
-        "Name[es]": "Enviar por Telegram...",
-        "Name[eu]": "Bidali Telegram bidez...",
-        "Name[fi]": "Lähetä Telegramilla…",
-        "Name[fr]": "Envoyer par Telegram...",
-        "Name[gl]": "Enviar por Telegram…",
-        "Name[hu]": "Küldés Telegramon…",
-        "Name[id]": "Kirim via Telegram...",
-        "Name[it]": "Invia con Telegram...",
-        "Name[ko]": "텔레그램으로 보내기...",
-        "Name[nl]": "Verzenden via Telegram...",
-        "Name[nn]": "Send via Telegram …",
-        "Name[pl]": "Wyślij przez Telegram...",
-        "Name[pt]": "Enviar por Telegram...",
-        "Name[pt_BR]": "Enviar via Telegram...",
-        "Name[ru]": "Отправить в Telegram...",
-        "Name[sk]": "Poslať cez Telegram...",
-        "Name[sv]": "Skicka via Telegram...",
-        "Name[uk]": "Надіслати за допомогою Telegram…",
-        "Name[x-test]": "xxSend via Telegram...xx",
-        "Name[zh_CN]": "通过 Telegram 发送...",
-        "Name[zh_TW]": "透過 Telegram 傳送……"
+        "Name": "Send via Telegram"
     },
+    "X-Purpose-ActionDisplay": "Send via Telegram...",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         [
@@ -104,6 +77,5 @@
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ],
-    "X-Purpose-ActionDisplay": "Send via Telegram..."
+    ]
 }

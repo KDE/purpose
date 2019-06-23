@@ -68,45 +68,14 @@
         "Description[zh_TW]": "儲存分享到選定的位置。",
         "Icon": "document-save",
         "License": "GPL",
-        "Name": "Save as",
-        "Name[ar]": "احفظ كَ‍…",
-        "Name[ca@valencia]": "Guarda com a...",
-        "Name[ca]": "Desa com a...",
-        "Name[cs]": "Uložit jako...",
-        "Name[da]": "Gem som...",
-        "Name[de]": "Speichern unter ...",
-        "Name[el]": "Αποθήκευση ως...",
-        "Name[en_GB]": "Save as...",
-        "Name[es]": "Guardar como...",
-        "Name[eu]": "Gorde honela...",
-        "Name[fi]": "Tallenna nimellä…",
-        "Name[fr]": "Enregistrer sous...",
-        "Name[gl]": "Gardar como…",
-        "Name[hu]": "Mentés másként…",
-        "Name[id]": "Simpan sebagai...",
-        "Name[it]": "Salva come...",
-        "Name[ko]": "다른 이름으로 저장...",
-        "Name[nl]": "Opslaan als...",
-        "Name[nn]": "Lagra som …",
-        "Name[pl]": "Zapisz jako...",
-        "Name[pt]": "Gravar como...",
-        "Name[pt_BR]": "Salvar como...",
-        "Name[ro]": "Salvează ca...",
-        "Name[ru]": "Сохранить в файл...",
-        "Name[sk]": "Uložiť ako...",
-        "Name[sv]": "Spara som...",
-        "Name[tr]": "Farklı kaydet...",
-        "Name[uk]": "Зберегти як…",
-        "Name[x-test]": "xxSave as...xx",
-        "Name[zh_CN]": "另存为...",
-        "Name[zh_TW]": "另存為..."
+        "Name": "Save as"
     },
+    "X-Purpose-ActionDisplay": "Save as...",
     "X-Purpose-Configuration": [
         "destinationPath"
     ],
     "X-Purpose-Constraints": [],
     "X-Purpose-PluginTypes": [
         "Export"
-    ],
-    "X-Purpose-ActionDisplay": "Save as..."
+    ]
 }

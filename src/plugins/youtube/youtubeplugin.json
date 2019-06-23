@@ -101,6 +101,7 @@
         "Name[zh_CN]": "YouTube",
         "Name[zh_TW]": "YouTube"
     },
+    "X-Purpose-ActionDisplay": "Youtube...",
     "X-Purpose-Configuration": [
         "videoDesc",
         "videoTitle",
@@ -112,6 +113,5 @@
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ],
-    "X-Purpose-ActionDisplay": "Youtube..."
+    ]
 }

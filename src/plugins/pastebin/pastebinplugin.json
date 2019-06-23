@@ -103,12 +103,12 @@
         "Name[zh_CN]": "Pastebin",
         "Name[zh_TW]": "Pastebin"
     },
+    "X-Purpose-ActionDisplay": "Pastebin",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         "mimeType:text/plain"
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ],
-    "X-Purpose-ActionDisplay": "Pastebin"
+    ]
 }

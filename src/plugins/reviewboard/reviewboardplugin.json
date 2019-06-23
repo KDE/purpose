@@ -99,6 +99,7 @@
         "Name[zh_CN]": "Review Board",
         "Name[zh_TW]": "Review Board"
     },
+    "X-Purpose-ActionDisplay": "Review Board",
     "X-Purpose-Configuration": [
         "updateRR",
         "server",
@@ -114,6 +115,5 @@
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ],
-    "X-Purpose-ActionDisplay": "Review Board"
+    ]
 }

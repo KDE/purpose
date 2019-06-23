@@ -102,6 +102,7 @@
         "Name[zh_CN]": "Twitter",
         "Name[zh_TW]": "Twitter"
     },
+    "X-Purpose-ActionDisplay": "Twitter...",
     "X-Purpose-Configuration": [
         "tweetText",
         "consumerKey",
@@ -112,6 +113,5 @@
     "X-Purpose-Constraints": [],
     "X-Purpose-PluginTypes": [
         "Export"
-    ],
-    "X-Purpose-ActionDisplay": "Twitter..."
+    ]
 }
