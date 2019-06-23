@@ -114,5 +114,6 @@
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ]
+    ],
+    "X-Purpose-ActionDisplay": "Review Board"
 }

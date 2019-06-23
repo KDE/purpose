@@ -89,7 +89,7 @@ void Menu::reload()
     clear();
     for(int i=0, c=d->m_model->rowCount(); i != c; ++i) {
         QModelIndex idx = d->m_model->index(i);
-        QAction* a = addAction(idx.data(Qt::DisplayRole).toString());
+        QAction* a = addAction(idx.data(AlternativesModel::ActionDisplayRole).toString());
         a->setToolTip(idx.data(Qt::ToolTipRole).toString());
         a->setIcon(idx.data(Qt::DecorationRole).value<QIcon>());
         a->setProperty("pluginId", idx.data(AlternativesModel::PluginIdRole));

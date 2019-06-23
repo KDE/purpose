@@ -112,5 +112,6 @@
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ]
+    ],
+    "X-Purpose-ActionDisplay": "Youtube..."
 }

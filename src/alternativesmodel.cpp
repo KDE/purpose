@@ -175,7 +175,8 @@ QHash<int,QByteArray> AlternativesModel::roleNames() const
     QHash<int,QByteArray> roles = QAbstractListModel::roleNames();
     roles.unite({
         { IconNameRole, "iconName" },
-        { PluginIdRole, "pluginId" }
+        { PluginIdRole, "pluginId" },
+        { ActionDisplayRole, "actionDisplay" }
     });
     return roles;
 }
@@ -270,6 +271,10 @@ QVariant AlternativesModel::data(const QModelIndex& index, int role) const
             return QIcon::fromTheme(data.iconName());
         case PluginIdRole:
             return data.pluginId();
+        case ActionDisplayRole: {
+            QString action = data.value(QStringLiteral("X-Purpose-ActionDisplay"));
+            return action.isEmpty() ? data.name() : action;
+        }
     }
     return QVariant();
 }

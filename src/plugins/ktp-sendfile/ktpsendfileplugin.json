@@ -69,7 +69,7 @@
         "Description[zh_TW]": "透過即時訊息傳送",
         "Icon": "im-user",
         "License": "GPL",
-        "Name": "Send To Contact...",
+        "Name": "Send To Contact",
         "Name[ar]": "أرسِل إلى متراسل…",
         "Name[bs]": "Šalji na kontakt...",
         "Name[ca@valencia]": "Envia a un contacte...",
@@ -109,5 +109,6 @@
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ]
+    ],
+    "X-Purpose-ActionDisplay": "Send To Contact..."
 }

@@ -58,7 +58,8 @@ Q_PROPERTY(QStringList disabledPlugins READ disabledPlugins WRITE setDisabledPlu
 public:
     enum Roles {
         PluginIdRole = Qt::UserRole+1,
-        IconNameRole
+        IconNameRole,
+        ActionDisplayRole
     };
 
     explicit AlternativesModel(QObject* parent = nullptr);

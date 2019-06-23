@@ -68,7 +68,7 @@
         "Description[zh_TW]": "儲存分享到選定的位置。",
         "Icon": "document-save",
         "License": "GPL",
-        "Name": "Save as...",
+        "Name": "Save as",
         "Name[ar]": "احفظ كَ‍…",
         "Name[ca@valencia]": "Guarda com a...",
         "Name[ca]": "Desa com a...",
@@ -107,5 +107,6 @@
     "X-Purpose-Constraints": [],
     "X-Purpose-PluginTypes": [
         "Export"
-    ]
+    ],
+    "X-Purpose-ActionDisplay": "Save as..."
 }

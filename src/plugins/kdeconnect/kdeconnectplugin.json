@@ -69,7 +69,7 @@
         "Description[zh_TW]": "透過 KDE Connect 傳送",
         "Icon": "kdeconnect",
         "License": "GPL",
-        "Name": "Send To Device...",
+        "Name": "Send To Device",
         "Name[ar]": "أرسِل إلى جهاز…",
         "Name[ca@valencia]": "Envia a un dispositiu...",
         "Name[ca]": "Envia a un dispositiu...",
@@ -111,5 +111,6 @@
     "X-Purpose-PluginTypes": [
         "Export",
         "ShareUrl"
-    ]
+    ],
+    "X-Purpose-ActionDisplay": "Send To Device..."
 }

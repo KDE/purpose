@@ -65,7 +65,7 @@
         "Description[zh_TW]": "透過 Telegram 傳送",
         "Icon": "telegram",
         "License": "GPL",
-        "Name": "Send via Telegram...",
+        "Name": "Send via Telegram",
         "Name[ar]": "أرسِل عبر «تلغرام»…",
         "Name[ca@valencia]": "Envia via Telegram...",
         "Name[ca]": "Envia via Telegram...",
@@ -104,5 +104,6 @@
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ]
+    ],
+    "X-Purpose-ActionDisplay": "Send via Telegram..."
 }

@@ -64,7 +64,7 @@
         "Description[zh_TW]": "透過藍牙傳送",
         "Icon": "preferences-system-bluetooth",
         "License": "GPL",
-        "Name": "Send via Bluetooth...",
+        "Name": "Send via Bluetooth",
         "Name[ca@valencia]": "Envia per Bluetooth...",
         "Name[ca]": "Envia per Bluetooth...",
         "Name[cs]": "Poslat přes Bluetooth...",
@@ -99,5 +99,6 @@
     "X-Purpose-Constraints": [],
     "X-Purpose-PluginTypes": [
         "Export"
-    ]
+    ],
+    "X-Purpose-ActionDisplay": "Send via Bluetooth..."
 }
