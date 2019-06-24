@@ -69,6 +69,11 @@
         "Icon": "document-save",
         "License": "GPL",
         "Name": "Save as",
+        "Name[ca]": "Desa com a",
+        "Name[nl]": "Opslaan als",
+        "Name[pt]": "Gravar como",
+        "Name[uk]": "Зберегти як",
+        "Name[x-test]": "xxSave asxx",
         "X-Purpose-ActionDisplay": "Save as..."
     },
     "X-Purpose-Configuration": [

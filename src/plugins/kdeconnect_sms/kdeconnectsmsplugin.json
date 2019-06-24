@@ -61,6 +61,11 @@
         "Icon": "kdeconnect",
         "License": "GPL",
         "Name": "Send SMS via KDE Connect",
+        "Name[ca]": "Envia un SMS a través del KDE Connect",
+        "Name[nl]": "SMS via KDE Connect verzenden",
+        "Name[pt]": "Enviar um SMS pelo KDE Connect",
+        "Name[uk]": "Надсилання SMS за допомогою KDE Connect",
+        "Name[x-test]": "xxSend SMS via KDE Connectxx",
         "X-Purpose-ActionDisplay": "Send SMS via KDE Connect..."
     },
     "X-Purpose-Configuration": [],

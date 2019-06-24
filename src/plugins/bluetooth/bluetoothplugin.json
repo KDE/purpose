@@ -65,6 +65,11 @@
         "Icon": "preferences-system-bluetooth",
         "License": "GPL",
         "Name": "Send via Bluetooth",
+        "Name[ca]": "Envia per Bluetooth",
+        "Name[nl]": "Verzenden over bluetooth",
+        "Name[pt]": "Enviar por Bluetooth",
+        "Name[uk]": "Надсилання за допомогою Bluetooth",
+        "Name[x-test]": "xxSend via Bluetoothxx",
         "X-Purpose-ActionDisplay": "Send via Bluetooth..."
     },
     "X-Purpose-Configuration": [

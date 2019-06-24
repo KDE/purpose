@@ -68,6 +68,11 @@
         "Icon": "mail-message",
         "License": "GPL",
         "Name": "Send via Email",
+        "Name[ca]": "Envia per correu electrònic",
+        "Name[nl]": "Verzenden via e-mail",
+        "Name[pt]": "Enviar por E-mail",
+        "Name[uk]": "Надсилання електронною поштою",
+        "Name[x-test]": "xxSend via Emailxx",
         "X-Purpose-ActionDisplay": "Send via Email..."
     },
     "X-Purpose-Configuration": [],

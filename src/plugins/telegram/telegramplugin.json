@@ -66,6 +66,11 @@
         "Icon": "telegram",
         "License": "GPL",
         "Name": "Send via Telegram",
+        "Name[ca]": "Envia via Telegram",
+        "Name[nl]": "Verzenden via Telegram",
+        "Name[pt]": "Enviar por Telegram",
+        "Name[uk]": "Надсилання за допомогою Telegram",
+        "Name[x-test]": "xxSend via Telegramxx",
         "X-Purpose-ActionDisplay": "Send via Telegram..."
     },
     "X-Purpose-Configuration": [],

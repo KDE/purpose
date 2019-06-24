@@ -70,6 +70,11 @@
         "Icon": "kdeconnect",
         "License": "GPL",
         "Name": "Send To Device",
+        "Name[ca]": "Envia a un dispositiu",
+        "Name[nl]": "Naar apparaat verzenden",
+        "Name[pt]": "Enviar para o Dispositivo",
+        "Name[uk]": "Надіслати на пристрій",
+        "Name[x-test]": "xxSend To Devicexx",
         "X-Purpose-ActionDisplay": "Send To Device..."
     },
     "X-Purpose-Configuration": [

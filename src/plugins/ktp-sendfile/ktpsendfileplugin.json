@@ -70,6 +70,11 @@
         "Icon": "im-user",
         "License": "GPL",
         "Name": "Send To Contact",
+        "Name[ca]": "Envia a un contacte",
+        "Name[nl]": "Naar contactpersoon verzenden",
+        "Name[pt]": "Enviar para o Contacto",
+        "Name[uk]": "Надіслати контакту",
+        "Name[x-test]": "xxSend To Contactxx",
         "X-Purpose-ActionDisplay": "Send To Contact..."
     },
     "X-Purpose-Configuration": "",
