@@ -100,7 +100,15 @@
         "Name[x-test]": "xxYouTubexx",
         "Name[zh_CN]": "YouTube",
         "Name[zh_TW]": "YouTube",
-        "X-Purpose-ActionDisplay": "Youtube..."
+        "X-Purpose-ActionDisplay": "Youtube...",
+        "X-Purpose-ActionDisplay[ca]": "YouTube...",
+        "X-Purpose-ActionDisplay[de]": "YouTube ...",
+        "X-Purpose-ActionDisplay[es]": "Youtube...",
+        "X-Purpose-ActionDisplay[nl]": "YouTube...",
+        "X-Purpose-ActionDisplay[pt]": "Youtube...",
+        "X-Purpose-ActionDisplay[sv]": "YouTube...",
+        "X-Purpose-ActionDisplay[uk]": "YouTube…",
+        "X-Purpose-ActionDisplay[x-test]": "xxYoutube...xx"
     },
     "X-Purpose-Configuration": [
         "videoDesc",

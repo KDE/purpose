@@ -67,11 +67,22 @@
         "License": "GPL",
         "Name": "Send via Telegram",
         "Name[ca]": "Envia via Telegram",
+        "Name[de]": "Mit Telegram senden",
+        "Name[es]": "Enviar por Telegram",
         "Name[nl]": "Verzenden via Telegram",
         "Name[pt]": "Enviar por Telegram",
+        "Name[sv]": "Skicka via Telegram",
         "Name[uk]": "Надсилання за допомогою Telegram",
         "Name[x-test]": "xxSend via Telegramxx",
-        "X-Purpose-ActionDisplay": "Send via Telegram..."
+        "X-Purpose-ActionDisplay": "Send via Telegram...",
+        "X-Purpose-ActionDisplay[ca]": "Envia via Telegram...",
+        "X-Purpose-ActionDisplay[de]": "Mit Telegram senden ...",
+        "X-Purpose-ActionDisplay[es]": "Enviar por Telegram...",
+        "X-Purpose-ActionDisplay[nl]": "Verzenden via Telegram...",
+        "X-Purpose-ActionDisplay[pt]": "Enviar por Telegram...",
+        "X-Purpose-ActionDisplay[sv]": "Skicka via Telegram...",
+        "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Telegram…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Telegram...xx"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [

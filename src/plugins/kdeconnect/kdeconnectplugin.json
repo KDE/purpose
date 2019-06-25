@@ -71,11 +71,22 @@
         "License": "GPL",
         "Name": "Send To Device",
         "Name[ca]": "Envia a un dispositiu",
+        "Name[de]": "An Gerät senden",
+        "Name[es]": "Enviar a dispositivo",
         "Name[nl]": "Naar apparaat verzenden",
         "Name[pt]": "Enviar para o Dispositivo",
+        "Name[sv]": "Skicka till enhet",
         "Name[uk]": "Надіслати на пристрій",
         "Name[x-test]": "xxSend To Devicexx",
-        "X-Purpose-ActionDisplay": "Send To Device..."
+        "X-Purpose-ActionDisplay": "Send To Device...",
+        "X-Purpose-ActionDisplay[ca]": "Envia a un dispositiu...",
+        "X-Purpose-ActionDisplay[de]": "An Gerät senden ...",
+        "X-Purpose-ActionDisplay[es]": "Enviar a dispositivo...",
+        "X-Purpose-ActionDisplay[nl]": "Naar apparaat verzenden...",
+        "X-Purpose-ActionDisplay[pt]": "Enviar para o Dispositivo...",
+        "X-Purpose-ActionDisplay[sv]": "Skicka till enhet...",
+        "X-Purpose-ActionDisplay[uk]": "Надіслати на пристрій…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSend To Device...xx"
     },
     "X-Purpose-Configuration": [
         "device"

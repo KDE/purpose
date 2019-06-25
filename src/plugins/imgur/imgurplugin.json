@@ -102,7 +102,15 @@
         "Name[x-test]": "xxImgurxx",
         "Name[zh_CN]": "Imgur",
         "Name[zh_TW]": "Imgur",
-        "X-Purpose-ActionDisplay": "Imgur"
+        "X-Purpose-ActionDisplay": "Imgur",
+        "X-Purpose-ActionDisplay[ca]": "Imgur",
+        "X-Purpose-ActionDisplay[de]": "Imgur",
+        "X-Purpose-ActionDisplay[es]": "Imgur",
+        "X-Purpose-ActionDisplay[nl]": "Imgur",
+        "X-Purpose-ActionDisplay[pt]": "Imgur",
+        "X-Purpose-ActionDisplay[sv]": "Imgur",
+        "X-Purpose-ActionDisplay[uk]": "Imgur",
+        "X-Purpose-ActionDisplay[x-test]": "xxImgurxx"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [

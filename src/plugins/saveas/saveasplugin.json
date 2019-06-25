@@ -70,11 +70,22 @@
         "License": "GPL",
         "Name": "Save as",
         "Name[ca]": "Desa com a",
+        "Name[de]": "Speichern unter",
+        "Name[es]": "Guardar como",
         "Name[nl]": "Opslaan als",
         "Name[pt]": "Gravar como",
+        "Name[sv]": "Spara som",
         "Name[uk]": "Зберегти як",
         "Name[x-test]": "xxSave asxx",
-        "X-Purpose-ActionDisplay": "Save as..."
+        "X-Purpose-ActionDisplay": "Save as...",
+        "X-Purpose-ActionDisplay[ca]": "Desa com a...",
+        "X-Purpose-ActionDisplay[de]": "Speichern unter ...",
+        "X-Purpose-ActionDisplay[es]": "Guardar como...",
+        "X-Purpose-ActionDisplay[nl]": "Opslaan als...",
+        "X-Purpose-ActionDisplay[pt]": "Gravar como...",
+        "X-Purpose-ActionDisplay[sv]": "Spara som...",
+        "X-Purpose-ActionDisplay[uk]": "Зберегти як…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSave as...xx"
     },
     "X-Purpose-Configuration": [
         "destinationPath"

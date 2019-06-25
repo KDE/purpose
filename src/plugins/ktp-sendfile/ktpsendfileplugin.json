@@ -71,11 +71,22 @@
         "License": "GPL",
         "Name": "Send To Contact",
         "Name[ca]": "Envia a un contacte",
+        "Name[de]": "An Kontakt senden",
+        "Name[es]": "Enviar a contacto",
         "Name[nl]": "Naar contactpersoon verzenden",
         "Name[pt]": "Enviar para o Contacto",
+        "Name[sv]": "Skicka till kontakt",
         "Name[uk]": "Надіслати контакту",
         "Name[x-test]": "xxSend To Contactxx",
-        "X-Purpose-ActionDisplay": "Send To Contact..."
+        "X-Purpose-ActionDisplay": "Send To Contact...",
+        "X-Purpose-ActionDisplay[ca]": "Envia a un contacte...",
+        "X-Purpose-ActionDisplay[de]": "An Kontakt senden ...",
+        "X-Purpose-ActionDisplay[es]": "Enviar a contacto...",
+        "X-Purpose-ActionDisplay[nl]": "Naar contactpersoon verzenden...",
+        "X-Purpose-ActionDisplay[pt]": "Enviar para o Contacto...",
+        "X-Purpose-ActionDisplay[sv]": "Skicka till kontakt...",
+        "X-Purpose-ActionDisplay[uk]": "Надіслати контакту…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSend To Contact...xx"
     },
     "X-Purpose-Configuration": "",
     "X-Purpose-Constraints": [

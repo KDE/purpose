@@ -101,7 +101,15 @@
         "Name[x-test]": "xxTwitterxx",
         "Name[zh_CN]": "Twitter",
         "Name[zh_TW]": "Twitter",
-        "X-Purpose-ActionDisplay": "Twitter..."
+        "X-Purpose-ActionDisplay": "Twitter...",
+        "X-Purpose-ActionDisplay[ca]": "Twitter...",
+        "X-Purpose-ActionDisplay[de]": "Twitter ...",
+        "X-Purpose-ActionDisplay[es]": "Twitter...",
+        "X-Purpose-ActionDisplay[nl]": "Twitter...",
+        "X-Purpose-ActionDisplay[pt]": "Twitter...",
+        "X-Purpose-ActionDisplay[sv]": "Twitter...",
+        "X-Purpose-ActionDisplay[uk]": "Twitter…",
+        "X-Purpose-ActionDisplay[x-test]": "xxTwitter...xx"
     },
     "X-Purpose-Configuration": [
         "tweetText",

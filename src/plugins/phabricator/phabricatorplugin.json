@@ -97,7 +97,15 @@
         "Name[x-test]": "xxPhabricatorxx",
         "Name[zh_CN]": "Phabricator",
         "Name[zh_TW]": "Phabricator",
-        "X-Purpose-ActionDisplay": "Phabricator..."
+        "X-Purpose-ActionDisplay": "Phabricator...",
+        "X-Purpose-ActionDisplay[ca]": "Phabricator...",
+        "X-Purpose-ActionDisplay[de]": "Phabricator ...",
+        "X-Purpose-ActionDisplay[es]": "Phabricator...",
+        "X-Purpose-ActionDisplay[nl]": "Phabricator...",
+        "X-Purpose-ActionDisplay[pt]": "Phabricator...",
+        "X-Purpose-ActionDisplay[sv]": "Phabricator...",
+        "X-Purpose-ActionDisplay[uk]": "Phabricator…",
+        "X-Purpose-ActionDisplay[x-test]": "xxPhabricator...xx"
     },
     "X-Purpose-Configuration": [
         "updateDR",
