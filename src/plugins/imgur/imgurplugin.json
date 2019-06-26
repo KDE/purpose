@@ -110,7 +110,8 @@
         "X-Purpose-ActionDisplay[pt]": "Imgur",
         "X-Purpose-ActionDisplay[sv]": "Imgur",
         "X-Purpose-ActionDisplay[uk]": "Imgur",
-        "X-Purpose-ActionDisplay[x-test]": "xxImgurxx"
+        "X-Purpose-ActionDisplay[x-test]": "xxImgurxx",
+        "X-Purpose-ActionDisplay[zh_TW]": "Imgur"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [

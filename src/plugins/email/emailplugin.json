@@ -76,6 +76,7 @@
         "Name[sv]": "Skicka med e-post",
         "Name[uk]": "Надсилання електронною поштою",
         "Name[x-test]": "xxSend via Emailxx",
+        "Name[zh_TW]": "透過電子郵件傳送",
         "X-Purpose-ActionDisplay": "Send via Email...",
         "X-Purpose-ActionDisplay[ca]": "Envia per correu electrònic....",
         "X-Purpose-ActionDisplay[de]": "Als E-Mail senden ...",
@@ -84,7 +85,8 @@
         "X-Purpose-ActionDisplay[pt]": "Enviar por E-mail...",
         "X-Purpose-ActionDisplay[sv]": "Skicka med e-post...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати електронною поштою…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend via Email...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Email...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "透過電子郵件傳送…"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],

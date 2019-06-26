@@ -74,6 +74,7 @@
         "Name[sv]": "Skicka via Telegram",
         "Name[uk]": "Надсилання за допомогою Telegram",
         "Name[x-test]": "xxSend via Telegramxx",
+        "Name[zh_TW]": "透過 Telegram 傳送",
         "X-Purpose-ActionDisplay": "Send via Telegram...",
         "X-Purpose-ActionDisplay[ca]": "Envia via Telegram...",
         "X-Purpose-ActionDisplay[de]": "Mit Telegram senden ...",
@@ -82,7 +83,8 @@
         "X-Purpose-ActionDisplay[pt]": "Enviar por Telegram...",
         "X-Purpose-ActionDisplay[sv]": "Skicka via Telegram...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Telegram…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend via Telegram...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Telegram...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "透過 Telegram 傳送……"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [

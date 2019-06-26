@@ -110,7 +110,8 @@
         "X-Purpose-ActionDisplay[pt]": "Pastebin",
         "X-Purpose-ActionDisplay[sv]": "Pastebin",
         "X-Purpose-ActionDisplay[uk]": "Pastebin",
-        "X-Purpose-ActionDisplay[x-test]": "xxPastebinxx"
+        "X-Purpose-ActionDisplay[x-test]": "xxPastebinxx",
+        "X-Purpose-ActionDisplay[zh_TW]": "Pastebin"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [

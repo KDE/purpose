@@ -109,7 +109,8 @@
         "X-Purpose-ActionDisplay[pt]": "Twitter...",
         "X-Purpose-ActionDisplay[sv]": "Twitter...",
         "X-Purpose-ActionDisplay[uk]": "Twitter…",
-        "X-Purpose-ActionDisplay[x-test]": "xxTwitter...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxTwitter...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "Twitter…"
     },
     "X-Purpose-Configuration": [
         "tweetText",

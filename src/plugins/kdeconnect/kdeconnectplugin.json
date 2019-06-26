@@ -78,6 +78,7 @@
         "Name[sv]": "Skicka till enhet",
         "Name[uk]": "Надіслати на пристрій",
         "Name[x-test]": "xxSend To Devicexx",
+        "Name[zh_TW]": "傳送到裝置",
         "X-Purpose-ActionDisplay": "Send To Device...",
         "X-Purpose-ActionDisplay[ca]": "Envia a un dispositiu...",
         "X-Purpose-ActionDisplay[de]": "An Gerät senden ...",
@@ -86,7 +87,8 @@
         "X-Purpose-ActionDisplay[pt]": "Enviar para o Dispositivo...",
         "X-Purpose-ActionDisplay[sv]": "Skicka till enhet...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати на пристрій…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend To Device...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend To Device...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "傳送到裝置…"
     },
     "X-Purpose-Configuration": [
         "device"

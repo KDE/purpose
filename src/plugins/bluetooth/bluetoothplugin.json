@@ -73,6 +73,7 @@
         "Name[sv]": "Skicka via Blåtand",
         "Name[uk]": "Надсилання за допомогою Bluetooth",
         "Name[x-test]": "xxSend via Bluetoothxx",
+        "Name[zh_TW]": "透過藍牙傳送",
         "X-Purpose-ActionDisplay": "Send via Bluetooth...",
         "X-Purpose-ActionDisplay[ca]": "Envia per Bluetooth...",
         "X-Purpose-ActionDisplay[de]": "Über Bluetooth versenden ...",
@@ -81,7 +82,8 @@
         "X-Purpose-ActionDisplay[pt]": "Enviar por Bluetooth...",
         "X-Purpose-ActionDisplay[sv]": "Skicka via Blåtand...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Bluetooth…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend via Bluetooth...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Bluetooth...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "透過藍牙傳送……"
     },
     "X-Purpose-Configuration": [
         "device"

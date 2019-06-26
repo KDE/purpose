@@ -77,6 +77,7 @@
         "Name[sv]": "Spara som",
         "Name[uk]": "Зберегти як",
         "Name[x-test]": "xxSave asxx",
+        "Name[zh_TW]": "另存新檔",
         "X-Purpose-ActionDisplay": "Save as...",
         "X-Purpose-ActionDisplay[ca]": "Desa com a...",
         "X-Purpose-ActionDisplay[de]": "Speichern unter ...",
@@ -85,7 +86,8 @@
         "X-Purpose-ActionDisplay[pt]": "Gravar como...",
         "X-Purpose-ActionDisplay[sv]": "Spara som...",
         "X-Purpose-ActionDisplay[uk]": "Зберегти як…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSave as...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSave as...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "另存為…"
     },
     "X-Purpose-Configuration": [
         "destinationPath"

@@ -78,6 +78,7 @@
         "Name[sv]": "Skicka till kontakt",
         "Name[uk]": "Надіслати контакту",
         "Name[x-test]": "xxSend To Contactxx",
+        "Name[zh_TW]": "傳送給聯絡人",
         "X-Purpose-ActionDisplay": "Send To Contact...",
         "X-Purpose-ActionDisplay[ca]": "Envia a un contacte...",
         "X-Purpose-ActionDisplay[de]": "An Kontakt senden ...",
@@ -86,7 +87,8 @@
         "X-Purpose-ActionDisplay[pt]": "Enviar para o Contacto...",
         "X-Purpose-ActionDisplay[sv]": "Skicka till kontakt...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати контакту…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend To Contact...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend To Contact...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "傳送給聯絡人..."
     },
     "X-Purpose-Configuration": "",
     "X-Purpose-Constraints": [
