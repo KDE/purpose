@@ -113,6 +113,7 @@
         "X-Purpose-ActionDisplay[fi]": "Pastebin",
         "X-Purpose-ActionDisplay[gl]": "Pastebin",
         "X-Purpose-ActionDisplay[it]": "Pastebin",
+        "X-Purpose-ActionDisplay[ko]": "Pastebin",
         "X-Purpose-ActionDisplay[lt]": "Pastebin",
         "X-Purpose-ActionDisplay[nl]": "Pastebin",
         "X-Purpose-ActionDisplay[nn]": "Pastebin",
@@ -124,6 +125,7 @@
         "X-Purpose-ActionDisplay[sv]": "Pastebin",
         "X-Purpose-ActionDisplay[uk]": "Pastebin",
         "X-Purpose-ActionDisplay[x-test]": "xxPastebinxx",
+        "X-Purpose-ActionDisplay[zh_CN]": "Pastebin",
         "X-Purpose-ActionDisplay[zh_TW]": "Pastebin"
     },
     "X-Purpose-Configuration": [],

@@ -78,6 +78,7 @@
         "Name[fi]": "Tallenna nimellä…",
         "Name[gl]": "Gardar como",
         "Name[it]": "Salva come",
+        "Name[ko]": "다른 이름으로 저장",
         "Name[lt]": "Įrašyti kaip",
         "Name[nl]": "Opslaan als",
         "Name[nn]": "Lagra som",
@@ -89,6 +90,7 @@
         "Name[sv]": "Spara som",
         "Name[uk]": "Зберегти як",
         "Name[x-test]": "xxSave asxx",
+        "Name[zh_CN]": "另存为",
         "Name[zh_TW]": "另存新檔",
         "X-Purpose-ActionDisplay": "Save as...",
         "X-Purpose-ActionDisplay[ca]": "Desa com a...",
@@ -98,6 +100,7 @@
         "X-Purpose-ActionDisplay[fi]": "Tallenna nimellä…",
         "X-Purpose-ActionDisplay[gl]": "Gardar como…",
         "X-Purpose-ActionDisplay[it]": "Salva come...",
+        "X-Purpose-ActionDisplay[ko]": "다른 이름으로 저장...",
         "X-Purpose-ActionDisplay[lt]": "Įrašyti kaip...",
         "X-Purpose-ActionDisplay[nl]": "Opslaan als...",
         "X-Purpose-ActionDisplay[nn]": "Lagra som …",
@@ -109,6 +112,7 @@
         "X-Purpose-ActionDisplay[sv]": "Spara som...",
         "X-Purpose-ActionDisplay[uk]": "Зберегти як…",
         "X-Purpose-ActionDisplay[x-test]": "xxSave as...xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "另存为...",
         "X-Purpose-ActionDisplay[zh_TW]": "另存為…"
     },
     "X-Purpose-Configuration": [

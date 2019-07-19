@@ -112,6 +112,7 @@
         "X-Purpose-ActionDisplay[fi]": "Twitter…",
         "X-Purpose-ActionDisplay[gl]": "Twitter…",
         "X-Purpose-ActionDisplay[it]": "Twitter...",
+        "X-Purpose-ActionDisplay[ko]": "트위터...",
         "X-Purpose-ActionDisplay[lt]": "Twitter...",
         "X-Purpose-ActionDisplay[nl]": "Twitter...",
         "X-Purpose-ActionDisplay[nn]": "Twitter …",
@@ -123,6 +124,7 @@
         "X-Purpose-ActionDisplay[sv]": "Twitter...",
         "X-Purpose-ActionDisplay[uk]": "Twitter…",
         "X-Purpose-ActionDisplay[x-test]": "xxTwitter...xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "Twitter...",
         "X-Purpose-ActionDisplay[zh_TW]": "Twitter…"
     },
     "X-Purpose-Configuration": [

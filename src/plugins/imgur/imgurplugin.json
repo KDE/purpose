@@ -113,6 +113,7 @@
         "X-Purpose-ActionDisplay[fi]": "Imgur",
         "X-Purpose-ActionDisplay[gl]": "Imgur",
         "X-Purpose-ActionDisplay[it]": "Imgur",
+        "X-Purpose-ActionDisplay[ko]": "Imgur",
         "X-Purpose-ActionDisplay[lt]": "Imgur",
         "X-Purpose-ActionDisplay[nl]": "Imgur",
         "X-Purpose-ActionDisplay[nn]": "Imgur",
@@ -124,6 +125,7 @@
         "X-Purpose-ActionDisplay[sv]": "Imgur",
         "X-Purpose-ActionDisplay[uk]": "Imgur",
         "X-Purpose-ActionDisplay[x-test]": "xxImgurxx",
+        "X-Purpose-ActionDisplay[zh_CN]": "Imgur",
         "X-Purpose-ActionDisplay[zh_TW]": "Imgur"
     },
     "X-Purpose-Configuration": [],

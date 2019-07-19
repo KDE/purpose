@@ -109,6 +109,7 @@
         "X-Purpose-ActionDisplay[fi]": "Review Board…",
         "X-Purpose-ActionDisplay[gl]": "Review Board…",
         "X-Purpose-ActionDisplay[it]": "Review Board...",
+        "X-Purpose-ActionDisplay[ko]": "Review Board...",
         "X-Purpose-ActionDisplay[lt]": "Review Board...",
         "X-Purpose-ActionDisplay[nl]": "Reviewboard...",
         "X-Purpose-ActionDisplay[nn]": "Review Board …",
@@ -119,6 +120,7 @@
         "X-Purpose-ActionDisplay[sv]": "Review Board...",
         "X-Purpose-ActionDisplay[uk]": "Review Board…",
         "X-Purpose-ActionDisplay[x-test]": "xxReview Board...xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "Review Board...",
         "X-Purpose-ActionDisplay[zh_TW]": "Review Board…"
     },
     "X-Purpose-Configuration": [

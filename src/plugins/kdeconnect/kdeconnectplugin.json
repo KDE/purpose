@@ -79,6 +79,7 @@
         "Name[fi]": "Lähetä laitteeseen…",
         "Name[gl]": "Enviar a un dispositivo",
         "Name[it]": "Invia al dispositivo",
+        "Name[ko]": "장치로 보내기",
         "Name[lt]": "Siųsti į įrenginį",
         "Name[nl]": "Naar apparaat verzenden",
         "Name[nn]": "Send til eining",
@@ -90,6 +91,7 @@
         "Name[sv]": "Skicka till enhet",
         "Name[uk]": "Надіслати на пристрій",
         "Name[x-test]": "xxSend To Devicexx",
+        "Name[zh_CN]": "发送到设备",
         "Name[zh_TW]": "傳送到裝置",
         "X-Purpose-ActionDisplay": "Send To Device...",
         "X-Purpose-ActionDisplay[ca]": "Envia a un dispositiu...",
@@ -99,6 +101,7 @@
         "X-Purpose-ActionDisplay[fi]": "Lähetä laitteeseen…",
         "X-Purpose-ActionDisplay[gl]": "Enviar a un dispositivo…",
         "X-Purpose-ActionDisplay[it]": "Invia al dispositivo...",
+        "X-Purpose-ActionDisplay[ko]": "장치로 보내기...",
         "X-Purpose-ActionDisplay[lt]": "Siųsti į įrenginį...",
         "X-Purpose-ActionDisplay[nl]": "Naar apparaat verzenden...",
         "X-Purpose-ActionDisplay[nn]": "Send til eining …",
@@ -110,6 +113,7 @@
         "X-Purpose-ActionDisplay[sv]": "Skicka till enhet...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати на пристрій…",
         "X-Purpose-ActionDisplay[x-test]": "xxSend To Device...xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "发送到设备",
         "X-Purpose-ActionDisplay[zh_TW]": "傳送到裝置…"
     },
     "X-Purpose-Configuration": [

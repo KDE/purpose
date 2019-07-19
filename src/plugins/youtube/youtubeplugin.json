@@ -111,6 +111,7 @@
         "X-Purpose-ActionDisplay[fi]": "YouTube…",
         "X-Purpose-ActionDisplay[gl]": "YouTube…",
         "X-Purpose-ActionDisplay[it]": "Youtube...",
+        "X-Purpose-ActionDisplay[ko]": "Youtube...",
         "X-Purpose-ActionDisplay[lt]": "Youtube...",
         "X-Purpose-ActionDisplay[nl]": "YouTube...",
         "X-Purpose-ActionDisplay[nn]": "YouTube …",
@@ -122,6 +123,7 @@
         "X-Purpose-ActionDisplay[sv]": "YouTube...",
         "X-Purpose-ActionDisplay[uk]": "YouTube…",
         "X-Purpose-ActionDisplay[x-test]": "xxYoutube...xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "Youtube...",
         "X-Purpose-ActionDisplay[zh_TW]": "YouTube…"
     },
     "X-Purpose-Configuration": [

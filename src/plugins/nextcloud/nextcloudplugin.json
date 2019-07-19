@@ -108,6 +108,7 @@
         "X-Purpose-ActionDisplay[fi]": "NextCloud…",
         "X-Purpose-ActionDisplay[gl]": "NextCloud…",
         "X-Purpose-ActionDisplay[it]": "NextCloud...",
+        "X-Purpose-ActionDisplay[ko]": "NextCloud...",
         "X-Purpose-ActionDisplay[lt]": "NextCloud...",
         "X-Purpose-ActionDisplay[nl]": "NextCloud...",
         "X-Purpose-ActionDisplay[nn]": "NextCloud …",
@@ -119,6 +120,7 @@
         "X-Purpose-ActionDisplay[sv]": "NextCloud...",
         "X-Purpose-ActionDisplay[uk]": "NextCloud…",
         "X-Purpose-ActionDisplay[x-test]": "xxNextCloud...xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "NextCloud...",
         "X-Purpose-ActionDisplay[zh_TW]": "NextCloud"
     },
     "X-Purpose-Configuration": [
