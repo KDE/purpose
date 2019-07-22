@@ -24,6 +24,7 @@
 #include <KAccounts/core.h>
 #include <KIO/Job>
 #include <KIO/DavJob>
+#include <KFileUtils>
 
 void NextcloudJob::start()
 {
@@ -104,7 +105,7 @@ void NextcloudJob::checkTargetFile(const QUrl& local, KJob* j)
     } else {
         // file already exists! we try successive suggestions until we find a free name
         QUrl uploadTarget = m_davUrl;
-        uploadTarget.setPath(uploadTarget.path() + KIO::suggestName(m_davUrl, job->url().fileName()));
+        uploadTarget.setPath(uploadTarget.path() + KFileUtils::suggestName(m_davUrl, job->url().fileName()));
         qDebug() << "Trying: " << uploadTarget.toString();
         KIO::DavJob* davjob = KIO::davPropFind(uploadTarget, QDomDocument(), QStringLiteral("0"), KIO::HideProgressInfo);
         connect(davjob, &KJob::finished, this, [=](KJob* jj) { NextcloudJob::checkTargetFile(local, jj); });
