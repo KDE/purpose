@@ -116,7 +116,7 @@ ColumnLayout {
             id: doBrowseCheck
             anchors.centerIn: parent
             text: i18n("Open Diff in browser")
-            enabled: true
+            enabled: updateOld.checked
         }
     }
 

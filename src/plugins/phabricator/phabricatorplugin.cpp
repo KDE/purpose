@@ -85,13 +85,8 @@ class PhabricatorJob : public Purpose::Job
             job=new Phabricator::UpdateDiffRev(sourceFile, baseDir, updateDR, updateComment, doBrowse, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffUpdated);
         } else {
-            job=new Phabricator::NewDiffRev(sourceFile, baseDir, doBrowse, this);
+            job=new Phabricator::NewDiffRev(sourceFile, baseDir, true, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffCreated);
-            if (!doBrowse) {
-                QMessageBox::warning(nullptr,
-                    i18n("Please note"),
-                    i18n("Remember to complete the differential revision online!"));
-            }
         }
         job->start();
         emit PhabricatorJob::infoMessage(this, QStringLiteral("upload job started"), QString());
