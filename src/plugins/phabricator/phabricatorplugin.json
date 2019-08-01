@@ -102,6 +102,7 @@
         "Name[zh_TW]": "Phabricator",
         "X-Purpose-ActionDisplay": "Phabricator...",
         "X-Purpose-ActionDisplay[ca]": "Phabricator...",
+        "X-Purpose-ActionDisplay[cs]": "Phabricator...",
         "X-Purpose-ActionDisplay[de]": "Phabricator ...",
         "X-Purpose-ActionDisplay[es]": "Phabricator...",
         "X-Purpose-ActionDisplay[eu]": "Phabricator...",
