@@ -24,6 +24,7 @@
 #include <KIO/Job>
 #include <QJsonDocument>
 #include <QNetworkReply>
+#include <QJsonObject>
 
 static const QUrl apiUrl(QStringLiteral("https://www.googleapis.com/upload/youtube/v3/videos?part=snippet%2Cstatus&uploadType=resumable"));
 static const QString watchUrl = QStringLiteral("https://www.youtube.com/watch?v=");
