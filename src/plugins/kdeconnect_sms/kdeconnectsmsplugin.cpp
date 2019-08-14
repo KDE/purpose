@@ -16,11 +16,8 @@
 */
 
 #include <purpose/pluginbase.h>
-#include <QDebug>
 #include <QProcess>
 #include <QTimer>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QJsonArray>
 #include <QStandardPaths>
 #include <KPluginFactory>

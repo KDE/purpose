@@ -16,8 +16,6 @@
 */
 
 #include "job.h"
-#include <QJsonArray>
-#include <QDebug>
 
 using namespace Purpose;
 

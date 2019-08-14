@@ -18,15 +18,11 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include <QDialog>
 #include <QUrl>
-#include <QVariantList>
 #include <QStandardPaths>
 #include <QJsonArray>
 
-#include <KLocalizedString>
 #include <KPluginFactory>
-#include <QJsonDocument>
 
 #include "reviewboardjobs.h"
 #include "debug.h"

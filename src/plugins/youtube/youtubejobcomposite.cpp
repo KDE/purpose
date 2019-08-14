@@ -20,7 +20,6 @@
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonValue>
-#include <QJsonDocument>
 #include <QStandardPaths>
 #include <KLocalizedString>
 #include <KAccounts/getcredentialsjob.h>

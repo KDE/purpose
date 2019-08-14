@@ -19,10 +19,8 @@
 #include <QDirIterator>
 #include <QMimeType>
 #include <QMimeDatabase>
-#include <QList>
 #include <QIcon>
 #include <QDebug>
-#include <QJsonDocument>
 #include <QStandardPaths>
 #include <QJsonArray>
 #include <QRegularExpression>

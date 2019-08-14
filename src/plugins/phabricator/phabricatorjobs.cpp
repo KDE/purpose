@@ -21,18 +21,10 @@
 #include "phabricatorjobs.h"
 #include "debug.h"
 
-#include <QTimer>
 #include <QProcess>
 #include <QStandardPaths>
 #include <QDir>
-// #include <QFile>
-// #include <QJsonDocument>
-// #include <QMimeDatabase>
-// #include <QMimeType>
-// #include <QNetworkReply>
-// #include <QNetworkRequest>
-// #include <QUrlQuery>
-
+// // // // // // // 
 #include <KLocalizedString>
 
 #define COLOURCODES "\u001B[[0-9]*m"

@@ -17,15 +17,12 @@
 
 #include <purpose/pluginbase.h>
 #include <QDebug>
-#include <QTimer>
+#include <QUrl>
 #include <QStandardPaths>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QJsonArray>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KJob>
-#include <KJobTrackerInterface>
 #include <KIO/TransferJob>
 #include <KIO/StoredTransferJob>
 

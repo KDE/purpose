@@ -20,7 +20,6 @@
 #include "youtubejob.h"
 
 #include <KPluginFactory>
-#include <QUrl>
 
 class YoutubePlugin : public Purpose::PluginBase
 {

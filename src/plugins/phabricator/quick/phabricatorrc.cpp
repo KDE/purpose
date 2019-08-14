@@ -18,9 +18,6 @@
  */
 
 #include "phabricatorrc.h"
-#include <QFile>
-#include <QTextStream>
-#include <QDebug>
 
 PhabricatorRC::PhabricatorRC(QObject* parent)
     : QObject(parent)

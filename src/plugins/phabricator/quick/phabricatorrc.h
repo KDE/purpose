@@ -22,7 +22,6 @@
 
 #include <QObject>
 #include <QUrl>
-#include <QJsonObject>
 
 class PhabricatorRC : public QObject
 {

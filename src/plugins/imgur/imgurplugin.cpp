@@ -18,12 +18,10 @@
 #include <purpose/pluginbase.h>
 #include "mpform.h"
 #include <QDebug>
-#include <QTimer>
 #include <QStandardPaths>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
-#include <QUrlQuery>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KJob>

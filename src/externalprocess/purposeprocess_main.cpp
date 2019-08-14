@@ -21,7 +21,6 @@
 #include <KPluginMetaData>
 #include <QCommandLineParser>
 #include <QJsonDocument>
-#include <QPointer>
 #include <QLocalSocket>
 
 #include "helper.h"

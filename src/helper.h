@@ -18,7 +18,6 @@
 #ifndef PURPOSE_HELPER_H
 #define PURPOSE_HELPER_H
 
-#include <QObject>
 #include <QJsonObject>
 #include <KPluginMetaData>
 

@@ -20,7 +20,6 @@
 #include "job.h"
 #include "configuration.h"
 #include <qqml.h>
-#include <QDebug>
 
 void PurposeQuickPlugin::registerTypes(const char* uri)
 {

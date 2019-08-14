@@ -26,6 +26,8 @@
 #include <QDesktopServices>
 #include <QUrlQuery>
 #include <QDebug>
+#include <QUrl>
+#include <QJsonArray>
 
 EXPORT_SHARE_VERSION
 

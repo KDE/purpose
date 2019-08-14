@@ -18,12 +18,8 @@
 #ifndef YOUTUBEJOB_H
 #define YOUTUBEJOB_H
 
-#include <KPasswordDialog>
 #include <KJob>
-#include <QMap>
-#include <QPointer>
 #include <QString>
-#include <QJsonValue>
 #include <QNetworkAccessManager>
 #include <QUrl>
 

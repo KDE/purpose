@@ -16,10 +16,7 @@
 */
 
 #include <purpose/pluginbase.h>
-#include <QDebug>
 #include <QProcess>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QJsonArray>
 #include <QStandardPaths>
 #include <KLocalizedString>

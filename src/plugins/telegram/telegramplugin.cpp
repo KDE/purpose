@@ -18,8 +18,6 @@
 #include <purpose/pluginbase.h>
 #include <QDebug>
 #include <QProcess>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QJsonArray>
 #include <QStandardPaths>
 #include <KPluginFactory>
@@ -28,6 +26,7 @@
 #include <KShell>
 #include <KLocalizedString>
 #include <QTimer>
+#include <QUrl>
 #include "debug.h"
 
 Q_LOGGING_CATEGORY(PLUGIN_TELEGRAM, "org.kde.purpose.plugin.telegram")

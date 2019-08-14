@@ -21,10 +21,8 @@
 #define DIFFLISTMODEL_H
 
 #include <QAbstractListModel>
-#include <QUrl>
 #include <QVector>
 #include <QHash>
-#include <QDebug>
 
 class KJob;
 class QTemporaryDir;

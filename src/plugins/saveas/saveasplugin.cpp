@@ -19,11 +19,8 @@
 #include <purpose/pluginbase.h>
 
 #include <KLocalizedString>
-#include <QDebug>
-#include <QTimer>
 #include <QStandardPaths>
 #include <QFile>
-#include <QJsonDocument>
 #include <QJsonArray>
 #include <QFileInfo>
 #include <KPluginFactory>

@@ -18,19 +18,12 @@
 #include "youtubejob.h"
 #include <kpassworddialog.h>
 
-#include <QApplication>
 
 #include <QDebug>
 #include <QUrl>
-#include <QUrlQuery>
-#include <QIcon>
-#include <QDesktopServices>
 #include <KIO/Job>
-#include <KLocalizedString>
 #include <QJsonDocument>
-#include <QJsonObject>
 #include <QNetworkReply>
-#include <QHttpMultiPart>
 
 static const QUrl apiUrl(QStringLiteral("https://www.googleapis.com/upload/youtube/v3/videos?part=snippet%2Cstatus&uploadType=resumable"));
 static const QString watchUrl = QStringLiteral("https://www.youtube.com/watch?v=");

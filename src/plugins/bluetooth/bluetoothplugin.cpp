@@ -17,6 +17,7 @@
 
 #include <purpose/pluginbase.h>
 #include <QDebug>
+#include <QUrl>
 #include <QProcess>
 #include <QJsonArray>
 #include <KPluginFactory>

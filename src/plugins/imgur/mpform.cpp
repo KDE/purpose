@@ -28,7 +28,6 @@
 
 #include <QFile>
 #include <QUrl>
-#include <QFileInfo>
 #include <QMimeDatabase>
 #include <QDebug>
 
