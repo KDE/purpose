@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <service id="nextcloud-upload">
   <type>nextcloud-upload</type>
-  <name>NextCloud Upload</name>
+  <name>Nextcloud Upload</name>
   <icon>owncloud</icon>
   <provider>owncloud</provider>
   <translations>kaccounts-providers</translations>
