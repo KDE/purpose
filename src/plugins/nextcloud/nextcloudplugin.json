@@ -73,7 +73,21 @@
         "Icon": "edit-paste",
         "License": "GPL",
         "Name": "Nextcloud",
-        "X-Purpose-ActionDisplay": "Nextcloud..."
+        "Name[ca]": "Nextcloud",
+        "Name[eu]": "NextCloud",
+        "Name[nl]": "Nextcloud",
+        "Name[pt]": "Nextcloud",
+        "Name[tg]": "Nextcloud",
+        "Name[uk]": "Nextcloud",
+        "Name[x-test]": "xxNextcloudxx",
+        "X-Purpose-ActionDisplay": "Nextcloud...",
+        "X-Purpose-ActionDisplay[ca]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[eu]": "NextCloud...",
+        "X-Purpose-ActionDisplay[nl]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[pt]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[tg]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[uk]": "Nextcloud…",
+        "X-Purpose-ActionDisplay[x-test]": "xxNextcloud...xx"
     },
     "X-Purpose-Configuration": [
         "folder",
