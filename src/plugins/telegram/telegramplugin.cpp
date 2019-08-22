@@ -55,7 +55,7 @@ class TelegramJob : public Purpose::Job
 
         void start() override
         {
-            for (const QString &desktopFile: {QStringLiteral("org.telegram.desktop.desktop"), QStringLiteral("telegramdesktop.desktop") }) {
+            for (const QString &desktopFile: {QStringLiteral("org.telegram.desktop.desktop"), QStringLiteral("telegramdesktop.desktop"), QStringLiteral("telegram-desktop.desktop") }) {
                 const auto path = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, desktopFile);
                 if (!path.isEmpty()) {
                     useDesktopFile(path);

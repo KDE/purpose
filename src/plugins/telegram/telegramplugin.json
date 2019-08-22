@@ -133,7 +133,8 @@
     "X-Purpose-Constraints": [
         [
             "application:org.telegram.desktop.desktop",
-            "application:telegramdesktop.desktop"
+            "application:telegramdesktop.desktop",
+            "application:telegram-desktop.desktop"
         ]
     ],
     "X-Purpose-PluginTypes": [
