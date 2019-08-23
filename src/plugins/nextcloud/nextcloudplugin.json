@@ -78,6 +78,7 @@
         "Name[eu]": "NextCloud",
         "Name[nl]": "Nextcloud",
         "Name[pt]": "Nextcloud",
+        "Name[sv]": "Nextcloud",
         "Name[tg]": "Nextcloud",
         "Name[uk]": "Nextcloud",
         "Name[x-test]": "xxNextcloudxx",
@@ -87,6 +88,7 @@
         "X-Purpose-ActionDisplay[eu]": "NextCloud...",
         "X-Purpose-ActionDisplay[nl]": "Nextcloud...",
         "X-Purpose-ActionDisplay[pt]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[sv]": "Nextcloud...",
         "X-Purpose-ActionDisplay[tg]": "Nextcloud...",
         "X-Purpose-ActionDisplay[uk]": "Nextcloud…",
         "X-Purpose-ActionDisplay[x-test]": "xxNextcloud...xx"
