@@ -50,6 +50,12 @@ void AlternativesModelTest::initTestCase()
 {
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
+
+    if (qEnvironmentVariableIsSet("QT_LOGGING_RULES")) { // as is the case in CI
+        // CopyJob debug output is too noisy because of the huge data URL we're using in bigBufferTest.
+        qputenv("QT_LOGGING_RULES", qgetenv("QT_LOGGING_RULES") + QByteArrayLiteral(";kf5.kio.core.copyjob.debug=false"));
+    }
+
 }
 
 void AlternativesModelTest::runJobTest()
@@ -89,12 +95,6 @@ void AlternativesModelTest::runJobTest()
 
 void AlternativesModelTest::bigBufferTest()
 {
-    if (qEnvironmentVariableIsSet("QT_LOGGING_RULES")) { // as is the case in CI
-        // CopyJob debug output is too noisy because of the huge data URL we're using here.
-        // The proper fix for this is pending: https://codereview.qt-project.org/236112
-        qputenv("QT_LOGGING_RULES", qgetenv("QT_LOGGING_RULES") + QByteArrayLiteral(";kf5.kio.core.copyjob.debug=false"));
-    }
-
     Purpose::AlternativesModel model;
 
     const QByteArray payload(1920*1080*4, 'x');
