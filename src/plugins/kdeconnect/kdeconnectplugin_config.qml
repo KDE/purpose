@@ -31,7 +31,7 @@ ColumnLayout {
 
     Kirigami.Heading {
         text: i18nd("purpose_kdeconnect", "Choose a device to send to:")
-        visible: root.count !== 0
+        visible: list.count !== 0
         level: 1
     }
 
@@ -44,6 +44,7 @@ ColumnLayout {
         Component.onCompleted: scroll.background.visible = true
 
         ListView {
+            id: list
             Layout.fillWidth: true
             Layout.fillHeight: true
 
@@ -65,7 +66,7 @@ ColumnLayout {
                 anchors.fill: parent
                 verticalAlignment: Qt.AlignVCenter
                 horizontalAlignment: Qt.AlignHCenter
-                visible: root.count === 0
+                visible: list.count === 0
                 text: i18nd("purpose_kdeconnect","No devices found")
             }
         }
