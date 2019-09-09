@@ -93,6 +93,7 @@
         "Name[uk]": "Nextcloud",
         "Name[x-test]": "xxNextcloudxx",
         "Name[zh_CN]": "Nextcloud",
+        "Name[zh_TW]": "Nextcloud",
         "X-Purpose-ActionDisplay": "Nextcloud...",
         "X-Purpose-ActionDisplay[ca]": "Nextcloud...",
         "X-Purpose-ActionDisplay[cs]": "NextCloud...",
@@ -113,7 +114,8 @@
         "X-Purpose-ActionDisplay[tg]": "Nextcloud...",
         "X-Purpose-ActionDisplay[uk]": "Nextcloud…",
         "X-Purpose-ActionDisplay[x-test]": "xxNextcloud...xx",
-        "X-Purpose-ActionDisplay[zh_CN]": "Nextcloud..."
+        "X-Purpose-ActionDisplay[zh_CN]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[zh_TW]": "Nextcloud..."
     },
     "X-Purpose-Configuration": [
         "folder",
