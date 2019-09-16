@@ -119,7 +119,7 @@ QHash<int, QByteArray> DiffListModel::roleNames() const
     const QHash<int, QByteArray> roles = {
         {Qt::DisplayRole, QByteArrayLiteral("display")},
         {Qt::ToolTipRole, QByteArrayLiteral("toolTip")},
-        {Qt::TextColorRole, QByteArrayLiteral("textColor")} };
+        {Qt::ForegroundRole, QByteArrayLiteral("textColor")} };
     return roles;
 }
 
@@ -134,7 +134,7 @@ QVariant DiffListModel::data(const QModelIndex &idx, int role) const
             return m_values[idx.row()].summary;
         case Qt::ToolTipRole:
             return m_values[idx.row()].id;
-        case Qt::TextColorRole:
+        case Qt::ForegroundRole:
             // Use the colours arc also uses
             switch (m_values[idx.row()].status.value<Phabricator::DiffRevList::Status>()) {
                 case Phabricator::DiffRevList::Accepted:
