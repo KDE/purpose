@@ -71,7 +71,7 @@
         "Description[uk]": "Надіслати за допомогою KDE Connect",
         "Description[x-test]": "xxSend through KDE Connectxx",
         "Description[zh_CN]": "通过 KDE Connect 发送",
-        "Description[zh_TW]": "透過 KDE Connect 傳送",
+        "Description[zh_TW]": "透過 KDE 連線傳送",
         "Icon": "kdeconnect",
         "License": "GPL",
         "Name": "Send To Device",
