@@ -39,7 +39,7 @@ StackView {
                 elide: Text.ElideRight
             }
             Button {
-                text: i18n("Use")
+                text: i18nd("libpurpose_quick", "Use")
                 onClicked: createJob(index);
             }
             Keys.onReturnPressed: createJob(index)
@@ -122,7 +122,7 @@ StackView {
             }
             RowLayout {
                 Button {
-                    text: i18n("Run")
+                    text: i18nd("libpurpose_quick", "Run")
                     enabled: wiz.configuration && wiz.configuration.isReady
                     onClicked: {
                         stack.pop();
@@ -130,7 +130,7 @@ StackView {
                     }
                 }
                 Button {
-                    text: i18n("Back")
+                    text: i18nd("libpurpose_quick", "Back")
                     onClicked: {
                         stack.pop();
                         wiz.cancel()

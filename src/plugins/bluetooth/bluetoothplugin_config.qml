@@ -31,7 +31,7 @@ ColumnLayout {
     anchors.bottomMargin: Kirigami.Units.smallSpacing
 
     Kirigami.Heading {
-        text: i18n("Choose a device to send to:")
+        text: i18nd("purpose_bluetooth", "Choose a device to send to:")
         visible: list.count !== 0
         level: 1
     }
@@ -65,7 +65,7 @@ ColumnLayout {
                 verticalAlignment: Qt.AlignVCenter
                 horizontalAlignment: Qt.AlignHCenter
                 visible: list.count === 0
-                text: i18n("No devices found")
+                text: i18nd("purpose_bluetooth", "No devices found")
             }
         }
     }

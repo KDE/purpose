@@ -38,7 +38,7 @@ ColumnLayout
         accountId = valid ? serviceModel.get(accountsCombo.currentIndex, "accountId") : null
     }
 
-    Label { text: i18n("Account:") }
+    Label { text: i18nd("purpose_youtube", "Account:") }
     RowLayout {
         Layout.fillWidth: true
         ComboBox {
@@ -60,21 +60,21 @@ ColumnLayout
         }
     }
 
-    Label { text: i18n("Title:") }
+    Label { text: i18nd("purpose_youtube", "Title:") }
     TextField {
         id: title
         Layout.fillWidth: true
-        placeholderText: i18n("Enter a title for the video...")
+        placeholderText: i18nd("purpose_youtube", "Enter a title for the video...")
     }
 
-    Label { text: i18n("Tags:") }
+    Label { text: i18nd("purpose_youtube", "Tags:") }
     TextField {
         id: tags
         Layout.fillWidth: true
-        placeholderText: i18n("KDE, Kamoso")
+        placeholderText: i18nd("purpose_youtube", "KDE, Kamoso")
     }
 
-    Label { text: i18n("Description:") }
+    Label { text: i18nd("purpose_youtube", "Description:") }
     TextArea {
         id: description
         Layout.fillWidth: true

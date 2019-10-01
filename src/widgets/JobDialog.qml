@@ -40,7 +40,7 @@ ApplicationWindow
     minimumWidth: view.Layout.minimumWidth
 
     onClosing: {
-        q.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18n("Configuration cancelled"));
+        q.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose_widgets", "Configuration cancelled"));
     }
 
     function adoptJob() {
@@ -85,7 +85,7 @@ ApplicationWindow
                     Layout.fillWidth: true
                 }
                 Button {
-                    text: i18n("Send")
+                    text: i18nd("libpurpose_widgets", "Send")
                     icon.name: "document-send"
                     enabled: window.configuration && window.configuration.isReady
                     onClicked: {
@@ -94,10 +94,10 @@ ApplicationWindow
                     }
                 }
                 Button {
-                    text: i18n("Cancel")
+                    text: i18nd("libpurpose_widgets", "Cancel")
                     icon.name: "dialog-cancel"
                     onClicked: {
-                        window.q.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18n("Configuration cancelled"));
+                        window.q.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose_widgets", "Configuration cancelled"));
                         window.visible = false;
                     }
                 }

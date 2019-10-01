@@ -46,7 +46,7 @@ ColumnLayout
         configuration.data = jobData;
     }
 
-    Label { text: i18n("Account:") }
+    Label { text: i18nd("purpose_nextcloud", "Account:") }
     RowLayout {
         Layout.fillWidth: true
         ComboBox {
@@ -67,7 +67,7 @@ ColumnLayout
             onClicked: KQCA.KCMShell.open("kcm_kaccounts");
         }
     }
-    Label { text: i18n("Upload to folder:") }
+    Label { text: i18nd("purpose_nextcloud", "Upload to folder:") }
     TextField {
         id: folderField
         Layout.fillWidth: true
