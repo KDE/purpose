@@ -81,15 +81,9 @@ void AlternativesModelTest::runJobTest()
     QVERIFY(conf->isReady());
     Purpose::Job* job = conf->createJob();
     QVERIFY(job);
-    QSignalSpy s(job, &KJob::finished);
     QSignalSpy sOutput(job, &Purpose::Job::outputChanged);
-    job->start();
-    QVERIFY(s.count() || s.wait());
-    if (job->error()) {
-        qWarning() << "error!" << job->error() << job->errorString() << job->errorText();
-    }
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(sOutput.count(), 1);
-    QCOMPARE(job->error(), 0);
     QVERIFY(QFile::remove(tempfile));
 }
 
@@ -116,15 +110,9 @@ void AlternativesModelTest::bigBufferTest()
     conf->setUseSeparateProcess(false);
     Purpose::Job* job = conf->createJob();
     QVERIFY(job);
-    QSignalSpy s(job, &KJob::finished);
     QSignalSpy sOutput(job, &Purpose::Job::outputChanged);
-    job->start();
-    QVERIFY(s.count() || s.wait());
-    if (job->error()) {
-        qWarning() << "error!" << job->error() << job->errorString() << job->errorText();
-    }
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(sOutput.count(), 1);
-    QCOMPARE(job->error(), 0);
 
     QFileInfo fi(tempfile);
     QCOMPARE(fi.size(), payload.size());
