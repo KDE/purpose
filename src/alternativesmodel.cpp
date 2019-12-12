@@ -110,7 +110,7 @@ public:
     {
         const QJsonObject obj = meta.rawData();
         if(!obj.value(QStringLiteral("X-Purpose-PluginTypes")).toArray().contains(m_pluginType)) {
-            qDebug() << "discarding" << meta.name() << KPluginMetaData::readStringList(meta.rawData(), QStringLiteral("X-Purpose-PluginTypes"));
+            //qDebug() << "discarding" << meta.name() << KPluginMetaData::readStringList(meta.rawData(), QStringLiteral("X-Purpose-PluginTypes"));
             return false;
         }
 
