@@ -18,7 +18,7 @@
  */
 
 #include "reviewboardrc.h"
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QFile>
 #include <QHash>
 #include <QTextStream>
@@ -36,18 +36,19 @@ void ReviewboardRC::setPath(const QUrl &filePath)
     //The .reviewboardrc files are python files, we'll read and if it doesn't work
     //Well bad luck. See: http://www.reviewboard.org/docs/rbtools/dev/rbt/configuration/
 
-    QRegExp rx(QStringLiteral("([\\w_]+) *= *[\"'](.*)[\"']"));
     QFile f(filePath.toLocalFile());
     if(!f.open(QFile::ReadOnly | QFile::Text)) {
         qWarning() << "couldn't open" << filePath;
         return;
     }
 
+    const QRegularExpression rx(QRegularExpression::anchoredPattern(QStringLiteral("([\\w]+) *= *[\"'](.*)[\"']")));
     QHash<QString, QString> values;
     QTextStream stream(&f);
     for(; !stream.atEnd(); ) {
-        if(rx.exactMatch(stream.readLine())) {
-            values.insert(rx.cap(1), rx.cap(2));
+        QRegularExpressionMatch match = rx.match(stream.readLine());
+        if(match.hasMatch()) {
+            values.insert(match.captured(1), match.captured(2));
         }
     }
 

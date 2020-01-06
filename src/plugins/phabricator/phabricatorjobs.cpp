@@ -22,12 +22,13 @@
 #include "debug.h"
 
 #include <QProcess>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QDir>
 // // // // // // // 
 #include <KLocalizedString>
 
-#define COLOURCODES "\u001B[[0-9]*m"
+const char s_colourCodes[] = "\u001B[[0-9]*m";
 
 using namespace Phabricator;
 
@@ -93,7 +94,7 @@ void DifferentialRevision::start()
 
 void DifferentialRevision::setErrorString(const QString& msg)
 {
-    QRegExp unwanted(QString::fromUtf8(COLOURCODES));
+    QRegularExpression unwanted(QString::fromUtf8(s_colourCodes));
     m_errorString = msg;
     m_errorString.replace(unwanted, QString());
 }
@@ -102,7 +103,7 @@ QString DifferentialRevision::scrubbedResult()
 {
     QString result = QString::fromUtf8(m_arcCmd.readAllStandardOutput());
     // the return string can contain terminal text colour codes: remove them.
-    QRegExp unwanted(QString::fromUtf8(COLOURCODES));
+    QRegularExpression unwanted(QString::fromUtf8(s_colourCodes));
     result.replace(unwanted, QString());
     return result;
 }
@@ -111,7 +112,7 @@ QStringList DifferentialRevision::scrubbedResultList()
 {
     QStringList result = QString::fromUtf8(m_arcCmd.readAllStandardOutput()).split(QChar::LineFeed);
     // the return string can contain terminal text colour codes: remove them.
-    QRegExp unwanted(QString::fromUtf8(COLOURCODES));
+    QRegularExpression unwanted(QString::fromUtf8(s_colourCodes));
     result.replaceInStrings(unwanted, QString());
     // remove all (now) empty strings
     result.removeAll(QString());
@@ -234,8 +235,8 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
         setPercent(99);
         const QStringList reviews = scrubbedResultList();
         qCDebug(PLUGIN_PHABRICATOR) << "arc list returned:" << reviews;
+        const QRegularExpression revIDExpr(QStringLiteral(" D[0-9][0-9]*: "));
         for (auto rev : reviews) {
-            QRegExp revIDExpr(QString::fromUtf8(" D[0-9][0-9]*: "));
             int idStart = rev.indexOf(revIDExpr);
             if (idStart >= 0) {
                 QString revID = rev.mid(idStart+1).split(QString::fromUtf8(": ")).at(0);
