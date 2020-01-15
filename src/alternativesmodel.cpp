@@ -63,9 +63,8 @@ static bool mimeTypeMatch(const QString& constraint, const QJsonValue& value)
         }
         return false;
     } else if(constraint.contains(QLatin1Char('*'))) {
-        const QRegularExpression re(
-                QRegularExpression::anchoredPattern(QRegularExpression::wildcardToRegularExpression(constraint)),
-                QRegularExpression::CaseInsensitiveOption);
+        const QRegularExpression re(QRegularExpression::wildcardToRegularExpression(constraint),
+                                    QRegularExpression::CaseInsensitiveOption);
         return re.match(value.toString()).hasMatch();
     } else {
         QMimeDatabase db;
