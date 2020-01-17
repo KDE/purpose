@@ -22,6 +22,8 @@
 #include <QCommandLineParser>
 #include <QJsonDocument>
 #include <QLocalSocket>
+#include <QCborValue>
+#include <QCborMap>
 
 #include "helper.h"
 #include "purpose_external_process_debug.h"
@@ -69,7 +71,7 @@ public:
         Q_ASSERT(couldRead); // false if we hit a timeout before read-end.
         Q_ASSERT(pos == bytes);
 
-        Purpose::Configuration config(QJsonDocument::fromBinaryData(dataArray).object(), pluginType, md);
+        Purpose::Configuration config(QCborValue::fromCbor(dataArray).toMap().toJsonObject(), pluginType, md);
         config.setUseSeparateProcess(false);
 
         Q_ASSERT(config.isReady());

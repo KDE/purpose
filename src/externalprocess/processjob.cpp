@@ -26,6 +26,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QStandardPaths>
+#include <QCborValue>
 
 using namespace Purpose;
 
@@ -73,8 +74,7 @@ void ProcessJob::writeSocket()
 
     m_socket.removeServer(m_socket.serverName());
 
-    const QJsonDocument doc(m_data);
-    const QByteArray data = doc.toBinaryData();
+    const QByteArray data = QCborValue::fromJsonValue(m_data).toCbor();
     m_localSocket->write(QByteArray::number(data.size()) + '\n');
     const auto ret = m_localSocket->write(data);
     Q_ASSERT(ret == data.size());
