@@ -88,7 +88,12 @@ public:
 
 private Q_SLOTS:
     void error() {
-        qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "socket error:" << m_socket.error();
+#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
+        const auto socketError = m_socket.error();
+#else
+        const auto socketError = m_socket.socketError();
+#endif
+        qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "socket error:" << socketError;
     }
 
     void propertyChanged() {
