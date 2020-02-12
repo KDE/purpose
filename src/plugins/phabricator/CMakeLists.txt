@@ -14,7 +14,10 @@ ecm_qt_declare_logging_category(PhabricatorHelper_SRCS
     HEADER debug.h
     IDENTIFIER PLUGIN_PHABRICATOR
     CATEGORY_NAME kdevplatform.plugins.phabricator
-    DEFAULT_SEVERITY Debug)
+    DEFAULT_SEVERITY Debug
+    DESCRIPTION "purpose (phabricator plugin)"
+    EXPORT PURPOSE
+)
 
 add_library(PhabricatorHelpers ${PhabricatorHelper_SRCS})
 generate_export_header(PhabricatorHelpers EXPORT_FILE_NAME phabricatorhelpers_export.h)

@@ -2,7 +2,13 @@ qt5_add_resources(purpose_SRCS standard-plugin-types.qrc)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake-paths.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/cmake-paths.h)
 
-ecm_qt_declare_logging_category(external_process_debug_SRCS HEADER purpose_external_process_debug.h IDENTIFIER PURPOSE_EXTERNAL_PROCESS_LOG CATEGORY_NAME kf5.purpose.externalprocess)
+ecm_qt_declare_logging_category(external_process_debug_SRCS
+    HEADER purpose_external_process_debug.h
+    IDENTIFIER PURPOSE_EXTERNAL_PROCESS_LOG
+    CATEGORY_NAME kf5.purpose.externalprocess
+    DESCRIPTION "purpose external process"
+    EXPORT PURPOSE
+)
 
 add_library(KF5Purpose
     ${external_process_debug_SRCS}
@@ -65,3 +71,9 @@ add_subdirectory(plugins)
 add_subdirectory(quick)
 add_subdirectory(widgets)
 add_subdirectory(fileitemactionplugin)
+
+ecm_qt_install_logging_categories(
+    EXPORT PURPOSE
+    FILE purpose.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)

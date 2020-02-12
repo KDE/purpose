@@ -81,8 +81,6 @@ install(FILES
 
 feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-install(FILES purpose.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-
 #TODO: Remove somewhen in the future
 install(FILES
   "${CMAKE_CURRENT_SOURCE_DIR}/KDEExperimentalPurposeConfig.cmake"

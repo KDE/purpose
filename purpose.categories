@@ -1,4 +1,0 @@
-kf5.purpose.externalprocess purpose external process IDENTIFIER [PURPOSE_EXTERNAL_PROCESS_LOG]
-kf5.purpose.fileitemactionplugin purpose fileitemaction plugin IDENTIFIER [PURPOSE_FILEITEMACTION_PLUGIN_LOG]
-kdevplatform.plugins.phabricator purpose (phabricator plugin) IDENTIFIER [PLUGIN_PHABRICATOR]
-kdevplatform.plugins.reviewboard purpose (reviewboard plugin) IDENTIFIER [PLUGIN_REVIEWBOARD]
