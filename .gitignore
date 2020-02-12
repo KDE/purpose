@@ -20,3 +20,4 @@ CMakeLists.txt.user
 *.BASE.*
 *.LOCAL.*
 *.REMOTE.*
+.cmake/
