@@ -90,7 +90,7 @@ public:
 
 private Q_SLOTS:
     void error() {
-#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
+#if (QT_VERSION <= QT_VERSION_CHECK(5, 15, 0))
         const auto socketError = m_socket.error();
 #else
         const auto socketError = m_socket.socketError();
