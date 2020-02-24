@@ -27,14 +27,6 @@ set(KF5_DEP_VERSION "5.67.0") # handled by release scripts
 
 find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n Config Kirigami2)
 
-# Debian is a special snow flake and uses nodejs as binary name
-# https://lists.debian.org/debian-devel-announce/2012/07/msg00002.html
-if(EXISTS "/etc/debian_version") # is debian system?
-    set(NODEJS_BINARY "nodejs" CACHE PATH "The binary name for the nodejs interpreter")
-else() # sane system
-    set(NODEJS_BINARY "node" CACHE PATH "The binary name for the nodejs interpreter")
-endif()
-
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX PURPOSE
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfigVersion.cmake"
