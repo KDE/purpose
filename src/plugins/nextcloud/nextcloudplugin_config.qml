@@ -57,7 +57,7 @@ ColumnLayout
             enabled: count>0
             model: OA.AccountServiceModel {
                 id: serviceModel
-                serviceType: "nextcloud-upload"
+                serviceType: "dav-storage"
             }
             onCurrentIndexChanged: root.accountChanged()
             Component.onCompleted: root.accountChanged()

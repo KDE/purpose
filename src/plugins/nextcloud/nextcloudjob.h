@@ -27,18 +27,11 @@ class NextcloudJob : public Purpose::Job
     Q_OBJECT
     public:
         NextcloudJob(QObject* parent)
-            : Purpose::Job(parent), m_pendingJobs(0)
+            : Purpose::Job(parent)
         {}
         void start() override;
 
     private Q_SLOTS:
-        void fileUploaded(KJob*);
-        void checkTargetFolder(KJob*);
-
-    private:
-        void checkTargetFile(const QUrl& local, KJob* job);
-        void fileFetched(const QUrl& uploadUrl, KJob*);
-        QUrl m_davUrl;
-        int m_pendingJobs;
+        void gotCredentials(KJob *job);
 };
 #endif /* NEXTCLOUDJOB_H */
