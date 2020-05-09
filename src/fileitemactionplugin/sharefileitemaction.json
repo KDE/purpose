@@ -4,6 +4,7 @@
             {
                 "Name": "Nicolas Fella",
                 "Name[ar]": "Nicolas Fella",
+                "Name[az]": "Nicolas Fella",
                 "Name[ca@valencia]": "Nicolas Fella",
                 "Name[ca]": "Nicolas Fella",
                 "Name[cs]": "Nicolas Fella",
@@ -40,6 +41,7 @@
         ],
         "Category": "Utilities",
         "Description": "Share using Purpose",
+        "Description[az]": "Purpose köməyi ilə paylaşmaq",
         "Description[ca@valencia]": "Comparteix usant Purpose",
         "Description[ca]": "Comparteix usant Purpose",
         "Description[cs]": "Sdílet pomocí Purpose",
@@ -79,6 +81,7 @@
             "application/octet-stream"
         ],
         "Name": "Share",
+        "Name[az]": "Paylaşmaq",
         "Name[ca@valencia]": "Comparteix",
         "Name[ca]": "Comparteix",
         "Name[cs]": "Sdílet",

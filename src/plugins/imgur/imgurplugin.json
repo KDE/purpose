@@ -4,6 +4,7 @@
             {
                 "Name": "Aleix Pol",
                 "Name[ar]": "Aleix Pol",
+                "Name[az]": "Aleix Pol",
                 "Name[ca@valencia]": "Aleix Pol",
                 "Name[ca]": "Aleix Pol",
                 "Name[cs]": "Aleix Pol",
@@ -43,6 +44,7 @@
         "Category": "Utilities",
         "Description": "Upload pictures to Imgur",
         "Description[ar]": "ارفع الصور على Imgur",
+        "Description[az]": "Şəkili İmgur-a göndərmək",
         "Description[ca@valencia]": "Puja imatges a Imgur",
         "Description[ca]": "Puja imatges a Imgur",
         "Description[cs]": "Odeslat obrázky na Imgur",
@@ -81,6 +83,7 @@
         "License": "GPL",
         "Name": "Imgur",
         "Name[ar]": "Imgur",
+        "Name[az]": "Imgur",
         "Name[bs]": "Imgur",
         "Name[ca@valencia]": "Imgur",
         "Name[ca]": "Imgur",
