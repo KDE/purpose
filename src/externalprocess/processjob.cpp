@@ -19,7 +19,6 @@
 #include "cmake-paths.h"
 #include "purpose_external_process_debug.h"
 #include <QLibrary>
-#include <KRandom>
 #include <QMetaMethod>
 #include <QJsonDocument>
 #include <QProcess>
@@ -27,6 +26,7 @@
 #include <QFileInfo>
 #include <QStandardPaths>
 #include <QCborValue>
+#include <QRandomGenerator>
 
 using namespace Purpose;
 
@@ -56,7 +56,7 @@ ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, con
 
     m_socket.setMaxPendingConnections(1);
     m_socket.setSocketOptions(QLocalServer::UserAccessOption);
-    bool b = m_socket.listen(QStringLiteral("randomname-%1").arg(KRandom::random()));
+    bool b = m_socket.listen(QStringLiteral("randomname-%1").arg(QRandomGenerator::global()->generate()));
     Q_ASSERT(b);
     connect(&m_socket, &QLocalServer::newConnection, this, &ProcessJob::writeSocket);
 }
