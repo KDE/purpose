@@ -36,7 +36,6 @@
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -76,7 +75,6 @@
         "Description[tg]": "Фиристодан ба воситаи KDE Connect",
         "Description[tr]": "KDE Bağlantısı ile gönder",
         "Description[uk]": "Надіслати за допомогою KDE Connect",
-        "Description[x-test]": "xxSend through KDE Connectxx",
         "Description[zh_CN]": "通过 KDE Connect 发送",
         "Description[zh_TW]": "透過 KDE 連線傳送",
         "Icon": "kdeconnect",
@@ -111,7 +109,6 @@
         "Name[sv]": "Skicka till enhet",
         "Name[tg]": "Фиристодан ба дастгоҳ",
         "Name[uk]": "Надіслати на пристрій",
-        "Name[x-test]": "xxSend To Devicexx",
         "Name[zh_CN]": "发送到设备",
         "Name[zh_TW]": "傳送到裝置",
         "X-Purpose-ActionDisplay": "Send To Device...",
@@ -144,7 +141,6 @@
         "X-Purpose-ActionDisplay[sv]": "Skicka till enhet...",
         "X-Purpose-ActionDisplay[tg]": "Фиристодан ба дастгоҳ...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати на пристрій…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend To Device...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "发送到设备",
         "X-Purpose-ActionDisplay[zh_TW]": "傳送到裝置…"
     },
