@@ -34,6 +34,7 @@
                 "Name[sv]": "Nicolas Fella",
                 "Name[tg]": "Николас Фелла (Nicolas Fella)",
                 "Name[uk]": "Nicolas Fella",
+                "Name[x-test]": "xxNicolas Fellaxx",
                 "Name[zh_CN]": "Nicolas Fella",
                 "Name[zh_TW]": "Nicolas Fella"
             }
@@ -71,6 +72,7 @@
         "Description[sv]": "Skicka via Blåtand",
         "Description[tg]": "Фиристодан ба воситаи Bluetooth",
         "Description[uk]": "Надсилання за допомогою Bluetooth",
+        "Description[x-test]": "xxSend via Bluetoothxx",
         "Description[zh_CN]": "通过蓝牙发送",
         "Description[zh_TW]": "透過藍牙傳送",
         "Icon": "preferences-system-bluetooth",
@@ -105,6 +107,7 @@
         "Name[sv]": "Skicka via Blåtand",
         "Name[tg]": "Фиристодан ба воситаи Bluetooth",
         "Name[uk]": "Надсилання за допомогою Bluetooth",
+        "Name[x-test]": "xxSend via Bluetoothxx",
         "Name[zh_CN]": "通过蓝牙发送",
         "Name[zh_TW]": "透過藍牙傳送",
         "X-Purpose-ActionDisplay": "Send via Bluetooth...",
@@ -137,6 +140,7 @@
         "X-Purpose-ActionDisplay[sv]": "Skicka via Blåtand...",
         "X-Purpose-ActionDisplay[tg]": "Фиристодан ба воситаи Bluetooth...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Bluetooth…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Bluetooth...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "通过蓝牙发送...",
         "X-Purpose-ActionDisplay[zh_TW]": "透過藍牙傳送……"
     },

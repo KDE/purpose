@@ -35,6 +35,7 @@
                 "Name[tg]": "Лим Ён Хое (Lim Yuen Hoe)",
                 "Name[tr]": "Lim Yuen Hoe",
                 "Name[uk]": "Lim Yuen Hoe",
+                "Name[x-test]": "xxLim Yuen Hoexx",
                 "Name[zh_CN]": "Lim Yuen Hoe",
                 "Name[zh_TW]": "Lim Yuen Hoe"
             }
@@ -74,6 +75,7 @@
         "Description[tg]": "Бор кардани файлҳо ба Nextcloud",
         "Description[tr]": "Dosyaları Nextcloud'a yükle",
         "Description[uk]": "Вивантаження відео на Nextcloud",
+        "Description[x-test]": "xxUpload files to Nextcloudxx",
         "Description[zh_CN]": "将文件上传到 Nextcloud",
         "Description[zh_TW]": "上傳檔案到 Nextcloud",
         "Icon": "edit-paste",
@@ -107,6 +109,7 @@
         "Name[sv]": "Nextcloud",
         "Name[tg]": "Nextcloud",
         "Name[uk]": "Nextcloud",
+        "Name[x-test]": "xxNextcloudxx",
         "Name[zh_CN]": "Nextcloud",
         "Name[zh_TW]": "Nextcloud",
         "X-Purpose-ActionDisplay": "Nextcloud...",
@@ -138,6 +141,7 @@
         "X-Purpose-ActionDisplay[sv]": "Nextcloud...",
         "X-Purpose-ActionDisplay[tg]": "Nextcloud...",
         "X-Purpose-ActionDisplay[uk]": "Nextcloud…",
+        "X-Purpose-ActionDisplay[x-test]": "xxNextcloud...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "Nextcloud...",
         "X-Purpose-ActionDisplay[zh_TW]": "Nextcloud..."
     },

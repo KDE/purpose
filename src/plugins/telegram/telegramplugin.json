@@ -34,6 +34,7 @@
                 "Name[sv]": "Nicolas Fella",
                 "Name[tg]": "Николас Фелла (Nicolas Fella)",
                 "Name[uk]": "Nicolas Fella",
+                "Name[x-test]": "xxNicolas Fellaxx",
                 "Name[zh_CN]": "Nicolas Fella",
                 "Name[zh_TW]": "Nicolas Fella"
             }
@@ -72,6 +73,7 @@
         "Description[sv]": "Skicka via Telegram",
         "Description[tg]": "Фиристодан ба воситаи Telegram",
         "Description[uk]": "Надсилання за допомогою Telegram",
+        "Description[x-test]": "xxSend via Telegramxx",
         "Description[zh_CN]": "通过 Telegram 发送",
         "Description[zh_TW]": "透過 Telegram 傳送",
         "Icon": "telegram",
@@ -106,6 +108,7 @@
         "Name[sv]": "Skicka via Telegram",
         "Name[tg]": "Фиристодан ба воситаи Telegram",
         "Name[uk]": "Надсилання за допомогою Telegram",
+        "Name[x-test]": "xxSend via Telegramxx",
         "Name[zh_CN]": "通过 Telegram 发送",
         "Name[zh_TW]": "透過 Telegram 傳送",
         "X-Purpose-ActionDisplay": "Send via Telegram...",
@@ -138,6 +141,7 @@
         "X-Purpose-ActionDisplay[sv]": "Skicka via Telegram...",
         "X-Purpose-ActionDisplay[tg]": "Фиристодан ба воситаи Telegram...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Telegram…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Telegram...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "通过 Telegram 发送...",
         "X-Purpose-ActionDisplay[zh_TW]": "透過 Telegram 傳送……"
     },

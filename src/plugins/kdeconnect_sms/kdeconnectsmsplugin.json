@@ -34,6 +34,7 @@
                 "Name[sv]": "Nicolas Fella",
                 "Name[tg]": "Николас Фелла (Nicolas Fella)",
                 "Name[uk]": "Nicolas Fella",
+                "Name[x-test]": "xxNicolas Fellaxx",
                 "Name[zh_CN]": "Nicolas Fella",
                 "Name[zh_TW]": "Nicolas Fella"
             }
@@ -70,6 +71,7 @@
         "Description[sv]": "Skicka SMS via KDE-anslut",
         "Description[tg]": "Фиристодани SMS ба воситаи KDE Connect",
         "Description[uk]": "Надсилання SMS за допомогою KDE Connect",
+        "Description[x-test]": "xxSend SMS via KDE Connectxx",
         "Description[zh_CN]": "通过 KDE Connect 发送短信",
         "Description[zh_TW]": "透過 KDE 連線傳送簡訊",
         "Icon": "kdeconnect",
@@ -104,6 +106,7 @@
         "Name[sv]": "Skicka SMS via KDE-anslut",
         "Name[tg]": "Фиристодани SMS ба воситаи KDE Connect",
         "Name[uk]": "Надсилання SMS за допомогою KDE Connect",
+        "Name[x-test]": "xxSend SMS via KDE Connectxx",
         "Name[zh_CN]": "通过 KDE Connect 发送短信",
         "Name[zh_TW]": "透過 KDE 連線傳送簡訊",
         "X-Purpose-ActionDisplay": "Send SMS via KDE Connect...",
@@ -136,6 +139,7 @@
         "X-Purpose-ActionDisplay[sv]": "Skicka SMS via KDE-anslut...",
         "X-Purpose-ActionDisplay[tg]": "Фиристодани SMS ба воситаи KDE Connect...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати SMS за допомогою KDE Connect…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSend SMS via KDE Connect...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "通过 KDE Connect 发送短信...",
         "X-Purpose-ActionDisplay[zh_TW]": "透過 KDE 連線傳送簡訊…"
     },

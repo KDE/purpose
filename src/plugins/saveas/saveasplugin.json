@@ -36,6 +36,7 @@
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
+                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -74,6 +75,7 @@
         "Description[tg]": "Мубодиларо ба макони интихобшуда нигоҳ медорад.",
         "Description[tr]": "Paylaşımı seçilen konuma kaydeder.",
         "Description[uk]": "Зберігає спільний ресурс до вказаного каталогу.",
+        "Description[x-test]": "xxSaves the share into the chosen location.xx",
         "Description[zh_CN]": "将共享保存到所选位置。",
         "Description[zh_TW]": "儲存分享到選定的位置。",
         "Icon": "document-save",
@@ -108,6 +110,7 @@
         "Name[sv]": "Spara som",
         "Name[tg]": "Нигоҳ доштани ҳамчун",
         "Name[uk]": "Зберегти як",
+        "Name[x-test]": "xxSave asxx",
         "Name[zh_CN]": "另存为",
         "Name[zh_TW]": "另存新檔",
         "X-Purpose-ActionDisplay": "Save as...",
@@ -140,6 +143,7 @@
         "X-Purpose-ActionDisplay[sv]": "Spara som...",
         "X-Purpose-ActionDisplay[tg]": "Нигоҳ доштани ҳамчун...",
         "X-Purpose-ActionDisplay[uk]": "Зберегти як…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSave as...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "另存为...",
         "X-Purpose-ActionDisplay[zh_TW]": "另存為…"
     },

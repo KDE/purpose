@@ -35,6 +35,7 @@
                 "Name[tg]": "Даниел Вратил (Daniel Vrátil)",
                 "Name[tr]": "Daniel Vrátil",
                 "Name[uk]": "Daniel Vrátil",
+                "Name[x-test]": "xxDaniel Vrátilxx",
                 "Name[zh_CN]": "Daniel Vrátil",
                 "Name[zh_TW]": "Daniel Vrátil"
             }
@@ -74,6 +75,7 @@
         "Description[tg]": "Фиристодан ба воситаи почтаи электронӣ",
         "Description[tr]": "Eposta olarak gönder",
         "Description[uk]": "Надсилання електронною поштою",
+        "Description[x-test]": "xxSend via Emailxx",
         "Description[zh_CN]": "通过电子邮件发送",
         "Description[zh_TW]": "透過電子郵件傳送",
         "Icon": "mail-message",
@@ -108,6 +110,7 @@
         "Name[sv]": "Skicka med e-post",
         "Name[tg]": "Фиристодан ба воситаи почтаи электронӣ",
         "Name[uk]": "Надсилання електронною поштою",
+        "Name[x-test]": "xxSend via Emailxx",
         "Name[zh_CN]": "通过电子邮件发送",
         "Name[zh_TW]": "透過電子郵件傳送",
         "X-Purpose-ActionDisplay": "Send via Email...",
@@ -140,6 +143,7 @@
         "X-Purpose-ActionDisplay[sv]": "Skicka med e-post...",
         "X-Purpose-ActionDisplay[tg]": "Фиристодан ба воситаи почтаи электронӣ...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати електронною поштою…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Email...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "通过电子邮件发送...",
         "X-Purpose-ActionDisplay[zh_TW]": "透過電子郵件傳送…"
     },
