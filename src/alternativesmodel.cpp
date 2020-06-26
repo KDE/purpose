@@ -244,7 +244,7 @@ Purpose::Configuration* AlternativesModel::configureJob(int row)
 {
     Q_D(AlternativesModel);
     const KPluginMetaData pluginData = d->m_plugins.at(row);
-    return new Configuration(d->m_inputData, d->m_pluginType, d->m_pluginTypeData, pluginData);
+    return new Configuration(d->m_inputData, d->m_pluginType, d->m_pluginTypeData, pluginData, this);
 }
 
 int AlternativesModel::rowCount(const QModelIndex& parent) const
