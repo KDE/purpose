@@ -82,7 +82,7 @@ public:
      *
      * @returns the configuration instance that will offer the job.
      */
-    Q_SCRIPTABLE Purpose::Configuration* configureJob(int row);
+    Q_SCRIPTABLE Purpose::Configuration* configureJob(int row, QObject *parent = nullptr);
 
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;

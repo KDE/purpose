@@ -58,7 +58,7 @@ public:
             qWarning() << Q_FUNC_INFO << "object is NULL at m_engine" << m_engine << "rootObjects=" << m_engine->rootObjects();
             return;
         }
-        auto config = m_model->configureJob(row);
+        auto config = m_model->configureJob(row, this);
         config->setUseSeparateProcess(false);
         o->setProperty("configuration", QVariant::fromValue<QObject*>(config));
         o->setProperty("q", QVariant::fromValue<QObject*>(q));

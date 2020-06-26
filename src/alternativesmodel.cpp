@@ -240,11 +240,11 @@ QJsonObject AlternativesModel::inputData() const
     return d->m_inputData;
 }
 
-Purpose::Configuration* AlternativesModel::configureJob(int row)
+Purpose::Configuration* AlternativesModel::configureJob(int row, QObject *parent)
 {
     Q_D(AlternativesModel);
     const KPluginMetaData pluginData = d->m_plugins.at(row);
-    return new Configuration(d->m_inputData, d->m_pluginType, d->m_pluginTypeData, pluginData);
+    return new Configuration(d->m_inputData, d->m_pluginType, d->m_pluginTypeData, pluginData, parent);
 }
 
 int AlternativesModel::rowCount(const QModelIndex& parent) const
