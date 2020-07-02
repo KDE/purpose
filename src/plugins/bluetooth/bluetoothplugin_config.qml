@@ -18,7 +18,7 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.5
-import org.kde.kirigami 2.5 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.bluezqt 1.0 as BluezQt
 
@@ -60,10 +60,9 @@ ColumnLayout {
                 highlighted: root.device === Ubi
             }
 
-            Label {
-                anchors.fill: parent
-                verticalAlignment: Qt.AlignVCenter
-                horizontalAlignment: Qt.AlignHCenter
+            Kirigami.PlaceholderMessage {
+                anchors.centerIn: parent
+                width: parent.width - (units.largeSpacing * 4)
                 visible: list.count === 0
                 text: i18nd("purpose_bluetooth", "No devices found")
             }
