@@ -62,7 +62,7 @@ ColumnLayout {
 
             Kirigami.PlaceholderMessage {
                 anchors.centerIn: parent
-                width: parent.width - (units.largeSpacing * 4)
+                width: parent.width - (Kirigami.Units.largeSpacing * 4)
                 visible: list.count === 0
                 text: i18nd("purpose_bluetooth", "No devices found")
             }
