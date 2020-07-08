@@ -16,7 +16,7 @@
 */
 
 #include "youtubejob.h"
-#include <kpassworddialog.h>
+#include <KPasswordDialog>
 
 
 #include <QDebug>
