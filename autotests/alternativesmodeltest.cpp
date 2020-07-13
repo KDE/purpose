@@ -53,7 +53,7 @@ void AlternativesModelTest::initTestCase()
 
     if (qEnvironmentVariableIsSet("QT_LOGGING_RULES")) { // as is the case in CI
         // CopyJob debug output is too noisy because of the huge data URL we're using in bigBufferTest.
-        qputenv("QT_LOGGING_RULES", qgetenv("QT_LOGGING_RULES") + QByteArrayLiteral(";kf5.kio.core.copyjob.debug=false"));
+        qputenv("QT_LOGGING_RULES", qgetenv("QT_LOGGING_RULES") + QByteArrayLiteral(";kf.kio.core.copyjob.debug=false"));
     }
 
 }

@@ -29,7 +29,7 @@
 #include <QUrl>
 #include "debug.h"
 
-Q_LOGGING_CATEGORY(PLUGIN_TELEGRAM, "org.kde.purpose.plugin.telegram")
+Q_LOGGING_CATEGORY(PLUGIN_TELEGRAM, "kf.purpose.plugins.telegram")
 
 EXPORT_SHARE_VERSION
 

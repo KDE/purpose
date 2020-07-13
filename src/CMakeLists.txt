@@ -5,7 +5,8 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake-paths.h.cmake ${CMAKE_CURRENT_B
 ecm_qt_declare_logging_category(external_process_debug_SRCS
     HEADER purpose_external_process_debug.h
     IDENTIFIER PURPOSE_EXTERNAL_PROCESS_LOG
-    CATEGORY_NAME kf5.purpose.externalprocess
+    CATEGORY_NAME kf.purpose.externalprocess
+    OLD_CATEGORY_NAMES kf5.purpose.externalprocess
     DESCRIPTION "purpose external process"
     EXPORT PURPOSE
 )

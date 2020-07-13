@@ -4,7 +4,8 @@ add_subdirectory(icons)
 ecm_qt_declare_logging_category(ReviewboardHelpers_SRCS
     HEADER debug.h
     IDENTIFIER PLUGIN_REVIEWBOARD
-    CATEGORY_NAME kdevplatform.plugins.reviewboard
+    CATEGORY_NAME kf.purpose.plugins.reviewboard
+    OLD_CATEGORY_NAMES kdevplatform.plugins.reviewboard
     DESCRIPTION "purpose (reviewboard plugin)"
     EXPORT PURPOSE
 )

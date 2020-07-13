@@ -12,7 +12,8 @@ set(sharefileitemaction_debug_SRCS)
 ecm_qt_declare_logging_category(sharefileitemaction_debug_SRCS
     HEADER purpose_fileitemaction_plugin_debug.h
     IDENTIFIER PURPOSE_FILEITEMACTION_PLUGIN_LOG
-    CATEGORY_NAME kf5.purpose.fileitemactionplugin
+    CATEGORY_NAME kf.kio.widgets.fileitemactions.purpose
+    OLD_CATEGORY_NAMES kf5.purpose.fileitemactionplugin
     DESCRIPTION "purpose fileitemaction plugin"
     EXPORT PURPOSE
 )
