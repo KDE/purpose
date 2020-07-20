@@ -22,6 +22,7 @@
 #include <KLocalizedString>
 #include <KMimeTypeTrader>
 #include <KService>
+#include <KIO/ApplicationLauncherJob>
 
 #include <QStandardPaths>
 #include <QProcess>
@@ -54,7 +55,7 @@ public:
 
         if (mailClient->desktopEntryName().contains(QLatin1String("thunderbird"))) {
             // Thunderbird can't handle attachments in mailto URIs
-            launchThunderbird();
+            launchThunderbird(mailClient);
         } else {
             launchMailto();
         }
@@ -84,39 +85,55 @@ public:
         emitResult();
     }
 
-    void launchThunderbird()
+    void launchThunderbird(const KService::Ptr service)
     {
-        // thunderbird -compose "attachment='file:///att1','file:///att2'"
-
-        const auto tb = QStandardPaths::findExecutable(QStringLiteral("thunderbird"));
-        if (tb.isEmpty()) {
-            launchMailto();
-            return;
-        }
-
         const auto urls = data().value(QStringLiteral("urls")).toArray();
-        QStringList attachments;
-        QStringList args = QStringList{ QStringLiteral("-compose")};
-        QString message;
-        for (const auto &att : urls) {
-            QUrl url(att.toString());
-            if (url.isLocalFile()) {
-                attachments.push_back(att.toString());
-            } else {
-                message += QStringLiteral("body='%1',subject='%2',").arg(url.toString()).arg(data().value(QStringLiteral("title")).toString());
+
+        QList<QUrl> files;
+
+        for (const auto url : urls) {
+            QUrl u = QUrl(url.toString());
+            files << u;
+        }
+
+        auto job = new KIO::ApplicationLauncherJob(service);
+        // Thunderbird allows specifying message content and attachment via -compose
+        // thunderbird -compose "attachment='file:///att1','file:///att2',body='Foo',subject='bar'"
+        // However we cannot use it when Thunderbird is a Flatpak because there seems to be
+        // no way to properly pass the attachment url. This means we won't be able to set
+        // subject and body, but the attachment is more important here.
+        if (service->property(QStringLiteral("X-Flatpak"), QVariant::String).isValid()) {
+            job->setUrls(files);
+        } else {
+            // Add -compose to original exec line
+            QString originalExec = service->exec();
+            // Remove file placeholders, we don't want those
+            const QString cleanedExec = originalExec.remove(QLatin1String("%u")).remove(QLatin1String("%f"));
+
+            QStringList attachments;
+            QStringList args = QStringList{ QStringLiteral("-compose")};
+            QString message;
+            for (const auto &att : urls) {
+                QUrl url(att.toString());
+                if (url.isLocalFile()) {
+                    attachments.push_back(att.toString());
+                } else {
+                    message += QStringLiteral("body='%1',subject='%2',").arg(url.toString()).arg(data().value(QStringLiteral("title")).toString());
+                }
             }
+
+            message +=(QStringLiteral("attachment='%1'").arg(attachments.join(QLatin1Char(','))));
+            args.append(message);
+
+            const QString finalExec = cleanedExec + args.join(QLatin1Char(' '));
+
+            service->setExec(finalExec);
         }
 
-        message +=(QStringLiteral("attachment='%1'").arg(attachments.join(QLatin1Char(','))));
-        args.append(message);
+        job->start();
 
-        if (!QProcess::startDetached(tb, args)) {
-            setError(KJob::UserDefinedError);
-            setErrorText(i18n("Failed to launch email client"));
-        }
         emitResult();
     }
-
 };
 
 }
