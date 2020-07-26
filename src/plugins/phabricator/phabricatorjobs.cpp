@@ -1,5 +1,4 @@
 /*
-    This file is part of KDevelop
     SPDX-FileCopyrightText: 2017 René J.V. Bertin <rjvbertin@gmail.com>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
