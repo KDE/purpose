@@ -15,8 +15,9 @@ void JobController::configure()
     Q_ASSERT(m_model);
     Q_ASSERT(m_index >= 0);
 
-    m_configuration = m_model->configureJob(m_index);
     m_configuration->setUseSeparateProcess(false);
+    m_configuration = m_model->createConfiguration(m_index);
+
     Q_EMIT configChanged();
 
     if (m_configuration->isReady()) {
@@ -89,7 +90,7 @@ JobController::State JobController::state() const
 
 Configuration *JobController::config() const
 {
-    return m_configuration;
+    return m_configuration.get();
 }
 
 Job *JobController::job() const

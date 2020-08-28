@@ -63,7 +63,7 @@ Q_SIGNALS:
 private:
     AlternativesModel *m_model = nullptr;
     int m_index = -1;
-    Purpose::Configuration *m_configuration = nullptr;
+    std::unique_ptr<Purpose::Configuration> m_configuration = nullptr;
     State m_state = Inactive;
     Job *m_job = nullptr;
 };

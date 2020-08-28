@@ -73,6 +73,14 @@ public:
      */
     Q_SCRIPTABLE Purpose::Configuration* configureJob(int row);
 
+    /**
+     * Creates a new configuration for the specified alternative.
+     * @param row specifies the alternative to be used
+     *
+     * The caller takes ownership of the configuration.
+     */
+    std::unique_ptr<Purpose::Configuration> createConfiguration(int row);
+
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
     QHash<int,QByteArray> roleNames() const override;
