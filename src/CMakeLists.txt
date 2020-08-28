@@ -19,6 +19,7 @@ add_library(KF5Purpose
     configuration.cpp
     helper.cpp
     externalprocess/processjob.cpp
+    jobcontroller.cpp
     ${purpose_SRCS}
 )
 

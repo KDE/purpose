@@ -54,7 +54,7 @@ Q_PROPERTY(QJsonArray neededArguments READ neededArguments CONSTANT)
 /**
  * Specifies the qml source code to be used, to configure the current job.
  *
- * @sa PurposeWizard QtQuick component
+ * @sa JobController QtQuick component
  */
 Q_PROPERTY(QUrl configSourceCode READ configSourceCode CONSTANT)
 

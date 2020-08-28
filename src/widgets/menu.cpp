@@ -47,12 +47,14 @@ public:
             qWarning() << Q_FUNC_INFO << "object is NULL at m_engine" << m_engine << "rootObjects=" << m_engine->rootObjects();
             return;
         }
-        auto config = m_model->configureJob(row);
-        config->setUseSeparateProcess(false);
-        o->setProperty("configuration", QVariant::fromValue<QObject*>(config));
-        o->setProperty("q", QVariant::fromValue<QObject*>(q));
+
+        o->setProperty("model", QVariant::fromValue(m_model.data()));
+        o->setProperty("index", row);
         o->setProperty("visible", true);
+        o->setProperty("q", QVariant::fromValue<QObject*>(q));
         o->setParent(q);
+
+        QMetaObject::invokeMethod(o, "start");
     }
 
 public:

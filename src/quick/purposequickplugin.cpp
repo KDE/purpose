@@ -8,15 +8,16 @@
 #include "alternativesmodel.h"
 #include "job.h"
 #include "configuration.h"
+#include "jobcontroller.h"
 #include <qqml.h>
 
 void PurposeQuickPlugin::registerTypes(const char* uri)
 {
     qmlRegisterType<Purpose::AlternativesModel>(uri, 1, 0, "PurposeAlternativesModel");
+    qmlRegisterType<Purpose::JobController>(uri, 1, 0, "PurposeJobController");
     qmlRegisterUncreatableType<Purpose::Job>(uri, 1, 0, "PurposeJob", QStringLiteral("You're not supposed to instantiate jobs"));
     qmlRegisterUncreatableType<Purpose::Configuration>(uri, 1, 0, "PurposeConfiguration", QStringLiteral("You're not supposed to instantiate configurations"));
 
-    qmlRegisterType(QUrl(QStringLiteral("qrc:/org/kde/purpose/PurposeWizard.qml")), uri, 1, 0, "PurposeWizard");
     qmlRegisterType(QUrl(QStringLiteral("qrc:/org/kde/purpose/AlternativesView.qml")), uri, 1, 0, "AlternativesView");
-    qmlRegisterType(QUrl(QStringLiteral("qrc:/org/kde/purpose/RunningJob.qml")), uri, 1, 0, "RunningJob");
+    qmlRegisterType(QUrl(QStringLiteral("qrc:/org/kde/purpose/JobView.qml")), uri, 1, 0, "JobView");
 }

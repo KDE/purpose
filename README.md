@@ -21,8 +21,7 @@ To import it from QML, import
 It offers different ways of integrating the actions in an application. For full
 control on the procedure, we can use:
 * *AlternativesModel* for listing the different possibilities
-* *PurposeWizard* for configuring the job
-* *RunningJob* for a view that displays the job as it runs
+* *JobView* for displaying a job's status, including configuration
 
 Furthermore, there's the *AlternativesView* component that will integrate all the
 process defined below for convenience.

@@ -48,28 +48,11 @@ StackView {
         id: altsModel
     }
 
-    function startJob(config) {
-        var job = config.createJob();
-        console.log("run!", runningJobComponent, job)
-        if (!job) {
-            console.warn("couldn't start job")
-            return;
-        }
-        stack.push(runningJobComponent, { job: job })
-        job.start()
-        stack.running = true;
-    }
-
     /**
      * Adopts the job at the @p index.
      */
     function createJob(index) {
-        var conf = altsModel.configureJob(index);
-        if (!conf.isReady) {
-            stack.push(configWizardComponent, { configuration: conf })
-        } else {
-            startJob(conf)
-        }
+        stack.push(jobComponent, {index: index})
     }
 
     /**
@@ -93,49 +76,21 @@ StackView {
     }
 
     Component {
-        id: configWizardComponent
-        ColumnLayout {
-            property alias configuration: wiz.configuration
-            ScrollView {
-                id: scroll
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+        id: jobComponent
 
-                PurposeWizard {
-                    id: wiz
-                    focus: true
+        JobView {
+            id: jobView
+            model: altsModel
 
-                    width: scroll.width
-                    height: scroll.height
+            onStateChanged: {
+                if (state === PurposeJobController.Finished || state === PurposeJobController.Error) {
+                    stack.finished(jobView.job.output, jobView.job.error, jobView.job.errorString);
+                } else if (state === PurposeJobController.Cancelled) {
+                    stack.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose_widgets", "Configuration cancelled"));
                 }
             }
-            RowLayout {
-                Button {
-                    text: i18nd("libpurpose_quick", "Run")
-                    enabled: wiz.configuration && wiz.configuration.isReady
-                    onClicked: {
-                        stack.pop();
-                        startJob(wiz.configuration);
-                    }
-                }
-                Button {
-                    text: i18nd("libpurpose_quick", "Back")
-                    onClicked: {
-                        stack.pop();
-                        wiz.cancel()
-                    }
-                }
-            }
-        }
-    }
-    Component {
-        id: runningJobComponent
-        RunningJob {
-            onResult: {
-                stack.running = false;
-                stack.finished(job.output, job.error, job.errorString);
-                stack.pop();
-            }
+
+            Component.onCompleted: start()
         }
     }
 }
