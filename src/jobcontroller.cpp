@@ -16,6 +16,7 @@ void JobController::configure()
     Q_ASSERT(m_index >= 0);
 
     m_configuration = m_model->configureJob(m_index);
+    m_configuration->setUseSeparateProcess(false);
     Q_EMIT configChanged();
 
     if (m_configuration->isReady()) {
