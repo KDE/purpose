@@ -86,7 +86,7 @@ StackView {
                 if (state === PurposeJobController.Finished || state === PurposeJobController.Error) {
                     stack.finished(jobView.job.output, jobView.job.error, jobView.job.errorString);
                 } else if (state === PurposeJobController.Cancelled) {
-                    stack.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose_widgets", "Configuration cancelled"));
+                    stack.pop();
                 }
             }
 
