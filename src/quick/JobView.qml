@@ -67,7 +67,8 @@ Item {
 
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    source: jobController.configuration.configSourceCode
+
+                    Component.onCompleted: setSource(jobController.configuration.configSourceCode, jobController.configuration.data)
 
                     onItemChanged: {
                         for(var i in jobController.configuration.neededArguments) {
