@@ -9,7 +9,6 @@
 
 
 #include <QDebug>
-#include <QUrl>
 #include <KIO/Job>
 #include <QJsonDocument>
 #include <QNetworkReply>

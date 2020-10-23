@@ -7,7 +7,6 @@
 #include "phabricatorjobs.h"
 #include "debug.h"
 
-#include <QProcess>
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include <QDir>

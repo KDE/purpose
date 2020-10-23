@@ -5,7 +5,6 @@
 */
 
 #include "helper.h"
-#include <KPluginMetaData>
 #include <QFile>
 #include <QJsonDocument>
 #include <QStandardPaths>

@@ -10,7 +10,6 @@
 #include <QLibrary>
 #include <QMetaMethod>
 #include <QJsonDocument>
-#include <QProcess>
 #include <QFile>
 #include <QFileInfo>
 #include <QStandardPaths>
