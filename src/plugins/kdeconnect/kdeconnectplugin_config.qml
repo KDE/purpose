@@ -35,6 +35,7 @@ ColumnLayout {
         ListView {
             id: list
 
+            clip: true
             model: DevicesModel {
                 id: connectDeviceModel
                 displayFilter: DevicesModel.Paired | DevicesModel.Reachable

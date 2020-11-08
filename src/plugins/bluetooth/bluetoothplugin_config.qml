@@ -36,6 +36,7 @@ ColumnLayout {
         ListView {
             id: list
 
+            clip: true
             model: BluezQt.DevicesModel { }
 
             delegate: Kirigami.BasicListItem {
