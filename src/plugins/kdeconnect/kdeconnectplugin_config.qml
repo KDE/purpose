@@ -34,8 +34,6 @@ ColumnLayout {
 
         ListView {
             id: list
-            Layout.fillWidth: true
-            Layout.fillHeight: true
 
             model: DevicesModel {
                 id: connectDeviceModel
