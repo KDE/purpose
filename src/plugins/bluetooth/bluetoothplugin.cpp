@@ -21,24 +21,23 @@ class BluetoothJob : public Purpose::Job
             : Purpose::Job(parent)
         {}
 
-        QStringList arrayToList(const QJsonArray& array)
-        {
-            QStringList ret;
-            for (const QJsonValue& val : array) {
-                QUrl url(val.toString());
-                if(url.isLocalFile()) {
-                    ret += url.toLocalFile();
-                }
-            }
-            return ret;
-        }
-
         void start() override
         {
             QProcess* process = new QProcess(this);
             process->setProgram(QStringLiteral("bluedevil-sendfile"));
-            QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
-            process->setArguments(QStringList(QStringLiteral("-u")) << data().value(QStringLiteral("device")).toString() << QStringLiteral("-f") << arrayToList(urlsJson));
+            const QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
+
+            QStringList args {QStringLiteral("-u"), data().value(QStringLiteral("device")).toString()};
+
+            for (const QJsonValue& val : urlsJson) {
+                const QUrl url(val.toString());
+                if (url.isLocalFile()) {
+                    args << QStringLiteral("-f") << url.toLocalFile();
+                }
+            }
+
+            process->setArguments(args);
+
             connect(process, &QProcess::errorOccurred, this, &BluetoothJob::processError);
             connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &BluetoothJob::jobFinished);
             connect(process, &QProcess::readyRead, this, [process](){ qDebug() << "bluedevil-sendfile output:" << process->readAll(); });
