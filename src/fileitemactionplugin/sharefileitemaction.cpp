@@ -18,7 +18,6 @@
 #include <QDesktopServices>
 
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KLocalizedString>
 #include <KNotification>
 #include <kio/global.h>
