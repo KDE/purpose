@@ -50,8 +50,6 @@ ShareFileItemAction::ShareFileItemAction(QObject* parent, const QVariantList& )
 
 QList<QAction*> ShareFileItemAction::actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget)
 {
-    Q_UNUSED(parentWidget);
-
     QJsonArray urlsJson;
 
     for (const QUrl& url : fileItemInfos.urlList()) {
@@ -63,6 +61,7 @@ QList<QAction*> ShareFileItemAction::actions(const KFileItemListProperties& file
         { QStringLiteral("urls"), urlsJson }
     });
     m_menu->reload();
+    m_menu->setParent(parentWidget);
 
     return {m_menu->menuAction()};
 }
