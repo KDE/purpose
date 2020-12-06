@@ -61,7 +61,7 @@ QList<QAction*> ShareFileItemAction::actions(const KFileItemListProperties& file
         { QStringLiteral("urls"), urlsJson }
     });
     m_menu->reload();
-    m_menu->setParent(parentWidget);
+    m_menu->setParent(parentWidget, Qt::Popup);
 
     return {m_menu->menuAction()};
 }
