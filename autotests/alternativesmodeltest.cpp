@@ -39,6 +39,9 @@ void AlternativesModelTest::initTestCase()
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
 
+     // To let ctest exit, we shouldn't start kio_http_cache_cleaner
+    qputenv("KIO_DISABLE_CACHE_CLEANER", "yes");
+
     if (qEnvironmentVariableIsSet("QT_LOGGING_RULES")) { // as is the case in CI
         // CopyJob debug output is too noisy because of the huge data URL we're using in bigBufferTest.
         qputenv("QT_LOGGING_RULES", qgetenv("QT_LOGGING_RULES") + QByteArrayLiteral(";kf.kio.core.copyjob.debug=false"));
