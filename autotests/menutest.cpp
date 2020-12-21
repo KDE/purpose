@@ -16,7 +16,7 @@
 
 QTEST_MAIN(MenuTest)
 
-QAction* saveAsAction(Purpose::Menu* menu)
+static QAction* saveAsAction(Purpose::Menu* menu)
 {
     const auto actions = menu->actions();
     for (QAction* action : actions) {
@@ -27,6 +27,15 @@ QAction* saveAsAction(Purpose::Menu* menu)
 
     Q_ASSERT(!"Couldn't find the saveas plugin");
     return nullptr;
+}
+
+void MenuTest::initTestCase()
+{
+    // To avoid a runtime dependency on klauncher
+    qputenv("KDE_FORK_SLAVES", "yes");
+
+     // To let ctest exit, we shouldn't start kio_http_cache_cleaner
+    qputenv("KIO_DISABLE_CACHE_CLEANER", "yes");
 }
 
 void MenuTest::runJobTest()
