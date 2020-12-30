@@ -35,7 +35,6 @@ public:
 private:
     void writeSocket();
     void readSocket();
-    void readAllSocket(bool ensureRead);
     void processStateChanged(QProcess::ProcessState state);
 
     QPointer<QProcess> m_process;
