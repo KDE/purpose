@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(Purpose)
 
-find_package(ECM 5.77.0 REQUIRED NO_MODULE)
+find_package(ECM 5.78.0 REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
@@ -24,7 +24,7 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateQmlTypes)
 
 set(KF5_VERSION "5.78.0") # handled by release scripts
-set(KF5_DEP_VERSION "5.77.0") # handled by release scripts
+set(KF5_DEP_VERSION "5.78.0") # handled by release scripts
 
 find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n Config Kirigami2)
 
