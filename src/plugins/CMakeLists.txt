@@ -19,20 +19,6 @@ function(kpackage_install_package dir component root)
            PATTERN Messages.sh EXCLUDE)
 endfunction()
 
-include(ECMQMLModules)
-ecm_find_qmlmodule(Ubuntu.OnlineAccounts 0.1)
-ecm_find_qmlmodule(org.kde.kdeconnect 1.0)
-ecm_find_qmlmodule(org.kde.kquickcontrolsaddons 2.0)
-
-find_package(KAccounts)
-find_package(KF5KIO ${KF5_DEP_VERSION} REQUIRED)
-
-set_package_properties(KAccounts PROPERTIES
-                       PURPOSE "Used to find your system-wide defined, for now only for YouTube."
-                       TYPE OPTIONAL
-)
-set_package_properties(KF5KIO PROPERTIES TYPE REQUIRED)
-
 add_subdirectory(saveas)
 add_subdirectory(imgur)
 add_subdirectory(pastebin)

@@ -1,10 +1,3 @@
-find_package(KF5KIO COMPONENTS)
-find_package(KF5Notifications COMPONENTS)
-if (NOT KF5KIO_FOUND OR NOT KF5Notifications_FOUND)
-    return()
-endif()
-
-
 add_definitions(-DTRANSLATION_DOMAIN="purpose-fileitemaction")
 include_directories(${CMAKE_SOURCE_DIR})
 

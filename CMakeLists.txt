@@ -22,11 +22,23 @@ include(ECMGenerateHeaders)
 include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateQmlTypes)
+include(ECMQMLModules)
 
 set(KF5_VERSION "5.79.0") # handled by release scripts
 set(KF5_DEP_VERSION "5.78.0") # handled by release scripts
 
-find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n Config Kirigami2)
+find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n Config Kirigami2 Notifications KIO)
+
+find_package(KAccounts)
+
+set_package_properties(KAccounts PROPERTIES
+                       PURPOSE "Needed for YouTube and Nextcloud upload"
+                       TYPE OPTIONAL
+)
+
+ecm_find_qmlmodule(Ubuntu.OnlineAccounts 0.1)
+ecm_find_qmlmodule(org.kde.kdeconnect 1.0)
+ecm_find_qmlmodule(org.kde.kquickcontrolsaddons 2.0)
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX PURPOSE
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h"
