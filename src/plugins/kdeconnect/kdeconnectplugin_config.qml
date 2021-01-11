@@ -13,7 +13,7 @@ import org.kde.kdeconnect 1.0
 ColumnLayout {
 
     id: root
-    property string device: ""
+    property var device: undefined
 
     anchors.fill: parent
     anchors.bottomMargin: Kirigami.Units.smallSpacing

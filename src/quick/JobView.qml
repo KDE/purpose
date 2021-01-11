@@ -71,13 +71,17 @@ Item {
                     Component.onCompleted: setSource(jobController.configuration.configSourceCode, jobController.configuration.data)
 
                     onItemChanged: {
+                        var initialData = jobController.configuration.data;
                         for(var i in jobController.configuration.neededArguments) {
                             var arg = jobController.configuration.neededArguments[i]
                             if (arg in configLoader.item) {
                                 item[arg+"Changed"].connect(dataHasChanged);
-                            } else
+                                initialData[arg] = item[arg];
+                            } else {
                                 console.warn("property not found", arg);
+                            }
                         }
+                        jobController.configuration.data = initialData;
                     }
 
                     function dataHasChanged()

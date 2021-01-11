@@ -14,7 +14,7 @@ import org.kde.bluezqt 1.0 as BluezQt
 ColumnLayout {
 
     id: root
-    property string device: ""
+    property var device: undefined
 
     anchors.fill: parent
     anchors.bottomMargin: Kirigami.Units.smallSpacing
