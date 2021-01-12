@@ -5,8 +5,9 @@
 */
 
 import QtQuick 2.2
-import QtQuick.Controls 1.2
+import QtQuick.Controls 2.10
 import QtQuick.Layouts 1.1
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kquickcontrolsaddons 2.0 as KQCA
 import Ubuntu.OnlineAccounts 0.1 as OA
 
@@ -14,52 +15,76 @@ ColumnLayout
 {
     id: root
 
-    property alias folder: folderField.text
+    property var folder: folderField.text
     property var accountId
     property var urls
     property var mimeType
 
-    function accountChanged()
-    {
-        var valid = accountsCombo.enabled && accountsCombo.currentIndex>=0;
-        if (valid) { root.accountId = serviceModel.get(accountsCombo.currentIndex, "accountId"); }
-        refreshConfigReady();
+    Kirigami.Heading {
+        text: i18nd("purpose_nextcloud", "Select an account:")
+        visible: list.count !== 0
     }
 
-    // without manually refreshing, auto-filled values don't seem to activate the "Run" button
-    function refreshConfigReady()
-    {
-        var jobData = configuration.data;
-        jobData['accountId'] = root.accountId;
-        jobData['folder'] = root.folder;
-        configuration.data = jobData;
-    }
+    ScrollView {
+        id: scroll
 
-    Label { text: i18nd("purpose_nextcloud", "Account:") }
-    RowLayout {
         Layout.fillWidth: true
-        ComboBox {
-            id: accountsCombo
+        Layout.fillHeight: true
 
-            Layout.fillWidth: true
-            textRole: "displayName"
-            enabled: count>0
+        Component.onCompleted: scroll.background.visible = true
+
+        ListView {
+            id: list
+
+            clip: true
+
             model: OA.AccountServiceModel {
                 id: serviceModel
                 serviceType: "dav-storage"
             }
-            onCurrentIndexChanged: root.accountChanged()
-            Component.onCompleted: root.accountChanged()
-        }
-        Button {
-            iconName: "settings-configure"
-            onClicked: KQCA.KCMShell.open("kcm_kaccounts");
+
+            delegate: Kirigami.BasicListItem {
+                text: model.displayName
+            }
+
+            onCurrentIndexChanged: {
+                if (currentIndex === -1) {
+                    root.accountId = undefined
+                    return
+                }
+
+                root.accountId = serviceModel.get(list.currentIndex, "accountId")
+            }
+
+            Kirigami.PlaceholderMessage {
+                anchors.centerIn: parent
+                width: parent.width - (Kirigami.Units.largeSpacing * 4)
+                visible: list.count === 0
+                text: i18nd("purpose_nextcloud", "No account configured")
+            }
         }
     }
-    Label { text: i18nd("purpose_nextcloud", "Upload to folder:") }
+
+    Button {
+        Layout.alignment: Qt.AlignRight
+
+        text: i18nd("purpose_nextcloud", "Configure Accounts")
+        icon.name: "applications-internet"
+        onClicked: KQCA.KCMShell.openSystemSettings("kcm_kaccounts")
+    }
+
+    Label {
+        Layout.fillWidth: true
+        text: i18nd("purpose_nextcloud", "Upload to folder:")
+    }
+
     TextField {
         id: folderField
         Layout.fillWidth: true
         text: "/"
+        onTextChanged: {
+            // Setting folder to undefined disables the Run button
+            root.folder = text !== "" ? text : undefined
+        }
     }
 }
