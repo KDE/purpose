@@ -46,14 +46,14 @@ class PhabricatorJob : public Purpose::Job
         if (QFileInfo(sourceFile.toLocalFile()).size() <= 0) {
             setError(KJob::UserDefinedError+1);
             setErrorText(i18n("Phabricator refuses empty patchfiles"));
-            emit PhabricatorJob::warning(this, errorString(), QString());
+            Q_EMIT PhabricatorJob::warning(this, errorString(), QString());
             qCCritical(PLUGIN_PHABRICATOR) << errorString();
             emitResult();
             return;
         } else if (updateDR.localeAwareCompare(i18n("unknown")) == 0) {
             setError(KJob::UserDefinedError+1);
             setErrorText(i18n("Please choose between creating a new revision or updating an existing one"));
-            emit PhabricatorJob::warning(this, errorString(), QString());
+            Q_EMIT PhabricatorJob::warning(this, errorString(), QString());
             qCCritical(PLUGIN_PHABRICATOR) << errorString();
             emitResult();
             return;
@@ -71,7 +71,7 @@ class PhabricatorJob : public Purpose::Job
             connect(job, &KJob::finished, this, &PhabricatorJob::diffCreated);
         }
         job->start();
-        emit PhabricatorJob::infoMessage(this, QStringLiteral("upload job started"), QString());
+        Q_EMIT PhabricatorJob::infoMessage(this, QStringLiteral("upload job started"), QString());
     }
 
     void diffCreatedOrUpdated(KJob* j, bool created)
@@ -79,7 +79,7 @@ class PhabricatorJob : public Purpose::Job
         if(j->error()!=0) {
             setError(j->error());
             setErrorText(j->errorString());
-            emit PhabricatorJob::warning(this, j->errorString(), QString());
+            Q_EMIT PhabricatorJob::warning(this, j->errorString(), QString());
             qCCritical(PLUGIN_PHABRICATOR) << "Could not upload the patch" << j->errorString();
             emitResult();
             return;
@@ -93,7 +93,7 @@ class PhabricatorJob : public Purpose::Job
             Phabricator::UpdateDiffRev const * job = qobject_cast<Phabricator::UpdateDiffRev*>(j);
             qCWarning(PLUGIN_PHABRICATOR) << "updated diff" << job->requestId() << ":" << job->diffURI();
             setOutput({{ QStringLiteral("url"), job->diffURI() }});
-            emit PhabricatorJob::infoMessage(this,
+            Q_EMIT PhabricatorJob::infoMessage(this,
                  QStringLiteral("updated diff %1: %2").arg(job->requestId()).arg(job->diffURI()), QString());
         }
         emitResult();

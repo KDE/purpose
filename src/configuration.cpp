@@ -96,7 +96,7 @@ void Configuration::setData(const QJsonObject& data)
 //     qDebug() << "datachanged" << data;
     if (d->m_inputData != data) {
         d->m_inputData = data;
-        emit dataChanged();
+        Q_EMIT dataChanged();
     }
 }
 
