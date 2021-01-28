@@ -4,7 +4,7 @@ function(add_share_plugin name)
     set_target_properties(${name} PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/purpose")
 
     if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${name}_config.qml")
-        install(FILES "${name}_config.qml" DESTINATION ${DATA_INSTALL_DIR}/purpose)
+        install(FILES "${name}_config.qml" DESTINATION ${KDE_INSTALL_DATADIR}/purpose)
     endif()
 endfunction()
 
@@ -15,7 +15,7 @@ function(kpackage_install_package dir component root)
       set(install_dir ${KPACKAGE_RELATIVE_DATA_INSTALL_DIR})
    endif()
    install(DIRECTORY ${dir}/ USE_SOURCE_PERMISSIONS
-           DESTINATION ${DATA_INSTALL_DIR}/${install_dir}/${root}/${component}
+           DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}
            PATTERN Messages.sh EXCLUDE)
 endfunction()
 

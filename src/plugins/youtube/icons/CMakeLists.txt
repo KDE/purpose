@@ -5,4 +5,4 @@ ecm_install_icons(ICONS
     48-actions-kipiplugin_youtube.png
     64-actions-kipiplugin_youtube.png
 THEME hicolor
-DESTINATION ${ICON_INSTALL_DIR} )
+DESTINATION ${KDE_INSTALL_ICONDIR} )

@@ -37,5 +37,5 @@ install(TARGETS PhabricatorHelpers ${KF5_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY N
 add_library(phabricatorquickplugin quick/phabricatorquickplugin.cpp quick/difflistmodel.cpp quick/phabricatorrc.cpp)
 target_link_libraries(phabricatorquickplugin Qt5::Qml Qt5::Gui PhabricatorHelpers)
 
-install(TARGETS phabricatorquickplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/purpose/phabricator)
-install(FILES quick/qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/purpose/phabricator)
+install(TARGETS phabricatorquickplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/purpose/phabricator)
+install(FILES quick/qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/purpose/phabricator)

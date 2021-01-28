@@ -10,7 +10,7 @@ add_custom_target(moveqmldir ALL
     COMMAND cmake -E copy ${CMAKE_CURRENT_SOURCE_DIR}/qmldir ${bindest}
 )
 
-install(TARGETS purposequickplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/purpose)
-install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/purpose)
+install(TARGETS purposequickplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/purpose)
+install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/purpose)
 
 ecm_generate_qmltypes(org.kde.purpose 1.0 DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/purpose)
