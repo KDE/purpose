@@ -21,3 +21,4 @@ CMakeLists.txt.user
 *.LOCAL.*
 *.REMOTE.*
 .cmake/
+/.clang-format
