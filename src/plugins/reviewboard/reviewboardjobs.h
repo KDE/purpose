@@ -31,7 +31,7 @@ namespace ReviewBoard
         Q_OBJECT
         Q_PROPERTY(QVariant result READ result)
         public:
-            enum Method { Get, Put, Post };
+            enum Method { Get, Put, Post, };
 
             HttpCall(const QUrl& s, const QString& apiPath, const QList<QPair<QString,QString> >& queryParameters, Method m, const QByteArray& post, bool multipart, QObject* parent);
 

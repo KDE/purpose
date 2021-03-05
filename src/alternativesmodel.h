@@ -48,7 +48,7 @@ public:
     enum Roles {
         PluginIdRole = Qt::UserRole+1,
         IconNameRole,
-        ActionDisplayRole
+        ActionDisplayRole,
     };
 
     explicit AlternativesModel(QObject* parent = nullptr);

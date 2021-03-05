@@ -99,7 +99,7 @@ namespace Phabricator
     {
         Q_OBJECT
         public:
-            enum Status { Accepted, NeedsReview, NeedsRevision };
+            enum Status { Accepted, NeedsReview, NeedsRevision, };
             Q_ENUM(Status)
 
             DiffRevList(const QString& projectDir, QObject* parent = nullptr);

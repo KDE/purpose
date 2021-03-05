@@ -33,7 +33,7 @@ public:
         Running,
         Finished,
         Cancelled,
-        Error
+        Error,
     };
     Q_ENUM(State);
 
