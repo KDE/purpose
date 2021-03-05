@@ -5,12 +5,12 @@
 */
 
 #include "helper.h"
+#include <QDebug>
+#include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QJsonDocument>
 #include <QStandardPaths>
-#include <QFileInfo>
-#include <QDir>
-#include <QDebug>
 
 using namespace Purpose;
 

@@ -10,7 +10,7 @@
 #include "reviewboardrc.h"
 #include <qqml.h>
 
-void RBPurposeQuickPlugin::registerTypes(const char* uri)
+void RBPurposeQuickPlugin::registerTypes(const char *uri)
 {
     qmlRegisterType<RepositoriesModel>(uri, 1, 0, "RepositoriesModel");
     qmlRegisterType<ReviewsListModel>(uri, 1, 0, "ReviewsListModel");

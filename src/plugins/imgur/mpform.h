@@ -22,25 +22,22 @@
 
 class MPForm
 {
-
 public:
-
     MPForm();
     ~MPForm();
 
     void finish();
     void reset();
 
-    bool addPair(const QString& name, const QString& value, const QString& type);
-    bool addFile(const QString& name, const QString& path);
-    bool addFile(const QString& name, const QUrl& filePath, const QByteArray& fileData);
+    bool addPair(const QString &name, const QString &value, const QString &type);
+    bool addFile(const QString &name, const QString &path);
+    bool addFile(const QString &name, const QUrl &filePath, const QByteArray &fileData);
 
     QByteArray contentType() const;
-    QByteArray formData()    const;
-    QByteArray boundary()    const;
+    QByteArray formData() const;
+    QByteArray boundary() const;
 
 private:
-
     QByteArray m_buffer;
     QByteArray m_boundary;
 };

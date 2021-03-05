@@ -16,18 +16,17 @@
 
 // Qt includes
 
+#include <QDebug>
 #include <QFile>
 #include <QMimeDatabase>
-#include <QDebug>
 
 // KDE includes
 
 #include <KRandom>
 
-
 MPForm::MPForm()
 {
-    m_boundary  = "----------";
+    m_boundary = "----------";
     m_boundary += KRandom::randomString(42 + 13).toLatin1();
 }
 
@@ -49,7 +48,7 @@ void MPForm::finish()
     m_buffer.append(str);
 }
 
-bool MPForm::addPair(const QString& name, const QString& value, const QString& contentType)
+bool MPForm::addPair(const QString &name, const QString &value, const QString &contentType)
 {
     QByteArray str;
     QByteArray content_length = QByteArray::number(value.length());
@@ -58,15 +57,13 @@ bool MPForm::addPair(const QString& name, const QString& value, const QString& c
     str += m_boundary;
     str += "\r\n";
 
-    if (!name.isEmpty())
-    {
+    if (!name.isEmpty()) {
         str += "Content-Disposition: form-data; name=\"";
         str += name.toLatin1();
         str += "\"\r\n";
     }
 
-    if (!contentType.isEmpty())
-    {
+    if (!contentType.isEmpty()) {
         str += "Content-Type: " + contentType.toLatin1();
         str += "\r\n";
         str += "Mime-version: 1.0 ";
@@ -84,14 +81,13 @@ bool MPForm::addPair(const QString& name, const QString& value, const QString& c
     return true;
 }
 
-bool MPForm::addFile(const QString& name, const QString& path)
+bool MPForm::addFile(const QString &name, const QString &path)
 {
     QMimeDatabase db;
     QMimeType ptr = db.mimeTypeForUrl(QUrl::fromLocalFile(path));
-    QString mime  = ptr.name();
+    QString mime = ptr.name();
 
-    if (mime.isEmpty())
-    {
+    if (mime.isEmpty()) {
         // if we ourselves can't determine the mime of the local file,
         // very unlikely the remote site will be able to identify it
         return false;
@@ -99,8 +95,7 @@ bool MPForm::addFile(const QString& name, const QString& path)
 
     QFile imageFile(path);
 
-    if (!imageFile.open(QIODevice::ReadOnly))
-    {
+    if (!imageFile.open(QIODevice::ReadOnly)) {
         qWarning() << "Couldn't open" << path;
         return false;
     }
@@ -124,25 +119,24 @@ bool MPForm::addFile(const QString& name, const QString& path)
     str += file_size;
     str += "\r\n";
     str += "Content-Type: ";
-    str +=  mime.toLatin1();
+    str += mime.toLatin1();
     str += "\r\n\r\n";
 
     m_buffer.append(str);
-    //int oldSize = m_buffer.size();
+    // int oldSize = m_buffer.size();
     m_buffer.append(imageData);
     m_buffer.append("\r\n");
 
     return true;
 }
 
-bool MPForm::addFile(const QString& name, const QUrl& fileUrl, const QByteArray& fileData)
+bool MPForm::addFile(const QString &name, const QUrl &fileUrl, const QByteArray &fileData)
 {
     QMimeDatabase db;
     QMimeType ptr = db.mimeTypeForUrl(fileUrl);
-    QString mime  = ptr.name();
+    QString mime = ptr.name();
 
-    if (mime.isEmpty())
-    {
+    if (mime.isEmpty()) {
         // if we ourselves can't determine the mime of the local file,
         // very unlikely the remote site will be able to identify it
         return false;
@@ -164,11 +158,11 @@ bool MPForm::addFile(const QString& name, const QUrl& fileUrl, const QByteArray&
     str += file_size;
     str += "\r\n";
     str += "Content-Type: ";
-    str +=  mime.toLatin1();
+    str += mime.toLatin1();
     str += "\r\n\r\n";
 
     m_buffer.append(str);
-    //int oldSize = m_buffer.size();
+    // int oldSize = m_buffer.size();
     m_buffer.append(fileData);
     m_buffer.append("\r\n");
 

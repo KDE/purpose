@@ -4,15 +4,15 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-#include <QApplication>
-#include <QFileInfo>
-#include <QMetaMethod>
 #include <KPluginMetaData>
+#include <QApplication>
+#include <QCborMap>
+#include <QCborValue>
 #include <QCommandLineParser>
+#include <QFileInfo>
 #include <QJsonDocument>
 #include <QLocalSocket>
-#include <QCborValue>
-#include <QCborMap>
+#include <QMetaMethod>
 
 #include "helper.h"
 #include "purpose_external_process_debug.h"
@@ -24,12 +24,12 @@ static KPluginMetaData md;
 
 class Communication : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     Communication(const QString &serverName)
     {
         int pcIdx = metaObject()->indexOfSlot("propertyChanged()");
-        Q_ASSERT(pcIdx>=0);
+        Q_ASSERT(pcIdx >= 0);
         const QMetaMethod propertyChangedMethod = metaObject()->method(pcIdx);
 
         m_socket.setServerName(serverName);
@@ -55,7 +55,7 @@ public:
         int pos = 0;
         bool couldRead = false;
         while ((pos < bytes) && (couldRead = (m_socket.bytesAvailable() || m_socket.waitForReadyRead()))) {
-            pos += m_socket.read(dataArray.data() + pos, qMin(m_socket.bytesAvailable(), bytes-pos));
+            pos += m_socket.read(dataArray.data() + pos, qMin(m_socket.bytesAvailable(), bytes - pos));
         }
         Q_ASSERT(couldRead); // false if we hit a timeout before read-end.
         Q_ASSERT(pos == bytes);
@@ -68,8 +68,8 @@ public:
         m_job = config.createJob();
         m_job->start();
 
-        const QMetaObject* m = m_job->metaObject();
-        for(int i = 0, c = m->propertyCount(); i<c; ++i) {
+        const QMetaObject *m = m_job->metaObject();
+        for (int i = 0, c = m->propertyCount(); i < c; ++i) {
             QMetaProperty prop = m->property(i);
             if (prop.hasNotifySignal() && prop.isReadable()) {
                 connect(m_job, prop.notifySignal(), this, propertyChangedMethod, Qt::UniqueConnection);
@@ -78,16 +78,18 @@ public:
     }
 
 private Q_SLOTS:
-    void error() {
+    void error()
+    {
         qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "socket error:" << m_socket.error();
     }
 
-    void propertyChanged() {
+    void propertyChanged()
+    {
         const int idx = senderSignalIndex();
 
-        const QMetaObject* m = m_job->metaObject();
+        const QMetaObject *m = m_job->metaObject();
         QJsonObject toSend;
-        for(int i = 0, c = m->propertyCount(); i<c; ++i) {
+        for (int i = 0, c = m->propertyCount(); i < c; ++i) {
             QMetaProperty prop = m->property(i);
             if (prop.notifySignalIndex() == idx) {
                 toSend[QString::fromLatin1(prop.name())] = fromVariant(prop.read(m_job));
@@ -96,7 +98,8 @@ private Q_SLOTS:
         send(toSend);
     }
 
-    static QJsonValue fromVariant(const QVariant &var) {
+    static QJsonValue fromVariant(const QVariant &var)
+    {
         if (var.canConvert<QJsonObject>()) {
             return var.toJsonObject();
         } else {
@@ -105,17 +108,18 @@ private Q_SLOTS:
     }
 
 private:
-    void send(const QJsonObject &object) {
+    void send(const QJsonObject &object)
+    {
         const QByteArray data = QJsonDocument(object).toJson(QJsonDocument::Compact) + '\n';
-//         qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "sending..." << data;
+        //         qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "sending..." << data;
         m_socket.write(data);
     }
 
-    Purpose::Job* m_job = nullptr;
+    Purpose::Job *m_job = nullptr;
     QLocalSocket m_socket;
 };
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 #pragma message("warning: make QGuiApplication, consider QCoreApplication?")
     QApplication app(argc, argv);

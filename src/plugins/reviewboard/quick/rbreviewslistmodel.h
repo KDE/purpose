@@ -20,58 +20,77 @@ class ReviewsListModel : public QAbstractListModel
     Q_PROPERTY(QString username READ username WRITE setUsername)
     Q_PROPERTY(QString status READ status WRITE setStatus)
     Q_PROPERTY(QString repository READ repository WRITE setRepository)
-    public:
-        ReviewsListModel(QObject* parent = nullptr);
+public:
+    ReviewsListModel(QObject *parent = nullptr);
 
-        void refresh();
+    void refresh();
 
-        QVariant data(const QModelIndex &idx, int role) const override;
-        int rowCount(const QModelIndex & parent) const override;
+    QVariant data(const QModelIndex &idx, int role) const override;
+    int rowCount(const QModelIndex &parent) const override;
 
-        QUrl server() const { return m_server; }
-        QString username() const { return m_username; }
-        QString status() const { return m_status; }
-        QString repository() const { return m_repository; }
+    QUrl server() const
+    {
+        return m_server;
+    }
+    QString username() const
+    {
+        return m_username;
+    }
+    QString status() const
+    {
+        return m_status;
+    }
+    QString repository() const
+    {
+        return m_repository;
+    }
 
-        void setServer(const QUrl &server) {
-            if (m_server != server) {
-                m_server = server;
-                refresh();
-            }
+    void setServer(const QUrl &server)
+    {
+        if (m_server != server) {
+            m_server = server;
+            refresh();
         }
+    }
 
-        void setUsername(const QString &username) {
-            if (m_username != username) {
-                m_username = username;
-                refresh();
-            }
+    void setUsername(const QString &username)
+    {
+        if (m_username != username) {
+            m_username = username;
+            refresh();
         }
+    }
 
-        void setStatus(const QString &status) {
-            if (m_status != status) {
-                m_status = status;
-                refresh();
-            }
+    void setStatus(const QString &status)
+    {
+        if (m_status != status) {
+            m_status = status;
+            refresh();
         }
+    }
 
-        void setRepository(const QString &repository) {
-            if (m_repository != repository) {
-                m_repository = repository;
-                refresh();
-            }
+    void setRepository(const QString &repository)
+    {
+        if (m_repository != repository) {
+            m_repository = repository;
+            refresh();
         }
+    }
 
-        void receivedReviews(KJob* job);
-        Q_SCRIPTABLE QVariant get(int row, const QByteArray &role);
+    void receivedReviews(KJob *job);
+    Q_SCRIPTABLE QVariant get(int row, const QByteArray &role);
 
-    private:
-        struct Value { QVariant summary; QVariant id; };
-        QVector<Value> m_values;
+private:
+    struct Value {
+        QVariant summary;
+        QVariant id;
+    };
+    QVector<Value> m_values;
 
-        QUrl m_server;
-        QString m_username;
-        QString m_status;
-        QString m_repository;
+    QUrl m_server;
+    QString m_username;
+    QString m_status;
+    QString m_repository;
 };
 
 #endif

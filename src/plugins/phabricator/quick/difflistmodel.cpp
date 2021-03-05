@@ -7,12 +7,12 @@
 #include "difflistmodel.h"
 #include "phabricatorjobs.h"
 
-#include <QDir>
 #include <QBrush>
-#include <QTemporaryDir>
 #include <QDebug>
+#include <QDir>
+#include <QTemporaryDir>
 
-DiffListModel::DiffListModel(QObject* parent)
+DiffListModel::DiffListModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_initialDir(QDir::currentPath())
     , m_tempDir(nullptr)
@@ -38,8 +38,7 @@ void DiffListModel::refresh()
     m_initialDir = QDir::currentPath();
     m_tempDir = new QTemporaryDir;
     if (!m_tempDir->isValid()) {
-        qCritical() << "DiffListModel::refresh() failed to create temporary directory"
-            << m_tempDir->path() << ":" << m_tempDir->errorString();
+        qCritical() << "DiffListModel::refresh() failed to create temporary directory" << m_tempDir->path() << ":" << m_tempDir->errorString();
     } else {
         if (QDir::setCurrent(m_tempDir->path())) {
             // the directory will be removed in receivedDiffRevs()
@@ -63,12 +62,12 @@ void DiffListModel::refresh()
     // create a list request with the current (= temp.) directory as the project directory.
     // This request is executed asynchronously, which is why we cannot restore the initial
     // working directory just yet, nor remove the temporary directory.
-    Phabricator::DiffRevList* repo = new Phabricator::DiffRevList(QDir::currentPath(), this);
+    Phabricator::DiffRevList *repo = new Phabricator::DiffRevList(QDir::currentPath(), this);
     connect(repo, &Phabricator::DiffRevList::finished, this, &DiffListModel::receivedDiffRevs);
     repo->start();
 }
 
-void DiffListModel::receivedDiffRevs(KJob* job)
+void DiffListModel::receivedDiffRevs(KJob *job)
 {
     if (job->error() != 0) {
         qWarning() << "error getting differential revision list" << job->errorString();
@@ -78,14 +77,14 @@ void DiffListModel::receivedDiffRevs(KJob* job)
         return;
     }
 
-    const auto diffRevList = dynamic_cast<Phabricator::DiffRevList*>(job);
+    const auto diffRevList = dynamic_cast<Phabricator::DiffRevList *>(job);
     const auto revs = diffRevList->reviews();
 
     beginResetModel();
     m_values.clear();
     for (const auto review : revs) {
         auto status = diffRevList->statusMap()[review.second];
-        m_values += Value { review.second, review.first, status };
+        m_values += Value{review.second, review.first, status};
     }
     endResetModel();
 
@@ -103,10 +102,9 @@ void DiffListModel::receivedDiffRevs(KJob* job)
 
 QHash<int, QByteArray> DiffListModel::roleNames() const
 {
-    const QHash<int, QByteArray> roles = {
-        {Qt::DisplayRole, QByteArrayLiteral("display")},
-        {Qt::ToolTipRole, QByteArrayLiteral("toolTip")},
-        {Qt::ForegroundRole, QByteArrayLiteral("textColor")} };
+    const QHash<int, QByteArray> roles = {{Qt::DisplayRole, QByteArrayLiteral("display")},
+                                          {Qt::ToolTipRole, QByteArrayLiteral("toolTip")},
+                                          {Qt::ForegroundRole, QByteArrayLiteral("textColor")}};
     return roles;
 }
 
@@ -117,30 +115,30 @@ QVariant DiffListModel::data(const QModelIndex &idx, int role) const
     }
 
     switch (role) {
-        case Qt::DisplayRole:
-            return m_values[idx.row()].summary;
-        case Qt::ToolTipRole:
-            return m_values[idx.row()].id;
-        case Qt::ForegroundRole:
-            // Use the colours arc also uses
-            switch (m_values[idx.row()].status.value<Phabricator::DiffRevList::Status>()) {
-                case Phabricator::DiffRevList::Accepted:
-                    // alternative: KColorScheme::ForegroundRole::PositiveText
-                    return QBrush(Qt::green);
-                case Phabricator::DiffRevList::NeedsReview:
-                    // alternative: KColorScheme::ForegroundRole::NeutralText
-                    return  QBrush(Qt::magenta);
-                case Phabricator::DiffRevList::NeedsRevision:
-                    // alternative: KColorScheme::ForegroundRole::NegativeText
-                    return QBrush(Qt::red);
-                default:
-                    return {};
-            }
+    case Qt::DisplayRole:
+        return m_values[idx.row()].summary;
+    case Qt::ToolTipRole:
+        return m_values[idx.row()].id;
+    case Qt::ForegroundRole:
+        // Use the colours arc also uses
+        switch (m_values[idx.row()].status.value<Phabricator::DiffRevList::Status>()) {
+        case Phabricator::DiffRevList::Accepted:
+            // alternative: KColorScheme::ForegroundRole::PositiveText
+            return QBrush(Qt::green);
+        case Phabricator::DiffRevList::NeedsReview:
+            // alternative: KColorScheme::ForegroundRole::NeutralText
+            return QBrush(Qt::magenta);
+        case Phabricator::DiffRevList::NeedsRevision:
+            // alternative: KColorScheme::ForegroundRole::NegativeText
+            return QBrush(Qt::red);
+        default:
+            return {};
+        }
     }
     return {};
 }
 
-int DiffListModel::rowCount(const QModelIndex & parent) const
+int DiffListModel::rowCount(const QModelIndex &parent) const
 {
     return parent.isValid() ? 0 : m_values.count();
 }

@@ -19,15 +19,15 @@ class AlternativesModel;
 
 class PURPOSEWIDGETS_EXPORT Menu : public QMenu
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    explicit Menu(QWidget* parent = nullptr);
+    explicit Menu(QWidget *parent = nullptr);
 
     /**
      * Exposes the used AlternativesModel so that it can be configured to suit
      * the application needs
      */
-    AlternativesModel* model() const;
+    AlternativesModel *model() const;
 
     /**
      * Forces a reload of the menu in case something changed in the model

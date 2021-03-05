@@ -9,7 +9,6 @@
 
 namespace Purpose
 {
-
 void JobController::configure()
 {
     Q_ASSERT(m_model);
@@ -34,7 +33,6 @@ void JobController::startJob()
     Q_EMIT jobChanged();
 
     connect(m_job, &KJob::result, this, [this](KJob *job) {
-
         if (job->error()) {
             m_state = Error;
         } else {

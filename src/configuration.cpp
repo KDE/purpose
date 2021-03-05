@@ -5,9 +5,9 @@
 */
 
 #include "purpose/configuration.h"
-#include <QFileInfo>
-#include <KPluginFactory>
 #include "externalprocess/processjob.h"
+#include <KPluginFactory>
+#include <QFileInfo>
 
 #include <KPluginLoader>
 #include <KPluginMetaData>
@@ -30,19 +30,19 @@ public:
     const KPluginMetaData m_pluginData;
     bool m_useSeparateProcess;
 
-    static void checkJobFinish(KJob* job)
+    static void checkJobFinish(KJob *job)
     {
         QStringList outputArgs = job->property("outputArgs").toStringList();
         QJsonObject output = job->property("output").toJsonObject();
 
         if (!output.keys().toSet().contains(outputArgs.toSet()) && job->error() == 0) {
-            qWarning() << "missing output values for" << job->metaObject()->className()
-                       << ". Expected: " << outputArgs.join(QStringLiteral(", "))
+            qWarning() << "missing output values for" << job->metaObject()->className() << ". Expected: " << outputArgs.join(QStringLiteral(", "))
                        << ". Got: " << output.keys().join(QStringLiteral(", "));
         }
     }
 
-    Purpose::Job* internalCreateJob(QObject* parent) const {
+    Purpose::Job *internalCreateJob(QObject *parent) const
+    {
         if (m_useSeparateProcess)
             return new ProcessJob(m_pluginData.fileName(), m_pluginTypeName, m_inputData, parent);
         else {
@@ -50,19 +50,19 @@ public:
         }
     }
 
-    Purpose::Job * createJob(QObject* parent) const
+    Purpose::Job *createJob(QObject *parent) const
     {
         const QString fileName = m_pluginData.metaDataFileName();
-        if(fileName.endsWith(QLatin1String("/metadata.json"))) {
+        if (fileName.endsWith(QLatin1String("/metadata.json"))) {
             return new ProcessJob(m_pluginData.fileName(), m_pluginTypeName, m_inputData, parent);
         } else {
             KPluginLoader loader(fileName);
-            KPluginFactory* factory = loader.factory();
+            KPluginFactory *factory = loader.factory();
             if (!factory) {
                 qWarning() << "Couldn't create job:" << fileName << loader.errorString();
                 return nullptr;
             }
-            Purpose::PluginBase* plugin = dynamic_cast<Purpose::PluginBase*>(factory->create<QObject>(parent, QVariantList()));
+            Purpose::PluginBase *plugin = dynamic_cast<Purpose::PluginBase *>(factory->create<QObject>(parent, QVariantList()));
 
             if (!plugin) {
                 qWarning() << "Couldn't load plugin:" << fileName << loader.errorString();
@@ -72,28 +72,33 @@ public:
             return plugin->createJob();
         }
     }
-
 };
 
-Configuration::Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const KPluginMetaData &pluginInformation, QObject* parent)
+Configuration::Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const KPluginMetaData &pluginInformation, QObject *parent)
     : Configuration(inputData, pluginTypeName, QJsonObject(), pluginInformation, parent)
-{}
+{
+}
 
-Configuration::Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const QJsonObject &pluginType, const KPluginMetaData &pluginInformation, QObject* parent)
+Configuration::Configuration(const QJsonObject &inputData,
+                             const QString &pluginTypeName,
+                             const QJsonObject &pluginType,
+                             const KPluginMetaData &pluginInformation,
+                             QObject *parent)
     : QObject(parent)
-    , d_ptr(new ConfigurationPrivate {inputData, pluginTypeName, pluginType, pluginInformation, !qEnvironmentVariableIsSet("KDE_PURPOSE_LOCAL_JOBS")})
-{}
+    , d_ptr(new ConfigurationPrivate{inputData, pluginTypeName, pluginType, pluginInformation, !qEnvironmentVariableIsSet("KDE_PURPOSE_LOCAL_JOBS")})
+{
+}
 
 Configuration::~Configuration()
 {
     delete d_ptr;
 }
 
-void Configuration::setData(const QJsonObject& data)
+void Configuration::setData(const QJsonObject &data)
 {
     Q_D(Configuration);
 
-//     qDebug() << "datachanged" << data;
+    //     qDebug() << "datachanged" << data;
     if (d->m_inputData != data) {
         d->m_inputData = data;
         Q_EMIT dataChanged();
@@ -111,8 +116,8 @@ bool Configuration::isReady() const
     Q_D(const Configuration);
     bool ok = true;
     const auto arguments = neededArguments();
-    for (const QJsonValue& arg : arguments) {
-        if(!d->m_inputData.contains(arg.toString())) {
+    for (const QJsonValue &arg : arguments) {
+        if (!d->m_inputData.contains(arg.toString())) {
             qDebug() << "missing mandatory argument" << arg.toString();
             ok = false;
         }
@@ -130,14 +135,14 @@ QJsonArray Configuration::neededArguments() const
     return ret;
 }
 
-Purpose::Job* Configuration::createJob()
+Purpose::Job *Configuration::createJob()
 {
     if (!isReady())
         return nullptr;
 
     Q_D(const Configuration);
 
-    Purpose::Job* job = d->internalCreateJob(this);
+    Purpose::Job *job = d->internalCreateJob(this);
     if (!job)
         return job;
 
@@ -157,7 +162,8 @@ QUrl Configuration::configSourceCode() const
         const QFileInfo fi(metaDataPath);
         return QUrl::fromLocalFile(fi.dir().filePath(QStringLiteral("contents/config/config.qml")));
     } else {
-        const QString configFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/%1_config.qml").arg(d->m_pluginData.pluginId()));
+        const QString configFile =
+            QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/%1_config.qml").arg(d->m_pluginData.pluginId()));
         if (configFile.isEmpty())
             return QUrl();
 

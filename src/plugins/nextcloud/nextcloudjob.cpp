@@ -5,15 +5,15 @@
 */
 
 #include "nextcloudjob.h"
-#include <QDebug>
-#include <KAccounts/GetCredentialsJob>
 #include <KAccounts/Core>
+#include <KAccounts/GetCredentialsJob>
 #include <KIO/CopyJob>
+#include <QDebug>
 
-QList<QUrl> arrayToList(const QJsonArray& array)
+QList<QUrl> arrayToList(const QJsonArray &array)
 {
     QList<QUrl> ret;
-    for (const QJsonValue& val : array) {
+    for (const QJsonValue &val : array) {
         ret += val.toVariant().toUrl();
     }
     return ret;
@@ -39,7 +39,7 @@ void NextcloudJob::gotCredentials(KJob *job)
     }
 
     const Accounts::AccountId id = data().value(QStringLiteral("accountId")).toInt();
-    Accounts::Account* acc = Accounts::Account::fromId(KAccounts::accountsManager(), id);
+    Accounts::Account *acc = Accounts::Account::fromId(KAccounts::accountsManager(), id);
 
     const auto services = acc->services();
     for (const Accounts::Service &service : services) {

@@ -8,30 +8,30 @@
 
 #include "sharefileitemaction.h"
 
-#include <QList>
 #include <QAction>
-#include <QWidget>
-#include <QVariantList>
-#include <QUrl>
+#include <QDesktopServices>
 #include <QIcon>
 #include <QJsonArray>
-#include <QDesktopServices>
+#include <QList>
+#include <QUrl>
+#include <QVariantList>
+#include <QWidget>
 
-#include <KPluginFactory>
 #include <KLocalizedString>
 #include <KNotification>
+#include <KPluginFactory>
 #include <kio/global.h>
 
-#include "menu.h"
 #include "alternativesmodel.h"
+#include "menu.h"
 
 K_PLUGIN_CLASS_WITH_JSON(ShareFileItemAction, "sharefileitemaction.json")
 
 Q_LOGGING_CATEGORY(PURPOSE_FILEITEMACTION, "kf.kio.widgets.fileitemactions.purpose")
 
-ShareFileItemAction::ShareFileItemAction(QObject* parent, const QVariantList& )
-    : KAbstractFileItemActionPlugin(parent),
-    m_menu(new Purpose::Menu())
+ShareFileItemAction::ShareFileItemAction(QObject *parent, const QVariantList &)
+    : KAbstractFileItemActionPlugin(parent)
+    , m_menu(new Purpose::Menu())
 {
     m_menu->setTitle(i18n("Share"));
     m_menu->setIcon(QIcon::fromTheme(QStringLiteral("document-share")));
@@ -48,18 +48,17 @@ ShareFileItemAction::ShareFileItemAction(QObject* parent, const QVariantList& )
     });
 }
 
-QList<QAction*> ShareFileItemAction::actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget)
+QList<QAction *> ShareFileItemAction::actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget)
 {
     QJsonArray urlsJson;
 
-    for (const QUrl& url : fileItemInfos.urlList()) {
+    for (const QUrl &url : fileItemInfos.urlList()) {
         urlsJson.append(url.toString());
     }
 
-    m_menu->model()->setInputData(QJsonObject{
-        { QStringLiteral("mimeType"), QJsonValue{!fileItemInfos.mimeType().isEmpty() ? fileItemInfos.mimeType() : QStringLiteral("*/*")} },
-        { QStringLiteral("urls"), urlsJson }
-    });
+    m_menu->model()->setInputData(
+        QJsonObject{{QStringLiteral("mimeType"), QJsonValue{!fileItemInfos.mimeType().isEmpty() ? fileItemInfos.mimeType() : QStringLiteral("*/*")}},
+                    {QStringLiteral("urls"), urlsJson}});
     m_menu->reload();
     m_menu->setParent(parentWidget, Qt::Popup);
 

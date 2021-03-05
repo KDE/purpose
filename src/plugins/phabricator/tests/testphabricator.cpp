@@ -5,14 +5,13 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <QCommandLineParser>
+#include <QCoreApplication>
 #include <QDebug>
 #include <QString>
-#include <QCoreApplication>
-#include <QCommandLineParser>
 
 #include "../phabricatorjobs.h"
 #include "debug.h"
-
 
 int main(int argc, char *argv[])
 {
@@ -26,17 +25,18 @@ int main(int argc, char *argv[])
     app.setApplicationName(QStringLiteral("testphabricator"));
     QCommandLineParser parser;
     const QCommandLineOption projectNameOption(QStringLiteral("project"),
-        QStringLiteral("a directory holding the project"),
-        QStringLiteral("project"), projectName);
+                                               QStringLiteral("a directory holding the project"),
+                                               QStringLiteral("project"),
+                                               projectName);
     const QCommandLineOption diffIDOption(QStringLiteral("ID"),
-        QStringLiteral("set the revision ID to update (when missing, create a new diff)"),
-        QStringLiteral("ID"), diffID);
-    const QCommandLineOption patchFileOption(QStringLiteral("patch"),
-        QStringLiteral("the patch to upload"),
-        QStringLiteral("patch"), patchFile);
+                                          QStringLiteral("set the revision ID to update (when missing, create a new diff)"),
+                                          QStringLiteral("ID"),
+                                          diffID);
+    const QCommandLineOption patchFileOption(QStringLiteral("patch"), QStringLiteral("the patch to upload"), QStringLiteral("patch"), patchFile);
     const QCommandLineOption updateCommentOption(QStringLiteral("message"),
-        QStringLiteral("comment describing the patch update"),
-        QStringLiteral("message"), updateComment);
+                                                 QStringLiteral("comment describing the patch update"),
+                                                 QStringLiteral("message"),
+                                                 updateComment);
     const QCommandLineOption listOption(QStringLiteral("list"), QStringLiteral("list your open differential revisions"));
     parser.addOption(projectNameOption);
     parser.addOption(diffIDOption);

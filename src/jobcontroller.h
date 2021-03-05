@@ -14,10 +14,8 @@
 
 namespace Purpose
 {
-
 class PURPOSE_EXPORT JobController : public QObject
 {
-
     Q_OBJECT
     Q_PROPERTY(AlternativesModel *model READ model WRITE setModel NOTIFY modelChanged)
     Q_PROPERTY(int index READ index WRITE setIndex NOTIFY indexChanged)
@@ -26,7 +24,6 @@ class PURPOSE_EXPORT JobController : public QObject
     Q_PROPERTY(Purpose::Job *job READ job NOTIFY jobChanged)
 
 public:
-
     enum State {
         Inactive = 0,
         Configuring,

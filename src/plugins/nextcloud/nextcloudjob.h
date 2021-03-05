@@ -7,20 +7,21 @@
 #ifndef NEXTCLOUDJOB_H
 #define NEXTCLOUDJOB_H
 
-#include <purpose/pluginbase.h>
 #include <QString>
 #include <QUrl>
+#include <purpose/pluginbase.h>
 
 class NextcloudJob : public Purpose::Job
 {
     Q_OBJECT
-    public:
-        NextcloudJob(QObject* parent)
-            : Purpose::Job(parent)
-        {}
-        void start() override;
+public:
+    NextcloudJob(QObject *parent)
+        : Purpose::Job(parent)
+    {
+    }
+    void start() override;
 
-    private Q_SLOTS:
-        void gotCredentials(KJob *job);
+private Q_SLOTS:
+    void gotCredentials(KJob *job);
 };
 #endif /* NEXTCLOUDJOB_H */

@@ -4,22 +4,22 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include <qtest.h>
-#include <QJsonObject>
 #include <QJsonArray>
-#include <QStandardPaths>
+#include <QJsonObject>
 #include <QSignalSpy>
+#include <QStandardPaths>
+#include <qtest.h>
 
 #include "menutest.h"
-#include <purposewidgets/menu.h>
 #include <purpose/alternativesmodel.h>
+#include <purposewidgets/menu.h>
 
 QTEST_MAIN(MenuTest)
 
-static QAction* saveAsAction(Purpose::Menu* menu)
+static QAction *saveAsAction(Purpose::Menu *menu)
 {
     const auto actions = menu->actions();
-    for (QAction* action : actions) {
+    for (QAction *action : actions) {
         if (action->property("pluginId") == QLatin1String("saveasplugin")) {
             return action;
         }
@@ -34,23 +34,21 @@ void MenuTest::initTestCase()
     // To avoid a runtime dependency on klauncher
     qputenv("KDE_FORK_SLAVES", "yes");
 
-     // To let ctest exit, we shouldn't start kio_http_cache_cleaner
+    // To let ctest exit, we shouldn't start kio_http_cache_cleaner
     qputenv("KIO_DISABLE_CACHE_CLEANER", "yes");
 }
 
 void MenuTest::runJobTest()
 {
-    Purpose::Menu* menu = new Purpose::Menu;
-    Purpose::AlternativesModel* model = menu->model();
+    Purpose::Menu *menu = new Purpose::Menu;
+    Purpose::AlternativesModel *model = menu->model();
     model->setDisabledPlugins({});
 
     const QString tempfile = m_tempDir.path() + QStringLiteral("/purposetest");
     QFile::remove(tempfile);
-    const QJsonObject input = QJsonObject {
-        { QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
-        { QStringLiteral("mimeType"), QStringLiteral("dummy/thing") },
-        { QStringLiteral("destinationPath"), QUrl::fromLocalFile(tempfile).url() }
-    };
+    const QJsonObject input = QJsonObject{{QStringLiteral("urls"), QJsonArray{QStringLiteral("http://kde.org")}},
+                                          {QStringLiteral("mimeType"), QStringLiteral("dummy/thing")},
+                                          {QStringLiteral("destinationPath"), QUrl::fromLocalFile(tempfile).url()}};
     model->setInputData(input);
     model->setPluginType(QStringLiteral("Export"));
     menu->reload();
@@ -65,7 +63,7 @@ void MenuTest::runJobTest()
         }
     });
 
-    QAction* action = saveAsAction(menu);
+    QAction *action = saveAsAction(menu);
     QSignalSpy s(menu, &Purpose::Menu::finished);
     action->trigger();
     QVERIFY(s.count() || s.wait());

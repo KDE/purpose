@@ -8,15 +8,14 @@
 #define PURPOSE_PROCESSJOB_H
 
 #include "job.h"
+#include <QJsonObject>
 #include <QLocalServer>
 #include <QLocalSocket>
-#include <QJsonObject>
 #include <QPointer>
 #include <QProcess>
 
 namespace Purpose
 {
-
 /**
  * @internal
  *
@@ -25,9 +24,9 @@ namespace Purpose
  */
 class ProcessJob : public Job
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    ProcessJob(const QString& pluginPath, const QString& pluginType, const QJsonObject& data, QObject* parent);
+    ProcessJob(const QString &pluginPath, const QString &pluginType, const QJsonObject &data, QObject *parent);
     ~ProcessJob() override;
 
     void start() override;

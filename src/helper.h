@@ -7,12 +7,11 @@
 #ifndef PURPOSE_HELPER_H
 #define PURPOSE_HELPER_H
 
-#include <QJsonObject>
 #include <KPluginMetaData>
+#include <QJsonObject>
 
 namespace Purpose
 {
-
 QJsonObject readPluginType(const QString &pluginType);
 KPluginMetaData createMetaData(const QString &file);
 

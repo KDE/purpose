@@ -6,12 +6,12 @@
 
 #include "purposequickplugin.h"
 #include "alternativesmodel.h"
-#include "job.h"
 #include "configuration.h"
+#include "job.h"
 #include "jobcontroller.h"
 #include <qqml.h>
 
-void PurposeQuickPlugin::registerTypes(const char* uri)
+void PurposeQuickPlugin::registerTypes(const char *uri)
 {
     qmlRegisterType<Purpose::AlternativesModel>(uri, 1, 0, "PurposeAlternativesModel");
     qmlRegisterType<Purpose::JobController>(uri, 1, 0, "PurposeJobController");

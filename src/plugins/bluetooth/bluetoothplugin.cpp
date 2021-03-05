@@ -4,79 +4,85 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-#include <purpose/pluginbase.h>
-#include <QDebug>
-#include <QUrl>
-#include <QProcess>
-#include <QJsonArray>
 #include <KPluginFactory>
+#include <QDebug>
+#include <QJsonArray>
+#include <QProcess>
+#include <QUrl>
+#include <purpose/pluginbase.h>
 
 EXPORT_SHARE_VERSION
 
 class BluetoothJob : public Purpose::Job
 {
     Q_OBJECT
-    public:
-        BluetoothJob(QObject* parent)
-            : Purpose::Job(parent)
-        {}
+public:
+    BluetoothJob(QObject *parent)
+        : Purpose::Job(parent)
+    {
+    }
 
-        void start() override
-        {
-            QProcess* process = new QProcess(this);
-            process->setProgram(QStringLiteral("bluedevil-sendfile"));
-            const QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
+    void start() override
+    {
+        QProcess *process = new QProcess(this);
+        process->setProgram(QStringLiteral("bluedevil-sendfile"));
+        const QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
 
-            QStringList args {QStringLiteral("-u"), data().value(QStringLiteral("device")).toString()};
+        QStringList args{QStringLiteral("-u"), data().value(QStringLiteral("device")).toString()};
 
-            for (const QJsonValue& val : urlsJson) {
-                const QUrl url(val.toString());
-                if (url.isLocalFile()) {
-                    args << QStringLiteral("-f") << url.toLocalFile();
-                }
+        for (const QJsonValue &val : urlsJson) {
+            const QUrl url(val.toString());
+            if (url.isLocalFile()) {
+                args << QStringLiteral("-f") << url.toLocalFile();
             }
-
-            process->setArguments(args);
-
-            connect(process, &QProcess::errorOccurred, this, &BluetoothJob::processError);
-            connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &BluetoothJob::jobFinished);
-            connect(process, &QProcess::readyRead, this, [process](){ qDebug() << "bluedevil-sendfile output:" << process->readAll(); });
-
-            process->start();
         }
 
-        void processError(QProcess::ProcessError error)
-        {
-            QProcess* process = qobject_cast<QProcess*>(sender());
-            qWarning() << "bluetooth share error:" << error << process->errorString();
-            setError(1 + error);
-            setErrorText(process->errorString());
-            emitResult();
-        }
+        process->setArguments(args);
 
-        void jobFinished(int code, QProcess::ExitStatus status)
-        {
-            if (status != QProcess::NormalExit)
-                qWarning() << "bluedevil-sendfile crashed";
+        connect(process, &QProcess::errorOccurred, this, &BluetoothJob::processError);
+        connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &BluetoothJob::jobFinished);
+        connect(process, &QProcess::readyRead, this, [process]() {
+            qDebug() << "bluedevil-sendfile output:" << process->readAll();
+        });
 
-            setError(code);
-            setOutput( {{ QStringLiteral("url"), QString() }});
-            emitResult();
-        }
+        process->start();
+    }
 
-    private:
+    void processError(QProcess::ProcessError error)
+    {
+        QProcess *process = qobject_cast<QProcess *>(sender());
+        qWarning() << "bluetooth share error:" << error << process->errorString();
+        setError(1 + error);
+        setErrorText(process->errorString());
+        emitResult();
+    }
+
+    void jobFinished(int code, QProcess::ExitStatus status)
+    {
+        if (status != QProcess::NormalExit)
+            qWarning() << "bluedevil-sendfile crashed";
+
+        setError(code);
+        setOutput({{QStringLiteral("url"), QString()}});
+        emitResult();
+    }
+
+private:
 };
 
 class Q_DECL_EXPORT BluetoothPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
-    public:
-        BluetoothPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
+public:
+    BluetoothPlugin(QObject *p, const QVariantList &)
+        : Purpose::PluginBase(p)
+    {
+    }
 
-        Purpose::Job* createJob() const override
-        {
-            return new BluetoothJob(nullptr);
-        }
+    Purpose::Job *createJob() const override
+    {
+        return new BluetoothJob(nullptr);
+    }
 };
 
 K_PLUGIN_CLASS_WITH_JSON(BluetoothPlugin, "bluetoothplugin.json")

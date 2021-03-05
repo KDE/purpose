@@ -6,9 +6,10 @@
 
 #include "phabricatorrc.h"
 
-PhabricatorRC::PhabricatorRC(QObject* parent)
+PhabricatorRC::PhabricatorRC(QObject *parent)
     : QObject(parent)
-{}
+{
+}
 
 void PhabricatorRC::setPath(const QUrl &filePath)
 {
@@ -20,4 +21,3 @@ void PhabricatorRC::setPath(const QUrl &filePath)
     // TODO figure out the if/what/how of .arcconfig file contents
     Q_EMIT dataChanged();
 }
-

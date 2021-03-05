@@ -5,55 +5,54 @@
 */
 
 #include "alternativesmodel.h"
-#include <QDirIterator>
-#include <QMimeType>
-#include <QMimeDatabase>
-#include <QIcon>
-#include <QDebug>
-#include <QStandardPaths>
-#include <QJsonArray>
-#include <QRegularExpression>
-#include <QDBusConnectionInterface>
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <QDebug>
+#include <QDirIterator>
+#include <QIcon>
+#include <QJsonArray>
+#include <QMimeDatabase>
+#include <QMimeType>
+#include <QRegularExpression>
+#include <QStandardPaths>
 
+#include <KConfigGroup>
 #include <KPluginLoader>
 #include <KPluginMetaData>
 #include <KSharedConfig>
-#include <KConfigGroup>
 
-#include "helper.h"
 #include "configuration.h"
+#include "helper.h"
 #include "job.h"
 
 using namespace Purpose;
 
 static const QStringList s_defaultDisabledPlugins = {QStringLiteral("saveasplugin")};
 
-typedef bool (*matchFunction)(const QString& constraint, const QJsonValue& value);
+typedef bool (*matchFunction)(const QString &constraint, const QJsonValue &value);
 
-static bool defaultMatch(const QString& constraint, const QJsonValue& value)
+static bool defaultMatch(const QString &constraint, const QJsonValue &value)
 {
     return value == QJsonValue(constraint);
 }
 
-static bool mimeTypeMatch(const QString& constraint, const QJsonValue& value)
+static bool mimeTypeMatch(const QString &constraint, const QJsonValue &value)
 {
-    if(value.isArray()) {
+    if (value.isArray()) {
         const auto array = value.toArray();
-        for (const QJsonValue& val : array) {
+        for (const QJsonValue &val : array) {
             if (mimeTypeMatch(constraint, val))
                 return true;
         }
         return false;
-    } else if(value.isObject()) {
-        for(const QJsonValue& val : value.toObject()) {
+    } else if (value.isObject()) {
+        for (const QJsonValue &val : value.toObject()) {
             if (mimeTypeMatch(constraint, val))
                 return true;
         }
         return false;
-    } else if(constraint.contains(QLatin1Char('*'))) {
-        const QRegularExpression re(QRegularExpression::wildcardToRegularExpression(constraint),
-                                    QRegularExpression::CaseInsensitiveOption);
+    } else if (constraint.contains(QLatin1Char('*'))) {
+        const QRegularExpression re(QRegularExpression::wildcardToRegularExpression(constraint), QRegularExpression::CaseInsensitiveOption);
         return re.match(value.toString()).hasMatch();
     } else {
         QMimeDatabase db;
@@ -62,30 +61,28 @@ static bool mimeTypeMatch(const QString& constraint, const QJsonValue& value)
     }
 }
 
-static bool dbusMatch(const QString& constraint, const QJsonValue& value)
+static bool dbusMatch(const QString &constraint, const QJsonValue &value)
 {
     Q_UNUSED(value)
     return QDBusConnection::sessionBus().interface()->isServiceRegistered(constraint);
 }
 
-static bool executablePresent(const QString& constraint, const QJsonValue& value)
+static bool executablePresent(const QString &constraint, const QJsonValue &value)
 {
     Q_UNUSED(value)
     return !QStandardPaths::findExecutable(constraint).isEmpty();
 }
 
-static bool desktopFilePresent(const QString& constraint, const QJsonValue& value)
+static bool desktopFilePresent(const QString &constraint, const QJsonValue &value)
 {
     Q_UNUSED(value)
     return !QStandardPaths::locate(QStandardPaths::ApplicationsLocation, constraint).isEmpty();
 }
 
-static QMap<QString, matchFunction> s_matchFunctions = {
-    { QStringLiteral("mimeType"), mimeTypeMatch },
-    { QStringLiteral("dbus"), dbusMatch },
-    { QStringLiteral("application"), desktopFilePresent },
-    { QStringLiteral("exec"), executablePresent }
-};
+static QMap<QString, matchFunction> s_matchFunctions = {{QStringLiteral("mimeType"), mimeTypeMatch},
+                                                        {QStringLiteral("dbus"), dbusMatch},
+                                                        {QStringLiteral("application"), desktopFilePresent},
+                                                        {QStringLiteral("exec"), executablePresent}};
 
 class Purpose::AlternativesModelPrivate
 {
@@ -95,24 +92,24 @@ public:
     QString m_pluginType;
     QStringList m_disabledPlugins = s_defaultDisabledPlugins;
     QJsonObject m_pluginTypeData;
-    const QRegularExpression constraintRx { QStringLiteral("(\\w+):(.*)") };
+    const QRegularExpression constraintRx{QStringLiteral("(\\w+):(.*)")};
 
     bool isPluginAcceptable(const KPluginMetaData &meta, const QStringList &disabledPlugins) const
     {
         const QJsonObject obj = meta.rawData();
-        if(!obj.value(QStringLiteral("X-Purpose-PluginTypes")).toArray().contains(m_pluginType)) {
-            //qDebug() << "discarding" << meta.name() << KPluginMetaData::readStringList(meta.rawData(), QStringLiteral("X-Purpose-PluginTypes"));
+        if (!obj.value(QStringLiteral("X-Purpose-PluginTypes")).toArray().contains(m_pluginType)) {
+            // qDebug() << "discarding" << meta.name() << KPluginMetaData::readStringList(meta.rawData(), QStringLiteral("X-Purpose-PluginTypes"));
             return false;
         }
 
         if (disabledPlugins.contains(meta.pluginId()) || m_disabledPlugins.contains(meta.pluginId())) {
-            //qDebug() << "disabled plugin" << meta.name() << meta.pluginId();
+            // qDebug() << "disabled plugin" << meta.name() << meta.pluginId();
             return false;
         }
 
-        //All constraints must match
+        // All constraints must match
         const QJsonArray constraints = obj.value(QStringLiteral("X-Purpose-Constraints")).toArray();
-        for(const QJsonValue& constraint: constraints) {
+        for (const QJsonValue &constraint : constraints) {
             if (!constraintMatches(meta, constraint))
                 return false;
         }
@@ -121,10 +118,10 @@ public:
 
     bool constraintMatches(const KPluginMetaData &meta, const QJsonValue &constraint) const
     {
-        //Treat an array as an OR
+        // Treat an array as an OR
         if (constraint.isArray()) {
             const QJsonArray options = constraint.toArray();
-            for (const auto &option: options) {
+            for (const auto &option : options) {
                 if (constraintMatches(meta, option)) {
                     return true;
                 }
@@ -141,13 +138,13 @@ public:
         const QString constrainedValue = match.captured(2);
         const bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, m_inputData.value(propertyName));
         if (!acceptable) {
-//             qDebug() << "not accepted" << meta.name() << propertyName << constrainedValue << m_inputData[propertyName];
+            //             qDebug() << "not accepted" << meta.name() << propertyName << constrainedValue << m_inputData[propertyName];
         }
         return acceptable;
     }
 };
 
-AlternativesModel::AlternativesModel(QObject* parent)
+AlternativesModel::AlternativesModel(QObject *parent)
     : QAbstractListModel(parent)
     , d_ptr(new AlternativesModelPrivate)
 {
@@ -159,14 +156,10 @@ AlternativesModel::~AlternativesModel()
     delete d;
 }
 
-QHash<int,QByteArray> AlternativesModel::roleNames() const
+QHash<int, QByteArray> AlternativesModel::roleNames() const
 {
-    QHash<int,QByteArray> roles = QAbstractListModel::roleNames();
-    roles.unite({
-        { IconNameRole, "iconName" },
-        { PluginIdRole, "pluginId" },
-        { ActionDisplayRole, "actionDisplay" }
-    });
+    QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
+    roles.unite({{IconNameRole, "iconName"}, {PluginIdRole, "pluginId"}, {ActionDisplayRole, "actionDisplay"}});
     return roles;
 }
 
@@ -182,12 +175,11 @@ void AlternativesModel::setInputData(const QJsonObject &input)
     Q_EMIT inputDataChanged();
 }
 
-void AlternativesModel::setPluginType(const QString& pluginType)
+void AlternativesModel::setPluginType(const QString &pluginType)
 {
     Q_D(AlternativesModel);
     if (pluginType == d->m_pluginType)
         return;
-
 
     d->m_pluginTypeData = Purpose::readPluginType(pluginType);
     d->m_pluginType = pluginType;
@@ -229,42 +221,42 @@ QJsonObject AlternativesModel::inputData() const
     return d->m_inputData;
 }
 
-Purpose::Configuration* AlternativesModel::configureJob(int row)
+Purpose::Configuration *AlternativesModel::configureJob(int row)
 {
     Q_D(AlternativesModel);
     const KPluginMetaData pluginData = d->m_plugins.at(row);
     return new Configuration(d->m_inputData, d->m_pluginType, d->m_pluginTypeData, pluginData, this);
 }
 
-int AlternativesModel::rowCount(const QModelIndex& parent) const
+int AlternativesModel::rowCount(const QModelIndex &parent) const
 {
     Q_D(const AlternativesModel);
     return parent.isValid() ? 0 : d->m_plugins.count();
 }
 
-QVariant AlternativesModel::data(const QModelIndex& index, int role) const
+QVariant AlternativesModel::data(const QModelIndex &index, int role) const
 {
     Q_D(const AlternativesModel);
-    if (!index.isValid() || index.row()>d->m_plugins.count())
+    if (!index.isValid() || index.row() > d->m_plugins.count())
         return QVariant();
 
     KPluginMetaData data = d->m_plugins[index.row()];
     switch (role) {
-        case Qt::DisplayRole:
-            return data.name();
-        case Qt::ToolTip:
-            return data.description();
-        case IconNameRole:
-            return data.iconName();
-        case Qt::DecorationRole:
-            return QIcon::fromTheme(data.iconName());
-        case PluginIdRole:
-            return data.pluginId();
-        case ActionDisplayRole: {
-            const auto pluginData = data.rawData()[QStringLiteral("KPlugin")].toObject();
-            const QString action = KPluginMetaData::readTranslatedString(pluginData, QStringLiteral("X-Purpose-ActionDisplay"));
-            return action.isEmpty() ? data.name() : action;
-        }
+    case Qt::DisplayRole:
+        return data.name();
+    case Qt::ToolTip:
+        return data.description();
+    case IconNameRole:
+        return data.iconName();
+    case Qt::DecorationRole:
+        return QIcon::fromTheme(data.iconName());
+    case PluginIdRole:
+        return data.pluginId();
+    case ActionDisplayRole: {
+        const auto pluginData = data.rawData()[QStringLiteral("KPlugin")].toObject();
+        const QString action = KPluginMetaData::readTranslatedString(pluginData, QStringLiteral("X-Purpose-ActionDisplay"));
+        return action.isEmpty() ? data.name() : action;
+    }
     }
     return QVariant();
 }
@@ -273,11 +265,12 @@ static QVector<KPluginMetaData> findScriptedPackages(std::function<bool(const KP
 {
     QVector<KPluginMetaData> ret;
     QSet<QString> addedPlugins;
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kpackage/Purpose"), QStandardPaths::LocateDirectory);
+    const QStringList dirs =
+        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kpackage/Purpose"), QStandardPaths::LocateDirectory);
     for (const QString &dir : dirs) {
         QDirIterator dirIt(dir, QDir::Dirs | QDir::NoDotAndDotDot);
 
-        for(; dirIt.hasNext(); ) {
+        for (; dirIt.hasNext();) {
             QDir dir(dirIt.next());
             Q_ASSERT(dir.exists());
             if (!dir.exists(QStringLiteral("metadata.json")))
@@ -302,8 +295,8 @@ void AlternativesModel::initializeModel()
     }
 
     const QJsonArray inbound = d->m_pluginTypeData.value(QStringLiteral("X-Purpose-InboundArguments")).toArray();
-    for (const QJsonValue& arg : inbound) {
-        if(!d->m_inputData.contains(arg.toString())) {
+    for (const QJsonValue &arg : inbound) {
+        if (!d->m_inputData.contains(arg.toString())) {
             qWarning() << "Cannot initialize model with data" << d->m_inputData << ". missing:" << arg;
             return;
         }
@@ -312,7 +305,7 @@ void AlternativesModel::initializeModel()
     const auto config = KSharedConfig::openConfig(QStringLiteral("purposerc"));
     const auto group = config->group("plugins");
     const QStringList disabledPlugins = group.readEntry("disabled", QStringList());
-    auto pluginAcceptable = [d, disabledPlugins](const KPluginMetaData& meta) {
+    auto pluginAcceptable = [d, disabledPlugins](const KPluginMetaData &meta) {
         return d->isPluginAcceptable(meta, disabledPlugins);
     };
 

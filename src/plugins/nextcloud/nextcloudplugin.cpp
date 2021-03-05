@@ -4,23 +4,23 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-#include <purpose/pluginbase.h>
 #include "nextcloudjob.h"
+#include <purpose/pluginbase.h>
 
 #include <KPluginFactory>
 #include <QUrl>
 
 class NextcloudPlugin : public Purpose::PluginBase
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    NextcloudPlugin(QObject* parent, const QVariantList& args)
+    NextcloudPlugin(QObject *parent, const QVariantList &args)
         : Purpose::PluginBase(parent)
     {
         Q_UNUSED(args);
     }
 
-    Purpose::Job* createJob() const override
+    Purpose::Job *createJob() const override
     {
         return new NextcloudJob(nullptr);
     }

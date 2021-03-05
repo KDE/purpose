@@ -14,19 +14,21 @@ class PhabricatorRC : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QUrl path READ path WRITE setPath NOTIFY dataChanged)
-    public:
-        PhabricatorRC(QObject* parent = nullptr);
+public:
+    PhabricatorRC(QObject *parent = nullptr);
 
-        void setPath(const QUrl &path);
+    void setPath(const QUrl &path);
 
-        QUrl path() const { return m_path; }
+    QUrl path() const
+    {
+        return m_path;
+    }
 
-    Q_SIGNALS:
-        void dataChanged();
+Q_SIGNALS:
+    void dataChanged();
 
-    private:
-
-        QUrl m_path;
+private:
+    QUrl m_path;
 };
 
 #endif

@@ -7,28 +7,29 @@
 
 #include <purpose/pluginbase.h>
 
-#include <KPluginFactory>
 #include <KLocalizedString>
+#include <KPluginFactory>
 
-#include <QStandardPaths>
-#include <QProcess>
-#include <QDesktopServices>
-#include <QUrlQuery>
 #include <QDebug>
-#include <QUrl>
+#include <QDesktopServices>
 #include <QJsonArray>
+#include <QProcess>
+#include <QStandardPaths>
+#include <QUrl>
+#include <QUrlQuery>
 
 EXPORT_SHARE_VERSION
 
-namespace {
-
+namespace
+{
 class EmailJob : public Purpose::Job
 {
     Q_OBJECT
 public:
     explicit EmailJob(QObject *parent = nullptr)
         : Purpose::Job(parent)
-    {}
+    {
+    }
 
     void start() override
     {
@@ -42,10 +43,8 @@ public:
 
         auto xdgmimeProc = new QProcess(this);
         xdgmimeProc->setProgram(xdgmime);
-        xdgmimeProc->setArguments({ QStringLiteral("query"), QStringLiteral("default"),
-                                    QStringLiteral("x-scheme-handler/mailto") });
-        connect(xdgmimeProc, static_cast<void(QProcess::*)(int,QProcess::ExitStatus)>(&QProcess::finished),
-                this, &EmailJob::xdgMimeFinished);
+        xdgmimeProc->setArguments({QStringLiteral("query"), QStringLiteral("default"), QStringLiteral("x-scheme-handler/mailto")});
+        connect(xdgmimeProc, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &EmailJob::xdgMimeFinished);
         xdgmimeProc->start();
     }
 
@@ -57,7 +56,7 @@ public:
             return;
         }
 
-        const auto proc = qobject_cast<QProcess*>(sender());
+        const auto proc = qobject_cast<QProcess *>(sender());
         const auto mailService = proc->readAllStandardOutput();
         qDebug() << "Default mailto handler:" << mailService;
         // Thunderbird is a special snowflake and cannot handle attachments via
@@ -105,7 +104,7 @@ public:
 
         const auto urls = data().value(QStringLiteral("urls")).toArray();
         QStringList attachments;
-        QStringList args = QStringList{ QStringLiteral("-compose")};
+        QStringList args = QStringList{QStringLiteral("-compose")};
         QString message;
         for (const auto &att : urls) {
             QUrl url(att.toString());
@@ -116,7 +115,7 @@ public:
             }
         }
 
-        message +=(QStringLiteral("attachment='%1'").arg(attachments.join(QLatin1Char(','))));
+        message += (QStringLiteral("attachment='%1'").arg(attachments.join(QLatin1Char(','))));
         args.append(message);
 
         if (!QProcess::startDetached(tb, args)) {
@@ -125,7 +124,6 @@ public:
         }
         emitResult();
     }
-
 };
 
 }
@@ -136,7 +134,8 @@ class Q_DECL_EXPORT EmailPlugin : public Purpose::PluginBase
 public:
     EmailPlugin(QObject *p, const QVariantList &)
         : Purpose::PluginBase(p)
-    {}
+    {
+    }
 
     Purpose::Job *createJob() const override
     {

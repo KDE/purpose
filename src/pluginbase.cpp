@@ -8,7 +8,7 @@
 
 using namespace Purpose;
 
-PluginBase::PluginBase(QObject* parent)
+PluginBase::PluginBase(QObject *parent)
     : QObject(parent)
 {
 }

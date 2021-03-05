@@ -7,9 +7,9 @@
 #ifndef REVIEWBOARDRC_H
 #define REVIEWBOARDRC_H
 
+#include <QJsonObject>
 #include <QObject>
 #include <QUrl>
-#include <QJsonObject>
 
 class ReviewboardRC : public QObject
 {
@@ -18,26 +18,38 @@ class ReviewboardRC : public QObject
     Q_PROPERTY(QUrl server READ server NOTIFY dataChanged)
     Q_PROPERTY(QString repository READ repository NOTIFY dataChanged)
     Q_PROPERTY(QJsonObject extraData READ extraData NOTIFY dataChanged)
-    public:
-        ReviewboardRC(QObject* parent = nullptr);
+public:
+    ReviewboardRC(QObject *parent = nullptr);
 
-        void setPath(const QUrl &path);
+    void setPath(const QUrl &path);
 
-        QUrl path() const { return m_path; }
-        QUrl server() const { return m_server; }
-        QString repository() const { return m_repository; }
-        QJsonObject extraData() const { return m_extraData; }
+    QUrl path() const
+    {
+        return m_path;
+    }
+    QUrl server() const
+    {
+        return m_server;
+    }
+    QString repository() const
+    {
+        return m_repository;
+    }
+    QJsonObject extraData() const
+    {
+        return m_extraData;
+    }
 
-    Q_SIGNALS:
-        void dataChanged();
+Q_SIGNALS:
+    void dataChanged();
 
-    private:
-        void addExtraData(const QString& key, const QString &value);
+private:
+    void addExtraData(const QString &key, const QString &value);
 
-        QUrl m_path;
-        QUrl m_server;
-        QString m_repository;
-        QJsonObject m_extraData;
+    QUrl m_path;
+    QUrl m_server;
+    QString m_repository;
+    QJsonObject m_extraData;
 };
 
 #endif

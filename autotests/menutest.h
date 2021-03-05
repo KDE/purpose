@@ -16,6 +16,7 @@ class MenuTest : public QObject
 private Q_SLOTS:
     void initTestCase();
     void runJobTest();
+
 private:
     QTemporaryDir m_tempDir;
 };

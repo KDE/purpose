@@ -7,18 +7,18 @@
 #include "processjob.h"
 #include "cmake-paths.h"
 #include "purpose_external_process_debug.h"
-#include <QLibrary>
-#include <QMetaMethod>
-#include <QJsonDocument>
+#include <QCborValue>
 #include <QFile>
 #include <QFileInfo>
-#include <QStandardPaths>
-#include <QCborValue>
+#include <QJsonDocument>
+#include <QLibrary>
+#include <QMetaMethod>
 #include <QRandomGenerator>
+#include <QStandardPaths>
 
 using namespace Purpose;
 
-ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, const QJsonObject& data, QObject* parent)
+ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, const QJsonObject &data, QObject *parent)
     : Job(parent)
     , m_process(new QProcess(this))
     , m_pluginPath(pluginPath)
@@ -39,7 +39,7 @@ ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, con
 
     connect(static_cast<QProcess *>(m_process), &QProcess::errorOccurred, this, [](QProcess::ProcessError error) {
         qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "error!" << error;
-    } );
+    });
     connect(static_cast<QProcess *>(m_process), &QProcess::stateChanged, this, &ProcessJob::processStateChanged);
 
     m_socket.setMaxPendingConnections(1);
@@ -72,7 +72,7 @@ void ProcessJob::writeSocket()
 void ProcessJob::readSocket()
 {
     QJsonParseError error;
-    while(m_localSocket && m_localSocket->canReadLine()) {
+    while (m_localSocket && m_localSocket->canReadLine()) {
         const QByteArray json = m_localSocket->readLine();
 
         const QJsonObject object = QJsonDocument::fromJson(json, &error).object();
@@ -81,7 +81,7 @@ void ProcessJob::readSocket()
             continue;
         }
 
-        for(auto it=object.constBegin(), itEnd=object.constEnd(); it!=itEnd; ++it) {
+        for (auto it = object.constBegin(), itEnd = object.constEnd(); it != itEnd; ++it) {
             const QByteArray propName = it.key().toLatin1();
             if (propName == "percent") {
                 setPercent(it->toInt());
@@ -98,11 +98,8 @@ void ProcessJob::readSocket()
 
 void ProcessJob::start()
 {
-    m_process->setArguments({
-        QStringLiteral("--server"), m_socket.fullServerName(),
-        QStringLiteral("--pluginType"), m_pluginType,
-        QStringLiteral("--pluginPath"), m_pluginPath
-    });
+    m_process->setArguments(
+        {QStringLiteral("--server"), m_socket.fullServerName(), QStringLiteral("--pluginType"), m_pluginType, QStringLiteral("--pluginPath"), m_pluginPath});
 
     qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "launching..." << m_process->program() << m_process->arguments().join(QLatin1Char(' ')).constData();
 
@@ -112,8 +109,8 @@ void ProcessJob::start()
 void Purpose::ProcessJob::processStateChanged(QProcess::ProcessState state)
 {
     if (state == QProcess::NotRunning) {
-        Q_ASSERT(m_process->exitCode()!=0 || m_localSocket);
-        if (m_process->exitCode()!=0) {
+        Q_ASSERT(m_process->exitCode() != 0 || m_localSocket);
+        if (m_process->exitCode() != 0) {
             qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "process exited with code:" << m_process->exitCode();
         }
 

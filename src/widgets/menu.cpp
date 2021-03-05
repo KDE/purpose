@@ -6,34 +6,35 @@
 
 #include "menu.h"
 #include <KI18n/KLocalizedContext>
-#include <QQmlContext>
-#include <purpose/configuration.h>
-#include <purpose/alternativesmodel.h>
-#include <QPointer>
 #include <QDebug>
+#include <QPointer>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <purpose/alternativesmodel.h>
+#include <purpose/configuration.h>
 
 using namespace Purpose;
 
 class Purpose::MenuPrivate : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    MenuPrivate(Menu* q)
+    MenuPrivate(Menu *q)
         : QObject(q)
         , m_model(new AlternativesModel(q))
         , q(q)
     {
-
     }
 
-    ~MenuPrivate() override {
+    ~MenuPrivate() override
+    {
         if (m_engine) {
             m_engine->deleteLater();
         }
     }
 
-    void trigger(int row) {
+    void trigger(int row)
+    {
         if (!m_engine) {
             m_engine = new QQmlApplicationEngine;
             m_engine->rootContext()->setContextObject(new KLocalizedContext(this));
@@ -41,7 +42,7 @@ public:
         }
 
         Q_ASSERT(!m_engine->rootObjects().isEmpty());
-        QObject* o = m_engine->rootObjects().at(0);
+        QObject *o = m_engine->rootObjects().at(0);
 
         if (!o) {
             qWarning() << Q_FUNC_INFO << "object is NULL at m_engine" << m_engine << "rootObjects=" << m_engine->rootObjects();
@@ -51,24 +52,24 @@ public:
         o->setProperty("model", QVariant::fromValue(m_model.data()));
         o->setProperty("index", row);
         o->setProperty("visible", true);
-        o->setProperty("q", QVariant::fromValue<QObject*>(q));
+        o->setProperty("q", QVariant::fromValue<QObject *>(q));
         o->setParent(q);
 
         QMetaObject::invokeMethod(o, "start");
     }
 
 public:
-    QQmlApplicationEngine* m_engine = nullptr;
+    QQmlApplicationEngine *m_engine = nullptr;
     QPointer<AlternativesModel> m_model;
-    Purpose::Menu* q;
+    Purpose::Menu *q;
 };
 
-Menu::Menu(QWidget* parent)
+Menu::Menu(QWidget *parent)
     : QMenu(parent)
     , d_ptr(new MenuPrivate(this))
 {
     connect(d_ptr->m_model.data(), &AlternativesModel::inputDataChanged, this, &Menu::reload);
-    connect(this, &QMenu::triggered, this, [this](QAction* action) {
+    connect(this, &QMenu::triggered, this, [this](QAction *action) {
         Q_D(Menu);
         d->trigger(action->property("row").toInt());
     });
@@ -78,9 +79,9 @@ void Menu::reload()
 {
     Q_D(Menu);
     clear();
-    for(int i=0, c=d->m_model->rowCount(); i != c; ++i) {
+    for (int i = 0, c = d->m_model->rowCount(); i != c; ++i) {
         QModelIndex idx = d->m_model->index(i);
-        QAction* a = addAction(idx.data(AlternativesModel::ActionDisplayRole).toString());
+        QAction *a = addAction(idx.data(AlternativesModel::ActionDisplayRole).toString());
         a->setToolTip(idx.data(Qt::ToolTipRole).toString());
         a->setIcon(idx.data(Qt::DecorationRole).value<QIcon>());
         a->setProperty("pluginId", idx.data(AlternativesModel::PluginIdRole));
@@ -90,7 +91,7 @@ void Menu::reload()
     setEnabled(!isEmpty());
 }
 
-AlternativesModel* Menu::model() const
+AlternativesModel *Menu::model() const
 {
     Q_D(const Menu);
     return d->m_model.data();

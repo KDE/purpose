@@ -9,8 +9,8 @@
 #ifndef SHAREFILEITEMACTION_H
 #define SHAREFILEITEMACTION_H
 
-#include <KFileItemListProperties>
 #include <KAbstractFileItemActionPlugin>
+#include <KFileItemListProperties>
 #include <QLoggingCategory>
 
 class QAction;
@@ -25,13 +25,13 @@ class Menu;
 Q_DECLARE_LOGGING_CATEGORY(PURPOSE_FILEITEMACTION)
 class ShareFileItemAction : public KAbstractFileItemActionPlugin
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    ShareFileItemAction(QObject* parent, const QVariantList& args);
-    QList< QAction* > actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget) override;
+    ShareFileItemAction(QObject *parent, const QVariantList &args);
+    QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
 
 private:
-    Purpose::Menu* m_menu;
+    Purpose::Menu *m_menu;
 };
 
 #endif // SHAREFILEITEMACTION_H

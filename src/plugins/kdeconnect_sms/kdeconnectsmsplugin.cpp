@@ -4,54 +4,58 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-#include <purpose/pluginbase.h>
-#include <QProcess>
-#include <QTimer>
-#include <QJsonArray>
-#include <QStandardPaths>
-#include <KPluginFactory>
 #include <KLocalizedString>
+#include <KPluginFactory>
+#include <QJsonArray>
+#include <QProcess>
+#include <QStandardPaths>
+#include <QTimer>
+#include <purpose/pluginbase.h>
 
 EXPORT_SHARE_VERSION
 
 class KDEConnectSMSJob : public Purpose::Job
 {
     Q_OBJECT
-    public:
-        KDEConnectSMSJob(QObject* parent)
-            : Purpose::Job(parent)
-        {}
+public:
+    KDEConnectSMSJob(QObject *parent)
+        : Purpose::Job(parent)
+    {
+    }
 
-        QStringList arrayToList(const QJsonArray& array)
-        {
-            QStringList ret;
-            for (const QJsonValue& val : array) {
-                ret += val.toString();
-            }
-            return ret;
+    QStringList arrayToList(const QJsonArray &array)
+    {
+        QStringList ret;
+        for (const QJsonValue &val : array) {
+            ret += val.toString();
         }
+        return ret;
+    }
 
-        void start() override
-        {
-            QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
-            QString title = data().value(QStringLiteral("title")).toString();
-            QString message = i18n("%1 - %2").arg(title).arg(arrayToList(urlsJson).join(QLatin1Char(' ')));
+    void start() override
+    {
+        QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
+        QString title = data().value(QStringLiteral("title")).toString();
+        QString message = i18n("%1 - %2").arg(title).arg(arrayToList(urlsJson).join(QLatin1Char(' ')));
 
-            QProcess::startDetached(QStringLiteral("kdeconnect-sms"), QStringList(QStringLiteral("--message")) << message);
-            QTimer::singleShot(0, this, &KDEConnectSMSJob::emitResult);
-        }
+        QProcess::startDetached(QStringLiteral("kdeconnect-sms"), QStringList(QStringLiteral("--message")) << message);
+        QTimer::singleShot(0, this, &KDEConnectSMSJob::emitResult);
+    }
 };
 
 class Q_DECL_EXPORT KDEConnectSMSPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
-    public:
-        KDEConnectSMSPlugin(QObject* p, const QVariantList& ) : Purpose::PluginBase(p) {}
+public:
+    KDEConnectSMSPlugin(QObject *p, const QVariantList &)
+        : Purpose::PluginBase(p)
+    {
+    }
 
-        Purpose::Job* createJob() const override
-        {
-            return new KDEConnectSMSJob(nullptr);
-        }
+    Purpose::Job *createJob() const override
+    {
+        return new KDEConnectSMSJob(nullptr);
+    }
 };
 
 K_PLUGIN_FACTORY_WITH_JSON(KDEConnectSMS, "kdeconnectsmsplugin.json", registerPlugin<KDEConnectSMSPlugin>();)

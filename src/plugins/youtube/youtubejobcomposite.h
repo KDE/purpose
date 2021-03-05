@@ -17,7 +17,7 @@ public:
     void start() override;
 
 private Q_SLOTS:
-    void subjobFinished(KJob* subjob);
+    void subjobFinished(KJob *subjob);
 
 private:
     int m_pendingJobs;

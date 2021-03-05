@@ -4,22 +4,22 @@
  SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-#include <QApplication>
-#include <KLocalizedContext>
+#include "qqml.h"
 #include <KAboutData>
-#include <QCommandLineParser>
-#include <QQmlContext>
-#include <QMimeDatabase>
+#include <KLocalizedContext>
 #include <KLocalizedString>
-#include <QQmlApplicationEngine>
+#include <QApplication>
+#include <QCommandLineParser>
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
-#include "qqml.h"
+#include <QMimeDatabase>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include <purpose/alternativesmodel.h>
 #include <purpose/job.h>
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
     KAboutData data(QStringLiteral("sharetool"), i18n("Share Tool"), QStringLiteral("1.0"), i18n("Share random information"), KAboutLicense::GPL);
@@ -61,17 +61,16 @@ int main(int argc, char** argv)
 
     QMimeType common;
     QJsonArray urls;
-    if (!files.isEmpty() && (!inputData.contains(QStringLiteral("urls")) || !inputData.contains(QStringLiteral("mimeType"))))
-    {
+    if (!files.isEmpty() && (!inputData.contains(QStringLiteral("urls")) || !inputData.contains(QStringLiteral("mimeType")))) {
         QMimeDatabase db;
-        for (const QString& file : qAsConst(files)) {
+        for (const QString &file : qAsConst(files)) {
             const QUrl url = QUrl::fromUserInput(file, QString(), QUrl::AssumeLocalFile);
             QMimeType type = db.mimeTypeForUrl(url);
             if (!common.isValid())
                 common = type;
-            else if(common.inherits(type.name())) {
+            else if (common.inherits(type.name())) {
                 common = type;
-            } else if(type.inherits(common.name())) {
+            } else if (type.inherits(common.name())) {
                 ;
             } else {
                 common = db.mimeTypeForName(QStringLiteral("application/octet-stream"));
@@ -80,7 +79,6 @@ int main(int argc, char** argv)
         }
         inputData.insert(QStringLiteral("urls"), urls);
         inputData.insert(QStringLiteral("mimeType"), common.name());
-
     }
 
     QQmlApplicationEngine engine;

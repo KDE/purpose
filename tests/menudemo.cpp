@@ -4,37 +4,32 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include <QJsonObject>
-#include <QJsonArray>
 #include <QApplication>
+#include <QDebug>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QMimeDatabase>
 #include <QStandardPaths>
 #include <QUrl>
-#include <QDebug>
-#include <QMimeDatabase>
 
-#include <purposewidgets/menu.h>
 #include <purpose/alternativesmodel.h>
+#include <purposewidgets/menu.h>
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
     QScopedPointer<Purpose::Menu> menu(new Purpose::Menu);
-    Purpose::AlternativesModel* model = menu->model();
+    Purpose::AlternativesModel *model = menu->model();
 
     QJsonObject input;
     if (!app.arguments().isEmpty()) {
         QMimeDatabase mime;
         QUrl url = QUrl::fromUserInput(app.arguments().last());
-        input = QJsonObject {
-            { QStringLiteral("urls"), QJsonArray {url.toString()} },
-            { QStringLiteral("mimeType"), mime.mimeTypeForUrl(url).name() }
-        };
+        input = QJsonObject{{QStringLiteral("urls"), QJsonArray{url.toString()}}, {QStringLiteral("mimeType"), mime.mimeTypeForUrl(url).name()}};
     } else {
-        input = QJsonObject {
-            { QStringLiteral("urls"), QJsonArray {QStringLiteral("http://kde.org")} },
-            { QStringLiteral("mimeType"), QStringLiteral("dummy/thing") }
-        };
+        input =
+            QJsonObject{{QStringLiteral("urls"), QJsonArray{QStringLiteral("http://kde.org")}}, {QStringLiteral("mimeType"), QStringLiteral("dummy/thing")}};
     }
     qDebug() << "sharing..." << input;
 

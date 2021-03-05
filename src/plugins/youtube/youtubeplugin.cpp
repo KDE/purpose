@@ -4,23 +4,23 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-#include <purpose/pluginbase.h>
-#include "youtubejobcomposite.h"
 #include "youtubejob.h"
+#include "youtubejobcomposite.h"
+#include <purpose/pluginbase.h>
 
 #include <KPluginFactory>
 
 class YoutubePlugin : public Purpose::PluginBase
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    YoutubePlugin(QObject* parent, const QVariantList& args)
+    YoutubePlugin(QObject *parent, const QVariantList &args)
         : Purpose::PluginBase(parent)
     {
         Q_UNUSED(args);
     }
 
-    Purpose::Job* createJob() const override
+    Purpose::Job *createJob() const override
     {
         return new YoutubeJobComposite;
     }

@@ -7,14 +7,13 @@
 #ifndef PURPOSE_PLUGINBASE_H
 #define PURPOSE_PLUGINBASE_H
 
-#include <QObject>
 #include "job.h"
+#include <QObject>
 
 #define EXPORT_SHARE_VERSION K_EXPORT_PLUGIN_VERSION(2)
 
 namespace Purpose
 {
-
 /**
  * @brief Base class to implement by plugins
  *
@@ -28,13 +27,13 @@ namespace Purpose
  */
 class PURPOSE_EXPORT PluginBase : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    explicit PluginBase(QObject* parent = nullptr);
+    explicit PluginBase(QObject *parent = nullptr);
     ~PluginBase() override;
 
     /** @returns the job that will perform the plugin's action. */
-    virtual Job* createJob() const = 0;
+    virtual Job *createJob() const = 0;
 };
 
 }

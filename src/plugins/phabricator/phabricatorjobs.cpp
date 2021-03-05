@@ -7,17 +7,17 @@
 #include "phabricatorjobs.h"
 #include "debug.h"
 
+#include <QDir>
 #include <QRegularExpression>
 #include <QStandardPaths>
-#include <QDir>
-// // // // // // // 
+// // // // // // //
 #include <KLocalizedString>
 
 const char s_colourCodes[] = "\u001B[[0-9]*m";
 
 using namespace Phabricator;
 
-bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString& patchFile, bool doBrowse)
+bool DifferentialRevision::buildArcCommand(const QString &workDir, const QString &patchFile, bool doBrowse)
 {
     bool ret;
     QString arc = QStandardPaths::findExecutable(QStringLiteral("arc"));
@@ -37,9 +37,8 @@ bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString
         if (m_commit.isEmpty()) {
             args << QStringLiteral("--raw");
         } else {
-            args << QStringLiteral("--allow-untracked") << QStringLiteral("--ignore-unsound-tests")
-                << QStringLiteral("--nolint") << QStringLiteral("-nounit") << QStringLiteral("--verbatim")
-                << m_commit;
+            args << QStringLiteral("--allow-untracked") << QStringLiteral("--ignore-unsound-tests") << QStringLiteral("--nolint") << QStringLiteral("-nounit")
+                 << QStringLiteral("--verbatim") << m_commit;
         }
         if (doBrowse) {
             args << QStringLiteral("--browse");
@@ -51,8 +50,7 @@ bool DifferentialRevision::buildArcCommand(const QString& workDir, const QString
             m_arcInput = patchFile;
         }
         m_arcCmd.setWorkingDirectory(workDir);
-        connect(&m_arcCmd, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
-                this, &DifferentialRevision::done);
+        connect(&m_arcCmd, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &DifferentialRevision::done);
         setPercent(33);
         ret = true;
     } else {
@@ -77,7 +75,7 @@ void DifferentialRevision::start()
     }
 }
 
-void DifferentialRevision::setErrorString(const QString& msg)
+void DifferentialRevision::setErrorString(const QString &msg)
 {
     QRegularExpression unwanted(QString::fromUtf8(s_colourCodes));
     m_errorString = msg;
@@ -104,8 +102,7 @@ QStringList DifferentialRevision::scrubbedResultList()
     return result;
 }
 
-
-NewDiffRev::NewDiffRev(const QUrl& patch, const QString& projectPath, bool doBrowse, QObject* parent)
+NewDiffRev::NewDiffRev(const QUrl &patch, const QString &projectPath, bool doBrowse, QObject *parent)
     : DifferentialRevision(QString(), parent)
     , m_patch(patch)
     , m_project(projectPath)
@@ -119,8 +116,7 @@ void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
         setError(KJob::UserDefinedError + exitCode);
         setErrorText(i18n("Could not create the new \"differential diff\""));
         setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
-        qCWarning(PLUGIN_PHABRICATOR) << "Could not create the new \"differential diff\":"
-            << m_arcCmd.error() << ";" << errorString();
+        qCWarning(PLUGIN_PHABRICATOR) << "Could not create the new \"differential diff\":" << m_arcCmd.error() << ";" << errorString();
     } else {
         setPercent(99);
         const QString arcOutput = scrubbedResult();
@@ -136,9 +132,7 @@ void NewDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
     emitResult();
 }
 
-
-UpdateDiffRev::UpdateDiffRev(const QUrl& patch, const QString& basedir,
-                             const QString& id, const QString& updateComment, bool doBrowse, QObject* parent)
+UpdateDiffRev::UpdateDiffRev(const QUrl &patch, const QString &basedir, const QString &id, const QString &updateComment, bool doBrowse, QObject *parent)
     : DifferentialRevision(id, parent)
     , m_patch(patch)
     , m_basedir(basedir)
@@ -146,8 +140,7 @@ UpdateDiffRev::UpdateDiffRev(const QUrl& patch, const QString& basedir,
     buildArcCommand(m_basedir, m_patch.toLocalFile(), doBrowse);
     QStringList args = m_arcCmd.arguments();
     if (updateComment.isEmpty()) {
-        args << QStringLiteral("--message")
-            << QStringLiteral("<placeholder: patch updated via the purpose/phabricator plugin>");
+        args << QStringLiteral("--message") << QStringLiteral("<placeholder: patch updated via the purpose/phabricator plugin>");
     } else {
         args << QStringLiteral("--message") << updateComment;
     }
@@ -160,8 +153,8 @@ void UpdateDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
         setError(KJob::UserDefinedError + exitCode);
         setErrorText(i18n("Patch upload to Phabricator failed"));
         setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
-        qCWarning(PLUGIN_PHABRICATOR) << "Patch upload to Phabricator failed with exit code"
-            << exitCode << ", error" << m_arcCmd.error() << ";" << errorString();
+        qCWarning(PLUGIN_PHABRICATOR) << "Patch upload to Phabricator failed with exit code" << exitCode << ", error" << m_arcCmd.error() << ";"
+                                      << errorString();
     } else {
         const QString arcOutput = scrubbedResult();
         const char *diffOpCode = "Revision URI: ";
@@ -175,15 +168,14 @@ void UpdateDiffRev::done(int exitCode, QProcess::ExitStatus exitStatus)
     emitResult();
 }
 
-
-DiffRevList::DiffRevList(const QString& projectDir, QObject* parent)
+DiffRevList::DiffRevList(const QString &projectDir, QObject *parent)
     : DifferentialRevision(QString(), parent)
     , m_projectDir(projectDir)
 {
     buildArcCommand(m_projectDir);
 }
 
-bool Phabricator::DiffRevList::buildArcCommand(const QString& workDir, const QString& unused, bool)
+bool Phabricator::DiffRevList::buildArcCommand(const QString &workDir, const QString &unused, bool)
 {
     Q_UNUSED(unused)
     bool ret;
@@ -194,8 +186,7 @@ bool Phabricator::DiffRevList::buildArcCommand(const QString& workDir, const QSt
         m_arcCmd.setProgram(arc);
         m_arcCmd.setArguments(args);
         m_arcCmd.setWorkingDirectory(workDir);
-        connect(&m_arcCmd, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
-                this, &DiffRevList::done);
+        connect(&m_arcCmd, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &DiffRevList::done);
         setPercent(33);
         ret = true;
     } else {
@@ -214,8 +205,7 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
         setError(KJob::UserDefinedError + exitCode);
         setErrorText(i18n("Could not get list of differential revisions in %1", QDir::currentPath()));
         setErrorString(QString::fromUtf8(m_arcCmd.readAllStandardError()));
-        qCWarning(PLUGIN_PHABRICATOR) << "Could not get list of differential revisions"
-            << m_arcCmd.error() << ";" << errorString();
+        qCWarning(PLUGIN_PHABRICATOR) << "Could not get list of differential revisions" << m_arcCmd.error() << ";" << errorString();
     } else {
         setPercent(99);
         const QStringList reviews = scrubbedResultList();
@@ -224,7 +214,7 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
         for (auto rev : reviews) {
             int idStart = rev.indexOf(revIDExpr);
             if (idStart >= 0) {
-                QString revID = rev.mid(idStart+1).split(QString::fromUtf8(": ")).at(0);
+                QString revID = rev.mid(idStart + 1).split(QString::fromUtf8(": ")).at(0);
                 QString revTitle = rev.section(revIDExpr, 1);
                 if (rev.startsWith(QStringLiteral("* Accepted "))) {
                     // append a Unicode "Heavy Check Mark" to signal accepted revisions

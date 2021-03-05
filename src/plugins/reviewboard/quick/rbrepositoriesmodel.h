@@ -7,24 +7,28 @@
 #ifndef RBREPOSITORIESMODEL_H
 #define RBREPOSITORIESMODEL_H
 
+#include <KJob>
 #include <QAbstractListModel>
 #include <QUrl>
-#include <KJob>
 
 class RepositoriesModel : public QAbstractListModel
 {
-Q_OBJECT
-Q_PROPERTY(QUrl server READ server WRITE setServer)
+    Q_OBJECT
+    Q_PROPERTY(QUrl server READ server WRITE setServer)
 public:
-    RepositoriesModel(QObject* parent = nullptr);
+    RepositoriesModel(QObject *parent = nullptr);
 
-    int rowCount(const QModelIndex & parent) const override;
-    QVariant data(const QModelIndex & index, int role) const override;
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
 
     void refresh();
 
-    QUrl server() const { return m_server; }
-    void setServer(const QUrl &server) {
+    QUrl server() const
+    {
+        return m_server;
+    }
+    void setServer(const QUrl &server)
+    {
         if (m_server != server) {
             m_server = server;
             refresh();
@@ -41,7 +45,8 @@ private:
     struct Value {
         QVariant name;
         QVariant path;
-        bool operator<(const Value &v1) const {
+        bool operator<(const Value &v1) const
+        {
             return name.toString() < v1.name.toString();
         }
     };
