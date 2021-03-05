@@ -11,6 +11,7 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui DBus Widget
 include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
+include(KDEGitCommitHooks)
 
 include(FeatureSummary)
 include(GenerateExportHeader)
@@ -92,3 +93,5 @@ install(FILES
   DESTINATION "${KDE_INSTALL_CMAKEPACKAGEDIR}/KDEExperimentalPurpose"
   COMPONENT Devel
 )
+
+kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
