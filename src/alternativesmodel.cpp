@@ -159,7 +159,9 @@ AlternativesModel::~AlternativesModel()
 QHash<int, QByteArray> AlternativesModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-    roles.unite({{IconNameRole, "iconName"}, {PluginIdRole, "pluginId"}, {ActionDisplayRole, "actionDisplay"}});
+    roles.insert(IconNameRole, QByteArrayLiteral("iconName"));
+    roles.insert(PluginIdRole, QByteArrayLiteral("pluginId"));
+    roles.insert(ActionDisplayRole, QByteArrayLiteral("actionDisplay"));
     return roles;
 }
 

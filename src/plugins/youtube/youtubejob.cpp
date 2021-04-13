@@ -65,7 +65,7 @@ void YoutubeJob::createLocation()
 
     auto reply = m_manager.post(req, m_metadata);
     connect(reply, &QNetworkReply::finished, this, &YoutubeJob::locationCreated);
-    connect(reply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error), [](QNetworkReply::NetworkError e) {
+    connect(reply, &QNetworkReply::errorOccurred, this, [](QNetworkReply::NetworkError e) {
         qDebug() << "creation error" << e;
     });
 }
@@ -103,7 +103,7 @@ void YoutubeJob::uploadVideo(const QByteArray &data)
         setProcessedAmount(Bytes, bytesSent);
         setPercent(bytesTotal == 0 ? 0 : (bytesSent * 100) / bytesTotal);
     });
-    connect(reply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error), [](QNetworkReply::NetworkError e) {
+    connect(reply, &QNetworkReply::errorOccurred, this, [](QNetworkReply::NetworkError e) {
         qDebug() << "upload error" << e;
     });
 }

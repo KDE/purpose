@@ -32,12 +32,15 @@ public:
 
     static void checkJobFinish(KJob *job)
     {
-        QStringList outputArgs = job->property("outputArgs").toStringList();
-        QJsonObject output = job->property("output").toJsonObject();
+        const QStringList outputArgs = job->property("outputArgs").toStringList();
+        const auto argsSet = QSet<QString>{outputArgs.cbegin(), outputArgs.cend()};
 
-        if (!output.keys().toSet().contains(outputArgs.toSet()) && job->error() == 0) {
+        const QStringList outputKeys = job->property("output").toJsonObject().keys();
+        const auto keysSet = QSet<QString>{outputKeys.cbegin(), outputKeys.cend()};
+
+        if (!keysSet.contains(argsSet) && job->error() == 0) {
             qWarning() << "missing output values for" << job->metaObject()->className() << ". Expected: " << outputArgs.join(QStringLiteral(", "))
-                       << ". Got: " << output.keys().join(QStringLiteral(", "));
+                       << ". Got: " << outputKeys.join(QStringLiteral(", "));
         }
     }
 
