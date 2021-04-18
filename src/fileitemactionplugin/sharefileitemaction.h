@@ -28,10 +28,12 @@ class ShareFileItemAction : public KAbstractFileItemActionPlugin
     Q_OBJECT
 public:
     ShareFileItemAction(QObject *parent, const QVariantList &args);
+    ~ShareFileItemAction() override;
     QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
 
 private:
     Purpose::Menu *m_menu;
+    bool m_isFinished = false;
 };
 
 #endif // SHAREFILEITEMACTION_H

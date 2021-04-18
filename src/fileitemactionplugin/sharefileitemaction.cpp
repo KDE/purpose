@@ -37,15 +37,33 @@ ShareFileItemAction::ShareFileItemAction(QObject *parent, const QVariantList &)
     m_menu->setIcon(QIcon::fromTheme(QStringLiteral("document-share")));
     m_menu->model()->setPluginType(QStringLiteral("Export"));
 
-    QObject::connect(m_menu, &Purpose::Menu::finished, [](const QJsonObject &output, int error, const QString &errorMessage) {
-        if (error == 0 || error == KIO::ERR_USER_CANCELED) {
+    connect(m_menu, &Purpose::Menu::finished, this, [this](const QJsonObject &output, int errorCode, const QString &errorMessage) {
+        m_isFinished = true;
+        if (errorCode == 0 || errorCode == KIO::ERR_USER_CANCELED) {
             if (output.contains(QLatin1String("url")))
                 QDesktopServices::openUrl(QUrl(output.value(QLatin1String("url")).toString()));
         } else {
-            KNotification::event(KNotification::Error, i18n("Error sharing"), errorMessage);
-            qWarning() << "job failed with error" << error << errorMessage << output;
+            Q_EMIT error(errorMessage);
+            qWarning() << "job failed with error" << errorCode << errorMessage << output;
         }
     });
+}
+
+ShareFileItemAction::~ShareFileItemAction()
+{
+    // TODO KF6 Remove this compatibility block
+    // In case our instance is deleted, but the job isn't finished we fall back to a notification
+    if (!m_isFinished) {
+        QObject::connect(m_menu, &Purpose::Menu::finished, [](const QJsonObject &output, int errorCode, const QString &errorMessage) {
+            if (errorCode == 0 || errorCode == KIO::ERR_USER_CANCELED) {
+                if (output.contains(QLatin1String("url")))
+                    QDesktopServices::openUrl(QUrl(output.value(QLatin1String("url")).toString()));
+            } else {
+                KNotification::event(KNotification::Error, i18n("Error sharing"), errorMessage);
+                qWarning() << "job failed with error" << errorCode << errorMessage << output;
+            }
+        });
+    }
 }
 
 QList<QAction *> ShareFileItemAction::actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget)
