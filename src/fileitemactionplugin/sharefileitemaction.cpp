@@ -54,7 +54,7 @@ ShareFileItemAction::~ShareFileItemAction()
     // TODO KF6 Remove this compatibility block
     // In case our instance is deleted, but the job isn't finished we fall back to a notification
     if (!m_isFinished) {
-        QObject::connect(m_menu, &Purpose::Menu::finished, [](const QJsonObject &output, int errorCode, const QString &errorMessage) {
+        QObject::connect(m_menu, &Purpose::Menu::finished, [this](const QJsonObject &output, int errorCode, const QString &errorMessage) {
             if (errorCode == 0 || errorCode == KIO::ERR_USER_CANCELED) {
                 if (output.contains(QLatin1String("url")))
                     QDesktopServices::openUrl(QUrl(output.value(QLatin1String("url")).toString()));
@@ -62,7 +62,10 @@ ShareFileItemAction::~ShareFileItemAction()
                 KNotification::event(KNotification::Error, i18n("Error sharing"), errorMessage);
                 qWarning() << "job failed with error" << errorCode << errorMessage << output;
             }
+            m_menu->deleteLater();
         });
+    } else {
+        m_menu->deleteLater();
     }
 }
 
@@ -78,7 +81,11 @@ QList<QAction *> ShareFileItemAction::actions(const KFileItemListProperties &fil
         QJsonObject{{QStringLiteral("mimeType"), QJsonValue{!fileItemInfos.mimeType().isEmpty() ? fileItemInfos.mimeType() : QStringLiteral("*/*")}},
                     {QStringLiteral("urls"), urlsJson}});
     m_menu->reload();
+    // We want to set the parent widget to forward events, but want to unparent in case the parent widget gets deleted before the plugin gets deleted
     m_menu->setParent(parentWidget, Qt::Popup);
+    connect(parentWidget, &QObject::destroyed, this, [this]() {
+        m_menu->setParent(nullptr);
+    });
 
     return {m_menu->menuAction()};
 }
