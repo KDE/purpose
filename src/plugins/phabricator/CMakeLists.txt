@@ -31,7 +31,7 @@ target_link_libraries(testphabricator PhabricatorHelpers Qt5::Core)
 add_share_plugin(phabricatorplugin phabricatorplugin.cpp)
 target_link_libraries(phabricatorplugin Qt5::Widgets PhabricatorHelpers)
 
-set_target_properties(PhabricatorHelpers PROPERTIES VERSION ${PURPOSE_VERSION_STRING} SOVERSION ${PURPOSE_SOVERSION})
+set_target_properties(PhabricatorHelpers PROPERTIES VERSION ${PURPOSE_VERSION} SOVERSION ${PURPOSE_SOVERSION})
 install(TARGETS PhabricatorHelpers ${KF5_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 add_library(phabricatorquickplugin quick/phabricatorquickplugin.cpp quick/difflistmodel.cpp quick/phabricatorrc.cpp)

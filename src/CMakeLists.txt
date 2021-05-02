@@ -36,7 +36,7 @@ target_link_libraries(KF5Purpose
         Qt5::Network #QLocalSocket
         KF5::ConfigCore
 )
-set_target_properties(KF5Purpose PROPERTIES VERSION ${PURPOSE_VERSION_STRING}
+set_target_properties(KF5Purpose PROPERTIES VERSION ${PURPOSE_VERSION}
                                           SOVERSION ${PURPOSE_SOVERSION}
                                           EXPORT_NAME Purpose
 )

@@ -9,7 +9,7 @@ target_link_libraries(KF5PurposeWidgets
         Qt5::Qml
         KF5::I18n
 )
-set_target_properties(KF5PurposeWidgets PROPERTIES VERSION ${PURPOSE_VERSION_STRING}
+set_target_properties(KF5PurposeWidgets PROPERTIES VERSION ${PURPOSE_VERSION}
                                           SOVERSION ${PURPOSE_SOVERSION}
                                           EXPORT_NAME PurposeWidgets
 )
