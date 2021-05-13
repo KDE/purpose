@@ -1,4 +1,4 @@
-qt5_add_resources(purposequick_SRCS qmlfiles.qrc)
+qt_add_resources(purposequick_SRCS qmlfiles.qrc)
 
 add_library(purposequickplugin purposequickplugin.cpp ${purposequick_SRCS})
 target_link_libraries(purposequickplugin Qt5::Qml KF5Purpose)

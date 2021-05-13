@@ -1,4 +1,4 @@
-qt5_add_resources(purpose_SRCS standard-plugin-types.qrc)
+qt_add_resources(purpose_SRCS standard-plugin-types.qrc)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake-paths.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/cmake-paths.h)
 

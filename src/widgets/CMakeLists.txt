@@ -1,4 +1,4 @@
-qt5_add_resources(qmlfiles_SRCS purposewidgets-resources.qrc)
+qt_add_resources(qmlfiles_SRCS purposewidgets-resources.qrc)
 add_library(KF5PurposeWidgets menu.cpp ${qmlfiles_SRCS})
 generate_export_header(KF5PurposeWidgets EXPORT_FILE_NAME purposewidgets_export.h BASE_NAME PurposeWidgets)
 target_link_libraries(KF5PurposeWidgets
