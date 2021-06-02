@@ -12,6 +12,9 @@ import org.kde.purpose 1.0
 StackView {
     id: stack
     focus: true
+
+    implicitHeight: currentItem.implicitHeight
+
     property bool running: false
     property alias pluginType: altsModel.pluginType
     property alias inputData: altsModel.inputData
@@ -67,6 +70,8 @@ StackView {
         ScrollBar.vertical: ScrollBar {}
         focus: true
         model: altsModel
+
+        implicitHeight: contentHeight
 
         verticalLayoutDirection: stack.verticalLayoutDirection
         delegate: stack.delegate

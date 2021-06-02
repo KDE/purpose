@@ -18,6 +18,8 @@ Item {
     readonly property alias state: jobController.state
     readonly property alias job: jobController.job
 
+    implicitHeight: mainLoader.implicitHeight
+
     function start() {
         jobController.configure()
     }
@@ -27,6 +29,7 @@ Item {
     }
 
     Loader {
+        id: mainLoader
         anchors.fill: parent
 
         sourceComponent: {
@@ -54,7 +57,10 @@ Item {
 
         Item {
 
+            implicitHeight: innerColumn.implicitHeight
+
             ColumnLayout {
+                id: innerColumn
 
                 anchors.fill: parent
                 anchors.leftMargin: Kirigami.Units.largeSpacing

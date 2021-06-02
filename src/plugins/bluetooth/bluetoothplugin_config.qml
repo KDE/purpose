@@ -16,7 +16,6 @@ ColumnLayout {
     id: root
     property var device: undefined
 
-    anchors.fill: parent
     anchors.bottomMargin: Kirigami.Units.smallSpacing
 
     Kirigami.Heading {
