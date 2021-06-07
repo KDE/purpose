@@ -55,66 +55,60 @@ Item {
     Component {
         id: configuring
 
-        Item {
+        ColumnLayout {
+            Loader {
+                id: configLoader
 
-            implicitHeight: innerColumn.implicitHeight
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.rightMargin: Kirigami.Units.largeSpacing
+                Layout.topMargin: Kirigami.Units.largeSpacing
 
-            ColumnLayout {
-                id: innerColumn
+                Layout.fillHeight: true
+                Layout.fillWidth: true
 
-                anchors.fill: parent
-                anchors.leftMargin: Kirigami.Units.largeSpacing
-                anchors.rightMargin: Kirigami.Units.largeSpacing
-                anchors.topMargin: Kirigami.Units.largeSpacing
-                anchors.bottomMargin: Kirigami.Units.largeSpacing
+                Component.onCompleted: setSource(jobController.configuration.configSourceCode, jobController.configuration.data)
 
-                Loader {
-                    id: configLoader
-
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-
-                    Component.onCompleted: setSource(jobController.configuration.configSourceCode, jobController.configuration.data)
-
-                    onItemChanged: {
-                        var initialData = jobController.configuration.data;
-                        for(var i in jobController.configuration.neededArguments) {
-                            var arg = jobController.configuration.neededArguments[i]
-                            if (arg in configLoader.item) {
-                                item[arg+"Changed"].connect(dataHasChanged);
-                                initialData[arg] = item[arg];
-                            } else {
-                                console.warn("property not found", arg);
-                            }
+                onItemChanged: {
+                    var initialData = jobController.configuration.data;
+                    for(var i in jobController.configuration.neededArguments) {
+                        var arg = jobController.configuration.neededArguments[i]
+                        if (arg in configLoader.item) {
+                            item[arg+"Changed"].connect(dataHasChanged);
+                            initialData[arg] = item[arg];
+                        } else {
+                            console.warn("property not found", arg);
                         }
-                        jobController.configuration.data = initialData;
                     }
-
-                    function dataHasChanged()
-                    {
-                        var jobData = jobController.configuration.data;
-                        for(var i in jobController.configuration.neededArguments) {
-                            var arg = jobController.configuration.neededArguments[i]
-                            if (arg in configLoader.item) {
-                                jobData[arg] = configLoader.item[arg];
-                            } else
-                                console.warn("property not found", arg);
-                        }
-                        jobController.configuration.data = jobData;
-                    }
+                    jobController.configuration.data = initialData;
                 }
 
-                RowLayout {
-                    Button {
-                        text: i18nd("libpurpose_quick", "Run")
-                        enabled: jobController.configuration && jobController.configuration.isReady
-                        onClicked: jobController.startJob()
+                function dataHasChanged()
+                {
+                    var jobData = jobController.configuration.data;
+                    for(var i in jobController.configuration.neededArguments) {
+                        var arg = jobController.configuration.neededArguments[i]
+                        if (arg in configLoader.item) {
+                            jobData[arg] = configLoader.item[arg];
+                        } else
+                            console.warn("property not found", arg);
                     }
+                    jobController.configuration.data = jobData;
+                }
+            }
 
-                    Button {
-                        text: i18nd("libpurpose_quick", "Back")
-                        onClicked: jobController.cancel()
-                    }
+            RowLayout {
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.rightMargin: Kirigami.Units.largeSpacing
+                Layout.bottomMargin: Kirigami.Units.largeSpacing
+                Button {
+                    text: i18nd("libpurpose_quick", "Run")
+                    enabled: jobController.configuration && jobController.configuration.isReady
+                    onClicked: jobController.startJob()
+                }
+
+                Button {
+                    text: i18nd("libpurpose_quick", "Back")
+                    onClicked: jobController.cancel()
                 }
             }
         }
