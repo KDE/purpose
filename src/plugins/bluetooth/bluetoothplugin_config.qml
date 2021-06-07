@@ -30,6 +30,9 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
+        // Make sure we have space to show the placeholdermessage when no explicit size is set
+        contentHeight: list.count !== 0 ? implicitContentHeight : Kirigami.Units.gridUnit * 3
+
         Component.onCompleted: scroll.background.visible = true
 
         ListView {
