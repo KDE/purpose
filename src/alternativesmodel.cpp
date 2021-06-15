@@ -313,14 +313,7 @@ void AlternativesModel::initializeModel()
 
     beginResetModel();
     d->m_plugins.clear();
-    const auto plugins = KPluginLoader::findPlugins(QStringLiteral("kf5/purpose"));
-    QSet<QString> addedPlugins;
-    for (const auto &metaData : plugins) {
-        if (!addedPlugins.contains(metaData.pluginId()) && pluginAcceptable(metaData)) {
-            addedPlugins << metaData.pluginId();
-            d->m_plugins << metaData;
-        }
-    }
+    d->m_plugins << KPluginLoader::findPlugins(QStringLiteral("kf5/purpose"), pluginAcceptable);
     d->m_plugins += findScriptedPackages(pluginAcceptable);
     endResetModel();
 }
