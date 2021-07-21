@@ -121,6 +121,7 @@
         "Name[zh_CN]": "YouTube",
         "Name[zh_TW]": "YouTube",
         "X-Purpose-ActionDisplay": "Youtube...",
+        "X-Purpose-ActionDisplay[ar]": "يوتيوب...",
         "X-Purpose-ActionDisplay[az]": "Youtube...",
         "X-Purpose-ActionDisplay[ca]": "YouTube...",
         "X-Purpose-ActionDisplay[cs]": "YouTube...",

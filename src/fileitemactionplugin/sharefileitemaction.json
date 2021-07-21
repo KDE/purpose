@@ -42,6 +42,7 @@
         ],
         "Category": "Utilities",
         "Description": "Share using Purpose",
+        "Description[ar]": "شارك باستخدام بوربوس",
         "Description[az]": "Purpose köməyi ilə paylaşmaq",
         "Description[ca@valencia]": "Comparteix usant Purpose",
         "Description[ca]": "Comparteix usant el Purpose",
@@ -83,6 +84,7 @@
             "application/octet-stream"
         ],
         "Name": "Share",
+        "Name[ar]": "شارك",
         "Name[az]": "Paylaşmaq",
         "Name[ca@valencia]": "Comparteix",
         "Name[ca]": "Comparteix",

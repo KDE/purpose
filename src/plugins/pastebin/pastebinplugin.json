@@ -123,6 +123,7 @@
         "Name[zh_CN]": "Pastebin",
         "Name[zh_TW]": "Pastebin",
         "X-Purpose-ActionDisplay": "Pastebin...",
+        "X-Purpose-ActionDisplay[ar]": "پيست‌بِن...",
         "X-Purpose-ActionDisplay[az]": "Pastebin...",
         "X-Purpose-ActionDisplay[ca]": "Pastebin...",
         "X-Purpose-ActionDisplay[cs]": "Pastebin...",

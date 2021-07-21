@@ -120,6 +120,7 @@
         "Name[zh_CN]": "Phabricator",
         "Name[zh_TW]": "Phabricator",
         "X-Purpose-ActionDisplay": "Phabricator...",
+        "X-Purpose-ActionDisplay[ar]": "فابريكيتور...",
         "X-Purpose-ActionDisplay[az]": "Phabricator...",
         "X-Purpose-ActionDisplay[ca]": "Phabricator...",
         "X-Purpose-ActionDisplay[cs]": "Phabricator...",

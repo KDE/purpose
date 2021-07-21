@@ -2,6 +2,7 @@
     "KPlugin": {
         "Icon": "document-share",
         "Name": "Share...",
+        "Name[ar]": "شارك...",
         "Name[az]": "Paylaş...",
         "Name[ca@valencia]": "Comparteix...",
         "Name[ca]": "Comparteix...",
