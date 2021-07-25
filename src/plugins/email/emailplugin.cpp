@@ -7,6 +7,7 @@
 
 #include <purpose/pluginbase.h>
 
+#include <KApplicationTrader>
 #include <KLocalizedString>
 #include <KPluginFactory>
 
@@ -33,35 +34,10 @@ public:
 
     void start() override
     {
-        // Use xdg-mime to figure out what is the user's default email client
-        const auto xdgmime = QStandardPaths::findExecutable(QStringLiteral("xdg-mime"));
-        if (xdgmime.isEmpty()) {
-            // xdg-utils not available, let Qt figure what to do for us...
-            launchMailto();
-            return;
-        }
+        const KService::Ptr mailClient = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/mailto"));
 
-        auto xdgmimeProc = new QProcess(this);
-        xdgmimeProc->setProgram(xdgmime);
-        xdgmimeProc->setArguments({QStringLiteral("query"), QStringLiteral("default"), QStringLiteral("x-scheme-handler/mailto")});
-        connect(xdgmimeProc, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &EmailJob::xdgMimeFinished);
-        xdgmimeProc->start();
-    }
-
-    void xdgMimeFinished(int code, QProcess::ExitStatus status)
-    {
-        if (code != 0 || status != QProcess::NormalExit) {
-            // Something went wrong, fallback to QDesktopServices
-            launchMailto();
-            return;
-        }
-
-        const auto proc = qobject_cast<QProcess *>(sender());
-        const auto mailService = proc->readAllStandardOutput();
-        qDebug() << "Default mailto handler:" << mailService;
-        // Thunderbird is a special snowflake and cannot handle attachments via
-        // the mailto schema, so we need to handle it ourselves
-        if (mailService.contains("thunderbird")) {
+        // Thunderbird cannot handle attachments via the mailto schema, so we need to handle it ourselves
+        if (mailClient->desktopEntryName().contains(QStringLiteral("thunderbird"))) {
             launchThunderbird();
         } else {
             launchMailto();
