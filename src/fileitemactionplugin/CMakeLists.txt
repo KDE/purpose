@@ -13,7 +13,6 @@ ecm_qt_declare_logging_category(sharefileitemaction_debug_SRCS
 
 kcoreaddons_add_plugin(sharefileitemaction
     SOURCES sharefileitemaction.cpp ${sharefileitemaction_debug_SRCS}
-    JSON sharefileitemaction.json
     INSTALL_NAMESPACE "kf5/kfileitemaction")
 
 target_link_libraries(sharefileitemaction
