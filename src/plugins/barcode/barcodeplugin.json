@@ -1,0 +1,21 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Kai Uwe Broulik"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Generate a QR code",
+        "Icon": "view-barcode-qr",
+        "License": "LGPL",
+        "Name": "Generate Barcode",
+        "X-Purpose-ActionDisplay": "Generate QR Code"
+    },
+    "X-Purpose-Configuration": [
+        "dummy"
+    ],
+    "X-Purpose-PluginTypes": [
+        "ShareUrl"
+    ]
+}

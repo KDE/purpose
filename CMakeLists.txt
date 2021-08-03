@@ -40,6 +40,7 @@ set_package_properties(KAccounts PROPERTIES
 ecm_find_qmlmodule(Ubuntu.OnlineAccounts 0.1)
 ecm_find_qmlmodule(org.kde.kdeconnect 1.0)
 ecm_find_qmlmodule(org.kde.kquickcontrolsaddons 2.0)
+ecm_find_qmlmodule(org.kde.prison 1.0)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX PURPOSE
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h"
