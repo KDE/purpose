@@ -96,6 +96,19 @@ Item {
                 }
             }
 
+            Label {
+                textFormat: Text.PlainText
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                visible: configLoader.status === Loader.Error
+                wrapMode: Text.WordWrap
+                text: configLoader.status === Loader.Error
+                    ? i18nd("libpurpose_quick", "Failed to load the configuration page for this action:\n\n%1", configLoader.sourceComponent.errorString())
+                    : ""
+            }
+
             RowLayout {
                 Layout.leftMargin: Kirigami.Units.largeSpacing
                 Layout.rightMargin: Kirigami.Units.largeSpacing
