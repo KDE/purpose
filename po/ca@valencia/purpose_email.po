@@ -1,0 +1,27 @@
+# Translation of purpose_email.po to Catalan (Valencian)
+# Copyright (C) 2017-2019 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2017.
+# Empar <montoro_mde@gva.es>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-07-27 00:14+0000\n"
+"PO-Revision-Date: 2019-06-20 13:59+0200\n"
+"Last-Translator: Empar <montoro_mde@gva.es>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Project-Style: kde\n"
+
+#: emailplugin.cpp:66 emailplugin.cpp:99
+#, kde-format
+msgid "Failed to launch email client"
+msgstr "No s'ha pogut iniciar el client de correu electrònic"
