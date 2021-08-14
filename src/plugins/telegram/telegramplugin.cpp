@@ -7,6 +7,7 @@
 #include "debug.h"
 #include <KConfigGroup>
 #include <KDesktopFile>
+#include <KIO/ApplicationLauncherJob>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KShell>
@@ -31,74 +32,57 @@ public:
     {
     }
 
-    QStringList arrayToList(const QJsonArray &array)
+    QList<QUrl> arrayToList(const QJsonArray &array)
     {
-        QStringList ret;
+        QList<QUrl> ret;
         for (const QJsonValue &val : array) {
             QUrl url(val.toString());
-            if (url.isLocalFile()) {
-                ret += KShell::quoteArg(url.toLocalFile());
-            }
+            ret << url;
         }
         return ret;
     }
 
     void start() override
     {
-        for (const QString &desktopFile :
-             {QStringLiteral("org.telegram.desktop.desktop"), QStringLiteral("telegramdesktop.desktop"), QStringLiteral("telegram-desktop.desktop")}) {
-            const auto path = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, desktopFile);
-            if (!path.isEmpty()) {
-                useDesktopFile(path);
-                return;
-            }
+        KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("org.telegram.desktop"));
+
+        if (!service) {
+            service = KService::serviceByDesktopName(QStringLiteral("telegramdesktop"));
         }
 
-        // Failed to find the application
-        QTimer::singleShot(0, this, [this]() {
-            setError(1);
-            setErrorText(i18n("Could not find telegram"));
-            setOutput({{QStringLiteral("url"), QString()}});
+        if (!service) {
+            service = KService::serviceByDesktopName(QStringLiteral("telegram-desktop"));
+        }
+
+        if (!service) {
+            // Failed to find the application
+            QTimer::singleShot(0, this, [this]() {
+                setError(KJob::UserDefinedError + 1);
+                setErrorText(i18n("Could not find telegram"));
+                setOutput({{QStringLiteral("url"), QString()}});
+                emitResult();
+            });
+            return;
+        }
+
+        QString exec = service->exec();
+        exec.replace(QLatin1String("-- @@u %u @@"), QLatin1String("-sendpath @@ %f @@"));
+        service->setExec(exec);
+
+        auto *job = new KIO::ApplicationLauncherJob(service);
+        job->setUrls(arrayToList(data().value(QStringLiteral("urls")).toArray()));
+        connect(job, &KIO::ApplicationLauncherJob::result, this, [this](KJob *job) {
+            if (job->error()) {
+                qWarning() << "telegram share error:" << job->error() << job->errorString();
+                setError(job->error());
+                setErrorText(job->errorString());
+            } else {
+                setOutput({{QStringLiteral("url"), QString()}});
+            }
+
             emitResult();
         });
-    }
-
-    void useDesktopFile(const QString &path)
-    {
-        const KDesktopFile file(path);
-        const KConfigGroup desktopEntryGroup = file.group("Desktop Entry");
-        QString execLine = desktopEntryGroup.readEntry("Exec");
-        execLine.replace(QLatin1String("%u"), arrayToList(data().value(QStringLiteral("urls")).toArray()).join(QLatin1Char(' ')));
-        execLine.replace(QLatin1String("@@u"), QLatin1String("@@"));
-        execLine.replace(QLatin1String(" -- "), QLatin1String(" -sendpath "));
-
-        QStringList args = KShell::splitArgs(execLine);
-
-        QProcess *process = new QProcess(this);
-        process->setProgram(args.takeFirst());
-        process->setArguments(args);
-        connect(process, &QProcess::errorOccurred, this, &TelegramJob::processError);
-        connect(process, &QProcess::readyRead, this, [process]() {
-            qDebug() << process->program() << "output:" << process->readAll();
-        });
-
-        process->start();
-        QTimer::singleShot(500, this, &TelegramJob::jobFinished);
-    }
-
-    void processError(QProcess::ProcessError error)
-    {
-        QProcess *process = qobject_cast<QProcess *>(sender());
-        qWarning() << "telegram share error:" << error << process->errorString();
-        setError(1 + error);
-        setErrorText(process->errorString());
-        emitResult();
-    }
-
-    void jobFinished()
-    {
-        setOutput({{QStringLiteral("url"), QString()}});
-        emitResult();
+        job->start();
     }
 
 private:
