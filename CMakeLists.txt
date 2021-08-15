@@ -6,7 +6,7 @@ find_package(ECM 5.85.0 REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
-set(REQUIRED_QT_VERSION 5.15.0)
+set(REQUIRED_QT_VERSION 5.15.2)
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui DBus Widgets Network Test)
 include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
@@ -47,7 +47,7 @@ ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX PURPOSE
                         SOVERSION 5)
 
 # Wait until libaccounts-qt has a release that doesn't use QString::null https://gitlab.com/accounts-sso/libaccounts-qt/issues/4
-#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
+#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055100)
 add_subdirectory( src )
 if (BUILD_TESTING)
