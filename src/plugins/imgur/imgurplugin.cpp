@@ -9,8 +9,11 @@
 #include <KIO/TransferJob>
 #include <KJob>
 #include <KLocalizedString>
+#include <KNotification>
 #include <KPluginFactory>
+#include <QClipboard>
 #include <QDebug>
+#include <QGuiApplication>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -138,7 +141,14 @@ public:
             if (m_pendingJobs == 0) {
                 const QString finalUrl = m_albumId.isEmpty() ? url : QStringLiteral("https://imgur.com/a/") + m_albumId;
                 const QString deleteUrl = QStringLiteral("https://imgur.com/delete/") + deletehash;
-                setOutput({{QStringLiteral("url"), finalUrl}, {QStringLiteral("deleteUrl"), deleteUrl}});
+
+                QGuiApplication::clipboard()->setText(url);
+                KNotification::event(KNotification::Notification,
+                                     i18n("Imgur Upload"),
+                                     i18n("The shared image link (<a href=\"%1\">%1</a>) has been copied to the clipboard.", finalUrl),
+                                     nullptr,
+                                     KNotification::Persistent);
+
                 emitResult();
             }
         }
