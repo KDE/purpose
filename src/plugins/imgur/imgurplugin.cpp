@@ -131,11 +131,14 @@ public:
         if (!dataMap.isEmpty()) {
             const QString url = dataMap[QStringLiteral("link")].toString();
             Q_EMIT infoMessage(this, url, QStringLiteral("<a href='%1'>%1</a>").arg(url));
+            const QString deletehash = dataMap[QStringLiteral("deletehash")].toString();
+            Q_EMIT infoMessage(this, deletehash, QStringLiteral("%1").arg(deletehash));
             --m_pendingJobs;
 
             if (m_pendingJobs == 0) {
                 const QString finalUrl = m_albumId.isEmpty() ? url : QStringLiteral("https://imgur.com/a/") + m_albumId;
-                setOutput({{QStringLiteral("url"), finalUrl}});
+                const QString deleteUrl = QStringLiteral("https://imgur.com/delete/") + deletehash;
+                setOutput({{QStringLiteral("url"), finalUrl}, {QStringLiteral("deleteUrl"), deleteUrl}});
                 emitResult();
             }
         }
