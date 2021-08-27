@@ -145,7 +145,10 @@ public:
                 QGuiApplication::clipboard()->setText(url);
                 KNotification::event(KNotification::Notification,
                                      i18n("Imgur Upload"),
-                                     i18n("The shared image link (<a href=\"%1\">%1</a>) has been copied to the clipboard.", finalUrl),
+                                     i18n("The shared image link (<a href=\"%1\">%1</a>) has been copied to the clipboard.<br><br>If you would like to remove "
+                                          "the uploaded image visit <a href=\"%2\">%2</a>",
+                                          finalUrl,
+                                          deleteUrl),
                                      nullptr,
                                      KNotification::Persistent);
 
