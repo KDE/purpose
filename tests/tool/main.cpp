@@ -63,7 +63,7 @@ int main(int argc, char **argv)
     QJsonArray urls;
     if (!files.isEmpty() && (!inputData.contains(QStringLiteral("urls")) || !inputData.contains(QStringLiteral("mimeType")))) {
         QMimeDatabase db;
-        for (const QString &file : qAsConst(files)) {
+        for (const QString &file : std::as_const(files)) {
             const QUrl url = QUrl::fromUserInput(file, QString(), QUrl::AssumeLocalFile);
             QMimeType type = db.mimeTypeForUrl(url);
             if (!common.isValid())
