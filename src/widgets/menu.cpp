@@ -19,10 +19,10 @@ class Purpose::MenuPrivate : public QObject
 {
     Q_OBJECT
 public:
-    MenuPrivate(Menu *q)
-        : QObject(q)
-        , m_model(new AlternativesModel(q))
-        , q(q)
+    MenuPrivate(Menu *qq)
+        : QObject(qq)
+        , m_model(new AlternativesModel(qq))
+        , q(qq)
     {
     }
 
