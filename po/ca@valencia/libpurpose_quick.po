@@ -1,0 +1,46 @@
+# Translation of libpurpose_quick.po to Catalan (Valencian)
+# Copyright (C) 2015-2019 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2015.
+# Empar <montoro_mde@gva.es>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-08-04 00:15+0000\n"
+"PO-Revision-Date: 2019-06-19 13:09+0200\n"
+"Last-Translator: Empar <montoro_mde@gva.es>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Project-Style: kde\n"
+
+#: AlternativesView.qml:34
+#, kde-format
+msgid "Use"
+msgstr "Utilitza"
+
+#: JobView.qml:108
+#, kde-format
+msgid ""
+"Failed to load the configuration page for this action:\n"
+"\n"
+"%1"
+msgstr ""
+
+#: JobView.qml:117
+#, kde-format
+msgid "Run"
+msgstr "Executa"
+
+#: JobView.qml:123
+#, kde-format
+msgid "Back"
+msgstr "Arrere"
