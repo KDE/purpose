@@ -2,15 +2,36 @@
     "KPlugin": {
         "Authors": [
             {
-                "Name": "Kai Uwe Broulik"
+                "Name": "Kai Uwe Broulik",
+                "Name[ca]": "Kai Uwe Broulik",
+                "Name[cs]": "Kai Uwe Broulik",
+                "Name[nl]": "Kai Uwe Broulik",
+                "Name[sv]": "Kai Uwe Broulik",
+                "Name[uk]": "Kai Uwe Broulik",
+                "Name[x-test]": "xxKai Uwe Broulikxx"
             }
         ],
         "Category": "Utilities",
         "Description": "Generate a QR code",
+        "Description[ca]": "Genera un codi QR",
+        "Description[nl]": "Een QR-code genereren",
+        "Description[sv]": "Skapa en QR-kod",
+        "Description[uk]": "Створити QR-код",
+        "Description[x-test]": "xxGenerate a QR codexx",
         "Icon": "view-barcode-qr",
         "License": "LGPL",
         "Name": "Generate Barcode",
-        "X-Purpose-ActionDisplay": "Generate QR Code"
+        "Name[ca]": "Genera un codi de barres",
+        "Name[nl]": "Barcode genereren",
+        "Name[sv]": "Skapa streckkod",
+        "Name[uk]": "Створити штрихкод",
+        "Name[x-test]": "xxGenerate Barcodexx",
+        "X-Purpose-ActionDisplay": "Generate QR Code",
+        "X-Purpose-ActionDisplay[ca]": "Genera un codi QR",
+        "X-Purpose-ActionDisplay[nl]": "QR-code genereren",
+        "X-Purpose-ActionDisplay[sv]": "Skapa QR-kod",
+        "X-Purpose-ActionDisplay[uk]": "Створити QR-код",
+        "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx"
     },
     "X-Purpose-Configuration": [
         "dummy"
