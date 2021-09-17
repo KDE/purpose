@@ -10,6 +10,7 @@
                 "Name[hu]": "Kai Uwe Broulik",
                 "Name[nl]": "Kai Uwe Broulik",
                 "Name[pt_BR]": "Kai Uwe Broulik",
+                "Name[sl]": "Kai Uwe Broulik",
                 "Name[sv]": "Kai Uwe Broulik",
                 "Name[uk]": "Kai Uwe Broulik",
                 "Name[x-test]": "xxKai Uwe Broulikxx"
@@ -24,6 +25,7 @@
         "Description[hu]": "QR kód létrehozása",
         "Description[nl]": "Een QR-code genereren",
         "Description[pt_BR]": "Gerar um código QR",
+        "Description[sl]": "Generiraj QR kodo",
         "Description[sv]": "Skapa en QR-kod",
         "Description[uk]": "Створити QR-код",
         "Description[x-test]": "xxGenerate a QR codexx",
@@ -37,6 +39,7 @@
         "Name[hu]": "Vonalkód létrehozása",
         "Name[nl]": "Barcode genereren",
         "Name[pt_BR]": "Gerar código de barras",
+        "Name[sl]": "Generiraj črtno kodo",
         "Name[sv]": "Skapa streckkod",
         "Name[uk]": "Створити штрихкод",
         "Name[x-test]": "xxGenerate Barcodexx",
@@ -48,6 +51,7 @@
         "X-Purpose-ActionDisplay[hu]": "QR kód létrehozása",
         "X-Purpose-ActionDisplay[nl]": "QR-code genereren",
         "X-Purpose-ActionDisplay[pt_BR]": "Gerar código QR",
+        "X-Purpose-ActionDisplay[sl]": "Generiraj QR kodo",
         "X-Purpose-ActionDisplay[sv]": "Skapa QR-kod",
         "X-Purpose-ActionDisplay[uk]": "Створити QR-код",
         "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx"
