@@ -3,6 +3,7 @@
         "Authors": [
             {
                 "Name": "Kai Uwe Broulik",
+                "Name[az]": "Kai Uwe Broulik",
                 "Name[ca]": "Kai Uwe Broulik",
                 "Name[cs]": "Kai Uwe Broulik",
                 "Name[es]": "Kai Uwe Broulik",
@@ -13,11 +14,13 @@
                 "Name[sl]": "Kai Uwe Broulik",
                 "Name[sv]": "Kai Uwe Broulik",
                 "Name[uk]": "Kai Uwe Broulik",
-                "Name[x-test]": "xxKai Uwe Broulikxx"
+                "Name[x-test]": "xxKai Uwe Broulikxx",
+                "Name[zh_CN]": "Kai Uwe Broulik"
             }
         ],
         "Category": "Utilities",
         "Description": "Generate a QR code",
+        "Description[az]": "QR kod yaradın",
         "Description[ca]": "Genera un codi QR",
         "Description[cs]": "Vygenerovat kód QR",
         "Description[es]": "Generar un código QR",
@@ -29,9 +32,11 @@
         "Description[sv]": "Skapa en QR-kod",
         "Description[uk]": "Створити QR-код",
         "Description[x-test]": "xxGenerate a QR codexx",
+        "Description[zh_CN]": "生成二维码",
         "Icon": "view-barcode-qr",
         "License": "LGPL",
         "Name": "Generate Barcode",
+        "Name[az]": "Barkod yaradın",
         "Name[ca]": "Genera un codi de barres",
         "Name[cs]": "Vygenerovat čárový kód",
         "Name[es]": "Generar código de barras",
@@ -43,7 +48,9 @@
         "Name[sv]": "Skapa streckkod",
         "Name[uk]": "Створити штрихкод",
         "Name[x-test]": "xxGenerate Barcodexx",
+        "Name[zh_CN]": "生成条形码",
         "X-Purpose-ActionDisplay": "Generate QR Code",
+        "X-Purpose-ActionDisplay[az]": "QR kod yaradın",
         "X-Purpose-ActionDisplay[ca]": "Genera un codi QR",
         "X-Purpose-ActionDisplay[cs]": "Vygenerovat kód QR",
         "X-Purpose-ActionDisplay[es]": "Generar código QR",
@@ -54,7 +61,8 @@
         "X-Purpose-ActionDisplay[sl]": "Generiraj QR kodo",
         "X-Purpose-ActionDisplay[sv]": "Skapa QR-kod",
         "X-Purpose-ActionDisplay[uk]": "Створити QR-код",
-        "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx"
+        "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx",
+        "X-Purpose-ActionDisplay[zh_CN]": "生成二维码"
     },
     "X-Purpose-Configuration": [
         "dummy"
