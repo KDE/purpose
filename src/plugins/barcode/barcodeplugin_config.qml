@@ -50,7 +50,7 @@ ColumnLayout {
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            text: i18nd("purpose_barcode", "Type a URL or some text to generate a barcode")
+            text: i18nd("purpose_barcode", "Type a URL or some text to generate a QR code")
             wrapMode: Text.WordWrap
             visible: textField.length === 0
         }
@@ -59,7 +59,7 @@ ColumnLayout {
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            text: i18nd("purpose_barcode", "Creating barcode failed")
+            text: i18nd("purpose_barcode", "Creating QR code failed")
             wrapMode: Text.WordWrap
             visible: textField.length > 0 && barcodeItem.implicitWidth === 0 && barcodeItem.implicitHeight === 0
         }
@@ -68,7 +68,7 @@ ColumnLayout {
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            text: i18nd("purpose_barcode", "The barcode is too large to be displayed")
+            text: i18nd("purpose_barcode", "The QR code is too large to be displayed")
             wrapMode: Text.WordWrap
             visible: textField.length > 0 && (barcodeItem.implicitWidth > barcodeItem.width || barcodeItem.implicitHeight > barcodeItem.height)
         }

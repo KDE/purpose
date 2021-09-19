@@ -19,7 +19,7 @@
             }
         ],
         "Category": "Utilities",
-        "Description": "Generate a QR code",
+        "Description": "Generate a QR code for this link",
         "Description[az]": "QR kod yaradın",
         "Description[ca]": "Genera un codi QR",
         "Description[cs]": "Vygenerovat kód QR",
@@ -35,7 +35,7 @@
         "Description[zh_CN]": "生成二维码",
         "Icon": "view-barcode-qr",
         "License": "LGPL",
-        "Name": "Generate Barcode",
+        "Name": "Generate QR code",
         "Name[az]": "Barkod yaradın",
         "Name[ca]": "Genera un codi de barres",
         "Name[cs]": "Vygenerovat čárový kód",
