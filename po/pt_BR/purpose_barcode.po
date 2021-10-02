@@ -1,0 +1,41 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the purpose package.
+#
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-21 00:14+0000\n"
+"PO-Revision-Date: 2021-09-15 09:02-0300\n"
+"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
+"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#: barcodeplugin_config.qml:53
+#, fuzzy, kde-format
+#| msgid "Type a URL or some text to generate a barcode"
+msgid "Type a URL or some text to generate a QR code"
+msgstr "Digite uma URL ou algum texto para gerar um código de barras"
+
+#: barcodeplugin_config.qml:62
+#, fuzzy, kde-format
+#| msgid "Creating barcode failed"
+msgid "Creating QR code failed"
+msgstr "Falha ao criar código de barras"
+
+#: barcodeplugin_config.qml:71
+#, fuzzy, kde-format
+#| msgid "The barcode is too large to be displayed"
+msgid "The QR code is too large to be displayed"
+msgstr "O código de barras é muito longo para ser exibido"
+
+#: barcodeplugin_config.qml:83
+#, kde-format
+msgid "Type a URL or some text..."
+msgstr "Digite uma URL ou algum texto..."
