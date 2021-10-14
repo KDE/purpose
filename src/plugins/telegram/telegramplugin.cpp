@@ -66,7 +66,9 @@ public:
         }
 
         QString exec = service->exec();
-        exec.replace(QLatin1String("-- @@u %u @@"), QLatin1String("-sendpath @@ %f @@"));
+        exec.replace(QLatin1String("%u"), QLatin1String("%f"));
+        exec.replace(QLatin1String("@@u"), QLatin1String("@@"));
+        exec.replace(QLatin1String(" -- "), QLatin1String(" -sendpath "));
         service->setExec(exec);
 
         auto *job = new KIO::ApplicationLauncherJob(service);
