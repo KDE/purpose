@@ -37,7 +37,7 @@ public:
         const KService::Ptr mailClient = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/mailto"));
 
         // Thunderbird cannot handle attachments via the mailto schema, so we need to handle it ourselves
-        if (mailClient->desktopEntryName().contains(QStringLiteral("thunderbird"))) {
+        if (mailClient && mailClient->desktopEntryName().contains(QStringLiteral("thunderbird"))) {
             launchThunderbird();
         } else {
             launchMailto();
