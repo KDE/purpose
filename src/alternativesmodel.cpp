@@ -299,7 +299,7 @@ void AlternativesModel::initializeModel()
     const QJsonArray inbound = d->m_pluginTypeData.value(QStringLiteral("X-Purpose-InboundArguments")).toArray();
     for (const QJsonValue &arg : inbound) {
         if (!d->m_inputData.contains(arg.toString())) {
-            qWarning() << "Cannot initialize model with data" << d->m_inputData << ". missing:" << arg;
+            qWarning().nospace() << "Cannot initialize model with data " << d->m_inputData << ". missing: " << arg;
             return;
         }
     }
