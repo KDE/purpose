@@ -15,6 +15,8 @@ ApplicationWindow
 
     flags: Qt.Dialog
 
+    title: i18n("Send File")
+
     width: Math.max(screen.width/6, 200)
     height: Math.max(screen.height/4, 300)
 
