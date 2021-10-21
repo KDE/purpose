@@ -37,6 +37,9 @@ ColumnLayout {
         ListView {
             id: list
 
+            // Don't select anything by default; make the user choose explicitly
+            currentIndex: -1
+
             clip: true
             model: DevicesModel {
                 id: connectDeviceModel

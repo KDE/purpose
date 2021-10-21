@@ -109,18 +109,27 @@ Item {
                     : ""
             }
 
+            // Not using a DialogButtonBox because it doesn't let us customize
+            // the buttons and conditionally disable any of them, which we want
             RowLayout {
                 Layout.leftMargin: Kirigami.Units.largeSpacing
                 Layout.rightMargin: Kirigami.Units.largeSpacing
                 Layout.bottomMargin: Kirigami.Units.largeSpacing
+                Layout.alignment: Qt.AlignRight
+
                 Button {
-                    text: i18nd("libpurpose_quick", "Run")
-                    enabled: jobController.configuration && jobController.configuration.isReady
+                    text: i18nd("libpurpose_quick", "Send")
+                    icon.name: "document-send"
+                    enabled: jobController.configuration
+                             && jobController.configuration.isReady
+                             && configLoader.item
+                             && configLoader.item.device != undefined
                     onClicked: jobController.startJob()
                 }
 
                 Button {
-                    text: i18nd("libpurpose_quick", "Back")
+                    text: i18nd("libpurpose_quick", "Cancel")
+                    icon.name: "dialog-cancel"
                     onClicked: jobController.cancel()
                 }
             }
