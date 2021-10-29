@@ -51,6 +51,7 @@ ecm_generate_headers(Purpose_CamelCase_HEADERS
         AlternativesModel
         Job
         Configuration
+        JsonObject
     REQUIRED_HEADERS Purpose_HEADERS
     PREFIX Purpose
 )
