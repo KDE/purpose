@@ -18,6 +18,7 @@
 #include <purpose/alternativesmodel.h>
 #include <purpose/configuration.h>
 #include <purpose/job.h>
+#include <purpose/jsonobject.h>
 
 QTEST_GUILESS_MAIN(AlternativesModelTest)
 
@@ -54,8 +55,9 @@ void AlternativesModelTest::runJobTest()
 
     const QString tempfile = m_tempDir.path() + QStringLiteral("/purposetest");
     QFile::remove(tempfile);
-    QJsonObject input =
-        QJsonObject{{QStringLiteral("urls"), QJsonArray{QStringLiteral("http://kde.org")}}, {QStringLiteral("mimeType"), QStringLiteral("dummy/thing")}};
+    Purpose::JsonObject input;
+    input.setUrls({QStringLiteral("http://kde.org")});
+    input.setMimeType(QStringLiteral("dummy/thing"));
     model.setInputData(input);
 
     model.setPluginType(QStringLiteral("Export"));
@@ -109,8 +111,9 @@ void AlternativesModelTest::disablePluginTest()
     const auto listPlugins = [] {
         QStringList plugins;
         Purpose::AlternativesModel model;
-        QJsonObject input =
-            QJsonObject{{QStringLiteral("urls"), QJsonArray{QStringLiteral("http://kde.org")}}, {QStringLiteral("mimeType"), QStringLiteral("dummy/thing")}};
+        Purpose::JsonObject input;
+        input.setUrls({QStringLiteral("http://kde.org")});
+        input.setMimeType(QStringLiteral("dummy/thing"));
         model.setInputData(input);
         model.setPluginType(QStringLiteral("Export"));
         model.setDisabledPlugins({});
@@ -143,8 +146,9 @@ void AlternativesModelTest::blacklistTest()
     const auto listPlugins = [](const QStringList &blacklist) {
         QStringList plugins;
         Purpose::AlternativesModel model;
-        QJsonObject input =
-            QJsonObject{{QStringLiteral("urls"), QJsonArray{QStringLiteral("http://kde.org")}}, {QStringLiteral("mimeType"), QStringLiteral("dummy/thing")}};
+        Purpose::JsonObject input;
+        input.setUrls({QStringLiteral("http://kde.org")});
+        input.setMimeType(QStringLiteral("dummy/thing"));
         model.setInputData(input);
         model.setPluginType(QStringLiteral("Export"));
         if (!blacklist.isEmpty()) {

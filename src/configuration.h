@@ -43,6 +43,7 @@ class PURPOSE_EXPORT Configuration : public QObject
 
     /**
      * Represents the data the job will have available to perform its task
+     * @see Purpose::JsonObject for an utility class to set the input data
      */
     Q_PROPERTY(QJsonObject data READ data WRITE setData NOTIFY dataChanged)
 

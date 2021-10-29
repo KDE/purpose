@@ -35,6 +35,7 @@ class PURPOSE_EXPORT AlternativesModel : public QAbstractListModel
 
     /**
      * Specifies the information that will be given to the plugin once it's started
+     * @see Purpose::JsonObject for an utility class to set the input data
      *
      * @note some plugins might be filtered out based on this setting
      */

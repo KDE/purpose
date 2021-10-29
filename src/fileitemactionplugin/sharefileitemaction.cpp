@@ -23,6 +23,7 @@
 #include <kio/global.h>
 
 #include "alternativesmodel.h"
+#include "jsonobject.h"
 #include "menu.h"
 
 K_PLUGIN_CLASS_WITH_JSON(ShareFileItemAction, "sharefileitemaction.json")
@@ -68,15 +69,14 @@ ShareFileItemAction::~ShareFileItemAction()
 
 QList<QAction *> ShareFileItemAction::actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget)
 {
-    QJsonArray urlsJson;
-
+    QStringList urlsJson;
     for (const QUrl &url : fileItemInfos.urlList()) {
         urlsJson.append(url.toString());
     }
-
-    m_menu->model()->setInputData(
-        QJsonObject{{QStringLiteral("mimeType"), QJsonValue{!fileItemInfos.mimeType().isEmpty() ? fileItemInfos.mimeType() : QStringLiteral("*/*")}},
-                    {QStringLiteral("urls"), urlsJson}});
+    Purpose::JsonObject input;
+    input.setUrls(urlsJson);
+    input.setMimeType(!fileItemInfos.mimeType().isEmpty() ? fileItemInfos.mimeType() : QStringLiteral("*/*"));
+    m_menu->model()->setInputData(input);
     m_menu->reload();
     m_menu->setParent(parentWidget, Qt::Popup);
 

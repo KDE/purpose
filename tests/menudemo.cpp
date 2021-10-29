@@ -13,6 +13,7 @@
 #include <QUrl>
 
 #include <purpose/alternativesmodel.h>
+#include <purpose/jsonobject.h>
 #include <purposewidgets/menu.h>
 
 int main(int argc, char **argv)
@@ -22,14 +23,15 @@ int main(int argc, char **argv)
     QScopedPointer<Purpose::Menu> menu(new Purpose::Menu);
     Purpose::AlternativesModel *model = menu->model();
 
-    QJsonObject input;
+    Purpose::JsonObject input;
     if (!app.arguments().isEmpty()) {
         QMimeDatabase mime;
         QUrl url = QUrl::fromUserInput(app.arguments().last());
-        input = QJsonObject{{QStringLiteral("urls"), QJsonArray{url.toString()}}, {QStringLiteral("mimeType"), mime.mimeTypeForUrl(url).name()}};
+        input.setUrls({url.toString()});
+        input.setMimeType(mime.mimeTypeForUrl(url).name());
     } else {
-        input =
-            QJsonObject{{QStringLiteral("urls"), QJsonArray{QStringLiteral("http://kde.org")}}, {QStringLiteral("mimeType"), QStringLiteral("dummy/thing")}};
+        input.setUrls({QStringLiteral("http://kde.org")});
+        input.setMimeType(QStringLiteral("dummy/thing"));
     }
     qDebug() << "sharing..." << input;
 

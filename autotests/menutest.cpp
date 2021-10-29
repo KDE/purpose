@@ -12,6 +12,7 @@
 
 #include "menutest.h"
 #include <purpose/alternativesmodel.h>
+#include <purpose/jsonobject.h>
 #include <purposewidgets/menu.h>
 
 QTEST_MAIN(MenuTest)
@@ -46,9 +47,10 @@ void MenuTest::runJobTest()
 
     const QString tempfile = m_tempDir.path() + QStringLiteral("/purposetest");
     QFile::remove(tempfile);
-    const QJsonObject input = QJsonObject{{QStringLiteral("urls"), QJsonArray{QStringLiteral("http://kde.org")}},
-                                          {QStringLiteral("mimeType"), QStringLiteral("dummy/thing")},
-                                          {QStringLiteral("destinationPath"), QUrl::fromLocalFile(tempfile).url()}};
+    Purpose::JsonObject input;
+    input.setUrls({QStringLiteral("http://kde.org")});
+    input.setMimeType(QStringLiteral("dummy/thing"));
+    input.insert(QStringLiteral("destinationPath"), QUrl::fromLocalFile(tempfile).url());
     model->setInputData(input);
     model->setPluginType(QStringLiteral("Export"));
     menu->reload();
