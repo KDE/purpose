@@ -13,6 +13,7 @@ ecm_qt_declare_logging_category(external_process_debug_SRCS
 
 add_library(KF5Purpose
     ${external_process_debug_SRCS}
+    exportinterface.cpp
     pluginbase.cpp
     job.cpp
     alternativesmodel.cpp
@@ -51,6 +52,7 @@ ecm_generate_headers(Purpose_CamelCase_HEADERS
         AlternativesModel
         Job
         Configuration
+        ExportInterface
     REQUIRED_HEADERS Purpose_HEADERS
     PREFIX Purpose
 )

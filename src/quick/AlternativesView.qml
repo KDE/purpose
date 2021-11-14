@@ -16,8 +16,8 @@ StackView {
     implicitHeight: currentItem.implicitHeight
 
     property bool running: false
-    property alias pluginType: altsModel.pluginType
-    property alias inputData: altsModel.inputData
+    property alias pluginType: stack.model.pluginType
+    property alias inputData: stack.model.inputData
     property Component highlight
     property Component header
     property Component footer
@@ -38,6 +38,7 @@ StackView {
             Keys.onEnterPressed: createJob(index)
         }
     }
+    property alias model: view.model
 
     /**
      * Signals when the job finishes, reports the
@@ -46,10 +47,6 @@ StackView {
      * @p output will specify the output offered by the job
      */
     signal finished(var output, int error, string message)
-
-    PurposeAlternativesModel {
-        id: altsModel
-    }
 
     /**
      * Adopts the job at the @p index.
@@ -67,9 +64,9 @@ StackView {
     }
 
     initialItem: ListView {
+        id: view
         ScrollBar.vertical: ScrollBar {}
         focus: true
-        model: altsModel
 
         implicitHeight: contentHeight
 
@@ -85,7 +82,7 @@ StackView {
 
         JobView {
             id: jobView
-            model: altsModel
+            model: stack.model
 
             onStateChanged: {
                 if (state === PurposeJobController.Finished || state === PurposeJobController.Error) {

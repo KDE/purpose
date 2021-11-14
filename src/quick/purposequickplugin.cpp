@@ -9,10 +9,12 @@
 #include "configuration.h"
 #include "job.h"
 #include "jobcontroller.h"
+#include "exportinterface.h"
 #include <qqml.h>
 
 void PurposeQuickPlugin::registerTypes(const char *uri)
 {
+    qmlRegisterType<Purpose::ExportInterface>(uri, 1, 0, "Export");
     qmlRegisterType<Purpose::AlternativesModel>(uri, 1, 0, "PurposeAlternativesModel");
     qmlRegisterType<Purpose::JobController>(uri, 1, 0, "PurposeJobController");
     qmlRegisterUncreatableType<Purpose::Job>(uri, 1, 0, "PurposeJob", QStringLiteral("You're not supposed to instantiate jobs"));
