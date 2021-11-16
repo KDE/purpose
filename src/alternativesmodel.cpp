@@ -17,6 +17,7 @@
 #include <QStandardPaths>
 
 #include <KConfigGroup>
+#include <KJsonUtils>
 #include <KPluginMetaData>
 #include <KSharedConfig>
 
@@ -255,7 +256,7 @@ QVariant AlternativesModel::data(const QModelIndex &index, int role) const
         return data.pluginId();
     case ActionDisplayRole: {
         const auto pluginData = data.rawData()[QStringLiteral("KPlugin")].toObject();
-        const QString action = KPluginMetaData::readTranslatedString(pluginData, QStringLiteral("X-Purpose-ActionDisplay"));
+        const QString action = KJsonUtils::readTranslatedString(pluginData, QStringLiteral("X-Purpose-ActionDisplay"));
         return action.isEmpty() ? data.name() : action;
     }
     }
