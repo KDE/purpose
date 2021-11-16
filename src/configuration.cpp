@@ -6,10 +6,9 @@
 
 #include "purpose/configuration.h"
 #include "externalprocess/processjob.h"
-#include <KPluginFactory>
 #include <QFileInfo>
 
-#include <KPluginLoader>
+#include <KPluginFactory>
 #include <KPluginMetaData>
 
 #include <QDebug>
@@ -59,19 +58,14 @@ public:
         if (fileName.endsWith(QLatin1String("/metadata.json"))) {
             return new ProcessJob(m_pluginData.fileName(), m_pluginTypeName, m_inputData, parent);
         } else {
-            KPluginLoader loader(fileName);
-            KPluginFactory *factory = loader.factory();
-            if (!factory) {
-                qWarning() << "Couldn't create job:" << fileName << loader.errorString();
-                return nullptr;
-            }
-            Purpose::PluginBase *plugin = dynamic_cast<Purpose::PluginBase *>(factory->create<QObject>(parent, QVariantList()));
+            auto pluginResult = KPluginFactory::instantiatePlugin<QObject>(m_pluginData, parent, QVariantList());
 
-            if (!plugin) {
-                qWarning() << "Couldn't load plugin:" << fileName << loader.errorString();
+            if (!pluginResult) {
+                qWarning() << "Couldn't load plugin:" << fileName << pluginResult.errorString;
                 return nullptr;
             }
 
+            Purpose::PluginBase *plugin = dynamic_cast<Purpose::PluginBase *>(pluginResult.plugin);
             return plugin->createJob();
         }
     }
