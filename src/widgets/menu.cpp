@@ -5,7 +5,7 @@
 */
 
 #include "menu.h"
-#include <KI18n/KLocalizedContext>
+#include <KLocalizedContext>
 #include <QDebug>
 #include <QPointer>
 #include <QQmlApplicationEngine>
