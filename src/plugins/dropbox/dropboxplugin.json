@@ -1,0 +1,15 @@
+{
+    "KPlugin": {
+        "Description": "Upload files to Dropbox",
+        "Icon": "kaccounts-nextcloud",
+        "License": "GPL",
+        "Name": "Dropbox",
+        "X-Purpose-ActionDisplay": "Dropbox..."
+    },
+    "X-Purpose-Configuration": [
+        "accountId"
+    ],
+    "X-Purpose-PluginTypes": [
+        "Export"
+    ]
+}
