@@ -122,8 +122,6 @@ Item {
                     icon.name: "document-send"
                     enabled: jobController.configuration
                              && jobController.configuration.isReady
-                             && configLoader.item
-                             && configLoader.item.device != undefined
                     onClicked: jobController.startJob()
                 }
 
