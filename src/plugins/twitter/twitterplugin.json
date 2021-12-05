@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Description": "Share via Twitter",
+        "Icon": "im-twitter",
+        "License": "LGPL",
+        "Name": "Twitter",
+        "X-Purpose-ActionDisplay": "Twitter"
+    },
+    "X-Purpose-PluginTypes": [
+        "ShareUrl"
+    ]
+}
