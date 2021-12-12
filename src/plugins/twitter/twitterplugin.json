@@ -12,6 +12,7 @@
         "Description[sv]": "Dela via Twitter",
         "Description[uk]": "Поділитися на Twitter",
         "Description[x-test]": "xxShare via Twitterxx",
+        "Description[zh_CN]": "通过 Twitter 分享",
         "Icon": "im-twitter",
         "License": "LGPL",
         "Name": "Twitter",
@@ -48,6 +49,7 @@
         "Name[tr]": "Twitter",
         "Name[uk]": "Twitter",
         "Name[x-test]": "xxTwitterxx",
+        "Name[zh_CN]": "Twitter",
         "Name[zh_TW]": "Twitter",
         "X-Purpose-ActionDisplay": "Twitter",
         "X-Purpose-ActionDisplay[az]": "Twitter",
@@ -60,7 +62,8 @@
         "X-Purpose-ActionDisplay[sl]": "Twitter",
         "X-Purpose-ActionDisplay[sv]": "Twitter",
         "X-Purpose-ActionDisplay[uk]": "Twitter",
-        "X-Purpose-ActionDisplay[x-test]": "xxTwitterxx"
+        "X-Purpose-ActionDisplay[x-test]": "xxTwitterxx",
+        "X-Purpose-ActionDisplay[zh_CN]": "Twitter"
     },
     "X-Purpose-PluginTypes": [
         "ShareUrl"
