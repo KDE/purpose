@@ -3,6 +3,7 @@
         "Authors": [
             {
                 "Name": "Kai Uwe Broulik",
+                "Name[ar]": "Kai Uwe Broulik",
                 "Name[az]": "Kai Uwe Broulik",
                 "Name[ca@valencia]": "Kai Uwe Broulik",
                 "Name[ca]": "Kai Uwe Broulik",
@@ -29,6 +30,7 @@
         ],
         "Category": "Utilities",
         "Description": "Generate a QR code for this link",
+        "Description[ar]": "ولّد بركود لهذه الوصلة",
         "Description[az]": "Bu keçid üçün QR kod yaradın",
         "Description[ca@valencia]": "Genera un codi QR d'aquest enllaç",
         "Description[ca]": "Genera un codi QR d'aquest enllaç",
@@ -54,6 +56,7 @@
         "Icon": "view-barcode-qr",
         "License": "LGPL",
         "Name": "Generate QR code",
+        "Name[ar]": "ولد بركود",
         "Name[az]": "QR kod yaradın",
         "Name[ca@valencia]": "Genera un codi QR",
         "Name[ca]": "Genera un codi QR",
@@ -77,6 +80,7 @@
         "Name[x-test]": "xxGenerate QR codexx",
         "Name[zh_CN]": "生成二维码",
         "X-Purpose-ActionDisplay": "Generate QR Code",
+        "X-Purpose-ActionDisplay[ar]": "ولد بركود",
         "X-Purpose-ActionDisplay[az]": "QR kod yaradın",
         "X-Purpose-ActionDisplay[ca@valencia]": "Genera un codi QR",
         "X-Purpose-ActionDisplay[ca]": "Genera un codi QR",

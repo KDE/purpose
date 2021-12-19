@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Share via Twitter",
+        "Description[ar]": "شارِك في تويتر",
         "Description[az]": "Twitter ilə paylaşın",
         "Description[ca@valencia]": "Comparteix a través de Twitter",
         "Description[ca]": "Comparteix a través de Twitter",
@@ -55,6 +56,7 @@
         "Name[zh_CN]": "Twitter",
         "Name[zh_TW]": "Twitter",
         "X-Purpose-ActionDisplay": "Twitter",
+        "X-Purpose-ActionDisplay[ar]": "تويتر",
         "X-Purpose-ActionDisplay[az]": "Twitter",
         "X-Purpose-ActionDisplay[ca@valencia]": "Twitter",
         "X-Purpose-ActionDisplay[ca]": "Twitter",
