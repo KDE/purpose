@@ -23,17 +23,12 @@ StackView {
     property Component footer
     property variant verticalLayoutDirection: ListView.TopToBottom
     property Component delegate: Component {
-        RowLayout {
-            width: parent.width
-            Label {
-                Layout.fillWidth: true
-                text: display
-                elide: Text.ElideRight
-            }
-            Button {
-                text: i18nd("libpurpose_quick", "Use")
-                onClicked: createJob(index);
-            }
+        Button {
+            width: stack.width
+            text: model.display
+            icon.name: iconName
+
+            onClicked: createJob(index);
             Keys.onReturnPressed: createJob(index)
             Keys.onEnterPressed: createJob(index)
         }
