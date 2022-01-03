@@ -4,9 +4,9 @@ generate_export_header(KF5PurposeWidgets EXPORT_FILE_NAME purposewidgets_export.
 target_link_libraries(KF5PurposeWidgets
     PUBLIC
         KF5::Purpose
-        Qt5::Widgets
+        Qt${QT_MAJOR_VERSION}::Widgets
     PRIVATE
-        Qt5::Qml
+        Qt${QT_MAJOR_VERSION}::Qml
         KF5::I18n
 )
 set_target_properties(KF5PurposeWidgets PROPERTIES VERSION ${PURPOSE_VERSION}
@@ -15,7 +15,7 @@ set_target_properties(KF5PurposeWidgets PROPERTIES VERSION ${PURPOSE_VERSION}
 )
 target_include_directories(KF5PurposeWidgets PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
                                              "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
-                                      INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/purposewidgets>"
+                                      INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/purposewidgets>"
 )
 
 install(TARGETS KF5PurposeWidgets EXPORT KF5PurposeTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
@@ -29,10 +29,10 @@ ecm_generate_headers(PurposeWidgets_CamelCase_HEADERS
 )
 install(FILES
         ${PurposeWidgets_CamelCase_HEADERS}
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/purposewidgets/PurposeWidgets/
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/purposewidgets/PurposeWidgets/
         COMPONENT Devel)
 install(FILES
   ${Purpose_BINARY_DIR}/src/widgets/purposewidgets_export.h
   ${PurposeWidgets_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/purposewidgets/purposewidgets COMPONENT Devel
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/purposewidgets/purposewidgets COMPONENT Devel
 )

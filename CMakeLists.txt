@@ -7,7 +7,6 @@ find_package(ECM 5.90.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 set(REQUIRED_QT_VERSION 5.15.2)
-find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui DBus Widgets Network Test)
 include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
@@ -24,6 +23,7 @@ include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateQmlTypes)
 include(ECMQMLModules)
+find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui DBus Widgets Network Test)
 
 set(KF_VERSION "5.90.0") # handled by release scripts
 set(KF_DEP_VERSION "5.90.0") # handled by release scripts
@@ -80,7 +80,7 @@ install(EXPORT KF5PurposeTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE K
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/purpose COMPONENT Devel
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/purpose COMPONENT Devel
 )
 
 feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)

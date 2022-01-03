@@ -1,5 +1,5 @@
-ecm_add_tests(alternativesmodeltest.cpp LINK_LIBRARIES Qt5::Test KF5::Purpose KF5::ConfigCore)
-ecm_add_tests(menutest.cpp LINK_LIBRARIES Qt5::Test KF5::PurposeWidgets)
+ecm_add_tests(alternativesmodeltest.cpp LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Test KF5::Purpose KF5::ConfigCore)
+ecm_add_tests(menutest.cpp LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Test KF5::PurposeWidgets)
 
 set(bindest "${CMAKE_BINARY_DIR}/bin/qml")
 set(qml2ImportPath "$ENV{QML2_IMPORT_PATH}")

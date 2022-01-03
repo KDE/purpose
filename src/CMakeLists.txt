@@ -25,15 +25,15 @@ add_library(KF5Purpose
 
 target_include_directories(KF5Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
                                              "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
-                                      INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/purpose>"
+                                      INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/purpose>"
 )
 target_link_libraries(KF5Purpose
     PUBLIC
         KF5::CoreAddons
-        Qt5::Gui
+        Qt${QT_MAJOR_VERSION}::Gui
     PRIVATE
-        Qt5::DBus
-        Qt5::Network #QLocalSocket
+        Qt${QT_MAJOR_VERSION}::DBus
+        Qt${QT_MAJOR_VERSION}::Network #QLocalSocket
         KF5::ConfigCore
 )
 set_target_properties(KF5Purpose PROPERTIES VERSION ${PURPOSE_VERSION}
@@ -56,18 +56,18 @@ ecm_generate_headers(Purpose_CamelCase_HEADERS
 )
 
 install(FILES ${Purpose_CamelCase_HEADERS}
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/purpose/Purpose/
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/purpose/Purpose/
         COMPONENT Devel)
 install(FILES
   ${Purpose_BINARY_DIR}/purpose/purpose_export.h
   ${Purpose_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/purpose/purpose COMPONENT Devel
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/purpose/purpose COMPONENT Devel
 )
 
 add_executable(purposeprocess externalprocess/purposeprocess_main.cpp helper.cpp ${external_process_debug_SRCS})
 ecm_mark_nongui_executable(purposeprocess)
-target_link_libraries(purposeprocess KF5::Purpose Qt5::Network Qt5::Widgets)
-install(TARGETS purposeprocess DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF5})
+target_link_libraries(purposeprocess KF5::Purpose Qt${QT_MAJOR_VERSION}::Network Qt${QT_MAJOR_VERSION}::Widgets)
+install(TARGETS purposeprocess DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF})
 
 add_subdirectory(plugins)
 add_subdirectory(quick)
