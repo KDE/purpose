@@ -82,7 +82,7 @@ void DiffListModel::receivedDiffRevs(KJob *job)
 
     beginResetModel();
     m_values.clear();
-    for (const auto review : revs) {
+    for (const auto &review : revs) {
         auto status = diffRevList->statusMap()[review.second];
         m_values += Value{review.second, review.first, status};
     }
