@@ -16,6 +16,13 @@ StackView {
     implicitHeight: currentItem.implicitHeight
 
     property bool running: false
+    /**
+     * When this property is set to true, the job for  sharing the
+     * specified file will be immediately executed.
+     * When set to false, the signal clicked(index) will be emitted
+     * instead and createJob(index) must be called manually afterwards.
+     */
+    property bool directMode: true
     property alias pluginType: altsModel.pluginType
     property alias inputData: altsModel.inputData
     property Component highlight
@@ -24,7 +31,7 @@ StackView {
     property variant verticalLayoutDirection: ListView.TopToBottom
     property Component delegate: Component {
         RowLayout {
-            width: parent.width
+            width: stack.width
             Label {
                 Layout.fillWidth: true
                 text: display
@@ -32,10 +39,10 @@ StackView {
             }
             Button {
                 text: i18nd("libpurpose_quick", "Use")
-                onClicked: createJob(index);
+                onClicked: _proceedNext(index);
             }
-            Keys.onReturnPressed: createJob(index)
-            Keys.onEnterPressed: createJob(index)
+            Keys.onReturnPressed: _proceedNext(index)
+            Keys.onEnterPressed: _proceedNext(index)
         }
     }
 
@@ -47,6 +54,13 @@ StackView {
      */
     signal finished(var output, int error, string message)
 
+    /**
+     * Signals when a button has been clicked when not in
+     * direct mode (directMode = false)
+     * @p index the job index that has been selected
+     */
+    signal clicked(var index)
+
     PurposeAlternativesModel {
         id: altsModel
     }
@@ -55,6 +69,10 @@ StackView {
      * Adopts the job at the @p index.
      */
     function createJob(index) {
+        //remove any busy indicator in case there is one
+        if (stack.depth == 2) {
+            stack.pop()
+        }
         stack.push(jobComponent, {index: index})
     }
 
@@ -64,6 +82,15 @@ StackView {
     function reset() {
         for(; stack.depth>1; stack.pop())
         {}
+    }
+
+    function _proceedNext(index) {
+        if (directMode) {
+            createJob(index)
+        } else {
+            stack.push(waitingComponent)
+            clicked(index)
+        }
     }
 
     initialItem: ListView {
@@ -96,6 +123,17 @@ StackView {
             }
 
             Component.onCompleted: start()
+        }
+    }
+
+    Component {
+        id: waitingComponent
+
+        Item {
+            BusyIndicator {
+                running: true
+                anchors.centerIn: parent
+            }
         }
     }
 }
