@@ -8,6 +8,7 @@
 #include <purpose/pluginbase.h>
 
 #include <KApplicationTrader>
+#include <KEMailClientLauncherJob>
 #include <KLocalizedString>
 #include <KPluginFactory>
 
@@ -34,71 +35,32 @@ public:
 
     void start() override
     {
-        const KService::Ptr mailClient = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/mailto"));
+        KEMailClientLauncherJob *job = new KEMailClientLauncherJob;
 
-        // Thunderbird cannot handle attachments via the mailto schema, so we need to handle it ourselves
-        if (mailClient && mailClient->desktopEntryName().contains(QStringLiteral("thunderbird"))) {
-            launchThunderbird();
-        } else {
-            launchMailto();
-        }
-    }
-
-    void launchMailto()
-    {
-        const auto urls = data().value(QStringLiteral("urls")).toArray();
-
-        QUrlQuery query;
-        for (const auto &att : urls) {
-            QUrl url(att.toString());
-            if (url.isLocalFile()) {
-                query.addQueryItem(QStringLiteral("attachment"), att.toString());
-            } else {
-                query.addQueryItem(QStringLiteral("body"), att.toString());
-                query.addQueryItem(QStringLiteral("subject"), data().value(QStringLiteral("title")).toString());
-            }
-        }
-        QUrl url;
-        url.setScheme(QStringLiteral("mailto"));
-        url.setQuery(query);
-        if (!QDesktopServices::openUrl(url)) {
-            setError(KJob::UserDefinedError);
-            setErrorText(i18n("Failed to launch email client"));
-        }
-        emitResult();
-    }
-
-    void launchThunderbird()
-    {
-        // thunderbird -compose "attachment='file:///att1','file:///att2'"
-
-        const auto tb = QStandardPaths::findExecutable(QStringLiteral("thunderbird"));
-        if (tb.isEmpty()) {
-            launchMailto();
-            return;
-        }
+        QList<QUrl> attachments;
+        QStringList bodyPieces;
 
         const auto urls = data().value(QStringLiteral("urls")).toArray();
-        QStringList attachments;
-        QStringList args = QStringList{QStringLiteral("-compose")};
-        QString message;
-        for (const auto &att : urls) {
-            QUrl url(att.toString());
+        for (const QJsonValue &val : urls) {
+            const QUrl url = val.toVariant().toUrl();
             if (url.isLocalFile()) {
-                attachments.push_back(att.toString());
+                attachments << url;
             } else {
-                message += QStringLiteral("body='%1',subject='%2',").arg(url.toString()).arg(data().value(QStringLiteral("title")).toString());
+                bodyPieces << url.toString();
             }
         }
 
-        message += (QStringLiteral("attachment='%1'").arg(attachments.join(QLatin1Char(','))));
-        args.append(message);
+        job->setAttachments(attachments);
+        job->setBody(bodyPieces.join(QLatin1Char('\n')));
+        job->setSubject(data().value(QStringLiteral("title")).toString());
 
-        if (!QProcess::startDetached(tb, args)) {
-            setError(KJob::UserDefinedError);
-            setErrorText(i18n("Failed to launch email client"));
-        }
-        emitResult();
+        connect(job, &KJob::result, this, [this](KJob *job) {
+            setError(job->error());
+            setErrorText(job->errorText());
+            emitResult();
+        });
+
+        job->start();
     }
 };
 
