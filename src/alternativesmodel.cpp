@@ -313,7 +313,7 @@ void AlternativesModel::initializeModel()
 
     beginResetModel();
     d->m_plugins.clear();
-    d->m_plugins << KPluginMetaData::findPlugins(QStringLiteral("kf5/purpose"), pluginAcceptable);
+    d->m_plugins << KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/purpose"), pluginAcceptable);
     d->m_plugins += findScriptedPackages(pluginAcceptable);
     endResetModel();
 }
