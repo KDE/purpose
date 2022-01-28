@@ -85,7 +85,7 @@ QByteArray multipartFormData(const QVariantMap &values)
 {
     QList<QPair<QString, QVariant>> vals;
     for (QVariantMap::const_iterator it = values.constBegin(), itEnd = values.constEnd(); it != itEnd; ++it) {
-        vals += qMakePair<QString, QVariant>(it.key(), it.value());
+        vals += qMakePair<QString, QVariant>(QString(it.key()), QVariant(it.value()));
     }
     return multipartFormData(vals);
 }

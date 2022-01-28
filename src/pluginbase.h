@@ -10,7 +10,11 @@
 #include "job.h"
 #include <QObject>
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #define EXPORT_SHARE_VERSION K_EXPORT_PLUGIN_VERSION(2)
+#else
+#define EXPORT_SHARE_VERSION
+#endif
 
 namespace Purpose
 {
