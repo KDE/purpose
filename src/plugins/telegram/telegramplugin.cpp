@@ -13,7 +13,6 @@
 #include <KShell>
 #include <QDebug>
 #include <QJsonArray>
-#include <QProcess>
 #include <QStandardPaths>
 #include <QTimer>
 #include <QUrl>
