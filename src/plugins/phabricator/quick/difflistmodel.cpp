@@ -10,6 +10,7 @@
 #include <QBrush>
 #include <QDebug>
 #include <QDir>
+#include <QStandardPaths>
 #include <QTemporaryDir>
 
 DiffListModel::DiffListModel(QObject *parent)
@@ -48,7 +49,13 @@ void DiffListModel::refresh()
             // create the virgin git repo. This is a very cheap operation that should
             // never fail in a fresh temporary directory we ourselves created, so it
             // should be OK to do this with a synchronous call.
-            initGit.start(QLatin1String("git init"), QStringList());
+            const QString gitExec = QStandardPaths::findExecutable(QStringLiteral("git"));
+            if (gitExec.isEmpty()) {
+                qCritical() << "Couldn't find 'git' executable.";
+                return;
+            }
+
+            initGit.start(gitExec, QStringList(QStringLiteral("init")));
             if (initGit.waitForStarted(1000)) {
                 ok = initGit.waitForFinished(500);
             }

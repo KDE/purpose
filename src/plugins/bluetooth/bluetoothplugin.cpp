@@ -4,10 +4,13 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
+#include <KLocalizedString>
 #include <KPluginFactory>
+
 #include <QDebug>
 #include <QJsonArray>
 #include <QProcess>
+#include <QStandardPaths>
 #include <QUrl>
 #include <purpose/pluginbase.h>
 
@@ -25,7 +28,14 @@ public:
     void start() override
     {
         QProcess *process = new QProcess(this);
-        process->setProgram(QStringLiteral("bluedevil-sendfile"));
+        const QString exec = QStandardPaths::findExecutable(QStringLiteral("bluedevil-sendfile"));
+        if (exec.isEmpty()) {
+            setError(KJob::UserDefinedError);
+            setErrorText(i18n("Couldn't find 'bluedevil-sendfile' executable."));
+            emitResult();
+            return;
+        }
+        process->setProgram(exec);
         const QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
 
         QStringList args{QStringLiteral("-u"), data().value(QStringLiteral("device")).toString()};

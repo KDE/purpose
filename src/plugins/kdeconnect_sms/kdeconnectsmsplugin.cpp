@@ -38,7 +38,15 @@ public:
         QString title = data().value(QStringLiteral("title")).toString();
         QString message = i18n("%1 - %2").arg(title).arg(arrayToList(urlsJson).join(QLatin1Char(' ')));
 
-        QProcess::startDetached(QStringLiteral("kdeconnect-sms"), QStringList(QStringLiteral("--message")) << message);
+        const QString connectExec = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-sms"));
+        if (connectExec.isEmpty()) {
+            setError(KJob::UserDefinedError);
+            setErrorText(i18n("Couldn't find 'kdeconnect-sms' executable."));
+            emitResult();
+            return;
+        }
+
+        QProcess::startDetached(connectExec, QStringList{QStringLiteral("--message"), message});
         QTimer::singleShot(0, this, &KDEConnectSMSJob::emitResult);
     }
 };

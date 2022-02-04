@@ -4,7 +4,9 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
+#include <KLocalizedString>
 #include <KPluginFactory>
+
 #include <QDebug>
 #include <QJsonArray>
 #include <QProcess>
@@ -33,8 +35,16 @@ public:
 
     void start() override
     {
+        const QString connectExec = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-cli"));
+        if (connectExec.isEmpty()) {
+            setError(KJob::UserDefinedError);
+            setErrorText(i18n("Couldn't find 'kdeconnect-cli' executable."));
+            emitResult();
+            return;
+        }
+
         QProcess *process = new QProcess(this);
-        process->setProgram(QStringLiteral("kdeconnect-cli"));
+        process->setProgram(connectExec);
         QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
         process->setArguments(QStringList(QStringLiteral("--device"))
                               << data().value(QStringLiteral("device")).toString() << QStringLiteral("--share") << arrayToList(urlsJson));
