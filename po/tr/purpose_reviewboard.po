@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose_reviewboard\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-03-06 02:34+0100\n"
+"PO-Revision-Date: 2017-08-10 09:18+0000\n"
+"Last-Translator: Kaan <kaanozdincer@gmail.com>\n"
+"Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: reviewboardjobs.cpp:165
+#, kde-format
+msgid "JSON error: %1"
+msgstr "JSON hatası: %1"
+
+#: reviewboardjobs.cpp:170
+#, kde-format
+msgid "Request Error: %1"
+msgstr "İstek Hatası: %1"
+
+#: reviewboardjobs.cpp:198
+#, kde-format
+msgid ""
+"Could not create the new request:\n"
+"%1"
+msgstr ""
+"Yeni bir istek oluşturulamadı:\n"
+"%1"
+
+#: reviewboardjobs.cpp:237
+#, kde-format
+msgid "Could not upload the patch"
+msgstr "Yama yüklenemedi"
+
+#: reviewboardjobs.cpp:330
+#, kde-format
+msgid "Could not get reviews list"
+msgstr "İnceleme listesi alınamadı"
+
+#: reviewboardjobs.cpp:370
+#, kde-format
+msgid "Could not set metadata"
+msgstr "Meta veri ayarlanamadı"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
+#, kde-format
+msgid "Server:"
+msgstr "Sunucu:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
+#, kde-format
+msgid "Username:"
+msgstr "Kullanıcı adı:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
+#, kde-format
+msgid "Password:"
+msgstr "Parola:"
+
+#: reviewboardplugin_config.qml:50
+#, kde-format
+msgid "Repository:"
+msgstr "Depo:"
+
+#: reviewboardplugin_config.qml:75
+#, kde-format
+msgid "Update Review:"
+msgstr "İncelemeyi Güncelle:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: reviewpatch.ui:17
+#, kde-format
+msgid "Destination"
+msgstr "Hedef"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: reviewpatch.ui:36
+#, kde-format
+msgid "Base Dir:"
+msgstr "Temel Dizin:"
+
+#. i18n: ectx: property (text), widget (QLineEdit, basedir)
+#: reviewpatch.ui:43
+#, kde-format
+msgid "/"
+msgstr "/"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, basedir)
+#: reviewpatch.ui:46
+#, kde-format
+msgid "Where this project was checked out from"
+msgstr "Bu projenin hangi adresten indirildiği"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: reviewpatch.ui:56
+#, kde-format
+msgid "Authentication"
+msgstr "Kimlik Doğrulama"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, username)
+#: reviewpatch.ui:72
+#, kde-format
+msgid "User name in the specified service"
+msgstr "Belirtilen servis için kullanıcı adı"
+
+#. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
+#: reviewpatch.ui:99
+#, kde-format
+msgid "Repository"
+msgstr "Depo"
+
+#. i18n: ectx: property (title), widget (QGroupBox, reviewsBox)
+#: reviewpatch.ui:111
+#, kde-format
+msgid "Update review"
+msgstr "İncelemeyi güncelle"
