@@ -41,7 +41,7 @@ void MenuTest::initTestCase()
     const QString qmlDir = QApplication::applicationDirPath() + QLatin1String("/qml");
     QByteArray others = qgetenv("QML2_IMPORT_PATH");
     if (!others.isEmpty()) {
-        others.prepend(QFile::encodeName(qmlDir) + ":");
+        others.prepend(QFile::encodeName(qmlDir + QDir::listSeparator()));
     }
     qputenv("QML2_IMPORT_PATH", others);
     QVERIFY(QFileInfo::exists(qmlDir + QLatin1String("/org/kde/purpose/qmldir")));
