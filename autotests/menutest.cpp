@@ -31,20 +31,8 @@ static QAction *saveAsAction(Purpose::Menu *menu)
 
 void MenuTest::initTestCase()
 {
-    // To avoid a runtime dependency on klauncher
-    qputenv("KDE_FORK_SLAVES", "yes");
-
     // To let ctest exit, we shouldn't start kio_http_cache_cleaner
     qputenv("KIO_DISABLE_CACHE_CLEANER", "yes");
-
-    // Find org.kde.purpose in the builddir
-    const QString qmlDir = QApplication::applicationDirPath() + QLatin1String("/qml");
-    QByteArray others = qgetenv("QML2_IMPORT_PATH");
-    if (!others.isEmpty()) {
-        others.prepend(QFile::encodeName(qmlDir + QDir::listSeparator()));
-    }
-    qputenv("QML2_IMPORT_PATH", others);
-    QVERIFY(QFileInfo::exists(qmlDir + QLatin1String("/org/kde/purpose/qmldir")));
 }
 
 void MenuTest::runJobTest()

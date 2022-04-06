@@ -1,6 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
- <qresource prefix="/org/kde/purpose/">
-    <file>AlternativesView.qml</file>
-    <file>JobView.qml</file>
- </qresource>
-</RCC>

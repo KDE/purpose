@@ -17,7 +17,4 @@ void PurposeQuickPlugin::registerTypes(const char *uri)
     qmlRegisterType<Purpose::JobController>(uri, 1, 0, "PurposeJobController");
     qmlRegisterUncreatableType<Purpose::Job>(uri, 1, 0, "PurposeJob", QStringLiteral("You're not supposed to instantiate jobs"));
     qmlRegisterUncreatableType<Purpose::Configuration>(uri, 1, 0, "PurposeConfiguration", QStringLiteral("You're not supposed to instantiate configurations"));
-
-    qmlRegisterType(QUrl(QStringLiteral("qrc:/org/kde/purpose/AlternativesView.qml")), uri, 1, 0, "AlternativesView");
-    qmlRegisterType(QUrl(QStringLiteral("qrc:/org/kde/purpose/JobView.qml")), uri, 1, 0, "JobView");
 }

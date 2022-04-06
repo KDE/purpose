@@ -23,6 +23,7 @@ include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateQmlTypes)
 include(ECMQMLModules)
+include(ECMQmlModule)
 find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui DBus Widgets Network Test)
 
 set(KF_VERSION "5.93.0") # handled by release scripts
