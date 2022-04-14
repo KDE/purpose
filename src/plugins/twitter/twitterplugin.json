@@ -23,6 +23,7 @@
         "Description[sk]": "Zdieľa cez Twitter",
         "Description[sl]": "Deli medije na Twitterju",
         "Description[sv]": "Dela via Twitter",
+        "Description[tr]": "Twitter'da paylaş",
         "Description[uk]": "Поділитися на Twitter",
         "Description[x-test]": "xxShare via Twitterxx",
         "Description[zh_CN]": "通过 Twitter 分享",
@@ -88,6 +89,7 @@
         "X-Purpose-ActionDisplay[sk]": "Twitter",
         "X-Purpose-ActionDisplay[sl]": "Twitter",
         "X-Purpose-ActionDisplay[sv]": "Twitter",
+        "X-Purpose-ActionDisplay[tr]": "Twitter",
         "X-Purpose-ActionDisplay[uk]": "Twitter",
         "X-Purpose-ActionDisplay[x-test]": "xxTwitterxx",
         "X-Purpose-ActionDisplay[zh_CN]": "Twitter"

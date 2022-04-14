@@ -26,6 +26,7 @@
                 "Name[sk]": "Kai Uwe Broulik",
                 "Name[sl]": "Kai Uwe Broulik",
                 "Name[sv]": "Kai Uwe Broulik",
+                "Name[tr]": "Kai Uwe Broulik",
                 "Name[uk]": "Kai Uwe Broulik",
                 "Name[x-test]": "xxKai Uwe Broulikxx",
                 "Name[zh_CN]": "Kai Uwe Broulik"
@@ -56,6 +57,7 @@
         "Description[sk]": "Generovať QR kód pre tento odkaz",
         "Description[sl]": "Generiraj kodo QR za to povezavo",
         "Description[sv]": "Skapa en QR-kod för länken",
+        "Description[tr]": "Bu bağlantı için bir kare kod oluştur",
         "Description[uk]": "Створити QR-код для цього посилання",
         "Description[x-test]": "xxGenerate a QR code for this linkxx",
         "Description[zh_CN]": "生成此链接的二维码",
@@ -85,6 +87,7 @@
         "Name[sk]": "Generovať QR kód",
         "Name[sl]": "Generiraj kodo QR",
         "Name[sv]": "Skapa QR-kod",
+        "Name[tr]": "Kare kod oluştur",
         "Name[uk]": "Створити QR-код",
         "Name[x-test]": "xxGenerate QR codexx",
         "Name[zh_CN]": "生成二维码",
@@ -112,6 +115,7 @@
         "X-Purpose-ActionDisplay[sk]": "Generovať QR kód",
         "X-Purpose-ActionDisplay[sl]": "Generiraj QR kodo",
         "X-Purpose-ActionDisplay[sv]": "Skapa QR-kod",
+        "X-Purpose-ActionDisplay[tr]": "Kare kod oluştur",
         "X-Purpose-ActionDisplay[uk]": "Створити QR-код",
         "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx",
         "X-Purpose-ActionDisplay[zh_CN]": "生成二维码"
