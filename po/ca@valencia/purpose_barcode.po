@@ -1,0 +1,40 @@
+# Translation of purpose_barcode.po to Catalan (Valencian)
+# Copyright (C) 2021 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep M. Ferrer <txemaq@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-21 00:14+0000\n"
+"PO-Revision-Date: 2021-09-21 11:29+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: barcodeplugin_config.qml:53
+#, kde-format
+msgid "Type a URL or some text to generate a QR code"
+msgstr "Teclegeu un URL o un text per a generar un codi QR"
+
+#: barcodeplugin_config.qml:62
+#, kde-format
+msgid "Creating QR code failed"
+msgstr "No s'ha pogut crear el codi QR"
+
+#: barcodeplugin_config.qml:71
+#, kde-format
+msgid "The QR code is too large to be displayed"
+msgstr "El codi QR és massa gran per a mostrar-se"
+
+#: barcodeplugin_config.qml:83
+#, kde-format
+msgid "Type a URL or some text..."
+msgstr "Teclegeu un URL o un text..."
