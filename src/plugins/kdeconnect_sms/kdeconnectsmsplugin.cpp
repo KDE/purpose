@@ -4,8 +4,10 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
+#include <KIO/CommandLauncherJob>
 #include <KLocalizedString>
 #include <KPluginFactory>
+
 #include <QJsonArray>
 #include <QProcess>
 #include <QStandardPaths>
@@ -38,8 +40,10 @@ public:
         QString title = data().value(QStringLiteral("title")).toString();
         QString message = i18n("%1 - %2").arg(title).arg(arrayToList(urlsJson).join(QLatin1Char(' ')));
 
-        QProcess::startDetached(QStringLiteral("kdeconnect-sms"), QStringList(QStringLiteral("--message")) << message);
-        QTimer::singleShot(0, this, &KDEConnectSMSJob::emitResult);
+        auto *job = new KIO::CommandLauncherJob(QStringLiteral("kdeconnect-sms"), {QStringLiteral("--message"), message});
+        job->setDesktopName(QStringLiteral("org.kde.kdeconnect.sms"));
+        connect(job, &KJob::finished, this, &KDEConnectSMSJob::emitResult);
+        job->start();
     }
 };
 
