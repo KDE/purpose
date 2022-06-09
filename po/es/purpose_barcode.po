@@ -1,0 +1,40 @@
+# Spanish translations for purpose_barcode.po package.
+# Copyright (C) 2021 This file is copyright:
+# This file is distributed under the same license as the purpose package.
+#
+# Automatically generated, 2021.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose_barcode\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-21 00:14+0000\n"
+"PO-Revision-Date: 2021-09-21 05:06+0200\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.08.1\n"
+
+#: barcodeplugin_config.qml:53
+#, kde-format
+msgid "Type a URL or some text to generate a QR code"
+msgstr "Escriba un URL o un texto para generar un código QR"
+
+#: barcodeplugin_config.qml:62
+#, kde-format
+msgid "Creating QR code failed"
+msgstr "La creación del código QR ha fallado"
+
+#: barcodeplugin_config.qml:71
+#, kde-format
+msgid "The QR code is too large to be displayed"
+msgstr "El código QR es demasiado grande para mostrarlo"
+
+#: barcodeplugin_config.qml:83
+#, kde-format
+msgid "Type a URL or some text..."
+msgstr "Escriba un URL o un texto..."
