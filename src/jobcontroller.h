@@ -32,7 +32,7 @@ public:
         Cancelled,
         Error,
     };
-    Q_ENUM(State);
+    Q_ENUM(State)
 
     AlternativesModel *model() const;
     void setModel(AlternativesModel *model);
