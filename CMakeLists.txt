@@ -21,6 +21,7 @@ include(ECMInstallIcons)
 include(ECMGenerateHeaders)
 include(ECMMarkNonGuiExecutable)
 include(ECMQtDeclareLoggingCategory)
+include(ECMDeprecationSettings)
 include(ECMGenerateQmlTypes)
 include(ECMQMLModules)
 include(ECMQmlModule)
@@ -47,9 +48,12 @@ ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX PURPOSE
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfigVersion.cmake"
                         SOVERSION 5)
 
-# Wait until libaccounts-qt has a release that doesn't use QString::null https://gitlab.com/accounts-sso/libaccounts-qt/issues/4
-#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055100)
+ecm_set_disabled_deprecation_versions(
+    # QT 5.15.2 Wait until libaccounts-qt has a release that doesn't use QString::null https://gitlab.com/accounts-sso/libaccounts-qt/issues/4
+    KF 5.95
+    KCOREADDONS 5.85 # K_EXPORT_PLUGIN_VERSION
+)
+
 add_subdirectory( src )
 if (BUILD_TESTING)
     add_subdirectory( autotests )
