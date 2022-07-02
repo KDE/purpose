@@ -1,0 +1,39 @@
+# Chinese translations for purpose package
+# purpose 套件的正體中文翻譯.
+# Copyright (C) 2022 This file is copyright:
+# This file is distributed under the same license as the purpose package.
+# Automatically generated, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-21 00:14+0000\n"
+"PO-Revision-Date: 2021-09-21 00:14+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: barcodeplugin_config.qml:53
+#, kde-format
+msgid "Type a URL or some text to generate a QR code"
+msgstr ""
+
+#: barcodeplugin_config.qml:62
+#, kde-format
+msgid "Creating QR code failed"
+msgstr ""
+
+#: barcodeplugin_config.qml:71
+#, kde-format
+msgid "The QR code is too large to be displayed"
+msgstr ""
+
+#: barcodeplugin_config.qml:83
+#, kde-format
+msgid "Type a URL or some text..."
+msgstr ""

@@ -1,0 +1,38 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the purpose package.
+#
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-21 00:14+0000\n"
+"PO-Revision-Date: 2022-04-13 12:25+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: barcodeplugin_config.qml:53
+#, kde-format
+msgid "Type a URL or some text to generate a QR code"
+msgstr "Bir kare kod oluşturmak için bir URL veya metin girin"
+
+#: barcodeplugin_config.qml:62
+#, kde-format
+msgid "Creating QR code failed"
+msgstr "Kare kod oluşturması başarısız"
+
+#: barcodeplugin_config.qml:71
+#, kde-format
+msgid "The QR code is too large to be displayed"
+msgstr "Kare kod görüntülenmek için pek büyük"
+
+#: barcodeplugin_config.qml:83
+#, kde-format
+msgid "Type a URL or some text..."
+msgstr "Bir URL veya metin girin..."
