@@ -90,7 +90,7 @@
         "Name[sk]": "Generovať QR kód",
         "Name[sl]": "Generiraj kodo QR",
         "Name[sv]": "Skapa QR-kod",
-        "Name[tr]": "Kare kod oluştur",
+        "Name[tr]": "Kare Kod Oluştur",
         "Name[uk]": "Створити QR-код",
         "Name[x-test]": "xxGenerate QR codexx",
         "Name[zh_CN]": "生成二维码",
@@ -119,7 +119,7 @@
         "X-Purpose-ActionDisplay[sk]": "Generovať QR kód",
         "X-Purpose-ActionDisplay[sl]": "Generiraj QR kodo",
         "X-Purpose-ActionDisplay[sv]": "Skapa QR-kod",
-        "X-Purpose-ActionDisplay[tr]": "Kare kod oluştur",
+        "X-Purpose-ActionDisplay[tr]": "Kare Kod Oluştur",
         "X-Purpose-ActionDisplay[uk]": "Створити QR-код",
         "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx",
         "X-Purpose-ActionDisplay[zh_CN]": "生成二维码"
