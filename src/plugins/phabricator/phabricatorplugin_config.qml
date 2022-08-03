@@ -5,7 +5,7 @@
 */
 
 import QtQuick 2.2
-import QtQuick.Controls 1.2
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.1
 import org.kde.purpose.phabricator 1.0
 
@@ -60,23 +60,18 @@ ColumnLayout {
 
     RowLayout {
         Layout.alignment: Qt.AlignHCenter
-        ExclusiveGroup {
-            id: updateGroup
-        }
         RadioButton {
             id: createNew
-            exclusiveGroup: updateGroup
             text: i18nd("purpose_phabricator", "New Diff")
-            tooltip: i18nd("purpose_phabricator", "tick this to create a new \"differential diff\" which can\nbe converted online to a new differential revision")
+            ToolTip.text: i18nd("purpose_phabricator", "tick this to create a new \"differential diff\" which can\nbe converted online to a new differential revision")
             onCheckedChanged: {
                 root.refreshUpdateDR();
             }
         }
         RadioButton {
             id: updateOld
-            exclusiveGroup: updateGroup
             text: i18nd("purpose_phabricator", "Update Diff")
-            tooltip: i18nd("purpose_phabricator", "tick this to update an existing revision,\nselect one from the list below.")
+            ToolTip.text: i18nd("purpose_phabricator", "tick this to update an existing revision,\nselect one from the list below.")
             onCheckedChanged: {
                 root.refreshUpdateDR();
             }
@@ -121,7 +116,6 @@ ColumnLayout {
         Layout.fillHeight: true
         text: i18nd("purpose_phabricator", "patch updated through %1 and the Purpose/Phabricator plugin", Qt.application.name)
         enabled: updateOld.checked
-        tabChangesFocus: false
     }
 
     Item {

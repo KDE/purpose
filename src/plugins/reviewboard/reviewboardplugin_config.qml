@@ -5,7 +5,7 @@
 */
 
 import QtQuick 2.2
-import QtQuick.Controls 1.2
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.1
 import org.kde.purpose.reviewboard 1.0
 

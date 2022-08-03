@@ -5,7 +5,7 @@
 */
 
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.2
+import QtQuick.Controls 2.15
 import QtQuick.Dialogs 1.0
 import QtQuick 2.0
 
@@ -22,7 +22,7 @@ ColumnLayout
         id: destination
         Layout.fillWidth: true
 
-        iconName: "document-open-folder"
+        icon.name: "document-open-folder"
         onClicked: {
             dirSelector.visible = true
         }
