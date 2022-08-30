@@ -48,7 +48,7 @@ ColumnLayout {
 
             delegate: Kirigami.BasicListItem {
                 width: parent.width
-                text: model.display
+                text: model.name
                 icon: model.iconName
                 onClicked: root.device = deviceId
                 checked: root.device === deviceId
