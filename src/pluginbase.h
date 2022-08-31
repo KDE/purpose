@@ -8,11 +8,14 @@
 #define PURPOSE_PLUGINBASE_H
 
 #include "job.h"
+#include <kcoreaddons_export.h>
+
 #include <QObject>
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0) && KCOREADDONS_BUILD_DEPRECATED_SINCE(5, 84)
 #define EXPORT_SHARE_VERSION K_EXPORT_PLUGIN_VERSION(2)
 #else
+// TODO KF6: remove, only added for backward compat in KF5
 #define EXPORT_SHARE_VERSION
 #endif
 
