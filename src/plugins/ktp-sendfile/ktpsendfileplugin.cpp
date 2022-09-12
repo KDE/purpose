@@ -11,8 +11,6 @@
 #include <QStandardPaths>
 #include <purpose/pluginbase.h>
 
-EXPORT_SHARE_VERSION
-
 class KTpSendFileShareJob : public Purpose::Job
 {
     Q_OBJECT

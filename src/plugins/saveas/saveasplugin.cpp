@@ -15,8 +15,6 @@
 #include <QJsonArray>
 #include <QStandardPaths>
 
-EXPORT_SHARE_VERSION
-
 static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
 {
     QString path = url.path();

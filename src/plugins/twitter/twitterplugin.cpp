@@ -10,8 +10,6 @@
 
 #include <QUrlQuery>
 
-EXPORT_SHARE_VERSION
-
 QList<QString> arrayToList(const QJsonArray &array)
 {
     QList<QString> ret;

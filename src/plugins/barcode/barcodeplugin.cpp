@@ -7,8 +7,6 @@
 #include <KPluginFactory>
 #include <purpose/pluginbase.h>
 
-EXPORT_SHARE_VERSION
-
 class Q_DECL_EXPORT BarcodePlugin : public Purpose::PluginBase
 {
     Q_OBJECT

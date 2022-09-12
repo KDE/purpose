@@ -28,6 +28,4 @@ public:
 
 K_PLUGIN_CLASS_WITH_JSON(YoutubePlugin, "youtubeplugin.json")
 
-EXPORT_SHARE_VERSION
-
 #include "youtubeplugin.moc"

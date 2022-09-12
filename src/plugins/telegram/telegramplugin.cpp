@@ -21,8 +21,6 @@
 
 Q_LOGGING_CATEGORY(PLUGIN_TELEGRAM, "kf.purpose.plugins.telegram")
 
-EXPORT_SHARE_VERSION
-
 class TelegramJob : public Purpose::Job
 {
     Q_OBJECT

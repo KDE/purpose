@@ -20,8 +20,6 @@
 #include <QUrl>
 #include <QUrlQuery>
 
-EXPORT_SHARE_VERSION
-
 namespace
 {
 class EmailJob : public Purpose::Job

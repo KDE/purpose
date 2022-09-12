@@ -20,8 +20,6 @@
 #include <QStandardPaths>
 #include <purpose/pluginbase.h>
 
-EXPORT_SHARE_VERSION
-
 Q_GLOBAL_STATIC_WITH_ARGS(const QUrl, imageImgurUrl, (QLatin1String("https://api.imgur.com/3/image")))
 Q_GLOBAL_STATIC_WITH_ARGS(const QUrl, albumImgurUrl, (QLatin1String("https://api.imgur.com/3/album")))
 

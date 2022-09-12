@@ -14,8 +14,6 @@
 #include <QTimer>
 #include <purpose/pluginbase.h>
 
-EXPORT_SHARE_VERSION
-
 class KDEConnectSMSJob : public Purpose::Job
 {
     Q_OBJECT

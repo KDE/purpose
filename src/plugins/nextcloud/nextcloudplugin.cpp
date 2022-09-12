@@ -28,6 +28,4 @@ public:
 
 K_PLUGIN_CLASS_WITH_JSON(NextcloudPlugin, "nextcloudplugin.json")
 
-EXPORT_SHARE_VERSION
-
 #include "nextcloudplugin.moc"

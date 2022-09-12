@@ -15,8 +15,6 @@
 #include <QUrl>
 #include <purpose/pluginbase.h>
 
-EXPORT_SHARE_VERSION
-
 // Taken from "share" Data Engine
 // key associated with plasma-devel@kde.org
 // thanks to Alan Schaaf of Pastebin (alan@pastebin.com)
