@@ -32,7 +32,7 @@ add_share_plugin(phabricatorplugin phabricatorplugin.cpp)
 target_link_libraries(phabricatorplugin Qt${QT_MAJOR_VERSION}::Widgets PhabricatorHelpers)
 
 set_target_properties(PhabricatorHelpers PROPERTIES VERSION ${PURPOSE_VERSION} SOVERSION ${PURPOSE_SOVERSION})
-install(TARGETS PhabricatorHelpers ${KF5_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS PhabricatorHelpers ${KF_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 add_library(phabricatorquickplugin quick/phabricatorquickplugin.cpp quick/difflistmodel.cpp quick/phabricatorrc.cpp)
 target_link_libraries(phabricatorquickplugin Qt${QT_MAJOR_VERSION}::Qml Qt${QT_MAJOR_VERSION}::Gui PhabricatorHelpers)

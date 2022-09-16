@@ -18,7 +18,7 @@ target_include_directories(KF5PurposeWidgets PUBLIC "$<BUILD_INTERFACE:${CMAKE_C
                                       INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/purposewidgets>"
 )
 
-install(TARGETS KF5PurposeWidgets EXPORT KF5PurposeTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF5PurposeWidgets EXPORT KF5PurposeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 add_library(KF5::PurposeWidgets ALIAS KF5PurposeWidgets)
 
 ecm_generate_headers(PurposeWidgets_CamelCase_HEADERS

@@ -41,7 +41,7 @@ set_target_properties(KF5Purpose PROPERTIES VERSION ${PURPOSE_VERSION}
                                           EXPORT_NAME Purpose
 )
 
-install(TARGETS KF5Purpose EXPORT KF5PurposeTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF5Purpose EXPORT KF5PurposeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 add_library(KF5::Purpose ALIAS KF5Purpose)
 
 generate_export_header(KF5Purpose EXPORT_FILE_NAME ${Purpose_BINARY_DIR}/purpose/purpose_export.h BASE_NAME Purpose)
