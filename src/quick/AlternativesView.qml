@@ -24,7 +24,7 @@ StackView {
     property variant verticalLayoutDirection: ListView.TopToBottom
     property Component delegate: Component {
         RowLayout {
-            width: parent.width
+            width: ListView.view.width
             Label {
                 Layout.fillWidth: true
                 text: display
