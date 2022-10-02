@@ -1,0 +1,130 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Martin Schlander <mschlander@opensuse.org>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-09 00:42+0000\n"
+"PO-Revision-Date: 2018-07-18 21:26+0100\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team: Danish <kde-i18n-doc@kde.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: phabricatorjobs.cpp:59 phabricatorjobs.cpp:195
+#, kde-format
+msgid "Could not find the 'arc' command"
+msgstr "Kunne ikke finde kommandoen \"arc\""
+
+#: phabricatorjobs.cpp:117
+#, kde-format
+msgid "Could not create the new \"differential diff\""
+msgstr "Kunne ikke oprette den ny \"differential diff\""
+
+#: phabricatorjobs.cpp:154
+#, kde-format
+msgid "Patch upload to Phabricator failed"
+msgstr "Upload af patch til Phabricator mislykkedes"
+
+#: phabricatorjobs.cpp:206
+#, kde-format
+msgid "Could not get list of differential revisions in %1"
+msgstr "Kunne ikke hente liste over differentielle revisioner på %1"
+
+#: phabricatorplugin.cpp:49
+#, kde-format
+msgid "Phabricator refuses empty patchfiles"
+msgstr "Phabricator afviser tomme patch-filer"
+
+#: phabricatorplugin.cpp:54 phabricatorplugin_config.qml:55
+#, kde-format
+msgid "unknown"
+msgstr "ukendt"
+
+#: phabricatorplugin.cpp:56
+#, kde-format
+msgid ""
+"Please choose between creating a new revision or updating an existing one"
+msgstr ""
+"Vælg venligst mellem at oprette en ny revision eller opdatere en eksisterende"
+
+#: phabricatorplugin_config.qml:28
+#, kde-format
+msgid "Update differential revision %1"
+msgstr "Opdatér differentiel revision %1"
+
+#: phabricatorplugin_config.qml:28
+#, kde-format
+msgid "Update differential revision"
+msgstr "Opdatér differentiel revision"
+
+#: phabricatorplugin_config.qml:30
+#, kde-format
+msgid "Create new \"differential diff\""
+msgstr "Opret ny \"differential diff\""
+
+#: phabricatorplugin_config.qml:32
+#, kde-format
+msgid "Create or update?"
+msgstr "Opret eller opdatér?"
+
+#: phabricatorplugin_config.qml:65
+#, kde-format
+msgid "New Diff"
+msgstr "Ny diff"
+
+#: phabricatorplugin_config.qml:66
+#, kde-format
+msgid ""
+"tick this to create a new \"differential diff\" which can\n"
+"be converted online to a new differential revision"
+msgstr ""
+"sæt hak ved dette for at oprette en ny \"differentiel diff\" som kan\n"
+"konverteres online til en ny differentiel revision"
+
+#: phabricatorplugin_config.qml:73
+#, kde-format
+msgid "Update Diff"
+msgstr "Opdatér diff"
+
+#: phabricatorplugin_config.qml:74
+#, kde-format
+msgid ""
+"tick this to update an existing revision,\n"
+"select one from the list below."
+msgstr ""
+"sæt hak ved dette for at opdatere en eksisterende revision,\n"
+"vælg en fra listen nedenfor."
+
+#: phabricatorplugin_config.qml:102
+#, kde-format
+msgid "Open Diff in browser"
+msgstr "Åbn diff i browser"
+
+#. i18nd("purpose_phabricator", ).arg() to avoid showing the "%1" when inactive
+#: phabricatorplugin_config.qml:109
+#, kde-format
+msgid "Summary of the update to %1:"
+msgstr "Oversigt over opdateringen til %1:"
+
+#: phabricatorplugin_config.qml:109
+#, kde-format
+msgid "Summary of the update"
+msgstr "Oversigt over opdateringen"
+
+#: phabricatorplugin_config.qml:117
+#, kde-format
+msgid "patch updated through %1 and the Purpose/Phabricator plugin"
+msgstr "patch opdateret via %1 og Purpose/Phabricator-pluginet"
+
+#~ msgid "Please note"
+#~ msgstr "Bemærk venligst"
+
+#~ msgid "Remember to complete the differential revision online!"
+#~ msgstr "Husk at færdiggøre den differentielle revision online!"
