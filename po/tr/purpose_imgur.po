@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: purpose_imgur\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:42+0000\n"
-"PO-Revision-Date: 2022-04-13 12:24+0300\n"
+"PO-Revision-Date: 2022-10-08 13:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.1\n"
 
 #: imgurplugin.cpp:65
 #, kde-format
@@ -30,7 +30,7 @@ msgstr "Dosyalar imgur'a yükleniyor..."
 #: imgurplugin.cpp:145
 #, kde-format
 msgid "Imgur Upload"
-msgstr "Imgur Yükleme"
+msgstr "Imgur'a Yükle"
 
 #: imgurplugin.cpp:146
 #, kde-format
@@ -40,5 +40,5 @@ msgid ""
 "href=\"%2\">%2</a>"
 msgstr ""
 "Bu paylaşılan görsel bağlantısı (<a href=\"%1\">%1</a>) panoya kopyalandı."
-"<br><br>Yüklenen görseli kaldırmak isterseniz <a href=\"%2\">%2</a> adresini "
-"ziyaret edin."
+"<br><br>Karşıya yüklenen görseli kaldırmak isterseniz <a href=\"%2\">%2</a> "
+"adresini ziyaret edin."
