@@ -23,7 +23,7 @@ msgstr ""
 #: bluetoothplugin_config.qml:22
 #, kde-format
 msgid "Choose a device to send to:"
-msgstr "Seleccioneu el dispositiu on s'ha d'enviar:"
+msgstr "Seleccioneu el dispositiu a on enviar:"
 
 #: bluetoothplugin_config.qml:60
 #, kde-format

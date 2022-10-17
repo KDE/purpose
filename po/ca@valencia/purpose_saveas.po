@@ -25,12 +25,12 @@ msgstr ""
 #: saveasplugin.cpp:45
 #, kde-format
 msgid "No URLs to save"
-msgstr "No hi ha cap URL que s'haja de guardar"
+msgstr "No hi ha cap URL per guardar"
 
 #: saveasplugin_config.qml:19
 #, kde-format
 msgid "Save directory:"
-msgstr "Directori a guardar:"
+msgstr "Directori on es guardarà:"
 
 #: saveasplugin_config.qml:32
 #, kde-format
