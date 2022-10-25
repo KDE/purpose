@@ -23,4 +23,4 @@ msgstr ""
 #: pastebinplugin.cpp:71
 #, kde-format
 msgid "No information to send"
-msgstr "No hi ha cap informació a enviar"
+msgstr "No hi ha cap informació que s'haja d'enviar"
