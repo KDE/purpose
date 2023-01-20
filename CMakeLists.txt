@@ -30,7 +30,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Q
 set(KF_VERSION "5.102.0") # handled by release scripts
 set(KF_DEP_VERSION "5.102.0") # handled by release scripts
 
-find_package(KF5 ${KF_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n Config Kirigami2 Notifications KIO)
+find_package(KF6 ${KF_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n Config Kirigami2 Notifications KIO)
 
 find_package(KAccounts)
 
@@ -45,8 +45,8 @@ ecm_find_qmlmodule(org.kde.prison 1.0)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX PURPOSE
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h"
-                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfigVersion.cmake"
-                        SOVERSION 5)
+                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6PurposeConfigVersion.cmake"
+                        SOVERSION 6)
 
 ecm_set_disabled_deprecation_versions(
     # QT 5.15.2 Wait until libaccounts-qt has a release that doesn't use QString::null https://gitlab.com/accounts-sso/libaccounts-qt/issues/4
@@ -63,24 +63,24 @@ endif()
 ki18n_install(po)
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Purpose")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6Purpose")
 
 include(CMakePackageConfigHelpers)
 
 configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5PurposeConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfig.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF6PurposeConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6PurposeConfig.cmake"
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5PurposeConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6PurposeConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6PurposeConfigVersion.cmake"
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   COMPONENT Devel
 )
 
-install(EXPORT KF5PurposeTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5PurposeTargets.cmake NAMESPACE KF5:: )
+install(EXPORT KF6PurposeTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF6PurposeTargets.cmake NAMESPACE KF6:: )
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h

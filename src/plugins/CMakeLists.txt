@@ -1,6 +1,6 @@
 function(add_share_plugin name)
     kcoreaddons_add_plugin(${name} SOURCES ${ARGN} INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/purpose")
-    target_link_libraries(${name} Qt${QT_MAJOR_VERSION}::Core KF5::Purpose)
+    target_link_libraries(${name} Qt${QT_MAJOR_VERSION}::Core KF6::Purpose)
     set_target_properties(${name} PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf${QT_MAJOR_VERSION}/purpose")
 
     if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${name}_config.qml")

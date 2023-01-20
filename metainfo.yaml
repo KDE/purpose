@@ -12,8 +12,8 @@ deprecated: false
 release: true
 libraries:
  - qmake: Purpose
-   cmake: "KF5::Purpose"
-cmakename: KF5Purpose
+   cmake: "KF6::Purpose"
+cmakename: KF6Purpose
 
 public_lib: true
 group: Frameworks

@@ -9,7 +9,7 @@ ecm_target_qml_sources(purposequickplugin SOURCES
 
 target_link_libraries(purposequickplugin
     Qt${QT_MAJOR_VERSION}::Qml
-    KF5Purpose
+    KF6Purpose
 )
 
 ecm_finalize_qml_module(purposequickplugin DESTINATION ${KDE_INSTALL_QMLDIR})

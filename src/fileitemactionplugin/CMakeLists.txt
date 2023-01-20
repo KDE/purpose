@@ -16,8 +16,8 @@ kcoreaddons_add_plugin(sharefileitemaction
     INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kfileitemaction")
 
 target_link_libraries(sharefileitemaction
-    KF5::KIOWidgets
-    KF5::I18n
-    KF5::Notifications
-    KF5PurposeWidgets
+    KF6::KIOWidgets
+    KF6::I18n
+    KF6::Notifications
+    KF6PurposeWidgets
 )

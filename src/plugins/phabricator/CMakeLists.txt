@@ -22,7 +22,7 @@ ecm_qt_declare_logging_category(PhabricatorHelper_SRCS
 
 add_library(PhabricatorHelpers ${PhabricatorHelper_SRCS})
 generate_export_header(PhabricatorHelpers EXPORT_FILE_NAME phabricatorhelpers_export.h)
-target_link_libraries(PhabricatorHelpers KF5::CoreAddons KF5::I18n)
+target_link_libraries(PhabricatorHelpers KF6::CoreAddons KF6::I18n)
 
 add_executable(testphabricator tests/testphabricator.cpp)
 ecm_mark_nongui_executable(testphabricator)

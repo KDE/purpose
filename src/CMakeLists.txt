@@ -11,7 +11,7 @@ ecm_qt_declare_logging_category(external_process_debug_SRCS
     EXPORT PURPOSE
 )
 
-add_library(KF5Purpose
+add_library(KF6Purpose
     ${external_process_debug_SRCS}
     pluginbase.cpp
     job.cpp
@@ -23,28 +23,28 @@ add_library(KF5Purpose
     ${purpose_SRCS}
 )
 
-target_include_directories(KF5Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
+target_include_directories(KF6Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
                                              "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
                                       INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/purpose>"
 )
-target_link_libraries(KF5Purpose
+target_link_libraries(KF6Purpose
     PUBLIC
-        KF5::CoreAddons
+        KF6::CoreAddons
         Qt${QT_MAJOR_VERSION}::Gui
     PRIVATE
         Qt${QT_MAJOR_VERSION}::DBus
         Qt${QT_MAJOR_VERSION}::Network #QLocalSocket
-        KF5::ConfigCore
+        KF6::ConfigCore
 )
-set_target_properties(KF5Purpose PROPERTIES VERSION ${PURPOSE_VERSION}
+set_target_properties(KF6Purpose PROPERTIES VERSION ${PURPOSE_VERSION}
                                           SOVERSION ${PURPOSE_SOVERSION}
                                           EXPORT_NAME Purpose
 )
 
-install(TARGETS KF5Purpose EXPORT KF5PurposeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
-add_library(KF5::Purpose ALIAS KF5Purpose)
+install(TARGETS KF6Purpose EXPORT KF6PurposeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+add_library(KF6::Purpose ALIAS KF6Purpose)
 
-generate_export_header(KF5Purpose EXPORT_FILE_NAME ${Purpose_BINARY_DIR}/purpose/purpose_export.h BASE_NAME Purpose)
+generate_export_header(KF6Purpose EXPORT_FILE_NAME ${Purpose_BINARY_DIR}/purpose/purpose_export.h BASE_NAME Purpose)
 ecm_generate_headers(Purpose_CamelCase_HEADERS
     HEADER_NAMES
         PluginBase
@@ -66,7 +66,7 @@ install(FILES
 
 add_executable(purposeprocess externalprocess/purposeprocess_main.cpp helper.cpp ${external_process_debug_SRCS})
 ecm_mark_nongui_executable(purposeprocess)
-target_link_libraries(purposeprocess KF5::Purpose Qt${QT_MAJOR_VERSION}::Network Qt${QT_MAJOR_VERSION}::Widgets)
+target_link_libraries(purposeprocess KF6::Purpose Qt${QT_MAJOR_VERSION}::Network Qt${QT_MAJOR_VERSION}::Widgets)
 install(TARGETS purposeprocess DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF})
 
 add_subdirectory(plugins)

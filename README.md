@@ -29,7 +29,7 @@ process defined below for convenience.
 If you want to import in the C++ application, you can import it using CMake by
 calling:
 
-    find_package(KF5Purpose)
+    find_package(KF6Purpose)
 
 Or its QMake counterpart. Then you'll have available the Purpose library if it
 needs to be done specifically and PurposeWidgets for convenience.

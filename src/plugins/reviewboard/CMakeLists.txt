@@ -12,7 +12,7 @@ ecm_qt_declare_logging_category(ReviewboardHelpers_SRCS
 
 add_library(ReviewboardHelpers reviewboardjobs.cpp ${ReviewboardHelpers_SRCS})
 generate_export_header(ReviewboardHelpers EXPORT_FILE_NAME reviewboardhelpers_export.h)
-target_link_libraries(ReviewboardHelpers KF5::CoreAddons KF5::I18n Qt${QT_MAJOR_VERSION}::Network)
+target_link_libraries(ReviewboardHelpers KF6::CoreAddons KF6::I18n Qt${QT_MAJOR_VERSION}::Network)
 
 add_share_plugin(reviewboardplugin reviewboardplugin.cpp)
 target_link_libraries(reviewboardplugin Qt${QT_MAJOR_VERSION}::Widgets ReviewboardHelpers)

@@ -1,5 +1,5 @@
-find_package(KF5Purpose REQUIRED)
-message(WARNING "Look up the Purpose framework using KF5Purpose")
+find_package(KF6Purpose REQUIRED)
+message(WARNING "Look up the Purpose framework using KF6Purpose")
 
 function(_copyTarget A B)
     add_library(${B} SHARED IMPORTED)
@@ -20,5 +20,5 @@ function(_copyTarget A B)
     endforeach()
 endfunction()
 
-_copyTarget(KF5::Purpose KDEExperimental::Purpose)
-_copyTarget(KF5::PurposeWidgets KDEExperimental::PurposeWidgets)
+_copyTarget(KF6::Purpose KDEExperimental::Purpose)
+_copyTarget(KF6::PurposeWidgets KDEExperimental::PurposeWidgets)
