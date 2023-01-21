@@ -27,7 +27,7 @@ ProcessJob::ProcessJob(const QString &pluginPath, const QString &pluginType, con
     , m_localSocket(nullptr)
 {
     if (QLibrary::isLibrary(pluginPath)) {
-        QString exec = QStandardPaths::findExecutable(QStringLiteral("purposeprocess"), QStringList(QStringLiteral(KDE_INSTALL_FULL_LIBEXECDIR_KF5)));
+        QString exec = QStandardPaths::findExecutable(QStringLiteral("purposeprocess"), QStringList(QStringLiteral(KDE_INSTALL_FULL_LIBEXECDIR_KF)));
         Q_ASSERT(!exec.isEmpty());
         m_process->setProgram(exec);
     } else {
