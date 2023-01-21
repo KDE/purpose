@@ -32,14 +32,15 @@ set(KF_DEP_VERSION "5.102.0") # handled by release scripts
 
 find_package(KF6 ${KF_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n Config Kirigami2 Notifications KIO)
 
-find_package(KAccounts)
+# KAccounts and its dependencies aren't ported to Qt6 yet
+# find_package(KAccounts)
+#
+# set_package_properties(KAccounts PROPERTIES
+#                        PURPOSE "Needed for YouTube and Nextcloud upload"
+#                        TYPE OPTIONAL
+# )
+# ecm_find_qmlmodule(Ubuntu.OnlineAccounts 0.1)
 
-set_package_properties(KAccounts PROPERTIES
-                       PURPOSE "Needed for YouTube and Nextcloud upload"
-                       TYPE OPTIONAL
-)
-
-ecm_find_qmlmodule(Ubuntu.OnlineAccounts 0.1)
 ecm_find_qmlmodule(org.kde.kquickcontrolsaddons 2.0)
 ecm_find_qmlmodule(org.kde.prison 1.0)
 
