@@ -89,11 +89,4 @@ install(FILES
 
 feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-#TODO: Remove somewhen in the future
-install(FILES
-  "${CMAKE_CURRENT_SOURCE_DIR}/KDEExperimentalPurposeConfig.cmake"
-  DESTINATION "${KDE_INSTALL_CMAKEPACKAGEDIR}/KDEExperimentalPurpose"
-  COMPONENT Devel
-)
-
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
