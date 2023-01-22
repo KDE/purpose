@@ -12,16 +12,16 @@ ecm_qt_declare_logging_category(ReviewboardHelpers_SRCS
 
 add_library(ReviewboardHelpers reviewboardjobs.cpp ${ReviewboardHelpers_SRCS})
 generate_export_header(ReviewboardHelpers EXPORT_FILE_NAME reviewboardhelpers_export.h)
-target_link_libraries(ReviewboardHelpers KF6::CoreAddons KF6::I18n Qt${QT_MAJOR_VERSION}::Network)
+target_link_libraries(ReviewboardHelpers KF6::CoreAddons KF6::I18n Qt6::Network)
 
 add_share_plugin(reviewboardplugin reviewboardplugin.cpp)
-target_link_libraries(reviewboardplugin Qt${QT_MAJOR_VERSION}::Widgets ReviewboardHelpers)
+target_link_libraries(reviewboardplugin Qt6::Widgets ReviewboardHelpers)
 
 set_target_properties(ReviewboardHelpers PROPERTIES VERSION ${PURPOSE_VERSION} SOVERSION ${PURPOSE_SOVERSION})
 install(TARGETS ReviewboardHelpers ${KF_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 add_library(rbpurposequickplugin quick/reviewboardquickplugin.cpp quick/rbrepositoriesmodel.cpp quick/rbreviewslistmodel.cpp quick/reviewboardrc.cpp)
-target_link_libraries(rbpurposequickplugin Qt${QT_MAJOR_VERSION}::Qml ReviewboardHelpers)
+target_link_libraries(rbpurposequickplugin Qt6::Qml ReviewboardHelpers)
 
 install(TARGETS rbpurposequickplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/purpose/reviewboard)
 install(FILES quick/qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/purpose/reviewboard)

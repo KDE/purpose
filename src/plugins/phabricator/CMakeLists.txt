@@ -26,16 +26,16 @@ target_link_libraries(PhabricatorHelpers KF6::CoreAddons KF6::I18n)
 
 add_executable(testphabricator tests/testphabricator.cpp)
 ecm_mark_nongui_executable(testphabricator)
-target_link_libraries(testphabricator PhabricatorHelpers Qt${QT_MAJOR_VERSION}::Core)
+target_link_libraries(testphabricator PhabricatorHelpers Qt6::Core)
 
 add_share_plugin(phabricatorplugin phabricatorplugin.cpp)
-target_link_libraries(phabricatorplugin Qt${QT_MAJOR_VERSION}::Widgets PhabricatorHelpers)
+target_link_libraries(phabricatorplugin Qt6::Widgets PhabricatorHelpers)
 
 set_target_properties(PhabricatorHelpers PROPERTIES VERSION ${PURPOSE_VERSION} SOVERSION ${PURPOSE_SOVERSION})
 install(TARGETS PhabricatorHelpers ${KF_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 add_library(phabricatorquickplugin quick/phabricatorquickplugin.cpp quick/difflistmodel.cpp quick/phabricatorrc.cpp)
-target_link_libraries(phabricatorquickplugin Qt${QT_MAJOR_VERSION}::Qml Qt${QT_MAJOR_VERSION}::Gui PhabricatorHelpers)
+target_link_libraries(phabricatorquickplugin Qt6::Qml Qt6::Gui PhabricatorHelpers)
 
 install(TARGETS phabricatorquickplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/purpose/phabricator)
 install(FILES quick/qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/purpose/phabricator)

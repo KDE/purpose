@@ -4,9 +4,9 @@ generate_export_header(KF6PurposeWidgets EXPORT_FILE_NAME purposewidgets_export.
 target_link_libraries(KF6PurposeWidgets
     PUBLIC
         KF6::Purpose
-        Qt${QT_MAJOR_VERSION}::Widgets
+        Qt6::Widgets
     PRIVATE
-        Qt${QT_MAJOR_VERSION}::Qml
+        Qt6::Qml
         KF6::I18n
 )
 set_target_properties(KF6PurposeWidgets PROPERTIES VERSION ${PURPOSE_VERSION}

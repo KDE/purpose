@@ -30,10 +30,10 @@ target_include_directories(KF6Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_
 target_link_libraries(KF6Purpose
     PUBLIC
         KF6::CoreAddons
-        Qt${QT_MAJOR_VERSION}::Gui
+        Qt6::Gui
     PRIVATE
-        Qt${QT_MAJOR_VERSION}::DBus
-        Qt${QT_MAJOR_VERSION}::Network #QLocalSocket
+        Qt6::DBus
+        Qt6::Network #QLocalSocket
         KF6::ConfigCore
 )
 set_target_properties(KF6Purpose PROPERTIES VERSION ${PURPOSE_VERSION}
@@ -66,7 +66,7 @@ install(FILES
 
 add_executable(purposeprocess externalprocess/purposeprocess_main.cpp helper.cpp ${external_process_debug_SRCS})
 ecm_mark_nongui_executable(purposeprocess)
-target_link_libraries(purposeprocess KF6::Purpose Qt${QT_MAJOR_VERSION}::Network Qt${QT_MAJOR_VERSION}::Widgets)
+target_link_libraries(purposeprocess KF6::Purpose Qt6::Network Qt6::Widgets)
 install(TARGETS purposeprocess DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF})
 
 add_subdirectory(plugins)

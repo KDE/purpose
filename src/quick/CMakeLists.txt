@@ -8,7 +8,7 @@ ecm_target_qml_sources(purposequickplugin SOURCES
 )
 
 target_link_libraries(purposequickplugin
-    Qt${QT_MAJOR_VERSION}::Qml
+    Qt6::Qml
     KF6Purpose
 )
 

@@ -13,7 +13,7 @@ ecm_qt_declare_logging_category(sharefileitemaction_debug_SRCS
 
 kcoreaddons_add_plugin(sharefileitemaction
     SOURCES sharefileitemaction.cpp ${sharefileitemaction_debug_SRCS}
-    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kfileitemaction")
+    INSTALL_NAMESPACE "kf6/kfileitemaction")
 
 target_link_libraries(sharefileitemaction
     KF6::KIOWidgets
