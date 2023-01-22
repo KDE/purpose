@@ -53,7 +53,7 @@ QByteArray multipartFormData(const QList<QPair<QString, QVariant>> &values)
         hstr += "\"";
 
         // File
-        if (val.second.type() == QVariant::Url) {
+        if (val.second.userType() == QMetaType::QUrl) {
             QUrl path = val.second.toUrl();
             hstr += "; filename=\"" + path.fileName().toLatin1() + "\"";
             const QMimeType mime = QMimeDatabase().mimeTypeForUrl(path);
@@ -68,7 +68,7 @@ QByteArray multipartFormData(const QList<QPair<QString, QVariant>> &values)
 
         // append body
         form_data.append(hstr);
-        if (val.second.type() == QVariant::Url)
+        if (val.second.userType() == QMetaType::QUrl)
             form_data += urlToData(val.second.toUrl());
         else
             form_data += val.second.toByteArray();

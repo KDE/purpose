@@ -49,9 +49,8 @@ ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX PURPOSE
                         SOVERSION 6)
 
 ecm_set_disabled_deprecation_versions(
-    # QT 5.15.2 Wait until libaccounts-qt has a release that doesn't use QString::null https://gitlab.com/accounts-sso/libaccounts-qt/issues/4
-    KF 5.95
-    KCOREADDONS 5.85 # K_EXPORT_PLUGIN_VERSION
+    QT 6.4.0
+    KF 5.240
 )
 
 add_subdirectory( src )
