@@ -14,6 +14,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QStandardPaths>
+#include <qregularexpression.h>
 
 #include "helper.h"
 #include "pluginbase.h"
@@ -54,14 +55,13 @@ public:
 
     Purpose::Job *createJob(QObject *parent) const
     {
-        const QString fileName = m_pluginData.metaDataFileName();
-        if (fileName.endsWith(QLatin1String("/metadata.json"))) {
+        if (m_pluginData.fileName().contains(QLatin1String("contents/code/main."))) {
             return new ProcessJob(m_pluginData.fileName(), m_pluginTypeName, m_inputData, parent);
         } else {
             auto pluginResult = KPluginFactory::instantiatePlugin<QObject>(m_pluginData, parent, QVariantList());
 
             if (!pluginResult) {
-                qWarning() << "Couldn't load plugin:" << fileName << pluginResult.errorString;
+                qWarning() << "Couldn't load plugin:" << m_pluginData.fileName() << pluginResult.errorString;
                 return nullptr;
             }
 
@@ -153,10 +153,11 @@ Purpose::Job *Configuration::createJob()
 QUrl Configuration::configSourceCode() const
 {
     Q_D(const Configuration);
-    const QString metaDataPath = d->m_pluginData.metaDataFileName();
-    if (metaDataPath.endsWith(QLatin1String("/metadata.json"))) {
-        const QFileInfo fi(metaDataPath);
-        return QUrl::fromLocalFile(fi.dir().filePath(QStringLiteral("contents/config/config.qml")));
+    if (d->m_pluginData.fileName().contains(QLatin1String("contents/code/main."))) {
+        const QFileInfo fi(d->m_pluginData.fileName());
+        QDir conentsDir = fi.dir();
+        conentsDir.cdUp();
+        return QUrl::fromLocalFile(conentsDir.filePath(QStringLiteral("config/config.qml")));
     } else {
         const QString configFile =
             QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/%1_config.qml").arg(d->m_pluginData.pluginId()));

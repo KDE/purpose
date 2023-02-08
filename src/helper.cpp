@@ -62,7 +62,7 @@ KPluginMetaData Purpose::createMetaData(const QString &file)
         return KPluginMetaData();
     }
 
-    auto info = KPluginMetaData(metaData, dir.absoluteFilePath(mainFile.first()), fileName);
+    auto info = KPluginMetaData(metaData, dir.absoluteFilePath(mainFile.first()));
     Q_ASSERT(info.isValid() && !info.rawData().isEmpty());
     return info;
 }
