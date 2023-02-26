@@ -1,24 +1,22 @@
-# German translations for purpose package
-# German translation for purpose.
-# Copyright (C) 2021 This file is copyright:
+# Lithuanian translations for purpose package.
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the purpose package.
-# Frederik Schwarzer <schwarzer@kde.org>, 2021.
+# Automatically generated, 2023.
 #
-# Automatically generated, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-09-21 00:14+0000\n"
-"PO-Revision-Date: 2021-11-02 18:54+0100\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
-"Language-Team: German <kde-i18n-de@kde.org>\n"
-"Language: de\n"
+"PO-Revision-Date: 2021-09-21 00:14+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.08.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: barcodeplugin_config.qml:53
 #, kde-format
@@ -38,4 +36,4 @@ msgstr ""
 #: barcodeplugin_config.qml:83
 #, kde-format
 msgid "Type a URL or some text..."
-msgstr " Geben Sie eine Adresse oder anderen Text ein ..."
+msgstr ""
