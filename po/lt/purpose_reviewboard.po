@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: trunk-kf 5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2019-11-23 01:05+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: lt\n"
@@ -53,17 +53,20 @@ msgstr "Nepavyko gauti apžvalgų sąrašo"
 msgid "Could not set metadata"
 msgstr "Nepavyko nustatyti metaduomenų"
 
-#: reviewboardplugin_config.qml:32
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
 #, kde-format
 msgid "Server:"
 msgstr "Serveris:"
 
-#: reviewboardplugin_config.qml:38
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
 #, kde-format
 msgid "Username:"
 msgstr "Naudotojo vardas:"
 
-#: reviewboardplugin_config.qml:43
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
 #, kde-format
 msgid "Password:"
 msgstr "Slaptažodis:"
@@ -78,26 +81,50 @@ msgstr "Saugykla:"
 msgid "Update Review:"
 msgstr "Atnaujinti apžvalgą:"
 
-#~ msgid "Destination"
-#~ msgstr "Paskirtis"
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: reviewpatch.ui:17
+#, kde-format
+msgid "Destination"
+msgstr "Paskirtis"
 
-#~ msgid "Base Dir:"
-#~ msgstr "Bazinis katalogas:"
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: reviewpatch.ui:36
+#, kde-format
+msgid "Base Dir:"
+msgstr "Bazinis katalogas:"
 
-#~ msgid "/"
-#~ msgstr "/"
+#. i18n: ectx: property (text), widget (QLineEdit, basedir)
+#: reviewpatch.ui:43
+#, kde-format
+msgid "/"
+msgstr "/"
 
-#~ msgid "Where this project was checked out from"
-#~ msgstr "Iš kur šis projektas buvo paimtas"
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, basedir)
+#: reviewpatch.ui:46
+#, kde-format
+msgid "Where this project was checked out from"
+msgstr "Iš kur šis projektas buvo paimtas"
 
-#~ msgid "Authentication"
-#~ msgstr "Tapatybės nustatymas"
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: reviewpatch.ui:56
+#, kde-format
+msgid "Authentication"
+msgstr "Tapatybės nustatymas"
 
-#~ msgid "User name in the specified service"
-#~ msgstr "Naudotojo vardas nurodytoje paslaugoje"
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, username)
+#: reviewpatch.ui:72
+#, kde-format
+msgid "User name in the specified service"
+msgstr "Naudotojo vardas nurodytoje paslaugoje"
 
-#~ msgid "Repository"
-#~ msgstr "Saugykla"
+#. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
+#: reviewpatch.ui:99
+#, kde-format
+msgid "Repository"
+msgstr "Saugykla"
 
-#~ msgid "Update review"
-#~ msgstr "Atnaujinti apžvalgą"
+#. i18n: ectx: property (title), widget (QGroupBox, reviewsBox)
+#: reviewpatch.ui:111
+#, kde-format
+msgid "Update review"
+msgstr "Atnaujinti apžvalgą"

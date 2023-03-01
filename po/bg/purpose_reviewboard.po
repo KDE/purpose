@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2022-05-22 20:06+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <dict@ludost.net>\n"
@@ -52,17 +52,20 @@ msgstr "Неуспешно получаване на списък с прегл�
 msgid "Could not set metadata"
 msgstr "Грешка при задаване на метаданни"
 
-#: reviewboardplugin_config.qml:32
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
 #, kde-format
 msgid "Server:"
 msgstr "Сървър:"
 
-#: reviewboardplugin_config.qml:38
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
 #, kde-format
 msgid "Username:"
 msgstr "Потребителско име:"
 
-#: reviewboardplugin_config.qml:43
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
 #, kde-format
 msgid "Password:"
 msgstr "Парола:"
@@ -77,26 +80,50 @@ msgstr "Хранилище:"
 msgid "Update Review:"
 msgstr "Актуализиране на преглед:"
 
-#~ msgid "Destination"
-#~ msgstr "Назначение"
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: reviewpatch.ui:17
+#, kde-format
+msgid "Destination"
+msgstr "Назначение"
 
-#~ msgid "Base Dir:"
-#~ msgstr "Основна папка:"
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: reviewpatch.ui:36
+#, kde-format
+msgid "Base Dir:"
+msgstr "Основна папка:"
 
-#~ msgid "/"
-#~ msgstr "/"
+#. i18n: ectx: property (text), widget (QLineEdit, basedir)
+#: reviewpatch.ui:43
+#, kde-format
+msgid "/"
+msgstr "/"
 
-#~ msgid "Where this project was checked out from"
-#~ msgstr "Откъде беше проверен този проект"
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, basedir)
+#: reviewpatch.ui:46
+#, kde-format
+msgid "Where this project was checked out from"
+msgstr "Откъде беше проверен този проект"
 
-#~ msgid "Authentication"
-#~ msgstr "Удостоверяване"
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: reviewpatch.ui:56
+#, kde-format
+msgid "Authentication"
+msgstr "Удостоверяване"
 
-#~ msgid "User name in the specified service"
-#~ msgstr "Потребителско име в посочената услуга"
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, username)
+#: reviewpatch.ui:72
+#, kde-format
+msgid "User name in the specified service"
+msgstr "Потребителско име в посочената услуга"
 
-#~ msgid "Repository"
-#~ msgstr "Хранилище"
+#. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
+#: reviewpatch.ui:99
+#, kde-format
+msgid "Repository"
+msgstr "Хранилище"
 
-#~ msgid "Update review"
-#~ msgstr "Актуализиране на преглед"
+#. i18n: ectx: property (title), widget (QGroupBox, reviewsBox)
+#: reviewpatch.ui:111
+#, kde-format
+msgid "Update review"
+msgstr "Актуализиране на преглед"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2019-08-16 20:27+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -51,17 +51,20 @@ msgstr "Рӯйхати назоратҳо ба даст оварда нашуд"
 msgid "Could not set metadata"
 msgstr "Иттилооти фавқ танзим карда нашуд"
 
-#: reviewboardplugin_config.qml:32
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
 #, kde-format
 msgid "Server:"
 msgstr "Хизматрасон:"
 
-#: reviewboardplugin_config.qml:38
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
 #, kde-format
 msgid "Username:"
 msgstr "Номи корбар:"
 
-#: reviewboardplugin_config.qml:43
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
 #, kde-format
 msgid "Password:"
 msgstr "Ниҳонвожа:"
@@ -76,26 +79,50 @@ msgstr "Анбори додаҳо:"
 msgid "Update Review:"
 msgstr "Муоинаи навсозӣ:"
 
-#~ msgid "Destination"
-#~ msgstr "Ҷои таъйинот"
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: reviewpatch.ui:17
+#, kde-format
+msgid "Destination"
+msgstr "Ҷои таъйинот"
 
-#~ msgid "Base Dir:"
-#~ msgstr "Ҷузвадони асосӣ:"
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: reviewpatch.ui:36
+#, kde-format
+msgid "Base Dir:"
+msgstr "Ҷузвадони асосӣ:"
 
-#~ msgid "/"
-#~ msgstr "/"
+#. i18n: ectx: property (text), widget (QLineEdit, basedir)
+#: reviewpatch.ui:43
+#, kde-format
+msgid "/"
+msgstr "/"
 
-#~ msgid "Where this project was checked out from"
-#~ msgstr "Аз ин ҷо лоиҳа ба даст оварда шуд"
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, basedir)
+#: reviewpatch.ui:46
+#, kde-format
+msgid "Where this project was checked out from"
+msgstr "Аз ин ҷо лоиҳа ба даст оварда шуд"
 
-#~ msgid "Authentication"
-#~ msgstr "Санҷиши ҳаққоният"
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: reviewpatch.ui:56
+#, kde-format
+msgid "Authentication"
+msgstr "Санҷиши ҳаққоният"
 
-#~ msgid "User name in the specified service"
-#~ msgstr "Номи корбар дар хидмати муайяншуда"
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, username)
+#: reviewpatch.ui:72
+#, kde-format
+msgid "User name in the specified service"
+msgstr "Номи корбар дар хидмати муайяншуда"
 
-#~ msgid "Repository"
-#~ msgstr "Анбори додаҳо"
+#. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
+#: reviewpatch.ui:99
+#, kde-format
+msgid "Repository"
+msgstr "Анбори додаҳо"
 
-#~ msgid "Update review"
-#~ msgstr "Муоинаи навсозӣ"
+#. i18n: ectx: property (title), widget (QGroupBox, reviewsBox)
+#: reviewpatch.ui:111
+#, kde-format
+msgid "Update review"
+msgstr "Муоинаи навсозӣ"
