@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdevelop\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-03-06 02:34+0100\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2015-10-17 22:48+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -48,20 +48,17 @@ msgstr "리뷰 목록을 가져올 수 없습니다"
 msgid "Could not set metadata"
 msgstr "메타데이터를 설정할 수 없음"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
+#: reviewboardplugin_config.qml:32
 #, kde-format
 msgid "Server:"
 msgstr "서버:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
+#: reviewboardplugin_config.qml:38
 #, kde-format
 msgid "Username:"
 msgstr "사용자 이름:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
+#: reviewboardplugin_config.qml:43
 #, kde-format
 msgid "Password:"
 msgstr "암호:"
@@ -76,50 +73,26 @@ msgstr "저장소:"
 msgid "Update Review:"
 msgstr "리뷰 업데이트:"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: reviewpatch.ui:17
-#, kde-format
-msgid "Destination"
-msgstr "대상"
+#~ msgid "Destination"
+#~ msgstr "대상"
 
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: reviewpatch.ui:36
-#, kde-format
-msgid "Base Dir:"
-msgstr "기본 디렉터리:"
+#~ msgid "Base Dir:"
+#~ msgstr "기본 디렉터리:"
 
-#. i18n: ectx: property (text), widget (QLineEdit, basedir)
-#: reviewpatch.ui:43
-#, kde-format
-msgid "/"
-msgstr "/"
+#~ msgid "/"
+#~ msgstr "/"
 
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, basedir)
-#: reviewpatch.ui:46
-#, kde-format
-msgid "Where this project was checked out from"
-msgstr "프로젝트를 체크아웃한 위치"
+#~ msgid "Where this project was checked out from"
+#~ msgstr "프로젝트를 체크아웃한 위치"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: reviewpatch.ui:56
-#, kde-format
-msgid "Authentication"
-msgstr "인증"
+#~ msgid "Authentication"
+#~ msgstr "인증"
 
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, username)
-#: reviewpatch.ui:72
-#, kde-format
-msgid "User name in the specified service"
-msgstr "지정한 서비스의 사용자 이름"
+#~ msgid "User name in the specified service"
+#~ msgstr "지정한 서비스의 사용자 이름"
 
-#. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
-#: reviewpatch.ui:99
-#, kde-format
-msgid "Repository"
-msgstr "저장소"
+#~ msgid "Repository"
+#~ msgstr "저장소"
 
-#. i18n: ectx: property (title), widget (QGroupBox, reviewsBox)
-#: reviewpatch.ui:111
-#, kde-format
-msgid "Update review"
-msgstr "리뷰 업데이트"
+#~ msgid "Update review"
+#~ msgstr "리뷰 업데이트"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-03-06 02:34+0100\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2020-10-21 12:57+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -51,20 +51,17 @@ msgstr "Αδυναμία ανάκτησης της λίστας ανασκοπή
 msgid "Could not set metadata"
 msgstr "Αδυναμία ρύθμισης μεταδεδομένων"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
+#: reviewboardplugin_config.qml:32
 #, kde-format
 msgid "Server:"
 msgstr "Εξυπηρετητής:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
+#: reviewboardplugin_config.qml:38
 #, kde-format
 msgid "Username:"
 msgstr "Όνομα χρήστη:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
+#: reviewboardplugin_config.qml:43
 #, kde-format
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
@@ -79,50 +76,26 @@ msgstr "Αποθετήριο:"
 msgid "Update Review:"
 msgstr "Ενημέρωση ανασκόπησης"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: reviewpatch.ui:17
-#, kde-format
-msgid "Destination"
-msgstr "Προορισμός"
+#~ msgid "Destination"
+#~ msgstr "Προορισμός"
 
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: reviewpatch.ui:36
-#, kde-format
-msgid "Base Dir:"
-msgstr "Βασικός κατάλογος:"
+#~ msgid "Base Dir:"
+#~ msgstr "Βασικός κατάλογος:"
 
-#. i18n: ectx: property (text), widget (QLineEdit, basedir)
-#: reviewpatch.ui:43
-#, kde-format
-msgid "/"
-msgstr "/"
+#~ msgid "/"
+#~ msgstr "/"
 
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, basedir)
-#: reviewpatch.ui:46
-#, kde-format
-msgid "Where this project was checked out from"
-msgstr "Από όπου το έργο αυτό ελήφθη"
+#~ msgid "Where this project was checked out from"
+#~ msgstr "Από όπου το έργο αυτό ελήφθη"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: reviewpatch.ui:56
-#, kde-format
-msgid "Authentication"
-msgstr "Ταυτοποίηση"
+#~ msgid "Authentication"
+#~ msgstr "Ταυτοποίηση"
 
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, username)
-#: reviewpatch.ui:72
-#, kde-format
-msgid "User name in the specified service"
-msgstr "Όνομα χρήστη στη συγκεκριμένη υπηρεσία"
+#~ msgid "User name in the specified service"
+#~ msgstr "Όνομα χρήστη στη συγκεκριμένη υπηρεσία"
 
-#. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
-#: reviewpatch.ui:99
-#, kde-format
-msgid "Repository"
-msgstr "Αποθετήριο"
+#~ msgid "Repository"
+#~ msgstr "Αποθετήριο"
 
-#. i18n: ectx: property (title), widget (QGroupBox, reviewsBox)
-#: reviewpatch.ui:111
-#, kde-format
-msgid "Update review"
-msgstr "Ενημέρωση ανασκόπησης"
+#~ msgid "Update review"
+#~ msgstr "Ενημέρωση ανασκόπησης"

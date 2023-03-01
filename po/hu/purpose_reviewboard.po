@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-03-06 02:34+0100\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2018-10-19 17:19+0200\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -51,20 +51,17 @@ msgstr "Nem sikerült letölteni a véleményezési listát"
 msgid "Could not set metadata"
 msgstr "Nem sikerült beállítani a metaadatokat"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
+#: reviewboardplugin_config.qml:32
 #, kde-format
 msgid "Server:"
 msgstr "Kiszolgáló:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
+#: reviewboardplugin_config.qml:38
 #, kde-format
 msgid "Username:"
 msgstr "Felhasználónév:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
+#: reviewboardplugin_config.qml:43
 #, kde-format
 msgid "Password:"
 msgstr "Jelszó:"
@@ -79,50 +76,26 @@ msgstr "Tároló:"
 msgid "Update Review:"
 msgstr "Vélemény frissítése:"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: reviewpatch.ui:17
-#, kde-format
-msgid "Destination"
-msgstr "Cél"
+#~ msgid "Destination"
+#~ msgstr "Cél"
 
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: reviewpatch.ui:36
-#, kde-format
-msgid "Base Dir:"
-msgstr "Bázismappa:"
+#~ msgid "Base Dir:"
+#~ msgstr "Bázismappa:"
 
-#. i18n: ectx: property (text), widget (QLineEdit, basedir)
-#: reviewpatch.ui:43
-#, kde-format
-msgid "/"
-msgstr "/"
+#~ msgid "/"
+#~ msgstr "/"
 
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, basedir)
-#: reviewpatch.ui:46
-#, kde-format
-msgid "Where this project was checked out from"
-msgstr "Honnan lett letöltve a projekt"
+#~ msgid "Where this project was checked out from"
+#~ msgstr "Honnan lett letöltve a projekt"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: reviewpatch.ui:56
-#, kde-format
-msgid "Authentication"
-msgstr "Hitelesítés"
+#~ msgid "Authentication"
+#~ msgstr "Hitelesítés"
 
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, username)
-#: reviewpatch.ui:72
-#, kde-format
-msgid "User name in the specified service"
-msgstr "Felhasználónév a megadott szolgáltatáshoz"
+#~ msgid "User name in the specified service"
+#~ msgstr "Felhasználónév a megadott szolgáltatáshoz"
 
-#. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
-#: reviewpatch.ui:99
-#, kde-format
-msgid "Repository"
-msgstr "Tároló"
+#~ msgid "Repository"
+#~ msgstr "Tároló"
 
-#. i18n: ectx: property (title), widget (QGroupBox, reviewsBox)
-#: reviewpatch.ui:111
-#, kde-format
-msgid "Update review"
-msgstr "Vélemény frissítése"
+#~ msgid "Update review"
+#~ msgstr "Vélemény frissítése"

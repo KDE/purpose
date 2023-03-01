@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-03-06 02:34+0100\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2015-10-04 08:22+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -52,20 +52,17 @@ msgstr "Nie można uzyskać listy przeglądu"
 msgid "Could not set metadata"
 msgstr "Nie można ustawić metadanych"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
+#: reviewboardplugin_config.qml:32
 #, kde-format
 msgid "Server:"
 msgstr "Serwer:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
+#: reviewboardplugin_config.qml:38
 #, kde-format
 msgid "Username:"
 msgstr "Nazwa użytkownika:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
+#: reviewboardplugin_config.qml:43
 #, kde-format
 msgid "Password:"
 msgstr "Hasło:"
@@ -80,50 +77,26 @@ msgstr "Repozytorium:"
 msgid "Update Review:"
 msgstr "Uaktualnij przegląd:"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: reviewpatch.ui:17
-#, kde-format
-msgid "Destination"
-msgstr "Miejsce docelowe"
+#~ msgid "Destination"
+#~ msgstr "Miejsce docelowe"
 
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: reviewpatch.ui:36
-#, kde-format
-msgid "Base Dir:"
-msgstr "Katalog podstawowy:"
+#~ msgid "Base Dir:"
+#~ msgstr "Katalog podstawowy:"
 
-#. i18n: ectx: property (text), widget (QLineEdit, basedir)
-#: reviewpatch.ui:43
-#, kde-format
-msgid "/"
-msgstr "/"
+#~ msgid "/"
+#~ msgstr "/"
 
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, basedir)
-#: reviewpatch.ui:46
-#, kde-format
-msgid "Where this project was checked out from"
-msgstr "Skąd zostało dokonane sprawdzenie tego projektu"
+#~ msgid "Where this project was checked out from"
+#~ msgstr "Skąd zostało dokonane sprawdzenie tego projektu"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: reviewpatch.ui:56
-#, kde-format
-msgid "Authentication"
-msgstr "Uwierzytelnianie"
+#~ msgid "Authentication"
+#~ msgstr "Uwierzytelnianie"
 
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, username)
-#: reviewpatch.ui:72
-#, kde-format
-msgid "User name in the specified service"
-msgstr "Nazwa użytkownika w określonej usłudze"
+#~ msgid "User name in the specified service"
+#~ msgstr "Nazwa użytkownika w określonej usłudze"
 
-#. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
-#: reviewpatch.ui:99
-#, kde-format
-msgid "Repository"
-msgstr "Repozytorium"
+#~ msgid "Repository"
+#~ msgstr "Repozytorium"
 
-#. i18n: ectx: property (title), widget (QGroupBox, reviewsBox)
-#: reviewpatch.ui:111
-#, kde-format
-msgid "Update review"
-msgstr "Uaktualnij przegląd"
+#~ msgid "Update review"
+#~ msgstr "Uaktualnij przegląd"

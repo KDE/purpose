@@ -1,38 +1,39 @@
+# Lithuanian translations for purpose package.
+# Copyright (C) 2023 This file is copyright:
+# This file is distributed under the same license as the purpose package.
+# Automatically generated, 2023.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-09-21 00:14+0000\n"
-"PO-Revision-Date: 2023-02-24 12:44\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2021-09-21 00:14+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/purpose/purpose_barcode.pot\n"
-"X-Crowdin-File-ID: 25661\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 
 #: barcodeplugin_config.qml:53
 #, kde-format
 msgid "Type a URL or some text to generate a QR code"
-msgstr "输入要生成二维码的 URL 或文本"
+msgstr ""
 
 #: barcodeplugin_config.qml:62
 #, kde-format
 msgid "Creating QR code failed"
-msgstr "创建二维码失败"
+msgstr ""
 
 #: barcodeplugin_config.qml:71
 #, kde-format
 msgid "The QR code is too large to be displayed"
-msgstr "二维码过大，无法显示"
+msgstr ""
 
 #: barcodeplugin_config.qml:83
 #, kde-format
 msgid "Type a URL or some text..."
-msgstr "输入 URL 或文本..."
+msgstr ""
