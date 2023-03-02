@@ -13,8 +13,8 @@ include(KDECMakeSettings)
 include(KDEGitCommitHooks)
 
 include(FeatureSummary)
-include(GenerateExportHeader)
 
+include(ECMGenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMAddTests)
 include(ECMInstallIcons)
@@ -42,6 +42,8 @@ set_package_properties(KAccounts PROPERTIES
 ecm_find_qmlmodule(Ubuntu.OnlineAccounts 0.1)
 ecm_find_qmlmodule(org.kde.kquickcontrolsaddons 2.0)
 ecm_find_qmlmodule(org.kde.prison 1.0)
+
+set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX PURPOSE
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/purpose_version.h"

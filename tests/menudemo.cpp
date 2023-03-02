@@ -13,7 +13,7 @@
 #include <QUrl>
 
 #include <purpose/alternativesmodel.h>
-#include <purposewidgets/menu.h>
+#include <purpose/menu.h>
 
 int main(int argc, char **argv)
 {

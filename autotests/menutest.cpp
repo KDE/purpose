@@ -12,7 +12,7 @@
 
 #include "menutest.h"
 #include <purpose/alternativesmodel.h>
-#include <purposewidgets/menu.h>
+#include <purpose/menu.h>
 
 QTEST_MAIN(MenuTest)
 
