@@ -1,3 +1,5 @@
+set(PURPOSE_INSTALL_INCLUDEDIR "${KDE_INSTALL_INCLUDEDIR_KF}/Purpose")
+
 qt_add_resources(purpose_SRCS standard-plugin-types.qrc)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake-paths.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/cmake-paths.h)
@@ -23,9 +25,12 @@ add_library(KF6Purpose
     ${purpose_SRCS}
 )
 
-target_include_directories(KF6Purpose PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
-                                             "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
-                                      INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/purpose>"
+target_include_directories(KF6Purpose
+    PUBLIC
+        "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
+        "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
+    INTERFACE
+        "$<INSTALL_INTERFACE:${PURPOSE_INSTALL_INCLUDEDIR}>"
 )
 target_link_libraries(KF6Purpose
     PUBLIC
@@ -55,13 +60,17 @@ ecm_generate_headers(Purpose_CamelCase_HEADERS
     PREFIX Purpose
 )
 
-install(FILES ${Purpose_CamelCase_HEADERS}
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/purpose/Purpose/
-        COMPONENT Devel)
-install(FILES
-  ${Purpose_BINARY_DIR}/purpose/purpose_export.h
-  ${Purpose_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/purpose/purpose COMPONENT Devel
+install(
+    FILES ${Purpose_CamelCase_HEADERS}
+    DESTINATION ${PURPOSE_INSTALL_INCLUDEDIR}/Purpose # C++ namespace
+    COMPONENT Devel
+)
+install(
+    FILES
+        ${Purpose_BINARY_DIR}/purpose/purpose_export.h
+        ${Purpose_HEADERS}
+    DESTINATION ${PURPOSE_INSTALL_INCLUDEDIR}/purpose # C++ namespace
+    COMPONENT Devel
 )
 
 add_executable(purposeprocess externalprocess/purposeprocess_main.cpp helper.cpp ${external_process_debug_SRCS})
