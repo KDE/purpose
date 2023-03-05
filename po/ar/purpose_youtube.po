@@ -46,7 +46,7 @@ msgstr "الوسوم:"
 #: youtubeplugin_config.qml:63
 #, kde-format
 msgid "KDE, Kamoso"
-msgstr "كدي، بلازما"
+msgstr "كِيدِي، بلازما"
 
 #: youtubeplugin_config.qml:66
 #, kde-format
