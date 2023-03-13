@@ -3,13 +3,14 @@
 #
 # Alexander Potashev <aspotashev@gmail.com>, 2015, 2018.
 # Мария Шикунова <translation-team@basealt.ru>, 2022.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:42+0000\n"
-"PO-Revision-Date: 2022-02-16 15:28+0300\n"
-"Last-Translator: Мария Шикунова <translation-team@basealt.ru>\n"
+"PO-Revision-Date: 2023-03-12 18:52+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +28,7 @@ msgstr "Сервер вернул страницу с сообщением об 
 #: imgurplugin.cpp:95
 #, kde-format
 msgid "Uploading files to imgur..."
-msgstr "Загрузка файлов в Imgur..."
+msgstr "Загрузка файлов в Imgur…"
 
 #: imgurplugin.cpp:145
 #, kde-format
@@ -41,6 +42,6 @@ msgid ""
 "clipboard.<br><br>If you would like to remove the uploaded image, visit <a "
 "href=\"%2\">%2</a>"
 msgstr ""
-"Ссылка на опубликованный список экрана (<a href=\"%1\">%1</a>) скопирована в "
+"Ссылка на опубликованное изображение (<a href=\"%1\">%1</a>) скопирована в "
 "буфер обмена.<br><br>Чтобы удалить загруженное изображение, посетите <a href="
 "\"%2\">%2</a>"
