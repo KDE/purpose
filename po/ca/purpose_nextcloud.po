@@ -39,9 +39,3 @@ msgstr "Configuració de comptes"
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Puja a la carpeta:"
-
-#~ msgid "Account:"
-#~ msgstr "Compte:"
-
-#~ msgid "Invalid folder!"
-#~ msgstr "Carpeta no vàlida!"

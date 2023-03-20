@@ -29,12 +29,3 @@ msgstr "Envia un fitxer"
 #, kde-format
 msgid "Configuration cancelled"
 msgstr "S'ha cancel·lat la configuració"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancel·la"
-
-#~ msgid "Run"
-#~ msgstr "Executa"
-
-#~ msgid "%1 - %2"
-#~ msgstr "%1 - %2"

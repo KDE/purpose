@@ -46,12 +46,3 @@ msgstr "Envia"
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
-
-#~ msgid "Run"
-#~ msgstr "Executa"
-
-#~ msgid "Back"
-#~ msgstr "Enrere"
-
-#~ msgid "Configuration cancelled"
-#~ msgstr "S'ha cancel·lat la configuració"
