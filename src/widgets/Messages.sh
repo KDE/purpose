@@ -1,2 +1,2 @@
 #!/bin/sh
-$XGETTEXT *.cpp *.h *.qml -o $podir/libpurpose_widgets.pot
+$XGETTEXT *.cpp *.h *.qml -o $podir/libpurpose6_widgets.pot

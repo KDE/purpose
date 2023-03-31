@@ -31,7 +31,7 @@ StackView {
                 elide: Text.ElideRight
             }
             Button {
-                text: i18nd("libpurpose_quick", "Use")
+                text: i18nd("libpurpose6_quick", "Use")
                 onClicked: createJob(index);
             }
             Keys.onReturnPressed: createJob(index)

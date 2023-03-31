@@ -21,7 +21,7 @@ ColumnLayout
     property var mimeType
 
     Kirigami.Heading {
-        text: i18nd("purpose_nextcloud", "Select an account:")
+        text: i18nd("purpose6_nextcloud", "Select an account:")
         visible: list.count !== 0
     }
 
@@ -60,7 +60,7 @@ ColumnLayout
                 anchors.centerIn: parent
                 width: parent.width - (Kirigami.Units.largeSpacing * 4)
                 visible: list.count === 0
-                text: i18nd("purpose_nextcloud", "No account configured")
+                text: i18nd("purpose6_nextcloud", "No account configured")
             }
         }
     }
@@ -68,14 +68,14 @@ ColumnLayout
     Button {
         Layout.alignment: Qt.AlignRight
 
-        text: i18nd("purpose_nextcloud", "Configure Accounts")
+        text: i18nd("purpose6_nextcloud", "Configure Accounts")
         icon.name: "applications-internet"
         onClicked: KQCA.KCMShell.openSystemSettings("kcm_kaccounts")
     }
 
     Label {
         Layout.fillWidth: true
-        text: i18nd("purpose_nextcloud", "Upload to folder:")
+        text: i18nd("purpose6_nextcloud", "Upload to folder:")
     }
 
     TextField {

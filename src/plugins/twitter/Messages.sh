@@ -1,2 +1,2 @@
 #!/bin/sh
-$XGETTEXT `find . -name \*.cpp -o -name \*.qml` -o $podir/purpose_twitter.pot
+$XGETTEXT `find . -name \*.cpp -o -name \*.qml` -o $podir/purpose6_twitter.pot

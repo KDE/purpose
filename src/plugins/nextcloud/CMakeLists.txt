@@ -1,4 +1,4 @@
-add_definitions(-DTRANSLATION_DOMAIN=\"purpose_nextcloud\")
+add_definitions(-DTRANSLATION_DOMAIN=\"purpose6_nextcloud\")
 
 kaccounts_add_service(${CMAKE_CURRENT_SOURCE_DIR}/nextcloud-upload.service.in)
 

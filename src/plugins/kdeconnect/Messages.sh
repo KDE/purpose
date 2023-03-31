@@ -1,2 +1,2 @@
 #!/bin/sh
-$XGETTEXT `find . -not -path \*/tests/\* -name \*.cpp -o -name \*.qml -o -name \*.cc -o -name \*.h` -o $podir/purpose_kdeconnect.pot
+$XGETTEXT `find . -not -path \*/tests/\* -name \*.cpp -o -name \*.qml -o -name \*.cc -o -name \*.h` -o $podir/purpose6_kdeconnect.pot

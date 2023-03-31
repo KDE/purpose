@@ -5,7 +5,7 @@ else()
     message(STATUS "The 'arc' script was found as ${ARCANIST}")
 endif()
 
-add_definitions(-DTRANSLATION_DOMAIN=\"purpose_phabricator\")
+add_definitions(-DTRANSLATION_DOMAIN=\"purpose6_phabricator\")
 
 add_subdirectory(icons)
 

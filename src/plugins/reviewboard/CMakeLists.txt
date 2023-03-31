@@ -1,4 +1,4 @@
-add_definitions(-DTRANSLATION_DOMAIN=\"purpose_reviewboard\")
+add_definitions(-DTRANSLATION_DOMAIN=\"purpose6_reviewboard\")
 add_subdirectory(icons)
 
 ecm_qt_declare_logging_category(ReviewboardHelpers_SRCS

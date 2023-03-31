@@ -1,4 +1,4 @@
-add_definitions(-DTRANSLATION_DOMAIN="purpose-fileitemaction")
+add_definitions(-DTRANSLATION_DOMAIN="purpose6_fileitemaction")
 include_directories(${CMAKE_SOURCE_DIR})
 
 set(sharefileitemaction_debug_SRCS)

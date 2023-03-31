@@ -105,7 +105,7 @@ Item {
                 visible: configLoader.status === Loader.Error
                 wrapMode: Text.WordWrap
                 text: configLoader.status === Loader.Error
-                    ? i18nd("libpurpose_quick", "Failed to load the configuration page for this action:\n\n%1", configLoader.sourceComponent.errorString())
+                    ? i18nd("libpurpose6_quick", "Failed to load the configuration page for this action:\n\n%1", configLoader.sourceComponent.errorString())
                     : ""
             }
 
@@ -118,7 +118,7 @@ Item {
                 Layout.alignment: Qt.AlignRight
 
                 Button {
-                    text: i18nd("libpurpose_quick", "Send")
+                    text: i18nd("libpurpose6_quick", "Send")
                     icon.name: "document-send"
                     enabled: jobController.configuration
                              && jobController.configuration.isReady
@@ -126,7 +126,7 @@ Item {
                 }
 
                 Button {
-                    text: i18nd("libpurpose_quick", "Cancel")
+                    text: i18nd("libpurpose6_quick", "Cancel")
                     icon.name: "dialog-cancel"
                     onClicked: jobController.cancel()
                 }

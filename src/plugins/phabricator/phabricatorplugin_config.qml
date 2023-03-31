@@ -25,11 +25,11 @@ ColumnLayout {
     function labelText()
     {
         if (updateDRCombo.currentIndex>=0 && updateOld.checked) {
-            return updateDR.length > 0 ? i18nd("purpose_phabricator", "Update differential revision %1", updateDR) : i18nd("purpose_phabricator", "Update differential revision")
+            return updateDR.length > 0 ? i18nd("purpose6_phabricator", "Update differential revision %1", updateDR) : i18nd("purpose6_phabricator", "Update differential revision")
         } else if (createNew.checked) {
-            return i18nd("purpose_phabricator", "Create new \"differential diff\"")
+            return i18nd("purpose6_phabricator", "Create new \"differential diff\"")
         } else {
-            return i18nd("purpose_phabricator", "Create or update?")
+            return i18nd("purpose6_phabricator", "Create or update?")
         }
     }
     Label {
@@ -52,7 +52,7 @@ ColumnLayout {
                 root.updateDR = ""
                 root.drTitle = ""
             } else {
-                root.updateDR = i18nd("purpose_phabricator", "unknown")
+                root.updateDR = i18nd("purpose6_phabricator", "unknown")
                 root.drTitle = ""
             }
         }
@@ -62,16 +62,16 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
         RadioButton {
             id: createNew
-            text: i18nd("purpose_phabricator", "New Diff")
-            ToolTip.text: i18nd("purpose_phabricator", "tick this to create a new \"differential diff\" which can\nbe converted online to a new differential revision")
+            text: i18nd("purpose6_phabricator", "New Diff")
+            ToolTip.text: i18nd("purpose6_phabricator", "tick this to create a new \"differential diff\" which can\nbe converted online to a new differential revision")
             onCheckedChanged: {
                 root.refreshUpdateDR();
             }
         }
         RadioButton {
             id: updateOld
-            text: i18nd("purpose_phabricator", "Update Diff")
-            ToolTip.text: i18nd("purpose_phabricator", "tick this to update an existing revision,\nselect one from the list below.")
+            text: i18nd("purpose6_phabricator", "Update Diff")
+            ToolTip.text: i18nd("purpose6_phabricator", "tick this to update an existing revision,\nselect one from the list below.")
             onCheckedChanged: {
                 root.refreshUpdateDR();
             }
@@ -99,14 +99,14 @@ ColumnLayout {
         CheckBox {
             id: doBrowseCheck
             anchors.centerIn: parent
-            text: i18nd("purpose_phabricator", "Open Diff in browser")
+            text: i18nd("purpose6_phabricator", "Open Diff in browser")
             enabled: updateOld.checked
         }
     }
 
     Label {
-        // use i18nd("purpose_phabricator", ).arg() to avoid showing the "%1" when inactive
-        text: updateDR != "unknown" && updateDR.length > 0 ? i18nd("purpose_phabricator", "Summary of the update to %1:", updateDR) : i18nd("purpose_phabricator", "Summary of the update")
+        // use i18nd("purpose6_phabricator", ).arg() to avoid showing the "%1" when inactive
+        text: updateDR != "unknown" && updateDR.length > 0 ? i18nd("purpose6_phabricator", "Summary of the update to %1:", updateDR) : i18nd("purpose6_phabricator", "Summary of the update")
         enabled: updateOld.checked
     }
 
@@ -114,7 +114,7 @@ ColumnLayout {
         id: updateCommentField
         Layout.fillWidth: true
         Layout.fillHeight: true
-        text: i18nd("purpose_phabricator", "patch updated through %1 and the Purpose/Phabricator plugin", Qt.application.name)
+        text: i18nd("purpose6_phabricator", "patch updated through %1 and the Purpose/Phabricator plugin", Qt.application.name)
         enabled: updateOld.checked
     }
 

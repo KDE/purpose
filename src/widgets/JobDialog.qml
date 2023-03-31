@@ -38,7 +38,7 @@ ApplicationWindow
                 window.q.finished(jobView.job.output, jobView.job.error, jobView.job.errorString);
                 window.close()
             } else if (state === PurposeJobController.Cancelled) {
-                window.q.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose_widgets", "Configuration cancelled"));
+                window.q.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose6_widgets", "Configuration cancelled"));
                 window.close()
             }
         }

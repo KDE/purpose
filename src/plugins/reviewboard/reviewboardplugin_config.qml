@@ -29,25 +29,25 @@ ColumnLayout {
         path: root.localBaseDir + "/.reviewboardrc"
     }
 
-    Label { text: i18nd("purpose_reviewboard", "Server:") }
+    Label { text: i18nd("purpose6_reviewboard", "Server:") }
     TextField {
         id: serverField
         Layout.fillWidth: true
         text: rcfile.server
     }
-    Label { text: i18nd("purpose_reviewboard", "Username:") }
+    Label { text: i18nd("purpose6_reviewboard", "Username:") }
     TextField {
         id: usernameField
         Layout.fillWidth: true
     }
-    Label { text: i18nd("purpose_reviewboard", "Password:") }
+    Label { text: i18nd("purpose6_reviewboard", "Password:") }
     TextField {
         id: passwordField
         echoMode: TextInput.Password
         Layout.fillWidth: true
     }
 
-    Label { text: i18nd("purpose_reviewboard", "Repository:") }
+    Label { text: i18nd("purpose6_reviewboard", "Repository:") }
     ComboBox {
         id: repositoriesCombo
         Layout.fillWidth: true
@@ -72,7 +72,7 @@ ColumnLayout {
         CheckBox {
             anchors.centerIn: parent
             id: update
-            text: i18nd("purpose_reviewboard", "Update Review:")
+            text: i18nd("purpose6_reviewboard", "Update Review:")
             enabled: updateRRCombo.count > 0
             onCheckedChanged: {
                 root.refreshUpdateRR();
