@@ -16,7 +16,15 @@ target_sources(KF6PurposeWidgets PRIVATE
     ${qmlfiles_SRCS}
 )
 
-generate_export_header(KF6PurposeWidgets EXPORT_FILE_NAME purposewidgets_export.h BASE_NAME PurposeWidgets)
+ecm_generate_export_header(KF6PurposeWidgets
+    BASE_NAME PurposeWidgets
+    GROUP_BASE_NAME KF
+    VERSION ${KF_VERSION}
+    USE_VERSION_HEADER
+    VERSION_BASE_NAME Purpose
+    DEPRECATED_BASE_VERSION 0
+)
+
 target_link_libraries(KF6PurposeWidgets
     PUBLIC
         KF6::Purpose

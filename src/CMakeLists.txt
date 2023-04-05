@@ -53,7 +53,15 @@ target_link_libraries(KF6Purpose
 
 install(TARGETS KF6Purpose EXPORT KF6PurposeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
-generate_export_header(KF6Purpose EXPORT_FILE_NAME ${Purpose_BINARY_DIR}/purpose/purpose_export.h BASE_NAME Purpose)
+ecm_generate_export_header(KF6Purpose
+    EXPORT_FILE_NAME ${Purpose_BINARY_DIR}/purpose/purpose_export.h
+    BASE_NAME Purpose
+    GROUP_BASE_NAME KF
+    VERSION ${KF_VERSION}
+    USE_VERSION_HEADER
+    DEPRECATED_BASE_VERSION 0
+)
+
 ecm_generate_headers(Purpose_CamelCase_HEADERS
     HEADER_NAMES
         PluginBase

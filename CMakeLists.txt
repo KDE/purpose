@@ -13,8 +13,8 @@ include(KDECMakeSettings)
 include(KDEGitCommitHooks)
 
 include(FeatureSummary)
-include(GenerateExportHeader)
 
+include(ECMGenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMAddTests)
 include(ECMInstallIcons)
