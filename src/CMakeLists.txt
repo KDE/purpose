@@ -13,7 +13,16 @@ ecm_qt_declare_logging_category(external_process_debug_SRCS
     EXPORT PURPOSE
 )
 
-add_library(KF6Purpose
+add_library(KF6Purpose)
+add_library(KF6::Purpose ALIAS KF6Purpose)
+
+set_target_properties(KF6Purpose PROPERTIES
+    VERSION     ${PURPOSE_VERSION}
+    SOVERSION   ${PURPOSE_SOVERSION}
+    EXPORT_NAME Purpose
+)
+
+target_sources(KF6Purpose PRIVATE
     ${external_process_debug_SRCS}
     pluginbase.cpp
     job.cpp
@@ -41,13 +50,8 @@ target_link_libraries(KF6Purpose
         Qt6::Network #QLocalSocket
         KF6::ConfigCore
 )
-set_target_properties(KF6Purpose PROPERTIES VERSION ${PURPOSE_VERSION}
-                                          SOVERSION ${PURPOSE_SOVERSION}
-                                          EXPORT_NAME Purpose
-)
 
 install(TARGETS KF6Purpose EXPORT KF6PurposeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
-add_library(KF6::Purpose ALIAS KF6Purpose)
 
 generate_export_header(KF6Purpose EXPORT_FILE_NAME ${Purpose_BINARY_DIR}/purpose/purpose_export.h BASE_NAME Purpose)
 ecm_generate_headers(Purpose_CamelCase_HEADERS

@@ -1,7 +1,21 @@
 set(PURPOSEWIDGETS_INSTALL_INCLUDEDIR "${KDE_INSTALL_INCLUDEDIR_KF}/PurposeWidgets")
 
+add_library(KF6PurposeWidgets)
+add_library(KF6::PurposeWidgets ALIAS KF6PurposeWidgets)
+
+set_target_properties(KF6PurposeWidgets PROPERTIES
+    VERSION     ${PURPOSE_VERSION}
+    SOVERSION   ${PURPOSE_SOVERSION}
+    EXPORT_NAME PurposeWidgets
+)
+
 qt_add_resources(qmlfiles_SRCS purposewidgets-resources.qrc)
-add_library(KF6PurposeWidgets menu.cpp ${qmlfiles_SRCS})
+
+target_sources(KF6PurposeWidgets PRIVATE
+    menu.cpp
+    ${qmlfiles_SRCS}
+)
+
 generate_export_header(KF6PurposeWidgets EXPORT_FILE_NAME purposewidgets_export.h BASE_NAME PurposeWidgets)
 target_link_libraries(KF6PurposeWidgets
     PUBLIC
@@ -11,10 +25,7 @@ target_link_libraries(KF6PurposeWidgets
         Qt6::Qml
         KF6::I18n
 )
-set_target_properties(KF6PurposeWidgets PROPERTIES VERSION ${PURPOSE_VERSION}
-                                          SOVERSION ${PURPOSE_SOVERSION}
-                                          EXPORT_NAME PurposeWidgets
-)
+
 target_include_directories(KF6PurposeWidgets
     PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
@@ -24,7 +35,6 @@ target_include_directories(KF6PurposeWidgets
 )
 
 install(TARGETS KF6PurposeWidgets EXPORT KF6PurposeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
-add_library(KF6::PurposeWidgets ALIAS KF6PurposeWidgets)
 
 ecm_generate_headers(PurposeWidgets_CamelCase_HEADERS
     HEADER_NAMES
