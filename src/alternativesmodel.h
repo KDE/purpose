@@ -83,7 +83,7 @@ Q_SIGNALS:
     void disabledPluginsChanged();
 
 private:
-    void initializeModel();
+    PURPOSE_NO_EXPORT void initializeModel();
 
     AlternativesModelPrivate *const d_ptr;
     Q_DECLARE_PRIVATE(AlternativesModel)
