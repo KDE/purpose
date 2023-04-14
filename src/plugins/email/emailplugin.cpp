@@ -19,6 +19,7 @@
 #include <QStandardPaths>
 #include <QUrl>
 #include <QUrlQuery>
+#include <QFileInfo>
 
 namespace
 {
@@ -37,20 +38,30 @@ public:
 
         QList<QUrl> attachments;
         QStringList bodyPieces;
+        QString subject = data().value(QStringLiteral("title")).toString();
+        bool useGeneratedSubject = false;
 
         const auto urls = data().value(QStringLiteral("urls")).toArray();
         for (const QJsonValue &val : urls) {
             const QUrl url = val.toVariant().toUrl();
             if (url.isLocalFile()) {
                 attachments << url;
+                if (subject.isEmpty()) {
+                    subject = QFileInfo(url.fileName()).completeBaseName();
+                    useGeneratedSubject = true;
+                }
             } else {
                 bodyPieces << url.toString();
             }
         }
 
+        if (useGeneratedSubject && urls.size() > 1) {
+            subject.append(QStringLiteral(", ..."));
+        }
+
         job->setAttachments(attachments);
         job->setBody(bodyPieces.join(QLatin1Char('\n')));
-        job->setSubject(data().value(QStringLiteral("title")).toString());
+        job->setSubject(subject);
 
         connect(job, &KJob::result, this, [this](KJob *job) {
             setError(job->error());
