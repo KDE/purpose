@@ -2,25 +2,26 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Jeff Huang <s8321414@gmail.com>, 2016, 2018.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose_imgur\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:42+0000\n"
-"PO-Revision-Date: 2018-02-21 21:34+0800\n"
-"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-04-14 22:01+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: Traditional Chinese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: imgurplugin.cpp:65
 #, kde-format
 msgid "Error page returned"
-msgstr "傳回錯誤頁面"
+msgstr "傳回了錯誤頁面"
 
 #: imgurplugin.cpp:95
 #, kde-format
@@ -30,7 +31,7 @@ msgstr "正在上傳檔案至 imgur……"
 #: imgurplugin.cpp:145
 #, kde-format
 msgid "Imgur Upload"
-msgstr ""
+msgstr "Imgur 上傳"
 
 #: imgurplugin.cpp:146
 #, kde-format
@@ -39,3 +40,5 @@ msgid ""
 "clipboard.<br><br>If you would like to remove the uploaded image, visit <a "
 "href=\"%2\">%2</a>"
 msgstr ""
+"分享影像連結 (<a href=\"%1\">%1</a>) 已複製到剪貼簿。<br><br>如果您要移除已上"
+"傳的影像，請造訪 <a href=\"%2\">%2</a>"
