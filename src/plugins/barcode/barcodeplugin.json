@@ -34,7 +34,8 @@
                 "Name[tr]": "Kai Uwe Broulik",
                 "Name[uk]": "Kai Uwe Broulik",
                 "Name[x-test]": "xxKai Uwe Broulikxx",
-                "Name[zh_CN]": "Kai Uwe Broulik"
+                "Name[zh_CN]": "Kai Uwe Broulik",
+                "Name[zh_TW]": "Kai Uwe Broulik"
             }
         ],
         "Category": "Utilities",
@@ -72,6 +73,7 @@
         "Description[uk]": "Створити QR-код для цього посилання",
         "Description[x-test]": "xxGenerate a QR code for this linkxx",
         "Description[zh_CN]": "生成此链接的二维码",
+        "Description[zh_TW]": "為這個連結產生 QR 碼",
         "Icon": "view-barcode-qr",
         "License": "LGPL",
         "Name": "Generate QR code",
@@ -108,6 +110,7 @@
         "Name[uk]": "Створити QR-код",
         "Name[x-test]": "xxGenerate QR codexx",
         "Name[zh_CN]": "生成二维码",
+        "Name[zh_TW]": "產生 QR 碼",
         "X-Purpose-ActionDisplay": "Generate QR Code",
         "X-Purpose-ActionDisplay[ar]": "ولد بركود",
         "X-Purpose-ActionDisplay[az]": "QR kod yaradın",
@@ -141,7 +144,8 @@
         "X-Purpose-ActionDisplay[tr]": "Kare Kod Oluştur",
         "X-Purpose-ActionDisplay[uk]": "Створити QR-код",
         "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx",
-        "X-Purpose-ActionDisplay[zh_CN]": "生成二维码"
+        "X-Purpose-ActionDisplay[zh_CN]": "生成二维码",
+        "X-Purpose-ActionDisplay[zh_TW]": "產生 QR 碼"
     },
     "X-Purpose-Configuration": [
         "dummy"
