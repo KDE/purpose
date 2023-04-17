@@ -1,4 +1,4 @@
-# Translation of purpose_youtube to Norwegian Nynorsk
+# Translation of purpose6_youtube to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2018.
 msgid ""

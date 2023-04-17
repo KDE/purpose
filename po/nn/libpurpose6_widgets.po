@@ -1,4 +1,4 @@
-# Translation of libpurpose_widgets to Norwegian Nynorsk
+# Translation of libpurpose6_widgets to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2018, 2019, 2023.
 msgid ""

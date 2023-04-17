@@ -1,4 +1,4 @@
-# Translation of libpurpose_quick to Norwegian Nynorsk
+# Translation of libpurpose6_quick to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2018, 2023.
 msgid ""

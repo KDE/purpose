@@ -1,4 +1,4 @@
-# Translation of purpose_kdeconnectsms to Norwegian Nynorsk
+# Translation of purpose6_kdeconnectsms to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2019.
 msgid ""

@@ -1,4 +1,4 @@
-# Translation of purpose_reviewboard to Norwegian Bokmål
+# Translation of purpose6_reviewboard to Norwegian Bokmål
 #
 # Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2011.
 msgid ""

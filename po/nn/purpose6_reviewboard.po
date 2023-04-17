@@ -1,4 +1,4 @@
-# Translation of purpose_reviewboard to Norwegian Nynorsk
+# Translation of purpose6_reviewboard to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2018.
 msgid ""

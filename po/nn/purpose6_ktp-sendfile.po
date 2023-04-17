@@ -1,4 +1,4 @@
-# Translation of purpose_ktp-sendfile to Norwegian Nynorsk
+# Translation of purpose6_ktp-sendfile to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2017.
 msgid ""
