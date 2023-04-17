@@ -1,4 +1,4 @@
-# Translation of purpose_nextcloud to Norwegian Nynorsk
+# Translation of purpose6_nextcloud to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2018, 2021.
 msgid ""

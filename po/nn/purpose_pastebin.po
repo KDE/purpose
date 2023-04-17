@@ -1,4 +1,4 @@
-# Translation of purpose_pastebin to Norwegian Nynorsk
+# Translation of purpose6_pastebin to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2018.
 msgid ""

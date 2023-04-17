@@ -1,4 +1,4 @@
-# Translation of purpose-fileitemaction to Norwegian Nynorsk
+# Translation of purpose6_fileitemaction to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2018, 2019.
 msgid ""
