@@ -1,0 +1,38 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the purpose package.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-09-21 00:14+0000\n"
+"PO-Revision-Date: 2023-04-30 15:25+0200\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.04.0\n"
+
+#: barcodeplugin_config.qml:53
+#, kde-format
+msgid "Type a URL or some text to generate a QR code"
+msgstr "Escriba un URL ou texto para xerar un código QR"
+
+#: barcodeplugin_config.qml:62
+#, kde-format
+msgid "Creating QR code failed"
+msgstr "A creación do código QR fallou."
+
+#: barcodeplugin_config.qml:71
+#, kde-format
+msgid "The QR code is too large to be displayed"
+msgstr "O código QR é grande de máis para mostralo."
+
+#: barcodeplugin_config.qml:83
+#, kde-format
+msgid "Type a URL or some text..."
+msgstr "Escriba un URL ou texto…"
