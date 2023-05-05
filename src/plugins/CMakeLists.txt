@@ -4,7 +4,7 @@ function(add_share_plugin name)
     set_target_properties(${name} PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf6/purpose")
 
     if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${name}_config.qml")
-        install(FILES "${name}_config.qml" DESTINATION ${KDE_INSTALL_DATADIR}/purpose)
+        install(FILES "${name}_config.qml" DESTINATION ${KDE_INSTALL_DATADIR_KF}/purpose)
     endif()
 endfunction()
 

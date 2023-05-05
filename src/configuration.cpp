@@ -160,7 +160,7 @@ QUrl Configuration::configSourceCode() const
         return QUrl::fromLocalFile(conentsDir.filePath(QStringLiteral("config/config.qml")));
     } else {
         const QString configFile =
-            QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("purpose/%1_config.qml").arg(d->m_pluginData.pluginId()));
+            QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kf6/purpose/%1_config.qml").arg(d->m_pluginData.pluginId()));
         if (configFile.isEmpty())
             return QUrl();
 
