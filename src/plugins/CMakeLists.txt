@@ -8,17 +8,6 @@ function(add_share_plugin name)
     endif()
 endfunction()
 
-set(KPACKAGE_RELATIVE_DATA_INSTALL_DIR "kpackage")
-function(kpackage_install_package dir component root)
-   set(install_dir ${ARGV3})
-   if(NOT install_dir)
-      set(install_dir ${KPACKAGE_RELATIVE_DATA_INSTALL_DIR})
-   endif()
-   install(DIRECTORY ${dir}/ USE_SOURCE_PERMISSIONS
-           DESTINATION ${KDE_INSTALL_DATADIR}/${install_dir}/${root}/${component}
-           PATTERN Messages.sh EXCLUDE)
-endfunction()
-
 add_subdirectory(saveas)
 add_subdirectory(imgur)
 add_subdirectory(pastebin)
