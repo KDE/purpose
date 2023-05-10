@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2018.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-01 02:10+0000\n"
-"PO-Revision-Date: 2021-07-20 21:50+0400\n"
+"PO-Revision-Date: 2023-05-09 21:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: ar\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: phabricatorjobs.cpp:59 phabricatorjobs.cpp:195
 #, kde-format
@@ -27,7 +27,7 @@ msgstr "تعذر العثور على أمر ”arc“"
 #: phabricatorjobs.cpp:117
 #, kde-format
 msgid "Could not create the new \"differential diff\""
-msgstr ""
+msgstr "تعذر إنشاء \"الفرق التفاضلي\" الجديد"
 
 #: phabricatorjobs.cpp:154
 #, kde-format
@@ -37,7 +37,7 @@ msgstr "فشل رفع الرقعة على ”فابريكيتور“"
 #: phabricatorjobs.cpp:206
 #, kde-format
 msgid "Could not get list of differential revisions in %1"
-msgstr ""
+msgstr "تعذر الحصول على قائمة بالمراجعات التفاضلية في %1"
 
 #: phabricatorplugin.cpp:49
 #, kde-format
@@ -53,32 +53,32 @@ msgstr "مجهول"
 #, kde-format
 msgid ""
 "Please choose between creating a new revision or updating an existing one"
-msgstr ""
+msgstr "الرجاء الاختيار بين إنشاء مراجعة جديدة أو تحديث نسخة موجودة"
 
 #: phabricatorplugin_config.qml:28
 #, kde-format
 msgid "Update differential revision %1"
-msgstr ""
+msgstr "حدث المراجعة التفاضلية %1"
 
 #: phabricatorplugin_config.qml:28
 #, kde-format
 msgid "Update differential revision"
-msgstr ""
+msgstr "حدث المراجعة التفاضلية"
 
 #: phabricatorplugin_config.qml:30
 #, kde-format
 msgid "Create new \"differential diff\""
-msgstr ""
+msgstr "أنشئ \"فرق تفاضلي\" جديد"
 
 #: phabricatorplugin_config.qml:32
 #, kde-format
 msgid "Create or update?"
-msgstr ""
+msgstr "هل تنشئ أم تحدث؟"
 
 #: phabricatorplugin_config.qml:65
 #, kde-format
 msgid "New Diff"
-msgstr ""
+msgstr "فرق جديد"
 
 #: phabricatorplugin_config.qml:66
 #, kde-format
@@ -86,11 +86,13 @@ msgid ""
 "tick this to create a new \"differential diff\" which can\n"
 "be converted online to a new differential revision"
 msgstr ""
+"ضع علامة على هذا لإنشاء \"فرق تفاضلي\" جديد يمكن \n"
+"تحويله عبر الإنترنت إلى مراجعة تفاضلية جديدة"
 
 #: phabricatorplugin_config.qml:73
 #, kde-format
 msgid "Update Diff"
-msgstr ""
+msgstr "حدّث الفرق"
 
 #: phabricatorplugin_config.qml:74
 #, kde-format
@@ -98,24 +100,26 @@ msgid ""
 "tick this to update an existing revision,\n"
 "select one from the list below."
 msgstr ""
+"حدد هذا لتحديث مراجعة موجودة،\n"
+"حدد واحدة من القائمة أدناه."
 
 #: phabricatorplugin_config.qml:102
 #, kde-format
 msgid "Open Diff in browser"
-msgstr ""
+msgstr "افتح الفرق في المتصفح"
 
 #. i18nd("purpose6_phabricator", ).arg() to avoid showing the "%1" when inactive
 #: phabricatorplugin_config.qml:109
 #, kde-format
 msgid "Summary of the update to %1:"
-msgstr ""
+msgstr "خلاصة التحديث إلى %1:"
 
 #: phabricatorplugin_config.qml:109
 #, kde-format
 msgid "Summary of the update"
-msgstr ""
+msgstr "خلاصة التحديث "
 
 #: phabricatorplugin_config.qml:117
 #, kde-format
 msgid "patch updated through %1 and the Purpose/Phabricator plugin"
-msgstr ""
+msgstr "حدث الرقعة بواسطة %1 والمكوِّن الإضافي Purpose/Phabricator"
