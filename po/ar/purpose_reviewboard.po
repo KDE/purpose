@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the purpose package.
 #
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-06 02:34+0100\n"
-"PO-Revision-Date: 2021-12-18 23:18+0400\n"
+"PO-Revision-Date: 2023-05-11 10:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,17 +16,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.07.70\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: reviewboardjobs.cpp:165
 #, kde-format
 msgid "JSON error: %1"
-msgstr ""
+msgstr "خطأ جوسون: %1"
 
 #: reviewboardjobs.cpp:170
 #, kde-format
 msgid "Request Error: %1"
-msgstr ""
+msgstr "خطأ الطلب: %1"
 
 #: reviewboardjobs.cpp:198
 #, kde-format
@@ -34,21 +34,23 @@ msgid ""
 "Could not create the new request:\n"
 "%1"
 msgstr ""
+"تعذر إنشاء طلب جديد:\n"
+"%1"
 
 #: reviewboardjobs.cpp:237
 #, kde-format
 msgid "Could not upload the patch"
-msgstr ""
+msgstr "تعذر رفع الرقعة"
 
 #: reviewboardjobs.cpp:330
 #, kde-format
 msgid "Could not get reviews list"
-msgstr ""
+msgstr "تعذر جلب قائمة المراجعات"
 
 #: reviewboardjobs.cpp:370
 #, kde-format
 msgid "Could not set metadata"
-msgstr ""
+msgstr "تعذر وضع البيانات الوصفية"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: reviewboardplugin_config.qml:32 reviewpatch.ui:26
@@ -76,7 +78,7 @@ msgstr "المستودع:"
 #: reviewboardplugin_config.qml:75
 #, kde-format
 msgid "Update Review:"
-msgstr ""
+msgstr "حدث المراجعة:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: reviewpatch.ui:17
@@ -88,19 +90,19 @@ msgstr "المقصد"
 #: reviewpatch.ui:36
 #, kde-format
 msgid "Base Dir:"
-msgstr ""
+msgstr "المجلد الأساس:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, basedir)
 #: reviewpatch.ui:43
 #, kde-format
 msgid "/"
-msgstr ""
+msgstr "/"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, basedir)
 #: reviewpatch.ui:46
 #, kde-format
 msgid "Where this project was checked out from"
-msgstr ""
+msgstr "من أين تم سحب هذا المشروع"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: reviewpatch.ui:56
@@ -112,7 +114,7 @@ msgstr "الاستيثاق"
 #: reviewpatch.ui:72
 #, kde-format
 msgid "User name in the specified service"
-msgstr ""
+msgstr "اسم المستخدم في الخدمة المحددة"
 
 #. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
 #: reviewpatch.ui:99
@@ -124,4 +126,4 @@ msgstr "المستودع"
 #: reviewpatch.ui:111
 #, kde-format
 msgid "Update review"
-msgstr ""
+msgstr "حدث المراجعة"
