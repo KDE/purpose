@@ -1,10 +1,11 @@
+# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose_saveas\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:42+0000\n"
-"PO-Revision-Date: 2015-09-26 16:34-0700\n"
-"Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2023-05-08 15:46+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -13,18 +14,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: saveasplugin.cpp:45
 #, kde-format
 msgid "No URLs to save"
-msgstr ""
+msgstr "保存する URL はありません"
 
 #: saveasplugin_config.qml:19
 #, kde-format
 msgid "Save directory:"
-msgstr ""
+msgstr "保存先のディレクトリ:"
 
 #: saveasplugin_config.qml:32
 #, kde-format
 msgid "Select a directory where to save your pictures and videos"
-msgstr ""
+msgstr "画像とビデオを保存するディレクトリを選択"
