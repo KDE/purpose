@@ -1,10 +1,11 @@
+# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose_kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-10-22 00:14+0000\n"
-"PO-Revision-Date: 2018-05-28 13:44-0700\n"
-"Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2023-05-07 20:52+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -13,13 +14,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: kdeconnectplugin_config.qml:21
 #, kde-format
 msgid "Choose a device to send to:"
-msgstr ""
+msgstr "送信先のデバイスを選択:"
 
 #: kdeconnectplugin_config.qml:62
 #, kde-format
 msgid "No devices found"
-msgstr ""
+msgstr "デバイスが見つかりません"
