@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(Purpose)
 
-find_package(ECM 5.106.0 REQUIRED NO_MODULE)
+find_package(ECM 5.107.0 REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
@@ -28,7 +28,7 @@ include(ECMQmlModule)
 find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui DBus Widgets Network Test)
 
 set(KF_VERSION "5.107.0") # handled by release scripts
-set(KF_DEP_VERSION "5.106.0") # handled by release scripts
+set(KF_DEP_VERSION "5.107.0") # handled by release scripts
 
 find_package(KF5 ${KF_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n Config Kirigami2 Notifications KIO)
 
