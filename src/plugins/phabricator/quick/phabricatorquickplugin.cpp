@@ -14,3 +14,5 @@ void PhabricatorPurposeQuickPlugin::registerTypes(const char *uri)
     qmlRegisterType<DiffListModel>(uri, 1, 0, "DiffListModel");
     qmlRegisterType<PhabricatorRC>(uri, 1, 0, "PhabricatorRC");
 }
+
+#include "moc_phabricatorquickplugin.cpp"

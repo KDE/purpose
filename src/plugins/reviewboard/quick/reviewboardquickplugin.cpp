@@ -16,3 +16,5 @@ void RBPurposeQuickPlugin::registerTypes(const char *uri)
     qmlRegisterType<ReviewsListModel>(uri, 1, 0, "ReviewsListModel");
     qmlRegisterType<ReviewboardRC>(uri, 1, 0, "ReviewboardRC");
 }
+
+#include "moc_reviewboardquickplugin.cpp"

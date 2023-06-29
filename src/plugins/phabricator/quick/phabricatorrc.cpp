@@ -21,3 +21,5 @@ void PhabricatorRC::setPath(const QUrl &filePath)
     // TODO figure out the if/what/how of .arcconfig file contents
     Q_EMIT dataChanged();
 }
+
+#include "moc_phabricatorrc.cpp"

@@ -98,3 +98,4 @@ AlternativesModel *Menu::model() const
 }
 
 #include "menu.moc"
+#include "moc_menu.cpp"

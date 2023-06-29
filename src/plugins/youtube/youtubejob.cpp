@@ -123,3 +123,5 @@ void YoutubeJob::videoUploaded()
     m_output = watchUrl + doc.value(QStringLiteral("id")).toString();
     emitResult();
 }
+
+#include "moc_youtubejob.cpp"

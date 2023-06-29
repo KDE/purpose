@@ -83,4 +83,5 @@ QList<QAction *> ShareFileItemAction::actions(const KFileItemListProperties &fil
     return {m_menu->menuAction()};
 }
 
+#include "moc_sharefileitemaction.cpp"
 #include "sharefileitemaction.moc"

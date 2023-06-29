@@ -155,3 +155,5 @@ void DiffListModel::setStatus(const QString &status)
         refresh();
     }
 }
+
+#include "moc_difflistmodel.cpp"

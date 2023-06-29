@@ -96,3 +96,5 @@ Job *JobController::job() const
 }
 
 }
+
+#include "moc_jobcontroller.cpp"

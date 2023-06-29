@@ -172,3 +172,5 @@ void AlternativesModelTest::blacklistTest()
     plugins = listPlugins({QStringLiteral("saveasplugin")});
     QVERIFY(!plugins.contains(QStringLiteral("emailplugin")));
 }
+
+#include "moc_alternativesmodeltest.cpp"
