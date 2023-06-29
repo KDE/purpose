@@ -191,3 +191,5 @@ QString Configuration::pluginName() const
     Q_D(const Configuration);
     return d->m_pluginData.name();
 }
+
+#include "moc_configuration.cpp"

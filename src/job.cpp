@@ -51,3 +51,5 @@ void Job::setOutput(const QJsonObject &output)
         Q_EMIT outputChanged(output);
     }
 }
+
+#include "moc_job.cpp"

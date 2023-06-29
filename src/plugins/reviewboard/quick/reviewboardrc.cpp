@@ -56,3 +56,5 @@ void ReviewboardRC::addExtraData(const QString &key, const QString &value)
     if (!value.isEmpty())
         m_extraData.insert(key, value);
 }
+
+#include "moc_reviewboardrc.cpp"

@@ -18,3 +18,5 @@ void PurposeQuickPlugin::registerTypes(const char *uri)
     qmlRegisterUncreatableType<Purpose::Job>(uri, 1, 0, "PurposeJob", QStringLiteral("You're not supposed to instantiate jobs"));
     qmlRegisterUncreatableType<Purpose::Configuration>(uri, 1, 0, "PurposeConfiguration", QStringLiteral("You're not supposed to instantiate configurations"));
 }
+
+#include "moc_purposequickplugin.cpp"

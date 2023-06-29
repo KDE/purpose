@@ -16,3 +16,5 @@ PluginBase::PluginBase(QObject *parent)
 PluginBase::~PluginBase()
 {
 }
+
+#include "moc_pluginbase.cpp"

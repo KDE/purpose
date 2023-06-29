@@ -120,3 +120,5 @@ void Purpose::ProcessJob::processStateChanged(QProcess::ProcessState state)
         emitResult();
     }
 }
+
+#include "moc_processjob.cpp"

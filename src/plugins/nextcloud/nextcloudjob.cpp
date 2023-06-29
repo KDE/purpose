@@ -73,3 +73,5 @@ void NextcloudJob::gotCredentials(KJob *job)
 
     copyJob->start();
 }
+
+#include "moc_nextcloudjob.cpp"

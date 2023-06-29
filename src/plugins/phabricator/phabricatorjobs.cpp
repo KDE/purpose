@@ -235,3 +235,5 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
     }
     emitResult();
 }
+
+#include "moc_phabricatorjobs.cpp"

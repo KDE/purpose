@@ -86,3 +86,5 @@ int RepositoriesModel::findRepository(const QString &name)
 
     return -1;
 }
+
+#include "moc_rbrepositoriesmodel.cpp"

@@ -317,3 +317,5 @@ void AlternativesModel::initializeModel()
     d->m_plugins += findScriptedPackages(pluginAcceptable);
     endResetModel();
 }
+
+#include "moc_alternativesmodel.cpp"

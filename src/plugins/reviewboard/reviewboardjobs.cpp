@@ -372,3 +372,5 @@ void UpdateRequest::done()
 
     emitResult();
 }
+
+#include "moc_reviewboardjobs.cpp"

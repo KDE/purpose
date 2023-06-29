@@ -74,3 +74,5 @@ QVariant ReviewsListModel::get(int row, const QByteArray &role)
 {
     return index(row, 0).data(roleNames().key(role));
 }
+
+#include "moc_rbreviewslistmodel.cpp"

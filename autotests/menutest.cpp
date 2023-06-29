@@ -70,3 +70,5 @@ void MenuTest::runJobTest()
 
     delete menu;
 }
+
+#include "moc_menutest.cpp"
