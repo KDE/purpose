@@ -1,0 +1,43 @@
+# translation of purpose_imgur.pot to esperanto
+# Copyright (C) 2022 Free Software Foundation, Inc.
+# This file is distributed under the same license as the purpose package.
+# Oliver Kellogg <okellogg@users.sourceforge.net, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-13 00:42+0000\n"
+"PO-Revision-Date: 2023-07-14 16:29+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: imgurplugin.cpp:65
+#, kde-format
+msgid "Error page returned"
+msgstr "Redonis erarpaĝon"
+
+#: imgurplugin.cpp:95
+#, kde-format
+msgid "Uploading files to imgur..."
+msgstr "Alŝutante dosierojn al imgur..."
+
+#: imgurplugin.cpp:145
+#, kde-format
+msgid "Imgur Upload"
+msgstr "Imgur-Alŝuto"
+
+#: imgurplugin.cpp:146
+#, kde-format
+msgid ""
+"The shared image link (<a href=\"%1\">%1</a>) has been copied to the "
+"clipboard.<br><br>If you would like to remove the uploaded image, visit <a "
+"href=\"%2\">%2</a>"
+msgstr ""
+"La kundividita bildligo (<a href=\"%1\">%1</a>) estis kopiita al la tondujo."
+"<br><br>Se vi volas forigi la alŝutitan bildon, vizitu <a href=\"%2\">%2</a>"
