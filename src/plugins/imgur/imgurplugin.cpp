@@ -147,7 +147,6 @@ public:
                                           "the uploaded image, visit <a href=\"%2\">%2</a>",
                                           finalUrl,
                                           deleteUrl),
-                                     nullptr,
                                      KNotification::Persistent);
 
                 emitResult();
