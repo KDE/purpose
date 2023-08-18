@@ -183,7 +183,7 @@
         "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Bluetooth…",
         "X-Purpose-ActionDisplay[x-test]": "xxSend via Bluetooth...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "通过蓝牙发送...",
-        "X-Purpose-ActionDisplay[zh_TW]": "透過藍牙傳送……"
+        "X-Purpose-ActionDisplay[zh_TW]": "透過藍牙傳送…"
     },
     "X-Purpose-Configuration": [
         "device"
