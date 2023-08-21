@@ -131,9 +131,9 @@ public:
         const QJsonObject dataMap = processResponse(job);
         if (!dataMap.isEmpty()) {
             const QString url = dataMap[QStringLiteral("link")].toString();
-            Q_EMIT infoMessage(this, url, QStringLiteral("<a href='%1'>%1</a>").arg(url));
+            Q_EMIT infoMessage(this, url);
             const QString deletehash = dataMap[QStringLiteral("deletehash")].toString();
-            Q_EMIT infoMessage(this, deletehash, QStringLiteral("%1").arg(deletehash));
+            Q_EMIT infoMessage(this, deletehash);
             --m_pendingJobs;
 
             if (m_pendingJobs == 0) {
