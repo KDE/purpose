@@ -7,7 +7,7 @@ ecm_target_qml_sources(purposequickplugin SOURCES
     JobView.qml
 )
 
-target_link_libraries(purposequickplugin
+target_link_libraries(purposequickplugin PRIVATE
     Qt6::Qml
     KF6Purpose
 )
