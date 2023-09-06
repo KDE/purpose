@@ -4,10 +4,10 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.15
-import QtQuick.Dialogs 1.0
-import QtQuick 2.0
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick.Dialogs
 
 ColumnLayout
 {
@@ -27,15 +27,12 @@ ColumnLayout
             dirSelector.visible = true
         }
 
-        FileDialog {
+        FolderDialog {
             id: dirSelector
             title: i18n("Select a directory where to save your pictures and videos")
-            selectMultiple: false
-            selectExisting: true
-            selectFolder: true
 
-            onFileUrlChanged: {
-                destination.text = dirSelector.fileUrl
+            onAccepted: {
+                destination.text = dirSelector.selectedFolder
             }
         }
     }
