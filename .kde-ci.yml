@@ -7,6 +7,7 @@ Dependencies:
     'frameworks/ki18n' : '@same'
     'frameworks/kio' : '@same'
     'frameworks/kirigami' : '@same'
+    'frameworks/kservice' : '@same'
 
 Options:
   test-before-installing: True
