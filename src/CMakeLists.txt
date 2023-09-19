@@ -16,6 +16,8 @@ ecm_qt_declare_logging_category(external_process_debug_SRCS
 add_library(KF6Purpose)
 add_library(KF6::Purpose ALIAS KF6Purpose)
 
+qt_extract_metatypes(KF6Purpose)
+
 set_target_properties(KF6Purpose PROPERTIES
     VERSION     ${PURPOSE_VERSION}
     SOVERSION   ${PURPOSE_SOVERSION}

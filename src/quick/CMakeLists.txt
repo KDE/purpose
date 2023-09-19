@@ -1,6 +1,6 @@
-ecm_add_qml_module(purposequickplugin URI "org.kde.purpose" VERSION 1.0)
+ecm_add_qml_module(purposequickplugin URI "org.kde.purpose" VERSION 1.0 GENERATE_PLUGIN_SOURCE)
 
-target_sources(purposequickplugin PRIVATE purposequickplugin.cpp)
+target_sources(purposequickplugin PRIVATE types.h)
 
 ecm_target_qml_sources(purposequickplugin SOURCES
     AlternativesView.qml
@@ -12,4 +12,4 @@ target_link_libraries(purposequickplugin PRIVATE
     KF6Purpose
 )
 
-ecm_finalize_qml_module(purposequickplugin DESTINATION ${KDE_INSTALL_QMLDIR})
+ecm_finalize_qml_module(purposequickplugin)
