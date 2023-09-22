@@ -1,2 +1,2 @@
 #!/bin/sh
-$XGETTEXT *.cpp *.h *.qml -o $podir/libpurpose6_quick.pot
+$XGETTEXT $(find . -name "*.cpp" -o -name "*.h" -o -name "*.qml") -o $podir/libpurpose6_quick.pot
