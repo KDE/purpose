@@ -19,12 +19,12 @@ msgstr ""
 #: phabricatorjobs.cpp:59 phabricatorjobs.cpp:195
 #, kde-format
 msgid "Could not find the 'arc' command"
-msgstr "Non se puido atopar a orde «arc»"
+msgstr "Non foi posíbel atopar a orde «arc»"
 
 #: phabricatorjobs.cpp:117
 #, kde-format
 msgid "Could not create the new \"differential diff\""
-msgstr "Non se puido crear unha nova «diferenza diferencial»"
+msgstr "Non foi posíbel crear unha nova «diferenza diferencial»"
 
 #: phabricatorjobs.cpp:154
 #, kde-format
@@ -34,7 +34,7 @@ msgstr "O envío do parche a Phabricator fallou"
 #: phabricatorjobs.cpp:206
 #, kde-format
 msgid "Could not get list of differential revisions in %1"
-msgstr "Non se puido obter a lista de revisións diferenciais en %1"
+msgstr "Non foi posíbel obter a lista de revisións diferenciais en %1"
 
 #: phabricatorplugin.cpp:49
 #, kde-format

@@ -30,7 +30,7 @@ msgid ""
 "\n"
 "%1"
 msgstr ""
-"Non se puido cargar a páxina de configuración desta acción:\n"
+"Non foi posíbel cargar a páxina de configuración desta acción:\n"
 "\n"
 "%1"
 
