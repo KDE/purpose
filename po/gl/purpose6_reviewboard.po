@@ -34,23 +34,23 @@ msgid ""
 "Could not create the new request:\n"
 "%1"
 msgstr ""
-"Non se puido crear a solicitude nova:\n"
+"Non foi posíbel crear a solicitude nova:\n"
 "%1"
 
 #: reviewboardjobs.cpp:237
 #, kde-format
 msgid "Could not upload the patch"
-msgstr "Non se puido enviar o parche"
+msgstr "Non foi posíbel enviar o parche"
 
 #: reviewboardjobs.cpp:330
 #, kde-format
 msgid "Could not get reviews list"
-msgstr "Non se puido obter a lista das revisións"
+msgstr "Non foi posíbel obter a lista das revisións"
 
 #: reviewboardjobs.cpp:370
 #, kde-format
 msgid "Could not set metadata"
-msgstr "Non se puideron definir os metadatos."
+msgstr "Non foi posíbel definir os metadatos."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: reviewboardplugin_config.qml:32 reviewpatch.ui:26
