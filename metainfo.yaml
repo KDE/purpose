@@ -11,8 +11,7 @@ portingAid: false
 deprecated: false
 release: true
 libraries:
- - qmake: Purpose
-   cmake: "KF6::Purpose"
+ - cmake: "KF6::Purpose"
 cmakename: KF6Purpose
 
 public_lib: true
