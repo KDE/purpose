@@ -62,7 +62,7 @@ msgstr "Servidor:"
 #: reviewboardplugin_config.qml:38 reviewpatch.ui:65
 #, kde-format
 msgid "Username:"
-msgstr "Nome de usuario:"
+msgstr "Nome de usuaria:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: reviewboardplugin_config.qml:43 reviewpatch.ui:79
@@ -114,7 +114,7 @@ msgstr "Autenticación"
 #: reviewpatch.ui:72
 #, kde-format
 msgid "User name in the specified service"
-msgstr "Nome de usuario no servizo indicado"
+msgstr "Nome de usuaria no servizo indicado"
 
 #. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
 #: reviewpatch.ui:99
