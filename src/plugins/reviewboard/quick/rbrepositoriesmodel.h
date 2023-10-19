@@ -50,7 +50,7 @@ private:
             return name.toString() < v1.name.toString();
         }
     };
-    QVector<Value> m_values;
+    QList<Value> m_values;
     QUrl m_server;
 };
 

@@ -8,8 +8,8 @@
 #define REVIEWSLISTMODEL_H
 
 #include <QAbstractListModel>
+#include <QList>
 #include <QUrl>
-#include <QVector>
 
 class KJob;
 
@@ -85,7 +85,7 @@ private:
         QVariant summary;
         QVariant id;
     };
-    QVector<Value> m_values;
+    QList<Value> m_values;
 
     QUrl m_server;
     QString m_username;

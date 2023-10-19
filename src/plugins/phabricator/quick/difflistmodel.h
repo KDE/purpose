@@ -9,7 +9,7 @@
 
 #include <QAbstractListModel>
 #include <QHash>
-#include <QVector>
+#include <QList>
 
 class KJob;
 class QTemporaryDir;
@@ -50,7 +50,7 @@ private:
         }
 #endif
     };
-    QVector<Value> m_values;
+    QList<Value> m_values;
 
     QString m_status;
     QString m_initialDir;

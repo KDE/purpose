@@ -87,7 +87,7 @@ static QMap<QString, matchFunction> s_matchFunctions = {{QStringLiteral("mimeTyp
 class Purpose::AlternativesModelPrivate
 {
 public:
-    QVector<KPluginMetaData> m_plugins;
+    QList<KPluginMetaData> m_plugins;
     QJsonObject m_inputData;
     QString m_pluginType;
     QStringList m_disabledPlugins = s_defaultDisabledPlugins;
@@ -263,9 +263,9 @@ QVariant AlternativesModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-static QVector<KPluginMetaData> findScriptedPackages(std::function<bool(const KPluginMetaData &)> filter)
+static QList<KPluginMetaData> findScriptedPackages(std::function<bool(const KPluginMetaData &)> filter)
 {
-    QVector<KPluginMetaData> ret;
+    QList<KPluginMetaData> ret;
     QSet<QString> addedPlugins;
     const QStringList dirs =
         QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kpackage/Purpose"), QStandardPaths::LocateDirectory);
