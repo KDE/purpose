@@ -44,10 +44,10 @@ ColumnLayout {
             clip: true
             model: BluezQt.DevicesModel { }
 
-            delegate: Kirigami.BasicListItem {
-                width: parent.width
+            delegate: ItemDelegate {
+                width: ListView.view.width
                 text: Name
-                icon: Icon
+                icon.name: Icon
                 onClicked: root.device = Ubi
                 checked: root.device === Ubi
                 highlighted: root.device === Ubi

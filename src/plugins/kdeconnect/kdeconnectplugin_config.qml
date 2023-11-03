@@ -46,10 +46,10 @@ ColumnLayout {
                 displayFilter: DevicesModel.Paired | DevicesModel.Reachable
             }
 
-            delegate: Kirigami.BasicListItem {
-                width: parent.width
+            delegate: ItemDelegate {
+                width: ListView.view.width
                 text: model.name
-                icon: model.iconName
+                icon.name: model.iconName
                 onClicked: root.device = deviceId
                 checked: root.device === deviceId
                 highlighted: root.device === deviceId
