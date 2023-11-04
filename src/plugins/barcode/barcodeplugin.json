@@ -36,7 +36,6 @@
                 "Name[sv]": "Kai Uwe Broulik",
                 "Name[tr]": "Kai Uwe Broulik",
                 "Name[uk]": "Kai Uwe Broulik",
-                "Name[x-test]": "xxKai Uwe Broulikxx",
                 "Name[zh_CN]": "Kai Uwe Broulik"
             }
         ],
@@ -75,7 +74,6 @@
         "Description[sv]": "Skapa en QR-kod för länken",
         "Description[tr]": "Bu bağlantı için bir kare kod oluştur",
         "Description[uk]": "Створити QR-код для цього посилання",
-        "Description[x-test]": "xxGenerate a QR code for this linkxx",
         "Description[zh_CN]": "生成此链接的二维码",
         "Icon": "view-barcode-qr",
         "License": "LGPL",
@@ -113,7 +111,6 @@
         "Name[sv]": "Skapa QR-kod",
         "Name[tr]": "Kare Kod Oluştur",
         "Name[uk]": "Створити QR-код",
-        "Name[x-test]": "xxGenerate QR codexx",
         "Name[zh_CN]": "生成二维码",
         "X-Purpose-ActionDisplay": "Generate QR Code",
         "X-Purpose-ActionDisplay[ar]": "ولد بركود",
@@ -149,7 +146,6 @@
         "X-Purpose-ActionDisplay[sv]": "Skapa QR-kod",
         "X-Purpose-ActionDisplay[tr]": "Kare Kod Oluştur",
         "X-Purpose-ActionDisplay[uk]": "Створити QR-код",
-        "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx",
         "X-Purpose-ActionDisplay[zh_CN]": "生成二维码"
     },
     "X-Purpose-Configuration": [

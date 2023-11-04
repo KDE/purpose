@@ -41,7 +41,6 @@
                 "Name[tg]": "Николас Фелла (Nicolas Fella)",
                 "Name[tr]": "Nicolas Fella",
                 "Name[uk]": "Nicolas Fella",
-                "Name[x-test]": "xxNicolas Fellaxx",
                 "Name[zh_CN]": "Nicolas Fella",
                 "Name[zh_TW]": "Nicolas Fella"
             }
@@ -87,7 +86,6 @@
         "Description[tg]": "Мубодила кардан тавассути Purpose",
         "Description[tr]": "Purpose kullararak Paylaş",
         "Description[uk]": "Оприлюднити за допомогою Purpose",
-        "Description[x-test]": "xxShare using Purposexx",
         "Description[zh_CN]": "使用 Purpose 分享",
         "Description[zh_TW]": "使用 Purpose 分享",
         "Icon": "document-share",
@@ -136,7 +134,6 @@
         "Name[tg]": "Мубодила кардан",
         "Name[tr]": "Paylaş",
         "Name[uk]": "Оприлюднити",
-        "Name[x-test]": "xxSharexx",
         "Name[zh_CN]": "分享",
         "Name[zh_TW]": "分享",
         "ServiceTypes": [
