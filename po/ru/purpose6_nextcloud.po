@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-01-13 02:57+0100\n"
+"POT-Creation-Date: 2023-11-04 12:19+0000\n"
 "PO-Revision-Date: 2021-01-17 12:23+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -24,17 +24,17 @@ msgstr ""
 msgid "Select an account:"
 msgstr "Выбор учётной записи:"
 
-#: nextcloudplugin_config.qml:63
+#: nextcloudplugin_config.qml:64
 #, kde-format
 msgid "No account configured"
 msgstr "Отсутствуют настроенные учётные записи"
 
-#: nextcloudplugin_config.qml:71
+#: nextcloudplugin_config.qml:72
 #, kde-format
 msgid "Configure Accounts"
 msgstr "Настроить учётные записи"
 
-#: nextcloudplugin_config.qml:78
+#: nextcloudplugin_config.qml:79
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Папка назначения:"
