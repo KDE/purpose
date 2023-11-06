@@ -46,7 +46,7 @@ ColumnLayout {
                 displayFilter: DevicesModel.Paired | DevicesModel.Reachable
             }
 
-            delegate: Kirigami.BasicListItem {
+            delegate: ItemDelegate {
                 width: parent.width
                 text: model.name
                 icon: model.iconName

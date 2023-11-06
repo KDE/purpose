@@ -43,7 +43,8 @@ ColumnLayout
                 serviceType: "dav-storage"
             }
 
-            delegate: Kirigami.BasicListItem {
+            delegate: ItemDelegate {
+                width: ListView.view.width
                 text: model.displayName
             }
 

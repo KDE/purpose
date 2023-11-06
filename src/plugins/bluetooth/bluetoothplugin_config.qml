@@ -44,7 +44,7 @@ ColumnLayout {
             clip: true
             model: BluezQt.DevicesModel { }
 
-            delegate: Kirigami.BasicListItem {
+            delegate: ItemDelegate {
                 width: parent.width
                 text: Name
                 icon: Icon
