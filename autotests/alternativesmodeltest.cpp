@@ -124,7 +124,7 @@ void AlternativesModelTest::disablePluginTest()
 
     QStandardPaths::setTestModeEnabled(true);
     auto config = KSharedConfig::openConfig(QStringLiteral("purposerc"));
-    auto group = config->group("plugins");
+    auto group = config->group(QStringLiteral("plugins"));
     group.writeEntry("disabled", QStringList{QStringLiteral("saveasplugin"), QStringLiteral("emailplugin")});
 
     plugins = listPlugins();
@@ -166,7 +166,7 @@ void AlternativesModelTest::blacklistTest()
     // Admin settings have precedence
     QStandardPaths::setTestModeEnabled(true);
     auto config = KSharedConfig::openConfig(QStringLiteral("purposerc"));
-    auto group = config->group("plugins");
+    auto group = config->group(QStringLiteral("plugins"));
     group.writeEntry("disabled", QStringList{QStringLiteral("emailplugin")});
 
     plugins = listPlugins({QStringLiteral("saveasplugin")});

@@ -305,7 +305,7 @@ void AlternativesModel::initializeModel()
     }
 
     const auto config = KSharedConfig::openConfig(QStringLiteral("purposerc"));
-    const auto group = config->group("plugins");
+    const auto group = config->group(QStringLiteral("plugins"));
     const QStringList disabledPlugins = group.readEntry("disabled", QStringList());
     auto pluginAcceptable = [d, disabledPlugins](const KPluginMetaData &meta) {
         return d->isPluginAcceptable(meta, disabledPlugins);
