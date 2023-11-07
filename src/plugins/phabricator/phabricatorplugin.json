@@ -41,6 +41,7 @@
                 "Name[tg]": "Рене Бертин (René Bertin)",
                 "Name[tr]": "René Bertin",
                 "Name[uk]": "René Bertin",
+                "Name[x-test]": "xxRené Bertinxx",
                 "Name[zh_CN]": "René Bertin",
                 "Name[zh_TW]": "René Bertin"
             }
@@ -85,6 +86,7 @@
         "Description[tg]": "Бор кардани ислоҳи нуқсонҳо ба Phabricator",
         "Description[tr]": "Yamaları Phabricator'e yükle",
         "Description[uk]": "Вивантажити латки на Phabricator",
+        "Description[x-test]": "xxUpload patches to Phabricatorxx",
         "Description[zh_CN]": "将补丁上传到 Phabricator",
         "Description[zh_TW]": "上傳修補程式到 Phabricator",
         "Icon": "phabricator-purpose",
@@ -129,6 +131,7 @@
         "Name[tg]": "Phabricator",
         "Name[tr]": "Phabricator",
         "Name[uk]": "Phabricator",
+        "Name[x-test]": "xxPhabricatorxx",
         "Name[zh_CN]": "Phabricator",
         "Name[zh_TW]": "Phabricator",
         "X-Purpose-ActionDisplay": "Phabricator...",
@@ -171,6 +174,7 @@
         "X-Purpose-ActionDisplay[tg]": "Phabricator...",
         "X-Purpose-ActionDisplay[tr]": "Phabricator...",
         "X-Purpose-ActionDisplay[uk]": "Phabricator…",
+        "X-Purpose-ActionDisplay[x-test]": "xxPhabricator...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "Phabricator...",
         "X-Purpose-ActionDisplay[zh_TW]": "Phabricator…"
     },
