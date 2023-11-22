@@ -257,7 +257,7 @@ QVariant AlternativesModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
         return data.name();
-    case Qt::ToolTip:
+    case Qt::ToolTipRole:
         return data.description();
     case IconNameRole:
         return data.iconName();
