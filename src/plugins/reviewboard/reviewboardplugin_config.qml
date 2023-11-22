@@ -11,6 +11,7 @@ import org.kde.purpose.reviewboard 1.0
 
 ColumnLayout {
     id: root
+
     property alias server: serverField.text
     property alias username: usernameField.text
     property alias password: passwordField.text
@@ -18,7 +19,7 @@ ColumnLayout {
     property string updateRR: ""
     property string baseDir
     property string localBaseDir
-    property variant extraData: rcfile.extraData
+    property var extraData: rcfile.extraData
 
     Label {
         text: root.updateRR
@@ -29,25 +30,33 @@ ColumnLayout {
         path: root.localBaseDir + "/.reviewboardrc"
     }
 
-    Label { text: i18nd("purpose6_reviewboard", "Server:") }
+    Label {
+        text: i18nd("purpose6_reviewboard", "Server:")
+    }
     TextField {
         id: serverField
         Layout.fillWidth: true
         text: rcfile.server
     }
-    Label { text: i18nd("purpose6_reviewboard", "Username:") }
+    Label {
+        text: i18nd("purpose6_reviewboard", "Username:")
+    }
     TextField {
         id: usernameField
         Layout.fillWidth: true
     }
-    Label { text: i18nd("purpose6_reviewboard", "Password:") }
+    Label {
+        text: i18nd("purpose6_reviewboard", "Password:")
+    }
     TextField {
         id: passwordField
         echoMode: TextInput.Password
         Layout.fillWidth: true
     }
 
-    Label { text: i18nd("purpose6_reviewboard", "Repository:") }
+    Label {
+        text: i18nd("purpose6_reviewboard", "Repository:")
+    }
     ComboBox {
         id: repositoriesCombo
         Layout.fillWidth: true
@@ -60,9 +69,8 @@ ColumnLayout {
         }
     }
 
-    function refreshUpdateRR()
-    {
-        root.updateRR = (updateRRCombo.currentIndex>=0 && update.checked) ? reviewsList.get(updateRRCombo.currentIndex, "toolTip") : ""
+    function refreshUpdateRR() {
+        root.updateRR = (updateRRCombo.currentIndex >= 0 && update.checked) ? reviewsList.get(updateRRCombo.currentIndex, "toolTip") : ""
     }
 
     Item {

@@ -68,10 +68,11 @@ QByteArray multipartFormData(const QList<QPair<QString, QVariant>> &values)
 
         // append body
         form_data.append(hstr);
-        if (val.second.userType() == QMetaType::QUrl)
+        if (val.second.userType() == QMetaType::QUrl) {
             form_data += urlToData(val.second.toUrl());
-        else
+        } else {
             form_data += val.second.toByteArray();
+        }
         form_data.append("\r\n");
         // EOFILE
     }
@@ -142,7 +143,7 @@ void HttpCall::start()
     }
     connect(m_reply, &QNetworkReply::finished, this, &HttpCall::onFinished);
 
-    //     qCDebug(PLUGIN_REVIEWBOARD) << "starting... requrl=" << m_requrl << "post=" << m_post;
+    // qCDebug(PLUGIN_REVIEWBOARD) << "starting... requrl=" << m_requrl << "post=" << m_post;
 }
 
 QVariant HttpCall::result() const
@@ -170,10 +171,11 @@ void HttpCall::onFinished()
         setErrorText(i18n("Request Error: %1", output.toMap().value(QStringLiteral("err")).toMap().value(QStringLiteral("msg")).toString()));
     }
 
-    if (receivedData.size() > 10000)
+    if (receivedData.size() > 10000) {
         qCDebug(PLUGIN_REVIEWBOARD) << "parsing..." << receivedData.size();
-    else
+    } else {
         qCDebug(PLUGIN_REVIEWBOARD) << "parsing..." << receivedData;
+    }
     emitResult();
 }
 

@@ -46,9 +46,9 @@ public:
 
     Purpose::Job *internalCreateJob(QObject *parent) const
     {
-        if (m_useSeparateProcess)
+        if (m_useSeparateProcess) {
             return new ProcessJob(m_pluginData.fileName(), m_pluginTypeName, m_inputData, parent);
-        else {
+        } else {
             return createJob(parent);
         }
     }
@@ -127,21 +127,24 @@ QJsonArray Configuration::neededArguments() const
     Q_D(const Configuration);
     QJsonArray ret = d->m_pluginType.value(QLatin1String("X-Purpose-InboundArguments")).toArray();
     const QJsonArray arr = d->m_pluginData.rawData().value(QLatin1String("X-Purpose-Configuration")).toArray();
-    for (const QJsonValue &val : arr)
+    for (const QJsonValue &val : arr) {
         ret += val;
+    }
     return ret;
 }
 
 Purpose::Job *Configuration::createJob()
 {
-    if (!isReady())
+    if (!isReady()) {
         return nullptr;
+    }
 
     Q_D(const Configuration);
 
     Purpose::Job *job = d->internalCreateJob(this);
-    if (!job)
+    if (!job) {
         return job;
+    }
 
     job->setData(d->m_inputData);
     job->setProperty("outputArgs", d->m_pluginType.value(QLatin1String("X-Purpose-OutboundArguments")));
@@ -161,8 +164,9 @@ QUrl Configuration::configSourceCode() const
     } else {
         const QString configFile =
             QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kf6/purpose/%1_config.qml").arg(d->m_pluginData.pluginId()));
-        if (configFile.isEmpty())
+        if (configFile.isEmpty()) {
             return QUrl();
+        }
 
         return QUrl::fromLocalFile(configFile);
     }

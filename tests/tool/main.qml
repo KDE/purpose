@@ -10,9 +10,9 @@ import QtQuick.Controls 2.2
 import QtQuick.Dialogs 1.2
 import org.kde.purpose 1.0 as Purpose
 
-ApplicationWindow
-{
+ApplicationWindow {
     id: window
+
     property alias inputData: view.inputData
 
     Purpose.AlternativesView {

@@ -66,9 +66,9 @@ int main(int argc, char **argv)
         for (const QString &file : std::as_const(files)) {
             const QUrl url = QUrl::fromUserInput(file, QString(), QUrl::AssumeLocalFile);
             QMimeType type = db.mimeTypeForUrl(url);
-            if (!common.isValid())
+            if (!common.isValid()) {
                 common = type;
-            else if (common.inherits(type.name())) {
+            } else if (common.inherits(type.name())) {
                 common = type;
             } else if (type.inherits(common.name())) {
                 ;

@@ -53,8 +53,9 @@ void ReviewsListModel::receivedReviews(KJob *job)
 
 QVariant ReviewsListModel::data(const QModelIndex &idx, int role) const
 {
-    if (!idx.isValid() || idx.column() != 0 || idx.row() >= m_values.size())
+    if (!idx.isValid() || idx.column() != 0 || idx.row() >= m_values.size()) {
         return QVariant();
+    }
 
     switch (role) {
     case Qt::DisplayRole:

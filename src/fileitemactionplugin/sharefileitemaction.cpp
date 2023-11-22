@@ -40,8 +40,9 @@ ShareFileItemAction::ShareFileItemAction(QObject *parent)
     connect(m_menu, &Purpose::Menu::finished, this, [this](const QJsonObject &output, int errorCode, const QString &errorMessage) {
         m_isFinished = true;
         if (errorCode == 0 || errorCode == KIO::ERR_USER_CANCELED) {
-            if (output.contains(QLatin1String("url")))
+            if (output.contains(QLatin1String("url"))) {
                 QDesktopServices::openUrl(QUrl(output.value(QLatin1String("url")).toString()));
+            }
         } else {
             Q_EMIT error(errorMessage);
             qWarning() << "job failed with error" << errorCode << errorMessage << output;
@@ -56,8 +57,9 @@ ShareFileItemAction::~ShareFileItemAction()
     if (!m_isFinished) {
         QObject::connect(m_menu, &Purpose::Menu::finished, [](const QJsonObject &output, int errorCode, const QString &errorMessage) {
             if (errorCode == 0 || errorCode == KIO::ERR_USER_CANCELED) {
-                if (output.contains(QLatin1String("url")))
+                if (output.contains(QLatin1String("url"))) {
                     QDesktopServices::openUrl(QUrl(output.value(QLatin1String("url")).toString()));
+                }
             } else {
                 KNotification::event(KNotification::Error, i18n("Error sharing"), errorMessage);
                 qWarning() << "job failed with error" << errorCode << errorMessage << output;

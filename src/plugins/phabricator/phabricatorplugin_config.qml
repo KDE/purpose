@@ -11,21 +11,24 @@ import org.kde.purpose.phabricator 1.0
 
 ColumnLayout {
     id: root
-    enabled: true
-    property string updateDR: ""
-    property string drTitle: ""
+
+    property string updateDR
+    property string drTitle
     property string localBaseDir
     property alias updateComment: updateCommentField.text
     // This is a workaround for installs where the result dialog doesn't always appear
     // or doesn't always show the revision URL.
     property alias doBrowse: doBrowseCheck.checked
-    property variant urls
-    property variant mimeType
+    property var urls
+    property var mimeType
 
-    function labelText()
-    {
-        if (updateDRCombo.currentIndex>=0 && updateOld.checked) {
-            return updateDR.length > 0 ? i18nd("purpose6_phabricator", "Update differential revision %1", updateDR) : i18nd("purpose6_phabricator", "Update differential revision")
+    function labelText() {
+        if (updateDRCombo.currentIndex >= 0 && updateOld.checked) {
+            if (updateDR !== "") {
+                return i18nd("purpose6_phabricator", "Update differential revision %1", updateDR);
+            } else {
+                return i18nd("purpose6_phabricator", "Update differential revision");
+            }
         } else if (createNew.checked) {
             return i18nd("purpose6_phabricator", "Create new \"differential diff\"")
         } else {
@@ -42,9 +45,8 @@ ColumnLayout {
         path: root.localBaseDir + "/.arcconfig"
     }
 
-    function refreshUpdateDR()
-    {
-        if (updateDRCombo.currentIndex>=0 && updateOld.checked) {
+    function refreshUpdateDR() {
+        if (updateDRCombo.currentIndex >= 0 && updateOld.checked) {
             root.updateDR = diffList.get(updateDRCombo.currentIndex, "toolTip")
             root.drTitle = diffList.get(updateDRCombo.currentIndex, "display")
         } else {
@@ -106,7 +108,9 @@ ColumnLayout {
 
     Label {
         // use i18nd("purpose6_phabricator", ).arg() to avoid showing the "%1" when inactive
-        text: updateDR != "unknown" && updateDR.length > 0 ? i18nd("purpose6_phabricator", "Summary of the update to %1:", updateDR) : i18nd("purpose6_phabricator", "Summary of the update")
+        text: root.updateDR !== "unknown" && root.updateDR !== ""
+            ? i18nd("purpose6_phabricator", "Summary of the update to %1:", root.updateDR)
+            : i18nd("purpose6_phabricator", "Summary of the update")
         enabled: updateOld.checked
     }
 

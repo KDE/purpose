@@ -70,10 +70,10 @@ Item {
 
                 onItemChanged: {
                     var initialData = jobController.configuration.data;
-                    for(var i in jobController.configuration.neededArguments) {
-                        var arg = jobController.configuration.neededArguments[i]
+                    for (var i in jobController.configuration.neededArguments) {
+                        var arg = jobController.configuration.neededArguments[i];
                         if (arg in configLoader.item) {
-                            item[arg+"Changed"].connect(dataHasChanged);
+                            item[arg + "Changed"].connect(dataHasChanged);
                             initialData[arg] = item[arg];
                         } else {
                             console.warn("property not found", arg);
@@ -82,11 +82,10 @@ Item {
                     jobController.configuration.data = initialData;
                 }
 
-                function dataHasChanged()
-                {
+                function dataHasChanged() {
                     var jobData = jobController.configuration.data;
-                    for(var i in jobController.configuration.neededArguments) {
-                        var arg = jobController.configuration.neededArguments[i]
+                    for (var i in jobController.configuration.neededArguments) {
+                        var arg = jobController.configuration.neededArguments[i];
                         if (arg in configLoader.item) {
                             jobData[arg] = configLoader.item[arg];
                         } else
@@ -121,7 +120,7 @@ Item {
                     text: i18nd("libpurpose6_quick", "Send")
                     icon.name: "document-send"
                     enabled: jobController.configuration
-                             && jobController.configuration.isReady
+                        && jobController.configuration.isReady
                     onClicked: jobController.startJob()
                 }
 

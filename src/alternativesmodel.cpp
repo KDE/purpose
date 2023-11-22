@@ -45,14 +45,16 @@ static bool mimeTypeMatch(const QString &constraint, const QJsonValue &value)
     if (value.isArray()) {
         const auto array = value.toArray();
         for (const QJsonValue &val : array) {
-            if (mimeTypeMatch(constraint, val))
+            if (mimeTypeMatch(constraint, val)) {
                 return true;
+            }
         }
         return false;
     } else if (value.isObject()) {
         for (const QJsonValue &val : value.toObject()) {
-            if (mimeTypeMatch(constraint, val))
+            if (mimeTypeMatch(constraint, val)) {
                 return true;
+            }
         }
         return false;
     } else if (constraint.contains(QLatin1Char('*'))) {
@@ -121,8 +123,9 @@ public:
         // All constraints must match
         const QJsonArray constraints = obj.value(QLatin1String("X-Purpose-Constraints")).toArray();
         for (const QJsonValue &constraint : constraints) {
-            if (!constraintMatches(meta, constraint))
+            if (!constraintMatches(meta, constraint)) {
                 return false;
+            }
         }
         return true;
     }
@@ -149,7 +152,7 @@ public:
         const QString constrainedValue = match.captured(2);
         const bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, m_inputData.value(propertyName));
         if (!acceptable) {
-            //             qDebug() << "not accepted" << meta.name() << propertyName << constrainedValue << m_inputData[propertyName];
+            // qDebug() << "not accepted" << meta.name() << propertyName << constrainedValue << m_inputData[propertyName];
         }
         return acceptable;
     }
@@ -179,8 +182,9 @@ QHash<int, QByteArray> AlternativesModel::roleNames() const
 void AlternativesModel::setInputData(const QJsonObject &input)
 {
     Q_D(AlternativesModel);
-    if (input == d->m_inputData)
+    if (input == d->m_inputData) {
         return;
+    }
 
     d->m_inputData = input;
     initializeModel();
@@ -191,8 +195,9 @@ void AlternativesModel::setInputData(const QJsonObject &input)
 void AlternativesModel::setPluginType(const QString &pluginType)
 {
     Q_D(AlternativesModel);
-    if (pluginType == d->m_pluginType)
+    if (pluginType == d->m_pluginType) {
         return;
+    }
 
     d->m_pluginTypeData = Purpose::readPluginType(pluginType);
     d->m_pluginType = pluginType;
@@ -212,8 +217,9 @@ QStringList AlternativesModel::disabledPlugins() const
 void AlternativesModel::setDisabledPlugins(const QStringList &pluginIds)
 {
     Q_D(AlternativesModel);
-    if (pluginIds == d->m_disabledPlugins)
+    if (pluginIds == d->m_disabledPlugins) {
         return;
+    }
 
     d->m_disabledPlugins = pluginIds;
 
@@ -250,8 +256,9 @@ int AlternativesModel::rowCount(const QModelIndex &parent) const
 QVariant AlternativesModel::data(const QModelIndex &index, int role) const
 {
     Q_D(const AlternativesModel);
-    if (!index.isValid() || index.row() > d->m_plugins.count())
+    if (!index.isValid() || index.row() > d->m_plugins.count()) {
         return QVariant();
+    }
 
     KPluginMetaData data = d->m_plugins[index.row()];
     switch (role) {
@@ -283,11 +290,12 @@ static QList<KPluginMetaData> findScriptedPackages(std::function<bool(const KPlu
     for (const QString &dir : dirs) {
         QDirIterator dirIt(dir, QDir::Dirs | QDir::NoDotAndDotDot);
 
-        for (; dirIt.hasNext();) {
+        while (dirIt.hasNext()) {
             QDir dir(dirIt.next());
             Q_ASSERT(dir.exists());
-            if (!dir.exists(QStringLiteral("metadata.json")))
+            if (!dir.exists(QStringLiteral("metadata.json"))) {
                 continue;
+            }
 
             const KPluginMetaData info = Purpose::createMetaData(dir.absoluteFilePath(QStringLiteral("metadata.json")));
             if (!addedPlugins.contains(info.pluginId()) && filter(info)) {

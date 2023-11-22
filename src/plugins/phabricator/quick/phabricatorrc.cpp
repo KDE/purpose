@@ -13,8 +13,9 @@ PhabricatorRC::PhabricatorRC(QObject *parent)
 
 void PhabricatorRC::setPath(const QUrl &filePath)
 {
-    if (filePath == m_path || !filePath.isLocalFile())
+    if (filePath == m_path || !filePath.isLocalFile()) {
         return;
+    }
     m_path = filePath;
 
     //.arcconfig files are JSON files

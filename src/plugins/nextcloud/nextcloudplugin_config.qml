@@ -11,8 +11,7 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kcmutils as KCMUtils
 import SSO.OnlineAccounts 0.1 as OA
 
-ColumnLayout
-{
+ColumnLayout {
     id: root
 
     property var folder: folderField.text

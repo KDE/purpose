@@ -9,11 +9,11 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Dialogs
 
-ColumnLayout
-{
+ColumnLayout {
     id: root
+
     property alias destinationPath: destination.text
-    property variant urls
+    property var urls
 
     Label {
         text: i18n("Save directory:")

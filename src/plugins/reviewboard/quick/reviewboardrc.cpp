@@ -18,8 +18,9 @@ ReviewboardRC::ReviewboardRC(QObject *parent)
 
 void ReviewboardRC::setPath(const QUrl &filePath)
 {
-    if (filePath == m_path || !filePath.isLocalFile())
+    if (filePath == m_path || !filePath.isLocalFile()) {
         return;
+    }
 
     // The .reviewboardrc files are python files, we'll read and if it doesn't work
     // Well bad luck. See: http://www.reviewboard.org/docs/rbtools/dev/rbt/configuration/
@@ -33,17 +34,19 @@ void ReviewboardRC::setPath(const QUrl &filePath)
     const QRegularExpression rx(QRegularExpression::anchoredPattern(QStringLiteral("([\\w]+) *= *[\"'](.*)[\"']")));
     QHash<QString, QString> values;
     QTextStream stream(&f);
-    for (; !stream.atEnd();) {
+    while (!stream.atEnd()) {
         QRegularExpressionMatch match = rx.match(stream.readLine());
         if (match.hasMatch()) {
             values.insert(match.captured(1), match.captured(2));
         }
     }
 
-    if (values.contains(QStringLiteral("REVIEWBOARD_URL")))
+    if (values.contains(QStringLiteral("REVIEWBOARD_URL"))) {
         m_server = QUrl(values[QStringLiteral("REVIEWBOARD_URL")]);
-    if (values.contains(QStringLiteral("REPOSITORY")))
+    }
+    if (values.contains(QStringLiteral("REPOSITORY"))) {
         m_repository = values[QStringLiteral("REPOSITORY")];
+    }
     addExtraData(QStringLiteral("target_groups"), values[QStringLiteral("TARGET_GROUPS")]);
     addExtraData(QStringLiteral("target_people"), values[QStringLiteral("TARGET_PEOPLE")]);
     addExtraData(QStringLiteral("branch"), values[QStringLiteral("BRANCH")]);
@@ -53,8 +56,9 @@ void ReviewboardRC::setPath(const QUrl &filePath)
 
 void ReviewboardRC::addExtraData(const QString &key, const QString &value)
 {
-    if (!value.isEmpty())
+    if (!value.isEmpty()) {
         m_extraData.insert(key, value);
+    }
 }
 
 #include "moc_reviewboardrc.cpp"

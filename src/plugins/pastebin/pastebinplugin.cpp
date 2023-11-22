@@ -60,8 +60,9 @@ public:
             setError(job->error());
             setErrorText(job->errorString());
             emitResult();
-        } else if (m_pendingJobs == 0)
+        } else if (m_pendingJobs == 0) {
             performUpload();
+        }
     }
 
     void performUpload()
@@ -100,8 +101,9 @@ public:
         } else if (!m_resultData.startsWith("http")) {
             setError(1);
             setErrorText(QString::fromUtf8(m_resultData));
-        } else
+        } else {
             setOutput({{QStringLiteral("url"), QString::fromUtf8(m_resultData)}});
+        }
         emitResult();
     }
 

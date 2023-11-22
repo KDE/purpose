@@ -11,6 +11,7 @@ import org.kde.purpose 1.0
 
 StackView {
     id: stack
+
     focus: true
 
     implicitHeight: currentItem.implicitHeight
@@ -21,7 +22,7 @@ StackView {
     property Component highlight
     property Component header
     property Component footer
-    property variant verticalLayoutDirection: ListView.TopToBottom
+    property var verticalLayoutDirection: ListView.TopToBottom
     property Component delegate: Component {
         RowLayout {
             width: ListView.view.width

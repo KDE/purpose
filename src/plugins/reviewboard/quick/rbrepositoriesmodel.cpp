@@ -29,8 +29,9 @@ void RepositoriesModel::refresh()
 
 QVariant RepositoriesModel::data(const QModelIndex &idx, int role) const
 {
-    if (!idx.isValid() || idx.column() != 0 || idx.row() >= m_values.count())
+    if (!idx.isValid() || idx.column() != 0 || idx.row() >= m_values.count()) {
         return QVariant();
+    }
 
     switch (role) {
     case Qt::DisplayRole:
@@ -79,10 +80,11 @@ int RepositoriesModel::findRepository(const QString &name)
     if (idxs.isEmpty()) {
         idxs = match(index(0, 0), Qt::DisplayRole, QUrl(name).fileName(), 1, Qt::MatchExactly);
     }
-    if (!idxs.isEmpty())
+    if (!idxs.isEmpty()) {
         return idxs.first().row();
-    else
+    } else {
         qWarning() << "couldn't find the repository" << name;
+    }
 
     return -1;
 }

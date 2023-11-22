@@ -10,8 +10,7 @@ import QtQuick.Layouts 1.1
 import org.kde.kcmutils as KCMUtils
 import SSO.OnlineAccounts 0.1 as OA
 
-ColumnLayout
-{
+ColumnLayout {
     id: root
 
     property alias videoDesc: description.text
@@ -21,13 +20,14 @@ ColumnLayout
     property var urls
     property var mimeType
 
-    function accountChanged()
-    {
-        var valid = accountsCombo.enabled && accountsCombo.currentIndex>=0;
+    function accountChanged() {
+        var valid = accountsCombo.enabled && accountsCombo.currentIndex >= 0;
         accountId = valid ? serviceModel.get(accountsCombo.currentIndex, "accountId") : null
     }
 
-    Label { text: i18nd("purpose6_youtube", "Account:") }
+    Label {
+        text: i18nd("purpose6_youtube", "Account:")
+    }
     RowLayout {
         Layout.fillWidth: true
         ComboBox {
@@ -35,7 +35,7 @@ ColumnLayout
 
             Layout.fillWidth: true
             textRole: "displayName"
-            enabled: count>0
+            enabled: count > 0
             model: OA.AccountServiceModel {
                 id: serviceModel
                 serviceType: "google-youtube"
@@ -45,25 +45,31 @@ ColumnLayout
         }
         Button {
             icon.name: "settings-configure"
-            onClicked: KCMUtils.KCMLauncher.openSystemSettings("kcm_kaccounts");
+            onClicked: KCMUtils.KCMLauncher.openSystemSettings("kcm_kaccounts")
         }
     }
 
-    Label { text: i18nd("purpose6_youtube", "Title:") }
+    Label {
+        text: i18nd("purpose6_youtube", "Title:")
+    }
     TextField {
         id: title
         Layout.fillWidth: true
         placeholderText: i18nd("purpose6_youtube", "Enter a title for the video...")
     }
 
-    Label { text: i18nd("purpose6_youtube", "Tags:") }
+    Label {
+        text: i18nd("purpose6_youtube", "Tags:")
+    }
     TextField {
         id: tags
         Layout.fillWidth: true
         placeholderText: i18nd("purpose6_youtube", "KDE, Kamoso")
     }
 
-    Label { text: i18nd("purpose6_youtube", "Description:") }
+    Label {
+        text: i18nd("purpose6_youtube", "Description:")
+    }
     TextArea {
         id: description
         wrapMode: TextEdit.Wrap

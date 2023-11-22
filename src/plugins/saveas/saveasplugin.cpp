@@ -73,8 +73,9 @@ public:
     bool doKill() override
     {
         bool killed = true;
-        for (KJob *job : m_jobs)
+        for (KJob *job : m_jobs) {
             killed &= job->kill();
+        }
         return killed;
     }
 

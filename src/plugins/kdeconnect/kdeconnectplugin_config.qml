@@ -11,8 +11,8 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kdeconnect 1.0
 
 ColumnLayout {
-
     id: root
+
     property var device: undefined
 
     anchors.bottomMargin: Kirigami.Units.smallSpacing
@@ -61,7 +61,7 @@ ColumnLayout {
                 anchors.centerIn: parent
                 width: parent.width - (Kirigami.Units.largeSpacing * 4)
                 visible: list.count === 0
-                text: i18nd("purpose6_kdeconnect","No devices found")
+                text: i18nd("purpose6_kdeconnect", "No devices found")
             }
         }
     }

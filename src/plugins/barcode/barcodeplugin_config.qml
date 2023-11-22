@@ -20,14 +20,14 @@ ColumnLayout {
     property var dummy
 
     Component.onCompleted: {
-        root.Window.window.minimumWidth = Qt.binding(function() {
-            return Math.min(Kirigami.Units.gridUnit * 30,
-                            root.implicitWidth + Kirigami.Units.gridUnit * 2);
-        });
-        root.Window.window.minimumHeight = Qt.binding(function() {
-            return Math.min(Kirigami.Units.gridUnit * 30,
-                            root.implicitHeight + Kirigami.Units.gridUnit * 4);
-        });
+        root.Window.window.minimumWidth = Qt.binding(() => Math.min(
+            Kirigami.Units.gridUnit * 30,
+            root.implicitWidth + Kirigami.Units.gridUnit * 2,
+        ));
+        root.Window.window.minimumHeight = Qt.binding(() => Math.min(
+            Kirigami.Units.gridUnit * 30,
+            root.implicitHeight + Kirigami.Units.gridUnit * 4,
+        ));
     }
 
     Item {

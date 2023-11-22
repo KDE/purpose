@@ -57,8 +57,9 @@ public:
 
     void jobFinished(int code, QProcess::ExitStatus status)
     {
-        if (status != QProcess::NormalExit)
+        if (status != QProcess::NormalExit) {
             qWarning() << "bluedevil-sendfile crashed";
+        }
 
         setError(code);
         setOutput({{QStringLiteral("url"), QString()}});

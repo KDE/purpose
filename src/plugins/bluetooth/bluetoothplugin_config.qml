@@ -12,8 +12,8 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.bluezqt 1.0 as BluezQt
 
 ColumnLayout {
-
     id: root
+
     property var device: undefined
 
     anchors.bottomMargin: Kirigami.Units.smallSpacing
