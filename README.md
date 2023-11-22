@@ -83,7 +83,7 @@ An example of such files is the `ExportPluginType.json`:
 {
     "KPlugin": {
         "Icon": "edit-paste",
-        "Name": "Upload..."
+        "Name": "Upload…"
     },
     "X-Purpose-InboundArguments": [ "urls", "mimeType" ],
     "X-Purpose-OutboundArguments": [ "url" ]

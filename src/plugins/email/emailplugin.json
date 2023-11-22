@@ -101,7 +101,7 @@
         "Name[x-test]": "xxSend via Emailxx",
         "Name[zh_CN]": "通过电子邮件发送",
         "Name[zh_TW]": "透過電子郵件傳送",
-        "X-Purpose-ActionDisplay": "Send via Email...",
+        "X-Purpose-ActionDisplay": "Send via Email…",
         "X-Purpose-ActionDisplay[ar]": "أرسِل عبر البريد الإلكتروني...",
         "X-Purpose-ActionDisplay[az]": "E-poçt ilə göndər...",
         "X-Purpose-ActionDisplay[bg]": "Изпращане по е-поща...",

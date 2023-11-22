@@ -101,7 +101,7 @@
         "Name[x-test]": "xxSend To Devicexx",
         "Name[zh_CN]": "发送到设备",
         "Name[zh_TW]": "傳送到裝置",
-        "X-Purpose-ActionDisplay": "Send To Device...",
+        "X-Purpose-ActionDisplay": "Send To Device…",
         "X-Purpose-ActionDisplay[ar]": "أرسِل إلى جهاز…...",
         "X-Purpose-ActionDisplay[az]": "Cihaza göndər...",
         "X-Purpose-ActionDisplay[bg]": "Изпращане до устройство...",

@@ -99,7 +99,7 @@
         "Name[x-test]": "xxSend via Bluetoothxx",
         "Name[zh_CN]": "通过蓝牙发送",
         "Name[zh_TW]": "透過藍牙傳送",
-        "X-Purpose-ActionDisplay": "Send via Bluetooth...",
+        "X-Purpose-ActionDisplay": "Send via Bluetooth…",
         "X-Purpose-ActionDisplay[ar]": "أرسِل عبر بلوتوث...",
         "X-Purpose-ActionDisplay[az]": "Bluetooth ilə göndər...",
         "X-Purpose-ActionDisplay[bg]": "Изпращане чрез Bluetooth...",

@@ -80,7 +80,7 @@ ColumnLayout {
         text: root.urls[0]
         // Random limit so it doesn't get too large
         maximumLength: 250
-        placeholderText: i18nd("purpose6_barcode", "Type a URL or some text...")
+        placeholderText: i18nd("purpose6_barcode", "Type a URL or some text…")
         Component.onCompleted: forceActiveFocus()
     }
 }
