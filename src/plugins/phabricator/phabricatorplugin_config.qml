@@ -115,6 +115,7 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
         text: i18nd("purpose6_phabricator", "patch updated through %1 and the Purpose/Phabricator plugin", Qt.application.name)
+        wrapMode: TextEdit.Wrap
         enabled: updateOld.checked
     }
 

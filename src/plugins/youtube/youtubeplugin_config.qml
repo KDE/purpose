@@ -66,6 +66,7 @@ ColumnLayout
     Label { text: i18nd("purpose6_youtube", "Description:") }
     TextArea {
         id: description
+        wrapMode: TextEdit.Wrap
         Layout.fillWidth: true
         Layout.fillHeight: true
     }
