@@ -8,8 +8,8 @@
 #include "youtubejob.h"
 #include <Accounts/Application>
 #include <Accounts/Manager>
-#include <KAccounts/core.h>
-#include <KAccounts/getcredentialsjob.h>
+#include <KAccounts/Core>
+#include <KAccounts/GetCredentialsJob>
 #include <KLocalizedString>
 #include <QDebug>
 #include <QJsonArray>
