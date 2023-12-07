@@ -1,5 +1,4 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"purpose6_youtube\")
-add_subdirectory(icons)
 
 kaccounts_add_service(${CMAKE_CURRENT_SOURCE_DIR}/google-youtube.service.in)
 
