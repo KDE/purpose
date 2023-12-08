@@ -7,7 +7,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.1
-import org.kde.kquickcontrolsaddons 2.0 as KQCA
+import org.kde.kcmutils as KCMUtils
 import SSO.OnlineAccounts 0.1 as OA
 
 ColumnLayout
@@ -45,7 +45,7 @@ ColumnLayout
         }
         Button {
             icon.name: "settings-configure"
-            onClicked: KQCA.KCMShell.open("kcm_kaccounts");
+            onClicked: KCMUtils.KCMLauncher.openSystemSettings("kcm_kaccounts");
         }
     }
 
