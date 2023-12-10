@@ -10,6 +10,8 @@
 #include <KIO/CopyJob>
 #include <QDebug>
 
+using namespace KAccounts;
+
 QList<QUrl> arrayToList(const QJsonArray &array)
 {
     QList<QUrl> ret;

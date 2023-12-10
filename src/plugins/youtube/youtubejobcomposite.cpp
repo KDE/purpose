@@ -16,6 +16,8 @@
 #include <QJsonValue>
 #include <QStandardPaths>
 
+using namespace KAccounts;
+
 QDebug operator<<(QDebug s, const Accounts::Service &service)
 {
     s.nospace() << qPrintable(service.displayName()) << ',' << qPrintable(service.name()) << '\n';
