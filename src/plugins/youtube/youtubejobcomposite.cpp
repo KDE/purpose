@@ -46,7 +46,7 @@ void YoutubeJobComposite::start()
     // TODO: make async
     QByteArray accessToken;
     {
-        auto job = new GetCredentialsJob(id, this);
+        auto job = new KAccounts::GetCredentialsJob(id, this);
         bool b = job->exec();
         if (!b) {
             qWarning() << "Couldn't fetch credentials";

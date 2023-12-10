@@ -22,9 +22,9 @@ QList<QUrl> arrayToList(const QJsonArray &array)
 void NextcloudJob::start()
 {
     const Accounts::AccountId id = data().value(QStringLiteral("accountId")).toInt();
-    auto credentialsJob = new GetCredentialsJob(id, this);
+    auto credentialsJob = new KAccounts::GetCredentialsJob(id, this);
 
-    connect(credentialsJob, &GetCredentialsJob::finished, this, &NextcloudJob::gotCredentials);
+    connect(credentialsJob, &KAccounts::GetCredentialsJob::finished, this, &NextcloudJob::gotCredentials);
 
     credentialsJob->start();
 }
@@ -48,7 +48,7 @@ void NextcloudJob::gotCredentials(KJob *job)
         }
     }
 
-    GetCredentialsJob *credentialsJob = qobject_cast<GetCredentialsJob *>(job);
+    KAccounts::GetCredentialsJob *credentialsJob = qobject_cast<KAccounts::GetCredentialsJob *>(job);
     Q_ASSERT(credentialsJob);
     const QString folder = data().value(QStringLiteral("folder")).toString();
 
