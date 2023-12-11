@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:25+0000\n"
+"POT-Creation-Date: 2023-12-11 00:39+0000\n"
 "PO-Revision-Date: 2020-05-02 23:11+0400\n"
 "Last-Translator: Xəyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 20.04.0\n"
 
-#: youtubejobcomposite.cpp:40
+#: youtubejobcomposite.cpp:42
 #, kde-format
 msgid "No YouTube account configured in your accounts."
 msgstr "Heç bir YouTube hesabı ayarlanmayıb."

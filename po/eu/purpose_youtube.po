@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose_youtube\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:25+0000\n"
+"POT-Creation-Date: 2023-12-11 00:39+0000\n"
 "PO-Revision-Date: 2018-06-21 20:48+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-doc@kde.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: youtubejobcomposite.cpp:40
+#: youtubejobcomposite.cpp:42
 #, kde-format
 msgid "No YouTube account configured in your accounts."
 msgstr "Zure kontuen artean ez dago konfiguratuta YouTube konturik."
