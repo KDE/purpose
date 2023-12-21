@@ -138,7 +138,7 @@
         "Name[x-test]": "xxPastebinxx",
         "Name[zh_CN]": "Pastebin",
         "Name[zh_TW]": "Pastebin",
-        "X-Purpose-ActionDisplay": "Pastebin",
+        "X-Purpose-ActionDisplay": "Upload Publicly to Pastebin",
         "X-Purpose-ActionDisplay[ar]": "بيست‌بِن...",
         "X-Purpose-ActionDisplay[az]": "Pastebin...",
         "X-Purpose-ActionDisplay[bg]": "Pastebin...",
