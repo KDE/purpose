@@ -138,7 +138,18 @@
         "Name[x-test]": "xxPastebinxx",
         "Name[zh_CN]": "Pastebin",
         "Name[zh_TW]": "Pastebin",
-        "X-Purpose-ActionDisplay": "Upload Publicly to Pastebin"
+        "X-Purpose-ActionDisplay": "Upload Publicly to Pastebin",
+        "X-Purpose-ActionDisplay[bg]": "Публично качване в Pastebin",
+        "X-Purpose-ActionDisplay[ca@valencia]": "Puja públicament a Pastebin",
+        "X-Purpose-ActionDisplay[ca]": "Puja públicament a Pastebin",
+        "X-Purpose-ActionDisplay[eo]": "Alŝuti tekston al Pastebin",
+        "X-Purpose-ActionDisplay[gl]": "Publicar en Pastebin",
+        "X-Purpose-ActionDisplay[ia]": "Incarga publicamente a Pastebin",
+        "X-Purpose-ActionDisplay[ka]": "საჯაროდ ატვირთვა Pastebin-ზე",
+        "X-Purpose-ActionDisplay[nl]": "Publiek uploaden naar Pastebin",
+        "X-Purpose-ActionDisplay[sl]": "Prenesi Javno na Pastebin",
+        "X-Purpose-ActionDisplay[tr]": "Metni Herkes için Pastebin'e Yükle",
+        "X-Purpose-ActionDisplay[x-test]": "xxUpload Publicly to Pastebinxx"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
