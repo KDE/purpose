@@ -147,9 +147,12 @@
         "X-Purpose-ActionDisplay[ia]": "Incarga publicamente a Pastebin",
         "X-Purpose-ActionDisplay[ka]": "საჯაროდ ატვირთვა Pastebin-ზე",
         "X-Purpose-ActionDisplay[nl]": "Publiek uploaden naar Pastebin",
+        "X-Purpose-ActionDisplay[pl]": "Prześlij publicznie na Pastebin",
         "X-Purpose-ActionDisplay[sl]": "Prenesi Javno na Pastebin",
         "X-Purpose-ActionDisplay[tr]": "Metni Herkes için Pastebin'e Yükle",
-        "X-Purpose-ActionDisplay[x-test]": "xxUpload Publicly to Pastebinxx"
+        "X-Purpose-ActionDisplay[uk]": "Вивантажити відкрито на Pastebin",
+        "X-Purpose-ActionDisplay[x-test]": "xxUpload Publicly to Pastebinxx",
+        "X-Purpose-ActionDisplay[zh_CN]": "公开上传到 Pastebin"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
