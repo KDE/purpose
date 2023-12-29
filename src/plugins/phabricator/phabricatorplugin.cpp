@@ -108,7 +108,7 @@ class PhabricatorPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    PhabricatorPlugin(QObject *parent, const QList<QVariant> & /*args*/)
+    PhabricatorPlugin(QObject *parent)
         : PluginBase(parent)
     {
     }

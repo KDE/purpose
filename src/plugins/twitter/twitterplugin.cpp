@@ -58,7 +58,7 @@ class TwitterPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    TwitterPlugin(QObject *p, const QVariantList &)
+    TwitterPlugin(QObject *p)
         : Purpose::PluginBase(p)
     {
     }

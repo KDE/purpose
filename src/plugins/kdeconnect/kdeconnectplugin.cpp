@@ -71,7 +71,7 @@ class KDEConnectPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    KDEConnectPlugin(QObject *p, const QVariantList &)
+    KDEConnectPlugin(QObject *p)
         : Purpose::PluginBase(p)
     {
     }

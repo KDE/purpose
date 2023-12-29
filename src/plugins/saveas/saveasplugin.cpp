@@ -100,7 +100,7 @@ class SaveAsPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    SaveAsPlugin(QObject *p, const QVariantList &)
+    SaveAsPlugin(QObject *p)
         : Purpose::PluginBase(p)
     {
     }

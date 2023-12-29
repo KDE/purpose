@@ -72,7 +72,7 @@ class BluetoothPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    BluetoothPlugin(QObject *p, const QVariantList &)
+    BluetoothPlugin(QObject *p)
         : Purpose::PluginBase(p)
     {
     }

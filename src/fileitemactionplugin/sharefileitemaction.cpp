@@ -29,7 +29,7 @@ K_PLUGIN_CLASS_WITH_JSON(ShareFileItemAction, "sharefileitemaction.json")
 
 Q_LOGGING_CATEGORY(PURPOSE_FILEITEMACTION, "kf.kio.widgets.fileitemactions.purpose")
 
-ShareFileItemAction::ShareFileItemAction(QObject *parent, const QVariantList &)
+ShareFileItemAction::ShareFileItemAction(QObject *parent)
     : KAbstractFileItemActionPlugin(parent)
     , m_menu(new Purpose::Menu())
 {

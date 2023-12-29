@@ -68,7 +68,7 @@ class EmailPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    EmailPlugin(QObject *p, const QVariantList &)
+    EmailPlugin(QObject *p)
         : Purpose::PluginBase(p)
     {
     }

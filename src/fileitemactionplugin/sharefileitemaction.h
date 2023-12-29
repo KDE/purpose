@@ -27,7 +27,7 @@ class ShareFileItemAction : public KAbstractFileItemActionPlugin
 {
     Q_OBJECT
 public:
-    ShareFileItemAction(QObject *parent, const QVariantList &args);
+    ShareFileItemAction(QObject *parent);
     ~ShareFileItemAction() override;
     QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
 

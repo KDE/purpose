@@ -49,7 +49,7 @@ class KDEConnectSMSPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    KDEConnectSMSPlugin(QObject *p, const QVariantList &)
+    KDEConnectSMSPlugin(QObject *p)
         : Purpose::PluginBase(p)
     {
     }

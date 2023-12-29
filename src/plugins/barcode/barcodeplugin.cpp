@@ -11,7 +11,7 @@ class BarcodePlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    BarcodePlugin(QObject *p, const QVariantList &)
+    BarcodePlugin(QObject *p)
         : Purpose::PluginBase(p)
     {
     }

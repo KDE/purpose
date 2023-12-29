@@ -98,7 +98,7 @@ class ReviewBoardPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    ReviewBoardPlugin(QObject *parent, const QList<QVariant> & /*args*/)
+    ReviewBoardPlugin(QObject *parent)
         : PluginBase(parent)
     {
     }

@@ -92,7 +92,7 @@ class TelegramPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    TelegramPlugin(QObject *p, const QVariantList &)
+    TelegramPlugin(QObject *p)
         : Purpose::PluginBase(p)
     {
     }

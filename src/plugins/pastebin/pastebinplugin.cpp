@@ -115,7 +115,7 @@ class PastebinPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    PastebinPlugin(QObject *p, const QVariantList &)
+    PastebinPlugin(QObject *p)
         : Purpose::PluginBase(p)
     {
     }

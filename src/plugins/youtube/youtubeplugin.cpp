@@ -14,10 +14,9 @@ class YoutubePlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    YoutubePlugin(QObject *parent, const QVariantList &args)
+    YoutubePlugin(QObject *parent)
         : Purpose::PluginBase(parent)
     {
-        Q_UNUSED(args);
     }
 
     Purpose::Job *createJob() const override

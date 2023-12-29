@@ -164,7 +164,7 @@ class ImgurPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    ImgurPlugin(QObject *p, const QVariantList &)
+    ImgurPlugin(QObject *p)
         : Purpose::PluginBase(p)
     {
     }
