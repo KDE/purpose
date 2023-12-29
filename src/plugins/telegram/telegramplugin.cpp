@@ -92,11 +92,7 @@ class TelegramPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    TelegramPlugin(QObject *p)
-        : Purpose::PluginBase(p)
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new TelegramJob(nullptr);

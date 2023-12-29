@@ -108,14 +108,7 @@ class PhabricatorPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    PhabricatorPlugin(QObject *parent)
-        : PluginBase(parent)
-    {
-    }
-    ~PhabricatorPlugin() override
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new PhabricatorJob;

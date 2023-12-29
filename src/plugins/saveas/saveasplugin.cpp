@@ -100,11 +100,7 @@ class SaveAsPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    SaveAsPlugin(QObject *p)
-        : Purpose::PluginBase(p)
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new SaveAsShareJob(nullptr);

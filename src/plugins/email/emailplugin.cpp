@@ -68,11 +68,7 @@ class EmailPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    EmailPlugin(QObject *p)
-        : Purpose::PluginBase(p)
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new EmailJob(nullptr);

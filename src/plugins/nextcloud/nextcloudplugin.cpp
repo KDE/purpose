@@ -14,11 +14,7 @@ class NextcloudPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    NextcloudPlugin(QObject *parent)
-        : Purpose::PluginBase(parent)
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new NextcloudJob(nullptr);

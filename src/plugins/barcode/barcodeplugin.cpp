@@ -11,11 +11,7 @@ class BarcodePlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    BarcodePlugin(QObject *p)
-        : Purpose::PluginBase(p)
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         // It's never supposed to go beyond the configuration page

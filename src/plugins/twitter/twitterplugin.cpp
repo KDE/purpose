@@ -58,11 +58,7 @@ class TwitterPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    TwitterPlugin(QObject *p)
-        : Purpose::PluginBase(p)
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new TwitterJob(nullptr);

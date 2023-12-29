@@ -115,11 +115,7 @@ class PastebinPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    PastebinPlugin(QObject *p)
-        : Purpose::PluginBase(p)
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new PastebinJob(nullptr);

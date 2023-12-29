@@ -49,11 +49,7 @@ class KDEConnectSMSPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    KDEConnectSMSPlugin(QObject *p)
-        : Purpose::PluginBase(p)
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new KDEConnectSMSJob(nullptr);

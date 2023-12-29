@@ -14,11 +14,7 @@ class YoutubePlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    YoutubePlugin(QObject *parent)
-        : Purpose::PluginBase(parent)
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new YoutubeJobComposite;

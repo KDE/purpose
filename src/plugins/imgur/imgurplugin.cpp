@@ -164,11 +164,7 @@ class ImgurPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    ImgurPlugin(QObject *p)
-        : Purpose::PluginBase(p)
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new ImgurShareJob(nullptr);

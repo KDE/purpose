@@ -98,14 +98,7 @@ class ReviewBoardPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
-    ReviewBoardPlugin(QObject *parent)
-        : PluginBase(parent)
-    {
-    }
-    ~ReviewBoardPlugin() override
-    {
-    }
-
+    using PluginBase::PluginBase;
     Purpose::Job *createJob() const override
     {
         return new TheReviewboardJob;
