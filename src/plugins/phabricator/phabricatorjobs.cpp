@@ -50,7 +50,7 @@ bool DifferentialRevision::buildArcCommand(const QString &workDir, const QString
             m_arcInput = patchFile;
         }
         m_arcCmd.setWorkingDirectory(workDir);
-        connect(&m_arcCmd, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &DifferentialRevision::done);
+        connect(&m_arcCmd, &QProcess::finished, this, &DifferentialRevision::done);
         setPercent(33);
         ret = true;
     } else {
@@ -186,7 +186,7 @@ bool Phabricator::DiffRevList::buildArcCommand(const QString &workDir, const QSt
         m_arcCmd.setProgram(arc);
         m_arcCmd.setArguments(args);
         m_arcCmd.setWorkingDirectory(workDir);
-        connect(&m_arcCmd, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &DiffRevList::done);
+        connect(&m_arcCmd, &QProcess::finished, this, &DiffRevList::done);
         setPercent(33);
         ret = true;
     } else {

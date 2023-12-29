@@ -37,7 +37,7 @@ public:
         process->setArguments(QStringList(QStringLiteral("--device"))
                               << data().value(QStringLiteral("device")).toString() << QStringLiteral("--share") << arrayToList(urlsJson));
         connect(process, &QProcess::errorOccurred, this, &KDEConnectJob::processError);
-        connect(process, qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this, &KDEConnectJob::jobFinished);
+        connect(process, &QProcess::finished, this, &KDEConnectJob::jobFinished);
         connect(process, &QProcess::readyRead, this, [process]() {
             qDebug() << "kdeconnect-cli output:" << process->readAll();
         });

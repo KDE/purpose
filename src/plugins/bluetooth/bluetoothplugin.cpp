@@ -38,7 +38,7 @@ public:
         process->setArguments(args);
 
         connect(process, &QProcess::errorOccurred, this, &BluetoothJob::processError);
-        connect(process, qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this, &BluetoothJob::jobFinished);
+        connect(process, &QProcess::finished, this, &BluetoothJob::jobFinished);
         connect(process, &QProcess::readyRead, this, [process]() {
             qDebug() << "bluedevil-sendfile output:" << process->readAll();
         });
