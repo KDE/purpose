@@ -7,7 +7,7 @@
 #include "youtubejob.h"
 #include <KPasswordDialog>
 
-#include <KIO/Job>
+#include <KIO/StoredTransferJob>
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
