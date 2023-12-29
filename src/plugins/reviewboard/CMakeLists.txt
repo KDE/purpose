@@ -10,8 +10,8 @@ ecm_qt_declare_logging_category(ReviewboardHelpers_SRCS
     EXPORT PURPOSE
 )
 
-add_library(ReviewboardHelpers reviewboardjobs.cpp ${ReviewboardHelpers_SRCS})
-generate_export_header(ReviewboardHelpers EXPORT_FILE_NAME reviewboardhelpers_export.h)
+add_library(ReviewboardHelpers STATIC reviewboardjobs.cpp ${ReviewboardHelpers_SRCS})
+set_target_properties(ReviewboardHelpers PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(ReviewboardHelpers KF6::CoreAddons KF6::I18n Qt6::Network)
 
 add_share_plugin(reviewboardplugin reviewboardplugin.cpp)

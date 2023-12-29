@@ -10,7 +10,6 @@
 
 #include <KPluginFactory>
 
-#include "debug.h"
 #include "reviewboardjobs.h"
 
 #include "purpose/job.h"
