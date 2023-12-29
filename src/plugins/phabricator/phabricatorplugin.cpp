@@ -29,10 +29,10 @@ public:
 
     void start() override
     {
-        const QString localBaseDir(data().value(QStringLiteral("localBaseDir")).toString());
-        const QUrl sourceFile(data().value(QStringLiteral("urls")).toArray().first().toString());
-        const QString updateDR = data().value(QStringLiteral("updateDR")).toString();
-        const bool doBrowse = data().value(QStringLiteral("doBrowse")).toBool();
+        const QString localBaseDir(data().value(QLatin1String("localBaseDir")).toString());
+        const QUrl sourceFile(data().value(QLatin1String("urls")).toArray().first().toString());
+        const QString updateDR = data().value(QLatin1String("updateDR")).toString();
+        const bool doBrowse = data().value(QLatin1String("doBrowse")).toBool();
 
         const QString baseDir = QUrl(localBaseDir).toLocalFile();
 
@@ -52,11 +52,11 @@ public:
             return;
         }
 
-        m_drTitle = data().value(QStringLiteral("drTitle")).toString();
+        m_drTitle = data().value(QLatin1String("drTitle")).toString();
 
         KJob *job;
         if (!updateDR.isEmpty()) {
-            const QString updateComment = data().value(QStringLiteral("updateComment")).toString();
+            const QString updateComment = data().value(QLatin1String("updateComment")).toString();
             job = new Phabricator::UpdateDiffRev(sourceFile, baseDir, updateDR, updateComment, doBrowse, this);
             connect(job, &KJob::finished, this, &PhabricatorJob::diffUpdated);
         } else {

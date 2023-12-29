@@ -21,7 +21,7 @@ QList<QUrl> arrayToList(const QJsonArray &array)
 
 void NextcloudJob::start()
 {
-    const Accounts::AccountId id = data().value(QStringLiteral("accountId")).toInt();
+    const Accounts::AccountId id = data().value(QLatin1String("accountId")).toInt();
     auto credentialsJob = new KAccounts::GetCredentialsJob(id, this);
 
     connect(credentialsJob, &KAccounts::GetCredentialsJob::finished, this, &NextcloudJob::gotCredentials);
@@ -38,7 +38,7 @@ void NextcloudJob::gotCredentials(KJob *job)
         return;
     }
 
-    const Accounts::AccountId id = data().value(QStringLiteral("accountId")).toInt();
+    const Accounts::AccountId id = data().value(QLatin1String("accountId")).toInt();
     Accounts::Account *acc = Accounts::Account::fromId(KAccounts::accountsManager(), id);
 
     const auto services = acc->services();
@@ -50,7 +50,7 @@ void NextcloudJob::gotCredentials(KJob *job)
 
     KAccounts::GetCredentialsJob *credentialsJob = qobject_cast<KAccounts::GetCredentialsJob *>(job);
     Q_ASSERT(credentialsJob);
-    const QString folder = data().value(QStringLiteral("folder")).toString();
+    const QString folder = data().value(QLatin1String("folder")).toString();
 
     QUrl destUrl;
     destUrl.setHost(acc->valueAsString(QStringLiteral("dav/host")));
@@ -59,7 +59,7 @@ void NextcloudJob::gotCredentials(KJob *job)
     destUrl.setUserName(credentialsJob->credentialsData().value(QStringLiteral("UserName")).toString());
     destUrl.setPassword(credentialsJob->credentialsData().value(QStringLiteral("Secret")).toString());
 
-    const QList<QUrl> sourceUrls = arrayToList(data().value(QStringLiteral("urls")).toArray());
+    const QList<QUrl> sourceUrls = arrayToList(data().value(QLatin1String("urls")).toArray());
 
     KIO::CopyJob *copyJob = KIO::copy(sourceUrls, destUrl);
 

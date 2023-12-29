@@ -34,7 +34,7 @@ YoutubeJobComposite::YoutubeJobComposite()
 
 void YoutubeJobComposite::start()
 {
-    const QJsonValue jsonId = data().value(QStringLiteral("accountId"));
+    const QJsonValue jsonId = data().value(QLatin1String("accountId"));
     if (jsonId.isNull() || jsonId.isUndefined()) {
         setError(1);
         setErrorText(i18n("No YouTube account configured in your accounts."));
@@ -59,13 +59,13 @@ void YoutubeJobComposite::start()
     }
 
     m_pendingJobs = 0;
-    const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
+    const QJsonArray urls = data().value(QLatin1String("urls")).toArray();
     for (const QJsonValue &url : urls) {
         YoutubeJob *job = new YoutubeJob(QUrl(url.toString()),
                                          accessToken,
-                                         data().value(QStringLiteral("videoTitle")).toString(),
-                                         data().value(QStringLiteral("videoTags")).toString().split(QLatin1Char(',')),
-                                         data().value(QStringLiteral("videoDesc")).toString(),
+                                         data().value(QLatin1String("videoTitle")).toString(),
+                                         data().value(QLatin1String("videoTags")).toString().split(QLatin1Char(',')),
+                                         data().value(QLatin1String("videoDesc")).toString(),
                                          this);
         connect(job, &KJob::finished, this, &YoutubeJobComposite::subjobFinished);
         job->start();

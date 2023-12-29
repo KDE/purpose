@@ -29,8 +29,8 @@ public:
     }
     void start() override
     {
-        const QList<QString> urls = arrayToList(data()[QStringLiteral("urls")].toArray());
-        const QString text = data()[QStringLiteral("text")].toString();
+        const QList<QString> urls = arrayToList(data().value(QLatin1String("urls")).toArray());
+        const QString text = data().value(QLatin1String("text")).toString();
 
         QUrlQuery query;
 

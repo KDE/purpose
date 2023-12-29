@@ -39,7 +39,7 @@ public:
     void start() override
     {
         m_pendingJobs = 0;
-        const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
+        const QJsonArray urls = data().value(QLatin1String("urls")).toArray();
         if (urls.isEmpty()) {
             qWarning() << "no urls to share" << urls << data();
             emitResult();
@@ -69,12 +69,12 @@ public:
         } else if (error.error) {
             setError(1);
             setErrorText(error.errorString());
-        } else if (!resultMap.value(QStringLiteral("success")).toBool()) {
+        } else if (!resultMap.value(QLatin1String("success")).toBool()) {
             setError(2);
-            const QJsonObject dataMap = resultMap[QStringLiteral("data")].toObject();
-            setErrorText(dataMap[QStringLiteral("error")].toString());
+            const QJsonObject dataMap = resultMap[QLatin1String("data")].toObject();
+            setErrorText(dataMap[QLatin1String("error")].toString());
         } else {
-            return resultMap[QStringLiteral("data")].toObject();
+            return resultMap[QLatin1String("data")].toObject();
         }
         emitResult();
         return {};
@@ -84,8 +84,8 @@ public:
     {
         const QJsonObject dataMap = processResponse(job);
         if (!dataMap.isEmpty()) {
-            m_albumId = dataMap[QStringLiteral("id")].toString();
-            m_albumDeleteHash = dataMap[QStringLiteral("deletehash")].toString();
+            m_albumId = dataMap[QLatin1String("id")].toString();
+            m_albumDeleteHash = dataMap[QLatin1String("deletehash")].toString();
             startUploading();
         }
     }
@@ -93,7 +93,7 @@ public:
     void startUploading()
     {
         Q_EMIT infoMessage(this, i18n("Uploading files to imgur..."));
-        const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
+        const QJsonArray urls = data().value(QLatin1String("urls")).toArray();
         for (const QJsonValue &val : urls) {
             QString u = val.toString();
             KIO::StoredTransferJob *job = KIO::storedGet(QUrl(u));

@@ -24,9 +24,9 @@ public:
     {
         QProcess *process = new QProcess(this);
         process->setProgram(QStringLiteral("bluedevil-sendfile"));
-        const QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
+        const QJsonArray urlsJson = data().value(QLatin1String("urls")).toArray();
 
-        QStringList args{QStringLiteral("-u"), data().value(QStringLiteral("device")).toString()};
+        QStringList args{QStringLiteral("-u"), data().value(QLatin1String("device")).toString()};
 
         for (const QJsonValue &val : urlsJson) {
             const QUrl url(val.toString());

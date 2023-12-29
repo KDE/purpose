@@ -38,7 +38,7 @@ public:
         QList<QUrl> attachments;
         QStringList bodyPieces;
 
-        const auto urls = data().value(QStringLiteral("urls")).toArray();
+        const auto urls = data().value(QLatin1String("urls")).toArray();
         for (const QJsonValue &val : urls) {
             const QUrl url = val.toVariant().toUrl();
             if (url.isLocalFile()) {
@@ -50,7 +50,7 @@ public:
 
         job->setAttachments(attachments);
         job->setBody(bodyPieces.join(QLatin1Char('\n')));
-        job->setSubject(data().value(QStringLiteral("title")).toString());
+        job->setSubject(data().value(QLatin1String("title")).toString());
 
         connect(job, &KJob::result, this, [this](KJob *job) {
             setError(job->error());

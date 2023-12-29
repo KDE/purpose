@@ -125,8 +125,8 @@ bool Configuration::isReady() const
 QJsonArray Configuration::neededArguments() const
 {
     Q_D(const Configuration);
-    QJsonArray ret = d->m_pluginType.value(QStringLiteral("X-Purpose-InboundArguments")).toArray();
-    const QJsonArray arr = d->m_pluginData.rawData().value(QStringLiteral("X-Purpose-Configuration")).toArray();
+    QJsonArray ret = d->m_pluginType.value(QLatin1String("X-Purpose-InboundArguments")).toArray();
+    const QJsonArray arr = d->m_pluginData.rawData().value(QLatin1String("X-Purpose-Configuration")).toArray();
     for (const QJsonValue &val : arr)
         ret += val;
     return ret;
@@ -144,7 +144,7 @@ Purpose::Job *Configuration::createJob()
         return job;
 
     job->setData(d->m_inputData);
-    job->setProperty("outputArgs", d->m_pluginType.value(QStringLiteral("X-Purpose-OutboundArguments")));
+    job->setProperty("outputArgs", d->m_pluginType.value(QLatin1String("X-Purpose-OutboundArguments")));
 
     connect(job, &Purpose::Job::finished, &ConfigurationPrivate::checkJobFinish);
     return job;

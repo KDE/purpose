@@ -99,7 +99,7 @@ public:
     bool isPluginAcceptable(const KPluginMetaData &meta, const QStringList &disabledPlugins) const
     {
         const QJsonObject obj = meta.rawData();
-        if (!obj.value(QStringLiteral("X-Purpose-PluginTypes")).toArray().contains(m_pluginType)) {
+        if (!obj.value(QLatin1String("X-Purpose-PluginTypes")).toArray().contains(m_pluginType)) {
             // qDebug() << "discarding" << meta.name() << KPluginMetaData::readStringList(meta.rawData(), QStringLiteral("X-Purpose-PluginTypes"));
             return false;
         }
@@ -110,7 +110,7 @@ public:
         }
 
         // All constraints must match
-        const QJsonArray constraints = obj.value(QStringLiteral("X-Purpose-Constraints")).toArray();
+        const QJsonArray constraints = obj.value(QLatin1String("X-Purpose-Constraints")).toArray();
         for (const QJsonValue &constraint : constraints) {
             if (!constraintMatches(meta, constraint))
                 return false;
@@ -298,7 +298,7 @@ void AlternativesModel::initializeModel()
         return;
     }
 
-    const QJsonArray inbound = d->m_pluginTypeData.value(QStringLiteral("X-Purpose-InboundArguments")).toArray();
+    const QJsonArray inbound = d->m_pluginTypeData.value(QLatin1String("X-Purpose-InboundArguments")).toArray();
     for (const QJsonValue &arg : inbound) {
         if (!d->m_inputData.contains(arg.toString())) {
             qWarning().nospace() << "Cannot initialize model with data " << d->m_inputData << ". missing: " << arg;

@@ -34,8 +34,8 @@ public:
 
     void start() override
     {
-        QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
-        QString title = data().value(QStringLiteral("title")).toString();
+        QJsonArray urlsJson = data().value(QLatin1String("urls")).toArray();
+        QString title = data().value(QLatin1String("title")).toString();
         QString message = i18n("%1 - %2").arg(title).arg(arrayToList(urlsJson).join(QLatin1Char(' ')));
 
         auto *job = new KIO::CommandLauncherJob(QStringLiteral("kdeconnect-sms"), {QStringLiteral("--message"), message});

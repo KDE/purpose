@@ -39,7 +39,7 @@ public:
 
     void start() override
     {
-        const QJsonArray inputUrls = data().value(QStringLiteral("urls")).toArray();
+        const QJsonArray inputUrls = data().value(QLatin1String("urls")).toArray();
 
         if (inputUrls.isEmpty()) {
             setErrorText(i18n("No URLs to save"));
@@ -55,7 +55,7 @@ public:
             containsData |= urls.last().scheme() == QLatin1String("data");
         }
 
-        m_dest = QUrl(data().value(QStringLiteral("destinationPath")).toString());
+        m_dest = QUrl(data().value(QLatin1String("destinationPath")).toString());
         if (containsData && !(urls.count() == 1 && m_dest.isLocalFile() && !QFileInfo(m_dest.toLocalFile()).isDir())) {
             for (const QUrl &url : urls) {
                 QUrl dest = addPathToUrl(m_dest, QStringLiteral("data"));

@@ -26,14 +26,14 @@ public:
 
     void start() override
     {
-        const QString baseDir(data().value(QStringLiteral("baseDir")).toString());
-        const QString repository(data().value(QStringLiteral("repository")).toString());
-        const QUrl sourceFile(data().value(QStringLiteral("urls")).toArray().first().toString());
-        const QString updateRR = data().value(QStringLiteral("updateRR")).toString();
-        const QJsonObject extraData = data().value(QStringLiteral("extraData")).toObject();
-        const QString username = data().value(QStringLiteral("username")).toString();
-        const QString password = data().value(QStringLiteral("password")).toString();
-        QUrl server(data().value(QStringLiteral("server")).toString());
+        const QString baseDir(data().value(QLatin1String("baseDir")).toString());
+        const QString repository(data().value(QLatin1String("repository")).toString());
+        const QUrl sourceFile(data().value(QLatin1String("urls")).toArray().first().toString());
+        const QString updateRR = data().value(QLatin1String("updateRR")).toString();
+        const QJsonObject extraData = data().value(QLatin1String("extraData")).toObject();
+        const QString username = data().value(QLatin1String("username")).toString();
+        const QString password = data().value(QLatin1String("password")).toString();
+        QUrl server(data().value(QLatin1String("server")).toString());
         server.setUserInfo(username + QLatin1Char(':') + password);
 
         KJob *job;

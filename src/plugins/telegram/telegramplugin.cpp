@@ -70,7 +70,7 @@ public:
         service->setExec(exec);
 
         auto *job = new KIO::ApplicationLauncherJob(service);
-        job->setUrls(arrayToList(data().value(QStringLiteral("urls")).toArray()));
+        job->setUrls(arrayToList(data().value(QLatin1String("urls")).toArray()));
         connect(job, &KIO::ApplicationLauncherJob::result, this, [this](KJob *job) {
             if (job->error()) {
                 qWarning() << "telegram share error:" << job->error() << job->errorString();
@@ -84,8 +84,6 @@ public:
         });
         job->start();
     }
-
-private:
 };
 
 class TelegramPlugin : public Purpose::PluginBase

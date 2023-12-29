@@ -32,7 +32,7 @@ public:
 
     void start() override
     {
-        const QJsonArray urls = data().value(QStringLiteral("urls")).toArray();
+        const QJsonArray urls = data().value(QLatin1String("urls")).toArray();
 
         if (urls.isEmpty()) {
             qWarning() << "no urls to share" << urls << data();

@@ -165,7 +165,7 @@ void HttpCall::onFinished()
         setErrorText(i18n("JSON error: %1", error.errorString()));
     }
 
-    if (output.toMap().value(QStringLiteral("stat")).toString() != QStringLiteral("ok")) {
+    if (output.toMap().value(QStringLiteral("stat")).toString() != QLatin1String("ok")) {
         setError(2);
         setErrorText(i18n("Request Error: %1", output.toMap().value(QStringLiteral("err")).toMap().value(QStringLiteral("msg")).toString()));
     }

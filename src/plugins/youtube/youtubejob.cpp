@@ -120,7 +120,7 @@ void YoutubeJob::videoUploaded()
     }
 
     auto doc = QJsonDocument::fromJson(reply->readAll()).object();
-    m_output = watchUrl + doc.value(QStringLiteral("id")).toString();
+    m_output = watchUrl + doc.value(QLatin1String("id")).toString();
     emitResult();
 }
 
