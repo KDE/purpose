@@ -45,7 +45,7 @@ public:
     }
 };
 
-class Q_DECL_EXPORT KDEConnectSMSPlugin : public Purpose::PluginBase
+class KDEConnectSMSPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:

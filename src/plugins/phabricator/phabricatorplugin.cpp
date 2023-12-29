@@ -104,7 +104,7 @@ public:
     QString m_drTitle;
 };
 
-class Q_DECL_EXPORT PhabricatorPlugin : public Purpose::PluginBase
+class PhabricatorPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:

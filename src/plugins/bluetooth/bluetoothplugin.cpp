@@ -68,7 +68,7 @@ public:
 private:
 };
 
-class Q_DECL_EXPORT BluetoothPlugin : public Purpose::PluginBase
+class BluetoothPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:

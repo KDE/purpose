@@ -54,7 +54,7 @@ public:
     }
 };
 
-class Q_DECL_EXPORT TwitterPlugin : public Purpose::PluginBase
+class TwitterPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:

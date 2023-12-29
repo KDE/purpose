@@ -88,7 +88,7 @@ public:
 private:
 };
 
-class Q_DECL_EXPORT TelegramPlugin : public Purpose::PluginBase
+class TelegramPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:

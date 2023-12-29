@@ -94,7 +94,7 @@ public:
     }
 };
 
-class Q_DECL_EXPORT ReviewBoardPlugin : public Purpose::PluginBase
+class ReviewBoardPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:

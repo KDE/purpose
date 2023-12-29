@@ -96,7 +96,7 @@ private:
     QSet<KJob *> m_jobs;
 };
 
-class Q_DECL_EXPORT SaveAsPlugin : public Purpose::PluginBase
+class SaveAsPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:

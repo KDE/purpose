@@ -67,7 +67,7 @@ public:
 private:
 };
 
-class Q_DECL_EXPORT KDEConnectPlugin : public Purpose::PluginBase
+class KDEConnectPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:

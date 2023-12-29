@@ -160,7 +160,7 @@ private:
     int m_pendingJobs;
 };
 
-class Q_DECL_EXPORT ImgurPlugin : public Purpose::PluginBase
+class ImgurPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:

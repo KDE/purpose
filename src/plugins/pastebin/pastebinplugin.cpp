@@ -111,7 +111,7 @@ private:
     QByteArray m_resultData;
 };
 
-class Q_DECL_EXPORT PastebinPlugin : public Purpose::PluginBase
+class PastebinPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:

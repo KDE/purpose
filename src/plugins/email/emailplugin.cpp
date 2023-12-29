@@ -64,7 +64,7 @@ public:
 
 }
 
-class Q_DECL_EXPORT EmailPlugin : public Purpose::PluginBase
+class EmailPlugin : public Purpose::PluginBase
 {
     Q_OBJECT
 public:
