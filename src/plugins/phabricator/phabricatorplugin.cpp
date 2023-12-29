@@ -18,14 +18,6 @@
 #include "purpose/job.h"
 #include "purpose/pluginbase.h"
 
-// FIXME: For some reason PLUGIN_PHABRICATOR isn't exported from the PhabricatorHelpers lib
-#undef qCDebug
-#define qCDebug(dum) qDebug()
-#undef qCWarning
-#define qCWarning(dum) qWarning()
-#undef qCCritical
-#define qCCritical(dum) qCritical()
-
 class PhabricatorJob : public Purpose::Job
 {
     Q_OBJECT

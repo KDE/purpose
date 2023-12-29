@@ -10,7 +10,7 @@
 #include <QDir>
 #include <QRegularExpression>
 #include <QStandardPaths>
-// // // // // // //
+
 #include <KLocalizedString>
 
 const char s_colourCodes[] = "\u001B[[0-9]*m";

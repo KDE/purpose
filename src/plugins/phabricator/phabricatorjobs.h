@@ -7,8 +7,6 @@
 #ifndef KDEVPLATFORM_PLUGIN_PHABRICATORJOBS_H
 #define KDEVPLATFORM_PLUGIN_PHABRICATORJOBS_H
 
-#include "phabricatorhelpers_export.h"
-
 #include <QHash>
 #include <QList>
 #include <QPair>
@@ -21,7 +19,7 @@ class QNetworkReply;
 
 namespace Phabricator
 {
-class PHABRICATORHELPERS_EXPORT DifferentialRevision : public KJob
+class DifferentialRevision : public KJob
 {
     Q_OBJECT
 public:
@@ -71,7 +69,7 @@ private:
     QString m_arcInput;
 };
 
-class PHABRICATORHELPERS_EXPORT NewDiffRev : public DifferentialRevision
+class NewDiffRev : public DifferentialRevision
 {
     Q_OBJECT
 public:
@@ -90,7 +88,7 @@ private:
     QString m_diffURI;
 };
 
-class PHABRICATORHELPERS_EXPORT UpdateDiffRev : public DifferentialRevision
+class UpdateDiffRev : public DifferentialRevision
 {
     Q_OBJECT
 public:
@@ -114,7 +112,7 @@ private:
     QString m_diffURI;
 };
 
-class PHABRICATORHELPERS_EXPORT DiffRevList : public DifferentialRevision
+class DiffRevList : public DifferentialRevision
 {
     Q_OBJECT
 public:

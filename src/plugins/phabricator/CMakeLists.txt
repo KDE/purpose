@@ -20,8 +20,8 @@ ecm_qt_declare_logging_category(PhabricatorHelper_SRCS
     EXPORT PURPOSE
 )
 
-add_library(PhabricatorHelpers ${PhabricatorHelper_SRCS})
-generate_export_header(PhabricatorHelpers EXPORT_FILE_NAME phabricatorhelpers_export.h)
+add_library(PhabricatorHelpers STATIC ${PhabricatorHelper_SRCS})
+set_target_properties(PhabricatorHelpers PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(PhabricatorHelpers KF6::CoreAddons KF6::I18n)
 
 add_executable(testphabricator tests/testphabricator.cpp)
@@ -30,9 +30,6 @@ target_link_libraries(testphabricator PhabricatorHelpers Qt6::Core)
 
 add_share_plugin(phabricatorplugin phabricatorplugin.cpp)
 target_link_libraries(phabricatorplugin Qt6::Widgets PhabricatorHelpers)
-
-set_target_properties(PhabricatorHelpers PROPERTIES VERSION ${PURPOSE_VERSION} SOVERSION ${PURPOSE_SOVERSION})
-install(TARGETS PhabricatorHelpers ${KF_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 add_library(phabricatorquickplugin quick/phabricatorquickplugin.cpp quick/difflistmodel.cpp quick/phabricatorrc.cpp)
 target_link_libraries(phabricatorquickplugin Qt6::Qml Qt6::Gui PhabricatorHelpers)
