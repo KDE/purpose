@@ -79,10 +79,12 @@ static bool desktopFilePresent(const QString &constraint, const QJsonValue &valu
     return !QStandardPaths::locate(QStandardPaths::ApplicationsLocation, constraint).isEmpty();
 }
 
-static QMap<QString, matchFunction> s_matchFunctions = {{QStringLiteral("mimeType"), mimeTypeMatch},
-                                                        {QStringLiteral("dbus"), dbusMatch},
-                                                        {QStringLiteral("application"), desktopFilePresent},
-                                                        {QStringLiteral("exec"), executablePresent}};
+static QMap<QString, matchFunction> s_matchFunctions = {
+    {QStringLiteral("mimeType"), mimeTypeMatch},
+    {QStringLiteral("dbus"), dbusMatch},
+    {QStringLiteral("application"), desktopFilePresent},
+    {QStringLiteral("exec"), executablePresent},
+};
 
 class Purpose::AlternativesModelPrivate
 {

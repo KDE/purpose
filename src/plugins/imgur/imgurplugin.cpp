@@ -121,8 +121,10 @@ public:
         form.finish();
 
         KIO::StoredTransferJob *tJob = KIO::storedHttpPost(form.formData(), *imageImgurUrl, KIO::HideProgressInfo);
-        tJob->setMetaData(QMap<QString, QString>{{QStringLiteral("content-type"), QString::fromLocal8Bit(form.contentType())},
-                                                 {QStringLiteral("customHTTPHeader"), QStringLiteral("Authorization: Client-ID ") + *YOUR_CLIENT_ID}});
+        tJob->setMetaData(QMap<QString, QString>{
+            {QStringLiteral("content-type"), QString::fromLocal8Bit(form.contentType())},
+            {QStringLiteral("customHTTPHeader"), QStringLiteral("Authorization: Client-ID ") + *YOUR_CLIENT_ID},
+        });
         connect(tJob, &KJob::result, this, &ImgurShareJob::imageUploaded);
     }
 
