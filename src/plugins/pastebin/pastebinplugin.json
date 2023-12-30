@@ -156,7 +156,8 @@
         "X-Purpose-ActionDisplay[tr]": "Metni Herkes için Pastebin'e Yükle",
         "X-Purpose-ActionDisplay[uk]": "Вивантажити відкрито на Pastebin",
         "X-Purpose-ActionDisplay[x-test]": "xxUpload Publicly to Pastebinxx",
-        "X-Purpose-ActionDisplay[zh_CN]": "公开上传到 Pastebin"
+        "X-Purpose-ActionDisplay[zh_CN]": "公开上传到 Pastebin",
+        "X-Purpose-ActionDisplay[zh_TW]": "公開上傳到 Pastebin"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
