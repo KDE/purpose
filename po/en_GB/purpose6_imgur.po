@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-13 00:42+0000\n"
+"POT-Creation-Date: 2023-12-31 01:53+0000\n"
 "PO-Revision-Date: 2022-01-01 15:37+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -27,12 +27,12 @@ msgstr "Error page returned"
 msgid "Uploading files to imgur..."
 msgstr "Uploading files to imgur..."
 
-#: imgurplugin.cpp:145
+#: imgurplugin.cpp:147
 #, kde-format
 msgid "Imgur Upload"
 msgstr "Imgur Upload"
 
-#: imgurplugin.cpp:146
+#: imgurplugin.cpp:148
 #, kde-format
 msgid ""
 "The shared image link (<a href=\"%1\">%1</a>) has been copied to the "

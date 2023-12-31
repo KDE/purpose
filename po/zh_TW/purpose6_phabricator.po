@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-01 02:10+0000\n"
+"POT-Creation-Date: 2023-12-31 01:53+0000\n"
 "PO-Revision-Date: 2019-01-04 20:22+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -37,17 +37,17 @@ msgstr "將補丁上傳到 Phabricator 失敗"
 msgid "Could not get list of differential revisions in %1"
 msgstr "無法取得 %1 中的差異修訂列表"
 
-#: phabricatorplugin.cpp:49
+#: phabricatorplugin.cpp:41
 #, kde-format
 msgid "Phabricator refuses empty patchfiles"
 msgstr "Phabricator 拒絕空的補丁檔案"
 
-#: phabricatorplugin.cpp:54 phabricatorplugin_config.qml:55
+#: phabricatorplugin.cpp:46 phabricatorplugin_config.qml:55
 #, kde-format
 msgid "unknown"
 msgstr "未知"
 
-#: phabricatorplugin.cpp:56
+#: phabricatorplugin.cpp:48
 #, kde-format
 msgid ""
 "Please choose between creating a new revision or updating an existing one"

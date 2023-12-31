@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose_imgur\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-13 00:42+0000\n"
+"POT-Creation-Date: 2023-12-31 01:53+0000\n"
 "PO-Revision-Date: 2022-04-09 20:10+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -26,12 +26,12 @@ msgstr "Vrátená chybová stránka"
 msgid "Uploading files to imgur..."
 msgstr "Nahrávanie súborov na imgur..."
 
-#: imgurplugin.cpp:145
+#: imgurplugin.cpp:147
 #, kde-format
 msgid "Imgur Upload"
 msgstr "Nahrať na Imgur"
 
-#: imgurplugin.cpp:146
+#: imgurplugin.cpp:148
 #, kde-format
 msgid ""
 "The shared image link (<a href=\"%1\">%1</a>) has been copied to the "

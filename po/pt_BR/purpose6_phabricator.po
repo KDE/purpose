@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-01 02:10+0000\n"
+"POT-Creation-Date: 2023-12-31 01:53+0000\n"
 "PO-Revision-Date: 2018-12-11 10:23-0200\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -37,17 +37,17 @@ msgstr "Falha ao enviar a correção para o Phabricator"
 msgid "Could not get list of differential revisions in %1"
 msgstr "Não foi possível obter a lista de revisões diferenciais no %1"
 
-#: phabricatorplugin.cpp:49
+#: phabricatorplugin.cpp:41
 #, kde-format
 msgid "Phabricator refuses empty patchfiles"
 msgstr "O Phabricator recusa arquivos de correções vazios"
 
-#: phabricatorplugin.cpp:54 phabricatorplugin_config.qml:55
+#: phabricatorplugin.cpp:46 phabricatorplugin_config.qml:55
 #, kde-format
 msgid "unknown"
 msgstr "desconhecido"
 
-#: phabricatorplugin.cpp:56
+#: phabricatorplugin.cpp:48
 #, kde-format
 msgid ""
 "Please choose between creating a new revision or updating an existing one"
