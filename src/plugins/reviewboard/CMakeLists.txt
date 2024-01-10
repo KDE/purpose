@@ -18,7 +18,6 @@ add_share_plugin(reviewboardplugin reviewboardplugin.cpp)
 target_link_libraries(reviewboardplugin Qt6::Widgets ReviewboardHelpers)
 
 set_target_properties(ReviewboardHelpers PROPERTIES VERSION ${PURPOSE_VERSION} SOVERSION ${PURPOSE_SOVERSION})
-install(TARGETS ReviewboardHelpers ${KF_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 add_library(rbpurposequickplugin quick/reviewboardquickplugin.cpp quick/rbrepositoriesmodel.cpp quick/rbreviewslistmodel.cpp quick/reviewboardrc.cpp)
 target_link_libraries(rbpurposequickplugin Qt6::Qml ReviewboardHelpers)
