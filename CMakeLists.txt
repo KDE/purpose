@@ -28,7 +28,7 @@ include(ECMQmlModule)
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui DBus Widgets Network Test)
 
 set(KF_VERSION "5.249.0") # handled by release scripts
-set(KF_DEP_VERSION "5.248.0") # handled by release scripts
+set(KF_DEP_VERSION "5.249.0") # handled by release scripts
 
 find_package(KF6 ${KF_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n Config Kirigami Notifications KIO Service)
 
