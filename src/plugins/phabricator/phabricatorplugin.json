@@ -72,7 +72,7 @@
         "Description[ja]": "パッチを Phabricator にアップロード",
         "Description[ka]": "პაჩების Phabricator-ზე ატვრთვა",
         "Description[ko]": "Phabricator에 패치 업로드",
-        "Description[lt]": "Įkelti pataisas į Phabricator",
+        "Description[lt]": "Išsiųsti pataisas į Phabricator",
         "Description[nl]": "Patches uploaden naar Phabricator",
         "Description[nn]": "Last opp patch-filer til Phabricator",
         "Description[pl]": "Prześlij łatę na Phabricator",
