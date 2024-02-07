@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 12:19+0000\n"
-"PO-Revision-Date: 2019-07-11 20:52+0300\n"
+"PO-Revision-Date: 2024-02-07 01:21+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: nextcloudplugin_config.qml:24
 #, kde-format
 msgid "Select an account:"
-msgstr ""
+msgstr "Pasirinkite paskyrą:"
 
 #: nextcloudplugin_config.qml:64
 #, kde-format
 msgid "No account configured"
-msgstr ""
+msgstr "Nėra sukonfigūruotų paskyrų"
 
 #: nextcloudplugin_config.qml:72
 #, kde-format
 msgid "Configure Accounts"
-msgstr ""
+msgstr "Konfigūruoti paskyras"
 
 #: nextcloudplugin_config.qml:79
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-31 01:53+0000\n"
-"PO-Revision-Date: 2019-07-11 20:48+0300\n"
+"PO-Revision-Date: 2024-02-07 01:23+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: imgurplugin.cpp:65
 #, kde-format
@@ -27,12 +27,12 @@ msgstr "Grąžintas klaidos puslapis"
 #: imgurplugin.cpp:95
 #, kde-format
 msgid "Uploading files to imgur..."
-msgstr "Įkeliami failai į imgur..."
+msgstr "Išsiunčiami failai į Imgur..."
 
 #: imgurplugin.cpp:147
 #, kde-format
 msgid "Imgur Upload"
-msgstr ""
+msgstr "Išsiuntimas į Imgur"
 
 #: imgurplugin.cpp:148
 #, kde-format
@@ -41,3 +41,6 @@ msgid ""
 "clipboard.<br><br>If you would like to remove the uploaded image, visit <a "
 "href=\"%2\">%2</a>"
 msgstr ""
+"Bendrinama paveikslo nuoroda (<a href=\"%1\">%1</a>) nukopijuota į iškarpinę."
+"<br><br>Jei norėtumėte pašalinti išsiųstą paveikslą, apsilankykite <a href="
+"\"%2\">%2</a>"
