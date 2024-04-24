@@ -35,6 +35,14 @@ public:
     void reload();
 
 Q_SIGNALS:
+
+    /**
+     * Emitted just before triggered, just before starting the share operation
+     * Can be used to do adjustments to the configuration, such as setting a new Url
+     * @since 6.2
+     */
+    void aboutToShare();
+
     /**
      * Emitted when a triggered job finishes
      *

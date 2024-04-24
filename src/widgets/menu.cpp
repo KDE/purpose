@@ -71,7 +71,9 @@ Menu::Menu(QWidget *parent)
     connect(d_ptr->m_model.data(), &AlternativesModel::inputDataChanged, this, &Menu::reload);
     connect(this, &QMenu::triggered, this, [this](QAction *action) {
         Q_D(Menu);
-        d->trigger(action->property("row").toInt());
+        const int row = action->property("row").toInt();
+        Q_EMIT aboutToShare();
+        d->trigger(row);
     });
 }
 
