@@ -37,4 +37,4 @@ msgstr "El codi QR és massa gran per a mostrar-se"
 #: barcodeplugin_config.qml:83
 #, kde-format
 msgid "Type a URL or some text..."
-msgstr "Teclegeu un URL o un text..."
+msgstr "Teclegeu un URL o un text…"

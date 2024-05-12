@@ -38,7 +38,7 @@ msgstr "Títol:"
 #: youtubeplugin_config.qml:56
 #, kde-format
 msgid "Enter a title for the video..."
-msgstr "Introduïu un títol per al vídeo..."
+msgstr "Introduïu un títol per al vídeo…"
 
 #: youtubeplugin_config.qml:59
 #, kde-format
