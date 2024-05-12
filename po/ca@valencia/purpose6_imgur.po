@@ -29,7 +29,7 @@ msgstr "S'ha retornat un error de pàgina"
 #: imgurplugin.cpp:95
 #, kde-format
 msgid "Uploading files to imgur..."
-msgstr "S'estan pujant els fitxers a imgur..."
+msgstr "S'estan pujant els fitxers a imgur…"
 
 #: imgurplugin.cpp:147
 #, kde-format
