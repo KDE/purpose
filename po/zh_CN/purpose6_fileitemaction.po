@@ -25,4 +25,4 @@ msgstr "分享"
 #: sharefileitemaction.cpp:62
 #, kde-format
 msgid "Error sharing"
-msgstr "分享时出错"
+msgstr "分享时发生错误"

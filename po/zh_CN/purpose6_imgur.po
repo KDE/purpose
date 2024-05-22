@@ -25,7 +25,7 @@ msgstr "返回了错误页面"
 #: imgurplugin.cpp:95
 #, kde-format
 msgid "Uploading files to imgur..."
-msgstr "上传图片至 Imgur..."
+msgstr "上传图片到 Imgur..."
 
 #: imgurplugin.cpp:147
 #, kde-format

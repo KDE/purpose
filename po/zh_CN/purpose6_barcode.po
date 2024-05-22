@@ -35,4 +35,4 @@ msgstr "二维码过大，无法显示"
 #: barcodeplugin_config.qml:83
 #, kde-format
 msgid "Type a URL or some text..."
-msgstr "输入 URL 或文本..."
+msgstr "输入 URL 或者文本..."
