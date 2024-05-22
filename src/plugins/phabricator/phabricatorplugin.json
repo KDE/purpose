@@ -87,7 +87,7 @@
         "Description[tr]": "Yamaları Phabricator'e yükle",
         "Description[uk]": "Вивантажити латки на Phabricator",
         "Description[x-test]": "xxUpload patches to Phabricatorxx",
-        "Description[zh_CN]": "将补丁上传到 Phabricator",
+        "Description[zh_CN]": "上传补丁到 Phabricator",
         "Description[zh_TW]": "上傳修補程式到 Phabricator",
         "Icon": "phabricator-purpose",
         "License": "GPL",

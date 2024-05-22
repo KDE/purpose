@@ -87,7 +87,7 @@
         "Description[tr]": "Paylaşımı seçilen konuma kaydeder.",
         "Description[uk]": "Зберігає спільний ресурс до вказаного каталогу.",
         "Description[x-test]": "xxSaves the share into the chosen location.xx",
-        "Description[zh_CN]": "将共享保存到所选位置。",
+        "Description[zh_CN]": "保存分享内容到所选位置。",
         "Description[zh_TW]": "儲存分享到選定的位置。",
         "Icon": "document-save",
         "License": "GPL",

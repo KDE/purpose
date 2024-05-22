@@ -133,7 +133,7 @@
         "Name[tr]": "Kişiye Gönder",
         "Name[uk]": "Надіслати контакту",
         "Name[x-test]": "xxSend To Contactxx",
-        "Name[zh_CN]": "发送给联系人",
+        "Name[zh_CN]": "发送到联系人",
         "Name[zh_TW]": "傳送給聯絡人",
         "X-Purpose-ActionDisplay": "Send To Contact...",
         "X-Purpose-ActionDisplay[ar]": "أرسِل إلى متراسل…...",
@@ -176,7 +176,7 @@
         "X-Purpose-ActionDisplay[tr]": "Kişiye Gönder...",
         "X-Purpose-ActionDisplay[uk]": "Надіслати контакту…",
         "X-Purpose-ActionDisplay[x-test]": "xxSend To Contact...xx",
-        "X-Purpose-ActionDisplay[zh_CN]": "发送给联系人...",
+        "X-Purpose-ActionDisplay[zh_CN]": "发送到联系人...",
         "X-Purpose-ActionDisplay[zh_TW]": "傳送給聯絡人..."
     },
     "X-Purpose-Configuration": "",

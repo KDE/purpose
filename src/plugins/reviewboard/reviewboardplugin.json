@@ -86,7 +86,7 @@
         "Description[tr]": "Yamaları gözden geçirme panosuna yükle",
         "Description[uk]": "Вивантажує латки на reviewboard",
         "Description[x-test]": "xxUpload patches to reviewboardxx",
-        "Description[zh_CN]": "向 reviewboard 上传补丁",
+        "Description[zh_CN]": "上传补丁到 reviewboard",
         "Description[zh_TW]": "上傳修補檔到 reviewboard",
         "Icon": "reviewboard-purpose",
         "License": "GPL",
