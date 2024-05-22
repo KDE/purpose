@@ -90,7 +90,7 @@
         "Description[tr]": "Dosyaları Nextcloud’a yükle",
         "Description[uk]": "Вивантаження відео на Nextcloud",
         "Description[x-test]": "xxUpload files to Nextcloudxx",
-        "Description[zh_CN]": "将文件上传到 Nextcloud",
+        "Description[zh_CN]": "上传文件到 Nextcloud",
         "Description[zh_TW]": "上傳檔案到 Nextcloud",
         "Icon": "kaccounts-nextcloud",
         "License": "GPL",
