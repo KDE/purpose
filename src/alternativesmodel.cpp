@@ -275,7 +275,11 @@ QVariant AlternativesModel::data(const QModelIndex &index, int role) const
         return data.pluginId();
     case ActionDisplayRole: {
         const QJsonObject pluginData = data.rawData().value(QLatin1String("KPlugin")).toObject();
-        const QString action = KJsonUtils::readTranslatedString(pluginData, QStringLiteral("X-Purpose-ActionDisplay"));
+        QString action = KJsonUtils::readTranslatedString(pluginData, QStringLiteral("X-Purpose-ActionDisplay"));
+        // We really don't want custom keys in the KPlugin object, but used to do this. No warnings due to different release cycles for now
+        if (action.isEmpty()) {
+            action = KJsonUtils::readTranslatedString(data.rawData(), QStringLiteral("X-Purpose-ActionDisplay"));
+        }
         return action.isEmpty() ? data.name() : action;
     }
     }
