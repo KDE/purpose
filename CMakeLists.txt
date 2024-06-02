@@ -25,7 +25,20 @@ include(ECMDeprecationSettings)
 include(ECMGenerateQmlTypes)
 include(ECMQMLModules)
 include(ECMQmlModule)
-find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui DBus Widgets Network Test)
+
+find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui Widgets Network Test)
+
+# shall we use DBus?
+# enabled per default on Linux & BSD systems
+set(USE_DBUS_DEFAULT OFF)
+if(UNIX AND NOT APPLE AND NOT ANDROID AND NOT HAIKU)
+    set(USE_DBUS_DEFAULT ON)
+endif()
+option(USE_DBUS "Build components using DBus" ${USE_DBUS_DEFAULT})
+if(USE_DBUS)
+  find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
+  set(HAVE_DBUS ON)
+endif()
 
 set(KF_VERSION "6.4.0") # handled by release scripts
 set(KF_DEP_VERSION "6.3.0") # handled by release scripts

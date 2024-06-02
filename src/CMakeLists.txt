@@ -48,10 +48,19 @@ target_link_libraries(KF6Purpose
         KF6::CoreAddons
         Qt6::Gui
     PRIVATE
-        Qt6::DBus
         Qt6::Network #QLocalSocket
         KF6::ConfigCore
 )
+
+if (HAVE_DBUS)
+    target_link_libraries(KF6Purpose
+        PRIVATE
+        Qt6::DBus
+    )
+    target_compile_definitions(KF6Purpose PRIVATE -DHAVE_QTDBUS=1)
+else()
+    target_compile_definitions(KF6Purpose PRIVATE -DHAVE_QTDBUS=0)
+endif()
 
 install(TARGETS KF6Purpose EXPORT KF6PurposeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 

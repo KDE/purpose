@@ -5,8 +5,12 @@
 */
 
 #include "alternativesmodel.h"
+
+#if HAVE_QTDBUS
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+#endif
+
 #include <QDebug>
 #include <QDirIterator>
 #include <QIcon>
@@ -64,7 +68,12 @@ static bool mimeTypeMatch(const QString &constraint, const QJsonValue &value)
 static bool dbusMatch(const QString &constraint, const QJsonValue &value)
 {
     Q_UNUSED(value)
+#if HAVE_QTDBUS
     return QDBusConnection::sessionBus().interface()->isServiceRegistered(constraint);
+#else
+    Q_UNUSED(constraint)
+    return false;
+#endif
 }
 
 static bool executablePresent(const QString &constraint, const QJsonValue &value)
