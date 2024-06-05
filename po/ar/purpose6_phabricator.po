@@ -17,7 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.12.3\n"
 
 #: phabricatorjobs.cpp:59 phabricatorjobs.cpp:195
 #, kde-format
@@ -63,7 +62,7 @@ msgstr "حدث المراجعة التفاضلية %1"
 #: phabricatorplugin_config.qml:28
 #, kde-format
 msgid "Update differential revision"
-msgstr "حدث المراجعة التفاضلية"
+msgstr "حدث المراجعة التفاضلية "
 
 #: phabricatorplugin_config.qml:30
 #, kde-format
@@ -117,7 +116,7 @@ msgstr "خلاصة التحديث إلى %1:"
 #: phabricatorplugin_config.qml:109
 #, kde-format
 msgid "Summary of the update"
-msgstr "خلاصة التحديث "
+msgstr "خلاصة التحديث"
 
 #: phabricatorplugin_config.qml:117
 #, kde-format
