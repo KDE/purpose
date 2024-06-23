@@ -38,7 +38,7 @@ public:
         if (!m_engine) {
             m_engine = new QQmlApplicationEngine;
             m_engine->rootContext()->setContextObject(new KLocalizedContext(this));
-            m_engine->load(QUrl(QStringLiteral("qrc:/JobDialog.qml")));
+            m_engine->load(QUrl(QStringLiteral("qrc:/org.kde.purpose/JobDialog.qml")));
         }
 
         Q_ASSERT(!m_engine->rootObjects().isEmpty());
