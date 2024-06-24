@@ -18,9 +18,11 @@ ColumnLayout {
     anchors.bottomMargin: Kirigami.Units.smallSpacing
 
     Kirigami.Heading {
+        Layout.fillWidth: true
         text: i18nd("purpose6_kdeconnect", "Choose a device to send to:")
         visible: list.count !== 0
         level: 1
+        wrapMode: Text.Wrap
     }
 
     ScrollView {
