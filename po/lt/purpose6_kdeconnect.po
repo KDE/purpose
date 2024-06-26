@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-10-22 00:14+0000\n"
+"POT-Creation-Date: 2024-06-26 00:37+0000\n"
 "PO-Revision-Date: 2019-06-21 23:18+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
@@ -19,12 +19,12 @@ msgstr ""
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 2.0.6\n"
 
-#: kdeconnectplugin_config.qml:21
+#: kdeconnectplugin_config.qml:22
 #, kde-format
 msgid "Choose a device to send to:"
 msgstr "Pasirinkite įrenginį į kurį siųsti:"
 
-#: kdeconnectplugin_config.qml:62
+#: kdeconnectplugin_config.qml:64
 #, kde-format
 msgid "No devices found"
 msgstr "Nerasta jokių įrenginių"

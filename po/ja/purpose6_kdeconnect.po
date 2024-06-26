@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose_kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-10-22 00:14+0000\n"
+"POT-Creation-Date: 2024-06-26 00:37+0000\n"
 "PO-Revision-Date: 2023-05-07 20:52+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -16,12 +16,12 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: kdeconnectplugin_config.qml:21
+#: kdeconnectplugin_config.qml:22
 #, kde-format
 msgid "Choose a device to send to:"
 msgstr "送信先のデバイスを選択:"
 
-#: kdeconnectplugin_config.qml:62
+#: kdeconnectplugin_config.qml:64
 #, kde-format
 msgid "No devices found"
 msgstr "デバイスが見つかりません"

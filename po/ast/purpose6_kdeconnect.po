@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-10-22 00:14+0000\n"
+"POT-Creation-Date: 2024-06-26 00:37+0000\n"
 "PO-Revision-Date: 2023-11-12 00:40+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.2\n"
 
-#: kdeconnectplugin_config.qml:21
+#: kdeconnectplugin_config.qml:22
 #, kde-format
 msgid "Choose a device to send to:"
 msgstr ""
 
-#: kdeconnectplugin_config.qml:62
+#: kdeconnectplugin_config.qml:64
 #, kde-format
 msgid "No devices found"
 msgstr "Nun s'atopó nengún preséu"
