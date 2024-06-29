@@ -13,10 +13,13 @@ import org.kde.purpose as Purpose
 ApplicationWindow {
     id: window
 
-    property alias inputData: view.inputData
+    required property var inputData
+
+    visible: true
 
     Purpose.AlternativesView {
         id: view
+
         anchors.fill: parent
 
         Layout.minimumWidth: 200
@@ -33,6 +36,8 @@ ApplicationWindow {
         }
 
         pluginType: "Export"
+        inputData: window.inputData
+
         onFinished: {
             if (error != 0) {
                 console.log("job finished with error", error, message)

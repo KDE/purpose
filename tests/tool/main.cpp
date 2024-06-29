@@ -82,10 +82,10 @@ int main(int argc, char **argv)
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+    engine.setInitialProperties({
+        {QStringLiteral("inputData"), inputData},
+    });
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-
-    engine.rootObjects().at(0)->setProperty("inputData", inputData);
-    engine.rootObjects().at(0)->setProperty("visible", true);
 
     return app.exec();
 }
