@@ -27,7 +27,6 @@
 
 #include "configuration.h"
 #include "helper.h"
-#include "job.h"
 
 using namespace Purpose;
 
