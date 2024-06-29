@@ -35,8 +35,6 @@ int main(int argc, char **argv)
         parser.addOption(QCommandLineOption(QStringLiteral("data"), i18n("Data tuple to initialize the process with"), QStringLiteral("json")));
 
         data.setupCommandLine(&parser);
-        parser.addHelpOption();
-        parser.addVersionOption();
         parser.process(app);
         data.processCommandLine(&parser);
 
