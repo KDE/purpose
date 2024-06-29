@@ -12,6 +12,7 @@
 #include <QQmlContext>
 #include <purpose/alternativesmodel.h>
 #include <purpose/configuration.h>
+#include <qqml.h>
 
 using namespace Purpose;
 
@@ -38,6 +39,11 @@ public:
         if (!m_engine) {
             m_engine = new QQmlApplicationEngine;
             m_engine->rootContext()->setContextObject(new KLocalizedContext(this));
+            m_engine->setInitialProperties({
+                {QStringLiteral("menu"), QVariant::fromValue<QObject *>(q)},
+                {QStringLiteral("model"), QVariant::fromValue(m_model.data())},
+                {QStringLiteral("index"), row},
+            });
             m_engine->load(QUrl(QStringLiteral("qrc:/org.kde.purpose/JobDialog.qml")));
         }
 
@@ -49,10 +55,6 @@ public:
             return;
         }
 
-        o->setProperty("model", QVariant::fromValue(m_model.data()));
-        o->setProperty("index", row);
-        o->setProperty("visible", true);
-        o->setProperty("q", QVariant::fromValue<QObject *>(q));
         o->setParent(q);
 
         QMetaObject::invokeMethod(o, "start");
@@ -68,6 +70,8 @@ Menu::Menu(QWidget *parent)
     : QMenu(parent)
     , d_ptr(new MenuPrivate(this))
 {
+    qmlRegisterUncreatableType<Menu>("org.kde.purpose.private.widgets", 1, 0, "Menu", QString());
+
     connect(d_ptr->m_model.data(), &AlternativesModel::inputDataChanged, this, &Menu::reload);
     connect(this, &QMenu::triggered, this, [this](QAction *action) {
         Q_D(Menu);
