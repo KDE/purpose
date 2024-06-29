@@ -35,9 +35,12 @@ ColumnLayout {
             return i18nd("purpose6_phabricator", "Create or update?")
         }
     }
+
     Label {
         id: label
+        Layout.fillWidth: true
         text: root.labelText()
+        wrapMode: Text.Wrap
     }
 
     PhabricatorRC {
@@ -107,11 +110,13 @@ ColumnLayout {
     }
 
     Label {
+        Layout.fillWidth: true
         // use i18nd("purpose6_phabricator", ).arg() to avoid showing the "%1" when inactive
         text: root.updateDR !== "unknown" && root.updateDR !== ""
             ? i18nd("purpose6_phabricator", "Summary of the update to %1:", root.updateDR)
             : i18nd("purpose6_phabricator", "Summary of the update")
         enabled: updateOld.checked
+        wrapMode: Text.Wrap
     }
 
     TextArea {
