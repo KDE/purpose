@@ -4,37 +4,27 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick
-import QtQuick.Window
-import QtQuick.Layouts
-import QtQuick.Controls as QQC2
-import org.kde.kirigami as Kirigami
+pragma ComponentBehavior: Bound
 
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+
+import org.kde.kirigami as Kirigami
 import org.kde.prison as Prison
 
 ColumnLayout {
     id: root
 
-    property var urls: []
-    property string mimeType
-    property var dummy
+    property list<string> urls
 
-    Component.onCompleted: {
-        root.Window.window.minimumWidth = Qt.binding(() => Math.min(
-            Kirigami.Units.gridUnit * 30,
-            root.implicitWidth + Kirigami.Units.gridUnit * 2,
-        ));
-        root.Window.window.minimumHeight = Qt.binding(() => Math.min(
-            Kirigami.Units.gridUnit * 30,
-            root.implicitHeight + Kirigami.Units.gridUnit * 4,
-        ));
-    }
+    spacing: Kirigami.Units.smallSpacing
 
     Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        Layout.preferredWidth: barcodeItem.implicitWidth
-        Layout.preferredHeight: barcodeItem.implicitHeight
+        Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+        Layout.preferredHeight: Kirigami.Units.gridUnit * 10
 
         Prison.Barcode {
             id: barcodeItem
@@ -50,27 +40,18 @@ ColumnLayout {
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            text: i18nd("purpose6_barcode", "Type a URL or some text to generate a QR code")
-            wrapMode: Text.WordWrap
-            visible: textField.length === 0
-        }
-
-        QQC2.Label {
-            anchors.fill: parent
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            text: i18nd("purpose6_barcode", "Creating QR code failed")
-            wrapMode: Text.WordWrap
-            visible: textField.length > 0 && barcodeItem.implicitWidth === 0 && barcodeItem.implicitHeight === 0
-        }
-
-        QQC2.Label {
-            anchors.fill: parent
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            text: i18nd("purpose6_barcode", "The QR code is too large to be displayed")
-            wrapMode: Text.WordWrap
-            visible: textField.length > 0 && (barcodeItem.implicitWidth > barcodeItem.width || barcodeItem.implicitHeight > barcodeItem.height)
+            text: {
+                if (textField.length === 0) {
+                    return i18nd("purpose6_barcode", "Type a URL or some text to generate a QR code");
+                } else if (textField.length > 0 && barcodeItem.implicitWidth === 0 && barcodeItem.implicitHeight === 0) {
+                    return i18nd("purpose6_barcode", "Creating QR code failed");
+                } else if (textField.length > 0 && (barcodeItem.implicitWidth > barcodeItem.width || barcodeItem.implicitHeight > barcodeItem.height)) {
+                    return i18nd("purpose6_barcode", "The QR code is too large to be displayed");
+                } else {
+                    return "";
+                }
+            }
+            wrapMode: Text.Wrap
         }
     }
 
