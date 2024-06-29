@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     Purpose::AlternativesModel *model = menu.model();
 
     QJsonObject input;
-    if (!app.arguments().isEmpty()) {
+    if (app.arguments().length() > 1) {
         QMimeDatabase mime;
         QUrl url = QUrl::fromUserInput(app.arguments().constLast());
         input = QJsonObject{{QStringLiteral("urls"), QJsonArray{url.toString()}}, {QStringLiteral("mimeType"), mime.mimeTypeForUrl(url).name()}};
