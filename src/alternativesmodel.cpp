@@ -27,6 +27,7 @@
 
 #include "configuration.h"
 #include "helper.h"
+#include "purpose_external_process_debug.h"
 
 using namespace Purpose;
 
@@ -110,12 +111,13 @@ public:
     {
         const QJsonObject obj = meta.rawData();
         if (!obj.value(QLatin1String("X-Purpose-PluginTypes")).toArray().contains(m_pluginType)) {
-            // qDebug() << "discarding" << meta.name() << KPluginMetaData::readStringList(meta.rawData(), QStringLiteral("X-Purpose-PluginTypes"));
+            // qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "discarding" << meta.name() << KPluginMetaData::readStringList(meta.rawData(),
+            // QStringLiteral("X-Purpose-PluginTypes"));
             return false;
         }
 
         if (disabledPlugins.contains(meta.pluginId()) || m_disabledPlugins.contains(meta.pluginId())) {
-            // qDebug() << "disabled plugin" << meta.name() << meta.pluginId();
+            // qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "disabled plugin" << meta.name() << meta.pluginId();
             return false;
         }
 
@@ -144,14 +146,14 @@ public:
         Q_ASSERT(constraintRx.isValid());
         QRegularExpressionMatch match = constraintRx.match(constraint.toString());
         if (!match.isValid() || !match.hasMatch()) {
-            qWarning() << "wrong constraint" << constraint.toString();
+            qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "wrong constraint" << constraint.toString();
             return false;
         }
         const QString propertyName = match.captured(1);
         const QString constrainedValue = match.captured(2);
         const bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, m_inputData.value(propertyName));
         if (!acceptable) {
-            // qDebug() << "not accepted" << meta.name() << propertyName << constrainedValue << m_inputData[propertyName];
+            // qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "not accepted" << meta.name() << propertyName << constrainedValue << m_inputData[propertyName];
         }
         return acceptable;
     }
@@ -316,8 +318,10 @@ void AlternativesModel::initializeModel()
 
     const QJsonArray inbound = d->m_pluginTypeData.value(QLatin1String("X-Purpose-InboundArguments")).toArray();
     for (const QJsonValue &arg : inbound) {
-        if (!d->m_inputData.contains(arg.toString())) {
-            qWarning().nospace() << "Cannot initialize model with data " << d->m_inputData << ". missing: " << arg;
+        const auto key = arg.toString();
+        if (!d->m_inputData.contains(key)) {
+            qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG).nospace()
+                << "Cannot initialize model for plugin type " << d->m_pluginType << " with data " << d->m_inputData << ": missing key " << key;
             return;
         }
     }
