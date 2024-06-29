@@ -22,6 +22,7 @@
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral(TRANSLATION_DOMAIN));
     KAboutData data(QStringLiteral("sharetool"), i18n("Share Tool"), QStringLiteral("1.0"), i18n("Share random information"), KAboutLicense::GPL);
     data.addAuthor(QStringLiteral("Aleix Pol i Gonzalez"), i18n("Implementation"), QStringLiteral("aleixpol@kde.org"));
     KAboutData::setApplicationData(data);
@@ -82,7 +83,7 @@ int main(int argc, char **argv)
     }
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextObject(new KLocalizedContext);
+    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     engine.rootObjects().at(0)->setProperty("inputData", inputData);
