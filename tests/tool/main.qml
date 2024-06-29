@@ -4,11 +4,11 @@
  SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-import QtQuick 2.2
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.2
-import QtQuick.Dialogs 1.2
-import org.kde.purpose 1.0 as Purpose
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick.Dialogs
+import org.kde.purpose as Purpose
 
 ApplicationWindow {
     id: window

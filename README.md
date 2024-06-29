@@ -16,7 +16,7 @@ There's 2 main ways of using Purpose: from C++ and QML/QtQuick.
 
 To import it from QML, import
 
-    import org.kde.purpose 1.0
+    import org.kde.purpose
 
 It offers different ways of integrating the actions in an application. For full
 control on the procedure, we can use:

@@ -4,11 +4,11 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-import QtQuick 2.2
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.1
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import org.kde.kcmutils as KCMUtils
-import SSO.OnlineAccounts 0.1 as OA
+import SSO.OnlineAccounts as OA
 
 ColumnLayout {
     id: root

@@ -4,10 +4,10 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-import QtQuick 2.2
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.2
-import org.kde.purpose 1.0
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import org.kde.purpose
 
 StackView {
     id: stack

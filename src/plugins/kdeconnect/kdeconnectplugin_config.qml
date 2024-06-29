@@ -4,11 +4,11 @@
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
 
-import QtQuick 2.7
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.5
-import org.kde.kirigami 2.12 as Kirigami
-import org.kde.kdeconnect 1.0
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import org.kde.kirigami as Kirigami
+import org.kde.kdeconnect
 
 ColumnLayout {
     id: root
