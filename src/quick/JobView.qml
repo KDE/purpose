@@ -34,9 +34,12 @@ Item {
 
         sourceComponent: {
             switch (jobController.state) {
-                case PurposeJobController.Configuring: return configuring
-                case PurposeJobController.Running: return running
-                return undefined
+            case PurposeJobController.Configuring:
+                return configuring;
+            case PurposeJobController.Running:
+                return running;
+            default:
+                return null;
             }
         }
     }
