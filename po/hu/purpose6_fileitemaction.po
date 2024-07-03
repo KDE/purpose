@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-04-20 00:15+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2019-11-12 19:41+0100\n"
 "Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Share"
 msgstr "Megosztás"
 
-#: sharefileitemaction.cpp:62
+#: sharefileitemaction.cpp:64
 #, kde-format
 msgid "Error sharing"
 msgstr "Hiba a megosztáskor"

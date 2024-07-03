@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose_pastebin\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-13 00:42+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2018-01-28 17:14+0800\n"
 "Last-Translator: Simon Depiets <sdepiets@gmail.com>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: pastebinplugin.cpp:71
+#: pastebinplugin.cpp:72
 #, kde-format
 msgid "No information to send"
 msgstr "Aucune information à envoyer"

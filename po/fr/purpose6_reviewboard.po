@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdevreviewboard\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 22:21+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2018-02-08 23:07+0100\n"
 "Last-Translator: Yoann Laissus <yoann.laissus@gmail.com>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -25,17 +25,17 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: reviewboardjobs.cpp:165
+#: reviewboardjobs.cpp:166
 #, kde-format
 msgid "JSON error: %1"
 msgstr "Erreur JSON : %1"
 
-#: reviewboardjobs.cpp:170
+#: reviewboardjobs.cpp:171
 #, kde-format
 msgid "Request Error: %1"
 msgstr "Erreur de requête : %1"
 
-#: reviewboardjobs.cpp:198
+#: reviewboardjobs.cpp:200
 #, kde-format
 msgid ""
 "Could not create the new request:\n"
@@ -44,45 +44,45 @@ msgstr ""
 "Impossible de trouver la nouvelle requête :\n"
 "%1"
 
-#: reviewboardjobs.cpp:237
+#: reviewboardjobs.cpp:239
 #, kde-format
 msgid "Could not upload the patch"
 msgstr "Impossible d'envoyer le correctif"
 
-#: reviewboardjobs.cpp:330
+#: reviewboardjobs.cpp:332
 #, kde-format
 msgid "Could not get reviews list"
 msgstr "Impossible d'obtenir la liste des revues"
 
-#: reviewboardjobs.cpp:370
+#: reviewboardjobs.cpp:372
 #, kde-format
 msgid "Could not set metadata"
 msgstr "Impossible de définir les métadonnées"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
+#: reviewboardplugin_config.qml:34 reviewpatch.ui:26
 #, kde-format
 msgid "Server:"
 msgstr "Serveur :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
+#: reviewboardplugin_config.qml:42 reviewpatch.ui:65
 #, kde-format
 msgid "Username:"
 msgstr "Nom d'utilisateur :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
+#: reviewboardplugin_config.qml:49 reviewpatch.ui:79
 #, kde-format
 msgid "Password:"
 msgstr "Mot de passe :"
 
-#: reviewboardplugin_config.qml:50
+#: reviewboardplugin_config.qml:58
 #, kde-format
 msgid "Repository:"
 msgstr "Dépôt :"
 
-#: reviewboardplugin_config.qml:75
+#: reviewboardplugin_config.qml:83
 #, kde-format
 msgid "Update Review:"
 msgstr "Mettre à jour la revue :"

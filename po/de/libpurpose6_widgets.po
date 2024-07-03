@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-10-22 00:14+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2023-04-03 17:02+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: JobDialog.qml:18
+#: JobDialog.qml:22
 #, kde-format
 msgid "Send File"
 msgstr "Datei senden"
 
-#: JobDialog.qml:41
+#: JobDialog.qml:56
 #, kde-format
 msgid "Configuration cancelled"
 msgstr "Einrichtung abgebrochen"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose_reviewboard\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 22:21+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2023-05-24 01:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 23.07.70\n"
 
-#: reviewboardjobs.cpp:165
+#: reviewboardjobs.cpp:166
 #, kde-format
 msgid "JSON error: %1"
 msgstr "JSON hatası: %1"
 
-#: reviewboardjobs.cpp:170
+#: reviewboardjobs.cpp:171
 #, kde-format
 msgid "Request Error: %1"
 msgstr "İstek Hatası: %1"
 
-#: reviewboardjobs.cpp:198
+#: reviewboardjobs.cpp:200
 #, kde-format
 msgid ""
 "Could not create the new request:\n"
@@ -36,45 +36,45 @@ msgstr ""
 "Yeni bir istek oluşturulamadı:\n"
 "%1"
 
-#: reviewboardjobs.cpp:237
+#: reviewboardjobs.cpp:239
 #, kde-format
 msgid "Could not upload the patch"
 msgstr "Yama, karşıya yüklenemedi"
 
-#: reviewboardjobs.cpp:330
+#: reviewboardjobs.cpp:332
 #, kde-format
 msgid "Could not get reviews list"
 msgstr "İnceleme listesi alınamadı"
 
-#: reviewboardjobs.cpp:370
+#: reviewboardjobs.cpp:372
 #, kde-format
 msgid "Could not set metadata"
 msgstr "Üst veri ayarlanamadı"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
+#: reviewboardplugin_config.qml:34 reviewpatch.ui:26
 #, kde-format
 msgid "Server:"
 msgstr "Sunucu:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
+#: reviewboardplugin_config.qml:42 reviewpatch.ui:65
 #, kde-format
 msgid "Username:"
 msgstr "Kullanıcı adı:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
+#: reviewboardplugin_config.qml:49 reviewpatch.ui:79
 #, kde-format
 msgid "Password:"
 msgstr "Parola:"
 
-#: reviewboardplugin_config.qml:50
+#: reviewboardplugin_config.qml:58
 #, kde-format
 msgid "Repository:"
 msgstr "Depo:"
 
-#: reviewboardplugin_config.qml:75
+#: reviewboardplugin_config.qml:83
 #, kde-format
 msgid "Update Review:"
 msgstr "İncelemeyi Güncelle:"

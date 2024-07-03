@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-10-22 00:14+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2020-12-28 14:43+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.03.70\n"
 
-#: bluetoothplugin_config.qml:22
+#: bluetoothplugin_config.qml:23
 #, kde-format
 msgid "Choose a device to send to:"
 msgstr "Céleszköz:"
 
-#: bluetoothplugin_config.qml:60
+#: bluetoothplugin_config.qml:62
 #, kde-format
 msgid "No devices found"
 msgstr "Nem találhatók eszközök"

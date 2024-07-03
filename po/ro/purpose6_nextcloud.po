@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 12:19+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2022-02-04 17:52+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -23,17 +23,17 @@ msgstr ""
 msgid "Select an account:"
 msgstr "Alegeți un cont:"
 
-#: nextcloudplugin_config.qml:64
+#: nextcloudplugin_config.qml:66
 #, kde-format
 msgid "No account configured"
 msgstr "Niciun cont configurat"
 
-#: nextcloudplugin_config.qml:72
+#: nextcloudplugin_config.qml:74
 #, kde-format
 msgid "Configure Accounts"
 msgstr "Configurează conturi"
 
-#: nextcloudplugin_config.qml:79
+#: nextcloudplugin_config.qml:81
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Încarcă în dosarul:"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 12:19+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2021-01-13 17:47+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -24,17 +24,17 @@ msgstr ""
 msgid "Select an account:"
 msgstr "Vel konto:"
 
-#: nextcloudplugin_config.qml:64
+#: nextcloudplugin_config.qml:66
 #, kde-format
 msgid "No account configured"
 msgstr "Ingen kontoar er sette opp"
 
-#: nextcloudplugin_config.qml:72
+#: nextcloudplugin_config.qml:74
 #, kde-format
 msgid "Configure Accounts"
 msgstr "Set opp kontoar"
 
-#: nextcloudplugin_config.qml:79
+#: nextcloudplugin_config.qml:81
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Last opp til mappe:"

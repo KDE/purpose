@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-10-22 00:14+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2022-02-20 18:24+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.12.2\n"
 
-#: bluetoothplugin_config.qml:22
+#: bluetoothplugin_config.qml:23
 #, kde-format
 msgid "Choose a device to send to:"
 msgstr "Избиране на устройство за изпращане:"
 
-#: bluetoothplugin_config.qml:60
+#: bluetoothplugin_config.qml:62
 #, kde-format
 msgid "No devices found"
 msgstr "Няма намерени устройства"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose_reviewboard\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 22:21+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2015-09-27 13:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -20,17 +20,17 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: reviewboardjobs.cpp:165
+#: reviewboardjobs.cpp:166
 #, kde-format
 msgid "JSON error: %1"
 msgstr "Помилка JSON: %1"
 
-#: reviewboardjobs.cpp:170
+#: reviewboardjobs.cpp:171
 #, kde-format
 msgid "Request Error: %1"
 msgstr "Помилка запиту: %1"
 
-#: reviewboardjobs.cpp:198
+#: reviewboardjobs.cpp:200
 #, kde-format
 msgid ""
 "Could not create the new request:\n"
@@ -39,45 +39,45 @@ msgstr ""
 "Не вдалося створити запит:\n"
 "%1"
 
-#: reviewboardjobs.cpp:237
+#: reviewboardjobs.cpp:239
 #, kde-format
 msgid "Could not upload the patch"
 msgstr "Не вдалося вивантажити латку"
 
-#: reviewboardjobs.cpp:330
+#: reviewboardjobs.cpp:332
 #, kde-format
 msgid "Could not get reviews list"
 msgstr "Не вдалося отримати список рецензій"
 
-#: reviewboardjobs.cpp:370
+#: reviewboardjobs.cpp:372
 #, kde-format
 msgid "Could not set metadata"
 msgstr "Не вдалося встановити метадані"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: reviewboardplugin_config.qml:32 reviewpatch.ui:26
+#: reviewboardplugin_config.qml:34 reviewpatch.ui:26
 #, kde-format
 msgid "Server:"
 msgstr "Сервер:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: reviewboardplugin_config.qml:38 reviewpatch.ui:65
+#: reviewboardplugin_config.qml:42 reviewpatch.ui:65
 #, kde-format
 msgid "Username:"
 msgstr "Користувач:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: reviewboardplugin_config.qml:43 reviewpatch.ui:79
+#: reviewboardplugin_config.qml:49 reviewpatch.ui:79
 #, kde-format
 msgid "Password:"
 msgstr "Пароль:"
 
-#: reviewboardplugin_config.qml:50
+#: reviewboardplugin_config.qml:58
 #, kde-format
 msgid "Repository:"
 msgstr "Сховище:"
 
-#: reviewboardplugin_config.qml:75
+#: reviewboardplugin_config.qml:83
 #, kde-format
 msgid "Update Review:"
 msgstr "Оновлення рецензії:"

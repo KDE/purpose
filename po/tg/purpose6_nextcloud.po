@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 12:19+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2019-08-16 18:56+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -22,17 +22,17 @@ msgstr ""
 msgid "Select an account:"
 msgstr ""
 
-#: nextcloudplugin_config.qml:64
+#: nextcloudplugin_config.qml:66
 #, kde-format
 msgid "No account configured"
 msgstr ""
 
-#: nextcloudplugin_config.qml:72
+#: nextcloudplugin_config.qml:74
 #, kde-format
 msgid "Configure Accounts"
 msgstr ""
 
-#: nextcloudplugin_config.qml:79
+#: nextcloudplugin_config.qml:81
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Бор кардан ба ҷузвадон:"

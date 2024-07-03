@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-10-22 00:14+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2021-08-03 21:54+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.07.90\n"
 
-#: bluetoothplugin_config.qml:22
+#: bluetoothplugin_config.qml:23
 #, kde-format
 msgid "Choose a device to send to:"
 msgstr "அனுப்ப வேண்டிய சாதனத்தை தேர்ந்தெடுக்கவும்:"
 
-#: bluetoothplugin_config.qml:60
+#: bluetoothplugin_config.qml:62
 #, kde-format
 msgid "No devices found"
 msgstr "எந்த சாதனங்களும் கண்டுபிடிக்கப்படவில்லை"

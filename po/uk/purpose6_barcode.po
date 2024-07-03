@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-09-21 00:14+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2021-09-21 09:04+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -18,22 +18,23 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: barcodeplugin_config.qml:53
+#: barcodeplugin_config.qml:45
 #, kde-format
 msgid "Type a URL or some text to generate a QR code"
 msgstr "Введіть адресу або якийсь текст для створення QR-коду"
 
-#: barcodeplugin_config.qml:62
+#: barcodeplugin_config.qml:47
 #, kde-format
 msgid "Creating QR code failed"
 msgstr "Створення QR-коду зазнало невдачі"
 
-#: barcodeplugin_config.qml:71
+#: barcodeplugin_config.qml:49
 #, kde-format
 msgid "The QR code is too large to be displayed"
 msgstr "QR-код є надто великим для показу"
 
-#: barcodeplugin_config.qml:83
-#, kde-format
-msgid "Type a URL or some text..."
+#: barcodeplugin_config.qml:64
+#, fuzzy, kde-format
+#| msgid "Type a URL or some text..."
+msgid "Type a URL or some text…"
 msgstr "Введіть адресу або якийсь текст…"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-10-22 00:14+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2024-04-18 08:56+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -18,12 +18,12 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: bluetoothplugin_config.qml:22
+#: bluetoothplugin_config.qml:23
 #, kde-format
 msgid "Choose a device to send to:"
 msgstr "נא לבחור התקן לשלוח אליו:"
 
-#: bluetoothplugin_config.qml:60
+#: bluetoothplugin_config.qml:62
 #, kde-format
 msgid "No devices found"
 msgstr "לא נמצאו התקנים"

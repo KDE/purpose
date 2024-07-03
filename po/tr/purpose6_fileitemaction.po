@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-04-20 00:15+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2022-04-13 12:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Share"
 msgstr "Paylaş"
 
-#: sharefileitemaction.cpp:62
+#: sharefileitemaction.cpp:64
 #, kde-format
 msgid "Error sharing"
 msgstr "Paylaşırken hata"

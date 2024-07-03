@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 12:19+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2023-04-01 21:19-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -22,17 +22,17 @@ msgstr ""
 msgid "Select an account:"
 msgstr "ਖਾਤਾ ਚੁਣੋ:"
 
-#: nextcloudplugin_config.qml:64
+#: nextcloudplugin_config.qml:66
 #, kde-format
 msgid "No account configured"
 msgstr "ਕੋਈ ਖਾਤਾ ਸੰਰਚਿਤ ਨਹੀਂ ਹੈ"
 
-#: nextcloudplugin_config.qml:72
+#: nextcloudplugin_config.qml:74
 #, kde-format
 msgid "Configure Accounts"
 msgstr "ਖਾਤੇ ਸੰਰਚਿਤ ਕਰੋ"
 
-#: nextcloudplugin_config.qml:79
+#: nextcloudplugin_config.qml:81
 #, kde-format
 msgid "Upload to folder:"
 msgstr "ਫ਼ੋਲਡਰ ਵਿੱਚ ਅੱਪਲੋਡ ਕਰੋ:"

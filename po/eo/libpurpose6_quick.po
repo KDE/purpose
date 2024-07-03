@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-12-07 00:41+0000\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2023-05-08 03:24+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: AlternativesView.qml:34
+#: AlternativesView.qml:35
 #, kde-format
 msgid "Use"
 msgstr "Uzo"
 
-#: JobView.qml:108
+#: JobView.qml:110
 #, kde-format
 msgid ""
 "Failed to load the configuration page for this action:\n"
@@ -33,12 +33,12 @@ msgstr ""
 "\n"
 "%1"
 
-#: JobView.qml:121
+#: JobView.qml:123
 #, kde-format
 msgid "Send"
 msgstr "Sendi"
 
-#: JobView.qml:129
+#: JobView.qml:131
 #, kde-format
 msgid "Cancel"
 msgstr "Nuligi"
