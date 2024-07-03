@@ -57,20 +57,7 @@
         "Name[ar]": "فابريكيتور",
         "Name[ml]": "ഫാബ്രിക്കേറ്റര്‍",
         "Name[x-test]": "xxPhabricatorxx",
-        "X-Purpose-ActionDisplay": "Phabricator…",
-        "X-Purpose-ActionDisplay[ar]": "فابريكيتور...",
-        "X-Purpose-ActionDisplay[ca@valencia]": "Phabricator…",
-        "X-Purpose-ActionDisplay[de]": "Phabricator ...",
-        "X-Purpose-ActionDisplay[et]": "Phabricator ...",
-        "X-Purpose-ActionDisplay[fi]": "Phabricator…",
-        "X-Purpose-ActionDisplay[gl]": "Phabricator…",
-        "X-Purpose-ActionDisplay[hu]": "Phabricator…",
-        "X-Purpose-ActionDisplay[ml]": "ഫാബ്രിക്കേറ്റര്‍",
-        "X-Purpose-ActionDisplay[nn]": "Phabricator …",
-        "X-Purpose-ActionDisplay[tr]": "Phabricator…",
-        "X-Purpose-ActionDisplay[uk]": "Phabricator…",
-        "X-Purpose-ActionDisplay[x-test]": "xxPhabricator...xx",
-        "X-Purpose-ActionDisplay[zh_TW]": "Phabricator…"
+        "X-Purpose-ActionDisplay": "Phabricator…"
     },
     "X-Purpose-Configuration": [
         "updateDR",
