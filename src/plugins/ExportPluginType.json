@@ -1,7 +1,20 @@
 {
     "KPlugin": {
         "Icon": "edit-paste",
-        "Name": "Upload…"
+        "Name": "Upload…",
+        "Name[bg]": "Качване...",
+        "Name[ca@valencia]": "Puja…",
+        "Name[ca]": "Puja…",
+        "Name[cs]": "Odeslat…",
+        "Name[eo]": "Alŝuti…",
+        "Name[es]": "Enviar...",
+        "Name[ka]": "ატვირთვა…",
+        "Name[nl]": "Uploaden…",
+        "Name[sl]": "Prenesi…",
+        "Name[sv]": "Ladda upp…",
+        "Name[tr]": "Karşıya Yükle…",
+        "Name[uk]": "Вивантажити…",
+        "Name[x-test]": "xxUpload…xx"
     },
     "X-Purpose-InboundArguments": [
         "urls",

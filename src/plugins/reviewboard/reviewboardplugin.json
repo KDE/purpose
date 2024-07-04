@@ -70,7 +70,13 @@
         "Name[sl]": "Revizijska komisija",
         "Name[tg]": "Лавҳаи муоина",
         "Name[x-test]": "xxReview Boardxx",
-        "X-Purpose-ActionDisplay": "Review Board…"
+        "X-Purpose-ActionDisplay": "Review Board…",
+        "X-Purpose-ActionDisplay[eo]": "Reviziejo…",
+        "X-Purpose-ActionDisplay[es]": "Review Board...",
+        "X-Purpose-ActionDisplay[ka]": "განხილვის საბჭო…",
+        "X-Purpose-ActionDisplay[nl]": "Reviewboard…",
+        "X-Purpose-ActionDisplay[sl]": "Revizijska komisija…",
+        "X-Purpose-ActionDisplay[x-test]": "xxReview Board…xx"
     },
     "X-Purpose-Configuration": [
         "updateRR",

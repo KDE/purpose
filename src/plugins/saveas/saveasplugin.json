@@ -100,7 +100,20 @@
         "Name[x-test]": "xxSave asxx",
         "Name[zh_CN]": "另存为",
         "Name[zh_TW]": "另存新檔",
-        "X-Purpose-ActionDisplay": "Save as…"
+        "X-Purpose-ActionDisplay": "Save as…",
+        "X-Purpose-ActionDisplay[bg]": "Запазване като...",
+        "X-Purpose-ActionDisplay[ca@valencia]": "Anomena i guarda…",
+        "X-Purpose-ActionDisplay[ca]": "Desa com a…",
+        "X-Purpose-ActionDisplay[cs]": "Uložit jako…",
+        "X-Purpose-ActionDisplay[eo]": "Konservi kiel…",
+        "X-Purpose-ActionDisplay[es]": "Guardar como...",
+        "X-Purpose-ActionDisplay[ka]": "შენახვა როგორც…",
+        "X-Purpose-ActionDisplay[nl]": "Opslaan als…",
+        "X-Purpose-ActionDisplay[sl]": "Shrani kot…",
+        "X-Purpose-ActionDisplay[sv]": "Spara som…",
+        "X-Purpose-ActionDisplay[tr]": "Farklı Kaydet…",
+        "X-Purpose-ActionDisplay[uk]": "Зберегти як…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSave as…xx"
     },
     "X-Purpose-Configuration": [
         "destinationPath"

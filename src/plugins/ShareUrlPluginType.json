@@ -1,7 +1,20 @@
 {
     "KPlugin": {
         "Icon": "document-share",
-        "Name": "Share…"
+        "Name": "Share…",
+        "Name[bg]": "Споделяне...",
+        "Name[ca@valencia]": "Compartix…",
+        "Name[ca]": "Comparteix…",
+        "Name[cs]": "Sdílet…",
+        "Name[eo]": "Kunhavigi…",
+        "Name[es]": "Compartir...",
+        "Name[ka]": "გაზიარება…",
+        "Name[nl]": "Delen…",
+        "Name[sl]": "Deli z drugimi…",
+        "Name[sv]": "Dela…",
+        "Name[tr]": "Paylaş…",
+        "Name[uk]": "Оприлюднити…",
+        "Name[x-test]": "xxShare…xx"
     },
     "X-Purpose-InboundArguments": [
         "urls",

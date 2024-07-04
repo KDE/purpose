@@ -62,7 +62,17 @@
         "Name[ml]": "യൂട്യൂബ്",
         "Name[pa]": "ਯੂਟਿਊਬ",
         "Name[x-test]": "xxYouTubexx",
-        "X-Purpose-ActionDisplay": "Youtube…"
+        "X-Purpose-ActionDisplay": "Youtube…",
+        "X-Purpose-ActionDisplay[ca@valencia]": "YouTube…",
+        "X-Purpose-ActionDisplay[ca]": "YouTube…",
+        "X-Purpose-ActionDisplay[cs]": "YouTube…",
+        "X-Purpose-ActionDisplay[es]": "Youtube...",
+        "X-Purpose-ActionDisplay[ka]": "YouTube…",
+        "X-Purpose-ActionDisplay[nl]": "YouTube…",
+        "X-Purpose-ActionDisplay[sv]": "YouTube…",
+        "X-Purpose-ActionDisplay[tr]": "YouTube…",
+        "X-Purpose-ActionDisplay[uk]": "YouTube…",
+        "X-Purpose-ActionDisplay[x-test]": "xxYoutube…xx"
     },
     "X-Purpose-Configuration": [
         "videoDesc",
