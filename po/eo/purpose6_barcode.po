@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:37+0000\n"
-"PO-Revision-Date: 2023-05-08 03:24+0100\n"
+"PO-Revision-Date: 2024-07-03 21:54+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -33,7 +33,6 @@ msgid "The QR code is too large to be displayed"
 msgstr "La QR-kodo estas tro granda por montri"
 
 #: barcodeplugin_config.qml:64
-#, fuzzy, kde-format
-#| msgid "Type a URL or some text..."
+#, kde-format
 msgid "Type a URL or some text…"
-msgstr "Tajpu URL-on aŭ iun tekston..."
+msgstr "Tajpu URL-on aŭ iun tekston…"

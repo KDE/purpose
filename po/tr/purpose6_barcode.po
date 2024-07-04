@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the purpose package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:37+0000\n"
-"PO-Revision-Date: 2022-04-13 12:25+0300\n"
+"PO-Revision-Date: 2024-07-03 13:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #: barcodeplugin_config.qml:45
 #, kde-format
@@ -33,7 +33,6 @@ msgid "The QR code is too large to be displayed"
 msgstr "Kare kod görüntülenmek için pek büyük"
 
 #: barcodeplugin_config.qml:64
-#, fuzzy, kde-format
-#| msgid "Type a URL or some text..."
+#, kde-format
 msgid "Type a URL or some text…"
-msgstr "Bir URL veya metin girin..."
+msgstr "Bir URL veya metin gir…"

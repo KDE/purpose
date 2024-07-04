@@ -1,21 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the purpose package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2024 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:37+0000\n"
-"PO-Revision-Date: 2022-01-16 22:18+0100\n"
-"Last-Translator: mkkDr2010 <mkondarev@yahoo.de>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2024-07-03 23:26+0200\n"
+"Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
+"Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Lokalize 24.05.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: barcodeplugin_config.qml:45
@@ -34,7 +33,6 @@ msgid "The QR code is too large to be displayed"
 msgstr "Баркодът е твърде голям, за да бъде показан"
 
 #: barcodeplugin_config.qml:64
-#, fuzzy, kde-format
-#| msgid "Type a URL or some text..."
+#, kde-format
 msgid "Type a URL or some text…"
 msgstr "Въведете адрес или някакъв текст..."
