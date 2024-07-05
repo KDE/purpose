@@ -108,13 +108,16 @@
         "X-Purpose-ActionDisplay[cs]": "Poslat na zařízení…",
         "X-Purpose-ActionDisplay[eo]": "Sendi al Aparato…",
         "X-Purpose-ActionDisplay[es]": "Enviar a dispositivo...",
+        "X-Purpose-ActionDisplay[he]": "שליחה להתקן…",
+        "X-Purpose-ActionDisplay[ia]": "Invia a dispositivo...",
         "X-Purpose-ActionDisplay[ka]": "მოწყობილობაზე გაგზავნა…",
         "X-Purpose-ActionDisplay[nl]": "Naar apparaat verzenden…",
         "X-Purpose-ActionDisplay[sl]": "Pošlji na napravo…",
         "X-Purpose-ActionDisplay[sv]": "Skicka till enhet…",
         "X-Purpose-ActionDisplay[tr]": "Aygıta Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати на пристрій…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend To Device…xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend To Device…xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "发送到设备…"
     },
     "X-Purpose-Configuration": [
         "device"

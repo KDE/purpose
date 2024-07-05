@@ -8,13 +8,16 @@
         "Name[cs]": "Sdílet…",
         "Name[eo]": "Kunhavigi…",
         "Name[es]": "Compartir...",
+        "Name[he]": "שיתוף",
+        "Name[ia]": "Comparti…",
         "Name[ka]": "გაზიარება…",
         "Name[nl]": "Delen…",
         "Name[sl]": "Deli z drugimi…",
         "Name[sv]": "Dela…",
         "Name[tr]": "Paylaş…",
         "Name[uk]": "Оприлюднити…",
-        "Name[x-test]": "xxShare…xx"
+        "Name[x-test]": "xxShare…xx",
+        "Name[zh_CN]": "分享…"
     },
     "X-Purpose-InboundArguments": [
         "urls",

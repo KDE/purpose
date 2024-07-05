@@ -106,13 +106,16 @@
         "X-Purpose-ActionDisplay[cs]": "Poslat přes Bluetooth…",
         "X-Purpose-ActionDisplay[eo]": "Sendi per Bluetooth…",
         "X-Purpose-ActionDisplay[es]": "Enviar por Bluetooth...",
+        "X-Purpose-ActionDisplay[he]": "שליחה דרך בלוטות׳…",
+        "X-Purpose-ActionDisplay[ia]": "Invia via Bluetooth...",
         "X-Purpose-ActionDisplay[ka]": "ბლუთუზით გაგზავნა…",
         "X-Purpose-ActionDisplay[nl]": "Verzenden over bluetooth…",
         "X-Purpose-ActionDisplay[sl]": "Pošlji prek Bluetootha…",
         "X-Purpose-ActionDisplay[sv]": "Skicka via Blåtand…",
         "X-Purpose-ActionDisplay[tr]": "Bluetooth ile Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Bluetooth…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend via Bluetooth…xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Bluetooth…xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "通过蓝牙发送…"
     },
     "X-Purpose-Configuration": [
         "device"

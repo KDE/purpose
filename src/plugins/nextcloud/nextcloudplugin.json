@@ -66,8 +66,10 @@
         "X-Purpose-ActionDisplay[bg]": "Nextcloud...",
         "X-Purpose-ActionDisplay[cs]": "NextCloud…",
         "X-Purpose-ActionDisplay[es]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[ia]": "Nextcloud...",
         "X-Purpose-ActionDisplay[tr]": "NextCloud…",
-        "X-Purpose-ActionDisplay[x-test]": "xxNextcloud…xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxNextcloud…xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "NextCloud…"
     },
     "X-Purpose-Configuration": [
         "folder",

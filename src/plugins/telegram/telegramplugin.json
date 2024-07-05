@@ -101,13 +101,16 @@
         "X-Purpose-ActionDisplay[cs]": "Poslat přes Telegram…",
         "X-Purpose-ActionDisplay[eo]": "Sendi per Telegram…",
         "X-Purpose-ActionDisplay[es]": "Enviar por Telegram...",
+        "X-Purpose-ActionDisplay[he]": "שליחה דרך טלגרם…",
+        "X-Purpose-ActionDisplay[ia]": "Invia via Telegram...",
         "X-Purpose-ActionDisplay[ka]": "Telegram-ით გაგზავნა…",
         "X-Purpose-ActionDisplay[nl]": "Verzenden via Telegram…",
         "X-Purpose-ActionDisplay[sl]": "Pošlji prek Telegrama…",
         "X-Purpose-ActionDisplay[sv]": "Skicka via Telegram…",
         "X-Purpose-ActionDisplay[tr]": "Telegram ile Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Telegram…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend via Telegram…xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Telegram…xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "通过 Telegram 发送…"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [

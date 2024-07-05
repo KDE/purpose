@@ -107,13 +107,16 @@
         "X-Purpose-ActionDisplay[cs]": "Uložit jako…",
         "X-Purpose-ActionDisplay[eo]": "Konservi kiel…",
         "X-Purpose-ActionDisplay[es]": "Guardar como...",
+        "X-Purpose-ActionDisplay[he]": "שמירה בשם…",
+        "X-Purpose-ActionDisplay[ia]": "Salveguarda como ...",
         "X-Purpose-ActionDisplay[ka]": "შენახვა როგორც…",
         "X-Purpose-ActionDisplay[nl]": "Opslaan als…",
         "X-Purpose-ActionDisplay[sl]": "Shrani kot…",
         "X-Purpose-ActionDisplay[sv]": "Spara som…",
         "X-Purpose-ActionDisplay[tr]": "Farklı Kaydet…",
         "X-Purpose-ActionDisplay[uk]": "Зберегти як…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSave as…xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSave as…xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "另存为…"
     },
     "X-Purpose-Configuration": [
         "destinationPath"

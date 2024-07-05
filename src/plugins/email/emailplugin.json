@@ -108,13 +108,16 @@
         "X-Purpose-ActionDisplay[cs]": "Poslat emailem…",
         "X-Purpose-ActionDisplay[eo]": "Sendi per Retpoŝto…",
         "X-Purpose-ActionDisplay[es]": "Enviar por correo electrónico...",
+        "X-Purpose-ActionDisplay[he]": "שליחה בדוא״ל…",
+        "X-Purpose-ActionDisplay[ia]": "Invia via Email...",
         "X-Purpose-ActionDisplay[ka]": "ელფოსტით გაგზავნა…",
         "X-Purpose-ActionDisplay[nl]": "Verzenden via e-mail…",
         "X-Purpose-ActionDisplay[sl]": "Pošlji prek e-pošte…",
         "X-Purpose-ActionDisplay[sv]": "Skicka med e-post…",
         "X-Purpose-ActionDisplay[tr]": "E-posta ile Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати електронною поштою…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend via Email…xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Email…xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "通过电子邮件发送…"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],

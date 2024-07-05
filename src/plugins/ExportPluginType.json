@@ -8,13 +8,16 @@
         "Name[cs]": "Odeslat…",
         "Name[eo]": "Alŝuti…",
         "Name[es]": "Enviar...",
+        "Name[he]": "העלאה…",
+        "Name[ia]": "Incarga…",
         "Name[ka]": "ატვირთვა…",
         "Name[nl]": "Uploaden…",
         "Name[sl]": "Prenesi…",
         "Name[sv]": "Ladda upp…",
         "Name[tr]": "Karşıya Yükle…",
         "Name[uk]": "Вивантажити…",
-        "Name[x-test]": "xxUpload…xx"
+        "Name[x-test]": "xxUpload…xx",
+        "Name[zh_CN]": "上传…"
     },
     "X-Purpose-InboundArguments": [
         "urls",
