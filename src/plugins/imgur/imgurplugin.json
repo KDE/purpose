@@ -6,6 +6,7 @@
                 "Name[ast]": "Aleix Pol i Gonzàlez",
                 "Name[he]": "אלש פול",
                 "Name[ka]": "ალის პოლი",
+                "Name[ta]": "அலேயிக்சு போல்",
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[x-test]": "xxAleix Polxx"
             }
@@ -48,6 +49,7 @@
         "Description[sk]": "Nahrať obrázky na Imgur",
         "Description[sl]": "Prenesi slike na Imgur",
         "Description[sv]": "Ladda upp bilder till Imgur",
+        "Description[ta]": "Imgur-க்கு படங்களை பதிவேற்றும்",
         "Description[tg]": "Бор кардани тасвирҳо ба Imgur",
         "Description[tr]": "Resimleri Imgur’a yükle",
         "Description[uk]": "Вивантаження зображень на Imgur",

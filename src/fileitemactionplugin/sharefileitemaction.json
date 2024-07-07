@@ -4,6 +4,7 @@
             {
                 "Name": "Nicolas Fella",
                 "Name[he]": "ניקולס פלה",
+                "Name[ta]": "நிக்கோலஸ் ஃபெல்லா",
                 "Name[tg]": "Николас Фелла (Nicolas Fella)",
                 "Name[x-test]": "xxNicolas Fellaxx"
             }
@@ -46,6 +47,7 @@
         "Description[sk]": "Zdieľať pomocou Purpose",
         "Description[sl]": "Deli z uporabo programa Purpose",
         "Description[sv]": "Dela med användning av Purpose",
+        "Description[ta]": "Purpose  மூலம் பகிர்",
         "Description[tg]": "Мубодила кардан тавассути Purpose",
         "Description[tr]": "Purpose kullararak paylaş",
         "Description[uk]": "Оприлюднити за допомогою Purpose",

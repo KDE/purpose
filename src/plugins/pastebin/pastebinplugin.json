@@ -6,6 +6,7 @@
                 "Name[ast]": "Aleix Pol i Gonzàlez",
                 "Name[he]": "אלש פול",
                 "Name[ka]": "ალის პოლი",
+                "Name[ta]": "அலேயிக்சு போல்",
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[x-test]": "xxAleix Polxx"
             }
@@ -48,6 +49,7 @@
         "Description[sk]": "Nahrať text na Pastebin",
         "Description[sl]": "Prenesi na Pastebin",
         "Description[sv]": "Ladda upp text till Pastebin",
+        "Description[ta]": "Pastebin-க்கு உரையை பதிவேற்றும்",
         "Description[tg]": "Бор кардани матн ба Pastebin",
         "Description[tr]": "Metni Pastebin’e yükle",
         "Description[uk]": "Вивантажити текст на Pastebin",
@@ -87,6 +89,7 @@
         "X-Purpose-ActionDisplay[ru]": "Публикация текста на Pastebin",
         "X-Purpose-ActionDisplay[sl]": "Prenesi Javno na Pastebin",
         "X-Purpose-ActionDisplay[sv]": "Ladda upp öppet till Pastebin",
+        "X-Purpose-ActionDisplay[ta]": "Pastebin-க்கு அனைவரும் பார்க்கும்படி பதிவேற்று",
         "X-Purpose-ActionDisplay[tr]": "Metni Herkes için Pastebin’e Yükle",
         "X-Purpose-ActionDisplay[uk]": "Вивантажити відкрито на Pastebin",
         "X-Purpose-ActionDisplay[x-test]": "xxUpload Publicly to Pastebinxx",

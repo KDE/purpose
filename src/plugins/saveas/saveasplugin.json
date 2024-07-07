@@ -6,6 +6,7 @@
                 "Name[ast]": "Aleix Pol i Gonzàlez",
                 "Name[he]": "אלש פול",
                 "Name[ka]": "ალის პოლი",
+                "Name[ta]": "அலேயிக்சு போல்",
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[x-test]": "xxAleix Polxx"
             }
@@ -47,6 +48,7 @@
         "Description[sk]": "Uloží zdieľanie do vybraného umiestnenia.",
         "Description[sl]": "Shrani deljene datoteke na izbrano mesto.",
         "Description[sv]": "Sparar delade objekt på vald plats.",
+        "Description[ta]": "பகிர்ந்ததை குறிப்பிட்ட இடத்தில் சேமிக்கும்.",
         "Description[tg]": "Мубодиларо ба макони интихобшуда нигоҳ медорад.",
         "Description[tr]": "Paylaşımı seçilen konuma kaydeder.",
         "Description[uk]": "Зберігає спільний ресурс до вказаного каталогу.",
@@ -114,6 +116,7 @@
         "X-Purpose-ActionDisplay[nl]": "Opslaan als…",
         "X-Purpose-ActionDisplay[sl]": "Shrani kot…",
         "X-Purpose-ActionDisplay[sv]": "Spara som…",
+        "X-Purpose-ActionDisplay[ta]": "இப்படி சேமி…",
         "X-Purpose-ActionDisplay[tr]": "Farklı Kaydet…",
         "X-Purpose-ActionDisplay[uk]": "Зберегти як…",
         "X-Purpose-ActionDisplay[x-test]": "xxSave as…xx",

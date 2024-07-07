@@ -33,6 +33,7 @@
         "Description[sk]": "Zdieľa cez Twitter",
         "Description[sl]": "Deli medije na Twitterju",
         "Description[sv]": "Dela via Twitter",
+        "Description[ta]": "டுவிட்டர் மூலம் அனுப்பும்",
         "Description[tr]": "Twitter’da paylaş",
         "Description[uk]": "Поділитися на Twitter",
         "Description[x-test]": "xxShare via Twitterxx",
@@ -46,12 +47,14 @@
         "Name[ko]": "트위터",
         "Name[ml]": "ട്വിറ്റര്‍",
         "Name[pa]": "ਟਵਿੱਟਰ",
+        "Name[ta]": "டுவிட்டர்",
         "Name[x-test]": "xxTwitterxx",
         "X-Purpose-ActionDisplay": "Twitter",
         "X-Purpose-ActionDisplay[ar]": "تويتر",
         "X-Purpose-ActionDisplay[he]": "טוויטר",
         "X-Purpose-ActionDisplay[ko]": "트위터",
         "X-Purpose-ActionDisplay[pa]": "ਟਵਿੱਟਰ",
+        "X-Purpose-ActionDisplay[ta]": "டுவிட்டர்",
         "X-Purpose-ActionDisplay[x-test]": "xxTwitterxx"
     },
     "X-Purpose-PluginTypes": [

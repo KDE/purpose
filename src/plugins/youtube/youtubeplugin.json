@@ -6,6 +6,7 @@
                 "Name[ast]": "Aleix Pol i Gonzàlez",
                 "Name[he]": "אלש פול",
                 "Name[ka]": "ალის პოლი",
+                "Name[ta]": "அலேயிக்சு போல்",
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[x-test]": "xxAleix Polxx"
             }
@@ -48,6 +49,7 @@
         "Description[sk]": "Nahrať videá na YouTube",
         "Description[sl]": "Preneli vedee na Youtube",
         "Description[sv]": "Ladda upp videor till YouTube",
+        "Description[ta]": "யூடியூபுக்கு நிகழ்படங்களை பதிவேற்றும்",
         "Description[tg]": "Бор кардани видеоҳо ба YouTube",
         "Description[tr]": "Videoları YouTube’a yükle",
         "Description[uk]": "Вивантаження відео на YouTube",
@@ -61,6 +63,7 @@
         "Name[eo]": "Jutubo",
         "Name[ml]": "യൂട്യൂബ്",
         "Name[pa]": "ਯੂਟਿਊਬ",
+        "Name[ta]": "யூடியூப்",
         "Name[x-test]": "xxYouTubexx",
         "X-Purpose-ActionDisplay": "Youtube…",
         "X-Purpose-ActionDisplay[ca@valencia]": "YouTube…",
@@ -74,6 +77,7 @@
         "X-Purpose-ActionDisplay[ka]": "YouTube…",
         "X-Purpose-ActionDisplay[nl]": "YouTube…",
         "X-Purpose-ActionDisplay[sv]": "YouTube…",
+        "X-Purpose-ActionDisplay[ta]": "யூடியூப்…",
         "X-Purpose-ActionDisplay[tr]": "YouTube…",
         "X-Purpose-ActionDisplay[uk]": "YouTube…",
         "X-Purpose-ActionDisplay[x-test]": "xxYoutube…xx"

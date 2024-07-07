@@ -4,6 +4,7 @@
             {
                 "Name": "Nicolas Fella",
                 "Name[he]": "ניקולס פלה",
+                "Name[ta]": "நிக்கோலஸ் ஃபெல்லா",
                 "Name[tg]": "Николас Фелла (Nicolas Fella)",
                 "Name[x-test]": "xxNicolas Fellaxx"
             }
@@ -46,7 +47,7 @@
         "Description[sk]": "Poslať cez Bluetooth",
         "Description[sl]": "Pošlji prek Bluetootha",
         "Description[sv]": "Skicka via Blåtand",
-        "Description[ta]": "Bluetooth மூலம் அனுப்பு",
+        "Description[ta]": "ஊடலை மூலம் அனுப்பும்",
         "Description[tg]": "Фиристодан ба воситаи Bluetooth",
         "Description[tr]": "Bluetooth ile gönder",
         "Description[uk]": "Надсилання за допомогою Bluetooth",
@@ -92,7 +93,7 @@
         "Name[sk]": "Poslať cez Bluetooth",
         "Name[sl]": "Pošlji prek Bluetootha",
         "Name[sv]": "Skicka via Blåtand",
-        "Name[ta]": "Bluetooth மூலம் அனுப்பு",
+        "Name[ta]": "ஊடலை மூலம் அனுப்பு",
         "Name[tg]": "Фиристодан ба воситаи Bluetooth",
         "Name[tr]": "Bluetooth ile Gönder",
         "Name[uk]": "Надсилання за допомогою Bluetooth",
@@ -113,6 +114,7 @@
         "X-Purpose-ActionDisplay[nl]": "Verzenden over bluetooth…",
         "X-Purpose-ActionDisplay[sl]": "Pošlji prek Bluetootha…",
         "X-Purpose-ActionDisplay[sv]": "Skicka via Blåtand…",
+        "X-Purpose-ActionDisplay[ta]": "ஊடலை மூலம் அனுப்பு…",
         "X-Purpose-ActionDisplay[tr]": "Bluetooth ile Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Bluetooth…",
         "X-Purpose-ActionDisplay[x-test]": "xxSend via Bluetooth…xx",

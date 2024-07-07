@@ -5,6 +5,7 @@
                 "Name": "Kai Uwe Broulik",
                 "Name[he]": "קאי אווה ברוליק",
                 "Name[ka]": "კაი უვე ბროულიკი",
+                "Name[ta]": "காய் ஊவே புரோலிக்",
                 "Name[x-test]": "xxKai Uwe Broulikxx"
             }
         ],
@@ -43,6 +44,7 @@
         "Description[sk]": "Generovať QR kód pre tento odkaz",
         "Description[sl]": "Generiraj kodo QR za to povezavo",
         "Description[sv]": "Skapa en QR-kod för länken",
+        "Description[ta]": "இந்த இணைப்பிற்கான QR குறியை உருவாக்கும்",
         "Description[tr]": "Bu bağlantı için bir kare kod oluştur",
         "Description[uk]": "Створити QR-код для цього посилання",
         "Description[x-test]": "xxGenerate a QR code for this linkxx",
@@ -84,6 +86,7 @@
         "Name[sk]": "Generovať QR kód",
         "Name[sl]": "Generiraj kodo QR",
         "Name[sv]": "Skapa QR-kod",
+        "Name[ta]": "QR குறியை உருவாக்கு",
         "Name[tr]": "Kare Kod Oluştur",
         "Name[uk]": "Створити QR-код",
         "Name[x-test]": "xxGenerate QR codexx",
@@ -123,6 +126,7 @@
         "X-Purpose-ActionDisplay[sk]": "Generovať QR kód",
         "X-Purpose-ActionDisplay[sl]": "Generiraj QR kodo",
         "X-Purpose-ActionDisplay[sv]": "Skapa QR-kod",
+        "X-Purpose-ActionDisplay[ta]": "QR குறியை உருவாக்கு",
         "X-Purpose-ActionDisplay[tr]": "Kare Kod Oluştur",
         "X-Purpose-ActionDisplay[uk]": "Створити QR-код",
         "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx",

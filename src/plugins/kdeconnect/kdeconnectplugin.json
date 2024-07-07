@@ -6,6 +6,7 @@
                 "Name[ast]": "Aleix Pol i Gonzàlez",
                 "Name[he]": "אלש פול",
                 "Name[ka]": "ალის პოლი",
+                "Name[ta]": "அலேயிக்சு போல்",
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[x-test]": "xxAleix Polxx"
             }
@@ -48,6 +49,7 @@
         "Description[sk]": "Poslať cez KDE Connect",
         "Description[sl]": "Pošlji prek KDE Connecta",
         "Description[sv]": "Skicka via KDE-anslut",
+        "Description[ta]": "கே.டீ.யீ. கனெக்ட் மூலம் அனுப்பும்",
         "Description[tg]": "Фиристодан ба воситаи KDE Connect",
         "Description[tr]": "KDE Bağlan ile gönder",
         "Description[uk]": "Надіслати за допомогою KDE Connect",
@@ -115,6 +117,7 @@
         "X-Purpose-ActionDisplay[nl]": "Naar apparaat verzenden…",
         "X-Purpose-ActionDisplay[sl]": "Pošlji na napravo…",
         "X-Purpose-ActionDisplay[sv]": "Skicka till enhet…",
+        "X-Purpose-ActionDisplay[ta]": "சாதனத்திற்கு அனுப்பு…",
         "X-Purpose-ActionDisplay[tr]": "Aygıta Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати на пристрій…",
         "X-Purpose-ActionDisplay[x-test]": "xxSend To Device…xx",

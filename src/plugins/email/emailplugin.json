@@ -4,6 +4,7 @@
             {
                 "Name": "Daniel Vrátil",
                 "Name[he]": "דניאל וראטיל",
+                "Name[ta]": "டேனியல் விராட்டில்",
                 "Name[tg]": "Даниел Вратил (Daniel Vrátil)",
                 "Name[x-test]": "xxDaniel Vrátilxx"
             }
@@ -47,7 +48,7 @@
         "Description[sk]": "Poslať cez Email",
         "Description[sl]": "Pošlji prek e-pošte",
         "Description[sv]": "Skicka med e-post",
-        "Description[ta]": "மின்னஞ்சல் மூலம் அனுப்பு",
+        "Description[ta]": "மின்னஞ்சல் மூலம் அனுப்பும்",
         "Description[tg]": "Фиристодан ба воситаи почтаи электронӣ",
         "Description[tr]": "E-posta ile gönder",
         "Description[uk]": "Надсилання електронною поштою",
@@ -115,6 +116,7 @@
         "X-Purpose-ActionDisplay[nl]": "Verzenden via e-mail…",
         "X-Purpose-ActionDisplay[sl]": "Pošlji prek e-pošte…",
         "X-Purpose-ActionDisplay[sv]": "Skicka med e-post…",
+        "X-Purpose-ActionDisplay[ta]": "மின்னஞ்சல் மூலம் அனுப்பு…",
         "X-Purpose-ActionDisplay[tr]": "E-posta ile Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати електронною поштою…",
         "X-Purpose-ActionDisplay[x-test]": "xxSend via Email…xx",
