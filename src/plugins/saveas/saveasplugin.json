@@ -121,7 +121,8 @@
         "X-Purpose-ActionDisplay[tr]": "Farklı Kaydet…",
         "X-Purpose-ActionDisplay[uk]": "Зберегти як…",
         "X-Purpose-ActionDisplay[x-test]": "xxSave as…xx",
-        "X-Purpose-ActionDisplay[zh_CN]": "另存为…"
+        "X-Purpose-ActionDisplay[zh_CN]": "另存为…",
+        "X-Purpose-ActionDisplay[zh_TW]": "另存新檔…"
     },
     "X-Purpose-Configuration": [
         "destinationPath"

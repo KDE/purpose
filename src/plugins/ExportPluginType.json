@@ -20,7 +20,8 @@
         "Name[tr]": "Karşıya Yükle…",
         "Name[uk]": "Вивантажити…",
         "Name[x-test]": "xxUpload…xx",
-        "Name[zh_CN]": "上传…"
+        "Name[zh_CN]": "上传…",
+        "Name[zh_TW]": "上傳…"
     },
     "X-Purpose-InboundArguments": [
         "urls",
