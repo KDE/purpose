@@ -1,3 +1,5 @@
+set_source_files_properties(ShareDialog.qml PROPERTIES QT_QML_INTERNAL_TYPE TRUE)
+
 ecm_add_qml_module(purposequickplugin URI "org.kde.purpose" VERSION 1.0 GENERATE_PLUGIN_SOURCE)
 
 target_sources(purposequickplugin PRIVATE types.h)
@@ -5,6 +7,9 @@ target_sources(purposequickplugin PRIVATE types.h)
 ecm_target_qml_sources(purposequickplugin SOURCES
     AlternativesView.qml
     JobView.qml
+    ShareAction.qml
+    ShareDialog.qml
+    ShareMenu.qml
 )
 
 target_link_libraries(purposequickplugin PRIVATE

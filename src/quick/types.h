@@ -44,4 +44,22 @@ struct ConfigurationForeign {
     QML_UNCREATABLE("You're not supposed to instantiate configurations")
 };
 
+class ContentTypeForeign
+{
+    Q_GADGET
+public:
+    enum ContentType {
+        ShareUrl,
+        Export
+    };
+    Q_ENUM(ContentType)
+};
+
+namespace ContentTypeForeignNamespace
+{
+Q_NAMESPACE
+QML_NAMED_ELEMENT(ContentType)
+QML_FOREIGN_NAMESPACE(ContentTypeForeign)
+};
+
 #endif
