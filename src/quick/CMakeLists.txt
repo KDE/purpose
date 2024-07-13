@@ -5,6 +5,9 @@ target_sources(purposequickplugin PRIVATE types.h)
 ecm_target_qml_sources(purposequickplugin SOURCES
     AlternativesView.qml
     JobView.qml
+    ShareAction.qml
+    ShareDialog.qml
+    ShareMenu.qml
 )
 
 target_link_libraries(purposequickplugin PRIVATE
