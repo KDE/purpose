@@ -1,3 +1,4 @@
+add_subdirectory(apiexample)
 add_subdirectory(tool)
 
 add_executable(menudemo menudemo.cpp)
