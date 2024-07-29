@@ -99,6 +99,7 @@
         "Name[zh_CN]": "通过 KDE Connect 发送短信",
         "Name[zh_TW]": "透過 KDE 連線傳送簡訊",
         "X-Purpose-ActionDisplay": "Send SMS via KDE Connect…",
+        "X-Purpose-ActionDisplay[ar]": "أرسِل رسالة نصية عبر «كِيدِي المتّصل»…",
         "X-Purpose-ActionDisplay[bg]": "Изпращане на SMS чрез KDE Connect…",
         "X-Purpose-ActionDisplay[ca@valencia]": "Envia un SMS a través de KDE Connect…",
         "X-Purpose-ActionDisplay[ca]": "Envia un SMS a través del KDE Connect…",

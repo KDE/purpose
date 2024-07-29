@@ -66,6 +66,7 @@
         "Name[ta]": "யூடியூப்",
         "Name[x-test]": "xxYouTubexx",
         "X-Purpose-ActionDisplay": "Youtube…",
+        "X-Purpose-ActionDisplay[ar]": "يوتيوب…",
         "X-Purpose-ActionDisplay[ca@valencia]": "YouTube…",
         "X-Purpose-ActionDisplay[ca]": "YouTube…",
         "X-Purpose-ActionDisplay[cs]": "YouTube…",

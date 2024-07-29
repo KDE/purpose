@@ -65,6 +65,7 @@
         "Name[tr]": "NextCloud",
         "Name[x-test]": "xxNextcloudxx",
         "X-Purpose-ActionDisplay": "Nextcloud…",
+        "X-Purpose-ActionDisplay[ar]": "نِكست‌كلاود…",
         "X-Purpose-ActionDisplay[cs]": "NextCloud…",
         "X-Purpose-ActionDisplay[es]": "Nextcloud...",
         "X-Purpose-ActionDisplay[eu]": "NextCloud...",

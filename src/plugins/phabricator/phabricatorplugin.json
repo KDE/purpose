@@ -59,6 +59,7 @@
         "Name[ml]": "ഫാബ്രിക്കേറ്റര്‍",
         "Name[x-test]": "xxPhabricatorxx",
         "X-Purpose-ActionDisplay": "Phabricator…",
+        "X-Purpose-ActionDisplay[ar]": "فابريكيتور…",
         "X-Purpose-ActionDisplay[es]": "Phabricator...",
         "X-Purpose-ActionDisplay[fr]": "Phabricator...",
         "X-Purpose-ActionDisplay[ia]": "Phabricator...",

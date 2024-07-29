@@ -104,6 +104,7 @@
         "Name[zh_CN]": "发送到设备",
         "Name[zh_TW]": "傳送到裝置",
         "X-Purpose-ActionDisplay": "Send To Device…",
+        "X-Purpose-ActionDisplay[ar]": "أرسِل إلى جهاز…",
         "X-Purpose-ActionDisplay[bg]": "Изпращане до устройство…",
         "X-Purpose-ActionDisplay[ca@valencia]": "Envia a un dispositiu…",
         "X-Purpose-ActionDisplay[ca]": "Envia a un dispositiu…",

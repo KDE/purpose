@@ -2,6 +2,7 @@
     "KPlugin": {
         "Icon": "edit-paste",
         "Name": "Upload…",
+        "Name[ar]": "ارفع…",
         "Name[bg]": "Качване…",
         "Name[ca@valencia]": "Puja…",
         "Name[ca]": "Puja…",

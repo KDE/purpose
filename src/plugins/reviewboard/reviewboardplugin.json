@@ -72,6 +72,7 @@
         "Name[tg]": "Лавҳаи муоина",
         "Name[x-test]": "xxReview Boardxx",
         "X-Purpose-ActionDisplay": "Review Board…",
+        "X-Purpose-ActionDisplay[ar]": "لوحة المراجعات/Review Board…",
         "X-Purpose-ActionDisplay[eo]": "Reviziejo…",
         "X-Purpose-ActionDisplay[es]": "Review Board...",
         "X-Purpose-ActionDisplay[eu]": "Review Board...",
