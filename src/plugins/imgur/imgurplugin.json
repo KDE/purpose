@@ -144,8 +144,24 @@
         "Name[zh_TW]": "Imgur"
     },
     "X-Purpose-Configuration": [],
+    "X-Comment": "mimetypes listed here: https://apidocs.imgur.com/#c85c9dfc-7487-4de2-9ecd-66f727cf3139",
     "X-Purpose-Constraints": [
-        "mimeType:image/*"
+        [
+            "mimeType:image/jpeg",
+            "mimeType:image/jpg",
+            "mimeType:image/gif",
+            "mimeType:image/png",
+            "mimeType:image/apng",
+            "mimeType:image/tiff",
+            "mimeType:video/mp4",
+            "mimeType:video/webm",
+            "mimeType:video/x-matroska",
+            "mimeType:video/quicktime",
+            "mimeType:video/x-flv",
+            "mimeType:video/x-msvideo",
+            "mimeType:video/x-ms-wmv",
+            "mimeType:video/mpeg"
+        ]
     ],
     "X-Purpose-PluginTypes": [
         "Export"
