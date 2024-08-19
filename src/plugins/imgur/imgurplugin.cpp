@@ -60,16 +60,15 @@ public:
         KIO::StoredTransferJob *sjob = qobject_cast<KIO::StoredTransferJob *>(job);
         QJsonParseError error;
         const QJsonObject resultMap = QJsonDocument::fromJson(sjob->data(), &error).object();
-        if (job->error()) {
-            setError(job->error());
-            setErrorText(job->errorText());
-        } else if (error.error) {
-            setError(1);
-            setErrorText(error.errorString());
-        } else if (!resultMap.value(QLatin1String("success")).toBool()) {
+
+        if (job->error() || !resultMap.value(QLatin1String("success")).toBool()) {
             setError(2);
-            const QJsonObject dataMap = resultMap[QLatin1String("data")].toObject();
-            setErrorText(dataMap[QLatin1String("error")].toString());
+            if (resultMap.contains(QLatin1String("data"))) {
+                const QJsonObject dataMap = resultMap[QLatin1String("data")].toObject();
+                setErrorText(i18n("Upload failed: %1", dataMap[QLatin1String("error")].toString()));
+            } else {
+                setErrorText(i18n("Upload failed: %1", error.errorString()));
+            }
         } else {
             return resultMap[QLatin1String("data")].toObject();
         }
