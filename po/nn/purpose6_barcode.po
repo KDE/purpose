@@ -36,6 +36,5 @@ msgstr "QR-koden er for stor til å visast"
 
 #: barcodeplugin_config.qml:64
 #, fuzzy, kde-format
-#| msgid "Type a URL or some text..."
 msgid "Type a URL or some text…"
 msgstr "Skriv inn nettadresse eller tekst …"
