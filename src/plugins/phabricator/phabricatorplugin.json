@@ -63,6 +63,7 @@
         "X-Purpose-ActionDisplay[es]": "Phabricator...",
         "X-Purpose-ActionDisplay[fr]": "Phabricator...",
         "X-Purpose-ActionDisplay[ia]": "Phabricator...",
+        "X-Purpose-ActionDisplay[nn]": "Phabricator …",
         "X-Purpose-ActionDisplay[x-test]": "xxPhabricator…xx",
         "X-Purpose-ActionDisplay[zh_CN]": "Phabricator……"
     },
