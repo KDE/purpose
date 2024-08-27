@@ -1,12 +1,11 @@
 # Translation of purpose6_barcode to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:37+0000\n"
-"PO-Revision-Date: 2023-03-04 17:12+0100\n"
+"PO-Revision-Date: 2024-08-26 22:08+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -35,6 +34,6 @@ msgid "The QR code is too large to be displayed"
 msgstr "QR-koden er for stor til å visast"
 
 #: barcodeplugin_config.qml:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "Type a URL or some text…"
 msgstr "Skriv inn nettadresse eller tekst …"
