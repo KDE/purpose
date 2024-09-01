@@ -39,11 +39,6 @@ public:
         if (!m_engine) {
             m_engine = new QQmlApplicationEngine;
             m_engine->rootContext()->setContextObject(new KLocalizedContext(this));
-            m_engine->setInitialProperties({
-                {QStringLiteral("menu"), QVariant::fromValue<QObject *>(q)},
-                {QStringLiteral("model"), QVariant::fromValue(m_model.data())},
-                {QStringLiteral("index"), row},
-            });
             m_engine->load(QUrl(QStringLiteral("qrc:/org.kde.purpose/JobDialog.qml")));
         }
 
@@ -55,6 +50,10 @@ public:
             return;
         }
 
+        o->setProperty("model", QVariant::fromValue(m_model.data()));
+        o->setProperty("index", row);
+        o->setProperty("visible", true);
+        o->setProperty("menu", QVariant::fromValue<QObject *>(q));
         o->setParent(q);
 
         QMetaObject::invokeMethod(o, "start");

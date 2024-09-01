@@ -28,9 +28,9 @@ QQC2.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 16
     minimumHeight: Kirigami.Units.gridUnit * 10
 
-    required property PurposeWidgets.Menu menu
-    required property Purpose.PurposeAlternativesModel model
-    required property int index
+    property PurposeWidgets.Menu menu
+    property Purpose.PurposeAlternativesModel model
+    property int index
 
     function start(): void {
         jobView.start();
@@ -53,7 +53,7 @@ QQC2.ApplicationWindow {
                 window.close();
                 break;
             case Purpose.PurposeJobController.Cancelled:
-                window.menu.finished(null, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose6_widgets", "Configuration cancelled"));
+                window.menu.finished({}, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose6_widgets", "Configuration cancelled"));
                 window.close();
                 break;
             default:
