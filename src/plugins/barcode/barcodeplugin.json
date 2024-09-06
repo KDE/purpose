@@ -96,7 +96,7 @@
         "Description[zh_TW]": "為這個連結產生 QR 碼",
         "Icon": "view-barcode-qr",
         "License": "LGPL",
-        "Name": "Generate QR code",
+        "Name": "Generate QR Code",
         "Name[ar]": "ولد بركود",
         "Name[az]": "QR kod yaradın",
         "Name[bg]": "Генериране на QR код",

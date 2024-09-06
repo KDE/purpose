@@ -102,7 +102,7 @@
         "Description[zh_TW]": "上傳檔案到 Nextcloud",
         "Icon": "kaccounts-nextcloud",
         "License": "GPL",
-        "Name": "Nextcloud",
+        "Name": "Upload to Nextcloud",
         "Name[ar]": "نِكست‌كلاود",
         "Name[az]": "Nextcloud",
         "Name[bg]": "Nextcloud",
@@ -150,7 +150,7 @@
         "Name[zh_CN]": "Nextcloud",
         "Name[zh_TW]": "Nextcloud"
     },
-    "X-Purpose-ActionDisplay": "Nextcloud...",
+    "X-Purpose-ActionDisplay": "Upload to Nextcloud…",
     "X-Purpose-ActionDisplay[ar]": "نِكست‌كلاود...",
     "X-Purpose-ActionDisplay[az]": "Nextcloud...",
     "X-Purpose-ActionDisplay[bg]": "Nextcloud...",

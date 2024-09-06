@@ -103,7 +103,7 @@
         "Description[zh_TW]": "透過 KDE Connect 傳送",
         "Icon": "kdeconnect-symbolic",
         "License": "GPL",
-        "Name": "Send To Device",
+        "Name": "Send to Device",
         "Name[ar]": "أرسِل إلى جهاز…",
         "Name[az]": "Qurğuya göndərmək",
         "Name[bg]": "Изпращане до устройство",
@@ -153,7 +153,7 @@
         "Name[zh_CN]": "发送到设备",
         "Name[zh_TW]": "傳送到裝置"
     },
-    "X-Purpose-ActionDisplay": "Send To Device...",
+    "X-Purpose-ActionDisplay": "Send to Device…",
     "X-Purpose-ActionDisplay[ar]": "أرسِل إلى جهاز…...",
     "X-Purpose-ActionDisplay[az]": "Cihaza göndər...",
     "X-Purpose-ActionDisplay[bg]": "Изпращане до устройство...",

@@ -100,7 +100,7 @@
         "Description[zh_TW]": "上傳修補程式到 Phabricator",
         "Icon": "phabricator-purpose6",
         "License": "GPL",
-        "Name": "Phabricator",
+        "Name": "Upload to Phabricator",
         "Name[ar]": "فابريكيتور",
         "Name[az]": "Phabricator",
         "Name[bg]": "Phabricator",
@@ -148,7 +148,7 @@
         "Name[zh_CN]": "Phabricator",
         "Name[zh_TW]": "Phabricator"
     },
-    "X-Purpose-ActionDisplay": "Phabricator...",
+    "X-Purpose-ActionDisplay": "Upload to Phabricator…",
     "X-Purpose-ActionDisplay[ar]": "فابريكيتور...",
     "X-Purpose-ActionDisplay[az]": "Phabricator...",
     "X-Purpose-ActionDisplay[bg]": "Phabricator...",

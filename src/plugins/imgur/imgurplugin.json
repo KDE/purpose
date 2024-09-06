@@ -103,7 +103,7 @@
         "Description[zh_TW]": "上傳圖片到 Imgur",
         "Icon": "edit-paste",
         "License": "GPL",
-        "Name": "Imgur",
+        "Name": "Upload Publicly to Imgur",
         "Name[ar]": "إمجور",
         "Name[ast]": "Imgur",
         "Name[az]": "Imgur",
@@ -153,6 +153,7 @@
         "Name[zh_TW]": "Imgur"
     },
     "X-Comment": "mimetypes listed here: https://apidocs.imgur.com/#c85c9dfc-7487-4de2-9ecd-66f727cf3139",
+    "X-Purpose-ActionDisplay": "Upload Publicly to Imgur",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         [

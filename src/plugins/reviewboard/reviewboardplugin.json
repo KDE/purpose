@@ -100,7 +100,7 @@
         "Description[zh_TW]": "上傳修補檔到 reviewboard",
         "Icon": "reviewboard-purpose6",
         "License": "GPL",
-        "Name": "Review Board",
+        "Name": "Upload to Review Board",
         "Name[ar]": "لوحة المراجعات/Review Board",
         "Name[az]": "Rəylər Lövhəsi",
         "Name[bg]": "Review Board",
@@ -147,7 +147,7 @@
         "Name[zh_CN]": "Review Board",
         "Name[zh_TW]": "Review Board"
     },
-    "X-Purpose-ActionDisplay": "Review Board...",
+    "X-Purpose-ActionDisplay": "Upload to Review Board…",
     "X-Purpose-ActionDisplay[ar]": "لوحة المراجعات/Review Board...",
     "X-Purpose-ActionDisplay[az]": "Rəylər Lövhəsi...",
     "X-Purpose-ActionDisplay[bg]": "Review Board...",
