@@ -2,7 +2,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: purpose6_youtube\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2018-05-29 06:38+0100\n"

@@ -2,7 +2,7 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: libpurpose6_widgets\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:37+0000\n"
 "PO-Revision-Date: 2023-04-03 17:02+0200\n"
