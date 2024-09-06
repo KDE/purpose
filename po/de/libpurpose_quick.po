@@ -2,7 +2,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: libpurpose6_quick\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
 "PO-Revision-Date: 2023-04-03 17:02+0200\n"

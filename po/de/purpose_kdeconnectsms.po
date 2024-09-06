@@ -4,7 +4,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: purpose\n"
+"Project-Id-Version: purpose6_kdeconnectsms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
 "PO-Revision-Date: 2019-04-11 07:00+0100\n"
