@@ -90,9 +90,6 @@
         "Name[zh_CN]": "Twitter",
         "Name[zh_TW]": "Twitter"
     },
-    "X-Purpose-PluginTypes": [
-        "ShareUrl"
-    ],
     "X-Purpose-ActionDisplay": "Twitter",
     "X-Purpose-ActionDisplay[ar]": "تويتر",
     "X-Purpose-ActionDisplay[ast]": "Twitter",
@@ -129,9 +126,13 @@
     "X-Purpose-ActionDisplay[sk]": "Twitter",
     "X-Purpose-ActionDisplay[sl]": "Twitter",
     "X-Purpose-ActionDisplay[sv]": "Twitter",
+    "X-Purpose-ActionDisplay[ta]": "டுவிட்டர்",
     "X-Purpose-ActionDisplay[tr]": "Twitter",
     "X-Purpose-ActionDisplay[uk]": "Twitter",
     "X-Purpose-ActionDisplay[x-test]": "xxTwitterxx",
     "X-Purpose-ActionDisplay[zh_CN]": "Twitter",
-    "X-Purpose-ActionDisplay[zh_TW]": "Twitter"
+    "X-Purpose-ActionDisplay[zh_TW]": "Twitter",
+    "X-Purpose-PluginTypes": [
+        "ShareUrl"
+    ]
 }
