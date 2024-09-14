@@ -146,6 +146,17 @@
         "Name[zh_TW]": "YouTube"
     },
     "X-Purpose-ActionDisplay": "Youtube...",
+    "X-Purpose-ActionDisplay[bg]": "Youtube…",
+    "X-Purpose-ActionDisplay[de]": "YouTube ...",
+    "X-Purpose-ActionDisplay[fr]": "YouTube...",
+    "X-Purpose-ActionDisplay[he]": "YouTube…",
+    "X-Purpose-ActionDisplay[ia]": "Youtube...",
+    "X-Purpose-ActionDisplay[ka]": "Youtube...",
+    "X-Purpose-ActionDisplay[sl]": "Youtube…",
+    "X-Purpose-ActionDisplay[sv]": "Youtube...",
+    "X-Purpose-ActionDisplay[tr]": "YouTube…",
+    "X-Purpose-ActionDisplay[uk]": "YouTube…",
+    "X-Purpose-ActionDisplay[x-test]": "xxYoutube...xx",
     "X-Purpose-Configuration": [
         "videoDesc",
         "videoTitle",
