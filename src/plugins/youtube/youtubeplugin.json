@@ -85,7 +85,7 @@
         "Description[sl]": "Preneli vedee na Youtube",
         "Description[sv]": "Ladda upp videor till YouTube",
         "Description[tg]": "Бор кардани видеоҳо ба YouTube",
-        "Description[tr]": "Videoları YouTube'a yükle",
+        "Description[tr]": "Videoları YouTube’a yükle",
         "Description[uk]": "Вивантаження відео на YouTube",
         "Description[x-test]": "xxUpload videos to YouTubexx",
         "Description[zh_CN]": "上传视频到 YouTube",
@@ -135,7 +135,14 @@
         "Name[x-test]": "xxYouTubexx",
         "Name[zh_CN]": "YouTube",
         "Name[zh_TW]": "YouTube",
-        "X-Purpose-ActionDisplay": "Youtube..."
+        "X-Purpose-ActionDisplay": "Youtube...",
+        "X-Purpose-ActionDisplay[es]": "Youtube...",
+        "X-Purpose-ActionDisplay[nl]": "YouTube...",
+        "X-Purpose-ActionDisplay[sl]": "Youtube...",
+        "X-Purpose-ActionDisplay[sv]": "Youtube...",
+        "X-Purpose-ActionDisplay[tr]": "YouTube…",
+        "X-Purpose-ActionDisplay[uk]": "YouTube…",
+        "X-Purpose-ActionDisplay[x-test]": "xxYoutube...xx"
     },
     "X-Purpose-Configuration": [
         "videoDesc",

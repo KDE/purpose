@@ -137,7 +137,14 @@
         "Name[x-test]": "xxSend via Emailxx",
         "Name[zh_CN]": "通过电子邮件发送",
         "Name[zh_TW]": "透過電子郵件傳送",
-        "X-Purpose-ActionDisplay": "Send via Email..."
+        "X-Purpose-ActionDisplay": "Send via Email...",
+        "X-Purpose-ActionDisplay[es]": "Enviar por correo electrónico...",
+        "X-Purpose-ActionDisplay[nl]": "Verzenden via e-mail...",
+        "X-Purpose-ActionDisplay[sl]": "Pošlji prek e-pošte...",
+        "X-Purpose-ActionDisplay[sv]": "Skicka med e-post...",
+        "X-Purpose-ActionDisplay[tr]": "E-posta ile Gönder…",
+        "X-Purpose-ActionDisplay[uk]": "Надіслати електронною поштою…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Email...xx"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],

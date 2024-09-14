@@ -135,7 +135,14 @@
         "Name[x-test]": "xxSend To Contactxx",
         "Name[zh_CN]": "发送到联系人",
         "Name[zh_TW]": "傳送給聯絡人",
-        "X-Purpose-ActionDisplay": "Send To Contact..."
+        "X-Purpose-ActionDisplay": "Send To Contact...",
+        "X-Purpose-ActionDisplay[es]": "Enviar a contacto...",
+        "X-Purpose-ActionDisplay[nl]": "Naar contactpersoon verzenden...",
+        "X-Purpose-ActionDisplay[sl]": "Pošlji prek Contacta...",
+        "X-Purpose-ActionDisplay[sv]": "Skicka till kontakt...",
+        "X-Purpose-ActionDisplay[tr]": "Kişiye Gönder…",
+        "X-Purpose-ActionDisplay[uk]": "Надіслати контакту…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSend To Contact...xx"
     },
     "X-Purpose-Configuration": "",
     "X-Purpose-Constraints": [

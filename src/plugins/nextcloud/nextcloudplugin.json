@@ -85,7 +85,7 @@
         "Description[sl]": "Prenesi datoteke na Nextcloud",
         "Description[sv]": "Ladda upp filer till Nextcloud",
         "Description[tg]": "Бор кардани файлҳо ба Nextcloud",
-        "Description[tr]": "Dosyaları Nextcloud'a yükle",
+        "Description[tr]": "Dosyaları Nextcloud’a yükle",
         "Description[uk]": "Вивантаження відео на Nextcloud",
         "Description[x-test]": "xxUpload files to Nextcloudxx",
         "Description[zh_CN]": "上传文件到 Nextcloud",
@@ -134,7 +134,14 @@
         "Name[x-test]": "xxNextcloudxx",
         "Name[zh_CN]": "Nextcloud",
         "Name[zh_TW]": "Nextcloud",
-        "X-Purpose-ActionDisplay": "Nextcloud..."
+        "X-Purpose-ActionDisplay": "Nextcloud...",
+        "X-Purpose-ActionDisplay[es]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[nl]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[sl]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[sv]": "Nextcloud...",
+        "X-Purpose-ActionDisplay[tr]": "NextCloud…",
+        "X-Purpose-ActionDisplay[uk]": "Nextcloud…",
+        "X-Purpose-ActionDisplay[x-test]": "xxNextcloud...xx"
     },
     "X-Purpose-Configuration": [
         "folder",

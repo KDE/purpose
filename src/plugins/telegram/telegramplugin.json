@@ -135,7 +135,14 @@
         "Name[x-test]": "xxSend via Telegramxx",
         "Name[zh_CN]": "通过 Telegram 发送",
         "Name[zh_TW]": "透過 Telegram 傳送",
-        "X-Purpose-ActionDisplay": "Send via Telegram..."
+        "X-Purpose-ActionDisplay": "Send via Telegram...",
+        "X-Purpose-ActionDisplay[es]": "Enviar por Telegram...",
+        "X-Purpose-ActionDisplay[nl]": "Verzenden via Telegram...",
+        "X-Purpose-ActionDisplay[sl]": "Pošlji prek Telegrama...",
+        "X-Purpose-ActionDisplay[sv]": "Skicka via Telegram...",
+        "X-Purpose-ActionDisplay[tr]": "Telegram ile gönder…",
+        "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Telegram…",
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Telegram...xx"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [

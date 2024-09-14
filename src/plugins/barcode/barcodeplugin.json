@@ -118,7 +118,14 @@
         "Name[x-test]": "xxGenerate QR codexx",
         "Name[zh_CN]": "生成二维码",
         "Name[zh_TW]": "產生 QR 碼",
-        "X-Purpose-ActionDisplay": "Generate QR Code"
+        "X-Purpose-ActionDisplay": "Generate QR Code",
+        "X-Purpose-ActionDisplay[es]": "Generar código QR",
+        "X-Purpose-ActionDisplay[nl]": "QR-code genereren",
+        "X-Purpose-ActionDisplay[sl]": "Generiraj kodo QR",
+        "X-Purpose-ActionDisplay[sv]": "Skapa QR-kod",
+        "X-Purpose-ActionDisplay[tr]": "Kare Kod Üret",
+        "X-Purpose-ActionDisplay[uk]": "Створити QR-код",
+        "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx"
     },
     "X-Purpose-Configuration": [
         "dummy"

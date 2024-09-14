@@ -85,7 +85,7 @@
         "Description[sl]": "Prenesi na Pastebin",
         "Description[sv]": "Ladda upp text till Pastebin",
         "Description[tg]": "Бор кардани матн ба Pastebin",
-        "Description[tr]": "Metni Pastebin'e yükle",
+        "Description[tr]": "Metni Pastebin’e yükle",
         "Description[uk]": "Вивантажити текст на Pastebin",
         "Description[x-test]": "xxUpload text to Pastebinxx",
         "Description[zh_CN]": "上传文本到 Pastebin",
@@ -136,7 +136,14 @@
         "Name[x-test]": "xxPastebinxx",
         "Name[zh_CN]": "Pastebin",
         "Name[zh_TW]": "Pastebin",
-        "X-Purpose-ActionDisplay": "Pastebin..."
+        "X-Purpose-ActionDisplay": "Pastebin...",
+        "X-Purpose-ActionDisplay[es]": "Pastebin...",
+        "X-Purpose-ActionDisplay[nl]": "Pastebin...",
+        "X-Purpose-ActionDisplay[sl]": "Pastebin...",
+        "X-Purpose-ActionDisplay[sv]": "Pastebin...",
+        "X-Purpose-ActionDisplay[tr]": "Pastebin…",
+        "X-Purpose-ActionDisplay[uk]": "Pastebin…",
+        "X-Purpose-ActionDisplay[x-test]": "xxPastebin...xx"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
