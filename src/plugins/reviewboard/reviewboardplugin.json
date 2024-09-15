@@ -133,6 +133,7 @@
         "Name[zh_CN]": "Review Board",
         "Name[zh_TW]": "Review Board",
         "X-Purpose-ActionDisplay": "Review Board...",
+        "X-Purpose-ActionDisplay[ca]": "Review Board...",
         "X-Purpose-ActionDisplay[es]": "Review Board...",
         "X-Purpose-ActionDisplay[nl]": "Reviewboard...",
         "X-Purpose-ActionDisplay[sl]": "Revizijska komisija...",

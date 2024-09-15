@@ -135,6 +135,7 @@
         "Name[zh_CN]": "Phabricator",
         "Name[zh_TW]": "Phabricator",
         "X-Purpose-ActionDisplay": "Phabricator...",
+        "X-Purpose-ActionDisplay[ca]": "Phabricator...",
         "X-Purpose-ActionDisplay[es]": "Phabricator...",
         "X-Purpose-ActionDisplay[nl]": "Phabricator...",
         "X-Purpose-ActionDisplay[sl]": "Phabricator...",

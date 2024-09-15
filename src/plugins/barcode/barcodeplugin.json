@@ -119,6 +119,7 @@
         "Name[zh_CN]": "生成二维码",
         "Name[zh_TW]": "產生 QR 碼",
         "X-Purpose-ActionDisplay": "Generate QR Code",
+        "X-Purpose-ActionDisplay[ca]": "Genera un codi QR",
         "X-Purpose-ActionDisplay[es]": "Generar código QR",
         "X-Purpose-ActionDisplay[nl]": "QR-code genereren",
         "X-Purpose-ActionDisplay[sl]": "Generiraj kodo QR",

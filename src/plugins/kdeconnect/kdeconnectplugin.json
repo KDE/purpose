@@ -137,6 +137,7 @@
         "Name[zh_CN]": "发送到设备",
         "Name[zh_TW]": "傳送到裝置",
         "X-Purpose-ActionDisplay": "Send To Device...",
+        "X-Purpose-ActionDisplay[ca]": "Envia a un dispositiu...",
         "X-Purpose-ActionDisplay[es]": "Enviar a dispositivo...",
         "X-Purpose-ActionDisplay[nl]": "Naar apparaat verzenden...",
         "X-Purpose-ActionDisplay[sl]": "Pošlji na napravo...",

@@ -136,6 +136,7 @@
         "Name[zh_CN]": "另存为",
         "Name[zh_TW]": "另存新檔",
         "X-Purpose-ActionDisplay": "Save as...",
+        "X-Purpose-ActionDisplay[ca]": "Desa com a...",
         "X-Purpose-ActionDisplay[es]": "Guardar como...",
         "X-Purpose-ActionDisplay[nl]": "Opslaan als...",
         "X-Purpose-ActionDisplay[sl]": "Shrani kot...",

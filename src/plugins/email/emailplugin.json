@@ -138,6 +138,7 @@
         "Name[zh_CN]": "通过电子邮件发送",
         "Name[zh_TW]": "透過電子郵件傳送",
         "X-Purpose-ActionDisplay": "Send via Email...",
+        "X-Purpose-ActionDisplay[ca]": "Envia per correu electrònic...",
         "X-Purpose-ActionDisplay[es]": "Enviar por correo electrónico...",
         "X-Purpose-ActionDisplay[nl]": "Verzenden via e-mail...",
         "X-Purpose-ActionDisplay[sl]": "Pošlji prek e-pošte...",

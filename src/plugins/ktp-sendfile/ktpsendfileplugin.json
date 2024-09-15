@@ -136,6 +136,7 @@
         "Name[zh_CN]": "发送到联系人",
         "Name[zh_TW]": "傳送給聯絡人",
         "X-Purpose-ActionDisplay": "Send To Contact...",
+        "X-Purpose-ActionDisplay[ca]": "Envia a un contacte...",
         "X-Purpose-ActionDisplay[es]": "Enviar a contacto...",
         "X-Purpose-ActionDisplay[nl]": "Naar contactpersoon verzenden...",
         "X-Purpose-ActionDisplay[sl]": "Pošlji prek Contacta...",

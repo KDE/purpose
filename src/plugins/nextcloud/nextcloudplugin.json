@@ -135,6 +135,7 @@
         "Name[zh_CN]": "Nextcloud",
         "Name[zh_TW]": "Nextcloud",
         "X-Purpose-ActionDisplay": "Nextcloud...",
+        "X-Purpose-ActionDisplay[ca]": "Nextcloud...",
         "X-Purpose-ActionDisplay[es]": "Nextcloud...",
         "X-Purpose-ActionDisplay[nl]": "Nextcloud...",
         "X-Purpose-ActionDisplay[sl]": "Nextcloud...",
