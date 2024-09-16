@@ -33,7 +33,6 @@ msgid "The QR code is too large to be displayed"
 msgstr "Ο κωδικός QR είναι πολύ μεγάλος για να εμφανιστεί"
 
 #: barcodeplugin_config.qml:64
-#, fuzzy, kde-format
-#| msgid "Type a URL or some text..."
+#, kde-format
 msgid "Type a URL or some text…"
-msgstr "Πληκτρολογήστε ένα URL ή κείμενο..."
+msgstr "Πληκτρολογήστε ένα URL ή κείμενο…"
