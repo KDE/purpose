@@ -13,6 +13,8 @@ import org.kde.kirigami as Kirigami
 /*!
   \qmltype JobView
   \inqmlmodule org.kde.purpose
+
+  JobView
 */
 Item {
 

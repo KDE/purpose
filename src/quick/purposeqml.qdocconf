@@ -6,8 +6,11 @@ description = Framework for providing abstractions to get the developer's purpos
 documentationinheaders = true
 
 headerdirs = .
+sourcedirs = .
 
-headers.fileextensions = "*.qdoc *.h"
+headers.fileextensions = "*.h"
+
+sources.fileextensions = "*.qdoc *.qml"
 
 outputdir  = doc/html
 outputformats = HTML
@@ -15,4 +18,5 @@ outputformats = HTML
 depends += \
     qtcore \
     qtqml \
+    qtquickcontrols \
     purpose
