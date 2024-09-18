@@ -9,6 +9,12 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import org.kde.purpose
 
+/*!
+  \qmltype AlternativesView
+  \inqmlmodule org.kde.purpose
+
+  AlternativesView
+*/
 StackView {
     id: stack
 
@@ -40,11 +46,11 @@ StackView {
         }
     }
 
-    /**
-     * Signals when the job finishes, reports the
-     * @p error code and a text @p message.
-     *
-     * @p output will specify the output offered by the job
+    /*!
+      Signals when the job finishes, reports the
+      @p error code and a text @p message.
+
+      @p output will specify the output offered by the job
      */
     signal finished(var output, int error, string message)
 
@@ -52,15 +58,15 @@ StackView {
         id: altsModel
     }
 
-    /**
-     * Adopts the job at the @p index.
+    /*!
+      Adopts the job at the @p index.
      */
     function createJob(index) {
         stack.push(jobComponent, {index: index})
     }
 
-    /**
-     * Clears and returns back to the initial view.
+    /*!
+      Clears and returns back to the initial view.
      */
     function reset() {
         for(; stack.depth>1; stack.pop())

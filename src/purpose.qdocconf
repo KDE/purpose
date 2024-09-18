@@ -1,0 +1,25 @@
+include($KDE_DOCS/global/qt-module-defaults-online.qdocconf)
+
+project = Purpose
+description = Framework for providing abstractions to get the developer's purposes fulfilled.
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+
+depends = kde qtcore kcoreaddons purposeqml purposewidgets
+
+qhp.projects            = Purpose
+
+qhp.Purpose.file                = purpose.qhp
+qhp.Purpose.namespace           = org.kde.purpose.$QT_VERSION_TAG
+qhp.Purpose.virtualFolder       = purpose
+qhp.Purpose.indexTitle          = Purpose
+qhp.Purpose.indexRoot           =
+
+qhp.Purpose.subprojects         = classes
+qhp.Purpose.subprojects.classes.title = C++ Classes
+qhp.Purpose.subprojects.classes.indexTitle = Purpose C++ Classes
+qhp.Purpose.subprojects.classes.selectors = class fake:headerfile
+qhp.Purpose.subprojects.classes.sortPages = true

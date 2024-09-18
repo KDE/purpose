@@ -10,6 +10,12 @@ import QtQuick.Layouts
 import org.kde.purpose
 import org.kde.kirigami as Kirigami
 
+/*!
+  \qmltype JobView
+  \inqmlmodule org.kde.purpose
+
+  JobView
+*/
 Item {
 
     property alias model: jobController.model

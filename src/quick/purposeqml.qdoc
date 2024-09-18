@@ -1,0 +1,6 @@
+/*!
+    \qmlmodule org.kde.purpose
+    \title Purpose QML Types
+    \ingroup qmlmodules
+    \brief Framework for providing abstractions to get the developer's purposes fulfilled.
+*/

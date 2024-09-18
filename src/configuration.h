@@ -21,8 +21,12 @@ namespace Purpose
 class ConfigurationPrivate;
 class Job;
 
-/**
- * @brief This class will be in charge of figuring out the job configuration
+/*!
+ * \class Purpose::Configuration
+ * \inheaderfile Purpose/Configuration
+ * \inmodule Purpose
+ *
+ * \brief This class will be in charge of figuring out the job configuration.
  *
  * Once it's figured out, it can proceed to create the job.
  *
@@ -33,47 +37,64 @@ class PURPOSE_EXPORT Configuration : public QObject
 {
     Q_OBJECT
 
-    /**
+    /*!
+     * \property Purpose::Configuration::isReady
+     *
      * Tells whether there's still information to be provided, to be able to run
      * the job.
-     *
-     * @sa X-Purpose-MandatoryArguments and X-Purpose-AdditionalArguments
      */
     Q_PROPERTY(bool isReady READ isReady NOTIFY dataChanged)
 
-    /**
-     * Represents the data the job will have available to perform its task
+    /*!
+     * \property Purpose::Configuration::data
+     *
+     * Represents the data the job will have available to perform its task.
      */
     Q_PROPERTY(QJsonObject data READ data WRITE setData NOTIFY dataChanged)
 
-    /**
-     * Specifies the arguments the config file and the job will be sharing
+    /*!
+     * \property Purpose::Configuration::neededArguments
+     *
+     * Specifies the arguments the config file and the job will be sharing.
      */
     Q_PROPERTY(QJsonArray neededArguments READ neededArguments CONSTANT)
 
-    /**
-     * Specifies the qml source code to be used, to configure the current job.
+    /*!
+     * \property Purpose::Configuration::configSourceCode
      *
-     * @sa JobController QtQuick component
+     * Specifies the QML source code to be used, to configure the current job.
      */
     Q_PROPERTY(QUrl configSourceCode READ configSourceCode CONSTANT)
 
-    /**
-     * @returns the plugin type name to display
+    /*!
+     * \property Purpose::Configuration::pluginTypeName
+     *
+     * Returns the plugin type name to display.
      */
     Q_PROPERTY(QString pluginTypeName READ pluginTypeName CONSTANT)
 
-    /**
-     * @returns the plugin name to display
+    /*!
+     * \property Purpose::Configuration::pluginName
+     *
+     * Returns the plugin name to display.
      */
     Q_PROPERTY(QString pluginName READ pluginName CONSTANT)
 public:
+    /*!
+     * \brief Constructs a new configuration.
+     */
     Configuration(const QJsonObject &inputData,
                   const QString &pluginTypeName,
                   const QJsonObject &pluginType,
                   const KPluginMetaData &pluginInformation,
                   QObject *parent = nullptr);
+    /*!
+     * \brief Constructs a new configuration.
+     */
     Configuration(const QJsonObject &inputData, const QString &pluginTypeName, const KPluginMetaData &pluginInformation, QObject *parent = nullptr);
+    /*!
+     * \brief Destroys the configuration.
+     */
     ~Configuration() override;
 
     void setData(const QJsonObject &data);
@@ -83,24 +104,24 @@ public:
     QJsonArray neededArguments() const;
     QUrl configSourceCode() const;
 
-    /**
-     * @returns whether the job will be run in the same process.
+    /*!
+     * Returns whether the job will be run in the same process.
      *
-     * By default it will be true, unless the environment variable KDE_PURPOSE_LOCAL_JOBS is defined
+     * By default it will be true, unless the environment variable \c KDE_PURPOSE_LOCAL_JOBS is defined.
      */
     bool useSeparateProcess() const;
 
-    /**
-     * @p separate will specify whether the process will be forced to execute
+    /*!
+     * \a separate will specify whether the process will be forced to execute
      * in-process or in a separate process.
      */
     void setUseSeparateProcess(bool separate);
 
-    /**
-     * @returns the configured job ready to be started.
+    /*!
+     * Returns the configured job ready to be started.
      *
      * Before calling it, make sure that all information has been filled by
-     * checking isReady().
+     * checking \l isReady().
      */
     Q_SCRIPTABLE Purpose::Job *createJob();
 
