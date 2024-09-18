@@ -14,8 +14,12 @@
 
 namespace Purpose
 {
-/**
- * @brief Base class to implement by plugins
+/*!
+ * \class Purpose::PluginBase
+ * \inheaderfile Purpose/PluginBase
+ * \inmodule Purpose
+ *
+ * \brief Base class to implement by plugins.
  *
  * Class for Qt native plugins to extend. Plugins will just be issuing jobs
  * that will be configured then started.
@@ -23,7 +27,7 @@ namespace Purpose
  * See README.md on how to create plugins on technologies different
  * to Qt.
  *
- * @note This file shouldn't be included by any application.
+ * \note This file shouldn't be included by any application.
  */
 class PURPOSE_EXPORT PluginBase : public QObject
 {
@@ -32,7 +36,7 @@ public:
     explicit PluginBase(QObject *parent = nullptr);
     ~PluginBase() override;
 
-    /** @returns the job that will perform the plugin's action. */
+    /*! Returns the job that will perform the plugin's action. */
     virtual Job *createJob() const = 0;
 };
 

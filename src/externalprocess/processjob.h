@@ -16,8 +16,9 @@
 
 namespace Purpose
 {
-/**
- * @internal
+/*!
+ * \class Purpose::ProcessJob
+ * \internal
  *
  * Purpose jobs can optionally run on an external process. This class interfaces
  * with the external process.
