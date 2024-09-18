@@ -22,7 +22,7 @@ namespace ReviewBoard
  * Http call to the specified service.
  * Converts returned json data to a QVariant to be used from actual API calls
  *
- * @note It is reviewboard-agnostic.
+ * \note It is reviewboard-agnostic.
  */
 class HttpCall : public KJob
 {
