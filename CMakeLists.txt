@@ -25,6 +25,7 @@ include(ECMDeprecationSettings)
 include(ECMGenerateQmlTypes)
 include(ECMQMLModules)
 include(ECMQmlModule)
+include(ECMGenerateQDoc)
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Qml Gui Widgets Network Test)
 

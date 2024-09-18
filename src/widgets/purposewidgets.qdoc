@@ -1,0 +1,9 @@
+/*!
+    \module PurposeWidgets
+    \title PurposeWidgets C++ Classes
+    \cmakepackage KF6
+    \cmakecomponent Purpose
+    \cmaketargetitem KF6::PurposeWidgets
+    \ingroup modules
+    \brief Framework for providing abstractions to get the developer's purposes fulfilled.
+*/

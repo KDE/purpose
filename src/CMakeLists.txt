@@ -111,3 +111,5 @@ ecm_qt_install_logging_categories(
     FILE purpose.categories
     DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
 )
+
+ecm_generate_qdoc(KF6Purpose purpose.qdocconf)

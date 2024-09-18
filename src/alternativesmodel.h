@@ -17,8 +17,12 @@ namespace Purpose
 class Configuration;
 class AlternativesModelPrivate;
 
-/**
- * @short Interface for client applications to share data
+/*!
+ * \class Purpose::AlternativesModel
+ * \inheaderfile Purpose/AlternativesModel
+ * \inmodule Purpose
+ *
+ * \brief Interface for client applications to share data.
  *
  * Lists all the alternatives to share a specified type of data then provides
  * a method to trigger a job.
@@ -26,32 +30,47 @@ class AlternativesModelPrivate;
 class PURPOSE_EXPORT AlternativesModel : public QAbstractListModel
 {
     Q_OBJECT
-    /**
-     * Specifies the type of the plugin we want to list
+    /*!
+     * \property Purpose::AlternativesModel::pluginType
      *
-     * @sa inputData
+     * \brief Specifies the type of the plugin we want to list.
+     *
+     * \sa inputData
      */
     Q_PROPERTY(QString pluginType READ pluginType WRITE setPluginType NOTIFY pluginTypeChanged)
 
-    /**
-     * Specifies the information that will be given to the plugin once it's started
+    /*!
+     * \property Purpose::AlternativesModel::inputData
      *
-     * @note some plugins might be filtered out based on this setting
+     * \brief Specifies the information that will be given to the plugin once it's started.
+     *
+     * \note some plugins might be filtered out based on this setting
      */
     Q_PROPERTY(QJsonObject inputData READ inputData WRITE setInputData NOTIFY inputDataChanged)
 
-    /**
-     * Provides a list of plugin names to have filtered out
+    /*!
+     * \property Purpose::AlternativesModel::disabledPlugins
+     *
+     * \brief Provides a list of plugin names to have filtered out.
      */
     Q_PROPERTY(QStringList disabledPlugins READ disabledPlugins WRITE setDisabledPlugins NOTIFY disabledPluginsChanged)
 public:
+    /*!
+     * \value PluginIdRole
+     * \value IconNameRole
+     * \value ActionDisplayRole
+     */
     enum Roles {
         PluginIdRole = Qt::UserRole + 1,
         IconNameRole,
         ActionDisplayRole,
     };
 
+    /*!
+     * Constructs an alternatives model with the given \a parent.
+     */
     explicit AlternativesModel(QObject *parent = nullptr);
+
     ~AlternativesModel() override;
 
     QJsonObject inputData() const;
@@ -63,13 +82,12 @@ public:
     QStringList disabledPlugins() const;
     void setDisabledPlugins(const QStringList &pluginIds);
 
-    /**
+    /*!
      * This shouldn't require to have the job actually running on the same process as the app.
      *
-     * @param row specifies the alternative to be used
-     * @param data specifies the data to have shared
+     * \a row specifies the alternative to be used.
      *
-     * @returns the configuration instance that will offer the job.
+     * Returns the configuration instance that will offer the job.
      */
     Q_SCRIPTABLE Purpose::Configuration *configureJob(int row);
 

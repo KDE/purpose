@@ -17,40 +17,53 @@ class MenuPrivate;
 
 class AlternativesModel;
 
+/*!
+ * \class Purpose::Menu
+ * \inheaderfile Purpose/Menu
+ * \inmodule PurposeWidgets
+ *
+ * \brief A menu showing different alternatives.
+ */
 class PURPOSEWIDGETS_EXPORT Menu : public QMenu
 {
     Q_OBJECT
 public:
+    /*!
+     *
+     */
     explicit Menu(QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Exposes the used AlternativesModel so that it can be configured to suit
      * the application needs
      */
     AlternativesModel *model() const;
 
-    /**
+    /*!
      * Forces a reload of the menu in case something changed in the model
      */
     void reload();
 
 Q_SIGNALS:
 
-    /**
-     * Emitted just before triggered, just before starting the share operation
-     * Can be used to do adjustments to the configuration, such as setting a new Url
-     * @since 6.2
+    /*!
+     * Emitted just before triggered, just before starting the share operation.
+     *
+     * Can be used to do adjustments to the configuration, such as setting a new Url.
+     * \since 6.2
      */
     void aboutToShare();
 
-    /**
+    /*!
      * Emitted when a triggered job finishes
      *
-     * @p output contains the information offered by the plugin. The information offered will depend on the plugin type.
-     * @p error will be 0 if the execution was successful, KIO::ERR_USER_CANCELED if cancelled by the user, otherwise it will provide an error message
-     * @p errorMessage the error message
+     * \a output contains the information offered by the plugin. The information offered will depend on the plugin type.
      *
-     * @see Purpose::Job
+     * \a error will be 0 if the execution was successful, KIO::ERR_USER_CANCELED if cancelled by the user, otherwise it will provide an error message
+     *
+     * \a errorMessage the error message
+     *
+     * \sa Purpose::Job
      */
     void finished(const QJsonObject &output, int error, const QString &errorMessage);
 
