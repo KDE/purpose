@@ -22,7 +22,6 @@ class JobPrivate;
  * \class Purpose::Job
  * \brief Job that will actually perform the sharing.
  *
- * \namespace Purpose
  * \inmodule Purpose
  *
  * When start is called, the sharing process will start and when the job

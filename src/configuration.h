@@ -25,7 +25,6 @@ class Job;
  * \class Purpose::Configuration
  * \brief This class will be in charge of figuring out the job configuration.
  *
- * \namespace Purpose
  * \inmodule Purpose
  *
  * Once it's figured out, it can proceed to create the job.
