@@ -21,7 +21,6 @@ class AlternativesModelPrivate;
  * \class Purpose::AlternativesModel
  * \brief Interface for client applications to share data.
  *
- * \namespace Purpose
  * \inmodule Purpose
  *
  * Lists all the alternatives to share a specified type of data then provides
