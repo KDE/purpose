@@ -18,7 +18,6 @@ namespace Purpose
  * \class Purpose::PluginBase
  * \brief Base class to implement by plugins.
  *
- * \namespace Purpose
  * \inmodule Purpose
  *
  * Class for Qt native plugins to extend. Plugins will just be issuing jobs
