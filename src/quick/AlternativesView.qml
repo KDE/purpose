@@ -9,6 +9,10 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import org.kde.purpose
 
+/*!
+  \qmltype AlternativesView
+  \inqmlmodule org.kde.purpose
+*/
 StackView {
     id: stack
 
