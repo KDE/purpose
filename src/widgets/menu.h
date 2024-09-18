@@ -39,18 +39,18 @@ Q_SIGNALS:
     /**
      * Emitted just before triggered, just before starting the share operation
      * Can be used to do adjustments to the configuration, such as setting a new Url
-     * @since 6.2
+     * \since 6.2
      */
     void aboutToShare();
 
     /**
      * Emitted when a triggered job finishes
      *
-     * @p output contains the information offered by the plugin. The information offered will depend on the plugin type.
-     * @p error will be 0 if the execution was successful, KIO::ERR_USER_CANCELED if cancelled by the user, otherwise it will provide an error message
-     * @p errorMessage the error message
+     * \a output contains the information offered by the plugin. The information offered will depend on the plugin type.
+     * \a error will be 0 if the execution was successful, KIO::ERR_USER_CANCELED if cancelled by the user, otherwise it will provide an error message
+     * \a errorMessage the error message
      *
-     * @see Purpose::Job
+     * \sa Purpose::Job
      */
     void finished(const QJsonObject &output, int error, const QString &errorMessage);
 

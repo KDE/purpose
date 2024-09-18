@@ -13,3 +13,5 @@ target_link_libraries(purposequickplugin PRIVATE
 )
 
 ecm_finalize_qml_module(purposequickplugin)
+
+ecm_generate_qdoc(purposequickplugin purposeqml.qdocconf)
