@@ -16,6 +16,7 @@ outputdir  = doc/html
 outputformats = HTML
 
 depends += \
+    kde \
     qtcore \
     qtqml \
     qtquickcontrols \
