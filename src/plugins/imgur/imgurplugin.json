@@ -143,8 +143,8 @@
         "Name[zh_CN]": "Imgur",
         "Name[zh_TW]": "Imgur"
     },
-    "X-Purpose-Configuration": [],
     "X-Comment": "mimetypes listed here: https://apidocs.imgur.com/#c85c9dfc-7487-4de2-9ecd-66f727cf3139",
+    "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         [
             "mimeType:image/jpeg",
