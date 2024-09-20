@@ -3,7 +3,7 @@
         "Authors": [
             {
                 "Name": "Aleix Pol",
-                "Name[ar]": "Aleix Pol",
+                "Name[ar]": "ألكس بول",
                 "Name[az]": "Aleix Pol",
                 "Name[bg]": "Aleix Pol",
                 "Name[ca@valencia]": "Aleix Pol",
@@ -136,6 +136,7 @@
         "Name[zh_CN]": "YouTube",
         "Name[zh_TW]": "YouTube",
         "X-Purpose-ActionDisplay": "Youtube...",
+        "X-Purpose-ActionDisplay[ar]": "يوتيوب...",
         "X-Purpose-ActionDisplay[ca@valencia]": "YouTube…",
         "X-Purpose-ActionDisplay[ca]": "YouTube...",
         "X-Purpose-ActionDisplay[cs]": "YouTube...",

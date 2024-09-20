@@ -3,7 +3,7 @@
         "Authors": [
             {
                 "Name": "Aleix Pol",
-                "Name[ar]": "Aleix Pol",
+                "Name[ar]": "ألكس بول",
                 "Name[az]": "Aleix Pol",
                 "Name[bg]": "Aleix Pol",
                 "Name[ca@valencia]": "Aleix Pol",
@@ -136,6 +136,7 @@
         "Name[zh_CN]": "发送到联系人",
         "Name[zh_TW]": "傳送給聯絡人",
         "X-Purpose-ActionDisplay": "Send To Contact...",
+        "X-Purpose-ActionDisplay[ar]": "أرسِل إلى متراسل…...",
         "X-Purpose-ActionDisplay[ca@valencia]": "Envia a un contacte…",
         "X-Purpose-ActionDisplay[ca]": "Envia a un contacte...",
         "X-Purpose-ActionDisplay[cs]": "Poslat kontaktu...",

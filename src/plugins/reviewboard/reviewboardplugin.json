@@ -3,7 +3,7 @@
         "Authors": [
             {
                 "Name": "Aleix Pol",
-                "Name[ar]": "Aleix Pol",
+                "Name[ar]": "ألكس بول",
                 "Name[az]": "Aleix Pol",
                 "Name[bg]": "Aleix Pol",
                 "Name[ca@valencia]": "Aleix Pol",
@@ -133,6 +133,7 @@
         "Name[zh_CN]": "Review Board",
         "Name[zh_TW]": "Review Board",
         "X-Purpose-ActionDisplay": "Review Board...",
+        "X-Purpose-ActionDisplay[ar]": "لوحة المراجعات/Review Board...",
         "X-Purpose-ActionDisplay[ca@valencia]": "Review Board…",
         "X-Purpose-ActionDisplay[ca]": "Review Board...",
         "X-Purpose-ActionDisplay[cs]": "Review Board...",

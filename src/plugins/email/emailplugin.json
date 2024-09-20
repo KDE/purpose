@@ -3,7 +3,7 @@
         "Authors": [
             {
                 "Name": "Daniel Vrátil",
-                "Name[ar]": "Daniel Vrátil",
+                "Name[ar]": "دانييل فراتل",
                 "Name[az]": "Daniel Vrátil",
                 "Name[bg]": "Daniel Vrátil",
                 "Name[ca@valencia]": "Daniel Vrátil",
@@ -138,6 +138,7 @@
         "Name[zh_CN]": "通过电子邮件发送",
         "Name[zh_TW]": "透過電子郵件傳送",
         "X-Purpose-ActionDisplay": "Send via Email...",
+        "X-Purpose-ActionDisplay[ar]": "أرسِل عبر البريد الإلكتروني...",
         "X-Purpose-ActionDisplay[ca@valencia]": "Envia per correu electrònic…",
         "X-Purpose-ActionDisplay[ca]": "Envia per correu electrònic...",
         "X-Purpose-ActionDisplay[cs]": "Poslat emailem...",

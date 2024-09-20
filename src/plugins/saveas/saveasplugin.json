@@ -3,7 +3,7 @@
         "Authors": [
             {
                 "Name": "Aleix Pol",
-                "Name[ar]": "Aleix Pol",
+                "Name[ar]": "ألكس بول",
                 "Name[az]": "Aleix Pol",
                 "Name[bg]": "Aleix Pol",
                 "Name[ca@valencia]": "Aleix Pol",
@@ -136,6 +136,7 @@
         "Name[zh_CN]": "另存为",
         "Name[zh_TW]": "另存新檔",
         "X-Purpose-ActionDisplay": "Save as...",
+        "X-Purpose-ActionDisplay[ar]": "احفظ كَ‍...",
         "X-Purpose-ActionDisplay[ca@valencia]": "Anomena i guarda…",
         "X-Purpose-ActionDisplay[ca]": "Desa com a...",
         "X-Purpose-ActionDisplay[cs]": "Uložit jako...",

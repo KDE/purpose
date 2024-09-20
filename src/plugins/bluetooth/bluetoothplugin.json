@@ -3,7 +3,7 @@
         "Authors": [
             {
                 "Name": "Nicolas Fella",
-                "Name[ar]": "Nicolas Fella",
+                "Name[ar]": "نيكولاس فلا",
                 "Name[az]": "Nicolas Fella",
                 "Name[bg]": "Nicolas Fella",
                 "Name[ca@valencia]": "Nicolas Fella",
@@ -138,6 +138,7 @@
         "Name[zh_CN]": "通过蓝牙发送",
         "Name[zh_TW]": "透過藍牙傳送",
         "X-Purpose-ActionDisplay": "Send via Bluetooth...",
+        "X-Purpose-ActionDisplay[ar]": "أرسِل عبر بلوتوث...",
         "X-Purpose-ActionDisplay[ca@valencia]": "Envia per Bluetooth…",
         "X-Purpose-ActionDisplay[ca]": "Envia per Bluetooth...",
         "X-Purpose-ActionDisplay[cs]": "Poslat přes Bluetooth...",
