@@ -1,0 +1,11 @@
+/*!
+    \module PurposeWidgets
+    \title PurposeWidgets C++ Classes
+    \cmakepackage KF6
+    \cmakecomponent Purpose
+    \cmaketargetitem KF6::PurposeWidgets
+    \ingroup modules
+    \brief Stuff
+
+    lalalafefef
+*/

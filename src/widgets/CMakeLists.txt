@@ -63,3 +63,5 @@ install(
     DESTINATION ${PURPOSEWIDGETS_INSTALL_INCLUDEDIR}/purpose # C++ namespace
     COMPONENT Devel
 )
+
+ecm_generate_qdoc(KF6PurposeWidgets purposewidgets.qdocconf)
