@@ -1,6 +1,6 @@
 include($KDE_DOCS/global/qt-module-defaults.qdocconf)
 
-project = PurposeQml
+project = PurposeWidgets
 description = Framework for providing abstractions to get the developer's purposes fulfilled.
 
 documentationinheaders = true
@@ -10,14 +10,12 @@ sourcedirs = .
 
 headers.fileextensions = "*.h"
 
-sources.fileextensions = "*.qdoc *.qml"
+sources.fileextensions = "*.qdoc"
 
-outputdir  = doc/html
 outputformats = HTML
 
 depends += \
     kde \
     qtcore \
-    qtqml \
-    qtquickcontrols \
+    qtwidgets \
     purpose
