@@ -12,7 +12,7 @@ headers.fileextensions = "*.h"
 
 sources.fileextensions = "*.qdoc *.h"
 
-depends = kde qtcore kcoreaddons
+depends = kde qtcore kcoreaddons purposeqml purposewidgets
 
 qhp.projects            = Purpose
 
