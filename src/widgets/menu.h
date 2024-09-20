@@ -17,33 +17,40 @@ class MenuPrivate;
 
 class AlternativesModel;
 
+/*!
+ * \class Purpose::Menu
+ * \inmodule PurposeWidgets
+ * \inheaderfile Purpose/Menu
+ *
+ * A menu
+ */
 class PURPOSEWIDGETS_EXPORT Menu : public QMenu
 {
     Q_OBJECT
 public:
     explicit Menu(QWidget *parent = nullptr);
 
-    /**
+    /*!
      * Exposes the used AlternativesModel so that it can be configured to suit
      * the application needs
      */
     AlternativesModel *model() const;
 
-    /**
+    /*!
      * Forces a reload of the menu in case something changed in the model
      */
     void reload();
 
 Q_SIGNALS:
 
-    /**
+    /*!
      * Emitted just before triggered, just before starting the share operation
      * Can be used to do adjustments to the configuration, such as setting a new Url
      * \since Purpose 6.2
      */
     void aboutToShare();
 
-    /**
+    /*!
      * Emitted when a triggered job finishes
      *
      * \a output contains the information offered by the plugin. The information offered will depend on the plugin type.
