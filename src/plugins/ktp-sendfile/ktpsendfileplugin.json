@@ -137,6 +137,7 @@
         "Name[zh_TW]": "傳送給聯絡人",
         "X-Purpose-ActionDisplay": "Send To Contact...",
         "X-Purpose-ActionDisplay[ar]": "أرسِل إلى متراسل…...",
+        "X-Purpose-ActionDisplay[bg]": "Изпращане до контакт...",
         "X-Purpose-ActionDisplay[ca@valencia]": "Envia a un contacte…",
         "X-Purpose-ActionDisplay[ca]": "Envia a un contacte...",
         "X-Purpose-ActionDisplay[cs]": "Poslat kontaktu...",
