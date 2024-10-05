@@ -37,6 +37,8 @@ public:
     AlternativesModel *model() const;
 
     /*!
+     * \fn AlternativesModel::reload()
+     *
      * Forces a reload of the menu in case something changed in the model
      */
     void reload();
