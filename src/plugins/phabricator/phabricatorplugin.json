@@ -153,7 +153,8 @@
         "X-Purpose-ActionDisplay[sv]": "Phabricator...",
         "X-Purpose-ActionDisplay[tr]": "Phabricator…",
         "X-Purpose-ActionDisplay[uk]": "Phabricator…",
-        "X-Purpose-ActionDisplay[x-test]": "xxPhabricator...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxPhabricator...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "Phabricator…"
     },
     "X-Purpose-Configuration": [
         "updateDR",

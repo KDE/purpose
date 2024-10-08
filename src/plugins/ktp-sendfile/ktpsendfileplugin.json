@@ -154,7 +154,8 @@
         "X-Purpose-ActionDisplay[sv]": "Skicka till kontakt...",
         "X-Purpose-ActionDisplay[tr]": "Kişiye Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати контакту…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend To Contact...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend To Contact...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "傳送給聯絡人..."
     },
     "X-Purpose-Configuration": "",
     "X-Purpose-Constraints": [

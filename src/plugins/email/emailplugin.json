@@ -156,7 +156,8 @@
         "X-Purpose-ActionDisplay[sv]": "Skicka med e-post...",
         "X-Purpose-ActionDisplay[tr]": "E-posta ile Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати електронною поштою…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend via Email...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Email...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "透過電子郵件傳送…"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],

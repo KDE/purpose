@@ -154,7 +154,8 @@
         "X-Purpose-ActionDisplay[sv]": "Youtube...",
         "X-Purpose-ActionDisplay[tr]": "YouTube…",
         "X-Purpose-ActionDisplay[uk]": "YouTube…",
-        "X-Purpose-ActionDisplay[x-test]": "xxYoutube...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxYoutube...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "YouTube…"
     },
     "X-Purpose-Configuration": [
         "videoDesc",

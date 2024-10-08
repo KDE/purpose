@@ -156,7 +156,8 @@
         "X-Purpose-ActionDisplay[sv]": "Skicka via Blåtand...",
         "X-Purpose-ActionDisplay[tr]": "Bluetooth ile Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Bluetooth…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend via Bluetooth...xx"
+        "X-Purpose-ActionDisplay[x-test]": "xxSend via Bluetooth...xx",
+        "X-Purpose-ActionDisplay[zh_TW]": "透過藍牙傳送…"
     },
     "X-Purpose-Configuration": [
         "device"

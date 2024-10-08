@@ -137,7 +137,8 @@
         "X-Purpose-ActionDisplay[sv]": "Skapa QR-kod",
         "X-Purpose-ActionDisplay[tr]": "Kare Kod Üret",
         "X-Purpose-ActionDisplay[uk]": "Створити QR-код",
-        "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx"
+        "X-Purpose-ActionDisplay[x-test]": "xxGenerate QR Codexx",
+        "X-Purpose-ActionDisplay[zh_TW]": "產生 QR 碼"
     },
     "X-Purpose-Configuration": [
         "dummy"
