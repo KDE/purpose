@@ -101,6 +101,7 @@
         "X-Purpose-ActionDisplay[tr]": "X",
         "X-Purpose-ActionDisplay[uk]": "Twitter",
         "X-Purpose-ActionDisplay[x-test]": "xxTwitterxx",
+        "X-Purpose-ActionDisplay[zh_CN]": "Twitter...",
         "X-Purpose-ActionDisplay[zh_TW]": "Twitter"
     },
     "X-Purpose-PluginTypes": [

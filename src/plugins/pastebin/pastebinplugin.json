@@ -156,6 +156,7 @@
         "X-Purpose-ActionDisplay[tr]": "Pastebin…",
         "X-Purpose-ActionDisplay[uk]": "Pastebin…",
         "X-Purpose-ActionDisplay[x-test]": "xxPastebin...xx",
+        "X-Purpose-ActionDisplay[zh_CN]": "Pastebin...",
         "X-Purpose-ActionDisplay[zh_TW]": "Pastebin..."
     },
     "X-Purpose-Configuration": [],
