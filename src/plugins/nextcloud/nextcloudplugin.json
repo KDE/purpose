@@ -183,6 +183,7 @@
     "X-Purpose-ActionDisplay[tr]": "NextCloud…",
     "X-Purpose-ActionDisplay[uk]": "Nextcloud…",
     "X-Purpose-ActionDisplay[x-test]": "xxNextcloud...xx",
+    "X-Purpose-ActionDisplay[zh_CN]": "Nextcloud...",
     "X-Purpose-ActionDisplay[zh_TW]": "Nextcloud...",
     "X-Purpose-Configuration": [
         "folder",
