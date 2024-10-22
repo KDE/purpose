@@ -19,9 +19,10 @@ class AlternativesModelPrivate;
 
 /*!
  * \class Purpose::AlternativesModel
- * \brief Interface for client applications to share data.
- *
+ * \inheaderfile Purpose/AlternativesModel
  * \inmodule Purpose
+ *
+ * \brief Interface for client applications to share data.
  *
  * Lists all the alternatives to share a specified type of data then provides
  * a method to trigger a job.

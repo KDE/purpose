@@ -20,9 +20,10 @@ class JobPrivate;
 
 /*!
  * \class Purpose::Job
- * \brief Job that will actually perform the sharing.
- *
+ * \inheaderfile Purpose/Job
  * \inmodule Purpose
+ *
+ * \brief Job that will actually perform the sharing.
  *
  * When start is called, the sharing process will start and when the job
  * emits finished, we'll know it's over.
