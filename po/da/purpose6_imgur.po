@@ -2,19 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Martin Schlander <mschlander@opensuse.org>, 2016.
 # scootergrisen, 2017.
+# SPDX-FileCopyrightText: 2024 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-31 01:53+0000\n"
-"PO-Revision-Date: 2017-11-12 18:07+0200\n"
-"Last-Translator: scootergrisen\n"
-"Language-Team: Danish\n"
+"PO-Revision-Date: 2024-10-21 11:07+0200\n"
+"Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
+"Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: imgurplugin.cpp:65
 #, kde-format
@@ -29,7 +31,7 @@ msgstr "Uploader filer to imgur..."
 #: imgurplugin.cpp:147
 #, kde-format
 msgid "Imgur Upload"
-msgstr ""
+msgstr "Imgur-upload"
 
 #: imgurplugin.cpp:148
 #, kde-format
@@ -38,3 +40,6 @@ msgid ""
 "clipboard.<br><br>If you would like to remove the uploaded image, visit <a "
 "href=\"%2\">%2</a>"
 msgstr ""
+"Linket til det delte billede (<a href=\"%1\">%1</a>) er blevet kopieret til "
+"udklipsholderen.<br><br>Hvis du gerne vil fjerne  det uploadede billede, "
+"skal du besøge <a href=\"%2\">%2</a>"
