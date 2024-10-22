@@ -23,9 +23,10 @@ class Job;
 
 /*!
  * \class Purpose::Configuration
- * \brief This class will be in charge of figuring out the job configuration.
- *
+ * \inheaderfile Purpose/Configuration
  * \inmodule Purpose
+ *
+ * \brief This class will be in charge of figuring out the job configuration.
  *
  * Once it's figured out, it can proceed to create the job.
  *

@@ -19,8 +19,8 @@ class AlternativesModel;
 
 /*!
  * \class Purpose::Menu
- * \inmodule PurposeWidgets
  * \inheaderfile Purpose/Menu
+ * \inmodule PurposeWidgets
  *
  * A menu
  */
