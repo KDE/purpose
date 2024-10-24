@@ -8,10 +8,6 @@ documentationinheaders = true
 headerdirs = .
 sourcedirs = .
 
-headers.fileextensions = "*.h"
-
-sources.fileextensions = "*.qdoc *.h"
-
 depends = kde qtcore kcoreaddons purposeqml purposewidgets
 
 qhp.projects            = Purpose
