@@ -151,9 +151,16 @@ public:
         }
         const QString propertyName = match.captured(1);
         const QString constrainedValue = match.captured(2);
-        const bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, m_inputData.value(propertyName));
+
+        const auto it = m_inputData.constFind(propertyName);
+        if (it == m_inputData.end()) {
+            // The constraint doesn't pertain to this data type
+            return true;
+        }
+
+        const bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, *it);
         if (!acceptable) {
-            // qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "not accepted" << meta.name() << propertyName << constrainedValue << m_inputData[propertyName];
+            // qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "not accepted" << meta.name() << propertyName << constrainedValue << *it;
         }
         return acceptable;
     }
