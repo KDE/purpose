@@ -11,10 +11,10 @@
         "License": "LGPL",
         "Name": "Clipboard"
     },
-    "X-Purpose-ActionDisplay": "Copy into the Clipboard...",
+    "X-Purpose-ActionDisplay": "Copy to Clipboard",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],
     "X-Purpose-PluginTypes": [
-        "ShareUrl"
+        "ShareUrl", "Export"
     ]
 }

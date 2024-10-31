@@ -7,12 +7,13 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
+#include <QClipboard>
+#include <QFile>
 #include <QGuiApplication>
+#include <QImage>
 #include <QJsonArray>
-#include <QStandardPaths>
 #include <QTimer>
 #include <purpose/pluginbase.h>
-#include <qclipboard.h>
 
 class ClipboardJob : public Purpose::Job
 {
@@ -23,21 +24,22 @@ public:
     {
     }
 
-    QStringList arrayToList(const QJsonArray &array)
+    QList<QUrl> arrayToList(const QJsonArray &array)
     {
-        QStringList ret;
+        QList<QUrl> ret;
+        ret.reserve(array.size());
         for (const QJsonValue &val : array) {
-            ret += val.toString();
+            ret += QUrl(val.toString());
         }
         return ret;
     }
 
     void start() override
     {
-        const QJsonArray urlsJson = data().value(QLatin1String("urls")).toArray();
-        const auto payload = arrayToList(urlsJson).join(u' ');
-        QTimer::singleShot(0, this, [this, payload] {
-            qGuiApp->clipboard()->setText(payload);
+        QTimer::singleShot(0, this, [this] {
+            QMimeData *mimeData = new QMimeData;
+            mimeData->setUrls(arrayToList(data().value(QLatin1String("urls")).toArray()));
+            qGuiApp->clipboard()->setMimeData(mimeData);
             emitResult();
         });
     }
