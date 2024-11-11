@@ -13,7 +13,7 @@ depends = kde qtcore kcoreaddons purposeqml purposewidgets
 qhp.projects            = Purpose
 
 qhp.Purpose.file                = purpose.qhp
-qhp.Purpose.namespace           = org.qt-project.purpose.$QT_VERSION_TAG
+qhp.Purpose.namespace           = org.kde.purpose.$QT_VERSION_TAG
 qhp.Purpose.virtualFolder       = purpose
 qhp.Purpose.indexTitle          = Purpose
 qhp.Purpose.indexRoot           =
