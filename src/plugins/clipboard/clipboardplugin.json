@@ -15,6 +15,7 @@
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],
     "X-Purpose-PluginTypes": [
-        "ShareUrl", "Export"
+        "ShareUrl",
+        "Export"
     ]
 }
