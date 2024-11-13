@@ -4,6 +4,7 @@
             {
                 "Name": "Aleix Pol Gonzalez",
                 "Name[ca]": "Aleix Pol Gonzalez",
+                "Name[es]": "Aleix Pol Gonzalez",
                 "Name[eu]": "Aleix Pol Gonzalez",
                 "Name[gl]": "Aleix Pol Gonzalez",
                 "Name[he]": "אלש פול גונזלז",
@@ -13,12 +14,14 @@
                 "Name[sl]": "Aleix Pol Gonzalez",
                 "Name[tr]": "Aleix Pol Gonzalez",
                 "Name[uk]": "Aleix Pol Gonzalez",
-                "Name[x-test]": "xxAleix Pol Gonzalezxx"
+                "Name[x-test]": "xxAleix Pol Gonzalezxx",
+                "Name[zh_CN]": "Aleix Pol Gonzalez"
             }
         ],
         "Category": "Utilities",
         "Description": "Copies into the clipboard",
         "Description[ca]": "Copia al porta-retalls",
+        "Description[es]": "Copia al portapapeles",
         "Description[eu]": "Arbelera kopiatzen du",
         "Description[gl]": "Copia no portapapeis.",
         "Description[he]": "העתקה ללוח הגזירים",
@@ -29,10 +32,12 @@
         "Description[tr]": "Panoya kopyalar",
         "Description[uk]": "Копіює до буфера обміну даними",
         "Description[x-test]": "xxCopies into the clipboardxx",
+        "Description[zh_CN]": "复制到剪贴板",
         "Icon": "edit-copy-symbolic",
         "License": "LGPL",
         "Name": "Clipboard",
         "Name[ca]": "Porta-retalls",
+        "Name[es]": "Portapapeles",
         "Name[eu]": "Arbela",
         "Name[gl]": "Portapapeis",
         "Name[he]": "לוח גזירים",
@@ -42,10 +47,12 @@
         "Name[sl]": "Odložišče",
         "Name[tr]": "Pano",
         "Name[uk]": "Буфер обміну",
-        "Name[x-test]": "xxClipboardxx"
+        "Name[x-test]": "xxClipboardxx",
+        "Name[zh_CN]": "剪贴板"
     },
     "X-Purpose-ActionDisplay": "Copy to Clipboard",
     "X-Purpose-ActionDisplay[ca]": "Copia al porta-retalls",
+    "X-Purpose-ActionDisplay[es]": "Copiar al portapapeles",
     "X-Purpose-ActionDisplay[eu]": "Kopiatu arbelera",
     "X-Purpose-ActionDisplay[gl]": "Copiar no portapapeis",
     "X-Purpose-ActionDisplay[he]": "העתקה ללוח הגזירים",
@@ -56,6 +63,7 @@
     "X-Purpose-ActionDisplay[tr]": "Panoya Kopyala",
     "X-Purpose-ActionDisplay[uk]": "Скопіювати до буфера",
     "X-Purpose-ActionDisplay[x-test]": "xxCopy to Clipboardxx",
+    "X-Purpose-ActionDisplay[zh_CN]": "复制到剪贴板",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],
     "X-Purpose-PluginTypes": [
