@@ -8,7 +8,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import org.kde.kirigami as Kirigami
-import org.kde.kdeconnect
+import org.kde.purpose.kdeconnect
 
 ColumnLayout {
     id: root
@@ -45,7 +45,6 @@ ColumnLayout {
             clip: true
             model: DevicesModel {
                 id: connectDeviceModel
-                displayFilter: DevicesModel.Paired | DevicesModel.Reachable
             }
 
             delegate: ItemDelegate {
