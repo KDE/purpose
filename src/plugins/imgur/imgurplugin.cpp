@@ -60,10 +60,7 @@ public:
         KIO::StoredTransferJob *sjob = qobject_cast<KIO::StoredTransferJob *>(job);
         QJsonParseError error;
         const QJsonObject resultMap = QJsonDocument::fromJson(sjob->data(), &error).object();
-        if (sjob->isErrorPage()) {
-            setError(3);
-            setErrorText(i18n("Error page returned"));
-        } else if (job->error()) {
+        if (job->error()) {
             setError(job->error());
             setErrorText(job->errorText());
         } else if (error.error) {

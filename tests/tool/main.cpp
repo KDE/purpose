@@ -6,7 +6,7 @@
 
 #include "qqml.h"
 #include <KAboutData>
-#include <KLocalizedContext>
+#include <KLocalizedQmlContext>
 #include <KLocalizedString>
 #include <QApplication>
 #include <QCommandLineParser>
@@ -81,7 +81,7 @@ int main(int argc, char **argv)
     }
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+    engine.rootContext()->setContextObject(new KLocalizedQmlContext(&engine));
     engine.setInitialProperties({
         {QStringLiteral("inputData"), inputData},
     });

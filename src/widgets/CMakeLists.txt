@@ -34,6 +34,10 @@ target_link_libraries(KF6PurposeWidgets
         KF6::I18n
 )
 
+target_link_libraries(KF6PurposeWidgets PRIVATE
+        KF6::I18nQml
+)
+
 target_include_directories(KF6PurposeWidgets
     PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"

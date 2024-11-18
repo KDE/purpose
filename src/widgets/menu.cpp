@@ -5,7 +5,7 @@
 */
 
 #include "menu.h"
-#include <KLocalizedContext>
+#include <KLocalizedQmlContext>
 #include <QDebug>
 #include <QPointer>
 #include <QQmlApplicationEngine>
@@ -38,7 +38,7 @@ public:
     {
         if (!m_engine) {
             m_engine = new QQmlApplicationEngine;
-            m_engine->rootContext()->setContextObject(new KLocalizedContext(this));
+            m_engine->rootContext()->setContextObject(new KLocalizedQmlContext(this));
             m_engine->load(QUrl(QStringLiteral("qrc:/org.kde.purpose/JobDialog.qml")));
         }
 
