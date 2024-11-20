@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-31 01:53+0000\n"
+"POT-Creation-Date: 2024-11-20 00:37+0000\n"
 "PO-Revision-Date: 2022-02-11 15:10+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -17,22 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: imgurplugin.cpp:65
-#, kde-format
-msgid "Error page returned"
-msgstr "Palautettiin virhesivu"
-
-#: imgurplugin.cpp:95
+#: imgurplugin.cpp:92
 #, kde-format
 msgid "Uploading files to imgur..."
 msgstr "Lähetetään tiedostoja Imguriin…"
 
-#: imgurplugin.cpp:147
+#: imgurplugin.cpp:144
 #, kde-format
 msgid "Imgur Upload"
 msgstr "Imgur-lähetys"
 
-#: imgurplugin.cpp:148
+#: imgurplugin.cpp:145
 #, kde-format
 msgid ""
 "The shared image link (<a href=\"%1\">%1</a>) has been copied to the "
@@ -41,3 +36,6 @@ msgid ""
 msgstr ""
 "Jaettu kuvalinkki (<a href=\"%1\">%1</a>) kopioitiin leikepöydälle."
 "<br><br>Jos haluat poistaa lähetetyn kuvan, valise <a href=\"%2\">%2</a>"
+
+#~ msgid "Error page returned"
+#~ msgstr "Palautettiin virhesivu"

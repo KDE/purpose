@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-31 01:53+0000\n"
+"POT-Creation-Date: 2024-11-20 00:37+0000\n"
 "PO-Revision-Date: 2021-12-14 18:36+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -17,22 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.08.1\n"
 
-#: imgurplugin.cpp:65
-#, kde-format
-msgid "Error page returned"
-msgstr "Felsida returnerades"
-
-#: imgurplugin.cpp:95
+#: imgurplugin.cpp:92
 #, kde-format
 msgid "Uploading files to imgur..."
 msgstr "Laddar upp filer till imgur..."
 
-#: imgurplugin.cpp:147
+#: imgurplugin.cpp:144
 #, kde-format
 msgid "Imgur Upload"
 msgstr "Uppladdning med Imgur"
 
-#: imgurplugin.cpp:148
+#: imgurplugin.cpp:145
 #, kde-format
 msgid ""
 "The shared image link (<a href=\"%1\">%1</a>) has been copied to the "
@@ -42,3 +37,6 @@ msgstr ""
 "Den delade bildlänken (<a href=\"%1\">%1</a>) har kopierats till klippbordet."
 "<br><br>Om du vill ta bort den uppladdade bilden, besök <a href=\"%2\">%2</"
 "a>."
+
+#~ msgid "Error page returned"
+#~ msgstr "Felsida returnerades"

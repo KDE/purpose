@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-31 01:53+0000\n"
+"POT-Creation-Date: 2024-11-20 00:37+0000\n"
 "PO-Revision-Date: 2021-12-14 10:29+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -17,22 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.08.3\n"
 
-#: imgurplugin.cpp:65
-#, kde-format
-msgid "Error page returned"
-msgstr "Foutpagina terug gekregen"
-
-#: imgurplugin.cpp:95
+#: imgurplugin.cpp:92
 #, kde-format
 msgid "Uploading files to imgur..."
 msgstr "Bestanden uploaden naar imgur..."
 
-#: imgurplugin.cpp:147
+#: imgurplugin.cpp:144
 #, kde-format
 msgid "Imgur Upload"
 msgstr "Uploaden naar Imgur"
 
-#: imgurplugin.cpp:148
+#: imgurplugin.cpp:145
 #, kde-format
 msgid ""
 "The shared image link (<a href=\"%1\">%1</a>) has been copied to the "
@@ -42,3 +37,6 @@ msgstr ""
 "De gedeelde afbeeldingskoppeling (<a href=\"%1\">%1</a>) is gekopieerd naar "
 "het klembord.<br><br>Als u de geüploade afbeelding wilt verwijderen, bezoek "
 "<a href=\"%2\">%2</a>"
+
+#~ msgid "Error page returned"
+#~ msgstr "Foutpagina terug gekregen"

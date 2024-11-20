@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-31 01:53+0000\n"
+"POT-Creation-Date: 2024-11-20 00:37+0000\n"
 "PO-Revision-Date: 2023-03-04 17:12+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -19,22 +19,17 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: imgurplugin.cpp:65
-#, kde-format
-msgid "Error page returned"
-msgstr "Fekk feilmeldingsside"
-
-#: imgurplugin.cpp:95
+#: imgurplugin.cpp:92
 #, kde-format
 msgid "Uploading files to imgur..."
 msgstr "Lastar opp filer til Imgur …"
 
-#: imgurplugin.cpp:147
+#: imgurplugin.cpp:144
 #, kde-format
 msgid "Imgur Upload"
 msgstr "Imgur-opplasting"
 
-#: imgurplugin.cpp:148
+#: imgurplugin.cpp:145
 #, kde-format
 msgid ""
 "The shared image link (<a href=\"%1\">%1</a>) has been copied to the "
@@ -44,3 +39,6 @@ msgstr ""
 "Lenkja til det delte biletet  (<a href=\"%1\">%1</a>) er no kopiert til "
 "utklippstavla.<br><br>Viss du vil fjerna det opplasta biletet, gå til <a "
 "href=\"%2\">%2</a>."
+
+#~ msgid "Error page returned"
+#~ msgstr "Fekk feilmeldingsside"
