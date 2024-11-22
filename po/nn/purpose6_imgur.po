@@ -39,6 +39,3 @@ msgstr ""
 "Lenkja til det delte biletet  (<a href=\"%1\">%1</a>) er no kopiert til "
 "utklippstavla.<br><br>Viss du vil fjerna det opplasta biletet, gå til <a "
 "href=\"%2\">%2</a>."
-
-#~ msgid "Error page returned"
-#~ msgstr "Fekk feilmeldingsside"

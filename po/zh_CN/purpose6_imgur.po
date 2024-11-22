@@ -36,6 +36,3 @@ msgid ""
 msgstr ""
 "分享的图像链接 (<a href=\"%1\">%1</a>) 已复制到剪贴板。<br><br>如果您想要移除"
 "该已上传图像，请访问 <a href=\"%2\">%2</a>"
-
-#~ msgid "Error page returned"
-#~ msgstr "返回了错误页面"
