@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:37+0000\n"
+"POT-Creation-Date: 2024-11-26 00:37+0000\n"
 "PO-Revision-Date: 2021-12-14 22:59+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -17,17 +17,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.12.0\n"
 
-#: imgurplugin.cpp:92
+#: imgurplugin.cpp:68 imgurplugin.cpp:70
+#, kde-format
+msgid "Upload failed: %1"
+msgstr ""
+
+#: imgurplugin.cpp:91
 #, kde-format
 msgid "Uploading files to imgur..."
 msgstr "Cargante file a imgur..."
 
-#: imgurplugin.cpp:144
+#: imgurplugin.cpp:143
 #, kde-format
 msgid "Imgur Upload"
 msgstr "Carga Imgur"
 
-#: imgurplugin.cpp:145
+#: imgurplugin.cpp:144
 #, kde-format
 msgid ""
 "The shared image link (<a href=\"%1\">%1</a>) has been copied to the "

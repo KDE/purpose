@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:37+0000\n"
+"POT-Creation-Date: 2024-11-26 00:37+0000\n"
 "PO-Revision-Date: 2022-07-30 21:16+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,17 +18,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.1.1\n"
 
-#: imgurplugin.cpp:92
+#: imgurplugin.cpp:68 imgurplugin.cpp:70
+#, kde-format
+msgid "Upload failed: %1"
+msgstr ""
+
+#: imgurplugin.cpp:91
 #, kde-format
 msgid "Uploading files to imgur..."
 msgstr "ფაილების Imgur-ზე ატვირთვა..."
 
-#: imgurplugin.cpp:144
+#: imgurplugin.cpp:143
 #, kde-format
 msgid "Imgur Upload"
 msgstr "Imgur-ზე ატვირთვა"
 
-#: imgurplugin.cpp:145
+#: imgurplugin.cpp:144
 #, kde-format
 msgid ""
 "The shared image link (<a href=\"%1\">%1</a>) has been copied to the "
