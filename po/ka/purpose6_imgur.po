@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-26 00:37+0000\n"
-"PO-Revision-Date: 2022-07-30 21:16+0200\n"
+"PO-Revision-Date: 2024-11-26 05:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.5\n"
 
 #: imgurplugin.cpp:68 imgurplugin.cpp:70
 #, kde-format
 msgid "Upload failed: %1"
-msgstr ""
+msgstr "ატვირთვის შეცდომა: %1"
 
 #: imgurplugin.cpp:91
 #, kde-format
