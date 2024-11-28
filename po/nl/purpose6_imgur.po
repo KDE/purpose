@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2015, 2017, 2021.
+# SPDX-FileCopyrightText: 2015, 2017, 2021, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-26 00:37+0000\n"
-"PO-Revision-Date: 2021-12-14 10:29+0100\n"
+"PO-Revision-Date: 2024-11-26 11:45+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: imgurplugin.cpp:68 imgurplugin.cpp:70
 #, kde-format
 msgid "Upload failed: %1"
-msgstr ""
+msgstr "Uploaden is mislukt: %1"
 
 #: imgurplugin.cpp:91
 #, kde-format

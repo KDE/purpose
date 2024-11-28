@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose_imgur\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-26 00:37+0000\n"
-"PO-Revision-Date: 2022-10-08 13:13+0300\n"
+"PO-Revision-Date: 2024-11-27 16:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,22 +15,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: imgurplugin.cpp:68 imgurplugin.cpp:70
 #, kde-format
 msgid "Upload failed: %1"
-msgstr ""
+msgstr "Yükleme başarısız: %1"
 
 #: imgurplugin.cpp:91
 #, kde-format
 msgid "Uploading files to imgur..."
-msgstr "Dosyalar imgur'a yükleniyor..."
+msgstr "Dosyalar Imgur’a yükleniyor…"
 
 #: imgurplugin.cpp:143
 #, kde-format
 msgid "Imgur Upload"
-msgstr "Imgur'a Yükle"
+msgstr "Imgur’a Yükle"
 
 #: imgurplugin.cpp:144
 #, kde-format

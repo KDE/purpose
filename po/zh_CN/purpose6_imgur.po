@@ -20,7 +20,7 @@ msgstr ""
 #: imgurplugin.cpp:68 imgurplugin.cpp:70
 #, kde-format
 msgid "Upload failed: %1"
-msgstr ""
+msgstr "上传失败：%1"
 
 #: imgurplugin.cpp:91
 #, kde-format
