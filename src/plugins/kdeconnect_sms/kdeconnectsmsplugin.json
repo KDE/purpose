@@ -89,7 +89,7 @@
         "Description[uk]": "Надсилання SMS за допомогою KDE Connect",
         "Description[x-test]": "xxSend SMS via KDE Connectxx",
         "Description[zh_CN]": "通过 KDE Connect 发送短信",
-        "Description[zh_TW]": "透過 KDE 連線傳送簡訊",
+        "Description[zh_TW]": "透過 KDE Connect 傳送簡訊",
         "Icon": "kdeconnect",
         "License": "GPL",
         "Name": "Send SMS via KDE Connect",
@@ -135,7 +135,7 @@
         "Name[uk]": "Надсилання SMS за допомогою KDE Connect",
         "Name[x-test]": "xxSend SMS via KDE Connectxx",
         "Name[zh_CN]": "通过 KDE Connect 发送短信",
-        "Name[zh_TW]": "透過 KDE 連線傳送簡訊",
+        "Name[zh_TW]": "透過 KDE Connect 傳送簡訊",
         "X-Purpose-ActionDisplay": "Send SMS via KDE Connect...",
         "X-Purpose-ActionDisplay[ar]": "أرسِل رسالة نصية عبر «كِيدِي المتّصل»...",
         "X-Purpose-ActionDisplay[bg]": "Изпращане на SMS чрез KDE Connect...",
@@ -148,6 +148,7 @@
         "X-Purpose-ActionDisplay[fr]": "Envoyer un SMS par KDEConnect...",
         "X-Purpose-ActionDisplay[gl]": "Enviar unha SMS mediante KDE Connect…",
         "X-Purpose-ActionDisplay[it]": "Invia SMS con KDE Connect...",
+        "X-Purpose-ActionDisplay[ko]": "KDE Connect로 문자 메시지 보내기...",
         "X-Purpose-ActionDisplay[nl]": "SMS via KDE Connect verzenden...",
         "X-Purpose-ActionDisplay[nn]": "Send SMS via KDE Connect …",
         "X-Purpose-ActionDisplay[pl]": "Prześlij esemesa przez KDE Connect...",
@@ -157,7 +158,7 @@
         "X-Purpose-ActionDisplay[uk]": "Надіслати SMS за допомогою KDE Connect…",
         "X-Purpose-ActionDisplay[x-test]": "xxSend SMS via KDE Connect...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "通过 KDE Connect 发送短信...",
-        "X-Purpose-ActionDisplay[zh_TW]": "透過 KDE 連線傳送簡訊…"
+        "X-Purpose-ActionDisplay[zh_TW]": "透過 KDE Connect 傳送簡訊…"
     },
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
