@@ -1,7 +1,7 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the purpose package.
 # Luciano Montanaro <mikelima@cirulla.net>, 2019.
-# Vincenzo Reale <smart2128vr@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.0\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: imgurplugin.cpp:65
 #, kde-format
