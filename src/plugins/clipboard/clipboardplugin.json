@@ -26,7 +26,8 @@
                 "Name[tr]": "Aleix Pol Gonzalez",
                 "Name[uk]": "Aleix Pol Gonzalez",
                 "Name[x-test]": "xxAleix Pol Gonzalezxx",
-                "Name[zh_CN]": "Aleix Pol Gonzalez"
+                "Name[zh_CN]": "Aleix Pol Gonzalez",
+                "Name[zh_TW]": "Aleix Pol Gonzalez"
             }
         ],
         "Category": "Utilities",
@@ -55,6 +56,7 @@
         "Description[uk]": "Копіює до буфера обміну даними",
         "Description[x-test]": "xxCopies into the clipboardxx",
         "Description[zh_CN]": "复制到剪贴板",
+        "Description[zh_TW]": "將內容複製到剪貼簿中",
         "Icon": "edit-copy-symbolic",
         "License": "LGPL",
         "Name": "Clipboard",
@@ -81,7 +83,8 @@
         "Name[tr]": "Pano",
         "Name[uk]": "Буфер обміну",
         "Name[x-test]": "xxClipboardxx",
-        "Name[zh_CN]": "剪贴板"
+        "Name[zh_CN]": "剪贴板",
+        "Name[zh_TW]": "剪貼簿"
     },
     "X-Purpose-ActionDisplay": "Copy to Clipboard",
     "X-Purpose-ActionDisplay[ar]": "انسخ إلى الحافظة",
@@ -108,6 +111,7 @@
     "X-Purpose-ActionDisplay[uk]": "Скопіювати до буфера",
     "X-Purpose-ActionDisplay[x-test]": "xxCopy to Clipboardxx",
     "X-Purpose-ActionDisplay[zh_CN]": "复制到剪贴板",
+    "X-Purpose-ActionDisplay[zh_TW]": "複製到剪貼簿",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [],
     "X-Purpose-PluginTypes": [
