@@ -326,6 +326,9 @@ void AlternativesModel::initializeModel()
     if (d->m_pluginType.isEmpty()) {
         return;
     }
+    if (d->m_inputData.isEmpty()) {
+        return;
+    }
 
     const QJsonArray inbound = d->m_pluginTypeData.value(QLatin1String("X-Purpose-InboundArguments")).toArray();
     for (const QJsonValue &arg : inbound) {
