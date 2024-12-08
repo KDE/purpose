@@ -11,6 +11,13 @@
 #include <QStandardPaths>
 #include <purpose/pluginbase.h>
 
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
+
+using namespace Qt::StringLiterals;
+
 class KDEConnectJob : public Purpose::Job
 {
     Q_OBJECT
@@ -31,38 +38,31 @@ public:
 
     void start() override
     {
-        QProcess *process = new QProcess(this);
-        process->setProgram(QStringLiteral("kdeconnect-cli"));
+        const QString deviceId = data().value(QLatin1String("device")).toString();
         QJsonArray urlsJson = data().value(QLatin1String("urls")).toArray();
-        process->setArguments(QStringList(QStringLiteral("--device"))
-                              << data().value(QLatin1String("device")).toString() << QStringLiteral("--share") << arrayToList(urlsJson));
-        connect(process, &QProcess::errorOccurred, this, &KDEConnectJob::processError);
-        connect(process, &QProcess::finished, this, &KDEConnectJob::jobFinished);
-        connect(process, &QProcess::readyRead, this, [process]() {
-            qDebug() << "kdeconnect-cli output:" << process->readAll();
+
+        QDBusMessage msg = QDBusMessage::createMethodCall(u"org.kde.kdeconnect"_s,
+                                                          "/modules/kdeconnect/devices/"_L1 + deviceId + "/share"_L1,
+                                                          u"org.kde.kdeconnect.device.share"_s,
+                                                          u"shareUrls"_s);
+        msg.setArguments({arrayToList(urlsJson)});
+
+        QDBusPendingReply<> reply = QDBusConnection::sessionBus().asyncCall(msg);
+
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+            QDBusPendingReply<> reply = *watcher;
+            if (reply.isError()) {
+                qWarning() << "kdeconnect share error:" << reply.error().message();
+                setError(2);
+                setErrorText(reply.error().message());
+                emitResult();
+            } else {
+                setError(0);
+                setOutput({{QStringLiteral("url"), QString()}});
+                emitResult();
+            }
         });
-
-        process->start();
-    }
-
-    void processError(QProcess::ProcessError error)
-    {
-        QProcess *process = qobject_cast<QProcess *>(sender());
-        qWarning() << "kdeconnect share error:" << error << process->errorString();
-        setError(1 + error);
-        setErrorText(process->errorString());
-        emitResult();
-    }
-
-    void jobFinished(int code, QProcess::ExitStatus status)
-    {
-        if (status != QProcess::NormalExit) {
-            qWarning() << "kdeconnect-cli crashed";
-        }
-
-        setError(code);
-        setOutput({{QStringLiteral("url"), QString()}});
-        emitResult();
     }
 
 private:

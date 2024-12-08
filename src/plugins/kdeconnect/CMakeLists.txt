@@ -2,6 +2,8 @@ add_definitions(-DTRANSLATION_DOMAIN=\"purpose6_kdeconnect\")
 
 add_share_plugin(kdeconnectplugin kdeconnectplugin.cpp)
 
+target_link_libraries(kdeconnectplugin Qt6::DBus)
+
 qt_add_dbus_interface(dbus_SRCS org.kde.kdeconnect.daemon.xml DaemonDbusInterface)
 qt_add_dbus_interface(dbus_SRCS org.kde.kdeconnect.device.xml DeviceDbusInterface)
 
