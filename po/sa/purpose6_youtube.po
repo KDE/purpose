@@ -1,0 +1,52 @@
+# Sanskrit translations for purpose package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the purpose package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: purpose\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-07-03 00:37+0000\n"
+"PO-Revision-Date: 2024-12-13 19:09+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: youtubejobcomposite.cpp:40
+#, kde-format
+msgid "No YouTube account configured in your accounts."
+msgstr "भवतः खातेषु कोऽपि YouTube खातं विन्यस्तं नास्ति।"
+
+#: youtubeplugin_config.qml:29
+#, kde-format
+msgid "Account:"
+msgstr "वृतांत्तः:"
+
+#: youtubeplugin_config.qml:53
+#, kde-format
+msgid "Title:"
+msgstr "शीर्षक:"
+
+#: youtubeplugin_config.qml:58
+#, kde-format
+msgid "Enter a title for the video..."
+msgstr "विडियो कृते शीर्षकं प्रविशतु..."
+
+#: youtubeplugin_config.qml:62
+#, kde-format
+msgid "Tags:"
+msgstr "टैग्स:"
+
+#: youtubeplugin_config.qml:67
+#, kde-format
+msgid "KDE, Kamoso"
+msgstr "केडीई, श्वः"
+
+#: youtubeplugin_config.qml:71
+#, kde-format
+msgid "Description:"
+msgstr "वर्णनम्‌:"
