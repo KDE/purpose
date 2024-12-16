@@ -1,4 +1,4 @@
-# Sanskrit translations for purpose package.
+# Hindi translations for purpose package.
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the purpose package.
 # Kali <EMAIL@ADDRESS>, 2024.
@@ -8,24 +8,23 @@ msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:37+0000\n"
-"PO-Revision-Date: 2024-12-13 19:09+0530\n"
+"PO-Revision-Date: 2024-12-15 17:35+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
-"Language: sa\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n>2);\n"
 
 #: reviewboardjobs.cpp:166
 #, kde-format
 msgid "JSON error: %1"
-msgstr "JSON त्रुटिः %1"
+msgstr "JSON त्रुटि: %1"
 
 #: reviewboardjobs.cpp:171
 #, kde-format
 msgid "Request Error: %1"
-msgstr "अनुरोधदोषः %1"
+msgstr "अनुरोध त्रुटि: %1"
 
 #: reviewboardjobs.cpp:200
 #, kde-format
@@ -33,96 +32,96 @@ msgid ""
 "Could not create the new request:\n"
 "%1"
 msgstr ""
-"नूतनं अनुरोधं निर्मातुं न शक्तवान्:\n"
+"नया अनुरोध नहीं बनाया जा सका:\n"
 "%1"
 
 #: reviewboardjobs.cpp:239
 #, kde-format
 msgid "Could not upload the patch"
-msgstr "पैच अपलोड् कर्तुं न शक्तवान्"
+msgstr "पैच अपलोड नहीं किया जा सका"
 
 #: reviewboardjobs.cpp:332
 #, kde-format
 msgid "Could not get reviews list"
-msgstr "समीक्षासूचीं प्राप्तुं न शक्तवान्"
+msgstr "समीक्षा सूची नहीं मिल सकी"
 
 #: reviewboardjobs.cpp:372
 #, kde-format
 msgid "Could not set metadata"
-msgstr "मेटाडाटा सेट् कर्तुं न शक्तवान्"
+msgstr "मेटाडेटा सेट नहीं किया जा सका"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: reviewboardplugin_config.qml:34 reviewpatch.ui:26
 #, kde-format
 msgid "Server:"
-msgstr "सर्वरः : १."
+msgstr "सर्वर:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: reviewboardplugin_config.qml:42 reviewpatch.ui:65
 #, kde-format
 msgid "Username:"
-msgstr "उपयोक्तृनाम : १."
+msgstr "उपयोगकर्ता नाम:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: reviewboardplugin_config.qml:49 reviewpatch.ui:79
 #, kde-format
 msgid "Password:"
-msgstr "समाभाष्:"
+msgstr "पासवर्ड:"
 
 #: reviewboardplugin_config.qml:58
 #, kde-format
 msgid "Repository:"
-msgstr "भण्डारः : १."
+msgstr "भंडार:"
 
 #: reviewboardplugin_config.qml:83
 #, kde-format
 msgid "Update Review:"
-msgstr "अद्यतनसमीक्षा : १."
+msgstr "अद्यतन समीक्षा:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: reviewpatch.ui:17
 #, kde-format
 msgid "Destination"
-msgstr "गन्तव्य"
+msgstr "गंतव्य"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: reviewpatch.ui:36
 #, kde-format
 msgid "Base Dir:"
-msgstr "आधार निर्देशक : १."
+msgstr "बेस डिर:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, basedir)
 #: reviewpatch.ui:43
 #, kde-format
 msgid "/"
-msgstr "/ ."
+msgstr "/"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, basedir)
 #: reviewpatch.ui:46
 #, kde-format
 msgid "Where this project was checked out from"
-msgstr "कुतः एषा परियोजना अवलोकिता आसीत्"
+msgstr "इस परियोजना की जाँच कहाँ से की गई"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: reviewpatch.ui:56
 #, kde-format
 msgid "Authentication"
-msgstr "प्रमाणीकरणम्"
+msgstr "प्रमाणीकरण"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, username)
 #: reviewpatch.ui:72
 #, kde-format
 msgid "User name in the specified service"
-msgstr "निर्दिष्टसेवायां उपयोक्तृनाम"
+msgstr "निर्दिष्ट सेवा में उपयोगकर्ता नाम"
 
 #. i18n: ectx: property (title), widget (QGroupBox, repositoriesBox)
 #: reviewpatch.ui:99
 #, kde-format
 msgid "Repository"
-msgstr "भण्डारः"
+msgstr "कोष"
 
 #. i18n: ectx: property (title), widget (QGroupBox, reviewsBox)
 #: reviewpatch.ui:111
 #, kde-format
 msgid "Update review"
-msgstr "समीक्षा अद्यतन करें"
+msgstr "समीक्षा अपडेट करें"
