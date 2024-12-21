@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the purpose package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:37+0000\n"
-"PO-Revision-Date: 2024-12-13 19:09+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-20 21:54+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: reviewboardjobs.cpp:166
 #, kde-format
@@ -55,13 +57,13 @@ msgstr "मेटाडाटा सेट् कर्तुं न शक्�
 #: reviewboardplugin_config.qml:34 reviewpatch.ui:26
 #, kde-format
 msgid "Server:"
-msgstr "सर्वरः : १."
+msgstr "सर्वरः :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: reviewboardplugin_config.qml:42 reviewpatch.ui:65
 #, kde-format
 msgid "Username:"
-msgstr "उपयोक्तृनाम : १."
+msgstr "उपयोक्तृनाम :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: reviewboardplugin_config.qml:49 reviewpatch.ui:79
@@ -72,12 +74,12 @@ msgstr "समाभाष्:"
 #: reviewboardplugin_config.qml:58
 #, kde-format
 msgid "Repository:"
-msgstr "भण्डारः : १."
+msgstr "भण्डारः :"
 
 #: reviewboardplugin_config.qml:83
 #, kde-format
 msgid "Update Review:"
-msgstr "अद्यतनसमीक्षा : १."
+msgstr "अद्यतनसमीक्षा :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: reviewpatch.ui:17
@@ -89,7 +91,7 @@ msgstr "गन्तव्य"
 #: reviewpatch.ui:36
 #, kde-format
 msgid "Base Dir:"
-msgstr "आधार निर्देशक : १."
+msgstr "आधार निर्देशक :"
 
 #. i18n: ectx: property (text), widget (QLineEdit, basedir)
 #: reviewpatch.ui:43
