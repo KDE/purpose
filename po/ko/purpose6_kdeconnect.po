@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:37+0000\n"
+"POT-Creation-Date: 2024-12-24 00:38+0000\n"
 "PO-Revision-Date: 2018-08-14 23:20+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Choose a device to send to:"
 msgstr "보낼 장치 선택:"
 
-#: kdeconnectplugin_config.qml:64
+#: kdeconnectplugin_config.qml:63
 #, kde-format
 msgid "No devices found"
 msgstr "장치를 찾을 수 없음"

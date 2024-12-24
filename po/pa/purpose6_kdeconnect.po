@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:37+0000\n"
+"POT-Creation-Date: 2024-12-24 00:38+0000\n"
 "PO-Revision-Date: 2023-04-01 21:20-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Choose a device to send to:"
 msgstr "ਭੇਜਣ ਲਈ ਡਿਵਾਈਸ ਚੁਣੋ:"
 
-#: kdeconnectplugin_config.qml:64
+#: kdeconnectplugin_config.qml:63
 #, kde-format
 msgid "No devices found"
 msgstr "ਕੋਈ ਡਿਵਾਈਸ ਨਹੀਂ ਲੱਭਿਆ"

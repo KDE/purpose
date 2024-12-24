@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:37+0000\n"
+"POT-Creation-Date: 2024-12-24 00:38+0000\n"
 "PO-Revision-Date: 2019-08-16 18:50+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Choose a device to send to:"
 msgstr "Дастгоҳеро барои ирсол интихоб намоед:"
 
-#: kdeconnectplugin_config.qml:64
+#: kdeconnectplugin_config.qml:63
 #, kde-format
 msgid "No devices found"
 msgstr "Ягон дастгоҳ ёфт нашуд"

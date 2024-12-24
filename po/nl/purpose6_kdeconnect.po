@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:37+0000\n"
+"POT-Creation-Date: 2024-12-24 00:38+0000\n"
 "PO-Revision-Date: 2018-05-29 00:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Choose a device to send to:"
 msgstr "Een apparaat kiezen waarnaar te verzenden:"
 
-#: kdeconnectplugin_config.qml:64
+#: kdeconnectplugin_config.qml:63
 #, kde-format
 msgid "No devices found"
 msgstr "Geen apparaten gevonden"
