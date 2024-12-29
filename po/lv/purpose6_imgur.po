@@ -1,36 +1,37 @@
-# translation of purpose6_imgur.pot to Esperanto
-# Copyright (C) 2015 Free Software Foundation, Inc.
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the purpose package.
-# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-26 00:37+0000\n"
-"PO-Revision-Date: 2024-12-28 17:41+0100\n"
-"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
-"Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
-"Language: eo\n"
+"PO-Revision-Date: 2024-12-19 09:42+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: imgurplugin.cpp:68 imgurplugin.cpp:70
 #, kde-format
 msgid "Upload failed: %1"
-msgstr "Alŝuto malsukcesis: %1"
+msgstr "Augšupielāde neizdevās: %1"
 
 #: imgurplugin.cpp:91
 #, kde-format
 msgid "Uploading files to imgur..."
-msgstr "Alŝutante dosierojn al imgur..."
+msgstr "Augšupielādē datnes „imgur“..."
 
 #: imgurplugin.cpp:143
 #, kde-format
 msgid "Imgur Upload"
-msgstr "Imgur-Alŝuto"
+msgstr "„Imgur“ augšupielāde"
 
 #: imgurplugin.cpp:144
 #, kde-format
@@ -39,5 +40,6 @@ msgid ""
 "clipboard.<br><br>If you would like to remove the uploaded image, visit <a "
 "href=\"%2\">%2</a>"
 msgstr ""
-"La kundividita bildligilo (<a href=\"%1\">%1</a>) estis kopiita al la poŝo."
-"<br><br>Se vi ŝatus forigi la alŝutitan bildon, vizitu <a href=\"%2\">%2</a>"
+"Saite uz kopīgoto attēlu (<a href=\"%1\">%1</a>) ir nokopēta starpliktuvē."
+"<br><br>Ja vēlaties noņemt augšupielādēto attēlu, apmeklējiet <a href=\"%2\">"
+"%2</a>"
