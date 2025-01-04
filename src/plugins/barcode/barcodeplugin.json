@@ -125,6 +125,7 @@
         "X-Purpose-ActionDisplay[ca]": "Genera un codi QR",
         "X-Purpose-ActionDisplay[cs]": "Vygenerovat kód QR",
         "X-Purpose-ActionDisplay[en_GB]": "Generate QR Code",
+        "X-Purpose-ActionDisplay[eo]": "Generi QR-kodon",
         "X-Purpose-ActionDisplay[es]": "Generar código QR",
         "X-Purpose-ActionDisplay[eu]": "Sortu QR kodea",
         "X-Purpose-ActionDisplay[fi]": "Luo QR-koodi",
