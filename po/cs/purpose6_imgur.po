@@ -21,7 +21,7 @@ msgstr ""
 #: imgurplugin.cpp:68 imgurplugin.cpp:70
 #, kde-format
 msgid "Upload failed: %1"
-msgstr ""
+msgstr "Odeslání selhalo: %1"
 
 #: imgurplugin.cpp:91
 #, kde-format
