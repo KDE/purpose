@@ -100,7 +100,7 @@
         "Description[x-test]": "xxSend SMS via KDE Connectxx",
         "Description[zh_CN]": "通过 KDE Connect 发送短信",
         "Description[zh_TW]": "透過 KDE Connect 傳送簡訊",
-        "Icon": "kdeconnect",
+        "Icon": "kdeconnect-symbolic",
         "License": "GPL",
         "Name": "Send SMS via KDE Connect",
         "Name[ar]": "أرسِل رسالة نصية عبر «كِيدِي المتّصل»",
