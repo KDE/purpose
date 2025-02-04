@@ -101,7 +101,7 @@
         "Description[x-test]": "xxUpload videos to YouTubexx",
         "Description[zh_CN]": "上传视频到 YouTube",
         "Description[zh_TW]": "上傳影片到 YouTube",
-        "Icon": "edit-paste",
+        "Icon": "im-youtube-symbolic",
         "License": "GPL",
         "Name": "YouTube",
         "Name[ar]": "يوتيوب",
