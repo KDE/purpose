@@ -25,7 +25,6 @@ add_subdirectory(email)
 add_subdirectory(telegram)
 add_subdirectory(kdeconnect_sms)
 add_subdirectory(barcode)
-add_subdirectory(twitter)
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     add_subdirectory(bluetooth)
