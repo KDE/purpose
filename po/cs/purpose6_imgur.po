@@ -43,6 +43,3 @@ msgstr ""
 "Odkaz na sdílený obrázek (<a href=\"%1\">%1</a>) byl zkopírován do schránky."
 "<br><br>Pokud chcete odstranit odeslaný obrázek navštivte <a href=\"%2\">%2</"
 "a>"
-
-#~ msgid "Error page returned"
-#~ msgstr "Byla navrácena chybová stránka"
