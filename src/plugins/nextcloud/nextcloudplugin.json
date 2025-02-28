@@ -102,9 +102,25 @@
         "Description[zh_TW]": "上傳檔案到 Nextcloud",
         "Icon": "kaccounts-nextcloud",
         "License": "GPL",
-        "Name": "Upload to Nextcloud"
+        "Name": "Upload to Nextcloud",
+        "Name[ca@valencia]": "Puja a Nextcloud",
+        "Name[ca]": "Puja al Nextcloud",
+        "Name[es]": "Enviar a Nextcloud",
+        "Name[ka]": "ატვირთვა Nextcloud-ზე",
+        "Name[nl]": "Naar Nextcloud uploaden",
+        "Name[sl]": "Prenesi na Nextcloud",
+        "Name[tr]": "Nextcloud’a Yükle",
+        "Name[x-test]": "xxUpload to Nextcloudxx"
     },
     "X-Purpose-ActionDisplay": "Upload to Nextcloud…",
+    "X-Purpose-ActionDisplay[ca@valencia]": "Puja a Nextcloud…",
+    "X-Purpose-ActionDisplay[ca]": "Puja al Nextcloud…",
+    "X-Purpose-ActionDisplay[es]": "Enviar a Nextcloud…",
+    "X-Purpose-ActionDisplay[ka]": "ატვირთვა Nextcloud-ზე…",
+    "X-Purpose-ActionDisplay[nl]": "Naar Nextcloud uploaden…",
+    "X-Purpose-ActionDisplay[sl]": "Prenesi na Nextcloud…",
+    "X-Purpose-ActionDisplay[tr]": "Nextcloud’a Yükle",
+    "X-Purpose-ActionDisplay[x-test]": "xxUpload to Nextcloud…xx",
     "X-Purpose-Configuration": [
         "folder",
         "accountId"

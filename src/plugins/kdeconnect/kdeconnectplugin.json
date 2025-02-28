@@ -103,9 +103,25 @@
         "Description[zh_TW]": "透過 KDE Connect 傳送",
         "Icon": "kdeconnect-symbolic",
         "License": "GPL",
-        "Name": "Send to Device"
+        "Name": "Send to Device",
+        "Name[ca@valencia]": "Envia a un dispositiu",
+        "Name[ca]": "Envia a un dispositiu",
+        "Name[es]": "Enviar a dispositivo",
+        "Name[ka]": "მოწყობილობაზე გაგზავნა",
+        "Name[nl]": "Naar apparaat verzenden",
+        "Name[sl]": "Pošlji na napravo",
+        "Name[tr]": "Aygıta Gönder",
+        "Name[x-test]": "xxSend to Devicexx"
     },
     "X-Purpose-ActionDisplay": "Send to Device…",
+    "X-Purpose-ActionDisplay[ca@valencia]": "Envia a un dispositiu…",
+    "X-Purpose-ActionDisplay[ca]": "Envia a un dispositiu…",
+    "X-Purpose-ActionDisplay[es]": "Enviar a dispositivo…",
+    "X-Purpose-ActionDisplay[ka]": "მოწყობილობაზე გაგზავნა…",
+    "X-Purpose-ActionDisplay[nl]": "Naar apparaat verzenden…",
+    "X-Purpose-ActionDisplay[sl]": "Pošlji na napravo…",
+    "X-Purpose-ActionDisplay[tr]": "Aygıta Gönder…",
+    "X-Purpose-ActionDisplay[x-test]": "xxSend to Device…xx",
     "X-Purpose-Configuration": [
         "device"
     ],

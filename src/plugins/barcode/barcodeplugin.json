@@ -96,7 +96,15 @@
         "Description[zh_TW]": "為這個連結產生 QR 碼",
         "Icon": "view-barcode-qr",
         "License": "LGPL",
-        "Name": "Generate QR Code"
+        "Name": "Generate QR Code",
+        "Name[ca@valencia]": "Genera un codi QR",
+        "Name[ca]": "Genera un codi QR",
+        "Name[es]": "Generar código QR",
+        "Name[ka]": "QR კოდის გენერაცია",
+        "Name[nl]": "QR-code genereren",
+        "Name[sl]": "Generiraj QR kodo",
+        "Name[tr]": "Kare Kod Üret",
+        "Name[x-test]": "xxGenerate QR Codexx"
     },
     "X-Purpose-ActionDisplay": "Generate QR Code",
     "X-Purpose-ActionDisplay[ar]": "ولد بركود",
