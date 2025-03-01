@@ -100,10 +100,13 @@
         "Name[ca@valencia]": "Genera un codi QR",
         "Name[ca]": "Genera un codi QR",
         "Name[es]": "Generar código QR",
+        "Name[he]": "יצירת קוד QR",
         "Name[ka]": "QR კოდის გენერაცია",
         "Name[nl]": "QR-code genereren",
         "Name[sl]": "Generiraj QR kodo",
+        "Name[sv]": "Skapa QR-kod",
         "Name[tr]": "Kare Kod Üret",
+        "Name[uk]": "Створити QR-код",
         "Name[x-test]": "xxGenerate QR Codexx"
     },
     "X-Purpose-ActionDisplay": "Generate QR Code",

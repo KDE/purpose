@@ -107,10 +107,13 @@
         "Name[ca@valencia]": "Puja públicament a Pastebin",
         "Name[ca]": "Puja públicament a Pastebin",
         "Name[es]": "Enviar públicamente a Pastebin",
+        "Name[he]": "העלאה ציבורית ל־Pastebin",
         "Name[ka]": "საჯაროდ ატვირთვა Pastebin-ზე",
         "Name[nl]": "Publiek uploaden naar Pastebin",
         "Name[sl]": "Prenesi Javno na Pastebin",
+        "Name[sv]": "Ladda upp öppet till Pastebin",
         "Name[tr]": "Herkese Açık Olarak Pastebin’e Yükle",
+        "Name[uk]": "Вивантажити відкрито на Pastebin",
         "Name[x-test]": "xxUpload Publicly to Pastebinxx"
     },
     "X-Purpose-ActionDisplay": "Upload Publicly to Pastebin",
