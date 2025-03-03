@@ -40,7 +40,7 @@ msgstr ""
 #: reviewboardjobs.cpp:239
 #, kde-format
 msgid "Could not upload the patch"
-msgstr "Non foi posíbel enviar o parche"
+msgstr "Non foi posíbel subir o parche"
 
 #: reviewboardjobs.cpp:332
 #, kde-format
