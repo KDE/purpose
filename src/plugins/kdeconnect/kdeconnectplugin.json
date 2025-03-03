@@ -104,6 +104,7 @@
         "Icon": "kdeconnect-symbolic",
         "License": "GPL",
         "Name": "Send to Device",
+        "Name[ar]": "أرسِل إلى جهاز",
         "Name[ca@valencia]": "Envia a un dispositiu",
         "Name[ca]": "Envia a un dispositiu",
         "Name[eo]": "Sendi al Aparato",
@@ -121,6 +122,7 @@
         "Name[x-test]": "xxSend to Devicexx"
     },
     "X-Purpose-ActionDisplay": "Send to Device…",
+    "X-Purpose-ActionDisplay[ar]": "أرسِل إلى جهاز…",
     "X-Purpose-ActionDisplay[ca@valencia]": "Envia a un dispositiu…",
     "X-Purpose-ActionDisplay[ca]": "Envia a un dispositiu…",
     "X-Purpose-ActionDisplay[eo]": "Sendi al Aparato…",

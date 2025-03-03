@@ -101,6 +101,7 @@
         "Icon": "phabricator-purpose6",
         "License": "GPL",
         "Name": "Upload to Phabricator",
+        "Name[ar]": "ارفع على «فابريكيتور»",
         "Name[ca@valencia]": "Puja a Phabricator",
         "Name[ca]": "Puja al Phabricator",
         "Name[eo]": "Alŝuti al Phabricator",
@@ -118,6 +119,7 @@
         "Name[x-test]": "xxUpload to Phabricatorxx"
     },
     "X-Purpose-ActionDisplay": "Upload to Phabricator…",
+    "X-Purpose-ActionDisplay[ar]": "ارفع على «فابريكيتور»…",
     "X-Purpose-ActionDisplay[ca@valencia]": "Puja a Phabricator…",
     "X-Purpose-ActionDisplay[ca]": "Puja al Phabricator…",
     "X-Purpose-ActionDisplay[eo]": "Alŝuti al Phabricator…",

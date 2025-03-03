@@ -103,6 +103,7 @@
         "Icon": "kaccounts-nextcloud",
         "License": "GPL",
         "Name": "Upload to Nextcloud",
+        "Name[ar]": "ارفع على «نِكست‌كلاود»",
         "Name[ca@valencia]": "Puja a Nextcloud",
         "Name[ca]": "Puja al Nextcloud",
         "Name[eo]": "Alŝuti al Nextcloud",
@@ -120,6 +121,7 @@
         "Name[x-test]": "xxUpload to Nextcloudxx"
     },
     "X-Purpose-ActionDisplay": "Upload to Nextcloud…",
+    "X-Purpose-ActionDisplay[ar]": "ارفع على «نِكست‌كلاود»…",
     "X-Purpose-ActionDisplay[ca@valencia]": "Puja a Nextcloud…",
     "X-Purpose-ActionDisplay[ca]": "Puja al Nextcloud…",
     "X-Purpose-ActionDisplay[eo]": "Alŝuti al Nextcloud…",

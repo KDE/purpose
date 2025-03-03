@@ -104,6 +104,7 @@
         "Icon": "im-youtube-symbolic",
         "License": "GPL",
         "Name": "Upload to YouTube",
+        "Name[ar]": "ارفع إلى «يوتيوب»",
         "Name[ca@valencia]": "Puja a YouTube",
         "Name[ca]": "Puja a YouTube",
         "Name[eo]": "Alŝuti al Jutubo",
@@ -121,6 +122,7 @@
         "Name[x-test]": "xxUpload to YouTubexx"
     },
     "X-Purpose-ActionDisplay": "Upload to Youtube…",
+    "X-Purpose-ActionDisplay[ar]": "ارفع إلى «يوتيوب»…",
     "X-Purpose-ActionDisplay[ca@valencia]": "Puja a YouTube…",
     "X-Purpose-ActionDisplay[ca]": "Puja a YouTube…",
     "X-Purpose-ActionDisplay[eo]": "Alŝuti al Jutubo…",

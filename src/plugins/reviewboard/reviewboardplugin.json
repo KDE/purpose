@@ -101,6 +101,7 @@
         "Icon": "reviewboard-purpose6",
         "License": "GPL",
         "Name": "Upload to Review Board",
+        "Name[ar]": "ارفع  إلى «لوحة المراجعة»",
         "Name[ca@valencia]": "Puja a Review Board",
         "Name[ca]": "Puja al Review Board",
         "Name[eo]": "Alŝuti al Reviziotabulo",
@@ -117,6 +118,7 @@
         "Name[x-test]": "xxUpload to Review Boardxx"
     },
     "X-Purpose-ActionDisplay": "Upload to Review Board…",
+    "X-Purpose-ActionDisplay[ar]": "ارفع  إلى «لوحة المراجعة»…",
     "X-Purpose-ActionDisplay[ca@valencia]": "Puja a Review Board…",
     "X-Purpose-ActionDisplay[ca]": "Puja al Review Board…",
     "X-Purpose-ActionDisplay[eo]": "Alŝuti al Reviziotabulo…",
