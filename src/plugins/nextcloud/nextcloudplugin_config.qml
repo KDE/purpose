@@ -9,7 +9,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCMUtils
-import SSO.OnlineAccounts as OA
+import org.kde.purpose.nextcloud.private
 
 ColumnLayout {
     id: root
@@ -40,14 +40,16 @@ ColumnLayout {
 
             clip: true
 
-            model: OA.AccountServiceModel {
-                id: serviceModel
-                serviceType: "dav-storage"
+            model: AccountsModel {
+
             }
 
             delegate: ItemDelegate {
+                required property string name
+                required property string path
+
                 width: ListView.view.width
-                text: model.displayName
+                text: name
             }
 
             onCurrentIndexChanged: {
@@ -56,7 +58,7 @@ ColumnLayout {
                     return
                 }
 
-                root.accountId = serviceModel.get(list.currentIndex, "accountId")
+                root.accountId = currentItem.path
             }
 
             Kirigami.PlaceholderMessage {
