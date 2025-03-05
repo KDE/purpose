@@ -6,26 +6,18 @@
 
 #include "youtubejobcomposite.h"
 #include "youtubejob.h"
-#include <Accounts/Application>
-#include <Accounts/Manager>
-#include <KAccounts/Core>
-#include <KAccounts/GetCredentialsJob>
+
 #include <KLocalizedString>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusObjectPath>
+#include <QDBusReply>
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonValue>
 #include <QStandardPaths>
 
-QDebug operator<<(QDebug s, const Accounts::Service &service)
-{
-    s.nospace() << qPrintable(service.displayName()) << ',' << qPrintable(service.name()) << '\n';
-    return s;
-}
-QDebug operator<<(QDebug s, const Accounts::Provider &provider)
-{
-    s.nospace() << "Provider(" << qPrintable(provider.displayName()) << ',' << qPrintable(provider.name()) << ")\n";
-    return s;
-}
+using namespace Qt::StringLiterals;
 
 YoutubeJobComposite::YoutubeJobComposite()
     : Purpose::Job()
@@ -41,22 +33,20 @@ void YoutubeJobComposite::start()
         emitResult();
         return;
     }
-    const Accounts::AccountId id = jsonId.toInt();
 
-    // TODO: make async
-    QByteArray accessToken;
-    {
-        auto job = new KAccounts::GetCredentialsJob(id, this);
-        bool b = job->exec();
-        if (!b) {
-            qWarning() << "Couldn't fetch credentials";
-            setError(job->error());
-            setErrorText(job->errorText());
-            emitResult();
-            return;
-        }
-        accessToken = job->credentialsData().value(QStringLiteral("AccessToken")).toByteArray();
-    }
+    const QDBusObjectPath path(jsonId.toString());
+
+    QDBusMessage msg = QDBusMessage::createMethodCall(u"org.kde.KOnlineAccounts"_s, path.path(), u"org.freedesktop.DBus.Properties"_s, u"GetAll"_s);
+    msg.setArguments({u"org.kde.KOnlineAccounts.Google"_s});
+    QDBusReply<QVariantMap> reply = QDBusConnection::sessionBus().call(msg);
+
+    const QVariantMap result = reply.value();
+
+    qWarning() << "re" << reply.error() << result;
+
+    const QByteArray accessToken = result[u"accessToken"_s].toString().toUtf8();
+
+    qWarning() << "got token" << accessToken;
 
     m_pendingJobs = 0;
     const QJsonArray urls = data().value(QLatin1String("urls")).toArray();

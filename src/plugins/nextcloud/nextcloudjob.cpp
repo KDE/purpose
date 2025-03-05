@@ -5,10 +5,15 @@
 */
 
 #include "nextcloudjob.h"
-#include <KAccounts/Core>
-#include <KAccounts/GetCredentialsJob>
 #include <KIO/CopyJob>
 #include <QDebug>
+
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusObjectPath>
+#include <QDBusReply>
+
+using namespace Qt::Literals;
 
 QList<QUrl> arrayToList(const QJsonArray &array)
 {
@@ -21,43 +26,23 @@ QList<QUrl> arrayToList(const QJsonArray &array)
 
 void NextcloudJob::start()
 {
-    const Accounts::AccountId id = data().value(QLatin1String("accountId")).toInt();
-    auto credentialsJob = new KAccounts::GetCredentialsJob(id, this);
+    const QDBusObjectPath path(data().value(QLatin1String("accountId")).toString());
 
-    connect(credentialsJob, &KAccounts::GetCredentialsJob::finished, this, &NextcloudJob::gotCredentials);
+    QDBusMessage msg = QDBusMessage::createMethodCall(u"org.kde.KOnlineAccounts"_s, path.path(), u"org.freedesktop.DBus.Properties"_s, u"GetAll"_s);
+    msg.setArguments({u"org.kde.KOnlineAccounts.Nextcloud"_s});
+    QDBusReply<QVariantMap> reply = QDBusConnection::sessionBus().call(msg);
 
-    credentialsJob->start();
-}
-
-void NextcloudJob::gotCredentials(KJob *job)
-{
-    if (job->error()) {
-        setError(job->error());
-        setErrorText(job->errorText());
-        emitResult();
-        return;
-    }
-
-    const Accounts::AccountId id = data().value(QLatin1String("accountId")).toInt();
-    Accounts::Account *acc = Accounts::Account::fromId(KAccounts::accountsManager(), id);
-
-    const auto services = acc->services();
-    for (const Accounts::Service &service : services) {
-        if (service.name() == QStringLiteral("dav-storage")) {
-            acc->selectService(service);
-        }
-    }
-
-    KAccounts::GetCredentialsJob *credentialsJob = qobject_cast<KAccounts::GetCredentialsJob *>(job);
-    Q_ASSERT(credentialsJob);
+    const QVariantMap result = reply.value();
     const QString folder = data().value(QLatin1String("folder")).toString();
+    const QString storagePath = result[u"storagePath"_s].toString();
+    const QString username = result[u"username"_s].toString();
+    const QString password = result[u"password"_s].toString();
 
-    QUrl destUrl;
-    destUrl.setHost(acc->valueAsString(QStringLiteral("dav/host")));
-    destUrl.setScheme(QStringLiteral("webdav"));
-    destUrl.setPath(acc->valueAsString(QStringLiteral("dav/storagePath")) + folder);
-    destUrl.setUserName(credentialsJob->credentialsData().value(QStringLiteral("UserName")).toString());
-    destUrl.setPassword(credentialsJob->credentialsData().value(QStringLiteral("Secret")).toString());
+    QUrl destUrl = result[u"url"_s].toUrl();
+    destUrl.setScheme(QStringLiteral("webdavs"));
+    destUrl.setPath(storagePath + u"/" + folder); // TODO this discards subpaths
+    destUrl.setUserName(username);
+    destUrl.setPassword(password);
 
     const QList<QUrl> sourceUrls = arrayToList(data().value(QLatin1String("urls")).toArray());
 

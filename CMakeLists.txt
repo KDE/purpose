@@ -46,14 +46,6 @@ set(KF_DEP_VERSION "6.20.0") # handled by release scripts
 
 find_package(KF6 ${KF_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n Config Kirigami Notifications KIO Service)
 
-find_package(KAccounts6)
-
-set_package_properties(KAccounts6 PROPERTIES
-                       PURPOSE "Needed for YouTube and Nextcloud upload"
-                       TYPE OPTIONAL
-)
-ecm_find_qmlmodule(SSO.OnlineAccounts 0.1)
-
 ecm_find_qmlmodule(org.kde.kquickcontrolsaddons 2.0)
 ecm_find_qmlmodule(org.kde.prison 1.0)
 ecm_find_qmlmodule(org.kde.kitemmodels 1.0)

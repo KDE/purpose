@@ -104,6 +104,7 @@ add_subdirectory(plugins)
 add_subdirectory(quick)
 add_subdirectory(widgets)
 add_subdirectory(fileitemactionplugin)
+add_subdirectory(accounts)
 
 ecm_qt_install_logging_categories(
     EXPORT PURPOSE

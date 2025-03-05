@@ -20,8 +20,5 @@ public:
     {
     }
     void start() override;
-
-private Q_SLOTS:
-    void gotCredentials(KJob *job);
 };
 #endif /* NEXTCLOUDJOB_H */
