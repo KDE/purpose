@@ -3,6 +3,7 @@
 # Copyright (C) 2021 This file is copyright:
 # This file is distributed under the same license as the purpose package.
 # Frederik Schwarzer <schwarzer@kde.org>, 2021, 2023.
+# SPDX-FileCopyrightText: 2025 Flori G <Renner03@protonmail.com>
 #
 # Automatically generated, 2021.
 msgid ""
@@ -10,15 +11,15 @@ msgstr ""
 "Project-Id-Version: purpose6_barcode\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2023-04-03 17:04+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2025-01-29 16:14+0100\n"
+"Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: barcodeplugin_config.qml:53
 #, kde-format
@@ -40,4 +41,4 @@ msgstr "Der QR-Code ist zu groß, um angezeigt zu werden"
 #: barcodeplugin_config.qml:83
 #, kde-format
 msgid "Type a URL or some text..."
-msgstr " Geben Sie eine Adresse oder anderen Text ein ..."
+msgstr "Geben Sie eine Adresse oder anderen Text ein …"
