@@ -115,13 +115,15 @@
         "Name[ia]": "Incarga publicamente a Pastebin",
         "Name[it]": "Carica pubblicamente su Pastebin",
         "Name[ka]": "საჯაროდ ატვირთვა Pastebin-ზე",
+        "Name[lv]": "Augšupielādēt publiski uz „Pastebin“",
         "Name[nl]": "Publiek uploaden naar Pastebin",
         "Name[ru]": "Публикация в Pastebin",
         "Name[sl]": "Prenesi Javno na Pastebin",
         "Name[sv]": "Ladda upp öppet till Pastebin",
         "Name[tr]": "Herkese Açık Olarak Pastebin’e Yükle",
         "Name[uk]": "Вивантажити відкрито на Pastebin",
-        "Name[x-test]": "xxUpload Publicly to Pastebinxx"
+        "Name[x-test]": "xxUpload Publicly to Pastebinxx",
+        "Name[zh_CN]": "上传到 Pastebin (公开)"
     },
     "X-Purpose-ActionDisplay": "Upload Publicly to Pastebin",
     "X-Purpose-ActionDisplay[ar]": "ارفع بشكل علني على «بيست‌بِن»",

@@ -114,13 +114,15 @@
         "Name[ia]": "Incarga a Nextcloud",
         "Name[it]": "Carica su Nextcloud",
         "Name[ka]": "ატვირთვა Nextcloud-ზე",
+        "Name[lv]": "Augšupielādēt datnes uz „Nextcloud“",
         "Name[nl]": "Naar Nextcloud uploaden",
         "Name[ru]": "Отправка в Nextcloud",
         "Name[sl]": "Prenesi na Nextcloud",
         "Name[sv]": "Ladda upp till Nextcloud",
         "Name[tr]": "Nextcloud’a Yükle",
         "Name[uk]": "Вивантаження на Nextcloud",
-        "Name[x-test]": "xxUpload to Nextcloudxx"
+        "Name[x-test]": "xxUpload to Nextcloudxx",
+        "Name[zh_CN]": "上传到 Nextcloud"
     },
     "X-Purpose-ActionDisplay": "Upload to Nextcloud…",
     "X-Purpose-ActionDisplay[ar]": "ارفع على «نِكست‌كلاود»…",
@@ -134,6 +136,7 @@
     "X-Purpose-ActionDisplay[ia]": "Incarga a Nextcloud…",
     "X-Purpose-ActionDisplay[it]": "Carica su Nextcloud",
     "X-Purpose-ActionDisplay[ka]": "ატვირთვა Nextcloud-ზე…",
+    "X-Purpose-ActionDisplay[lv]": "Augšupielādēt uz „Nextcloud“…",
     "X-Purpose-ActionDisplay[nl]": "Naar Nextcloud uploaden…",
     "X-Purpose-ActionDisplay[ru]": "Отправить в Nextcloud…",
     "X-Purpose-ActionDisplay[sl]": "Prenesi na Nextcloud…",
@@ -141,6 +144,7 @@
     "X-Purpose-ActionDisplay[tr]": "Nextcloud’a Yükle",
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на Nextcloud…",
     "X-Purpose-ActionDisplay[x-test]": "xxUpload to Nextcloud…xx",
+    "X-Purpose-ActionDisplay[zh_CN]": "上传到 Nextcloud…",
     "X-Purpose-Configuration": [
         "folder",
         "accountId"

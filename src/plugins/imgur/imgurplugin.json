@@ -115,13 +115,15 @@
         "Name[ia]": "Incarga Publicamente a Imgur",
         "Name[it]": "Carica pubblicamente su Imgur",
         "Name[ka]": "საჯაროდ ატვირთვა Imgur-ზე",
+        "Name[lv]": "Augšupielādēt attēlus uz „Imgur“",
         "Name[nl]": "Publiek uploaden naar Imgur",
         "Name[ru]": "Публикация на Imgur",
         "Name[sl]": "Prenesi javno na Imgur",
         "Name[sv]": "Ladda upp öppet till Imgur",
         "Name[tr]": "Herkese Açık Olarak Imgur’a Yükle",
         "Name[uk]": "Вивантажити відкрито на Imgur",
-        "Name[x-test]": "xxUpload Publicly to Imgurxx"
+        "Name[x-test]": "xxUpload Publicly to Imgurxx",
+        "Name[zh_CN]": "上传到 Imgur (公开)"
     },
     "X-Comment": "mimetypes listed here: https://apidocs.imgur.com/#c85c9dfc-7487-4de2-9ecd-66f727cf3139",
     "X-Purpose-ActionDisplay": "Upload Publicly to Imgur",
@@ -136,6 +138,7 @@
     "X-Purpose-ActionDisplay[ia]": "Incarga Publicamente a Imgur",
     "X-Purpose-ActionDisplay[it]": "Carica pubblicamente su Imgur",
     "X-Purpose-ActionDisplay[ka]": "საჯაროდ ატვირთვა Imgur-ზე",
+    "X-Purpose-ActionDisplay[lv]": "Augšupielādēt publiski uz „Imgur“",
     "X-Purpose-ActionDisplay[nl]": "Publiek uploaden naar Imgur",
     "X-Purpose-ActionDisplay[ru]": "Публикация на Imgur",
     "X-Purpose-ActionDisplay[sl]": "Prenesi javno na Imgur",
@@ -143,6 +146,7 @@
     "X-Purpose-ActionDisplay[tr]": "Herkese Açık Olarak Imgur’a Yükle",
     "X-Purpose-ActionDisplay[uk]": "Вивантажити відкрито на Imgur",
     "X-Purpose-ActionDisplay[x-test]": "xxUpload Publicly to Imgurxx",
+    "X-Purpose-ActionDisplay[zh_CN]": "上传到 Imgur (公开)",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         [

@@ -108,13 +108,15 @@
         "Name[ia]": "Genera codice QR",
         "Name[it]": "Genera codice QR",
         "Name[ka]": "QR კოდის გენერაცია",
+        "Name[lv]": "Ģenerēt kvadrātkodu",
         "Name[nl]": "QR-code genereren",
         "Name[ru]": "Создание QR-кода",
         "Name[sl]": "Generiraj QR kodo",
         "Name[sv]": "Skapa QR-kod",
         "Name[tr]": "Kare Kod Üret",
         "Name[uk]": "Створити QR-код",
-        "Name[x-test]": "xxGenerate QR Codexx"
+        "Name[x-test]": "xxGenerate QR Codexx",
+        "Name[zh_CN]": "生成二维码"
     },
     "X-Purpose-ActionDisplay": "Generate QR Code",
     "X-Purpose-ActionDisplay[ar]": "ولد بركود",

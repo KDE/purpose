@@ -111,13 +111,15 @@
         "Name[he]": "העלאה ל־Review Board",
         "Name[ia]": "Incarga  a tabula de revision (Review Board)",
         "Name[ka]": "ატვირთვა განხილვის საბჭოზე",
+        "Name[lv]": "Augšupielādēt uz „Review Board“",
         "Name[nl]": "Uploaden naar reviewboard",
         "Name[ru]": "Отправка в Review Board",
         "Name[sl]": "Prenesi na revizijsko komisijo",
         "Name[sv]": "Ladda upp till Review Board",
         "Name[tr]": "Gözden Geçirme Panosuna Yükle",
         "Name[uk]": "Вивантаження на Review Board",
-        "Name[x-test]": "xxUpload to Review Boardxx"
+        "Name[x-test]": "xxUpload to Review Boardxx",
+        "Name[zh_CN]": "上传到 Review Board"
     },
     "X-Purpose-ActionDisplay": "Upload to Review Board…",
     "X-Purpose-ActionDisplay[ar]": "ارفع  إلى «لوحة المراجعة»…",
@@ -130,6 +132,7 @@
     "X-Purpose-ActionDisplay[he]": "העלאה ל־Review Board…",
     "X-Purpose-ActionDisplay[ia]": "Incarga  a tabula de revision (Review Board)…",
     "X-Purpose-ActionDisplay[ka]": "ატვირთვა განხილვის საბჭოზე…",
+    "X-Purpose-ActionDisplay[lv]": "Augšupielādēt uz „Review Board“…",
     "X-Purpose-ActionDisplay[nl]": "Naar reviewboard uploaden…",
     "X-Purpose-ActionDisplay[ru]": "Отправить в Review Board…",
     "X-Purpose-ActionDisplay[sl]": "Prenesi na revizijsko komisijo…",
@@ -137,6 +140,7 @@
     "X-Purpose-ActionDisplay[tr]": "Gözden Geçirme Panosuna Yükle…",
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на Review Board…",
     "X-Purpose-ActionDisplay[x-test]": "xxUpload to Review Board…xx",
+    "X-Purpose-ActionDisplay[zh_CN]": "上传到 Review Board…",
     "X-Purpose-Configuration": [
         "updateRR",
         "server",

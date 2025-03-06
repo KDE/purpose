@@ -112,13 +112,15 @@
         "Name[ia]": "Incarga a Phabricator",
         "Name[it]": "Carica su Phabricator",
         "Name[ka]": "Phabricator-ზე ატვრთვა",
+        "Name[lv]": "Augšupielādēt uz „Phabricator“",
         "Name[nl]": "Uploaden naar Phabricator",
         "Name[ru]": "Отправка в Phabricator",
         "Name[sl]": "Prenesi na Phabricator",
         "Name[sv]": "Ladda upp till Phabricator",
         "Name[tr]": "Phabricator’a Yükle",
         "Name[uk]": "Вивантаження на Phabricator",
-        "Name[x-test]": "xxUpload to Phabricatorxx"
+        "Name[x-test]": "xxUpload to Phabricatorxx",
+        "Name[zh_CN]": "上传到 Phabricator"
     },
     "X-Purpose-ActionDisplay": "Upload to Phabricator…",
     "X-Purpose-ActionDisplay[ar]": "ارفع على «فابريكيتور»…",
@@ -132,6 +134,7 @@
     "X-Purpose-ActionDisplay[ia]": "Incarga a Phabricator…",
     "X-Purpose-ActionDisplay[it]": "Carica su Phabricator…",
     "X-Purpose-ActionDisplay[ka]": "Phabricator-ზე ატვრთვა…",
+    "X-Purpose-ActionDisplay[lv]": "Augšupielādēt uz „Phabricator“…",
     "X-Purpose-ActionDisplay[nl]": "Naar Phabricator uploaden…",
     "X-Purpose-ActionDisplay[ru]": "Отправить в Phabricator…",
     "X-Purpose-ActionDisplay[sl]": "Prenesi na Phabricator…",
@@ -139,6 +142,7 @@
     "X-Purpose-ActionDisplay[tr]": "Phabricator’a Yükle",
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на Phabricator…",
     "X-Purpose-ActionDisplay[x-test]": "xxUpload to Phabricator…xx",
+    "X-Purpose-ActionDisplay[zh_CN]": "上传到 Phabricator…",
     "X-Purpose-Configuration": [
         "updateDR",
         "doBrowse",
