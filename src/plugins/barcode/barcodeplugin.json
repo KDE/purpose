@@ -98,6 +98,7 @@
         "License": "LGPL",
         "Name": "Generate QR Code",
         "Name[ar]": "ولد رمز الاستجابة السريعة",
+        "Name[bg]": "Генериране на QR код",
         "Name[ca@valencia]": "Genera un codi QR",
         "Name[ca]": "Genera un codi QR",
         "Name[eo]": "Generi QR-Kodon",
