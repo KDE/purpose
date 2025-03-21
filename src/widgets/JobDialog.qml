@@ -36,6 +36,18 @@ QQC2.ApplicationWindow {
         jobView.start();
     }
 
+    function cancel(): void {
+        window.menu.finished({}, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose6_widgets", "Configuration cancelled"));
+        window.close();
+    }
+
+    onClosing: {
+        if (jobView.state === Purpose.PurposeJobController.Configuring
+            || jobView.state === Purpose.PurposeJobController.Running) {
+            window.cancel();
+        }
+    }
+
     Purpose.JobView {
         id: jobView
 
@@ -53,8 +65,7 @@ QQC2.ApplicationWindow {
                 window.close();
                 break;
             case Purpose.PurposeJobController.Cancelled:
-                window.menu.finished({}, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose6_widgets", "Configuration cancelled"));
-                window.close();
+                window.cancel();
                 break;
             default:
                 break;
