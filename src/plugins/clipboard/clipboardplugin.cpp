@@ -24,21 +24,29 @@ public:
     {
     }
 
-    QList<QUrl> arrayToList(const QJsonArray &array)
-    {
-        QList<QUrl> ret;
-        ret.reserve(array.size());
-        for (const QJsonValue &val : array) {
-            ret += QUrl(val.toString());
-        }
-        return ret;
-    }
-
     void start() override
     {
         QTimer::singleShot(0, this, [this] {
             QMimeData *mimeData = new QMimeData;
-            mimeData->setUrls(arrayToList(data().value(QLatin1String("urls")).toArray()));
+
+            QString text;
+            QList<QUrl> urls;
+            for (const QJsonValue &jsonUrl : data().value(QLatin1String("urls")).toArray()) {
+                const QString jsonUrlString = jsonUrl.toString();
+
+                const QUrl url{jsonUrlString};
+                // Keep TolerantMode for QUrl but filter out obvious garbage.
+                if (!url.scheme().isEmpty()) {
+                    urls.append(url);
+                }
+                if (!text.isEmpty()) {
+                    text.append(QLatin1Char('\n'));
+                }
+                text.append(jsonUrlString);
+            }
+
+            mimeData->setText(text);
+            mimeData->setUrls(urls);
             qGuiApp->clipboard()->setMimeData(mimeData);
             emitResult();
         });
