@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:37+0000\n"
+"POT-Creation-Date: 2025-03-22 00:39+0000\n"
 "PO-Revision-Date: 2021-10-22 11:44+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Send File"
 msgstr "Bestand verzenden"
 
-#: JobDialog.qml:56
+#: JobDialog.qml:40
 #, kde-format
 msgid "Configuration cancelled"
 msgstr "Configuratie geannuleerd"

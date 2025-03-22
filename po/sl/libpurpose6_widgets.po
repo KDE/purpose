@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:37+0000\n"
+"POT-Creation-Date: 2025-03-22 00:39+0000\n"
 "PO-Revision-Date: 2021-10-23 10:47+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Send File"
 msgstr "Pošlji datoteko"
 
-#: JobDialog.qml:56
+#: JobDialog.qml:40
 #, kde-format
 msgid "Configuration cancelled"
 msgstr "Nastavitev preklicana"

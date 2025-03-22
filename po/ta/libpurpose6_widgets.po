@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:37+0000\n"
+"POT-Creation-Date: 2025-03-22 00:39+0000\n"
 "PO-Revision-Date: 2023-04-02 16:46+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Send File"
 msgstr "கோப்பை அனுப்பு"
 
-#: JobDialog.qml:56
+#: JobDialog.qml:40
 #, kde-format
 msgid "Configuration cancelled"
 msgstr "அமைத்தல் ரத்து செய்யப்பட்டது"

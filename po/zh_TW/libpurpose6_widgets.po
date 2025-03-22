@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libpurpose_widgets\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:37+0000\n"
+"POT-Creation-Date: 2025-03-22 00:39+0000\n"
 "PO-Revision-Date: 2023-04-14 22:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Send File"
 msgstr "傳送檔案"
 
-#: JobDialog.qml:56
+#: JobDialog.qml:40
 #, kde-format
 msgid "Configuration cancelled"
 msgstr "已取消設定"
