@@ -173,4 +173,40 @@ void AlternativesModelTest::blacklistTest()
     QVERIFY(!plugins.contains(QStringLiteral("emailplugin")));
 }
 
+void AlternativesModelTest::bogusInputDataClearsModel()
+{
+    Purpose::AlternativesModel model;
+    model.setPluginType(QStringLiteral("Export"));
+    model.setDisabledPlugins({});
+
+    const QJsonObject goodInput =
+        QJsonObject{{QStringLiteral("urls"), QJsonArray{QStringLiteral("http://kde.org")}}, {QStringLiteral("mimeType"), QStringLiteral("text/html")}};
+
+    const QJsonObject badInput =
+        QJsonObject{{QStringLiteral("noUrls"), QJsonArray{QStringLiteral("http://kde.org")}}, {QStringLiteral("mimeType"), QStringLiteral("text/html")}};
+
+    const QJsonObject noInput;
+
+    QSignalSpy modelResetSpy(&model, &QAbstractItemModel::modelReset);
+
+    model.setInputData(goodInput);
+    QVERIFY(model.rowCount() > 0);
+    QCOMPARE(modelResetSpy.count(), 1);
+    modelResetSpy.clear();
+
+    model.setInputData(noInput);
+    QCOMPARE(model.rowCount(), 0);
+    QCOMPARE(modelResetSpy.count(), 1);
+    modelResetSpy.clear();
+
+    model.setInputData(goodInput);
+    QVERIFY(model.rowCount() > 0);
+    QCOMPARE(modelResetSpy.count(), 1);
+    modelResetSpy.clear();
+
+    model.setInputData(badInput);
+    QCOMPARE(model.rowCount(), 0);
+    QCOMPARE(modelResetSpy.count(), 1);
+}
+
 #include "moc_alternativesmodeltest.cpp"

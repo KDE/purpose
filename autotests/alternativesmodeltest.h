@@ -19,6 +19,7 @@ private Q_SLOTS:
     void bigBufferTest();
     void disablePluginTest();
     void blacklistTest();
+    void bogusInputDataClearsModel();
 
 private:
     QTemporaryDir m_tempDir;

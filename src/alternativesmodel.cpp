@@ -323,35 +323,42 @@ static QList<KPluginMetaData> findScriptedPackages(std::function<bool(const KPlu
 void AlternativesModel::initializeModel()
 {
     Q_D(AlternativesModel);
-    if (d->m_pluginType.isEmpty()) {
-        return;
-    }
-    if (d->m_inputData.isEmpty()) {
-        return;
-    }
 
-    const QJsonArray inbound = d->m_pluginTypeData.value(QLatin1String("X-Purpose-InboundArguments")).toArray();
-    for (const QJsonValue &arg : inbound) {
-        const auto key = arg.toString();
-        if (!d->m_inputData.contains(key)) {
-            qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG).nospace()
-                << "Cannot initialize model for plugin type " << d->m_pluginType << " with data " << d->m_inputData << ": missing key " << key;
-            return;
+    const QList<KPluginMetaData> newPlugins = [&d] {
+        QList<KPluginMetaData> plugins;
+
+        if (d->m_pluginType.isEmpty() || d->m_inputData.isEmpty()) {
+            return plugins;
         }
+
+        const QJsonArray inbound = d->m_pluginTypeData.value(QLatin1String("X-Purpose-InboundArguments")).toArray();
+        for (const QJsonValue &arg : inbound) {
+            const auto key = arg.toString();
+            if (!d->m_inputData.contains(key)) {
+                qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG).nospace()
+                    << "Cannot initialize model for plugin type " << d->m_pluginType << " with data " << d->m_inputData << ": missing key " << key;
+                return plugins;
+            }
+        }
+
+        const auto config = KSharedConfig::openConfig(QStringLiteral("purposerc"));
+        const auto group = config->group(QStringLiteral("plugins"));
+        const QStringList disabledPlugins = group.readEntry("disabled", QStringList());
+        auto pluginAcceptable = [d, disabledPlugins](const KPluginMetaData &meta) {
+            return d->isPluginAcceptable(meta, disabledPlugins);
+        };
+
+        plugins << KPluginMetaData::findPlugins(QStringLiteral("kf6/purpose"), pluginAcceptable);
+        plugins += findScriptedPackages(pluginAcceptable);
+
+        return plugins;
+    }();
+
+    if (d->m_plugins != newPlugins) {
+        beginResetModel();
+        d->m_plugins = newPlugins;
+        endResetModel();
     }
-
-    const auto config = KSharedConfig::openConfig(QStringLiteral("purposerc"));
-    const auto group = config->group(QStringLiteral("plugins"));
-    const QStringList disabledPlugins = group.readEntry("disabled", QStringList());
-    auto pluginAcceptable = [d, disabledPlugins](const KPluginMetaData &meta) {
-        return d->isPluginAcceptable(meta, disabledPlugins);
-    };
-
-    beginResetModel();
-    d->m_plugins.clear();
-    d->m_plugins << KPluginMetaData::findPlugins(QStringLiteral("kf6/purpose"), pluginAcceptable);
-    d->m_plugins += findScriptedPackages(pluginAcceptable);
-    endResetModel();
 }
 
 #include "moc_alternativesmodel.cpp"
