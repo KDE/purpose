@@ -18,6 +18,7 @@
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QRegularExpression>
+#include <QScopeGuard>
 #include <QStandardPaths>
 
 #include <KConfigGroup>
@@ -323,6 +324,17 @@ static QList<KPluginMetaData> findScriptedPackages(std::function<bool(const KPlu
 void AlternativesModel::initializeModel()
 {
     Q_D(AlternativesModel);
+
+    QList<KPluginMetaData> plugins;
+
+    auto emitModelReset = qScopeGuard([&] {
+        if (d->m_plugins != plugins) {
+            beginResetModel();
+            d->m_plugins = plugins;
+            endResetModel();
+        }
+    });
+
     if (d->m_pluginType.isEmpty()) {
         return;
     }
@@ -347,11 +359,8 @@ void AlternativesModel::initializeModel()
         return d->isPluginAcceptable(meta, disabledPlugins);
     };
 
-    beginResetModel();
-    d->m_plugins.clear();
-    d->m_plugins << KPluginMetaData::findPlugins(QStringLiteral("kf6/purpose"), pluginAcceptable);
-    d->m_plugins += findScriptedPackages(pluginAcceptable);
-    endResetModel();
+    plugins << KPluginMetaData::findPlugins(QStringLiteral("kf6/purpose"), pluginAcceptable);
+    plugins += findScriptedPackages(pluginAcceptable);
 }
 
 #include "moc_alternativesmodel.cpp"
