@@ -126,7 +126,8 @@
         "Name[tr]": "Nextcloud’a Yükle",
         "Name[uk]": "Вивантаження на Nextcloud",
         "Name[x-test]": "xxUpload to Nextcloudxx",
-        "Name[zh_CN]": "上传到 Nextcloud"
+        "Name[zh_CN]": "上传到 Nextcloud",
+        "Name[zh_TW]": "上傳到 Nextcloud"
     },
     "X-Purpose-ActionDisplay": "Upload to Nextcloud…",
     "X-Purpose-ActionDisplay[ar]": "ارفع على «نِكست‌كلاود»…",
@@ -153,6 +154,7 @@
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на Nextcloud…",
     "X-Purpose-ActionDisplay[x-test]": "xxUpload to Nextcloud…xx",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Nextcloud…",
+    "X-Purpose-ActionDisplay[zh_TW]": "上傳到 Nextcloud…",
     "X-Purpose-Configuration": [
         "folder",
         "accountId"

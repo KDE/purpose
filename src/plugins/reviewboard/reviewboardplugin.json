@@ -123,7 +123,8 @@
         "Name[tr]": "Gözden Geçirme Panosuna Yükle",
         "Name[uk]": "Вивантаження на Review Board",
         "Name[x-test]": "xxUpload to Review Boardxx",
-        "Name[zh_CN]": "上传到 Review Board"
+        "Name[zh_CN]": "上传到 Review Board",
+        "Name[zh_TW]": "上傳到 Review Board"
     },
     "X-Purpose-ActionDisplay": "Upload to Review Board…",
     "X-Purpose-ActionDisplay[ar]": "ارفع  إلى «لوحة المراجعة»…",
@@ -149,6 +150,7 @@
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на Review Board…",
     "X-Purpose-ActionDisplay[x-test]": "xxUpload to Review Board…xx",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Review Board…",
+    "X-Purpose-ActionDisplay[zh_TW]": "上傳到 Review Board…",
     "X-Purpose-Configuration": [
         "updateRR",
         "server",

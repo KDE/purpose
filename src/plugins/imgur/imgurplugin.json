@@ -127,7 +127,8 @@
         "Name[tr]": "Herkese Açık Olarak Imgur’a Yükle",
         "Name[uk]": "Вивантажити відкрито на Imgur",
         "Name[x-test]": "xxUpload Publicly to Imgurxx",
-        "Name[zh_CN]": "上传到 Imgur (公开)"
+        "Name[zh_CN]": "上传到 Imgur (公开)",
+        "Name[zh_TW]": "公開上傳到 Imgur"
     },
     "X-Comment": "mimetypes listed here: https://apidocs.imgur.com/#c85c9dfc-7487-4de2-9ecd-66f727cf3139",
     "X-Purpose-ActionDisplay": "Upload Publicly to Imgur",
@@ -155,6 +156,7 @@
     "X-Purpose-ActionDisplay[uk]": "Вивантажити відкрито на Imgur",
     "X-Purpose-ActionDisplay[x-test]": "xxUpload Publicly to Imgurxx",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Imgur (公开)",
+    "X-Purpose-ActionDisplay[zh_TW]": "公開上傳到 Imgur",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         [

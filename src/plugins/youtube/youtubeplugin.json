@@ -127,7 +127,8 @@
         "Name[tr]": "YouTube’a Yükle",
         "Name[uk]": "Вивантаження на YouTube",
         "Name[x-test]": "xxUpload to YouTubexx",
-        "Name[zh_CN]": "上传到 YouTube"
+        "Name[zh_CN]": "上传到 YouTube",
+        "Name[zh_TW]": "上傳到 YouTube"
     },
     "X-Purpose-ActionDisplay": "Upload to Youtube…",
     "X-Purpose-ActionDisplay[ar]": "ارفع إلى «يوتيوب»…",
@@ -154,6 +155,7 @@
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на YouTube…",
     "X-Purpose-ActionDisplay[x-test]": "xxUpload to Youtube…xx",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 YouTube…",
+    "X-Purpose-ActionDisplay[zh_TW]": "上傳到 YouTube…",
     "X-Purpose-Configuration": [
         "videoDesc",
         "videoTitle",

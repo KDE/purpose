@@ -127,7 +127,8 @@
         "Name[tr]": "Aygıta Gönder",
         "Name[uk]": "Надіслати на пристрій",
         "Name[x-test]": "xxSend to Devicexx",
-        "Name[zh_CN]": "发送到设备"
+        "Name[zh_CN]": "发送到设备",
+        "Name[zh_TW]": "傳送到裝置"
     },
     "X-Purpose-ActionDisplay": "Send to Device…",
     "X-Purpose-ActionDisplay[ar]": "أرسِل إلى جهاز…",
@@ -154,6 +155,7 @@
     "X-Purpose-ActionDisplay[uk]": "Надіслати на пристрій…",
     "X-Purpose-ActionDisplay[x-test]": "xxSend to Device…xx",
     "X-Purpose-ActionDisplay[zh_CN]": "发送到设备…",
+    "X-Purpose-ActionDisplay[zh_TW]": "傳送到裝置…",
     "X-Purpose-Configuration": [
         "device"
     ],

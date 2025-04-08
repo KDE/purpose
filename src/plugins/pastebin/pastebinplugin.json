@@ -127,7 +127,8 @@
         "Name[tr]": "Herkese Açık Olarak Pastebin’e Yükle",
         "Name[uk]": "Вивантажити відкрито на Pastebin",
         "Name[x-test]": "xxUpload Publicly to Pastebinxx",
-        "Name[zh_CN]": "上传到 Pastebin (公开)"
+        "Name[zh_CN]": "上传到 Pastebin (公开)",
+        "Name[zh_TW]": "公開上傳到 Pastebin"
     },
     "X-Purpose-ActionDisplay": "Upload Publicly to Pastebin",
     "X-Purpose-ActionDisplay[ar]": "ارفع بشكل علني على «بيست‌بِن»",
