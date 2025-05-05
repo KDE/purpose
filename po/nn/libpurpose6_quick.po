@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:37+0000\n"
+"POT-Creation-Date: 2025-05-05 00:39+0000\n"
 "PO-Revision-Date: 2023-03-04 17:11+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: AlternativesView.qml:35
+#: AlternativesView.qml:41
 #, kde-format
 msgid "Use"
 msgstr "Bruk"
 
-#: JobView.qml:110
+#: JobView.qml:116
 #, kde-format
 msgid ""
 "Failed to load the configuration page for this action:\n"
@@ -35,12 +35,12 @@ msgstr ""
 "\n"
 "%1"
 
-#: JobView.qml:123
+#: JobView.qml:129
 #, kde-format
 msgid "Send"
 msgstr "Send"
 
-#: JobView.qml:131
+#: JobView.qml:137
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"

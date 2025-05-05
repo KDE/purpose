@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:37+0000\n"
+"POT-Creation-Date: 2025-05-05 00:39+0000\n"
 "PO-Revision-Date: 2021-10-22 10:08+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -21,12 +21,12 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: AlternativesView.qml:35
+#: AlternativesView.qml:41
 #, kde-format
 msgid "Use"
 msgstr "Utilitza"
 
-#: JobView.qml:110
+#: JobView.qml:116
 #, kde-format
 msgid ""
 "Failed to load the configuration page for this action:\n"
@@ -37,12 +37,12 @@ msgstr ""
 "\n"
 "%1"
 
-#: JobView.qml:123
+#: JobView.qml:129
 #, kde-format
 msgid "Send"
 msgstr "Envia"
 
-#: JobView.qml:131
+#: JobView.qml:137
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
