@@ -8,6 +8,8 @@ documentationinheaders = true
 headerdirs += .
 sourcedirs += .
 
+excludedirs += externalprocess fileitemactionplugin plugins quick widgets
+
 depends = kde qtcore kcoreaddons purposeqml purposewidgets
 
 qhp.projects            = Purpose
