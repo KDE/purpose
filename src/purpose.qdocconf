@@ -10,6 +10,8 @@ sourcedirs += .
 
 excludedirs += externalprocess fileitemactionplugin plugins quick widgets
 
+navigation.landingpage = "Purpose"
+
 depends = kde qtcore kcoreaddons purposeqml purposewidgets
 
 qhp.projects            = Purpose
