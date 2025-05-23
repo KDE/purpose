@@ -18,3 +18,17 @@ depends += \
     qtqml \
     qtquickcontrols \
     purpose
+
+qhp.projects            = PurposeQml
+
+qhp.PurposeQml.file                = purposeqml.qhp
+qhp.PurposeQml.namespace           = org.kde.purposeqml.$QT_VERSION_TAG
+qhp.PurposeQml.virtualFolder       = purposeqml
+qhp.PurposeQml.indexTitle          = Purpose QML
+qhp.PurposeQml.indexRoot           =
+
+qhp.PurposeQml.subprojects         = qmltypes
+qhp.PurposeQml.subprojects.qmltypes.title = QML Types
+qhp.PurposeQml.subprojects.qmltypes.indexTitle = Purpose QML Types
+qhp.PurposeQml.subprojects.qmltypes.selectors = qmltype
+qhp.PurposeQml.subprojects.qmltypes.sortPages = true

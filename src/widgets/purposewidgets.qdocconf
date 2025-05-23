@@ -17,3 +17,17 @@ depends += \
     qtcore \
     qtwidgets \
     purpose
+
+qhp.projects            = PurposeWidgets
+
+qhp.PurposeWidgets.file                = purposewidgets.qhp
+qhp.PurposeWidgets.namespace           = org.kde.purposewidgets.$QT_VERSION_TAG
+qhp.PurposeWidgets.virtualFolder       = purposewidgets
+qhp.PurposeWidgets.indexTitle          = Purpose Widgets
+qhp.PurposeWidgets.indexRoot           =
+
+qhp.PurposeWidgets.subprojects         = classes
+qhp.PurposeWidgets.subprojects.classes.title = C++ Classes
+qhp.PurposeWidgets.subprojects.classes.indexTitle = PurposeWidgets C++ Classes
+qhp.PurposeWidgets.subprojects.classes.selectors = class fake:headerfile
+qhp.PurposeWidgets.subprojects.classes.sortPages = true
