@@ -31,3 +31,5 @@ qhp.PurposeWidgets.subprojects.classes.title = C++ Classes
 qhp.PurposeWidgets.subprojects.classes.indexTitle = PurposeWidgets C++ Classes
 qhp.PurposeWidgets.subprojects.classes.selectors = class fake:headerfile
 qhp.PurposeWidgets.subprojects.classes.sortPages = true
+
+tagfile = purposewidgets.tags

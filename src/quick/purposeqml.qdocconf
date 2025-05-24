@@ -32,3 +32,5 @@ qhp.PurposeQml.subprojects.qmltypes.title = QML Types
 qhp.PurposeQml.subprojects.qmltypes.indexTitle = Purpose QML Types
 qhp.PurposeQml.subprojects.qmltypes.selectors = qmltype
 qhp.PurposeQml.subprojects.qmltypes.sortPages = true
+
+tagfile = purposeqml.tags
