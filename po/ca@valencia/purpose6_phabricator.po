@@ -56,7 +56,7 @@ msgstr "desconegut"
 #, kde-format
 msgid ""
 "Please choose between creating a new revision or updating an existing one"
-msgstr "Escolliu entre crear una revisió nova o actualitzar-ne una d'existent"
+msgstr "Trieu entre crear una revisió nova o actualitzar-ne una d'existent"
 
 #: phabricatorplugin_config.qml:28
 #, kde-format
