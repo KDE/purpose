@@ -1,15 +1,15 @@
-# Spanish translations for purpose_nextcloud.po package.
-# Copyright (C) 2017 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Spanish translations for purpose6_nextcloud.po package.
+# Copyright (C) 2017-2025 This file is copyright:
+# This file is distributed under the same license as the purpose package.
 # Automatically generated, 2017.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2017, 2018, 2021.
+#
+# SPDX-FileCopyrightText: 2017, 2018, 2021, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: purpose_nextcloud\n"
+"Project-Id-Version: purpose6_nextcloud\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:37+0000\n"
-"PO-Revision-Date: 2021-01-13 19:15+0100\n"
+"PO-Revision-Date: 2025-06-04 20:05+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -38,9 +38,3 @@ msgstr "Configurar cuentas"
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Enviar a carpeta:"
-
-#~ msgid "Account:"
-#~ msgstr "Cuenta:"
-
-#~ msgid "Invalid folder!"
-#~ msgstr "Carpeta no válida"

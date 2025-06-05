@@ -1,15 +1,15 @@
-# Spanish translations for purpose_imgur.po package.
-# Copyright (C) 2015 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Spanish translations for purpose6_imgur.po package.
+# Copyright (C) 2015-2025 This file is copyright:
+# This file is distributed under the same license as the purpose package.
 # Automatically generated, 2015.
-# SPDX-FileCopyrightText: 2015, 2017, 2021, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+#
+# SPDX-FileCopyrightText: 2015, 2017, 2021, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: purpose_imgur\n"
+"Project-Id-Version: purpose6_imgur\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-26 00:37+0000\n"
-"PO-Revision-Date: 2024-11-26 19:42+0100\n"
+"PO-Revision-Date: 2025-06-04 20:04+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -27,7 +27,7 @@ msgstr "El envío ha fallado: %1"
 #: imgurplugin.cpp:91
 #, kde-format
 msgid "Uploading files to imgur..."
-msgstr "Enviando archivos a imgur..."
+msgstr "Enviando archivos a imgur…"
 
 #: imgurplugin.cpp:143
 #, kde-format
@@ -44,6 +44,3 @@ msgstr ""
 "El enlace a la imagen compartida (<a href=\"%1\">%1</a>) se ha copiado en el "
 "portapapeles.<br><br>Si desea eliminar la imagen enviada, visite <a href="
 "\"%2\">%2</a>."
-
-#~ msgid "Error page returned"
-#~ msgstr "Se ha devuelto una página de error"

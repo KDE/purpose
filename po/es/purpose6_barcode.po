@@ -1,15 +1,15 @@
-# Spanish translations for purpose_barcode.po package.
-# Copyright (C) 2021 This file is copyright:
+# Spanish translations for purpose6_barcode.po package.
+# Copyright (C) 2021-2025 This file is copyright:
 # This file is distributed under the same license as the purpose package.
-#
 # Automatically generated, 2021.
-# SPDX-FileCopyrightText: 2021, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+#
+# SPDX-FileCopyrightText: 2021, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: purpose_barcode\n"
+"Project-Id-Version: purpose6_barcode\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:37+0000\n"
-"PO-Revision-Date: 2024-07-03 17:30+0200\n"
+"PO-Revision-Date: 2025-06-04 20:04+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -37,4 +37,4 @@ msgstr "El código QR es demasiado grande para mostrarlo"
 #: barcodeplugin_config.qml:64
 #, kde-format
 msgid "Type a URL or some text…"
-msgstr "Escriba una URL o un texto..."
+msgstr "Escriba una URL o un texto…"
