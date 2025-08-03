@@ -84,13 +84,27 @@ void Menu::reload()
 {
     Q_D(Menu);
     clear();
-    for (int i = 0, c = d->m_model->rowCount(); i != c; ++i) {
-        QModelIndex idx = d->m_model->index(i);
+
+    const auto getSortedModelIndices = [d] {
+        QList<QModelIndex> indices;
+        for (int i = 0, c = d->m_model->rowCount(); i != c; ++i) {
+            indices << d->m_model->index(i);
+        }
+        std::sort(indices.begin(), indices.end(), [](const QModelIndex &left, const QModelIndex &right) {
+            return left.data(AlternativesModel::ActionDisplayRole).toString() < right.data(AlternativesModel::ActionDisplayRole).toString();
+        });
+
+        return indices;
+    };
+
+    const QList<QModelIndex> sortedIndices = getSortedModelIndices();
+
+    for (const QModelIndex &idx : sortedIndices) {
         QAction *a = addAction(idx.data(AlternativesModel::ActionDisplayRole).toString());
         a->setToolTip(idx.data(Qt::ToolTipRole).toString());
         a->setIcon(idx.data(Qt::DecorationRole).value<QIcon>());
         a->setProperty("pluginId", idx.data(AlternativesModel::PluginIdRole));
-        a->setProperty("row", i);
+        a->setProperty("row", idx.row());
     }
 
     setEnabled(!isEmpty());
