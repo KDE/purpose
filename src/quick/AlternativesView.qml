@@ -8,6 +8,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import org.kde.purpose
+import org.kde.kitemmodels as KItemModels
 
 /*!
   \qmltype AlternativesView
@@ -31,18 +32,23 @@ StackView {
     property var verticalLayoutDirection: ListView.TopToBottom
     property Component delegate: Component {
         RowLayout {
+            id: listDelegate
+
+            required property string display
+            required property int index
+
             width: ListView.view.width
             Label {
                 Layout.fillWidth: true
-                text: display
+                text: listDelegate.display
                 elide: Text.ElideRight
             }
             Button {
                 text: i18nd("libpurpose6_quick", "Use")
-                onClicked: createJob(index);
+                onClicked: createJob(listDelegate.index);
             }
-            Keys.onReturnPressed: createJob(index)
-            Keys.onEnterPressed: createJob(index)
+            Keys.onReturnPressed: createJob(listDelegate.index)
+            Keys.onEnterPressed: createJob(listDelegate.index)
         }
     }
 
@@ -59,10 +65,11 @@ StackView {
     }
 
     /*!
-      Adopts the job at the @p index.
+      Adopts the job at the @p listViewIndex.
      */
-    function createJob(index) {
-        stack.push(jobComponent, {index: index})
+    function createJob(listViewIndex : int) {
+        const unsortedModelIndex = sortedModel.mapToSource(sortedModel.index(listViewIndex, 0)).row
+        stack.push(jobComponent, {index: unsortedModelIndex})
     }
 
     /*!
@@ -76,7 +83,11 @@ StackView {
     initialItem: ListView {
         ScrollBar.vertical: ScrollBar {}
         focus: true
-        model: altsModel
+        model: KItemModels.KSortFilterProxyModel {
+            id: sortedModel
+            sortRoleName: "display"
+            sourceModel: altsModel
+        }
 
         implicitHeight: contentHeight
 
