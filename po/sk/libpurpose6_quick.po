@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libpurpose_quick\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-05 00:39+0000\n"
+"POT-Creation-Date: 2025-08-06 00:40+0000\n"
 "PO-Revision-Date: 2022-02-14 20:02+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Lokalize 21.12.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: AlternativesView.qml:41
+#: AlternativesView.qml:47
 #, kde-format
 msgid "Use"
 msgstr "Použiť"

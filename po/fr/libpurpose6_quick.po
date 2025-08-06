@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libpurpose_quick\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-05 00:39+0000\n"
+"POT-Creation-Date: 2025-08-06 00:40+0000\n"
 "PO-Revision-Date: 2021-10-23 09:15+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: AlternativesView.qml:41
+#: AlternativesView.qml:47
 #, kde-format
 msgid "Use"
 msgstr "Utiliser"
