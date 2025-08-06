@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the purpose package.
+# SPDX-FileCopyrightText: 2021, 2023, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2023-05-11 10:14+0400\n"
+"PO-Revision-Date: 2025-08-05 12:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: reviewboardjobs.cpp:165
 #, kde-format
@@ -67,7 +68,7 @@ msgstr "اسم المستخدم:"
 #: reviewboardplugin_config.qml:43 reviewpatch.ui:79
 #, kde-format
 msgid "Password:"
-msgstr "كلمة السّرّ:"
+msgstr "كلمة السر:"
 
 #: reviewboardplugin_config.qml:50
 #, kde-format
@@ -101,7 +102,7 @@ msgstr "/"
 #: reviewpatch.ui:46
 #, kde-format
 msgid "Where this project was checked out from"
-msgstr "من أين تم سحب هذا المشروع"
+msgstr "من أين سُحبَ هذا المشروع"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: reviewpatch.ui:56
