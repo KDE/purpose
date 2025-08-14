@@ -40,7 +40,6 @@ target_link_libraries(KF6PurposeWidgets PRIVATE
 
 target_include_directories(KF6PurposeWidgets
     PUBLIC
-        "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
         "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
     INTERFACE
         "$<INSTALL_INTERFACE:${PURPOSEWIDGETS_INSTALL_INCLUDEDIR}>"

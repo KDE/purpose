@@ -38,7 +38,6 @@ target_sources(KF6Purpose PRIVATE
 
 target_include_directories(KF6Purpose
     PUBLIC
-        "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
         "$<BUILD_INTERFACE:${Purpose_BINARY_DIR}>"
     INTERFACE
         "$<INSTALL_INTERFACE:${PURPOSE_INSTALL_INCLUDEDIR}>"
