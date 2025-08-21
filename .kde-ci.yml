@@ -8,6 +8,7 @@ Dependencies:
     'frameworks/kio': '@same'
     'frameworks/kirigami': '@same'
     'frameworks/kservice': '@same'
+    'frameworks/kitemmodels': '@same'
 
 Options:
  test-before-installing: True
