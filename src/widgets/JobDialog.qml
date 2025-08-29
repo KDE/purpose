@@ -19,7 +19,7 @@ QQC2.ApplicationWindow {
     id: window
 
     flags: Qt.Dialog
-    title: i18n("Send File")
+    title: i18nd("libpurpose6_widgets", "Send File")
     visible: true
 
     width: Math.max(screen.width / 6, Kirigami.Units.gridUnit * 16)
