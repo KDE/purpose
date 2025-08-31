@@ -23,7 +23,7 @@ msgstr ""
 #: nextcloudplugin_config.qml:24
 #, kde-format
 msgid "Select an account:"
-msgstr "Seleccioneu un compte:"
+msgstr "Trieu un compte:"
 
 #: nextcloudplugin_config.qml:63
 #, kde-format
