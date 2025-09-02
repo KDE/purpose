@@ -24,7 +24,7 @@ msgstr ""
 #: kdeconnectplugin_config.qml:22
 #, kde-format
 msgid "Choose a device to send to:"
-msgstr "Seleccioneu el dispositiu a on enviar:"
+msgstr "Trieu el dispositiu a on enviar:"
 
 #: kdeconnectplugin_config.qml:63
 #, kde-format
