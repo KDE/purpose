@@ -13,8 +13,8 @@
 
 #include <QDebug>
 #include <QDir>
+#include <QRegularExpression>
 #include <QStandardPaths>
-#include <qregularexpression.h>
 
 #include "helper.h"
 #include "pluginbase.h"
