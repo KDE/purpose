@@ -47,7 +47,6 @@
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -98,7 +97,6 @@
         "Description[tg]": "Бор кардани тасвирҳо ба Imgur",
         "Description[tr]": "Resimleri Imgur’a yükle",
         "Description[uk]": "Вивантаження зображень на Imgur",
-        "Description[x-test]": "xxUpload pictures to Imgurxx",
         "Description[zh_CN]": "上传图片到 Imgur",
         "Description[zh_TW]": "上傳圖片到 Imgur",
         "Icon": "edit-paste",
@@ -129,7 +127,6 @@
         "Name[ta]": "Imgur-க்கு அனைவரும் பார்க்கும்படி பதிவேற்று",
         "Name[tr]": "Herkese Açık Olarak Imgur’a Yükle",
         "Name[uk]": "Вивантажити відкрито на Imgur",
-        "Name[x-test]": "xxUpload Publicly to Imgurxx",
         "Name[zh_CN]": "上传到 Imgur (公开)",
         "Name[zh_TW]": "公開上傳到 Imgur"
     },
@@ -160,7 +157,6 @@
     "X-Purpose-ActionDisplay[ta]": "Imgur-க்கு அனைவரும் பார்க்கும்படி பதிவேற்று",
     "X-Purpose-ActionDisplay[tr]": "Herkese Açık Olarak Imgur’a Yükle",
     "X-Purpose-ActionDisplay[uk]": "Вивантажити відкрито на Imgur",
-    "X-Purpose-ActionDisplay[x-test]": "xxUpload Publicly to Imgurxx",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Imgur (公开)",
     "X-Purpose-ActionDisplay[zh_TW]": "公開上傳到 Imgur",
     "X-Purpose-Configuration": [],

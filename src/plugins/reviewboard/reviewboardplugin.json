@@ -47,7 +47,6 @@
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -95,7 +94,6 @@
         "Description[tg]": "Бор кардани ислоҳи нуқсонҳо ба лавҳаи муоина",
         "Description[tr]": "Yamaları gözden geçirme panosuna yükle",
         "Description[uk]": "Вивантажує латки на reviewboard",
-        "Description[x-test]": "xxUpload patches to reviewboardxx",
         "Description[zh_CN]": "上传补丁到 reviewboard",
         "Description[zh_TW]": "上傳修補檔到 reviewboard",
         "Icon": "reviewboard-purpose6",
@@ -126,7 +124,6 @@
         "Name[ta]": "Review Board-க்கு பதிவேற்று",
         "Name[tr]": "Gözden Geçirme Panosuna Yükle",
         "Name[uk]": "Вивантаження на Review Board",
-        "Name[x-test]": "xxUpload to Review Boardxx",
         "Name[zh_CN]": "上传到 Review Board",
         "Name[zh_TW]": "上傳到 Review Board"
     },
@@ -156,7 +153,6 @@
     "X-Purpose-ActionDisplay[ta]": "Review Board-க்கு பதிவேற்று…",
     "X-Purpose-ActionDisplay[tr]": "Gözden Geçirme Panosuna Yükle…",
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на Review Board…",
-    "X-Purpose-ActionDisplay[x-test]": "xxUpload to Review Board…xx",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Review Board…",
     "X-Purpose-ActionDisplay[zh_TW]": "上傳到 Review Board…",
     "X-Purpose-Configuration": [

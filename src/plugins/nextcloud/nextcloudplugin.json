@@ -46,7 +46,6 @@
                 "Name[tg]": "Лим Ён Хое (Lim Yuen Hoe)",
                 "Name[tr]": "Lim Yuen Hoe",
                 "Name[uk]": "Lim Yuen Hoe",
-                "Name[x-test]": "xxLim Yuen Hoexx",
                 "Name[zh_CN]": "Lim Yuen Hoe",
                 "Name[zh_TW]": "Lim Yuen Hoe"
             }
@@ -97,7 +96,6 @@
         "Description[tg]": "Бор кардани файлҳо ба Nextcloud",
         "Description[tr]": "Dosyaları Nextcloud’a yükle",
         "Description[uk]": "Вивантаження відео на Nextcloud",
-        "Description[x-test]": "xxUpload files to Nextcloudxx",
         "Description[zh_CN]": "上传文件到 Nextcloud",
         "Description[zh_TW]": "上傳檔案到 Nextcloud",
         "Icon": "kaccounts-nextcloud",
@@ -128,7 +126,6 @@
         "Name[ta]": "Nextcloud-க்கு கோப்புகளை பதிவேற்று",
         "Name[tr]": "Nextcloud’a Yükle",
         "Name[uk]": "Вивантаження на Nextcloud",
-        "Name[x-test]": "xxUpload to Nextcloudxx",
         "Name[zh_CN]": "上传到 Nextcloud",
         "Name[zh_TW]": "上傳到 Nextcloud"
     },
@@ -158,7 +155,6 @@
     "X-Purpose-ActionDisplay[ta]": "Nextcloud-க்கு பதிவேற்று…",
     "X-Purpose-ActionDisplay[tr]": "Nextcloud’a Yükle",
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на Nextcloud…",
-    "X-Purpose-ActionDisplay[x-test]": "xxUpload to Nextcloud…xx",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Nextcloud…",
     "X-Purpose-ActionDisplay[zh_TW]": "上傳到 Nextcloud…",
     "X-Purpose-Configuration": [
