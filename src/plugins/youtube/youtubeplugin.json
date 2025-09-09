@@ -42,7 +42,6 @@
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -89,7 +88,6 @@
         "Description[tg]": "Бор кардани видеоҳо ба YouTube",
         "Description[tr]": "Videoları YouTube’a yükle",
         "Description[uk]": "Вивантаження відео на YouTube",
-        "Description[x-test]": "xxUpload videos to YouTubexx",
         "Description[zh_CN]": "上传视频到 YouTube",
         "Description[zh_TW]": "上傳影片到 YouTube",
         "Icon": "edit-paste",
@@ -135,7 +133,6 @@
         "Name[tg]": "YouTube",
         "Name[tr]": "YouTube",
         "Name[uk]": "YouTube",
-        "Name[x-test]": "xxYouTubexx",
         "Name[zh_CN]": "YouTube",
         "Name[zh_TW]": "YouTube",
         "X-Purpose-ActionDisplay": "Youtube...",
@@ -164,7 +161,6 @@
         "X-Purpose-ActionDisplay[sv]": "Youtube...",
         "X-Purpose-ActionDisplay[tr]": "YouTube…",
         "X-Purpose-ActionDisplay[uk]": "YouTube…",
-        "X-Purpose-ActionDisplay[x-test]": "xxYoutube...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "Youtube...",
         "X-Purpose-ActionDisplay[zh_TW]": "YouTube…"
     },

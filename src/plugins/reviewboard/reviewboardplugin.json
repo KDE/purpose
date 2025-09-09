@@ -42,7 +42,6 @@
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -87,7 +86,6 @@
         "Description[tg]": "Бор кардани ислоҳи нуқсонҳо ба лавҳаи муоина",
         "Description[tr]": "Yamaları gözden geçirme panosuna yükle",
         "Description[uk]": "Вивантажує латки на reviewboard",
-        "Description[x-test]": "xxUpload patches to reviewboardxx",
         "Description[zh_CN]": "上传补丁到 reviewboard",
         "Description[zh_TW]": "上傳修補檔到 reviewboard",
         "Icon": "reviewboard-purpose",
@@ -132,7 +130,6 @@
         "Name[tg]": "Лавҳаи муоина",
         "Name[tr]": "Review Board",
         "Name[uk]": "Review Board",
-        "Name[x-test]": "xxReview Boardxx",
         "Name[zh_CN]": "Review Board",
         "Name[zh_TW]": "Review Board",
         "X-Purpose-ActionDisplay": "Review Board...",
@@ -161,7 +158,6 @@
         "X-Purpose-ActionDisplay[sv]": "Review Board...",
         "X-Purpose-ActionDisplay[tr]": "Review Board…",
         "X-Purpose-ActionDisplay[uk]": "Review Board…",
-        "X-Purpose-ActionDisplay[x-test]": "xxReview Board...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "Review Board...",
         "X-Purpose-ActionDisplay[zh_TW]": "Review Board…"
     },

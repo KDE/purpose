@@ -42,7 +42,6 @@
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -89,7 +88,6 @@
         "Description[tg]": "Фиристодан ба воситаи паёмнависии фаврӣ",
         "Description[tr]": "Anında İletileşme ile Gönder",
         "Description[uk]": "Надіслати за допомогою служби обміну повідомленнями",
-        "Description[x-test]": "xxSend through Instant Messagingxx",
         "Description[zh_CN]": "通过即时消息发送",
         "Description[zh_TW]": "透過即時訊息傳送",
         "Icon": "im-user",
@@ -135,7 +133,6 @@
         "Name[tg]": "Фиристодан ба тамос",
         "Name[tr]": "Kişiye Gönder",
         "Name[uk]": "Надіслати контакту",
-        "Name[x-test]": "xxSend To Contactxx",
         "Name[zh_CN]": "发送到联系人",
         "Name[zh_TW]": "傳送給聯絡人",
         "X-Purpose-ActionDisplay": "Send To Contact...",
@@ -164,7 +161,6 @@
         "X-Purpose-ActionDisplay[sv]": "Skicka till kontakt...",
         "X-Purpose-ActionDisplay[tr]": "Kişiye Gönder…",
         "X-Purpose-ActionDisplay[uk]": "Надіслати контакту…",
-        "X-Purpose-ActionDisplay[x-test]": "xxSend To Contact...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "发送到联系人...",
         "X-Purpose-ActionDisplay[zh_TW]": "傳送給聯絡人..."
     },

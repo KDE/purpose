@@ -42,7 +42,6 @@
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -89,7 +88,6 @@
         "Description[tg]": "Бор кардани тасвирҳо ба Imgur",
         "Description[tr]": "Resimleri Imgur’a yükle",
         "Description[uk]": "Вивантаження зображень на Imgur",
-        "Description[x-test]": "xxUpload pictures to Imgurxx",
         "Description[zh_CN]": "上传图片到 Imgur",
         "Description[zh_TW]": "上傳圖片到 Imgur",
         "Icon": "edit-paste",
@@ -136,7 +134,6 @@
         "Name[tg]": "Imgur",
         "Name[tr]": "Imgur",
         "Name[uk]": "Imgur",
-        "Name[x-test]": "xxImgurxx",
         "Name[zh_CN]": "Imgur",
         "Name[zh_TW]": "Imgur"
     },

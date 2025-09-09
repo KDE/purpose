@@ -42,7 +42,6 @@
                 "Name[tg]": "Алекс Пол (Aleix Pol)",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -89,7 +88,6 @@
         "Description[tg]": "Бор кардани матн ба Pastebin",
         "Description[tr]": "Metni Pastebin’e yükle",
         "Description[uk]": "Вивантажити текст на Pastebin",
-        "Description[x-test]": "xxUpload text to Pastebinxx",
         "Description[zh_CN]": "上传文本到 Pastebin",
         "Description[zh_TW]": "上傳文字到 Pastebin",
         "Icon": "edit-paste",
@@ -136,7 +134,6 @@
         "Name[tg]": "Pastebin",
         "Name[tr]": "Pastebin",
         "Name[uk]": "Вставлячка",
-        "Name[x-test]": "xxPastebinxx",
         "Name[zh_CN]": "Pastebin",
         "Name[zh_TW]": "Pastebin",
         "X-Purpose-ActionDisplay": "Pastebin...",
@@ -165,7 +162,6 @@
         "X-Purpose-ActionDisplay[sv]": "Pastebin...",
         "X-Purpose-ActionDisplay[tr]": "Pastebin…",
         "X-Purpose-ActionDisplay[uk]": "Pastebin…",
-        "X-Purpose-ActionDisplay[x-test]": "xxPastebin...xx",
         "X-Purpose-ActionDisplay[zh_CN]": "Pastebin...",
         "X-Purpose-ActionDisplay[zh_TW]": "Pastebin..."
     },
