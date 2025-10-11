@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Flori G <Renner03@protonmail.com>
-# Burkhard Lück <lueck@hube-lueck.de>, 2015, 2017.
+# SPDX-FileCopyrightText: 2015, 2017 Burkhard Lück <lueck@hube-lueck.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose6_imgur\n"
