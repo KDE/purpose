@@ -1,4 +1,4 @@
-# Frederik Schwarzer <schwarzer@kde.org>, 2015.
+# SPDX-FileCopyrightText: 2015 Frederik Schwarzer <schwarzer@kde.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose6_ktp-sendfile\n"
