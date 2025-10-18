@@ -3,9 +3,9 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2015, 2018.
-# Empar Montoro Martín <montoro_mde@gva.es>, 2019.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
+# SPDX-FileCopyrightText: 2015, 2018 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2019 Empar Montoro Martín <montoro_mde@gva.es>
+# SPDX-FileCopyrightText: 2022 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
@@ -35,4 +35,4 @@ msgstr "Directori on es guardarà:"
 #: saveasplugin_config.qml:32
 #, kde-format
 msgid "Select a directory where to save your pictures and videos"
-msgstr "Seleccioneu un directori on guardar les fotografies i vídeos"
+msgstr "Trieu un directori on guardar les fotografies i vídeos"
