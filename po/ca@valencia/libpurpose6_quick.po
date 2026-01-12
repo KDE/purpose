@@ -33,7 +33,7 @@ msgid ""
 "\n"
 "%1"
 msgstr ""
-"No s'ha pogut carregar la pàgina de configuració per a esta acció:\n"
+"Ha fallat mentre es carregava la pàgina de configuració per a esta acció:\n"
 "\n"
 "%1"
 
