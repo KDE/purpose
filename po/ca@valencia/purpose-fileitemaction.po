@@ -28,4 +28,4 @@ msgstr "Compartix"
 #: sharefileitemaction.cpp:62
 #, kde-format
 msgid "Error sharing"
-msgstr "S'ha produït un error en compartir"
+msgstr "S'ha produït un error mentre es compartia"
