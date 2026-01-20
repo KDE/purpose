@@ -23,13 +23,40 @@ StackView {
 
     implicitHeight: currentItem.implicitHeight
 
+    /*!
+      \qmlproperty bool AlternativesView::running
+     */
     property bool running: false
+
+    /*!
+      \qmlproperty string AlternativesView::pluginType
+     */
     property alias pluginType: altsModel.pluginType
+
+    /*!
+      \qmlproperty var AlternativesView::inputData
+     */
     property alias inputData: altsModel.inputData
+
+    /*!
+     */
     property Component highlight
+
+    /*!
+     */
     property Component header
+
+    /*!
+     */
     property Component footer
+
+    /*!
+      \qmlproperty enumeration AlternativesView::verticalLayoutDirection
+     */
     property var verticalLayoutDirection: ListView.TopToBottom
+
+    /*!
+     */
     property Component delegate: Component {
         RowLayout {
             id: listDelegate
@@ -54,9 +81,9 @@ StackView {
 
     /*!
       Signals when the job finishes, reports the
-      @p error code and a text @p message.
+      \a error code and a text \a message.
 
-      @p output will specify the output offered by the job
+      \a output will specify the output offered by the job
      */
     signal finished(var output, int error, string message)
 
@@ -65,7 +92,7 @@ StackView {
     }
 
     /*!
-      Adopts the job at the @p listViewIndex.
+      Adopts the job at the \a listViewIndex.
      */
     function createJob(listViewIndex : int) {
         const unsortedModelIndex = sortedModel.mapToSource(sortedModel.index(listViewIndex, 0)).row

@@ -18,10 +18,24 @@ import org.kde.kirigami as Kirigami
 */
 Item {
 
+    /*!
+      \qmlproperty AlternativesModel JobView::model
+     */
     property alias model: jobController.model
+
+    /*!
+      \qmlproperty int JobView::index
+     */
     property alias index: jobController.index
 
+    /*!
+      \qmlproperty enumeration JobView::state
+     */
     readonly property alias state: jobController.state
+
+    /*!
+      \qmlproperty Job JobView::job
+     */
     readonly property alias job: jobController.job
 
     implicitHeight: mainLoader.implicitHeight

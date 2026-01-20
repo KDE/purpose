@@ -14,6 +14,11 @@
 #include "job.h"
 #include "jobcontroller.h"
 
+/*!
+ * \qmltype AlternativesModel
+ * \inqmlmodule org.kde.purpose
+ * \nativetype Purpose::AlternativesModel
+ */
 struct AlternativesModelForeign {
     Q_GADGET
     QML_ELEMENT
