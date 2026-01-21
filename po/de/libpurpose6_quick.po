@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libpurpose6_quick\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-01-21 00:41+0000\n"
 "PO-Revision-Date: 2023-04-03 17:02+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: AlternativesView.qml:47
+#: AlternativesView.qml:74
 #, kde-format
 msgid "Use"
 msgstr "Verwenden"
 
-#: JobView.qml:116
+#: JobView.qml:130
 #, kde-format
 msgid ""
 "Failed to load the configuration page for this action:\n"
@@ -31,12 +31,12 @@ msgstr ""
 "\n"
 "%1"
 
-#: JobView.qml:129
+#: JobView.qml:143
 #, kde-format
 msgid "Send"
 msgstr "Senden"
 
-#: JobView.qml:137
+#: JobView.qml:151
 #, kde-format
 msgid "Cancel"
 msgstr "Abbrechen"

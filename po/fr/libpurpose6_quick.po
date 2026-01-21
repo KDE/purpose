@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libpurpose_quick\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-01-21 00:41+0000\n"
 "PO-Revision-Date: 2021-10-23 09:15+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: AlternativesView.qml:47
+#: AlternativesView.qml:74
 #, kde-format
 msgid "Use"
 msgstr "Utiliser"
 
-#: JobView.qml:116
+#: JobView.qml:130
 #, kde-format
 msgid ""
 "Failed to load the configuration page for this action:\n"
@@ -33,12 +33,12 @@ msgstr ""
 "\n"
 "%1"
 
-#: JobView.qml:129
+#: JobView.qml:143
 #, kde-format
 msgid "Send"
 msgstr "Envoyer"
 
-#: JobView.qml:137
+#: JobView.qml:151
 #, kde-format
 msgid "Cancel"
 msgstr "Annuler"
