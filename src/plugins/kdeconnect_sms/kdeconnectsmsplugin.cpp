@@ -36,7 +36,7 @@ public:
     {
         QJsonArray urlsJson = data().value(QLatin1String("urls")).toArray();
         QString title = data().value(QLatin1String("title")).toString();
-        QString message = i18n("%1 - %2").arg(title).arg(arrayToList(urlsJson).join(QLatin1Char(' ')));
+        QString message = i18n("%1 – %2").arg(title).arg(arrayToList(urlsJson).join(QLatin1Char(' ')));
 
         auto *job = new KIO::CommandLauncherJob(QStringLiteral("kdeconnect-sms"), {QStringLiteral("--message"), message});
         job->setDesktopName(QStringLiteral("org.kde.kdeconnect.sms"));
