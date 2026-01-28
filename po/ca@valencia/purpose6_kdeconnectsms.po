@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-01-28 00:41+0000\n"
 "PO-Revision-Date: 2019-03-10 11:37+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -22,5 +22,8 @@ msgstr ""
 
 #: kdeconnectsmsplugin.cpp:39
 #, kde-format
-msgid "%1 - %2"
-msgstr "%1 - %2"
+msgid "%1 – %2"
+msgstr ""
+
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
