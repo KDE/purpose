@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2026-01-10 22:53+0200\n"
+"PO-Revision-Date: 2026-01-28 20:25+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -27,12 +27,12 @@ msgstr "Nepavyko išsiųsti: %1"
 #: imgurplugin.cpp:91
 #, kde-format
 msgid "Uploading files to imgur..."
-msgstr "Išsiunčiami failai į Imgur..."
+msgstr "Išsiunčiami failai į „Imgur“..."
 
 #: imgurplugin.cpp:143
 #, kde-format
 msgid "Imgur Upload"
-msgstr "Išsiuntimas į Imgur"
+msgstr "Išsiuntimas į „Imgur“"
 
 #: imgurplugin.cpp:144
 #, kde-format

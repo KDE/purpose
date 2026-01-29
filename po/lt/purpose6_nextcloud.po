@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2024-02-07 01:21+0200\n"
+"PO-Revision-Date: 2026-01-28 20:21+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.8\n"
 
 #: nextcloudplugin_config.qml:24
 #, kde-format
@@ -37,7 +37,7 @@ msgstr "Konfigūruoti paskyras"
 #: nextcloudplugin_config.qml:81
 #, kde-format
 msgid "Upload to folder:"
-msgstr "Įkelti į aplanką:"
+msgstr "Išsiųsti į aplanką:"
 
 #~ msgid "Account:"
 #~ msgstr "Paskyra:"

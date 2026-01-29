@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2019-07-11 20:50+0300\n"
+"PO-Revision-Date: 2026-01-28 20:24+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 3.8\n"
 
 #: youtubejobcomposite.cpp:40
 #, kde-format
 msgid "No YouTube account configured in your accounts."
-msgstr "Jūsų paskyrose nėra sukonfigūruotos YouTube paskyros."
+msgstr "Jūsų paskyrose nėra sukonfigūruotos „YouTube“ paskyros."
 
 #: youtubeplugin_config.qml:29
 #, kde-format
@@ -32,12 +32,12 @@ msgstr "Paskyra:"
 #: youtubeplugin_config.qml:53
 #, kde-format
 msgid "Title:"
-msgstr "Antraštė:"
+msgstr "Pavadinimas:"
 
 #: youtubeplugin_config.qml:58
 #, kde-format
 msgid "Enter a title for the video..."
-msgstr "Įveskite vaizdo įrašo antraštę..."
+msgstr "Įveskite vaizdo įrašo pavadinimą..."
 
 #: youtubeplugin_config.qml:62
 #, kde-format
