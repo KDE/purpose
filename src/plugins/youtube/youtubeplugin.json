@@ -135,6 +135,7 @@
         "Name[zh_TW]": "上傳到 YouTube"
     },
     "X-Purpose-ActionDisplay": "Upload to YouTube…",
+    "X-Purpose-ActionDisplay[uk]": "Вивантажити на YouTube…",
     "X-Purpose-Configuration": [
         "videoDesc",
         "videoTitle",
