@@ -141,6 +141,8 @@
     "X-Purpose-ActionDisplay[es]": "Enviar a YouTube…",
     "X-Purpose-ActionDisplay[fr]": "Envoyer vers YouTube...",
     "X-Purpose-ActionDisplay[he]": "העלאה ל־YouTube…",
+    "X-Purpose-ActionDisplay[ia]": "Incarga a YouTube…",
+    "X-Purpose-ActionDisplay[it]": "Carica su YouTube…",
     "X-Purpose-ActionDisplay[ka]": "YouTube-ზე ატვირთვა…",
     "X-Purpose-ActionDisplay[lt]": "Išsiųsti į „YouTube“…",
     "X-Purpose-ActionDisplay[nl]": "Naar YouTube uploaden…",
@@ -150,6 +152,7 @@
     "X-Purpose-ActionDisplay[ta]": "யூட்டியூபுக்கு பதிவேற்று…",
     "X-Purpose-ActionDisplay[tr]": "YouTube’a Yükle…",
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на YouTube…",
+    "X-Purpose-ActionDisplay[zh_CN]": "上传到 YouTube…",
     "X-Purpose-ActionDisplay[zh_TW]": "上傳到 YouTube…",
     "X-Purpose-Configuration": [
         "videoDesc",
