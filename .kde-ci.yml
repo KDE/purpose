@@ -9,6 +9,8 @@ Dependencies:
     'frameworks/kirigami': '@same'
     'frameworks/kservice': '@same'
     'frameworks/kitemmodels': '@same'
+    'frameworks/kcmutils': '@same'
+    'frameworks/prison': '@same'
 
 Options:
  test-before-installing: True
