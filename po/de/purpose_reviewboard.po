@@ -1,17 +1,19 @@
 # SPDX-FileCopyrightText: 2015 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose6_reviewboard\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2015-09-28 12:20+0200\n"
-"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"PO-Revision-Date: 2026-01-27 20:34+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: reviewboardjobs.cpp:165
 #, kde-format
@@ -45,7 +47,7 @@ msgstr "Liste der Reviews kann nicht geholt werden"
 #: reviewboardjobs.cpp:370
 #, kde-format
 msgid "Could not set metadata"
-msgstr "Metadaten können nicht eingestellt werden"
+msgstr "Metadaten können nicht festgelegt werden"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: reviewboardplugin_config.qml:32 reviewpatch.ui:26
@@ -68,7 +70,7 @@ msgstr "Passwort:"
 #: reviewboardplugin_config.qml:50
 #, kde-format
 msgid "Repository:"
-msgstr "Quelltextarchiv:"
+msgstr "Archiv:"
 
 #: reviewboardplugin_config.qml:75
 #, kde-format
@@ -115,7 +117,7 @@ msgstr "Benutzername beim angegebenen Dienst"
 #: reviewpatch.ui:99
 #, kde-format
 msgid "Repository"
-msgstr "Quelltextarchiv"
+msgstr "Archiv"
 
 #. i18n: ectx: property (title), widget (QGroupBox, reviewsBox)
 #: reviewpatch.ui:111
