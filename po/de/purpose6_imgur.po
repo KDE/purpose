@@ -1,19 +1,20 @@
 # SPDX-FileCopyrightText: 2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2015, 2017 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose6_imgur\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2025-01-29 16:54+0100\n"
-"Last-Translator: Flori G <Renner03@protonmail.com>\n"
+"PO-Revision-Date: 2026-02-07 16:35+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: imgurplugin.cpp:68 imgurplugin.cpp:70
 #, kde-format
@@ -23,12 +24,12 @@ msgstr "Hochladen fehlgeschlagen: %1"
 #: imgurplugin.cpp:91
 #, kde-format
 msgid "Uploading files to imgur..."
-msgstr "Dateien werden zu Imgur hochgeladen …"
+msgstr "Dateien werden auf Imgur hochgeladen …"
 
 #: imgurplugin.cpp:143
 #, kde-format
 msgid "Imgur Upload"
-msgstr "Imgur Upload"
+msgstr "Imgur-Upload"
 
 #: imgurplugin.cpp:144
 #, kde-format
@@ -38,8 +39,8 @@ msgid ""
 "href=\"%2\">%2</a>"
 msgstr ""
 "Die Adresse zum geteilten Bild (<a href=\"%1\">%1</a>) wurde in die "
-"Zwischenablage kopiert.<br>Wenn Sie das hochgeladene Bild entfernen wollen, "
-"besuchen Sie <a href=\"%2\">%2</a><br><a href=\"%2\">"
+"Zwischenablage kopiert.<br>Wenn Sie das hochgeladene Bild entfernen möchten, "
+"besuchen Sie <a href=\"%2\">%2</a>"
 
 #~ msgid "Error page returned"
 #~ msgstr "Eine Fehlerseite wurde zurückgegeben"
