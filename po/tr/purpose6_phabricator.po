@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the purpose package.
 #
-# SPDX-FileCopyrightText: 2022, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2025, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2025-03-13 22:19+0300\n"
+"PO-Revision-Date: 2026-03-09 21:29+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: phabricatorjobs.cpp:59 phabricatorjobs.cpp:195
 #, kde-format
@@ -86,7 +86,7 @@ msgid ""
 "tick this to create a new \"differential diff\" which can\n"
 "be converted online to a new differential revision"
 msgstr ""
-"Yeni bir diferansiyel revizyona çevrimiçi dönüştürülebilecek\n"
+"Yeni bir diferansiyel revizyona çevrim içi dönüştürülebilecek\n"
 "bir “diferansiyel diff” oluşturmak için bunu imleyin"
 
 #: phabricatorplugin_config.qml:78
