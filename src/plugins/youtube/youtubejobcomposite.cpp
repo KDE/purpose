@@ -5,17 +5,27 @@
 */
 
 #include "youtubejobcomposite.h"
+#include "youtube_debug.h"
 #include "youtubejob.h"
+
+#if HAVE_KACCOUNTS
 #include <Accounts/Application>
 #include <Accounts/Manager>
 #include <KAccounts/Core>
 #include <KAccounts/GetCredentialsJob>
+#endif
+
 #include <KLocalizedString>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonValue>
 #include <QStandardPaths>
 
+using namespace Qt::StringLiterals;
+
+#if HAVE_KACCOUNTS
 QDebug operator<<(QDebug s, const Accounts::Service &service)
 {
     s.nospace() << qPrintable(service.displayName()) << ',' << qPrintable(service.name()) << '\n';
@@ -25,6 +35,12 @@ QDebug operator<<(QDebug s, const Accounts::Provider &provider)
 {
     s.nospace() << "Provider(" << qPrintable(provider.displayName()) << ',' << qPrintable(provider.name()) << ")\n";
     return s;
+}
+#endif
+
+bool usingKOnlineAccounts()
+{
+    return QDBusConnection::sessionBus().interface()->isServiceRegistered(u"org.kde.KOnlineAccounts"_s);
 }
 
 YoutubeJobComposite::YoutubeJobComposite()
@@ -41,23 +57,49 @@ void YoutubeJobComposite::start()
         emitResult();
         return;
     }
-    const Accounts::AccountId id = idString.toInt();
-
-    // TODO: make async
-    QByteArray accessToken;
-    {
-        auto job = new KAccounts::GetCredentialsJob(id, this);
-        bool b = job->exec();
-        if (!b) {
-            qWarning() << "Couldn't fetch credentials";
-            setError(job->error());
-            setErrorText(job->errorText());
-            emitResult();
-            return;
+    if (!usingKOnlineAccounts()) {
+#if HAVE_KACCOUNTS
+        const Accounts::AccountId id = idString.toInt();
+        // TODO: make async
+        QByteArray accessToken;
+        {
+            auto job = new KAccounts::GetCredentialsJob(id, this);
+            bool b = job->exec();
+            if (!b) {
+                qCWarning(PLUGIN_YOUTUBE) << "Couldn't fetch credentials";
+                setError(job->error());
+                setErrorText(job->errorText());
+                emitResult();
+                return;
+            }
+            accessToken = job->credentialsData().value(QStringLiteral("AccessToken")).toByteArray();
         }
-        accessToken = job->credentialsData().value(QStringLiteral("AccessToken")).toByteArray();
-    }
 
+        doUpload(accessToken);
+#endif
+    } else {
+        const QDBusObjectPath path(idString);
+
+        QDBusMessage msg = QDBusMessage::createMethodCall(u"org.kde.KOnlineAccounts"_s, path.path(), u"org.freedesktop.DBus.Properties"_s, u"GetAll"_s);
+        msg.setArguments({u"org.kde.KOnlineAccounts.Google"_s});
+        QDBusReply<QVariantMap> reply = QDBusConnection::sessionBus().call(msg);
+
+        if (!reply.isValid()) {
+            qCWarning(PLUGIN_YOUTUBE) << "Failed to get properties from account" << path.path() << reply.error().message();
+        }
+
+        const QVariantMap result = reply.value();
+
+        const QByteArray accessToken = result[u"accessToken"_s].toString().toUtf8();
+
+        Q_ASSERT(!accessToken.isEmpty());
+
+        doUpload(accessToken);
+    }
+}
+
+void YoutubeJobComposite::doUpload(const QByteArray &accessToken)
+{
     m_pendingJobs = 0;
     const QJsonArray urls = data().value(QLatin1String("urls")).toArray();
     for (const QJsonValue &url : urls) {

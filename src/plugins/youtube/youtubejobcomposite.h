@@ -20,6 +20,8 @@ private Q_SLOTS:
     void subjobFinished(KJob *subjob);
 
 private:
+    void doUpload(const QByteArray &accessToken);
+
     int m_pendingJobs;
 };
 

@@ -41,6 +41,12 @@ ColumnLayout {
 
                 type: "google"
             }
+            onCountChanged: {
+                if (count > 0 && currentIndex === -1) {
+                    currentIndex = 0
+                    root.accountChanged()
+                }
+            }
             onCurrentIndexChanged: root.accountChanged()
             Component.onCompleted: root.accountChanged()
         }

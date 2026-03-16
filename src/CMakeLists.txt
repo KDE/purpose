@@ -105,7 +105,7 @@ add_subdirectory(quick)
 add_subdirectory(widgets)
 add_subdirectory(fileitemactionplugin)
 
-if (KAccounts6_FOUND)
+if(HAVE_DBUS)
     add_subdirectory(accounts)
 endif()
 

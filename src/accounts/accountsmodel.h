@@ -32,6 +32,8 @@ public:
 
     Q_INVOKABLE void requestNew();
 
+    Q_SLOT void slotAccountCreationFinished(const QDBusObjectPath &path, const QString &xdgActivationToken);
+
     QString type() const;
     void setType(const QString &type);
     Q_SIGNAL void typeChanged();
@@ -44,6 +46,7 @@ private:
     };
 
     void load();
+    void addFromDBus(const QDBusObjectPath &path);
 
     QVector<Data> m_accounts;
     QString m_type;

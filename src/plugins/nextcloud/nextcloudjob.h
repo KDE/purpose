@@ -21,7 +21,11 @@ public:
     }
     void start() override;
 
+    void doUpload(const QUrl &destUrl);
+
 private Q_SLOTS:
+#if HAVE_KACCOUNTS
     void gotCredentials(KJob *job);
+#endif
 };
 #endif /* NEXTCLOUDJOB_H */
