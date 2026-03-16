@@ -34,14 +34,14 @@ YoutubeJobComposite::YoutubeJobComposite()
 
 void YoutubeJobComposite::start()
 {
-    const QJsonValue jsonId = data().value(QLatin1String("accountId"));
-    if (jsonId.isNull() || jsonId.isUndefined()) {
+    const QString idString = data().value(QLatin1String("accountId")).toString();
+    if (idString.isEmpty()) {
         setError(1);
         setErrorText(i18n("No YouTube account configured in your accounts."));
         emitResult();
         return;
     }
-    const Accounts::AccountId id = jsonId.toInt();
+    const Accounts::AccountId id = idString.toInt();
 
     // TODO: make async
     QByteArray accessToken;

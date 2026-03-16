@@ -21,7 +21,8 @@ QList<QUrl> arrayToList(const QJsonArray &array)
 
 void NextcloudJob::start()
 {
-    const Accounts::AccountId id = data().value(QLatin1String("accountId")).toInt();
+    const QString idString = data().value(QLatin1String("accountId")).toString();
+    const Accounts::AccountId id = idString.toInt();
     auto credentialsJob = new KAccounts::GetCredentialsJob(id, this);
 
     connect(credentialsJob, &KAccounts::GetCredentialsJob::finished, this, &NextcloudJob::gotCredentials);

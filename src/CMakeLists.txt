@@ -105,6 +105,10 @@ add_subdirectory(quick)
 add_subdirectory(widgets)
 add_subdirectory(fileitemactionplugin)
 
+if (KAccounts6_FOUND)
+    add_subdirectory(accounts)
+endif()
+
 ecm_qt_install_logging_categories(
     EXPORT PURPOSE
     FILE purpose.categories

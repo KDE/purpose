@@ -3,12 +3,12 @@
 
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
+pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import org.kde.kcmutils as KCMUtils
-import SSO.OnlineAccounts as OA
+import org.kde.purpose.accountshelper
 
 ColumnLayout {
     id: root
@@ -21,8 +21,7 @@ ColumnLayout {
     property var mimeType
 
     function accountChanged() {
-        var valid = accountsCombo.enabled && accountsCombo.currentIndex >= 0;
-        accountId = valid ? serviceModel.get(accountsCombo.currentIndex, "accountId") : null
+        accountId = accountsCombo.currentValue
     }
 
     Label {
@@ -34,18 +33,20 @@ ColumnLayout {
             id: accountsCombo
 
             Layout.fillWidth: true
-            textRole: "displayName"
+            textRole: "name"
+            valueRole: "accountId"
             enabled: count > 0
-            model: OA.AccountServiceModel {
-                id: serviceModel
-                serviceType: "google-youtube"
+            model: AccountsModel {
+                id: accountsModel
+
+                type: "google"
             }
             onCurrentIndexChanged: root.accountChanged()
             Component.onCompleted: root.accountChanged()
         }
         Button {
             icon.name: "settings-configure"
-            onClicked: KCMUtils.KCMLauncher.openSystemSettings("kcm_kaccounts")
+            onClicked: accountsModel.requestNew()
         }
     }
 

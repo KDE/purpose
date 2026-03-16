@@ -53,10 +53,6 @@ set_package_properties(KAccounts6 PROPERTIES
                        TYPE OPTIONAL
 )
 
-if (KAccounts6_FOUND)
-  ecm_find_qmlmodule(SSO.OnlineAccounts REQUIRED)
-endif()
-
 ecm_find_qmlmodule(org.kde.prison REQUIRED)
 ecm_find_qmlmodule(org.kde.kitemmodels REQUIRED)
 ecm_find_qmlmodule(org.kde.kcmutils REQUIRED)

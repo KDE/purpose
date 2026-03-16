@@ -3,13 +3,13 @@
 
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
+pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
-import org.kde.kcmutils as KCMUtils
-import SSO.OnlineAccounts as OA
+import org.kde.purpose.accountshelper
 
 ColumnLayout {
     id: root
@@ -40,14 +40,20 @@ ColumnLayout {
 
             clip: true
 
-            model: OA.AccountServiceModel {
-                id: serviceModel
-                serviceType: "dav-storage"
+            model: AccountsModel {
+                id: accountsModel
+
+                type: "nextcloud"
             }
 
             delegate: ItemDelegate {
+                required property string name
+                required property string accountId
+                required property string iconName
+
                 width: ListView.view.width
-                text: model.displayName
+                text: name
+                icon.name: iconName
             }
 
             onCurrentIndexChanged: {
@@ -56,7 +62,7 @@ ColumnLayout {
                     return
                 }
 
-                root.accountId = serviceModel.get(list.currentIndex, "accountId")
+                root.accountId = currentItem.accountId
             }
 
             Kirigami.PlaceholderMessage {
@@ -71,9 +77,9 @@ ColumnLayout {
     Button {
         Layout.alignment: Qt.AlignRight
 
-        text: i18nd("purpose6_nextcloud", "Configure Accounts")
+        text: i18nd("purpose6_nextcloud", "Add New Account")
         icon.name: "applications-internet"
-        onClicked: KCMUtils.KCMLauncher.openSystemSettings("kcm_kaccounts")
+        onClicked: accountsModel.requestNew()
     }
 
     Label {
