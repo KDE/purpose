@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the purpose package.
 #
-# SPDX-FileCopyrightText: 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-28 00:41+0000\n"
-"PO-Revision-Date: 2025-12-02 09:03+0000\n"
+"PO-Revision-Date: 2026-03-23 16:16+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: kdeconnectsmsplugin.cpp:39
 #, kde-format
 msgid "%1 – %2"
-msgstr ""
+msgstr "%1 – %2"
 
 #~ msgid "%1 - %2"
 #~ msgstr "%1 - %2"
