@@ -100,7 +100,7 @@
         "Description[uk]": "Надсилання за допомогою Telegram",
         "Description[zh_CN]": "通过 Telegram 发送",
         "Description[zh_TW]": "透過 Telegram 傳送",
-        "Icon": "telegram",
+        "Icon": "org.telegram.desktop-symbolic",
         "License": "GPL",
         "Name": "Send via Telegram",
         "Name[ar]": "أرسِل عبر «تلغرام»",
