@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-04-22 00:41+0000\n"
 "PO-Revision-Date: 2021-01-13 13:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -25,17 +25,20 @@ msgstr ""
 msgid "Select an account:"
 msgstr "Trieu un compte:"
 
-#: nextcloudplugin_config.qml:66
+#: nextcloudplugin_config.qml:72
 #, kde-format
 msgid "No account configured"
 msgstr "No s'ha configurat cap compte"
 
-#: nextcloudplugin_config.qml:74
+#: nextcloudplugin_config.qml:80
 #, kde-format
-msgid "Configure Accounts"
-msgstr "Configuració de comptes"
+msgid "Add New Account"
+msgstr ""
 
-#: nextcloudplugin_config.qml:81
+#: nextcloudplugin_config.qml:87
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Puja a la carpeta:"
+
+#~ msgid "Configure Accounts"
+#~ msgstr "Configuració de comptes"

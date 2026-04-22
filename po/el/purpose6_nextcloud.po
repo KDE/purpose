@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-04-22 00:41+0000\n"
 "PO-Revision-Date: 2021-07-07 12:05+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -22,20 +22,21 @@ msgstr ""
 msgid "Select an account:"
 msgstr "Επιλέξτε λογαριασμό:"
 
-#: nextcloudplugin_config.qml:66
+#: nextcloudplugin_config.qml:72
 #, kde-format
 msgid "No account configured"
 msgstr "Δεν έχει διαμορφωθεί κάποιος λογαριασμός"
 
-#: nextcloudplugin_config.qml:74
-#, kde-format
-msgid "Configure Accounts"
-msgstr "Διαμόρφωση λογαριασμών"
+#: nextcloudplugin_config.qml:80
+#, fuzzy, kde-format
+#| msgid "Account:"
+msgid "Add New Account"
+msgstr "Λογαριασμός:"
 
-#: nextcloudplugin_config.qml:81
+#: nextcloudplugin_config.qml:87
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Αποστολή στον φάκελο:"
 
-#~ msgid "Account:"
-#~ msgstr "Λογαριασμός:"
+#~ msgid "Configure Accounts"
+#~ msgstr "Διαμόρφωση λογαριασμών"

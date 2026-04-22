@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-04-22 00:41+0000\n"
 "PO-Revision-Date: 2021-03-10 16:37+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -21,23 +21,24 @@ msgstr ""
 msgid "Select an account:"
 msgstr "Valitse tili:"
 
-#: nextcloudplugin_config.qml:66
+#: nextcloudplugin_config.qml:72
 #, kde-format
 msgid "No account configured"
 msgstr "Tiliä ei ole asetettu"
 
-#: nextcloudplugin_config.qml:74
-#, kde-format
-msgid "Configure Accounts"
-msgstr "Aseta tilejä"
+#: nextcloudplugin_config.qml:80
+#, fuzzy, kde-format
+#| msgid "Account:"
+msgid "Add New Account"
+msgstr "Tili:"
 
-#: nextcloudplugin_config.qml:81
+#: nextcloudplugin_config.qml:87
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Lähetä kansioon:"
 
-#~ msgid "Account:"
-#~ msgstr "Tili:"
+#~ msgid "Configure Accounts"
+#~ msgstr "Aseta tilejä"
 
 #~ msgid "Invalid folder!"
 #~ msgstr "Virheellinen kansio!"

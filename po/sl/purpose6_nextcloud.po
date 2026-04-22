@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-04-22 00:41+0000\n"
 "PO-Revision-Date: 2021-01-14 11:35+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -24,23 +24,24 @@ msgstr ""
 msgid "Select an account:"
 msgstr "Izberite račun:"
 
-#: nextcloudplugin_config.qml:66
+#: nextcloudplugin_config.qml:72
 #, kde-format
 msgid "No account configured"
 msgstr "Nobenega računa ni nastavljenega"
 
-#: nextcloudplugin_config.qml:74
-#, kde-format
-msgid "Configure Accounts"
-msgstr "Nastavi račune"
+#: nextcloudplugin_config.qml:80
+#, fuzzy, kde-format
+#| msgid "Account:"
+msgid "Add New Account"
+msgstr "Račun:"
 
-#: nextcloudplugin_config.qml:81
+#: nextcloudplugin_config.qml:87
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Prenesi v mapo:"
 
-#~ msgid "Account:"
-#~ msgstr "Račun:"
+#~ msgid "Configure Accounts"
+#~ msgstr "Nastavi račune"
 
 #~ msgid "Invalid folder!"
 #~ msgstr "Napačna mapa!"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-04-22 00:41+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -24,17 +24,20 @@ msgstr ""
 msgid "Select an account:"
 msgstr "एकं खातं चिनोतु :"
 
-#: nextcloudplugin_config.qml:66
+#: nextcloudplugin_config.qml:72
 #, kde-format
 msgid "No account configured"
 msgstr "न खातं विन्यस्तम्"
 
-#: nextcloudplugin_config.qml:74
+#: nextcloudplugin_config.qml:80
 #, kde-format
-msgid "Configure Accounts"
-msgstr "लेखा विन्यस्तं कुर्वन्तु"
+msgid "Add New Account"
+msgstr ""
 
-#: nextcloudplugin_config.qml:81
+#: nextcloudplugin_config.qml:87
 #, kde-format
 msgid "Upload to folder:"
 msgstr "समुच्चय मध्ये अपलोड् कुर्वन्तु:"
+
+#~ msgid "Configure Accounts"
+#~ msgstr "लेखा विन्यस्तं कुर्वन्तु"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-04-22 00:41+0000\n"
 "PO-Revision-Date: 2021-01-16 02:54+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -22,20 +22,21 @@ msgstr ""
 msgid "Select an account:"
 msgstr "İstifadəçi hesabını seçin:"
 
-#: nextcloudplugin_config.qml:66
+#: nextcloudplugin_config.qml:72
 #, kde-format
 msgid "No account configured"
 msgstr "İstifadəçi hesabı ayarlanmayıb"
 
-#: nextcloudplugin_config.qml:74
-#, kde-format
-msgid "Configure Accounts"
-msgstr "İstifadəçi hesablarını ayarlamaq"
+#: nextcloudplugin_config.qml:80
+#, fuzzy, kde-format
+#| msgid "Account:"
+msgid "Add New Account"
+msgstr "İstifadəçi Hesabı:"
 
-#: nextcloudplugin_config.qml:81
+#: nextcloudplugin_config.qml:87
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Təyinat Qovluğu:"
 
-#~ msgid "Account:"
-#~ msgstr "İstifadəçi Hesabı:"
+#~ msgid "Configure Accounts"
+#~ msgstr "İstifadəçi hesablarını ayarlamaq"

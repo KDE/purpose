@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose_nextcloud\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-04-22 00:41+0000\n"
 "PO-Revision-Date: 2022-10-08 13:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -22,20 +22,23 @@ msgstr ""
 msgid "Select an account:"
 msgstr "Bir hesap seçin:"
 
-#: nextcloudplugin_config.qml:66
+#: nextcloudplugin_config.qml:72
 #, kde-format
 msgid "No account configured"
 msgstr "Hesap yapılandırılmamış"
 
-#: nextcloudplugin_config.qml:74
+#: nextcloudplugin_config.qml:80
 #, kde-format
-msgid "Configure Accounts"
-msgstr "Hesapları Yapılandır"
+msgid "Add New Account"
+msgstr ""
 
-#: nextcloudplugin_config.qml:81
+#: nextcloudplugin_config.qml:87
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Karşı klasöre yükle:"
+
+#~ msgid "Configure Accounts"
+#~ msgstr "Hesapları Yapılandır"
 
 #~ msgid "Invalid folder!"
 #~ msgstr "Geçersiz klasör!"
