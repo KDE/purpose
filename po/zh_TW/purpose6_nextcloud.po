@@ -1,22 +1,22 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the purpose package.
 #
 # pan93412 <pan93412@gmail.com>, 2019.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:41+0000\n"
-"PO-Revision-Date: 2023-04-14 22:01+0900\n"
+"PO-Revision-Date: 2026-04-22 22:31+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 26.07.70\n"
 
 #: nextcloudplugin_config.qml:24
 #, kde-format
@@ -29,10 +29,9 @@ msgid "No account configured"
 msgstr "未設定帳號"
 
 #: nextcloudplugin_config.qml:80
-#, fuzzy, kde-format
-#| msgid "Account:"
+#, kde-format
 msgid "Add New Account"
-msgstr "帳號："
+msgstr "新增帳號"
 
 #: nextcloudplugin_config.qml:87
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:41+0000\n"
+"POT-Creation-Date: 2026-04-23 00:40+0000\n"
 "PO-Revision-Date: 2020-01-23 15:58+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 2.2.4\n"
 
-#: youtubejobcomposite.cpp:40
+#: youtubejobcomposite.cpp:56
 #, kde-format
 msgid "No YouTube account configured in your accounts."
 msgstr "V vaših računih ni nastavljenega nobenega računa za YouTube."
@@ -29,27 +29,27 @@ msgstr "V vaših računih ni nastavljenega nobenega računa za YouTube."
 msgid "Account:"
 msgstr "Račun:"
 
-#: youtubeplugin_config.qml:54
+#: youtubeplugin_config.qml:60
 #, kde-format
 msgid "Title:"
 msgstr "Naslov:"
 
-#: youtubeplugin_config.qml:59
+#: youtubeplugin_config.qml:65
 #, kde-format
 msgid "Enter a title for the video..."
 msgstr "Vnesite naslov videa..."
 
-#: youtubeplugin_config.qml:63
+#: youtubeplugin_config.qml:69
 #, kde-format
 msgid "Tags:"
 msgstr "Značke:"
 
-#: youtubeplugin_config.qml:68
+#: youtubeplugin_config.qml:74
 #, kde-format
 msgid "KDE, Kamoso"
 msgstr "KDE, Kamoso"
 
-#: youtubeplugin_config.qml:72
+#: youtubeplugin_config.qml:78
 #, kde-format
 msgid "Description:"
 msgstr "Opis:"

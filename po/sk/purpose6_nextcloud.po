@@ -28,10 +28,9 @@ msgid "No account configured"
 msgstr "Nie sú nastavené žiadne účty"
 
 #: nextcloudplugin_config.qml:80
-#, fuzzy, kde-format
-#| msgid "Account:"
+#, kde-format
 msgid "Add New Account"
-msgstr "Konto:"
+msgstr "Pridať nové konto"
 
 #: nextcloudplugin_config.qml:87
 #, kde-format

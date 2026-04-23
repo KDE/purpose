@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:41+0000\n"
+"POT-Creation-Date: 2026-04-23 00:40+0000\n"
 "PO-Revision-Date: 2018-10-14 14:41+0200\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: youtubejobcomposite.cpp:40
+#: youtubejobcomposite.cpp:56
 #, kde-format
 msgid "No YouTube account configured in your accounts."
 msgstr "A YouTube nincs beállítva a fiókjai között."
@@ -27,27 +27,27 @@ msgstr "A YouTube nincs beállítva a fiókjai között."
 msgid "Account:"
 msgstr "Fiók:"
 
-#: youtubeplugin_config.qml:54
+#: youtubeplugin_config.qml:60
 #, kde-format
 msgid "Title:"
 msgstr "Cím:"
 
-#: youtubeplugin_config.qml:59
+#: youtubeplugin_config.qml:65
 #, kde-format
 msgid "Enter a title for the video..."
 msgstr "Adja meg a videó címét…"
 
-#: youtubeplugin_config.qml:63
+#: youtubeplugin_config.qml:69
 #, kde-format
 msgid "Tags:"
 msgstr "Címkék:"
 
-#: youtubeplugin_config.qml:68
+#: youtubeplugin_config.qml:74
 #, kde-format
 msgid "KDE, Kamoso"
 msgstr "KDE, Kamoso"
 
-#: youtubeplugin_config.qml:72
+#: youtubeplugin_config.qml:78
 #, kde-format
 msgid "Description:"
 msgstr "Leírás:"

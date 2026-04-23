@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:41+0000\n"
+"POT-Creation-Date: 2026-04-23 00:40+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: mkkDr2010 <mkondarev@yahoo.de>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 2.4.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: youtubejobcomposite.cpp:40
+#: youtubejobcomposite.cpp:56
 #, kde-format
 msgid "No YouTube account configured in your accounts."
 msgstr "В профилите ви няма конфигуриран акаунт в YouTube."
@@ -28,27 +28,27 @@ msgstr "В профилите ви няма конфигуриран акаун�
 msgid "Account:"
 msgstr "Акаунт:"
 
-#: youtubeplugin_config.qml:54
+#: youtubeplugin_config.qml:60
 #, kde-format
 msgid "Title:"
 msgstr "Заглавие:"
 
-#: youtubeplugin_config.qml:59
+#: youtubeplugin_config.qml:65
 #, kde-format
 msgid "Enter a title for the video..."
 msgstr "Въведете заглавие на видеоклипа..."
 
-#: youtubeplugin_config.qml:63
+#: youtubeplugin_config.qml:69
 #, kde-format
 msgid "Tags:"
 msgstr "Етикети:"
 
-#: youtubeplugin_config.qml:68
+#: youtubeplugin_config.qml:74
 #, kde-format
 msgid "KDE, Kamoso"
 msgstr "KDE, Kamoso"
 
-#: youtubeplugin_config.qml:72
+#: youtubeplugin_config.qml:78
 #, kde-format
 msgid "Description:"
 msgstr "Описание:"

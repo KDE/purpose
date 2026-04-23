@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:41+0000\n"
+"POT-Creation-Date: 2026-04-23 00:40+0000\n"
 "PO-Revision-Date: 2019-08-16 19:22+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 19.04.3\n"
 
-#: youtubejobcomposite.cpp:40
+#: youtubejobcomposite.cpp:56
 #, kde-format
 msgid "No YouTube account configured in your accounts."
 msgstr "Дар ҳисобҳои шумо ягон ҳисоби YouTube танзим карда нашуд."
@@ -27,27 +27,27 @@ msgstr "Дар ҳисобҳои шумо ягон ҳисоби YouTube танз�
 msgid "Account:"
 msgstr "Ҳисоб:"
 
-#: youtubeplugin_config.qml:54
+#: youtubeplugin_config.qml:60
 #, kde-format
 msgid "Title:"
 msgstr "Сарлавҳа:"
 
-#: youtubeplugin_config.qml:59
+#: youtubeplugin_config.qml:65
 #, kde-format
 msgid "Enter a title for the video..."
 msgstr "Сарлавҳаеро барои видео ворид намоед..."
 
-#: youtubeplugin_config.qml:63
+#: youtubeplugin_config.qml:69
 #, kde-format
 msgid "Tags:"
 msgstr "Барчаспҳо:"
 
-#: youtubeplugin_config.qml:68
+#: youtubeplugin_config.qml:74
 #, kde-format
 msgid "KDE, Kamoso"
 msgstr "KDE, Kamoso"
 
-#: youtubeplugin_config.qml:72
+#: youtubeplugin_config.qml:78
 #, kde-format
 msgid "Description:"
 msgstr "Тавсиф:"

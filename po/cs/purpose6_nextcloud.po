@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:41+0000\n"
-"PO-Revision-Date: 2021-03-23 10:05+0100\n"
+"PO-Revision-Date: 2023-01-03 16:21+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -31,7 +31,7 @@ msgstr "Žádný účet nebyl nastaven"
 #: nextcloudplugin_config.qml:80
 #, kde-format
 msgid "Add New Account"
-msgstr ""
+msgstr "Přidat nový účet"
 
 #: nextcloudplugin_config.qml:87
 #, kde-format

@@ -38,6 +38,3 @@ msgstr ""
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Last opp til mappe:"
-
-#~ msgid "Configure Accounts"
-#~ msgstr "Set opp kontoar"

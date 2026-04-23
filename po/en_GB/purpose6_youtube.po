@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:41+0000\n"
+"POT-Creation-Date: 2026-04-23 00:40+0000\n"
 "PO-Revision-Date: 2018-06-30 13:46+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: youtubejobcomposite.cpp:40
+#: youtubejobcomposite.cpp:56
 #, kde-format
 msgid "No YouTube account configured in your accounts."
 msgstr "No YouTube account configured in your accounts."
@@ -27,27 +27,27 @@ msgstr "No YouTube account configured in your accounts."
 msgid "Account:"
 msgstr "Account:"
 
-#: youtubeplugin_config.qml:54
+#: youtubeplugin_config.qml:60
 #, kde-format
 msgid "Title:"
 msgstr "Title:"
 
-#: youtubeplugin_config.qml:59
+#: youtubeplugin_config.qml:65
 #, kde-format
 msgid "Enter a title for the video..."
 msgstr "Enter a title for the video..."
 
-#: youtubeplugin_config.qml:63
+#: youtubeplugin_config.qml:69
 #, kde-format
 msgid "Tags:"
 msgstr "Tags:"
 
-#: youtubeplugin_config.qml:68
+#: youtubeplugin_config.qml:74
 #, kde-format
 msgid "KDE, Kamoso"
 msgstr "KDE, Kamoso"
 
-#: youtubeplugin_config.qml:72
+#: youtubeplugin_config.qml:78
 #, kde-format
 msgid "Description:"
 msgstr "Description:"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:41+0000\n"
-"PO-Revision-Date: 2021-01-14 11:35+0100\n"
+"PO-Revision-Date: 2026-04-22 06:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 20.08.1\n"
+"X-Generator: Poedit 3.9\n"
 
 #: nextcloudplugin_config.qml:24
 #, kde-format
@@ -30,10 +30,9 @@ msgid "No account configured"
 msgstr "Nobenega računa ni nastavljenega"
 
 #: nextcloudplugin_config.qml:80
-#, fuzzy, kde-format
-#| msgid "Account:"
+#, kde-format
 msgid "Add New Account"
-msgstr "Račun:"
+msgstr "Dodaj nov račun"
 
 #: nextcloudplugin_config.qml:87
 #, kde-format
