@@ -36,6 +36,3 @@ msgstr ""
 #, kde-format
 msgid "Upload to folder:"
 msgstr "上传到文件夹："
-
-#~ msgid "Configure Accounts"
-#~ msgstr "配置账户"
