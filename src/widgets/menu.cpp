@@ -30,7 +30,8 @@ public:
     ~MenuPrivate() override
     {
         if (m_engine) {
-            m_engine->deleteLater();
+            // m_engine->deleteLater();
+            delete m_engine;
         }
     }
 
