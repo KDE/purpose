@@ -9,6 +9,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import org.kde.purpose
 import org.kde.kitemmodels as KItemModels
+import org.kde.ki18n
 
 /*!
   \qmltype AlternativesView
@@ -71,7 +72,7 @@ StackView {
                 elide: Text.ElideRight
             }
             Button {
-                text: i18nd("libpurpose6_quick", "Use")
+                text: _tr.i18n("Use")
                 onClicked: createJob(listDelegate.index);
             }
             Keys.onReturnPressed: createJob(listDelegate.index)
@@ -105,6 +106,11 @@ StackView {
     function reset() {
         for(; stack.depth>1; stack.pop())
         {}
+    }
+
+    KI18nContext {
+        id: _tr
+        translationDomain: "libpurpose6_quick"
     }
 
     initialItem: ListView {

@@ -9,6 +9,7 @@ import QtQuick.Layouts
 
 import org.kde.purpose
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 /*!
   \qmltype JobView
@@ -42,6 +43,11 @@ Item {
 
     function start() {
         jobController.configure()
+    }
+
+    KI18nContext {
+        id: _tr
+        translationDomain: "libpurpose6_quick"
     }
 
     PurposeJobController {
@@ -127,7 +133,7 @@ Item {
                 visible: configLoader.status === Loader.Error
                 wrapMode: Text.WordWrap
                 text: configLoader.status === Loader.Error
-                    ? i18nd("libpurpose6_quick", "Failed to load the configuration page for this action:\n\n%1", configLoader.sourceComponent.errorString())
+                    ? _tr.i18n("Failed to load the configuration page for this action:\n\n%1", configLoader.sourceComponent.errorString())
                     : ""
             }
 
@@ -140,7 +146,7 @@ Item {
                 Layout.alignment: Qt.AlignRight
 
                 Button {
-                    text: i18nd("libpurpose6_quick", "Send")
+                    text: _tr.i18n("Send")
                     icon.name: "document-send"
                     enabled: jobController.configuration
                         && jobController.configuration.isReady
@@ -148,7 +154,7 @@ Item {
                 }
 
                 Button {
-                    text: i18nd("libpurpose6_quick", "Cancel")
+                    text: _tr.i18n("Cancel")
                     icon.name: "dialog-cancel"
                     onClicked: jobController.cancel()
                 }

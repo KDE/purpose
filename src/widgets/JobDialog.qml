@@ -14,12 +14,13 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.purpose as Purpose
 import org.kde.purpose.private.widgets as PurposeWidgets
+import org.kde.ki18n
 
 QQC2.ApplicationWindow {
     id: window
 
     flags: Qt.Dialog
-    title: i18nd("libpurpose6_widgets", "Send File")
+    title: _tr.i18n("Send File")
     visible: true
 
     width: Math.max(screen.width / 6, Kirigami.Units.gridUnit * 16)
@@ -32,12 +33,17 @@ QQC2.ApplicationWindow {
     property Purpose.PurposeAlternativesModel model
     property int index
 
+    KI18nContext {
+        id: _tr
+        translationDomain: "libpurpose6_widgets"
+    }
+
     function start(): void {
         jobView.start();
     }
 
     function cancel(): void {
-        window.menu.finished({}, 1 /* KIO::ERR_USER_CANCELED */, i18nd("libpurpose6_widgets", "Configuration cancelled"));
+        window.menu.finished({}, 1 /* KIO::ERR_USER_CANCELED */, _tr.i18nd("Configuration cancelled"));
         window.close();
     }
 
