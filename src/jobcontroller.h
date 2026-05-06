@@ -17,7 +17,7 @@ namespace Purpose
 class PURPOSE_EXPORT JobController : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(AlternativesModel *model READ model WRITE setModel NOTIFY modelChanged)
+    Q_PROPERTY(Purpose::AlternativesModel *model READ model WRITE setModel NOTIFY modelChanged)
     Q_PROPERTY(int index READ index WRITE setIndex NOTIFY indexChanged)
     Q_PROPERTY(State state READ state NOTIFY stateChanged)
     Q_PROPERTY(Purpose::Configuration *configuration READ config NOTIFY configChanged)
