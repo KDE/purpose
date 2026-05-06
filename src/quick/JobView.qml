@@ -32,7 +32,15 @@ Item {
     /*!
       \qmlproperty enumeration JobView::state
      */
-    readonly property alias state: jobController.state
+    readonly property alias jobState: jobController.state
+
+    /*!
+      \qmlproperty enumeration JobView::state
+      \deprecated[6.27]
+      Use jobState
+     */
+    @Deprecated { reason: "Use jobState instead" }
+    readonly property alias state: jobController.state // qmllint disable property-override
 
     /*!
       \qmlproperty Job JobView::job

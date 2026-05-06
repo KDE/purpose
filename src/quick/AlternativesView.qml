@@ -138,10 +138,10 @@ StackView {
             id: jobView
             model: altsModel
 
-            onStateChanged: {
-                if (state === PurposeJobController.Finished || state === PurposeJobController.Error) {
+            onJobStateChanged: {
+                if (jobState === PurposeJobController.Finished || jobState === PurposeJobController.Error) {
                     stack.finished(jobView.job.output, jobView.job.error, jobView.job.errorString);
-                } else if (state === PurposeJobController.Cancelled) {
+                } else if (jobState === PurposeJobController.Cancelled) {
                     stack.pop();
                 }
             }

@@ -63,7 +63,7 @@ QQC2.ApplicationWindow {
         index: window.index
 
         onStateChanged: {
-            switch (state) {
+            switch (jobState) {
             case Purpose.PurposeJobController.Finished:
             case Purpose.PurposeJobController.Error:
                 console.log(job.errorString);
