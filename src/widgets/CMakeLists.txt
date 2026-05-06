@@ -9,7 +9,9 @@ set_target_properties(KF6PurposeWidgets PROPERTIES
     EXPORT_NAME PurposeWidgets
 )
 
-qt_add_resources(qmlfiles_SRCS purposewidgets-resources.qrc)
+ecm_add_qml_module(KF6PurposeWidgets URI "org.kde.purpose.private.widgets" GENERATE_PLUGIN_SOURCE)
+ecm_target_qml_sources(KF6PurposeWidgets SOURCES JobDialog.qml)
+ecm_finalize_qml_module(KF6PurposeWidgets)
 
 target_sources(KF6PurposeWidgets PRIVATE
     menu.cpp
@@ -29,6 +31,7 @@ target_link_libraries(KF6PurposeWidgets
     PUBLIC
         KF6::Purpose
         Qt6::Widgets
+        Qt6::QmlIntegration
     PRIVATE
         Qt6::Qml
         KF6::I18n

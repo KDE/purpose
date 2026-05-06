@@ -10,6 +10,7 @@
 #include "purposewidgets_export.h"
 
 #include <QMenu>
+#include <qqmlintegration.h>
 
 namespace Purpose
 {
@@ -27,6 +28,8 @@ class AlternativesModel;
 class PURPOSEWIDGETS_EXPORT Menu : public QMenu
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 public:
     /*!
      *

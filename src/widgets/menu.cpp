@@ -39,7 +39,7 @@ public:
         if (!m_engine) {
             m_engine = new QQmlApplicationEngine;
             m_engine->rootContext()->setContextObject(new KLocalizedQmlContext(this));
-            m_engine->load(QUrl(QStringLiteral("qrc:/org.kde.purpose/JobDialog.qml")));
+            m_engine->loadFromModule("org.kde.purpose.private.widgets", "JobDialog");
         }
 
         Q_ASSERT(!m_engine->rootObjects().isEmpty());
@@ -69,8 +69,6 @@ Menu::Menu(QWidget *parent)
     : QMenu(parent)
     , d_ptr(new MenuPrivate(this))
 {
-    qmlRegisterUncreatableType<Menu>("org.kde.purpose.private.widgets", 1, 0, "Menu", QString());
-
     connect(d_ptr->m_model.data(), &AlternativesModel::inputDataChanged, this, &Menu::reload);
     connect(this, &QMenu::triggered, this, [this](QAction *action) {
         Q_D(Menu);
