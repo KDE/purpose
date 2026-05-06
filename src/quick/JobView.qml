@@ -108,8 +108,8 @@ Item {
 
                 onItemChanged: {
                     var initialData = jobController.configuration.data;
-                    for (var i in jobController.configuration.neededArguments) {
-                        var arg = jobController.configuration.neededArguments[i];
+                    for (const i in jobController.configuration.neededArguments) {
+                        const arg = jobController.configuration.neededArguments[i];
                         if (arg in configLoader.item) {
                             item[arg + "Changed"].connect(dataHasChanged);
                             initialData[arg] = item[arg];
@@ -122,8 +122,8 @@ Item {
 
                 function dataHasChanged() {
                     var jobData = jobController.configuration.data;
-                    for (var i in jobController.configuration.neededArguments) {
-                        var arg = jobController.configuration.neededArguments[i];
+                    for (const i in jobController.configuration.neededArguments) {
+                        const arg = jobController.configuration.neededArguments[i];
                         if (arg in configLoader.item) {
                             jobData[arg] = configLoader.item[arg];
                         } else
