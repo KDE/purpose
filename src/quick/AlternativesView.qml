@@ -3,6 +3,7 @@
 
     SPDX-License-Identifier: LGPL-2.1-or-later
 */
+pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
@@ -73,10 +74,10 @@ StackView {
             }
             Button {
                 text: _tr.i18n("Use")
-                onClicked: createJob(listDelegate.index);
+                onClicked: stack.createJob(listDelegate.index);
             }
-            Keys.onReturnPressed: createJob(listDelegate.index)
-            Keys.onEnterPressed: createJob(listDelegate.index)
+            Keys.onReturnPressed: stack.createJob(listDelegate.index)
+            Keys.onEnterPressed: stack.createJob(listDelegate.index)
         }
     }
 
