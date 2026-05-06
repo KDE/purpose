@@ -1,10 +1,3 @@
-find_program(ARCANIST arc)
-if(NOT ARCANIST)
-    message(WARNING "The phabricator plugin depends on having the 'arc' script available in the PATH")
-else()
-    message(STATUS "The 'arc' script was found as ${ARCANIST}")
-endif()
-
 add_definitions(-DTRANSLATION_DOMAIN=\"purpose6_phabricator\")
 
 add_subdirectory(icons)
