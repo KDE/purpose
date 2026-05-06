@@ -30,7 +30,7 @@ msgstr "没有配置账户"
 #: nextcloudplugin_config.qml:80
 #, kde-format
 msgid "Add New Account"
-msgstr ""
+msgstr "添加新账户"
 
 #: nextcloudplugin_config.qml:87
 #, kde-format
