@@ -13,3 +13,11 @@ if (KAccounts6_FOUND)
 else()
     target_compile_definitions(nextcloudplugin PRIVATE -DHAVE_KACCOUNTS=0)
 endif()
+
+ecm_qt_declare_logging_category(nextcloudplugin
+    HEADER nextcloud_debug.h
+    IDENTIFIER PLUGIN_NEXTCLOUD
+    CATEGORY_NAME kf.purpose.plugins.nextcloud
+    DESCRIPTION "purpose (nextcloud plugin)"
+    EXPORT PURPOSE
+)

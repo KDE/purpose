@@ -6,6 +6,8 @@
 
 #include "nextcloudjob.h"
 
+#include "nextcloud_debug.h"
+
 #if HAVE_KACCOUNTS
 #include <KAccounts/Core>
 #include <KAccounts/GetCredentialsJob>
@@ -15,7 +17,9 @@
 
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+#include <QDBusUnixFileDescriptor>
 #include <QDebug>
+#include <QFile>
 
 using namespace Qt::Literals;
 
@@ -57,7 +61,17 @@ void NextcloudJob::start()
         const QString folder = data().value(QLatin1String("folder")).toString();
         const QString storagePath = result[u"storagePath"_s].toString();
         const QString username = result[u"username"_s].toString();
-        const QString password = result[u"password"_s].toString();
+        const QDBusUnixFileDescriptor passwordFd = result[u"password"_s].value<QDBusUnixFileDescriptor>();
+
+        QFile file;
+        const bool openResult = file.open(passwordFd.fileDescriptor(), QFile::ReadOnly, QFile::AutoCloseHandle);
+
+        if (!openResult) {
+            qCWarning(PLUGIN_NEXTCLOUD) << "Could not open password fd" << file.errorString();
+            return;
+        }
+
+        const QString password = QString::fromUtf8(file.readAll());
 
         QUrl destUrl = result[u"url"_s].toUrl();
         destUrl.setScheme(QStringLiteral("webdavs"));

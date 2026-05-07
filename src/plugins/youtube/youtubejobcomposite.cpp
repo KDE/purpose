@@ -18,7 +18,9 @@
 #include <KLocalizedString>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+#include <QDBusUnixFileDescriptor>
 #include <QDebug>
+#include <QFile>
 #include <QJsonArray>
 #include <QJsonValue>
 #include <QStandardPaths>
@@ -90,7 +92,17 @@ void YoutubeJobComposite::start()
 
         const QVariantMap result = reply.value();
 
-        const QByteArray accessToken = result[u"accessToken"_s].toString().toUtf8();
+        const QDBusUnixFileDescriptor accessTokenFd = result[u"accessToken"_s].value<QDBusUnixFileDescriptor>();
+
+        QFile file;
+        const bool openResult = file.open(accessTokenFd.fileDescriptor(), QFile::ReadOnly, QFile::AutoCloseHandle);
+
+        if (!openResult) {
+            qCWarning(PLUGIN_YOUTUBE) << "Could not open password fd" << file.errorString();
+            return;
+        }
+
+        const QByteArray accessToken = file.readAll();
 
         Q_ASSERT(!accessToken.isEmpty());
 
