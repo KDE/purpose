@@ -8,7 +8,6 @@ ecm_qt_declare_logging_category(PhabricatorHelper_SRCS
     IDENTIFIER PLUGIN_PHABRICATOR
     CATEGORY_NAME kf.purpose.plugins.phabricator
     OLD_CATEGORY_NAMES kdevplatform.plugins.phabricator
-    DEFAULT_SEVERITY Debug
     DESCRIPTION "purpose (phabricator plugin)"
     EXPORT PURPOSE
 )
