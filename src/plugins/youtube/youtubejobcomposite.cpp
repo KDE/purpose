@@ -82,20 +82,18 @@ void YoutubeJobComposite::start()
     } else {
         const QDBusObjectPath path(idString);
 
-        QDBusMessage msg = QDBusMessage::createMethodCall(u"org.kde.KOnlineAccounts"_s, path.path(), u"org.freedesktop.DBus.Properties"_s, u"GetAll"_s);
-        msg.setArguments({u"org.kde.KOnlineAccounts.Google"_s});
-        QDBusReply<QVariantMap> reply = QDBusConnection::sessionBus().call(msg);
+        QDBusMessage passwordMsg =
+            QDBusMessage::createMethodCall(u"org.kde.KOnlineAccounts"_s, path.path(), u"org.kde.KOnlineAccounts.Google"_s, u"accessToken"_s);
 
-        if (!reply.isValid()) {
-            qCWarning(PLUGIN_YOUTUBE) << "Failed to get properties from account" << path.path() << reply.error().message();
+        QDBusReply<QDBusUnixFileDescriptor> passwordReply = QDBusConnection::sessionBus().call(passwordMsg);
+
+        if (!passwordReply.isValid()) {
+            qCWarning(PLUGIN_YOUTUBE()) << "Failed to access token for account" << passwordReply.error().message();
+            return;
         }
 
-        const QVariantMap result = reply.value();
-
-        const QDBusUnixFileDescriptor accessTokenFd = result[u"accessToken"_s].value<QDBusUnixFileDescriptor>();
-
         QFile file;
-        const bool openResult = file.open(accessTokenFd.fileDescriptor(), QFile::ReadOnly, QFile::AutoCloseHandle);
+        const bool openResult = file.open(passwordReply.value().fileDescriptor(), QFile::ReadOnly, QFile::AutoCloseHandle);
 
         if (!openResult) {
             qCWarning(PLUGIN_YOUTUBE) << "Could not open password fd" << file.errorString();
