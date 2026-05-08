@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the purpose package.
 #
-# SPDX-FileCopyrightText: 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:41+0000\n"
-"PO-Revision-Date: 2025-12-02 07:57+0000\n"
+"PO-Revision-Date: 2026-05-07 13:25+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -30,7 +30,7 @@ msgstr "Enginn notandaaðgangur stilltur"
 #: nextcloudplugin_config.qml:80
 #, kde-format
 msgid "Add New Account"
-msgstr ""
+msgstr "Bæta við nýjum notandaaðgangi"
 
 #: nextcloudplugin_config.qml:87
 #, kde-format
