@@ -21,6 +21,3 @@ msgstr ""
 #, kde-format
 msgid "Send File"
 msgstr "发送文件"
-
-#~ msgid "Configuration cancelled"
-#~ msgstr "配置已取消"
