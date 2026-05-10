@@ -23,6 +23,3 @@ msgstr ""
 #, kde-format
 msgid "Send File"
 msgstr "Send fil"
-
-#~ msgid "Configuration cancelled"
-#~ msgstr "Oppsett avbrote"
