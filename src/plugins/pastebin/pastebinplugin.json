@@ -54,11 +54,14 @@
         ],
         "Category": "Utilities",
         "Description": "Upload text to Pastebin.com",
+        "Description[ka]": "ტექსტის ატვირთვა Pastebin.com-ზე",
         "Icon": "edit-paste",
         "License": "GPL",
-        "Name": "Upload Publicly to Pastebin.com"
+        "Name": "Upload Publicly to Pastebin.com",
+        "Name[ka]": "საჯაროდ ატვირთვა Pastebin.com-ზე"
     },
     "X-Purpose-ActionDisplay": "Upload Publicly to Pastebin.com",
+    "X-Purpose-ActionDisplay[ka]": "საჯაროდ ატვირთვა Pastebin.com-ზე",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         "mimeType:text/plain"
