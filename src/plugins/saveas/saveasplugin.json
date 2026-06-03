@@ -148,6 +148,7 @@
         "Name[ta]": "இப்படி சேமி",
         "Name[tg]": "Нигоҳ доштани ҳамчун",
         "Name[tr]": "Farklı Kaydet",
+        "Name[ug]": "باشقا ئاتتا ساقلا",
         "Name[uk]": "Зберегти як",
         "Name[zh_CN]": "另存为",
         "Name[zh_TW]": "另存新檔"
@@ -198,6 +199,7 @@
     "X-Purpose-ActionDisplay[ta]": "இப்படி சேமி...",
     "X-Purpose-ActionDisplay[tg]": "Нигоҳ доштани ҳамчун...",
     "X-Purpose-ActionDisplay[tr]": "Farklı Kaydet…",
+    "X-Purpose-ActionDisplay[ug]": "باشقا ئاتتا ساقلا…",
     "X-Purpose-ActionDisplay[uk]": "Зберегти як…",
     "X-Purpose-ActionDisplay[zh_CN]": "另存为...",
     "X-Purpose-ActionDisplay[zh_TW]": "另存為…",
