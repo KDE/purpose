@@ -54,6 +54,7 @@
         ],
         "Category": "Utilities",
         "Description": "Upload text to Pastebin.com",
+        "Description[ar]": "ارفع النص على Pastebin.com",
         "Description[bg]": "Качване на текст в Pastebin.com",
         "Description[ca@valencia]": "Puja el text a Pastebin.com",
         "Description[ca]": "Puja el text a Pastebin.com",
@@ -75,6 +76,7 @@
         "Icon": "edit-paste",
         "License": "GPL",
         "Name": "Upload Publicly to Pastebin.com",
+        "Name[ar]": "ارفع بشكل علني على Pastebin.com",
         "Name[bg]": "Публично качване в Pastebin.com",
         "Name[ca@valencia]": "Puja públicament a Pastebin.com",
         "Name[ca]": "Puja públicament a Pastebin.com",
@@ -95,6 +97,7 @@
         "Name[zh_CN]": "上传到 Pastebin.com (公开)"
     },
     "X-Purpose-ActionDisplay": "Upload Publicly to Pastebin.com",
+    "X-Purpose-ActionDisplay[ar]": "ارفع بشكل علني على Pastebin.com",
     "X-Purpose-ActionDisplay[bg]": "Публично качване в Pastebin,com",
     "X-Purpose-ActionDisplay[ca@valencia]": "Puja públicament a Pastebin.com",
     "X-Purpose-ActionDisplay[ca]": "Puja públicament a Pastebin.com",
