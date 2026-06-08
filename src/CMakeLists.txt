@@ -30,6 +30,7 @@ target_sources(KF6Purpose PRIVATE
     job.cpp
     alternativesmodel.cpp
     configuration.cpp
+    constrainthelpers.cpp
     helper.cpp
     externalprocess/processjob.cpp
     jobcontroller.cpp

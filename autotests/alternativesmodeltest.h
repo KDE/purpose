@@ -20,6 +20,7 @@ private Q_SLOTS:
     void disablePluginTest();
     void blacklistTest();
     void bogusInputDataClearsModel();
+    void constraintsTest();
 
 private:
     QTemporaryDir m_tempDir;

@@ -6,19 +6,10 @@
 
 #include "alternativesmodel.h"
 
-#if HAVE_QTDBUS
-#include <QDBusConnection>
-#include <QDBusConnectionInterface>
-#endif
-
 #include <QDebug>
 #include <QDirIterator>
 #include <QIcon>
 #include <QJsonArray>
-#include <QMimeDatabase>
-#include <QMimeType>
-#include <QRegularExpression>
-#include <QStandardPaths>
 
 #include <KConfigGroup>
 #include <KJsonUtils>
@@ -26,76 +17,14 @@
 #include <KSharedConfig>
 
 #include "configuration.h"
+#include "constrainthelpers.h"
 #include "helper.h"
 #include "purpose_external_process_debug.h"
 
 using namespace Purpose;
+using namespace Qt::StringLiterals;
 
 static const QStringList s_defaultDisabledPlugins = {QStringLiteral("saveasplugin")};
-
-typedef bool (*matchFunction)(const QString &constraint, const QJsonValue &value);
-
-static bool defaultMatch(const QString &constraint, const QJsonValue &value)
-{
-    return value == QJsonValue(constraint);
-}
-
-static bool mimeTypeMatch(const QString &constraint, const QJsonValue &value)
-{
-    if (value.isArray()) {
-        const auto array = value.toArray();
-        for (const QJsonValue &val : array) {
-            if (mimeTypeMatch(constraint, val)) {
-                return true;
-            }
-        }
-        return false;
-    } else if (value.isObject()) {
-        for (const QJsonValue &val : value.toObject()) {
-            if (mimeTypeMatch(constraint, val)) {
-                return true;
-            }
-        }
-        return false;
-    } else if (constraint.contains(QLatin1Char('*'))) {
-        const QRegularExpression re(QRegularExpression::wildcardToRegularExpression(constraint), QRegularExpression::CaseInsensitiveOption);
-        return re.match(value.toString()).hasMatch();
-    } else {
-        QMimeDatabase db;
-        QMimeType mime = db.mimeTypeForName(value.toString());
-        return mime.inherits(constraint);
-    }
-}
-
-static bool dbusMatch(const QString &constraint, const QJsonValue &value)
-{
-    Q_UNUSED(value)
-#if HAVE_QTDBUS
-    return QDBusConnection::sessionBus().interface()->isServiceRegistered(constraint);
-#else
-    Q_UNUSED(constraint)
-    return false;
-#endif
-}
-
-static bool executablePresent(const QString &constraint, const QJsonValue &value)
-{
-    Q_UNUSED(value)
-    return !QStandardPaths::findExecutable(constraint).isEmpty();
-}
-
-static bool desktopFilePresent(const QString &constraint, const QJsonValue &value)
-{
-    Q_UNUSED(value)
-    return !QStandardPaths::locate(QStandardPaths::ApplicationsLocation, constraint).isEmpty();
-}
-
-static QMap<QString, matchFunction> s_matchFunctions = {
-    {QStringLiteral("mimeType"), mimeTypeMatch},
-    {QStringLiteral("dbus"), dbusMatch},
-    {QStringLiteral("application"), desktopFilePresent},
-    {QStringLiteral("exec"), executablePresent},
-};
 
 class Purpose::AlternativesModelPrivate
 {
@@ -105,7 +34,6 @@ public:
     QString m_pluginType;
     QStringList m_disabledPlugins = s_defaultDisabledPlugins;
     QJsonObject m_pluginTypeData;
-    const QRegularExpression constraintRx{QStringLiteral("(\\w+):(.*)")};
 
     bool isPluginAcceptable(const KPluginMetaData &meta, const QStringList &disabledPlugins) const
     {
@@ -124,45 +52,11 @@ public:
         // All constraints must match
         const QJsonArray constraints = obj.value(QLatin1String("X-Purpose-Constraints")).toArray();
         for (const QJsonValue &constraint : constraints) {
-            if (!constraintMatches(meta, constraint)) {
+            if (!constraintMatches(meta, constraint, m_inputData)) {
                 return false;
             }
         }
         return true;
-    }
-
-    bool constraintMatches(const KPluginMetaData &meta, const QJsonValue &constraint) const
-    {
-        // Treat an array as an OR
-        if (constraint.isArray()) {
-            const QJsonArray options = constraint.toArray();
-            for (const auto &option : options) {
-                if (constraintMatches(meta, option)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        Q_ASSERT(constraintRx.isValid());
-        QRegularExpressionMatch match = constraintRx.match(constraint.toString());
-        if (!match.isValid() || !match.hasMatch()) {
-            qCWarning(PURPOSE_EXTERNAL_PROCESS_LOG) << "wrong constraint" << constraint.toString();
-            return false;
-        }
-        const QString propertyName = match.captured(1);
-        const QString constrainedValue = match.captured(2);
-
-        const auto it = m_inputData.constFind(propertyName);
-        if (it == m_inputData.end()) {
-            // The constraint doesn't pertain to this data type
-            return true;
-        }
-
-        const bool acceptable = s_matchFunctions.value(propertyName, defaultMatch)(constrainedValue, *it);
-        if (!acceptable) {
-            // qCDebug(PURPOSE_EXTERNAL_PROCESS_LOG) << "not accepted" << meta.name() << propertyName << constrainedValue << *it;
-        }
-        return acceptable;
     }
 };
 

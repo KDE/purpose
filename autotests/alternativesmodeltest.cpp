@@ -15,9 +15,12 @@
 #include <KSharedConfig>
 
 #include "alternativesmodeltest.h"
+#include "constrainthelpers.h"
 #include <purpose/alternativesmodel.h>
 #include <purpose/configuration.h>
 #include <purpose/job.h>
+
+using namespace Qt::StringLiterals;
 
 QTEST_GUILESS_MAIN(AlternativesModelTest)
 
@@ -207,6 +210,17 @@ void AlternativesModelTest::bogusInputDataClearsModel()
     model.setInputData(badInput);
     QCOMPARE(model.rowCount(), 0);
     QCOMPARE(modelResetSpy.count(), 1);
+}
+
+void AlternativesModelTest::constraintsTest()
+{
+#ifdef Q_OS_UNIX
+    QVERIFY(Purpose::constraintMatches({}, QJsonValue(u"exec:ls"_s), {}));
+#endif
+    QVERIFY(!Purpose::constraintMatches({}, QJsonValue(u"exec:binarythatdefinitelydoesnotexist"_s), {}));
+    QVERIFY(!Purpose::constraintMatches({}, QJsonValue(u"mime:text/foo"_s), {}));
+    QVERIFY(Purpose::constraintMatches({}, QJsonValue(u"mimeType:text/html"_s), {{u"mimeType"_s, u"text/html"_s}}));
+    QVERIFY(!Purpose::constraintMatches({}, QJsonValue(u"mimeType:image/png"_s), {{u"mimeType"_s, u"text/html"_s}}));
 }
 
 #include "moc_alternativesmodeltest.cpp"
