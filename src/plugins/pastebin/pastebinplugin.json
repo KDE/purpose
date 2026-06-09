@@ -73,6 +73,7 @@
         "Description[tr]": "Metni Pastebin.com’a yükle",
         "Description[uk]": "Вивантажити текст на Pastebin.com",
         "Description[zh_CN]": "上传文本到 Pastebin.com",
+        "Description[zh_TW]": "上傳文字到 Pastebin.com",
         "Icon": "edit-paste",
         "License": "GPL",
         "Name": "Upload Publicly to Pastebin.com",
@@ -94,7 +95,8 @@
         "Name[sl]": "Prenesi Javno na Pastebin.com",
         "Name[tr]": "Herkese Açık Olarak Pastebin.com’a Yükle",
         "Name[uk]": "Вивантажити відкрито на Pastebin.com",
-        "Name[zh_CN]": "上传到 Pastebin.com (公开)"
+        "Name[zh_CN]": "上传到 Pastebin.com (公开)",
+        "Name[zh_TW]": "公開上傳到 Pastebin.com"
     },
     "X-Purpose-ActionDisplay": "Upload Publicly to Pastebin.com",
     "X-Purpose-ActionDisplay[ar]": "ارفع بشكل علني على Pastebin.com",
@@ -116,6 +118,7 @@
     "X-Purpose-ActionDisplay[tr]": "Metni Herkes için Pastebin.com’a Yükle",
     "X-Purpose-ActionDisplay[uk]": "Вивантажити відкрито на Pastebin.com",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Pastebin.com (公开)",
+    "X-Purpose-ActionDisplay[zh_TW]": "公開上傳到 Pastebin.com",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         "mimeType:text/plain"
