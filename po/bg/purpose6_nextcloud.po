@@ -36,6 +36,3 @@ msgstr "Добавяне на нов акаунт"
 #, kde-format
 msgid "Upload to folder:"
 msgstr "Качване в папка:"
-
-#~ msgid "Configure Accounts"
-#~ msgstr "Конфигуриране на профил"
