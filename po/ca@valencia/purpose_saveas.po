@@ -35,4 +35,4 @@ msgstr "Directori on es guardarà:"
 #: saveasplugin_config.qml:32
 #, kde-format
 msgid "Select a directory where to save your pictures and videos"
-msgstr "Trieu un directori on guardar les fotografies i vídeos"
+msgstr "Trieu una carpeta on guardar les fotografies i vídeos"

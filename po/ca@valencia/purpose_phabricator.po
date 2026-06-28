@@ -104,7 +104,7 @@ msgid ""
 "select one from the list below."
 msgstr ""
 "marqueu açò per a actualitzar una revisió existent,\n"
-"seleccioneu-ne una des en la llista a continuació."
+"seleccioneu-ne una des de la llista a continuació."
 
 #: phabricatorplugin_config.qml:102
 #, kde-format

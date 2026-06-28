@@ -23,4 +23,4 @@ msgstr ""
 #: kdeconnectsmsplugin.cpp:39
 #, kde-format
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
