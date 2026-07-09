@@ -83,9 +83,25 @@ Item {
         id: running
 
         Item {
-            BusyIndicator {
-                running: true
+            anchors.fill: parent
+
+            ColumnLayout {
                 anchors.centerIn: parent
+                width: Math.min(parent.width - Kirigami.Units.largeSpacing * 4, Kirigami.Units.gridUnit * 16)
+                spacing: Kirigami.Units.smallSpacing
+
+                ProgressBar {
+                    Layout.fillWidth: true
+                    from: 0
+                    to: 100
+                    value: jobController.job ? jobController.job.percent : 0
+                    indeterminate: !jobController.job || jobController.job.percent === 0
+                }
+
+                Label {
+                    Layout.alignment: Qt.AlignHCenter
+                    text: _tr.i18n("Sending…")
+                }
             }
         }
     }
