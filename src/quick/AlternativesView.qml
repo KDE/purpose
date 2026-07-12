@@ -41,6 +41,12 @@ StackView {
     property alias inputData: altsModel.inputData
 
     /*!
+      \qmlproperty var AlternativesView::disabledPlugins
+      \since 6.29
+     */
+    property alias disabledPlugins: altsModel.disabledPlugins
+
+    /*!
      */
     property Component highlight
 
