@@ -100,7 +100,7 @@ Item {
 
                 Label {
                     Layout.alignment: Qt.AlignHCenter
-                    text: _tr.i18n("Sending…")
+                    text: jobController.runningLabel || _tr.i18n("Sending…")
                 }
             }
         }

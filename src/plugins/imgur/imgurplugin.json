@@ -191,6 +191,7 @@
     "X-Purpose-ActionDisplay[uk]": "Вивантажити відкрито на Imgur",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Imgur (公开)",
     "X-Purpose-ActionDisplay[zh_TW]": "公開上傳到 Imgur",
+    "X-Purpose-RunningDisplay": "Uploading…",
     "X-Purpose-Configuration": [],
     "X-Purpose-Constraints": [
         [

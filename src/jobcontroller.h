@@ -22,6 +22,7 @@ class PURPOSE_EXPORT JobController : public QObject
     Q_PROPERTY(State state READ state NOTIFY stateChanged)
     Q_PROPERTY(Purpose::Configuration *configuration READ config NOTIFY configChanged)
     Q_PROPERTY(Purpose::Job *job READ job NOTIFY jobChanged)
+    Q_PROPERTY(QString runningLabel READ runningLabel NOTIFY runningLabelChanged)
 
 public:
     enum State {
@@ -46,6 +47,8 @@ public:
 
     Job *job() const;
 
+    QString runningLabel() const;
+
     Q_INVOKABLE void configure();
     Q_INVOKABLE void startJob();
     Q_INVOKABLE void cancel();
@@ -56,6 +59,7 @@ Q_SIGNALS:
     void stateChanged();
     void configChanged();
     void jobChanged();
+    void runningLabelChanged();
 
 private:
     AlternativesModel *m_model = nullptr;

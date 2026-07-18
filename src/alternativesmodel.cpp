@@ -78,6 +78,7 @@ QHash<int, QByteArray> AlternativesModel::roleNames() const
     roles.insert(IconNameRole, QByteArrayLiteral("iconName"));
     roles.insert(PluginIdRole, QByteArrayLiteral("pluginId"));
     roles.insert(ActionDisplayRole, QByteArrayLiteral("actionDisplay"));
+    roles.insert(RunningDisplayRole, QByteArrayLiteral("runningDisplay"));
     return roles;
 }
 
@@ -183,6 +184,8 @@ QVariant AlternativesModel::data(const QModelIndex &index, int role) const
         }
         return action.isEmpty() ? data.name() : action;
     }
+    case RunningDisplayRole:
+        return KJsonUtils::readTranslatedString(data.rawData(), QStringLiteral("X-Purpose-RunningDisplay"));
     }
     return QVariant();
 }

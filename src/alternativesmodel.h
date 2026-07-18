@@ -59,11 +59,13 @@ public:
      * \value PluginIdRole
      * \value IconNameRole
      * \value ActionDisplayRole
+     * \value RunningDisplayRole
      */
     enum Roles {
         PluginIdRole = Qt::UserRole + 1,
         IconNameRole,
         ActionDisplayRole,
+        RunningDisplayRole,
     };
 
     /*!

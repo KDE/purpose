@@ -64,6 +64,7 @@ void JobController::setModel(AlternativesModel *model)
     if (m_model != model) {
         m_model = model;
         Q_EMIT modelChanged();
+        Q_EMIT runningLabelChanged();
     }
 }
 
@@ -77,6 +78,7 @@ void JobController::setIndex(int index)
     if (index != m_index) {
         m_index = index;
         Q_EMIT indexChanged();
+        Q_EMIT runningLabelChanged();
     }
 }
 
@@ -93,6 +95,14 @@ Configuration *JobController::config() const
 Job *JobController::job() const
 {
     return m_job;
+}
+
+QString JobController::runningLabel() const
+{
+    if (!m_model || m_index < 0) {
+        return {};
+    }
+    return m_model->data(m_model->index(m_index, 0), AlternativesModel::RunningDisplayRole).toString();
 }
 
 }

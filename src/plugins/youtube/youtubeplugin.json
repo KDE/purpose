@@ -188,6 +188,7 @@
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на YouTube…",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 YouTube…",
     "X-Purpose-ActionDisplay[zh_TW]": "上傳到 YouTube…",
+    "X-Purpose-RunningDisplay": "Uploading…",
     "X-Purpose-Configuration": [
         "videoDesc",
         "videoTitle",
