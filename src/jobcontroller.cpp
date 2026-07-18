@@ -105,6 +105,10 @@ QString JobController::runningLabel() const
     return m_model->data(m_model->index(m_index, 0), AlternativesModel::RunningDisplayRole).toString();
 }
 
+qint64 JobController::elapsedTime() const
+{
+    return m_job ? m_job->elapsedTime() : 0;
+}
 }
 
 #include "moc_jobcontroller.cpp"

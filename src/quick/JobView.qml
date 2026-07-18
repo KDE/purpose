@@ -54,6 +54,23 @@ Item {
         jobController.configure()
     }
 
+    function formatElapsedTime(milliseconds) {
+        const totalSeconds = Math.floor(milliseconds / 1000)
+        const minutes = Math.floor(totalSeconds / 60)
+        const seconds = totalSeconds % 60
+        return "%1:%2".arg(minutes).arg(seconds < 10 ? "0" + seconds : seconds)
+    }
+
+    function formatRemainingTime(elapsedMilliseconds, percent) {
+        if (percent <= 0) {
+            return ""
+        }
+        if (percent >= 100) {
+            return formatElapsedTime(0)
+        }
+        return formatElapsedTime(elapsedMilliseconds * (100 - percent) / percent)
+    }
+
     KI18nContext {
         id: _tr
         translationDomain: "libpurpose6_quick"
@@ -83,7 +100,19 @@ Item {
         id: running
 
         Item {
+            id: runningRoot
             anchors.fill: parent
+
+            property int elapsedTime: 0
+
+            Timer {
+                interval: 1000
+                running: jobController.state === PurposeJobController.Running
+                    && (!jobController.job || jobController.job.percent < 100)
+                repeat: true
+                triggeredOnStart: true
+                onTriggered: runningRoot.elapsedTime = jobController.elapsedTime()
+            }
 
             ColumnLayout {
                 anchors.centerIn: parent
@@ -98,9 +127,25 @@ Item {
                     indeterminate: !jobController.job || jobController.job.percent === 0
                 }
 
-                Label {
-                    Layout.alignment: Qt.AlignHCenter
-                    text: jobController.runningLabel || _tr.i18n("Sending…")
+                RowLayout {
+                    Layout.fillWidth: true
+
+                    Label {
+                        Layout.fillWidth: true
+                        horizontalAlignment: runningRoot.elapsedTime > 0 ? Text.AlignLeft : Text.AlignHCenter
+                        text: jobController.runningLabel || _tr.i18n("Sending…")
+                    }
+
+                    Label {
+                        visible: runningRoot.elapsedTime > 0
+                        opacity: 0.7
+                        font: Kirigami.Theme.smallFont
+                        text: {
+                            const percent = jobController.job ? jobController.job.percent : 0
+                            const remaining = formatRemainingTime(runningRoot.elapsedTime, percent)
+                            return remaining.length > 0 ? remaining : formatElapsedTime(runningRoot.elapsedTime)
+                        }
+                    }
                 }
             }
         }

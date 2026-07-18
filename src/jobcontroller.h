@@ -49,6 +49,8 @@ public:
 
     QString runningLabel() const;
 
+    Q_INVOKABLE qint64 elapsedTime() const;
+
     Q_INVOKABLE void configure();
     Q_INVOKABLE void startJob();
     Q_INVOKABLE void cancel();
