@@ -11,6 +11,7 @@ import QtQuick.Layouts
 import org.kde.purpose
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
+import org.kde.coreaddons as KCoreAddons
 
 /*!
   \qmltype JobView
@@ -55,10 +56,7 @@ Item {
     }
 
     function formatElapsedTime(milliseconds) {
-        const totalSeconds = Math.floor(milliseconds / 1000)
-        const minutes = Math.floor(totalSeconds / 60)
-        const seconds = totalSeconds % 60
-        return "%1:%2".arg(minutes).arg(seconds < 10 ? "0" + seconds : seconds)
+        return KCoreAddons.Format.formatDuration(milliseconds, KCoreAddons.FormatTypes.FoldHours)
     }
 
     function formatRemainingTime(elapsedMilliseconds, percent) {
