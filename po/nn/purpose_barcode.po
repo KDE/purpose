@@ -1,5 +1,6 @@
 # Translation of purpose6_barcode to Norwegian Nynorsk
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
