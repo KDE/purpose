@@ -10,7 +10,6 @@ endfunction()
 
 add_subdirectory(saveas)
 add_subdirectory(imgur)
-add_subdirectory(pastebin)
 add_subdirectory(clipboard)
 if(USE_DBUS)
     add_subdirectory(youtube)
