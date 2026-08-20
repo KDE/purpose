@@ -15,7 +15,6 @@ ecm_finalize_qml_module(KF6PurposeWidgets)
 
 target_sources(KF6PurposeWidgets PRIVATE
     menu.cpp
-    ${qmlfiles_SRCS}
 )
 
 ecm_generate_export_header(KF6PurposeWidgets
