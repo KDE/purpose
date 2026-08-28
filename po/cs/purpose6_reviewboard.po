@@ -1,20 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2013, 2014, 2015.
+# SPDX-FileCopyrightText: 2026 Libor Filipek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2015-10-02 13:01+0100\n"
-"Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-08-27 09:41+0200\n"
+"Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 26.08.0\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: reviewboardjobs.cpp:166
@@ -33,21 +34,23 @@ msgid ""
 "Could not create the new request:\n"
 "%1"
 msgstr ""
+"Nelze vytvořit nový požadavek:\n"
+"%1"
 
 #: reviewboardjobs.cpp:239
 #, kde-format
 msgid "Could not upload the patch"
-msgstr ""
+msgstr "Nelze nahrát záplatu"
 
 #: reviewboardjobs.cpp:332
 #, kde-format
 msgid "Could not get reviews list"
-msgstr ""
+msgstr "Nelze načíst seznam přehledů"
 
 #: reviewboardjobs.cpp:372
 #, kde-format
 msgid "Could not set metadata"
-msgstr ""
+msgstr "Nelze nastavit metadata"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: reviewboardplugin_config.qml:34 reviewpatch.ui:26
@@ -75,7 +78,7 @@ msgstr "Repozitář:"
 #: reviewboardplugin_config.qml:83
 #, kde-format
 msgid "Update Review:"
-msgstr ""
+msgstr "Přehled aktualizace:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: reviewpatch.ui:17
@@ -99,7 +102,7 @@ msgstr "/"
 #: reviewpatch.ui:46
 #, kde-format
 msgid "Where this project was checked out from"
-msgstr ""
+msgstr "Odkud byl tento projekt přejat"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: reviewpatch.ui:56
@@ -123,4 +126,4 @@ msgstr "Repozitář"
 #: reviewpatch.ui:111
 #, kde-format
 msgid "Update review"
-msgstr ""
+msgstr "Přehled aktualizace"
