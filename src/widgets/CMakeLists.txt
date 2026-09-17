@@ -70,3 +70,17 @@ install(
 )
 
 ecm_generate_qdoc(KF6PurposeWidgets purposewidgets.qdocconf)
+
+ecm_add_installed_library_check(KF6PurposeWidgets
+    PACKAGE_NAME "KF6Purpose"
+    PACKAGE_TARGET_NAMESPACE "KF6::"
+)
+
+ecm_installed_library_check_include_strings(KF6PurposeWidgets
+    HEADERS ${PurposeWidgets_CamelCase_HEADERS}
+    PREFIX Purpose
+)
+
+ecm_installed_library_check_version_preprocessor_macros(KF6PurposeWidgets
+    PREFIX PURPOSE
+)

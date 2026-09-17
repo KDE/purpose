@@ -101,6 +101,20 @@ ecm_mark_nongui_executable(purposeprocess)
 target_link_libraries(purposeprocess KF6::Purpose Qt6::Network Qt6::Widgets)
 install(TARGETS purposeprocess DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF})
 
+ecm_add_installed_library_check(KF6Purpose
+    PACKAGE_NAME "KF6Purpose"
+    PACKAGE_TARGET_NAMESPACE "KF6::"
+)
+
+ecm_installed_library_check_include_strings(KF6Purpose
+    HEADERS ${Purpose_CamelCase_HEADERS}
+    PREFIX Purpose
+)
+
+ecm_installed_library_check_version_preprocessor_macros(KF6Purpose
+    PREFIX PURPOSE
+)
+
 add_subdirectory(plugins)
 add_subdirectory(quick)
 add_subdirectory(widgets)
