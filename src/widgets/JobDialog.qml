@@ -42,7 +42,7 @@ QQC2.ApplicationWindow {
     }
 
     function cancel(): void {
-        window.menu.finished({}, 1 /* KIO::ERR_USER_CANCELED */, _tr.i18nd("Configuration cancelled"));
+        window.menu.finished({}, 1 /* KIO::ERR_USER_CANCELED */, _tr.i18n("Configuration cancelled"));
         window.close();
     }
 
