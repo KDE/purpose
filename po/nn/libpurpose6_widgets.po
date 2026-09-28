@@ -27,4 +27,4 @@ msgstr "Send fil"
 #: JobDialog.qml:45
 #, kde-format
 msgid "Configuration cancelled"
-msgstr ""
+msgstr "Oppsett avbrote"
