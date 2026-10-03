@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2018, 2021.
+# SPDX-FileCopyrightText: 2018, 2021, 2026 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:41+0000\n"
-"PO-Revision-Date: 2021-03-10 16:37+0200\n"
+"PO-Revision-Date: 2026-08-25 14:00+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: nextcloudplugin_config.qml:24
 #, kde-format
@@ -27,10 +28,9 @@ msgid "No account configured"
 msgstr "Tiliä ei ole asetettu"
 
 #: nextcloudplugin_config.qml:80
-#, fuzzy, kde-format
-#| msgid "Account:"
+#, kde-format
 msgid "Add New Account"
-msgstr "Tili:"
+msgstr "Lisää uusi tili"
 
 #: nextcloudplugin_config.qml:87
 #, kde-format
