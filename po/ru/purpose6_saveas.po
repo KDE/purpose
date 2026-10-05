@@ -27,9 +27,9 @@ msgstr "Отсутствуют адреса URL файлов для сохран
 #: saveasplugin_config.qml:19
 #, kde-format
 msgid "Save directory:"
-msgstr "Каталог:"
+msgstr "Папка:"
 
 #: saveasplugin_config.qml:32
 #, kde-format
 msgid "Select a directory where to save your pictures and videos"
-msgstr "Выберите каталог для сохранения изображений и файлов видео"
+msgstr "Выберите папку для сохранения изображений и файлов видео"

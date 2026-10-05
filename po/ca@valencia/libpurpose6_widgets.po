@@ -28,4 +28,4 @@ msgstr "Envia un fitxer"
 #: JobDialog.qml:45
 #, kde-format
 msgid "Configuration cancelled"
-msgstr ""
+msgstr "S'ha cancel·lat la configuració"

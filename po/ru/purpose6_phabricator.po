@@ -53,12 +53,12 @@ msgstr "неизвестно"
 #, kde-format
 msgid ""
 "Please choose between creating a new revision or updating an existing one"
-msgstr "Выберете из создания новой ревизии или обновления существующей"
+msgstr "Выберите: создать новую ревизию или обновить существующую"
 
 #: phabricatorplugin_config.qml:28
 #, kde-format
 msgid "Update differential revision %1"
-msgstr "Обновить отличающуюся ревизию %1"
+msgstr "Обновить дифференциальную ревизию %1"
 
 #: phabricatorplugin_config.qml:30
 #, kde-format

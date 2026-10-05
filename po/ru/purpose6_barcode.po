@@ -31,7 +31,7 @@ msgstr "Не удалось создать QR-код"
 #: barcodeplugin_config.qml:49
 #, kde-format
 msgid "The QR code is too large to be displayed"
-msgstr "QR-код слишком велик для отображения"
+msgstr "QR-код слишком велик для показа"
 
 #: barcodeplugin_config.qml:64
 #, kde-format

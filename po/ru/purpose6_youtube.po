@@ -37,7 +37,7 @@ msgstr "Название:"
 #: youtubeplugin_config.qml:65
 #, kde-format
 msgid "Enter a title for the video..."
-msgstr "Введите название видео..."
+msgstr "Введите название видео…"
 
 #: youtubeplugin_config.qml:69
 #, kde-format
