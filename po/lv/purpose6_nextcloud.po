@@ -1,14 +1,14 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the purpose package.
 #
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2026 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: purpose\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:41+0000\n"
-"PO-Revision-Date: 2024-12-19 09:44+0200\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2026-10-15 14:28+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: nextcloudplugin_config.qml:24
 #, kde-format
@@ -26,12 +26,12 @@ msgstr "Atlasiet kontu:"
 #: nextcloudplugin_config.qml:72
 #, kde-format
 msgid "No account configured"
-msgstr "Neviens konts nav konfigurēts"
+msgstr "Nav konfigurēts neviens konts"
 
 #: nextcloudplugin_config.qml:80
 #, kde-format
 msgid "Add New Account"
-msgstr ""
+msgstr "Pievienot jaunu kontu"
 
 #: nextcloudplugin_config.qml:87
 #, kde-format
