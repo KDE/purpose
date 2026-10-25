@@ -56,7 +56,7 @@ public:
         }
 
         if (useGeneratedSubject && urls.size() > 1) {
-            subject = i18n("%1, ...", subject);
+            subject = i18n("%1, …", subject);
         }
 
         job->setAttachments(attachments);
