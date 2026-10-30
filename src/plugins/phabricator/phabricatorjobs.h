@@ -15,8 +15,6 @@
 #include <KJob>
 #include <QProcess>
 
-class QNetworkReply;
-
 namespace Phabricator
 {
 class DifferentialRevision : public KJob

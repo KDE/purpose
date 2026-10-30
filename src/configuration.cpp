@@ -16,7 +16,6 @@
 #include <QRegularExpression>
 #include <QStandardPaths>
 
-#include "helper.h"
 #include "pluginbase.h"
 
 using namespace Purpose;
