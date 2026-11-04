@@ -93,7 +93,7 @@
         "Description[zh_TW]": "將內容複製到剪貼簿中",
         "Icon": "edit-copy-symbolic",
         "License": "LGPL",
-        "Name": "Clipboard",
+        "Name": "Copy to Clipboard",
         "Name[ar]": "الحافظة",
         "Name[bg]": "Клипборд",
         "Name[ca@valencia]": "Porta-retalls",
