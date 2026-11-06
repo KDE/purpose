@@ -93,7 +93,16 @@
         "Description[zh_TW]": "將內容複製到剪貼簿中",
         "Icon": "edit-copy-symbolic",
         "License": "LGPL",
-        "Name": "Copy to Clipboard"
+        "Name": "Copy to Clipboard",
+        "Name[ca]": "Copia al porta-retalls",
+        "Name[es]": "Copiar al portapapeles",
+        "Name[he]": "העתקה ללוח הגזירים",
+        "Name[ka]": "ბუფერში კოპირება",
+        "Name[nl]": "Naar klembord kopiëren",
+        "Name[pt_BR]": "Copiar para a área de transferência",
+        "Name[ru]": "Копировать в буфер обмена",
+        "Name[sl]": "Kopiraj na odložišče",
+        "Name[uk]": "Скопіювати до буфера"
     },
     "X-Purpose-ActionDisplay": "Copy to Clipboard",
     "X-Purpose-ActionDisplay[ar]": "انسخ إلى الحافظة",
