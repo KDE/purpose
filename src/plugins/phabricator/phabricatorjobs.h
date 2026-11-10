@@ -9,11 +9,12 @@
 
 #include <QHash>
 #include <QList>
-#include <QPair>
 #include <QUrl>
 
 #include <KJob>
 #include <QProcess>
+
+#include <utility>
 
 class QNetworkReply;
 
@@ -125,7 +126,7 @@ public:
 
     DiffRevList(const QString &projectDir, QObject *parent = nullptr);
     // return the open diff. revisions as a list of <diffID,diffDescription> pairs
-    QList<QPair<QString, QString>> reviews() const
+    QList<std::pair<QString, QString>> reviews() const
     {
         return m_reviews;
     }
@@ -147,7 +148,7 @@ protected:
     bool buildArcCommand(const QString &workDir, const QString &unused = QString(), bool ignored = false) override;
 
 private:
-    QList<QPair<QString, QString>> m_reviews;
+    QList<std::pair<QString, QString>> m_reviews;
     QHash<QString, QString> m_revMap;
     QHash<QString, Status> m_statusMap;
     QString m_projectDir;

@@ -41,7 +41,7 @@ namespace
 {
 static const QByteArray m_boundary = "----------" + KRandom::randomString(42 + 13).toLatin1();
 
-QByteArray multipartFormData(const QList<QPair<QString, QVariant>> &values)
+QByteArray multipartFormData(const QList<std::pair<QString, QVariant>> &values)
 {
     QByteArray form_data;
     for (const auto &val : values) {
@@ -84,9 +84,9 @@ QByteArray multipartFormData(const QList<QPair<QString, QVariant>> &values)
 
 QByteArray multipartFormData(const QVariantMap &values)
 {
-    QList<QPair<QString, QVariant>> vals;
+    QList<std::pair<QString, QVariant>> vals;
     for (QVariantMap::const_iterator it = values.constBegin(), itEnd = values.constEnd(); it != itEnd; ++it) {
-        vals += qMakePair<QString, QVariant>(QString(it.key()), QVariant(it.value()));
+        vals += std::make_pair<QString, QVariant>(QString(it.key()), QVariant(it.value()));
     }
     return multipartFormData(vals);
 }
@@ -95,7 +95,7 @@ QByteArray multipartFormData(const QVariantMap &values)
 
 HttpCall::HttpCall(const QUrl &s,
                    const QString &apiPath,
-                   const QList<QPair<QString, QString>> &queryParameters,
+                   const QList<std::pair<QString, QString>> &queryParameters,
                    Method method,
                    const QByteArray &post,
                    bool multipart,
@@ -109,7 +109,7 @@ HttpCall::HttpCall(const QUrl &s,
     m_requrl = s;
     m_requrl.setPath(m_requrl.path() + QLatin1Char('/') + apiPath);
     QUrlQuery query;
-    for (QList<QPair<QString, QString>>::const_iterator i = queryParameters.begin(); i < queryParameters.end(); i++) {
+    for (QList<std::pair<QString, QString>>::const_iterator i = queryParameters.begin(); i < queryParameters.end(); i++) {
         query.addQueryItem(i->first, i->second);
     }
     m_requrl.setQuery(query);
@@ -212,9 +212,9 @@ SubmitPatchRequest::SubmitPatchRequest(const QUrl &server, const QUrl &patch, co
     , m_patch(patch)
     , m_basedir(basedir)
 {
-    QList<QPair<QString, QVariant>> vals;
-    vals += QPair<QString, QVariant>(QStringLiteral("basedir"), m_basedir);
-    vals += QPair<QString, QVariant>(QStringLiteral("path"), QVariant::fromValue<QUrl>(m_patch));
+    QList<std::pair<QString, QVariant>> vals;
+    vals += std::pair<QString, QVariant>(QStringLiteral("basedir"), m_basedir);
+    vals += std::pair<QString, QVariant>(QStringLiteral("path"), QVariant::fromValue<QUrl>(m_patch));
 
     m_uploadpatch = new HttpCall(this->server(),
                                  QStringLiteral("/api/review-requests/") + requestId() + QStringLiteral("/diffs/"),
@@ -260,11 +260,11 @@ QVariantList ProjectsListRequest::repositories() const
 
 void ProjectsListRequest::requestRepositoryList(int startIndex)
 {
-    QList<QPair<QString, QString>> repositoriesParameters;
+    QList<std::pair<QString, QString>> repositoriesParameters;
 
     // In practice, the web API will return at most 200 repos per call, so just hardcode that value here
-    repositoriesParameters << qMakePair(QStringLiteral("max-results"), QStringLiteral("200"));
-    repositoriesParameters << qMakePair(QStringLiteral("start"), QString::number(startIndex));
+    repositoriesParameters << std::make_pair(QStringLiteral("max-results"), QStringLiteral("200"));
+    repositoriesParameters << std::make_pair(QStringLiteral("start"), QString::number(startIndex));
 
     HttpCall *repositoriesCall = new HttpCall(m_server, QStringLiteral("/api/repositories/"), repositoriesParameters, HttpCall::Get, QByteArray(), false, this);
     connect(repositoriesCall, &HttpCall::finished, this, &ProjectsListRequest::done);
@@ -308,13 +308,13 @@ QVariantList ReviewListRequest::reviews() const
 
 void ReviewListRequest::requestReviewList(int startIndex)
 {
-    QList<QPair<QString, QString>> reviewParameters;
+    QList<std::pair<QString, QString>> reviewParameters;
 
     // In practice, the web API will return at most 200 repos per call, so just hardcode that value here
-    reviewParameters << qMakePair(QStringLiteral("max-results"), QStringLiteral("200"));
-    reviewParameters << qMakePair(QStringLiteral("start"), QString::number(startIndex));
-    reviewParameters << qMakePair(QStringLiteral("from-user"), m_user);
-    reviewParameters << qMakePair(QStringLiteral("status"), m_reviewStatus);
+    reviewParameters << std::make_pair(QStringLiteral("max-results"), QStringLiteral("200"));
+    reviewParameters << std::make_pair(QStringLiteral("start"), QString::number(startIndex));
+    reviewParameters << std::make_pair(QStringLiteral("from-user"), m_user);
+    reviewParameters << std::make_pair(QStringLiteral("status"), m_reviewStatus);
 
     HttpCall *reviewsCall = new HttpCall(m_server, QStringLiteral("/api/review-requests/"), reviewParameters, HttpCall::Get, QByteArray(), false, this);
     connect(reviewsCall, &HttpCall::finished, this, &ReviewListRequest::done);

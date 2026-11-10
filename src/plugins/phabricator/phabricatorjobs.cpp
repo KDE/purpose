@@ -228,7 +228,7 @@ void DiffRevList::done(int exitCode, QProcess::ExitStatus exitStatus)
                 } else if (rev.startsWith(QStringLiteral("* Needs Review "))) {
                     m_statusMap[revTitle] = NeedsReview;
                 }
-                m_reviews << qMakePair(revID, revTitle);
+                m_reviews << std::make_pair(revID, revTitle);
                 m_revMap[revTitle] = revID;
             }
         }

@@ -9,10 +9,11 @@
 
 #include <QList>
 #include <QNetworkAccessManager>
-#include <QPair>
 #include <QUrl>
 
 #include <KJob>
+
+#include <utility>
 
 class QNetworkReply;
 
@@ -37,7 +38,7 @@ public:
 
     HttpCall(const QUrl &s,
              const QString &apiPath,
-             const QList<QPair<QString, QString>> &queryParameters,
+             const QList<std::pair<QString, QString>> &queryParameters,
              Method m,
              const QByteArray &post,
              bool multipart,
