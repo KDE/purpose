@@ -1,7 +1,8 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"purpose6_nextcloud\")
 
 if (KAccounts6_FOUND)
-    kaccounts_add_service(${CMAKE_CURRENT_SOURCE_DIR}/nextcloud-upload.service.in)
+    kaccounts_add_service(${CMAKE_CURRENT_SOURCE_DIR}/nextcloud-upload.service.in
+        NO_INTLTOOL)
 endif()
 
 add_share_plugin(nextcloudplugin nextcloudplugin.cpp nextcloudjob.cpp)

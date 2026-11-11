@@ -1,7 +1,8 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"purpose6_youtube\")
 
 if (KAccounts6_FOUND)
-    kaccounts_add_service(${CMAKE_CURRENT_SOURCE_DIR}/google-youtube.service.in)
+    kaccounts_add_service(${CMAKE_CURRENT_SOURCE_DIR}/google-youtube.service.in
+        NO_INTLTOOL)
 endif()
 
 add_share_plugin(youtubeplugin youtubeplugin.cpp youtubejob.cpp youtubejobcomposite.cpp)
