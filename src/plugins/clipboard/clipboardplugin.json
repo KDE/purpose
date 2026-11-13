@@ -103,12 +103,15 @@
         "Name[fr]": "Copier dans le presse-papier",
         "Name[he]": "העתקה ללוח הגזירים",
         "Name[ka]": "ბუფერში კოპირება",
+        "Name[lt]": "Kopijuoti į iškarpinę",
         "Name[nl]": "Naar klembord kopiëren",
+        "Name[nn]": "Kopier til utklippstavla",
         "Name[pt_BR]": "Copiar para a área de transferência",
         "Name[ru]": "Копировать в буфер обмена",
         "Name[sl]": "Kopiraj na odložišče",
         "Name[tr]": "Panoya Kopyala",
-        "Name[uk]": "Скопіювати до буфера"
+        "Name[uk]": "Скопіювати до буфера",
+        "Name[zh_TW]": "複製到剪貼簿"
     },
     "X-Purpose-ActionDisplay": "Copy to Clipboard",
     "X-Purpose-ActionDisplay[ar]": "انسخ إلى الحافظة",
