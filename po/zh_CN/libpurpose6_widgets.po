@@ -25,4 +25,4 @@ msgstr "发送文件"
 #: JobDialog.qml:45
 #, kde-format
 msgid "Configuration cancelled"
-msgstr ""
+msgstr "配置已取消"
