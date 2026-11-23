@@ -118,6 +118,7 @@
         "Name[sr]": "Копирај у клипборд",
         "Name[tr]": "Panoya Kopyala",
         "Name[uk]": "Скопіювати до буфера",
+        "Name[zh_CN]": "复制到剪贴板",
         "Name[zh_TW]": "複製到剪貼簿"
     },
     "X-Purpose-ActionDisplay": "Copy to Clipboard",
