@@ -188,7 +188,6 @@
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на Phabricator…",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Phabricator…",
     "X-Purpose-ActionDisplay[zh_TW]": "上傳到 Phabricator…",
-    "X-Purpose-RunningDisplay": "Uploading…",
     "X-Purpose-Configuration": [
         "updateDR",
         "doBrowse",
@@ -200,5 +199,6 @@
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ]
+    ],
+    "X-Purpose-RunningDisplay": "Uploading…"
 }

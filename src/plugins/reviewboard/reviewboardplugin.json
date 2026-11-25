@@ -189,7 +189,6 @@
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на Review Board…",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Review Board…",
     "X-Purpose-ActionDisplay[zh_TW]": "上傳到 Review Board…",
-    "X-Purpose-RunningDisplay": "Uploading…",
     "X-Purpose-Configuration": [
         "updateRR",
         "server",
@@ -205,5 +204,6 @@
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ]
+    ],
+    "X-Purpose-RunningDisplay": "Uploading…"
 }

@@ -218,12 +218,12 @@
     "X-Purpose-ActionDisplay[uk]": "Надіслати за допомогою Bluetooth…",
     "X-Purpose-ActionDisplay[zh_CN]": "通过蓝牙发送...",
     "X-Purpose-ActionDisplay[zh_TW]": "透過藍牙傳送…",
-    "X-Purpose-RunningDisplay": "Sending to device…",
     "X-Purpose-Configuration": [
         "device"
     ],
     "X-Purpose-Constraints": [],
     "X-Purpose-PluginTypes": [
         "Export"
-    ]
+    ],
+    "X-Purpose-RunningDisplay": "Sending to device…"
 }

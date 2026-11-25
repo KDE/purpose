@@ -189,12 +189,12 @@
     "X-Purpose-ActionDisplay[uk]": "Вивантажити на Nextcloud…",
     "X-Purpose-ActionDisplay[zh_CN]": "上传到 Nextcloud…",
     "X-Purpose-ActionDisplay[zh_TW]": "上傳到 Nextcloud…",
-    "X-Purpose-RunningDisplay": "Uploading…",
     "X-Purpose-Configuration": [
         "folder",
         "accountId"
     ],
     "X-Purpose-PluginTypes": [
         "Export"
-    ]
+    ],
+    "X-Purpose-RunningDisplay": "Uploading…"
 }
